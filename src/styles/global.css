@@ -5,8 +5,8 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: #4f46e5;
+	--accent-dark: #3730a3;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
@@ -79,9 +79,11 @@ b {
 }
 a {
 	color: var(--accent);
+	transition: color .3s ease-out;
+
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
 }
 p {
 	margin-bottom: 1em;
@@ -151,4 +153,16 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+.alert-box {
+	@apply bg-red-50 border border-red-400 p-5 rounded-md;
+}
+
+.btn {
+	@apply bg-indigo-700 text-lg mr-auto text-white py-2 px-4 rounded transition-colors duration-300 ease-out;
+}
+
+.btn:hover {
+	@apply bg-indigo-800 text-white;
 }
