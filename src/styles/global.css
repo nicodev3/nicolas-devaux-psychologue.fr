@@ -55,10 +55,10 @@ h6 {
 }
 
 h2 {
-	font-size: 2.441em;
+	@apply text-2xl md:text-3xl;
 }
 h3 {
-	@apply text-xl;
+	@apply text-xl md:text-2xl;
 }
 h4 {
 	font-size: 1.563em;
