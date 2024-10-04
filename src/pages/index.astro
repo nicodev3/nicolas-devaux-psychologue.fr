@@ -2,32 +2,95 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import {SITE_TITLE, SITE_DESCRIPTION} from '../consts';
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<h1>Psychologie et Thérapies</h1>
-				<p>
-				  Vous trouverez ici des informations sur la <a href="/psychologie/">psychologie</a>, 
-				  les <a href="/psychotherapies/">psychotherapies</a>, la <a href="/psychanalyse/">psychanalyse</a>, la <a href="/relaxation-psychosomatique/">relaxation psychosomatique</a>, ainsi que sur le cabinet de psychologie de Sceaux.
-				</p>
-				<p>
-				  La loi propose une garantie minimale de formation et protège les professionnels comme les
-				  usagers. Des explications claires compréhensibles par vous, un projet cohérent dans un cadre
-				  aux limites définies et acceptées par les deux partis, la liberté qui vous est laissée à tout
-				  moment d'interrompre vos rencontres, l'humilité thérapeutique de votre praticien, sont des
-				  garanties minimales que vous devez exiger.
-				</p>
-			  </section>
-		</main>
-		<Footer />
-	</body>
+<html lang="fr">
+<head>
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+</head>
+<body>
+<Header/>
+<main class="p-5">
+  <div class="container">
+    <h1 class="text-2xl md:text-6xl">Psychologue Sceaux</h1>
+    <p class="mb-16">
+      Vous trouverez sur ce site des informations sur la <a href="/psychologie/">psychologie</a>,
+      les <a href="/psychotherapies/">psychotherapies</a>, la <a href="/psychanalyse/">psychanalyse</a>, la <a
+        href="/relaxation-psychosomatique/">relaxation psychosomatique</a>, ainsi que sur le cabinet de psychologie de
+      Sceaux.
+    </p>
+    <section class="mb-16">
+      <h2 class="mb-5">
+        Mes services en tant que psychologue
+      </h2>
+      <div class="grid md:grid-cols-3 md:gap-4">
+        <div class="bg-sky-100 p-5">
+          <h3 class="text-sky-950">Accompagnement psychologique</h3>
+          <hr class="border-sky-800 my-5">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
+            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
+          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
+        </div>
+        <div class="bg-sky-100 p-5">
+          <h3 class="text-sky-950">Psychothérapie psychodynamique</h3>
+          <hr class="border-sky-800 my-5">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
+            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
+          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
+        </div>
+        <div class="bg-sky-100 p-5">
+          <h3 class="text-sky-950">A.C.T. : Thérapie d'Acceptation et d'Engagement</h3>
+          <hr class="border-sky-800 my-5">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
+            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
+          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
+        </div>
+        <div class="bg-sky-100 p-5">
+          <h3 class="text-sky-950">M.B.C.T. : Mindfulness Based Cognitive Therapy</h3>
+          <hr class="border-sky-800 my-5">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
+            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
+          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
+        </div>
+        <div class="bg-sky-100 p-5">
+          <h3 class="text-sky-950">Hypnose thérapeutique</h3>
+          <hr class="border-sky-800 my-5">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
+            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
+          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
+        </div>
+      </div>
+    </section>
+    <section class="mb-16">
+      <h2 class="mb-5">Mes services en tant que psychomotricien</h2>
+    </section>
+    <section class="mb-16">
+      <p>
+        Vous pouvez consulter un psychologue pour des difficultés personnelles, des problèmes relationnels, des troubles
+        de l'humeur, des difficultés professionnelles, des troubles du sommeil, des troubles alimentaires ou toute autre
+        situation dans laquelle vous vous sentez en difficulté ou en souffrance.</p>
+      <p>
+        En France, la profession de psychologue est strictement réglementée par la loi, notamment par la loi n° 85-772 du
+        25 juillet 1985. Pour exercer, le psychologue doit obligatoirement être titulaire d’un diplôme reconnu par l’État
+        (comme un Master 2 en psychologie), et posséder un numéro RPPS qui permet d’identifier les
+        professionnels de santé. De plus, il est tenu de respecter un code de déontologie visant à garantir des pratiques
+        éthiques, la confidentialité des échanges et la protection des patients.
+        La profession de psychomotricien est réglementée par le décret n° 88-659 du 6 mai 1988, qui exige que les
+        praticiens soient titulaires du Diplôme d'État de psychomotricien, garantissant ainsi leur compétence, et
+        inscrits sur le registre RPPS, tout en étant soumis à un code de déontologie strict encadrant leurs pratiques
+        et assurant la protection des patients.
+      </p>
+      <p>Des explications claires compréhensibles par vous, un projet cohérent dans un cadre
+        aux limites définies et acceptées par les deux partis, la liberté qui vous est laissée à tout
+        moment d'interrompre vos rencontres, l'humilité thérapeutique de votre praticien, sont des
+        garanties minimales que vous devez exiger.
+      </p>
+    </section>
+
+  </div>
+</main>
+<Footer/>
+</body>
 </html>

@@ -10,7 +10,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://example.com',
+    site: 'https://nicolas-devaux-psychologue.fr',
     integrations: [mdx(), sitemap(), alpinejs(), tailwind()],
     image: {
         service: passthroughImageService(),
