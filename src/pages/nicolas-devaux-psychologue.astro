@@ -1,47 +1,87 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import Layout from "../layouts/BlogPost.astro";
 ---
 
 <Layout
-    title="Nicolas Devaux, psychologue"
-    description="Lorem ipsum dolor sit amet"
-    pubDate={new Date('August 08 2021')}
-    heroImage="/blog-placeholder-about.jpg"
+  title="Nicolas Devaux, psychologue"
+  description="Lorem ipsum dolor sit amet"
+  pubDate={new Date("August 08 2021")}
+  heroImage="/blog-placeholder-about.jpg"
 >
   <section class="principal main-content" role="main">
-    <p>Je suis diplômé en psychologie clinique et pathologique de l'université Paris 7 Denis-Diderot, titulaire d'un
-      master 2 (bac +5) de <a
-          href="https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-humaines-et-sociales-SHS/psychologie-psychopathologie-clinique-psychanalytique-K2NDL4CM.html"
-          title="Unité de Formation et de Recherche d'Etudes Psychanalytiques" target="_blank">l'Unité de Formation et
-        de
-        Recherche d'Etudes Psychanalytiques</a> (anciennement Sciences Humaines Cliniques), obtenu avec
-      mention "très bien".</p>
-    <p>Je suis également psychomotricien diplômé d'Etat (bac +3), psychothérapeute (voir décret relatif au <a
+    <p>
+      Je suis diplômé en psychologie clinique et pathologique de l'université
+      Paris 7 Denis-Diderot, titulaire d'un master 2 (bac +5) de <a
+        href="https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-humaines-et-sociales-SHS/psychologie-psychopathologie-clinique-psychanalytique-K2NDL4CM.html"
+        title="Unité de Formation et de Recherche d'Etudes Psychanalytiques"
+        target="_blank"
+        >l'Unité de Formation et de Recherche d'Etudes Psychanalytiques</a
+      > (anciennement Sciences Humaines Cliniques), obtenu avec mention "très bien".
+    </p>
+    <p>
+      Je suis également psychomotricien diplômé d'Etat (bac +3),
+      psychothérapeute (voir décret relatif au <a
         href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000022244482"
-        title="titre de psychothérapeute" target="_blank">titre de psychothérapeute</a>) et psychanalyste.</p>
-    <p>Je possède une longue expérience de travail en équipe pluridisciplinaire dans des champs aussi variés que
-      la psychiatrie, le domaine spécialisé auprès d'enfants et d'adolescents ou encore le handicap.</p>
-    <p>Outre ma formation universitaire et mes diverses expériences professionnelles, j'ai également suivi un
-      parcours personnel, en relaxation puis en psychanalyse auprès d'un membre de la<a
-          href="http://www.societe-psychanalytique-de-paris.net/" title="Société Psychanalytique de Paris"
-          target="_blank">
-        Société Psychanalytique de Paris</a>.</p>
-    <p>Mes références théoriques sont essentiellement issues de la psychanalyse, mais tiennent compte des
-      avancées récentes de cette dernière et des apports d'autres champs tels que les neurosciences, les
-      thérapies cognitives et comportementales, ou encore l'approche corporelle du soin psychique.</p>
-    <p>Actuellement, ma pratique puise ses source dans diverses approches, afin d'accueillir au mieux les personnes en
-      recherche de mieux-être et/ou de sens au plus près de leur besoin.</p>
-    <p>Ainsi, de la psychothérapie d'inspiratiion psychanalytique classique aux thérapies dites de la 3e vague des
-      Thérapies Cognitives et Comportentales, comme la <a href="/therapie-acceptation-engagement">thérapie d'acceptation
-        et d'engagement (ACT)</a> ou encore la <a href="/therapie-pleine-conscience">thérapie basée sur la pleine conscience (MBCT</a>.</p>
-    <p>Enfin, suite à un travail de recherche et des activités d'enseignement, j'ai développé ces dernières
-      années d'autres compétences. Je suis titulaire d'une licence professionnelle en "Développement web des
-      systèmes d'information et multimedia", avec une spécialisation "ingénierie du E-learning et
-      communication scientifique et culturelle".</p>
-    <p>J'ai ainsi une expérience du monde de l'entreprise et des organisations en tant que technical leader qui me permet d'apporter mon soutien aux personnes qui connaissent des souffrances liées au travail, ou encore aux organisations en difficulté.</p>
-    <p>Bien qu'apparemment sans rapport avec mon activité de psychologue, de psychothérapeute, de psychanalyste
-      et de psychomotricien, cette compétence me permet de participer humblement à la diffusion de la
-      psychologie sur Internet, à travers des sites comme par exemple<a href="https://les-acouphenes.info/"
-                                                                        title="acouphènes"> les-acouphenes.info</a>.</p>
+        title="titre de psychothérapeute"
+        target="_blank">titre de psychothérapeute</a
+      >) et psychanalyste.
+    </p>
+    <p>
+      Je possède une longue expérience de travail en équipe pluridisciplinaire
+      dans de multiples domaines : la psychiatrie, 
+      l'accompagnement d'enfants et d'adolescents ou encore le handicap.
+    </p>
+    <p>
+      Outre ma formation universitaire et mes diverses expériences
+      professionnelles, j'ai également suivi un parcours personnel, en
+      relaxation puis en psychanalyse auprès d'un membre de la<a
+        href="http://www.societe-psychanalytique-de-paris.net/"
+        title="Société Psychanalytique de Paris"
+        target="_blank"
+      >
+        Société Psychanalytique de Paris</a
+      >.
+    </p>
+    <p>
+      Je m’appuie sur un ensemble de références théoriques variées,
+      principalement ancrées dans la psychanalyse, tout en intégrant les
+      évolutions récentes de cette discipline et les contributions d’autres
+      domaines tels que les neurosciences, les thérapies
+      cognitivo-comportementales, ainsi que les approches corporelles du soin
+      psychique. Je mobilise ces divers cadres conceptuels en les ajustant aux besoins spécifiques de chacun de mes clients.
+    </p>
+    <p>
+      Ainsi, je propose des psychothérapies d'inspiration psychanalytique classique mais également des
+      thérapies dites de la 3e vague des Thérapies Cognitives et Comportentales,
+      comme la <a href="/therapie-acceptation-engagement"
+        >thérapie d'acceptation et d'engagement (ACT)</a
+      > ou encore la <a href="/therapie-pleine-conscience"
+        >thérapie basée sur la pleine conscience (MBCT</a
+      >.
+    </p>
+    <p>
+      Enfin, suite à un travail de recherche et des activités d'enseignement,
+      j'ai développé ces dernières années d'autres compétences. Je suis
+      titulaire d'une licence professionnelle en "Développement web des systèmes
+      d'information et multimedia", avec une spécialisation "ingénierie du
+      E-learning et communication scientifique et culturelle".
+    </p>
+    <p>
+      J'ai ainsi une expérience du monde de l'entreprise et des organisations en
+      tant que technical leader qui me permet d'apporter mon soutien aux
+      personnes qui connaissent des souffrances liées au travail, ou encore aux
+      organisations en difficulté.
+    </p>
+    <p>
+      Bien qu'apparemment sans rapport avec mon activité de psychologue, de
+      psychothérapeute, de psychanalyste et de psychomotricien, cette compétence
+      me permet de participer humblement à la diffusion de la psychologie sur
+      Internet, à travers des sites comme par exemple<a
+        href="https://les-acouphenes.info/"
+        title="acouphènes"
+      >
+        les-acouphenes.info</a
+      >.
+    </p>
   </section>
 </Layout>

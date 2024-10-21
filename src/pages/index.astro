@@ -1,91 +1,175 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import {SITE_TITLE, SITE_DESCRIPTION} from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <!doctype html>
 <html lang="fr">
-<head>
-  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
-</head>
-<body>
-<Header/>
-<main class="p-5">
-  <div class="container">
-    <h1 class="text-2xl md:text-6xl mb-14">Psychologue Sceaux</h1>
-    <p class="mb-5">
-      Vous trouverez sur ce site des informations sur la <a href="/consulter-psychologue/">psychologie</a>,
-      les différentes approches en <a href="/psychotherapies/">psychotherapie</a>, la <a href="/psychanalyse/">psychanalyse</a>, ainsi que sur le cabinet de psychologie de
-      Sceaux.
-    </p>
-    <p class="mb-16">
-      Vous trouverez également des informations sur mon activité de <a href="">psychomotricien à Sceaux</a>.
-    </p>
-    <section class="mb-16">
-      <h2 class="mb-5">
-        Mes services en tant que psychologue
-      </h2>
-      <div class="grid md:grid-cols-2 gap-4">
-        <div class="bg-sky-100 p-5">
-          <h3 class="text-sky-950">Psychothérapie psychodynamique</h3>
-          <hr class="border-sky-800 my-5">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
-            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
-          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
-        </div>
-        <div class="bg-sky-100 p-5">
-          <h3 class="text-sky-950">A.C.T. : Thérapie d'Acceptation et d'Engagement</h3>
-          <hr class="border-sky-800 my-5">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
-            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
-          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
-        </div>
-        <div class="bg-sky-100 p-5">
-          <h3 class="text-sky-950">M.B.C.T. : Mindfulness Based Cognitive Therapy</h3>
-          <hr class="border-sky-800 my-5">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
-            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
-          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
-        </div>
-        <div class="bg-sky-100 p-5">
-          <h3 class="text-sky-950">Hypnose thérapeutique</h3>
-          <hr class="border-sky-800 my-5">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quis enim nostrum, iste aut dignissimos sequi
-            velit porro! Cum, corporis! Iusto, ab! Excepturi nihil tenetur culpa, distinctio impedit alias maiores.</p>
-          <a href="" class="bg-amber-300 py-2 px-3 rouded-sm">En savoir plus</a>
-        </div>
-      </div>
-    </section>
-    <section class="mb-16">
-      <h2 class="mb-5">Mes services en tant que psychomotricien</h2>
-    </section>
-    <section class="mb-16">
-      <p>
-        Vous pouvez consulter un psychologue pour des difficultés personnelles, des problèmes relationnels, des troubles
-        de l'humeur, des difficultés professionnelles, des troubles du sommeil, des troubles alimentaires ou toute autre
-        situation dans laquelle vous vous sentez en difficulté ou en souffrance.</p>
-      <p>
-        En France, la profession de psychologue est strictement réglementée par la loi, notamment par la loi n° 85-772 du
-        25 juillet 1985. Pour exercer, le psychologue doit obligatoirement être titulaire d’un diplôme reconnu par l’État
-        (comme un Master 2 en psychologie), et posséder un numéro RPPS qui permet d’identifier les
-        professionnels de santé. De plus, il est tenu de respecter un code de déontologie visant à garantir des pratiques
-        éthiques, la confidentialité des échanges et la protection des patients.
-        La profession de psychomotricien est réglementée par le décret n° 88-659 du 6 mai 1988, qui exige que les
-        praticiens soient titulaires du Diplôme d'État de psychomotricien, garantissant ainsi leur compétence, et
-        inscrits sur le registre RPPS, tout en étant soumis à un code de déontologie strict encadrant leurs pratiques
-        et assurant la protection des patients.
-      </p>
-      <p>Des explications claires compréhensibles par vous, un projet cohérent dans un cadre
-        aux limites définies et acceptées par les deux partis, la liberté qui vous est laissée à tout
-        moment d'interrompre vos rencontres, l'humilité thérapeutique de votre praticien, sont des
-        garanties minimales que vous devez exiger.
-      </p>
-    </section>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-gradient-to-r from-blue-50 to-white">
+    <Header />
+    <main class="p-5">
+      <div class="container flex flex-col md:flex-row gap-5 md:gap-16 md:pt-8">
+        <div class="md:w-2/3">
+          <h1 class="text-2xl md:text-6xl md:mb-10">Psychologue Sceaux</h1>
+          <p class="mb-5">
+            Vous trouverez sur ce site des informations sur la <a
+              href="/consulter-psychologue/">psychologie</a
+            >, les différentes approches en <a href="/psychotherapies/"
+              >psychotherapie</a
+            >, la <a href="/psychanalyse/">psychanalyse</a>, ainsi que sur le
+            cabinet de psychologie de Sceaux.
+          </p>
+          <p class="mb-5">
+            Vous trouverez également des informations sur mon activité de <a
+              href="">psychomotricien à Sceaux</a
+            >.
+          </p>
+          <p>
+            Vous pouvez consulter un psychologue pour des difficultés
+            personnelles, des problèmes relationnels, des troubles de l'humeur,
+            des difficultés professionnelles, des troubles du sommeil, des
+            troubles alimentaires ou toute autre situation dans laquelle vous
+            vous sentez en difficulté ou en souffrance.
+          </p>
+          <section class="mb-16">
+            <h2 class="mb-5">Mes services en tant que psychologue</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-sky-100 p-5">
+                <h3 class="text-sky-950">Psychothérapie psychodynamique</h3>
+                <hr class="border-sky-800 my-5" />
+                <p>
+                  Les psychothérapies psychodynamiques explorent l'inconscient,
+                  les conflits internes et les expériences passées pour
+                  comprendre et traiter les troubles émotionnels.
+                </p>
+                <a href="" class="bg-amber-300 py-2 px-3 rouded-sm"
+                  >En savoir plus</a
+                >
+              </div>
+              <div class="bg-sky-100 p-5">
+                <h3 class="text-sky-950">
+                  A.C.T. : Thérapie d'Acceptation et d'Engagement
+                </h3>
+                <hr class="border-sky-800 my-5" />
+                <p>
+                  La thérapie ACT (Acceptation et Engagement) encourage
+                  l'acceptation des émotions difficiles tout en s'engageant vers
+                  des actions alignées avec ses valeurs.
+                </p>
+                <a href="" class="bg-amber-300 py-2 px-3 rouded-sm"
+                  >En savoir plus</a
+                >
+              </div>
+              <div class="bg-sky-100 p-5">
+                <h3 class="text-sky-950">
+                  M.B.C.T. : Mindfulness Based Cognitive Therapy
+                </h3>
+                <hr class="border-sky-800 my-5" />
+                <p>
+                  La MBCT (Thérapie cognitive basée sur la pleine conscience)
+                  combine méditation et techniques cognitives pour prévenir les
+                  rechutes dépressives et gérer le stress.
+                </p>
+                <a href="" class="bg-amber-300 py-2 px-3 rouded-sm"
+                  >En savoir plus</a
+                >
+              </div>
+              <div class="bg-sky-100 p-5">
+                <h3 class="text-sky-950">Hypnose thérapeutique</h3>
+                <hr class="border-sky-800 my-5" />
+                <p>
+                  L'hypnose thérapeutique est une méthode psychologique qui
+                  induit un état modifié de conscience pour traiter divers
+                  troubles en utilisant des suggestions ciblées, permettant au
+                  patient de mobiliser ses ressources inconscientes afin de
+                  changer des comportements, des émotions ou des perceptions.
+                </p>
+                <a href="" class="bg-amber-300 py-2 px-3 rouded-sm"
+                  >En savoir plus</a
+                >
+              </div>
+            </div>
+          </section>
+          <section class="mb-16">
+            <h2 class="mb-5">Mes services en tant que psychomotricien</h2>
+          </section>
+          <section class="mb-16 border p-5 shadow-md text-sm">
+            <div class="text-green-600 flex justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-12 mb-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
 
-  </div>
-</main>
-<Footer/>
-</body>
+            <p>
+              En France, la profession de <strong>psychologue</strong>
+              est la seule profession réglementée, gérée par le ministère de l'Enseignement
+              supérieur, de la Recherche et de l'Innovation.
+            </p>
+            <p>
+              L'obtention du titre de psychologue requiert à la fois une licence
+              en psychologie et un master dans la même discipline, incluant un
+              mémoire de recherche et un stage professionnel. Le numéro RPPS
+              permet d’identifier les professionnels de santé. Le psychologue
+              est en outre tenu de respecter un code de déontologie visant à
+              garantir des pratiques éthiques, la confidentialité des échanges
+              et la protection des patients.
+            </p>
+            <p>
+              La profession de <strong>psychomotricien</strong> est réglementée par
+              le décret n° 88-659 du 6 mai 1988, qui exige que les praticiens soient
+              titulaires du Diplôme d'État de psychomotricien, garantissant ainsi
+              leur compétence, et inscrits sur le registre RPPS, tout en étant soumis
+              à un code de déontologie strict encadrant leurs pratiques et assurant
+              la protection des patients.
+            </p>
+            <p>
+              Des explications claires compréhensibles, un projet cohérent dans
+              un cadre aux limites définies, la liberté qui vous est laissée à
+              tout moment d'interrompre vos rencontres, l'humilité thérapeutique
+              de votre praticien, sont des garanties minimales que vous devez
+              exiger.
+            </p>
+          </section>
+        </div>
+
+        <aside class="p-5 md:flex-auto text-right md:pt-24">
+          <h3 class="text-xl mb-5 text-gray-600">Derniers articles</h3>
+          <ul class="">
+          {
+            posts.map((post) => (
+              <li>
+                <a href={`/blog/${post.slug}/`}>
+                  <h4 class="text-sm text-gray-500">{post.data.title}</h4>
+                  <p class="text-xs italic">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </a>
+              </li>
+            ))
+          }
+          </ul>
+        </aside>
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>
