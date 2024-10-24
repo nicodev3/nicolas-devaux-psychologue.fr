@@ -47,7 +47,7 @@ h2 {
 	@apply text-2xl md:text-3xl;
 }
 h3 {
-	@apply text-xl md:text-2xl;
+	@apply text-xl;
 }
 h4 {
 	font-size: 1.563em;

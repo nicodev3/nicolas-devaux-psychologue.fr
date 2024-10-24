@@ -3,13 +3,13 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header>
+<header class="bg-purple-500 text-white">
 	<nav class="container">
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/psychotherapies">Psychothérapie</HeaderLink>
+		<h2><a href="/" class="text-white">{SITE_TITLE}</a></h2>
+		<div class="internal-link  *:text-white">
+			<HeaderLink href="/psychotherapies" class="text-white">Psychothérapie</HeaderLink>
+			<HeaderLink href="/mindfulness">Thérapie MBCT</HeaderLink>
 			<HeaderLink href="/therapie-acceptation-et-engagement">Thérapie ACT</HeaderLink>
-			<HeaderLink href="/hypnose-therapeutique">Hypnose thérapeutique</HeaderLink>
 			<HeaderLink href="/nicolas-devaux-psychologue">Qui suis-je ?</HeaderLink>
 			<HeaderLink href="/blog">Articles</HeaderLink>
 		</div>
@@ -19,7 +19,6 @@ import { SITE_TITLE } from '../consts';
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
 	h2 {
@@ -38,7 +37,6 @@ import { SITE_TITLE } from '../consts';
 	}
 	nav a {
 		padding: 1em 0.5em;
-		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}

@@ -7,7 +7,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
@@ -19,8 +19,8 @@ const posts = (await getCollection("blog")).sort(
   <body class="bg-gradient-to-r from-blue-50 to-white">
     <Header />
     <main class="p-5">
-      <div class="container flex flex-col md:flex-row gap-5 md:gap-16 md:pt-8">
-        <div class="md:w-2/3">
+      <div class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:pt-8">
+        <div class="xl:w-2/3">
           <h1 class="text-2xl md:text-6xl md:mb-10">Psychologue Sceaux</h1>
           <p class="mb-5">
             Vous trouverez sur ce site des informations sur la <a
@@ -35,7 +35,7 @@ const posts = (await getCollection("blog")).sort(
               href="">psychomotricien à Sceaux</a
             >.
           </p>
-          <p>
+          <p class="mb-12">
             Vous pouvez consulter un psychologue pour des difficultés
             personnelles, des problèmes relationnels, des troubles de l'humeur,
             des difficultés professionnelles, des troubles du sommeil, des
@@ -43,9 +43,9 @@ const posts = (await getCollection("blog")).sort(
             vous sentez en difficulté ou en souffrance.
           </p>
           <section class="mb-16">
-            <h2 class="mb-5">Mes services en tant que psychologue</h2>
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-sky-100 p-5">
+            <div class="grid xl:grid-cols-2 gap-8 xl:gap-12">
+
+              <a href="/psychotherapies" class="bg-white shadow-md p-5 text-black">
                 <h3 class="text-sky-950">Psychothérapie psychodynamique</h3>
                 <hr class="border-sky-800 my-5" />
                 <p>
@@ -53,11 +53,12 @@ const posts = (await getCollection("blog")).sort(
                   les conflits internes et les expériences passées pour
                   comprendre et traiter les troubles émotionnels.
                 </p>
-                <a href="" class="bg-amber-300 py-2 px-3 rouded-sm"
-                  >En savoir plus</a
+                <span class="bg-amber-300 py-2 px-3 rouded-sm"
+                  >En savoir plus</span
                 >
-              </div>
-              <div class="bg-sky-100 p-5">
+              </a>
+
+              <a href="/therapie-acceptation-et-engagement" class="bg-white shadow-md p-5 text-black">
                 <h3 class="text-sky-950">
                   A.C.T. : Thérapie d'Acceptation et d'Engagement
                 </h3>
@@ -67,11 +68,12 @@ const posts = (await getCollection("blog")).sort(
                   l'acceptation des émotions difficiles tout en s'engageant vers
                   des actions alignées avec ses valeurs.
                 </p>
-                <a href="" class="bg-amber-300 py-2 px-3 rouded-sm"
-                  >En savoir plus</a
+                <span class="bg-amber-300 py-2 px-3 rouded-sm"
+                  >En savoir plus</span
                 >
-              </div>
-              <div class="bg-sky-100 p-5">
+              </a>
+
+              <a href="/pleine-conscience" class="bg-white shadow-md p-5 text-black">
                 <h3 class="text-sky-950">
                   M.B.C.T. : Mindfulness Based Cognitive Therapy
                 </h3>
@@ -81,30 +83,35 @@ const posts = (await getCollection("blog")).sort(
                   combine méditation et techniques cognitives pour prévenir les
                   rechutes dépressives et gérer le stress.
                 </p>
-                <a href="" class="bg-amber-300 py-2 px-3 rouded-sm"
-                  >En savoir plus</a
+                <span class="bg-amber-300 py-2 px-3 rouded-sm"
+                  >En savoir plus</span
                 >
-              </div>
-              <div class="bg-sky-100 p-5">
-                <h3 class="text-sky-950">Hypnose thérapeutique</h3>
-                <hr class="border-sky-800 my-5" />
-                <p>
-                  L'hypnose thérapeutique est une méthode psychologique qui
-                  induit un état modifié de conscience pour traiter divers
-                  troubles en utilisant des suggestions ciblées, permettant au
-                  patient de mobiliser ses ressources inconscientes afin de
-                  changer des comportements, des émotions ou des perceptions.
-                </p>
-                <a href="" class="bg-amber-300 py-2 px-3 rouded-sm"
-                  >En savoir plus</a
-                >
-              </div>
+              </a>
             </div>
           </section>
-          <section class="mb-16">
-            <h2 class="mb-5">Mes services en tant que psychomotricien</h2>
-          </section>
-          <section class="mb-16 border p-5 shadow-md text-sm">
+          
+        </div>
+
+        <aside class="p-5 xl:w-1/3 flex flex-col text-right xl:pt-12 xl:border-l">
+          <h3 class="text-xl mb-5 text-gray-600">Derniers articles</h3>
+          <ul class="">
+            {
+              posts.map((post) => (
+                <li>
+                  <a href={`/blog/${post.slug}/`}>
+                    <h4 class="text-sm text-gray-500">{post.data.title}</h4>
+                    <p class="text-xs italic">
+                      <FormattedDate date={post.data.pubDate} />
+                    </p>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+
+          <hr class="my-5">
+
+          <div class="text-sm text-left">
             <div class="text-green-600 flex justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -148,25 +155,7 @@ const posts = (await getCollection("blog")).sort(
               de votre praticien, sont des garanties minimales que vous devez
               exiger.
             </p>
-          </section>
-        </div>
-
-        <aside class="p-5 md:flex-auto text-right md:pt-24">
-          <h3 class="text-xl mb-5 text-gray-600">Derniers articles</h3>
-          <ul class="">
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.slug}/`}>
-                  <h4 class="text-sm text-gray-500">{post.data.title}</h4>
-                  <p class="text-xs italic">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-          </ul>
+          </div>
         </aside>
       </div>
     </main>
