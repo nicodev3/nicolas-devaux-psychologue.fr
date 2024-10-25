@@ -138,3 +138,7 @@ hr {
 .btn:hover {
 	@apply bg-accent text-white;
 }
+
+.text-link {
+	@apply text-accent hover:text-accent-dark;
+}

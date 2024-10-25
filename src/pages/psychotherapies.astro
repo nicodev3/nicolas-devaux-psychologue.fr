@@ -1,71 +1,232 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import Layout from "../layouts/BlogPost.astro";
+import SavoirPlus from "../components/SavoirPlus.astro";
 ---
 
 <Layout
-    title="Psychothérapies"
-    description="Les raisons de consulter un psychologue, un psychiatre ou un psychanalyste."
-    pubDate={new Date('August 08 2024')}
-    heroImage="/psychotherapies.jpg"
+  title="Psychothérapies"
+  description="Les raisons de consulter un psychologue, un psychiatre ou un psychanalyste."
+  pubDate={new Date("August 08 2024")}
+  heroImage="/psychotherapies.jpg"
 >
-  <section class="principal main-content" role="main">
-    <h2>Hypnose, relaxation, psychanalyse... quelles différences ?</h2>
-    <p>Il n'y a pas une mais des <strong> psychothérapies</strong>. Si <a
-        href="/psychotherapies/psychanalyste-sceaux/" title="psychanalyse">la
-      psychanalyse</a> est la plus connue d'entre elles, les <a
-        href="/psychotherapies/psychotherapies-psychanalytiques/"
-        title="psychothérapies psychanalytiques">psychothérapies psychanalytiques</a>, la <a
-        href="/psychotherapies/therapie-cognitive-comportementale/"
-        title="thérapies comportementales et cognitives">thérapie comportementale et cognitive</a>,
-      l'<a href="/hypnose-therapeutique" title="hypnose therapeutique">hypnose</a> ou encore la thérapie systémique font
-      partie du paysage de soins courant. D'autres formes de
-      thérapie, moins encadrées que les premières existent. C'est le cas par exemple de la gestalt thérapie,
-      de la très médiatique EMDR, de la thérapie psychochorporelle, de l'art thérapie...</p>
-    <p>Certaines <strong>psychothérapies</strong> sont éprouvées, d'autres plus empiriques. Certaines sont
-      reconnues et maniées par des professionnels longuement formés, d'autres pratiquées par des thérapeutes
-      parfois bien formés, et parfois peu scrupuleux... Il est important de savoir que le titre de
-      psychothérapeute est encadré par la loi depuis peu afin de prévenir certaines dérives et de réserver ce
-      titre à des professionnels sérieusement formés.</p>
-    <div class="alert-box mb-12">
-      <h2>&Agrave; savoir</h2>
-      <p>Le <strong>titre de psychothérapeute</strong> est protégé par un décret datant de 2004. Pour se
-        déclarer psychothérapeute, il est nécessaire de posséder les diplômes recquis et d'être enregistré
-        auprès de l'Agence Régionale de Santé. Vous pouvez consulter plus d'informations sur l'<a
-            href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000022244482">usage du
-          titre de psychothérapeute</a>.
+  <section class="principal main-content flex flex-col gap-8 xl:gap-12" role="main">
+    <div>
+      <h2 class="mb-5">
+        Hypnose, TCC, relaxation, psychanalyse... quelles différences ?
+      </h2>
+      <p>
+        Il n'y a pas une mais des <strong> psychothérapies</strong>. Si <a
+          href="/psychotherapies/psychanalyste-sceaux/"
+          title="psychanalyse">la psychanalyse</a
+        > est la plus connue d'entre elles, les <a
+          href="/psychotherapies/psychotherapies-psychanalytiques/"
+          title="psychothérapies psychanalytiques"
+          >psychothérapies psychanalytiques</a
+        >, la <a
+          href="/psychotherapies/therapie-cognitive-comportementale/"
+          title="thérapies comportementales et cognitives"
+          >thérapie comportementale et cognitive</a
+        >, l'<a href="/hypnose-therapeutique" title="hypnose therapeutique"
+          >hypnose</a
+        > ou encore la thérapie systémique font partie du paysage de soins courant.
+        D'autres formes de thérapie, moins encadrées que les premières existent.
+        C'est le cas par exemple de la gestalt thérapie, de la très médiatique EMDR,
+        de la thérapie psychochorporelle, de l'art thérapie...
+      </p>
+      <p>
+        Certaines <strong>psychothérapies</strong> sont éprouvées, d'autres plus
+        empiriques. Certaines sont reconnues et maniées par des professionnels longuement
+        formés, d'autres pratiquées par des thérapeutes parfois bien formés, et parfois
+        peu scrupuleux... Il est important de savoir que le titre de psychothérapeute
+        est encadré par la loi depuis peu afin de prévenir certaines dérives et de
+        réserver ce titre à des professionnels sérieusement formés.
       </p>
     </div>
-    <section class="flex flex-col gap-10">
-      <div class="shadow-md p-4 flex flex-col gap-4 justify-between">
-        <span>&#8594; En savoir plus sur :</span>
-        <a class="btn"
-           href="/psychotherapies/psychanalyste-sceaux/"
-           title="psychanalyse">la
-          psychanalyse</a>
-      </div>
-      <div class="shadow-md p-4 flex flex-col gap-4 justify-between">
-        <span>&#8594; En savoir plus sur :</span>
-        <a class="btn"
-           href="/psychotherapies/psychotherapies-psychanalytiques/"
-           title="les psychothérapies psychanalytiques">
-          les psychothérapies psychanalytiques
-        </a>
-      </div>
-      <div class="shadow-md p-4 flex flex-col gap-4 justify-between">
-        <span>&#8594; En savoir plus sur :</span>
-        <a class="btn"
-           href="/psychotherapies/therapie-cognitive-comportementale/"
-           title="thérapies comportementales et cognitives">
-          les thérapies comportementales et cognitives
-        </a>
-      </div>
-      <div class="shadow-md p-4 flex flex-col gap-4 justify-between">
-        <span>&#8594; En savoir plus sur :</span>
-        <a class="btn" href="/psychotherapies/hypnose/"
-           title="les psychothérapies psychanalytiques">
-          l'hypnose
-        </a>
-      </div>
-    </section>
+
+    <div>
+      <h2 class="mb-5">
+        La psychanalyse et les psychothérapies psychanalytiques
+      </h2>
+      <p>
+        La psychanalyse, développée par Sigmund Freud, repose sur l'exploration
+        de l'inconscient, souvent à travers des souvenirs d'enfance, des rêves,
+        et des associations d'idées. Elle implique une démarche introspective
+        profonde et nécessite un engagement long.
+      </p>
+      <ul>
+        <li>
+          <strong>Objectif</strong> : Comprendre les conflits inconscients qui influencent
+          les comportements.
+        </li>
+        <li>
+          <strong>Méthode</strong> : Libre association, analyse des rêves, transfert.
+        </li>
+        <li><strong>Durée</strong> : Souvent plusieurs années.</li>
+        <li>
+          <strong>Forme</strong> : Généralement en séances individuelles et régulières,
+          plusieurs fois par semaine.
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mb-5">Les Thérapies Cognitivo-Comportementales (TCC)</h2>
+      <p>
+        Les TCC sont orientées vers le présent et visent à modifier les
+        comportements, pensées et émotions problématiques. Elles sont basées sur
+        des preuves scientifiques et sont souvent utilisées pour des troubles
+        spécifiques comme les phobies, la dépression, et les troubles anxieux.
+      </p>
+      <p>
+        Parmi les TCC modernes, parfois nommées de la 3e vague, on trouve la <strong
+          ><a class="text-link" href="/therapie-acceptation-et-engagement"
+            >thérapie d'acceptation et d'engagement (ACT)</a
+          ></strong
+        > et les <strong><a class="text-link" href="/therapie-pleine-conscience">thérapies basées sur la pratique de la pleine conscience</a></strong> :
+      </p>
+      <ul>
+        <li>
+          <strong>Thérapie ACT</strong> : L’ACT aide les individus à accepter les
+          émotions et pensées difficiles au lieu de les éviter. Elle vise à encourager
+          des actions alignées avec ses valeurs, en dépit des défis.
+        </li>
+        <li>
+          <strong>Thérapies de pleine conscience</strong> : Ces approches, qui incluent
+          des techniques de méditation, visent à renforcer la conscience et l'acceptation
+          de l'instant présent, ce qui est utile pour gérer le stress et les pensées
+          envahissantes.
+        </li>
+      </ul>
+      <ul class="mb-5">
+        <li>
+          <strong>Objectif</strong> : Changer les comportements et pensées dysfonctionnels.
+        </li>
+        <li>
+          <strong>Méthode</strong> : Exercices comportementaux, restructuration cognitive,
+          exposition progressive, méditation de pleine conscience.
+        </li>
+        <li><strong>Durée</strong> : Court terme, de quelques mois à un an.</li>
+        <li><strong>Forme</strong> : Individuelle, en groupe, ou en ligne.</li>
+      </ul>
+      <SavoirPlus
+        url="/therapie-cognitive-et-comportementale"
+        theme="Les Thérapies Comportementales et Cognitives (TCC)"
+      />
+    </div>
+
+    <div>
+      <h2 class="mb-5">L'Hypnose Thérapeutique</h2>
+      <p>
+        L'hypnose vise à accéder à un état modifié de conscience pour faciliter
+        les changements psychologiques. Elle est utilisée pour traiter divers
+        troubles, comme les dépendances, la douleur, ou les phobies, en aidant
+        la personne à se concentrer sur ses ressources intérieures.
+      </p>
+      <ul>
+        <li>
+          <strong>Objectif</strong> : Mobiliser l'inconscient pour faciliter des
+          changements.
+        </li>
+        <li>
+          <strong>Méthode</strong> : Relaxation profonde, suggestions hypnotiques.
+        </li>
+        <li><strong>Durée</strong> : Variable, en fonction des objectifs.</li>
+        <li>
+          <strong>Forme</strong> : Souvent utilisée en complément d'autres thérapies.
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mb-5">La Thérapie Systémique et Familiale</h2>
+      <p>
+        Plutôt que de se concentrer sur un individu, cette approche considère la
+        personne au sein de ses relations familiales et sociales. Elle est
+        fréquemment utilisée pour traiter les problèmes relationnels et
+        familiaux.
+      </p>
+      <ul>
+        <li>
+          <strong>Objectif</strong> : Améliorer les dynamiques relationnelles au
+          sein du groupe.
+        </li>
+        <li>
+          <strong>Méthode</strong> : Entretiens familiaux, analyse des rôles et interactions.
+        </li>
+        <li><strong>Durée</strong> : En général de court à moyen terme.</li>
+        <li>
+          <strong>Forme</strong> : Souvent en groupe familial, mais peut aussi être
+          en individuel.
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mb-5">
+        L'EMDR (Eye Movement Desensitization and Reprocessing)
+      </h2>
+      <p>
+        Cette technique récente a pour but de traiter les traumatismes. Elle
+        combine une attention dirigée avec des mouvements oculaires pour
+        désensibiliser et retraiter les souvenirs traumatisants.
+      </p>
+      <ul>
+        <li>
+          <strong>Objectif</strong> : Réduire la détresse liée aux souvenirs traumatiques.
+        </li>
+        <li>
+          <strong>Méthode</strong> : Mouvements oculaires, stimulation bilatérale.
+        </li>
+        <li>
+          <strong>Durée</strong> : De quelques séances à plusieurs mois selon la
+          complexité du traumatisme.
+        </li>
+        <li><strong>Forme</strong> : Individuelle.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mb-5">Les Thérapies Psycho-corporelles</h2>
+      <p>
+        Ces thérapies visent à travailler sur le lien entre le corps et
+        l'esprit. Elles incluent des méthodes comme le yoga, le biofeedback, et
+        d'autres techniques de relaxation pour aider les personnes à mieux
+        réguler leur stress et leurs émotions.
+      </p>
+      <ul>
+        <li>
+          <strong>Objectif</strong> : Réduire le stress, favoriser la régulation
+          émotionnelle.
+        </li>
+        <li>
+          <strong>Méthode</strong> : Exercices physiques, relaxation, respiration.
+        </li>
+        <li><strong>Durée</strong> : Court terme.</li>
+        <li><strong>Forme</strong> : Individuelle ou en groupe.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mb-5">Conclusion : choisir sa psychothérapie</h2>
+      <p>
+        La diversité des psychothérapies permet à chacun de trouver l'approche
+        qui lui convient, en fonction de sa personnalité, de ses besoins et de
+        ses objectifs. Il est toutefois essentiel de consulter des thérapeutes
+        qualifiés et reconnus pour éviter des pratiques douteuses.
+      </p>
+    </div>
+
+    <div class="alert-box mb-12">
+      <h2>&Agrave; savoir</h2>
+      <p>
+        Le <strong>titre de psychothérapeute</strong> est protégé par un décret datant
+        de 2004. Pour se déclarer psychothérapeute, il est nécessaire de posséder
+        les diplômes recquis et d'être enregistré auprès de l'Agence Régionale de
+        Santé. Vous pouvez consulter plus d'informations sur l'<a
+          href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000022244482"
+          >usage du titre de psychothérapeute</a
+        >.
+      </p>
+    </div>
   </section>
 </Layout>
