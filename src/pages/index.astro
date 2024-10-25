@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Card from "../components/Card.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
@@ -21,19 +22,11 @@ const posts = (await getCollection("blog")).sort(
     <main class="p-5">
       <div class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:pt-8">
         <div class="xl:w-2/3">
-          <h1 class="text-2xl md:text-6xl md:mb-10">Psychologue Sceaux</h1>
+          <h1 class="text-2xl md:text-6xl mb-10 mt-5">Psychologue Sceaux</h1>
           <p class="mb-5">
-            Vous trouverez sur ce site des informations sur la <a
-              href="/consulter-psychologue/">psychologie</a
-            >, les différentes approches en <a href="/psychotherapies/"
-              >psychotherapie</a
-            >, la <a href="/psychanalyse/">psychanalyse</a>, ainsi que sur le
-            cabinet de psychologie de Sceaux.
-          </p>
-          <p class="mb-5">
-            Vous trouverez également des informations sur mon activité de <a
-              href="">psychomotricien à Sceaux</a
-            >.
+            Vous trouverez sur ce site des informations sur les différentes
+            approches en <a href="/psychotherapies/">psychotherapie</a>, ainsi
+            que sur le cabinet de psychologie de Sceaux.
           </p>
           <p class="mb-12">
             Vous pouvez consulter un psychologue pour des difficultés
@@ -44,72 +37,55 @@ const posts = (await getCollection("blog")).sort(
           </p>
           <section class="mb-16">
             <div class="grid xl:grid-cols-2 gap-8 xl:gap-12">
+              <Card
+                url="/psychotherapies"
+                title="Psychothérapie psychodynamique"
+                content="Les psychothérapies psychodynamiques explorent les conflits internes inconscients et les expériences passées pour comprendre et traiter les troubles émotionnels"
+              />
 
-              <a href="/psychotherapies" class="bg-white shadow-md p-5 text-black">
-                <h3 class="text-sky-950">Psychothérapie psychodynamique</h3>
-                <hr class="border-sky-800 my-5" />
-                <p>
-                  Les psychothérapies psychodynamiques explorent l'inconscient,
-                  les conflits internes et les expériences passées pour
-                  comprendre et traiter les troubles émotionnels.
-                </p>
-                <span class="bg-amber-300 py-2 px-3 rouded-sm"
-                  >En savoir plus</span
-                >
-              </a>
+              <Card
+                url="/therapie-acceptation-et-engagement"
+                title="Thérapie d'Acceptation et d'Engagement (ACT)"
+                content="La thérapie ACT (Acceptation et Engagement) encourage l'acceptation des émotions difficiles tout en s'engageant vers des actions alignées avec ses valeurs."
+              />
 
-              <a href="/therapie-acceptation-et-engagement" class="bg-white shadow-md p-5 text-black">
-                <h3 class="text-sky-950">
-                  A.C.T. : Thérapie d'Acceptation et d'Engagement
-                </h3>
-                <hr class="border-sky-800 my-5" />
-                <p>
-                  La thérapie ACT (Acceptation et Engagement) encourage
-                  l'acceptation des émotions difficiles tout en s'engageant vers
-                  des actions alignées avec ses valeurs.
-                </p>
-                <span class="bg-amber-300 py-2 px-3 rouded-sm"
-                  >En savoir plus</span
-                >
-              </a>
+              <Card
+                url="/pleine-conscience"
+                title="Mindfulness Based Cognitive Therapy (MBCT)"
+                content="La MBCT (Thérapie cognitive basée sur la pleine conscience) combine méditation et techniques cognitives pour prévenir les rechutes dépressives et gérer le stress."
+              />
 
-              <a href="/pleine-conscience" class="bg-white shadow-md p-5 text-black">
-                <h3 class="text-sky-950">
-                  M.B.C.T. : Mindfulness Based Cognitive Therapy
-                </h3>
-                <hr class="border-sky-800 my-5" />
-                <p>
-                  La MBCT (Thérapie cognitive basée sur la pleine conscience)
-                  combine méditation et techniques cognitives pour prévenir les
-                  rechutes dépressives et gérer le stress.
-                </p>
-                <span class="bg-amber-300 py-2 px-3 rouded-sm"
-                  >En savoir plus</span
-                >
-              </a>
+              <Card
+                url="/pleine-conscience"
+                title="Thérapies cognitives et comportementales"
+                content="La MBCT (Thérapie cognitive basée sur la pleine conscience) combine méditation et techniques cognitives pour prévenir les rechutes dépressives et gérer le stress."
+              />
             </div>
           </section>
-          
         </div>
 
-        <aside class="p-5 xl:w-1/3 flex flex-col text-right xl:pt-12 xl:border-l">
-          <h3 class="text-xl mb-5 text-gray-600">Derniers articles</h3>
-          <ul class="">
-            {
-              posts.map((post) => (
-                <li>
-                  <a href={`/blog/${post.slug}/`}>
-                    <h4 class="text-sm text-gray-500">{post.data.title}</h4>
-                    <p class="text-xs italic">
-                      <FormattedDate date={post.data.pubDate} />
-                    </p>
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
+        <aside
+          class="p-5 xl:w-1/3 flex flex-col text-right xl:pt-12 xl:border-l"
+        >
+          <div class="bg-secondary p-5">
+            <h3 class="text-xl mb-5 text-gray-600">Derniers articles</h3>
+            <ul>
+              {
+                posts.map((post) => (
+                  <li>
+                    <a href={`/blog/${post.slug}/`}>
+                      <h4 class="text-sm text-gray-500">{post.data.title}</h4>
+                      <p class="text-xs italic">
+                        <FormattedDate date={post.data.pubDate} />
+                      </p>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
 
-          <hr class="my-5">
+          <hr class="my-5" />
 
           <div class="text-sm text-left">
             <div class="text-green-600 flex justify-center">

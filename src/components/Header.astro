@@ -3,14 +3,14 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
-<header class="m-0 py-5 px-4 md:px-0 shadow-md bg-purple-500">
+<header class="m-0 py-5 px-4 md:px-0 shadow-md bg-primary">
 	<nav
 		x-data="{ open: false }"
 		class="container flex flex-col md:flex-row md:items-center md:justify-between"
 	>
 		<div class="flex items-center justify-between"> 
 			<h2 class="text-lg">
-				<a href="/" class="text-white">{SITE_TITLE}</a>
+				<a href="/" class="text-black hover:text-black">{SITE_TITLE}</a>
 			</h2>
 			<button x-on:click="open = ! open" class="md:hidden ml-auto text-white">
 				<svg
@@ -29,7 +29,7 @@ import { SITE_TITLE } from "../consts";
 
 		<div
 			:class="open ? '' : 'max-sm:hidden'"
-			class="flex flex-col md:flex-row gap-8 md:gap-4 mt-8 md:mt-0 *:text-white"
+			class="flex flex-col md:flex-row gap-8 md:gap-4 mt-8 md:mt-0 *:text-black *:hover:text-black"
 		>
 			<HeaderLink href="/psychotherapies">Psychothérapie</HeaderLink>
 			<HeaderLink href="/mindfulness">Thérapie MBCT</HeaderLink>
