@@ -1,5 +1,5 @@
 ---
-const { url, title, content } = Astro.props;
+const { url, title, content, image } = Astro.props;
 ---
 
 <a
@@ -9,7 +9,8 @@ const { url, title, content } = Astro.props;
     <h2 class="text-xl">
         {title}
     </h2>
-    <hr class="border-sky-800 my-5" />
+    <hr class="border-secondary" />
+    <img src={image} alt="{image}" class="w-2/3 mx-auto">
     <p>
         {content}
     </p>
