@@ -4,13 +4,13 @@ const { url, title, content, image } = Astro.props;
 
 <a
     href={ url }
-    class="group border-tertiary border-2 p-5 text-black transition-all ease-out hover:border-black flex flex-col gap-3"
+    class="group border-secondary border-2 p-5 text-black transition-all ease-out hover:shadow-md flex flex-col gap-3"
 >
-    <h2 class="text-xl">
+    <h2 class="text-2xl text-tertiary">
         {title}
     </h2>
     <hr class="border-secondary" />
-    <img src={image} alt="{image}" class="w-2/3 mx-auto">
+    <img src={image} alt="{image}" class="w-2/3 mx-auto my-5">
     <p>
         {content}
     </p>
