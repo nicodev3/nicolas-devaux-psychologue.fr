@@ -11,7 +11,7 @@ On consulte seul, à deux, ou avec son enfant. Voici un panel non exhaustif de c
 
 ## Les angoisses
 
-![angoisses](/src/assets/angoisse.png)
+![angoisses](/angoisse.png)
 Angoisse diffuse, troubles anxieux, attaques de panique, l'angoisse gâche votre vie. Il existe des solutions. Outre les médicaments qui peuvent faire céder l'angoisse ou l'anxiété de façon rapide, il est important de mener conjointement une psychothérapie qui permettra de vous soulager de façon durable.
 
 ## La dépression
