@@ -16,20 +16,20 @@ Angoisse diffuse, troubles anxieux, attaques de panique, l'angoisse gâche votre
 
 ## La dépression
 
-![depression](/src/assets/depression.png)
+![depression](/depression.png)
 Troubles du sommeil, irritabilité, manifestations psychosomatiques, et si vous étiez déprimé ? La dépression ne se manifeste pas nécessairement par un trouble de l'humeur et peut être masquée par divers symptômes. Qu'elle soit profonde ou réactionnelle à un deuil, une séparation, la dépression se soigne, même si l'être déprimé n'y croit pas !
 
 ## Les phobies
 
-![phobies](/src/assets/peur.png)
+![phobies](/peur.png)
 Conduire votre voiture est devenu un enfer ? Vous ne pouvez plus prendre le métro, vous rendre dans un espace public sans souffrir de manifestations d'angoisse invalidantes ? Vous souffrez probablement d'un trouble phobique. La phobie n'est pas réservée à la peur des araignées ou des souris ! Il existe des thérapies efficaces contre les phobies. Demandez conseil à votre psy.
 
 ## Souffrance au travail
 
-![souffrance au travail](/src/assets/detresse.png)
+![souffrance au travail](/detresse.png)
 Au travail, dans vos relations, ou dans la vie en général, vous vous sentez dépassé, affaibli. Vous êtes stressé, angoissé, intimidé, fatigué, à la recherche d'un sens à tout cela. Un professionnel pourra vous aider à faire le point sur vos difficultés afin de trouver la meilleure voie pour améliorer vos conditions de vie.
 
 ## Difficultés familiales et de couple
 
-![difficultés familiales](/src/assets/couple.png)
+![difficultés familiales](/couple.png)
 Problèmes de couple, difficultés familiales, violences conjugales, divorce, ou plus simplement difficulté dans vos relations avec vos proches, il est nécessaire de faire le point et de retrouver votre place.
