@@ -3,12 +3,13 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro";
+import SideBar from "../components/SideBar.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -19,111 +20,60 @@ const posts = (await getCollection("blog")).sort(
   </head>
   <body class="bg-gradient-to-r from-blue-50 to-white">
     <Header />
-    <main>
-      <div class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:pt-8">
-        <div class="xl:w-2/3">
-          <h1 class="text-2xl md:text-5xl mb-10 mt-5">Psychologue Sceaux</h1>
-          <p class="mb-5">
-            Vous trouverez sur ce site des informations sur les différentes
-            approches en <a href="/psychotherapies/">psychotherapie</a>, ainsi
-            que sur le cabinet de psychologie de Sceaux.
-          </p>
-          <p class="mb-12">
-            Vous pouvez consulter un psychologue pour des difficultés
-            personnelles, des problèmes relationnels, des troubles de l'humeur,
-            des difficultés professionnelles, des troubles du sommeil, des
-            troubles alimentaires ou toute autre situation dans laquelle vous
-            vous sentez en difficulté ou en souffrance.
-          </p>
-          <section class="mb-16">
-            <h2 class="mb-8 text-3xl">Ce que je propose</h2>
-            <div class="grid xl:grid-cols-2 gap-8 xl:gap-12">
-              <Card
-                url="/psychotherapies"
-                image="./src/assets/psychotherapie.png"
-                title="Psychothérapie psychodynamique"
-                content="Les psychothérapies psychodynamiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
-              />
+    <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
+      <div class="xl:w-2/3">
+        <h1 class="text-2xl md:text-5xl mb-10 mt-5">Psychologue à Sceaux</h1>
+        <p class="mb-5">
+          Vous trouverez sur ce site des informations sur les différentes
+          approches en <a class="text-link" href="/psychotherapies/"
+            >psychotherapie</a
+          >, ainsi que sur le cabinet de psychologie de Sceaux.
+        </p>
+        <p class="mb-12">
+          Les <a href="/blog/pourquoi-consulter psychologue" class="text-link"
+            >raisons de consulter un psychologue
+          </a> sont nombreuse. On peut consulter pour des difficultés personnelles,
+          des problèmes relationnels, des troubles de l'humeur, des difficultés professionnelles,
+          des troubles du sommeil, des troubles alimentaires ou toute autre situation
+          dans laquelle vous vous sentez en difficulté ou en souffrance.
+        </p>
+        <section class="mb-16">
+          <h2 class="mb-8 text-3xl">
+            Les différentes approches proposées au cabinet de psychologie de
+            Sceaux
+          </h2>
+          <div class="grid xl:grid-cols-2 gap-8 xl:gap-12">
+            <Card
+              url="/psychotherapie"
+              image="./psychotherapie.png"
+              title="Psychothérapie psychodynamique"
+              content="Les psychothérapies psychodynamiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
+            />
 
-              <Card
-                url="/therapie-acceptation-et-engagement"
-                image="./src/assets/acceptation-engagement.png"
-                title="Thérapie d'Acceptation et d'Engagement (ACT)"
-                content="La thérapie ACT (Acceptation et Engagement) encourage l'acceptation des émotions difficiles tout en s'engageant vers des actions alignées avec ses valeurs."
-              />
+            <Card
+              url="/therapie-acceptation-et-engagement"
+              image="./acceptation-engagement.png"
+              title="Thérapie d'Acceptation et d'Engagement (ACT)"
+              content="La thérapie ACT (Acceptation et Engagement) encourage l'acceptation des émotions difficiles tout en s'engageant vers des actions alignées avec ses valeurs."
+            />
 
-              <Card
-                url="/pleine-conscience"
-                image="./src/assets/mbct.png"
-                title="Mindfulness Based Cognitive Therapy (MBCT)"
-                content="La MBCT (Thérapie cognitive basée sur la pleine conscience) combine méditation et techniques cognitives pour prévenir les rechutes dépressives et gérer le stress."
-              />
+            <Card
+              url="/pleine-conscience"
+              image="./mbct.png"
+              title="Mindfulness Based Cognitive Therapy (MBCT)"
+              content="La MBCT (Thérapie cognitive basée sur la pleine conscience) combine méditation et techniques cognitives pour prévenir les rechutes dépressives et gérer le stress."
+            />
 
-              <Card
-                url="/pleine-conscience"
-                image="./src/assets/tcc.png"
-                title="Thérapies cognitives et comportementales (TCC)"
-                content="La MBCT (Thérapie cognitive basée sur la pleine conscience) combine méditation et techniques cognitives pour prévenir les rechutes dépressives et gérer le stress."
-              />
-            </div>
-          </section>
-        </div>
-
-        <aside
-          class="xl:p-5 xl:w-1/3 flex flex-col text-right xl:pt-12 xl:border-l"
-        >
-          <div class="bg-articles-bg p-5">
-            <h3 class="text-2xl mb-5 text-articles-title">Derniers articles</h3>
-            <ul>
-              {
-                posts.map((post) => (
-                  <li>
-                    <a href={`/blog/${post.slug}/`} class="text-link">
-                      <h4 class="text-sm text-articles-item">{post.data.title}</h4>
-                      <p class="text-xs italic text-articles-date">
-                        <FormattedDate date={post.data.pubDate} />
-                      </p>
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
+            <Card
+              url="/pleine-conscience"
+              image="./tcc.png"
+              title="Thérapies cognitives et comportementales (TCC)"
+              content="La MBCT (Thérapie cognitive basée sur la pleine conscience) combine méditation et techniques cognitives pour prévenir les rechutes dépressives et gérer le stress."
+            />
           </div>
-
-          <hr class="my-12" />
-
-          <div class="text-sm text-left">
-            <div class="text-primary flex justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-12 mb-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-
-            <p>
-              En France, la profession de <strong>psychologue</strong>
-              est la seule profession réglementée, gérée par le ministère de l'Enseignement
-              supérieur, de la Recherche et de l'Innovation.
-            </p>
-            <p>
-              L'obtention du titre de psychologue requiert à la fois une licence
-              en psychologie et un master dans la même discipline, incluant un
-              mémoire de recherche et un stage professionnel. Le numéro RPPS
-              permet d’identifier les professionnels de santé. Le psychologue
-              est en outre tenu de respecter un code de déontologie visant à
-              garantir des pratiques éthiques, la confidentialité des échanges
-              et la protection des patients.
-            </p>
-          </div>
-        </aside>
+        </section>
       </div>
+      <SideBar />
     </main>
     <Footer />
   </body>

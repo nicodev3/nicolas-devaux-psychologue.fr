@@ -142,3 +142,9 @@ hr {
 .text-link {
 	@apply text-accent hover:text-accent-dark;
 }
+
+.c-wysiwig {
+	h2 {
+		@apply text-2xl md:text-3xl mt-8 mb-5;
+	}
+}

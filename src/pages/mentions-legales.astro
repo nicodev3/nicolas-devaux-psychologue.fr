@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/BlogPost.astro";
+---
+
+<Layout
+  title="Mentions légales"
+  description="Mentions légales du site de Nicolas Devaux Psychologue"
+  pubDate={new Date("August 08 2024")}
+  heroImage="/blog-placeholder-about.jpg"
+>
+  <section class="principal main-content" role="main">
+    <h1>Mentions légales</h1>
+    <h2>Éditeur du site</h2>
+    <p>Ce site est édité par Nicolas Devaux, Psychologue</p>
+    <p>Numéro RPPS : 10008482910</p>
+    <p>Adresse : 63 rue Houdan 92330 Sceaux</p>
+    <p>Téléphone : <span x-data="{ revealed: false }" 
+        @click="revealed = true"
+        :class="{ 'cursor-pointer underline': !revealed }">
+        <span x-text="revealed ? '06 29 34 13 67' : 'Cliquez pour afficher'"></span>
+    </span></p>
+    <p>Email : <span x-data="{ revealed: false }" 
+        @click="revealed = true"
+        :class="{ 'cursor-pointer underline': !revealed }">
+        <span x-text="revealed ? 'ndevaux@gmail.com' : 'Cliquez pour afficher'"></span>
+    </span></p>
+
+    <h2>Hébergement</h2>
+    <p>Ce site est hébergé par :</p>
+    <p>Netlify</p>
+    <p>610 22nd Street, Suite 315, San Francisco, CA 94107, États-Unis</p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+
+    <h2>Protection des données personnelles</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.</p>
+    <p>Ce site ne collecte aucune donnée personnelle sans votre consentement explicite.</p>
+
+    <h2>Responsabilité</h2>
+    <p>Les informations contenues sur ce site sont aussi précises que possible et mises à jour régulièrement. Toutefois, elles ne sauraient engager la responsabilité de l'éditeur.</p>
+    <p>Les liens hypertextes mis en place dans le cadre du présent site internet en direction d'autres ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de l'éditeur.</p>
+
+    <h2>Loi applicable et juridiction</h2>
+    <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+
+
+  </section>
+</Layout>

@@ -3,11 +3,14 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import SideBar from "../components/SideBar.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+  blogPost?: boolean;
+};
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, blogPost } = Astro.props;
 ---
 
 <html lang="fr">
@@ -50,9 +53,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
   <body class="bg-gradient-to-r from-blue-50 to-white">
     <Header />
-    <main class="p-5">
-      <article class="container md:max-w-4xl">
-        <h1 class="text-2xl md:text-6xl my-8 text-center">{title}</h1>
+    <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
+      <article class={`xl:w-2/3 ${blogPost ? '' : 'c-wysiwig'}`}>
+        <h1 class="text-2xl md:text-5xl my-8 text-center">{title}</h1>
         <div class="hero-image mb-8">
           {heroImage && <img width={960} height={400} src={heroImage} alt="" />}
         </div>
@@ -73,6 +76,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
           <slot />
         </div>
       </article>
+      <SideBar showPsyInfo={false} />
     </main>
     <Footer />
   </body>
