@@ -8,9 +8,11 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"] & {
   blogPost?: boolean;
+  heroImageMini?: boolean;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, blogPost } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, blogPost, heroImageMini } =
+  Astro.props;
 ---
 
 <html lang="fr">
@@ -54,10 +56,17 @@ const { title, description, pubDate, updatedDate, heroImage, blogPost } = Astro.
   <body class="bg-gradient-to-r from-blue-50 to-white">
     <Header />
     <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
-      <article class={`xl:w-2/3 ${blogPost ? '' : 'c-wysiwig'}`}>
+      <article class={`xl:w-2/3 ${blogPost ? "" : "c-wysiwig"}`}>
         <h1 class="text-2xl md:text-5xl my-8 text-center">{title}</h1>
         <div class="hero-image mb-8">
-          {heroImage && <img width={960} height={400} src={heroImage} alt="" />}
+          {heroImage && (
+            <img 
+              width={heroImageMini ? 480 : 960} 
+              height={heroImageMini ? 433 : 375} 
+              src={heroImage} 
+              alt=""
+            />
+          )}
         </div>
         <div class="prose">
           <div class="date">
