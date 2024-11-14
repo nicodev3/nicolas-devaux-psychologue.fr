@@ -19,7 +19,13 @@ const { title, content, url, image } = Astro.props;
     {title}
   </h2>
   <hr class="border-secondary" />
-  <Image src={image} alt={title} class="w-2/3 mx-auto my-5" />
+  <Image
+    src={image}
+    alt={title}
+    width={174}
+    height={174}
+    class="mx-auto my-5"
+  />
   <p>
     {content}
   </p>
