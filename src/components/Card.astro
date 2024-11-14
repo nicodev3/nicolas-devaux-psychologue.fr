@@ -1,21 +1,30 @@
 ---
-const { url, title, content, image } = Astro.props;
+import { Image } from "astro:assets";
+
+interface Props {
+	title: string;
+	content: string;
+	url: string;
+	image: ImageMetadata;
+}
+
+const { title, content, url, image } = Astro.props;
 ---
 
 <a
-    href={ url }
-    class="group border-secondary border-2 p-5 text-black transition-all ease-out hover:shadow-md flex flex-col gap-3"
+  href={url}
+  class="group border-secondary border-2 p-5 text-black transition-all ease-out hover:shadow-md flex flex-col gap-3"
 >
-    <h2 class="text-2xl text-tertiary">
-        {title}
-    </h2>
-    <hr class="border-secondary" />
-    <img src={image} alt="{image}" class="w-2/3 mx-auto my-5">
-    <p>
-        {content}
-    </p>
-    <span
-        class="bg-accent group-hover:bg-accent-dark text-white py-3 px-5 rouded-sm ml-auto mt-auto"
-        >En savoir plus</span
-    >
+  <h2 class="text-2xl text-tertiary">
+    {title}
+  </h2>
+  <hr class="border-secondary" />
+  <Image src={image} alt={title} class="w-2/3 mx-auto my-5" />
+  <p>
+    {content}
+  </p>
+  <span
+    class="bg-accent group-hover:bg-accent-dark text-white py-3 px-5 rouded-sm ml-auto mt-auto"
+    >En savoir plus</span
+  >
 </a>

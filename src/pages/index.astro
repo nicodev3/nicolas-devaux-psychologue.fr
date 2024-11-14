@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro";
+import { Image } from "astro:assets";
 import SideBar from "../components/SideBar.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -43,28 +44,28 @@ const posts = (await getCollection("blog")).sort(
           <div class="grid xl:grid-cols-2 gap-8 xl:gap-12">
             <Card
               url="/psychotherapie"
-              image="./psychotherapie.png"
+              image={import("../assets/psychotherapie.png")}
               title="Psychothérapie psychodynamique"
               content="Les psychothérapies psychodynamiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
             />
 
             <Card
               url="/therapie-acceptation-et-engagement"
-              image="./acceptation-engagement.png"
+              image={import("../assets/acceptation-engagement.png")}
               title="Thérapie d'Acceptation et d'Engagement (ACT)"
               content="La thérapie ACT (Acceptation et Engagement) encourage l'acceptation des émotions difficiles tout en s'engageant vers des actions alignées avec ses valeurs."
             />
 
             <Card
               url="/therapie-pleine-conscience"
-              image="./mbct.png"
+              image={import("../assets/mbct.png")}
               title="Mindfulness Based Cognitive Therapy (MBCT)"
               content="La MBCT (Thérapie cognitive basée sur la pleine conscience) combine méditation et techniques cognitives pour prévenir les rechutes dépressives et gérer le stress."
             />
 
             <Card
               url="/therapie-cognitive-et-comportementale"
-              image="./tcc.png"
+              image={import("../assets/tcc.png")}
               title="Thérapies cognitives et comportementales (TCC)"
               content="La MBCT (Thérapie cognitive basée sur la pleine conscience) combine méditation et techniques cognitives pour prévenir les rechutes dépressives et gérer le stress."
             />
