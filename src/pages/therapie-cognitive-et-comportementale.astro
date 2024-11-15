@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+import { Image } from "astro:assets";
+import TccImage from "../assets/tcc-landscape.webp";
 ---
 
 <Layout
@@ -7,18 +9,20 @@ import Layout from "../layouts/BlogPost.astro";
   pageTitle="La thérapie TCC"
   description="La thérapie cognitive et comportementale (TCC) est une approche thérapeutique qui combine des techniques cognitives et comportementales pour traiter divers problèmes psychologiques."
   pubDate={new Date("November 01 2024")}
-  heroImage="/tcc-landscape.webp"
+  showDate={false}
 >
   <section class="principal main-content" role="main">
     <div class="flex flex-col gap-8 xl:gap-12">
-      <p>
-        Au <a href="/nicolas-devaux-psychologue" class="text-link"
-          >cabinet de psychologie de Sceaux</a
-        >, je propose une approche en thérapie cognitive et comportementale
-        (TCC), une méthode thérapeutique structurée et validée scientifiquement
-        qui s'est développée depuis les années 1960.
-      </p>
-
+      <div>
+        <p>
+          Au <a href="/nicolas-devaux-psychologue" class="text-link"
+            >cabinet de psychologie de Sceaux</a
+          >, je propose une approche en thérapie cognitive et comportementale
+          (TCC), une méthode thérapeutique structurée et validée
+          scientifiquement qui s'est développée depuis les années 1960.
+        </p>
+        <Image src={TccImage} alt="Thérapie cognitive et comportementale" />
+      </div>
       <div>
         <h2>Qu'est-ce que la thérapie cognitive et comportementale ?</h2>
         <p>

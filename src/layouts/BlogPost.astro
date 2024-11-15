@@ -8,11 +8,11 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"] & {
   blogPost?: boolean;
-  heroImageMini?: boolean;
   pageTitle?: string;
+  showDate?: boolean;
 };
 
-const { title, pageTitle, description, pubDate, updatedDate, heroImage, blogPost, heroImageMini } =
+const { title, pageTitle, description, pubDate, updatedDate, blogPost = false, showDate = true } =
   Astro.props;
 ---
 
@@ -26,7 +26,6 @@ const { title, pageTitle, description, pubDate, updatedDate, heroImage, blogPost
       .hero-image img {
         display: block;
         margin: 0 auto;
-        border-radius: 12px;
         box-shadow: var(--box-shadow);
       }
       .prose {
@@ -59,27 +58,19 @@ const { title, pageTitle, description, pubDate, updatedDate, heroImage, blogPost
     <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
       <article class={`xl:w-2/3 ${blogPost ? "" : "c-wysiwig"}`}>
         <h1 class="text-2xl md:text-5xl my-8 text-center">{pageTitle}</h1>
-        <div class="hero-image mb-8">
-          {heroImage && (
-            <img 
-              width={heroImageMini ? 480 : 960} 
-              height={heroImageMini ? 433 : 375} 
-              src={heroImage} 
-              alt=""
-            />
-          )}
-        </div>
         <div class="prose">
-          <div class="date">
-            <FormattedDate date={pubDate} />
-            {
-              updatedDate && (
-                <div class="last-updated-on">
-                  Last updated on <FormattedDate date={updatedDate} />
-                </div>
-              )
-            }
-          </div>
+          {showDate && (
+            <div class="date">
+              <FormattedDate date={pubDate} />
+              {
+                updatedDate && (
+                  <div class="last-updated-on">
+                    Last updated on <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+            </div>
+          )}
 
           <hr class="mb-5" />
 

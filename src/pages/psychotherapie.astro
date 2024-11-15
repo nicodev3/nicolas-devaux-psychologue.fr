@@ -1,13 +1,15 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+import { Image } from "astro:assets";
+import PsychotherapieImage from "../assets/psychotherapies.jpg";
 ---
 
 <Layout
   title="Psychothérapie psychodynamique"
   pageTitle="Psychothérapie"
   description="Découvrez la psychothérapie psychodynamique à Sceaux : une approche thérapeutique bienveillante pour vous accompagner vers un mieux-être. Consultations sur rendez-vous."
-  pubDate={new Date("August 08 2024")}
-  heroImage="/psychotherapies.jpg"
+  pubDate={new Date("November 15 2024")}
+  showDate={false}
 >
   <section
     class="principal main-content flex flex-col gap-8 xl:gap-12"
@@ -23,6 +25,7 @@ import Layout from "../layouts/BlogPost.astro";
         d'installer progressivement une confiance mutuelle, essentielle pour
         explorer ensemble les questions profondes qui vous habitent.
       </p>
+      <Image src={PsychotherapieImage} alt="" />
 
       <p>
         Cette forme de thérapie permet de travailler sur les conflits internes

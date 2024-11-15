@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+import { Image } from "astro:assets";
+import NicolasDevauxImage from "../assets/nicolas_devaux.jpg";
 ---
 
 <Layout
@@ -7,10 +9,10 @@ import Layout from "../layouts/BlogPost.astro";
   pageTitle="Nicolas Devaux, psychologue à Sceaux"
   description="Nicolas Devaux, psychologue clinicien à Sceaux. Thérapies psychanalytiques, ACT, TCC et pleine conscience. Plus de 15 ans d'expérience dans l'accompagnement psychologique. Consultations sur rendez-vous."
   pubDate={new Date("November 01 2024")}
-  heroImageMini={true}
-  heroImage="/nicolas_devaux.jpg"
+  showDate={false}
 >
   <section class="principal main-content" role="main">
+    <Image src={NicolasDevauxImage} alt="Nicolas Devaux, psychologue à Sceaux" />
     <p>
       Je suis diplômé depuis 2007 en psychologie clinique et pathologique de
       l'université Paris 7 Denis-Diderot, titulaire d'un master 2 (bac +5) de <a
