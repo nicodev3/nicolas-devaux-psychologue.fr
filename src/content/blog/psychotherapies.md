@@ -79,12 +79,6 @@ Ces thérapies visent à travailler sur le lien entre le corps et l'esprit. Elle
 
 La diversité des psychothérapies permet à chacun de trouver l'approche qui lui convient, en fonction de sa personnalité, de ses besoins et de ses objectifs. Il est toutefois essentiel de consulter des thérapeutes qualifiés et reconnus pour éviter des pratiques douteuses.
 
-<div class="p-5 bg-secondary">
-
-<h3>À savoir</h3>
+### À savoir
 
 Le titre de psychothérapeute est protégé par un décret datant de 2004. Pour se déclarer psychothérapeute, il est nécessaire de posséder les diplômes recquis et d'être enregistré auprès de l'Agence Régionale de Santé. Vous pouvez consulter plus d'informations sur l'usage du titre de psychothérapeute.
-</div>
-
-
-

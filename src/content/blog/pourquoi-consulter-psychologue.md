@@ -1,6 +1,6 @@
 ---
 title: 'Pourquoi consulter un psychologue'
-description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
+description: 'Nombreuses sont les raisons de consulter un psychologue, un psychiatre ou un psychanalyste.'
 pubDate: 'Jun 19 2024'
 heroImage: '/consulter.png'
 ---
