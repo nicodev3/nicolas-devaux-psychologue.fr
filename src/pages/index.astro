@@ -6,6 +6,8 @@ import Card from "../components/Card.astro";
 import SideBar from "../components/SideBar.astro";
 import { Schema } from "astro-seo-schema";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Image } from "astro:assets";
+import PsychologueImage from "../assets/psychologue-adulte.png";
 ---
 
 <!doctype html>
@@ -57,6 +59,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
           du sommeil, des troubles alimentaires ou toute autre situation dans
           laquelle vous vous sentez en difficulté ou en souffrance.
         </p>
+        <Image src={PsychologueImage} alt="Psychologue adulte" class="my-10" loading="eager"/>
         <p>
           Ma pratique est intégrative, c'est à dire que je peux utiliser
           différentes méthodes thérapeutiques en fonction de vos besoins.
