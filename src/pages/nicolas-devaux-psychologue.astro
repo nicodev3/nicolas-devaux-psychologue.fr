@@ -10,108 +10,123 @@ import NicolasDevauxImage from "../assets/nicolas_devaux.jpg";
   description="Nicolas Devaux, psychologue clinicien à Sceaux. Thérapies psychanalytiques, ACT, TCC et pleine conscience. Plus de 15 ans d'expérience dans l'accompagnement psychologique. Consultations sur rendez-vous."
   pubDate={new Date("November 01 2024")}
   showDate={false}
+  blogPost={true}
 >
-  <section class="principal main-content" role="main">
-    <Image src={NicolasDevauxImage} alt="Nicolas Devaux, psychologue à Sceaux" />
-    <p>
-      Je suis diplômé depuis 2007 en psychologie clinique et pathologique de
-      l'université Paris 7 Denis-Diderot, titulaire d'un master 2 (bac +5) de <a
-        class="text-link"
-        href="https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-humaines-et-sociales-SHS/psychologie-psychopathologie-clinique-psychanalytique-K2NDL4CM.html"
-        title="Unité de Formation et de Recherche d'Etudes Psychanalytiques"
-        target="_blank"
-        >l'Unité de Formation et de Recherche d'Etudes Psychanalytiques</a
-      > (anciennement Sciences Humaines Cliniques), obtenu avec mention "très bien".
-    </p>
-    <p>
-      Je suis également psychomotricien diplômé d'Etat depuis 1996,
-      psychothérapeute (voir décret relatif au <a
-        class="text-link"
-        href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000022244482"
-        title="titre de psychothérapeute"
-        target="_blank">titre de psychothérapeute</a
-      >) et psychanalyste.
-    </p>
-    <p>
-      Je possède une longue expérience de travail en équipe pluridisciplinaire
-      dans de multiples domaines - en psychiatrie, dans le champ du handicap,
-      dans le secteur médico-social - ainsi qu'en libéral.
-    </p>
-    <p>
-      Outre ma formation universitaire et mes diverses expériences
-      professionnelles, j'ai également suivi un parcours personnel :
-
-      <ul class="list-disc pl-5 mb-5">
-        <li class="mb-5">
-          en <a class="text-link" href="/therapie-pleine-conscience"
-            >méditation de pleine conscience</a
-          >, dès les années 90 avec la pratique de zazen. J'ai d'ailleurs
-          réalisé en 1996 mon mémoire de fin d'études en psychomotricité sur le
-          sujet de la prise en charge des troubles anxieux par la pratique de la
-          méditation. Mon intérêt actuel se porte naturellement vers les <a
+  <section class="flex flex-col gap-8 xl:gap-10">
+    <div class="flex flex-col md:flex-row gap-5 md:gap-12 justify-center">
+      <div class="border-radius-md overflow-hidden w-full md:w-1/3">
+        <Image
+          src={NicolasDevauxImage}
+          alt="Nicolas Devaux, psychologue à Sceaux"
+          class="object-contain w-full"
+        />
+      </div>
+      <div class="md:w-2/3">
+        <p>
+          Je suis diplômé depuis 2007 en psychologie clinique et pathologique de
+          l'université Paris 7 Denis-Diderot, titulaire d'un master 2 (bac +5)
+          de <a
             class="text-link"
-            href="/therapie-cognitive-et-comportementale"
-            >thérapies dites de la 3e vague des Thérapies Comportementales et
-            Cognitives</a
-          >, en particulier la <a
-            class="text-link"
-            href="/therapie-acceptation-et-engagement">thérapie ACT</a
-          >.
-        </li>
-        <li>
-          en psychanalyse auprès d'un membre de la<a
-            class="text-link"
-            href="http://www.societe-psychanalytique-de-paris.net/"
-            title="Société Psychanalytique de Paris"
+            href="https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-humaines-et-sociales-SHS/psychologie-psychopathologie-clinique-psychanalytique-K2NDL4CM.html"
+            title="Unité de Formation et de Recherche d'Etudes Psychanalytiques"
             target="_blank"
-          >
-            Société Psychanalytique de Paris</a
-          >.
-        </li>
-      </ul>
-    </p>
-    <p>
-      Je m'appuie sur un ensemble de références théoriques psychodynamiques
-      solides, tout en intégrant les évolutions récentes de cette discipline et
-      les contributions d'autres domaines tels que les neurosciences, ainsi que
-      les approches corporelles du soin psychique. Je mobilise ces divers cadres
-      conceptuels en les ajustant aux besoins spécifiques de chacun de mes
-      patients.
-    </p>
-    <p>
-      Ainsi, je propose des psychothérapies d'inspiration psychanalytique
-      classique mais également des thérapies dites de la 3e vague des Thérapies
-      Cognitives et Comportentales, comme la <a
-        href="/therapie-acceptation-et-engagement"
-        class="text-link">thérapie d'acceptation et d'engagement (ACT)</a
-      > ou encore la <a href="/therapie-pleine-conscience" class="text-link"
-        >thérapie basée sur la pleine conscience (MBCT</a
-      >.
-    </p>
-    <p>
-      Enfin, suite à un travail de recherche et des activités d'enseignement,
-      j'ai développé ces dernières années d'autres compétences. Je suis
-      titulaire d'une licence professionnelle en "Développement web des systèmes
-      d'information et multimedia", avec une spécialisation "ingénierie du
-      E-learning et communication scientifique et culturelle".
-    </p>
-    <p>
-      J'ai ainsi une expérience du monde de l'entreprise et des organisations en
-      tant que leader technique qui me permet d'apporter mon soutien aux
-      organisations en difficulté.
-    </p>
-    <p>
-      Bien qu'apparemment sans rapport avec mon activité de psychologue, de
-      psychothérapeute, de psychanalyste et de psychomotricien, cette compétence
-      me permet de participer humblement à la diffusion de la psychologie sur
-      Internet, à travers des sites comme par exemple<a
-        class="text-link"
-        href="https://les-acouphenes.info/"
-        title="acouphènes"
-        target="_blank"
-      >
-        les-acouphenes.info</a
-      >.
-    </p>
+            >l'Unité de Formation et de Recherche d'Etudes Psychanalytiques</a
+          > (anciennement Sciences Humaines Cliniques), obtenu avec mention "très
+          bien".
+        </p>
+        <p>
+          Je suis également psychomotricien diplômé d'Etat depuis 1996,
+          psychothérapeute (voir décret relatif au <a
+            class="text-link"
+            href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000022244482"
+            title="titre de psychothérapeute"
+            target="_blank">titre de psychothérapeute</a
+          >) et psychanalyste.
+        </p>
+      </div>
+    </div>
+    <div>
+      <p>
+        Je possède une longue expérience de travail en équipe pluridisciplinaire
+        dans de multiples domaines - en psychiatrie, dans le champ du handicap,
+        dans le secteur médico-social - ainsi qu'en libéral.
+      </p>
+      <p>
+        Outre ma formation universitaire et mes diverses expériences
+        professionnelles, j'ai également suivi un parcours personnel :
+
+        <ul class="list-disc pl-5 mb-5">
+          <li class="mb-5">
+            en <a class="text-link" href="/therapie-pleine-conscience"
+              >méditation de pleine conscience</a
+            >, dès les années 90 avec la pratique de zazen. J'ai d'ailleurs
+            réalisé en 1996 mon mémoire de fin d'études en psychomotricité sur
+            le sujet de la prise en charge des troubles anxieux par la pratique
+            de la méditation. Mon intérêt actuel se porte naturellement vers les <a
+              class="text-link"
+              href="/therapie-cognitive-et-comportementale"
+              >thérapies dites de la 3e vague des Thérapies Comportementales et
+              Cognitives</a
+            >, en particulier la <a
+              class="text-link"
+              href="/therapie-acceptation-et-engagement">thérapie ACT</a
+            >.
+          </li>
+          <li>
+            en psychanalyse auprès d'un membre de la<a
+              class="text-link"
+              href="http://www.societe-psychanalytique-de-paris.net/"
+              title="Société Psychanalytique de Paris"
+              target="_blank"
+            >
+              Société Psychanalytique de Paris</a
+            >.
+          </li>
+        </ul>
+      </p>
+      <p>
+        Je m'appuie sur un ensemble de références théoriques psychodynamiques
+        solides, tout en intégrant les évolutions récentes de cette discipline
+        et les contributions d'autres domaines tels que les neurosciences, ainsi
+        que les approches corporelles du soin psychique. Je mobilise ces divers
+        cadres conceptuels en les ajustant aux besoins spécifiques de chacun de
+        mes patients.
+      </p>
+      <p>
+        Ainsi, je propose des psychothérapies d'inspiration psychanalytique
+        classique mais également des thérapies dites de la 3e vague des
+        Thérapies Cognitives et Comportentales, comme la <a
+          href="/therapie-acceptation-et-engagement"
+          class="text-link">thérapie d'acceptation et d'engagement (ACT)</a
+        > ou encore la <a href="/therapie-pleine-conscience" class="text-link"
+          >thérapie basée sur la pleine conscience (MBCT</a
+        >.
+      </p>
+      <p>
+        Enfin, suite à un travail de recherche et des activités d'enseignement,
+        j'ai développé ces dernières années d'autres compétences. Je suis
+        titulaire d'une licence professionnelle en "Développement web des
+        systèmes d'information et multimedia", avec une spécialisation
+        "ingénierie du E-learning et communication scientifique et culturelle".
+      </p>
+      <p>
+        J'ai ainsi une expérience du monde de l'entreprise et des organisations
+        en tant que leader technique qui me permet d'apporter mon soutien aux
+        organisations en difficulté.
+      </p>
+      <p>
+        Bien qu'apparemment sans rapport avec mon activité de psychologue, de
+        psychothérapeute, de psychanalyste et de psychomotricien, cette
+        compétence me permet de participer humblement à la diffusion de la
+        psychologie sur Internet, à travers des sites comme par exemple<a
+          class="text-link"
+          href="https://les-acouphenes.info/"
+          title="acouphènes"
+          target="_blank"
+        >
+          les-acouphenes.info</a
+        >.
+      </p>
+    </div>
   </section>
 </Layout>

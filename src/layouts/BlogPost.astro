@@ -12,8 +12,15 @@ type Props = CollectionEntry<"blog">["data"] & {
   showDate?: boolean;
 };
 
-const { title, pageTitle, description, pubDate, updatedDate, blogPost = false, showDate = true } =
-  Astro.props;
+const {
+  title,
+  pageTitle,
+  description,
+  pubDate,
+  updatedDate,
+  blogPost = false,
+  showDate = true,
+} = Astro.props;
 ---
 
 <html lang="fr">
@@ -57,25 +64,26 @@ const { title, pageTitle, description, pubDate, updatedDate, blogPost = false, s
     <Header />
     <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
       <article class={`xl:w-2/3 ${blogPost ? "" : "c-wysiwig"}`}>
-        <h1 class="text-2xl md:text-5xl my-8 text-center">{pageTitle}</h1>
-        <div class="prose">
-          {showDate && (
-            <div class="date">
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
+        <header>
+          <h1 class="text-2xl md:text-5xl my-8 text-center">{pageTitle}</h1>
+
+          {
+            showDate && (
+              <div class="date">
+                <FormattedDate date={pubDate} />
+                {updatedDate && (
                   <div class="last-updated-on">
                     Last updated on <FormattedDate date={updatedDate} />
                   </div>
-                )
-              }
-            </div>
-          )}
+                )}
+              </div>
+            )
+          }
+        </header>
 
-          <hr class="mb-5" />
+        <hr class="mb-5" />
 
-          <slot />
-        </div>
+        <slot />
       </article>
       <SideBar showPsyInfo={false} />
     </main>

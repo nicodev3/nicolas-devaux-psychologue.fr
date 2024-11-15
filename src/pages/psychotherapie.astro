@@ -10,12 +10,14 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
   description="Découvrez la psychothérapie psychodynamique à Sceaux : une approche thérapeutique bienveillante pour vous accompagner vers un mieux-être. Consultations sur rendez-vous."
   pubDate={new Date("November 15 2024")}
   showDate={false}
+  blogPost={true}
 >
-  <section
-    class="principal main-content flex flex-col gap-8 xl:gap-12"
-    role="main"
-  >
+  <section class="flex flex-col gap-8 xl:gap-10">
     <div>
+      <p>
+        Je propose une psychothérapie psychodynamique, une approche qui s'appuie
+        sur la psychanalyse pour vous accompagner vers un mieux-être.
+      </p>
       <h2>Qu'est ce que la psychothérapie psychodynamique ?</h2>
       <p>
         La psychothérapie psychodynamique est une méthode inspirée de la
@@ -25,7 +27,6 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
         d'installer progressivement une confiance mutuelle, essentielle pour
         explorer ensemble les questions profondes qui vous habitent.
       </p>
-      <Image src={PsychotherapieImage} alt="" />
 
       <p>
         Cette forme de thérapie permet de travailler sur les conflits internes
@@ -37,6 +38,9 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
         comment certains mécanismes inconscients peuvent affecter votre
         quotidien.
       </p>
+      <div class="my-8">
+        <Image src={PsychotherapieImage} alt="" />
+      </div>
 
       <h2>
         Dans quels cas la psychothérapie psychodynamique est-elle adaptée ?

@@ -10,11 +10,9 @@ import MbsrImage from "../assets/mbct-landscape.webp";
   description="Découvrez les différentes thérapies basées sur la pleine conscience proposées au cabinet de psychologie de Sceaux."
   pubDate={new Date("August 08 2024")}
   showDate={false}
+  blogPost={true}
 >
-  <section
-    class="principal main-content flex flex-col gap-8 xl:gap-12"
-    role="main"
-  >
+  <section class="flex flex-col gap-8 xl:gap-10">
     <div>
       <p>
         Au <a href="/nicolas-devaux-psychologue" class="text-link"
@@ -28,7 +26,9 @@ import MbsrImage from "../assets/mbct-landscape.webp";
           class="text-link">stress et l'anxiété</a
         > au quotidien.
       </p>
-      <Image src={MbsrImage} alt="" />
+      <div class="my-8">
+        <Image src={MbsrImage} alt="" />
+      </div>
     </div>
 
     <div>
