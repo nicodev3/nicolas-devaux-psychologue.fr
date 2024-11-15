@@ -103,4 +103,7 @@ img {
 	h2 {
 		@apply text-2xl md:text-3xl mt-8 mb-5;
 	}
+	h3 {
+		@apply text-xl mt-5 mb-3;
+	}	
 }
