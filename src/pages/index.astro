@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro";
 import SideBar from "../components/SideBar.astro";
+import { Schema } from "astro-seo-schema";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -11,6 +12,37 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 <html lang="fr">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "Nicolas Devaux - Psychologue à Sceaux",
+        alternateName: "Cabinet de psychologie à Sceaux",
+        description: "Psychologue et psychothérapeute à Sceaux, spécialisé en thérapies psychodynamique, ACT et MBCT. Consultation pour enfants, adolescents et adultes.",
+        image: [
+          "https://www.psychologue-sceaux.fr/nicolas-devaux.jpg",
+        ],
+        url: "https://www.psychologue-sceaux.fr",
+        telephone: "0629341367",
+        email: "ndevaux@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "63 rue Houdan",
+          addressLocality: "Sceaux",
+          postalCode: "92330",
+          addressCountry: "FR"
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "48.7795",
+          longitude: "2.2847"
+        },
+        openingHours: "Mo-Fr 09:00-19:00",
+        priceRange: "€€",
+        paymentAccepted: "Espèces, Chèques",
+        currenciesAccepted: "EUR"
+      }}
+    />
   </head>
   <body class="bg-gradient-to-r from-blue-50 to-white">
     <Header />
@@ -31,8 +63,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         </p>
         <p class="mb-12">
           Le cabinet de psychologie de Sceaux est situé au 63 rue Houdan, au
-          coeur de la rue piétonne. Je reçois les enfants, les adolescents et les
-          adultes.
+          coeur de la rue piétonne. Je reçois les enfants, les adolescents et
+          les adultes.
         </p>
         <section class="mb-16">
           <h2 class="mb-8 text-3xl">
@@ -41,7 +73,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
           </h2>
           <div class="grid xl:grid-cols-2 gap-8 xl:gap-12">
             <Card
-              url="/psychotherapie" 
+              url="/psychotherapie"
               image={(await import("../assets/psychotherapie.png")).default}
               title="Psychothérapie psychodynamique"
               content="Les psychothérapies psychodynamiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
@@ -49,7 +81,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
             <Card
               url="/therapie-acceptation-et-engagement"
-              image={(await import("../assets/acceptation-engagement.png")).default}
+              image={(await import("../assets/acceptation-engagement.png"))
+                .default}
               title="Thérapie d'Acceptation et d'Engagement (ACT)"
               content="La thérapie ACT (Acceptation et Engagement) encourage l'acceptation des émotions difficiles tout en s'engageant vers des actions alignées avec ses valeurs."
             />
