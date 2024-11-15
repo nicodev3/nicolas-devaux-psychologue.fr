@@ -9,12 +9,13 @@ export default {
 			'accent': '#E07A5F',
 			'accent-dark': '#C85D46',
 			'white': '#fff',
-			'black': '#464646',
+			'black': '#000',
+			'black-dark': '#000',
 			        // Ajout pour "Derniers articles"
 			'articles-bg': '#F9F5EE',    // Beige Pâle (Fond des articles)
-			'articles-title': '#5A5A4E', // Brun Foncé (Titre de la section articles)
+			'articles-title': '#365943', // Brun Foncé (Titre de la section articles)
 			'articles-item': '#4C7C5F',  // Vert Foncé (Titres des articles)
-			'articles-date': '#E6B89C',  // Orange Clair (Date des articles)
+			'articles-date': '#7A431F',  // Orange Clair (Date des articles)
 		},
 		container: {
 			center: true,
