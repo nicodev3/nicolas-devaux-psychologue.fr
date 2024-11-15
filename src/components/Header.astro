@@ -6,7 +6,7 @@ import { SITE_TITLE } from "../consts";
 <header class="m-0 py-5 px-4 md:px-0 shadow-md bg-primary">
   <nav
     x-data="{ open: false }"
-    class="container flex flex-col md:flex-row md:items-center md:justify-between"
+    class="container flex flex-col md:flex-row md:items-center md:justify-between min-h-[4rem]"
   >
     <div class="flex items-center justify-between text-black-dark">
       <h2 class="text-lg">
@@ -32,8 +32,9 @@ import { SITE_TITLE } from "../consts";
     </div>
 
     <div
-      :class="open ? '' : 'max-sm:hidden'"
-      class="flex flex-col md:flex-row gap-8 md:gap-4 mt-8 md:mt-0 *:text-black *:hover:text-black"
+      x-cloak
+      :class="open ? 'max-h-96 opacity-100 bg-secondary p-4' : 'max-h-0 opacity-0 max-sm:hidden'"
+      class="overflow-hidden transition-all duration-300 ease-in-out flex flex-col md:flex-row gap-8 md:gap-4 mt-8 md:mt-0 md:max-h-96 md:opacity-100 *:text-black *:hover:text-black"
     >
       <HeaderLink href="/psychotherapie">Psychothérapie</HeaderLink>
       <HeaderLink href="/therapie-pleine-conscience"
@@ -60,5 +61,9 @@ import { SITE_TITLE } from "../consts";
   nav a.active {
     text-decoration: none;
     border-bottom-color: var(--accent);
+  }
+
+  [x-cloak] {
+    display: none !important;
   }
 </style>
