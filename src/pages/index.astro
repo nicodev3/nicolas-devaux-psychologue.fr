@@ -49,14 +49,16 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
     <Header />
     <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
       <div class="xl:w-2/3">
-        <h1 class="text-2xl md:text-5xl my-10 xl:mt-5">Psychologue à Sceaux</h1>
+        <h1 class="text-4xl md:text-5xl my-10 xl:mt-5">Psychologue à Sceaux</h1>
         <p class="mb-5">
-          <strong>Psychologue diplômé de l'Université Paris 7, psychothérapeute</strong>, je vous
-          reçois dans mon cabinet de psychologie à Sceaux. Vous pouvez consulter
-          pour des difficultés personnelles, des problèmes relationnels, des
-          troubles de l'humeur, des difficultés professionnelles, des troubles
-          du sommeil, des troubles alimentaires ou toute autre situation dans
-          laquelle vous vous sentez en difficulté ou en souffrance.
+          <strong
+            >Psychologue diplômé de l'Université Paris 7, psychothérapeute</strong
+          >, je vous reçois dans mon cabinet de psychologie à Sceaux. Vous
+          pouvez consulter pour des difficultés personnelles, des problèmes
+          relationnels, des troubles de l'humeur, des difficultés
+          professionnelles, des troubles du sommeil, des troubles alimentaires
+          ou toute autre situation dans laquelle vous vous sentez en difficulté
+          ou en souffrance.
         </p>
         <Image
           src={PsychologueImage}
@@ -66,10 +68,17 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
         />
         <p>
           Ma pratique est intégrative, c'est à dire que je peux utiliser
-          différentes méthodes thérapeutiques <strong>en fonction de vos besoins</strong>, grâce à
-          ma formation. Je propose des séances de psychothérapie analytique,
-          psychodynamique, cognitive et comportementale, mindfulness et pleine
-          conscience.
+          différentes méthodes thérapeutiques <strong
+            >en fonction de vos besoins</strong
+          >. Mon cadre est multiréférentiel, il tient compte des différentes
+          approches thérapeutiques, psychanalytique, cognitive et
+          comportementale et neuro-cognitive.
+        </p>
+        <p>
+          Ainsi, je peux vous proposer des séances de psychothérapie analytique,
+          une thérapie cognitive et comportementale classique ou encore de la 3e
+          vague, comme la thérapie d'acceptation et d'engagement (ACT), la
+          thérapie cognitive basée sur la pleine conscience (MBCT).
         </p>
         <p class="mb-12">
           Le cabinet de psychologie de Sceaux est situé au 63 rue Houdan, au
@@ -77,7 +86,7 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
           les adultes.
         </p>
         <section class="mb-16">
-          <h2 class="mb-8 text-3xl">
+          <h2 class="mb-8 text-2xl md:text-3xl">
             Les différentes approches proposées au cabinet de psychologie de
             Sceaux
           </h2>
@@ -86,7 +95,7 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
               url="/psychotherapie"
               image={(await import("../assets/psychotherapie.png")).default}
               title="Psychothérapie psychodynamique"
-              content="Les psychothérapies psychodynamiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
+              content="Les psychothérapies psychanalytiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
             />
 
             <Card
