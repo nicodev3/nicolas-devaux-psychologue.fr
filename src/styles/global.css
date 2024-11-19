@@ -107,3 +107,18 @@ img {
 		@apply text-xl mt-5 mb-3;
 	}	
 }
+.prose {
+	color: rgb(var(--gray-dark));
+
+	h2 {
+	  margin-bottom: 1rem;
+	}
+
+	h3 {
+	  margin-bottom: 0.5rem;
+	}
+
+	img {
+	  margin-bottom: 1rem;
+	}
+  }

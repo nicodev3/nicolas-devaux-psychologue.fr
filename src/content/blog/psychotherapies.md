@@ -1,5 +1,6 @@
 ---
 title: 'Quelles différences entre les psychothérapies ?'
+pageTitle: 'Différences entre les psychothérapies'
 description: 'Les raisons de consulter un psychologue, un psychiatre ou un psychanalyste.'
 pubDate: 'Oct 29 2024'
 heroImage: '/psychotherapies.jpg'

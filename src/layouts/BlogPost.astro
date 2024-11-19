@@ -8,13 +8,11 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"] & {
   blogPost?: boolean;
-  pageTitle?: string;
   showDate?: boolean;
 };
 
 const {
   title,
-  pageTitle,
   description,
   pubDate,
   updatedDate,
@@ -26,38 +24,6 @@ const {
 <html lang="fr">
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        color: rgb(var(--gray-dark));
-
-        h2 {
-          margin-bottom: 1rem;
-        }
-
-        h3 {
-          margin-bottom: 0.5rem;
-        }
-
-        img {
-          margin-bottom: 1rem;
-        }
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-    </style>
   </head>
 
   <body class="bg-gradient-to-r from-blue-50 to-white">
@@ -65,14 +31,14 @@ const {
     <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
       <article class={`xl:w-2/3 ${blogPost ? "" : "c-wysiwig"}`}>
         <header>
-          <h1 class="text-2xl md:text-5xl my-8 text-center">{pageTitle}</h1>
+          <h1 class="text-2xl md:text-5xl my-8 text-center">{title}</h1>
 
           {
             showDate && (
-              <div class="date">
+              <div class="date mb-2 text-black">
                 <FormattedDate date={pubDate} />
                 {updatedDate && (
-                  <div class="last-updated-on">
+                  <div class="italic">
                     Last updated on <FormattedDate date={updatedDate} />
                   </div>
                 )}

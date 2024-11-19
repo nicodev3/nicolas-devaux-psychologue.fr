@@ -1,7 +1,7 @@
 ---
 title: 'Choisir son psy'
 description: 'Guide pour comprendre les différentes professions du domaine psy en France, incluant les professions réglementées comme les psychologues et psychiatres, ainsi que les non réglementées comme les psychanalystes et praticiens en développement personnel.'
-pubDate: 'Jun 19 2024'
+pubDate: 'Jun 2 2024'
 heroImage: '/trouver-psychologue.jpg'
 ---
 
