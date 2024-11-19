@@ -1,7 +1,6 @@
 ---
 title: 'Quelles différences entre les psychothérapies ?'
-pageTitle: 'Différences entre les psychothérapies'
-description: 'Les raisons de consulter un psychologue, un psychiatre ou un psychanalyste.'
+description: 'Découvrez les principales approches thérapeutiques : psychanalyse, TCC, hypnose et autres méthodes. Guide pour comprendre leurs spécificités et indications.'
 pubDate: 'Oct 29 2024'
 heroImage: '/psychotherapies.jpg'
 ---

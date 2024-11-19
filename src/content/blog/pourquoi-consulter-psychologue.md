@@ -1,6 +1,6 @@
 ---
 title: 'Pourquoi consulter un psychologue'
-description: 'Nombreuses sont les raisons de consulter un psychologue, un psychiatre ou un psychanalyste.'
+description: 'Découvrez les principales raisons de consulter un psychologue : angoisses, dépression, phobies, souffrance au travail, difficultés familiales et de couple.'
 pubDate: 'Jun 19 2024'
 heroImage: '/consulter.png'
 ---
