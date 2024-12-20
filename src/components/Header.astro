@@ -8,7 +8,9 @@ import HeaderLink from "./HeaderLink.astro";
     class="container flex flex-col md:flex-row md:items-center md:justify-between min-h-[4rem]"
   >
     <div class="flex items-center justify-between text-black-dark">
-      <a href="/" class="text-black text-lg hover:text-black">Nicolas Devaux psychologue</a>
+      <a href="/" class="text-black text-lg hover:text-black"
+        >Nicolas Devaux psychologue</a
+      >
       <button
         x-on:click="open = ! open"
         class="md:hidden ml-auto"
@@ -33,16 +35,17 @@ import HeaderLink from "./HeaderLink.astro";
       :class="open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 max-sm:hidden'"
       class="overflow-hidden transition-all duration-300 ease-in-out flex flex-col md:flex-row gap-8 md:gap-4 mt-8 md:mt-0 md:max-h-96 md:opacity-100 *:text-black *:hover:text-black"
     >
-      <HeaderLink href="/psychotherapie">Psychothérapie</HeaderLink>
-      <HeaderLink href="/therapie-pleine-conscience"
+      <HeaderLink href="/psychotherapie/">Psychothérapie</HeaderLink>
+      <HeaderLink href="/therapie-pleine-conscience/"
         >Pleine conscience</HeaderLink
       >
-      <HeaderLink href="/therapie-cognitive-et-comportementale">TCC</HeaderLink>
-      <HeaderLink href="/therapie-acceptation-et-engagement"
+      <HeaderLink href="/therapie-cognitive-et-comportementale/">TCC</HeaderLink
+      >
+      <HeaderLink href="/therapie-acceptation-et-engagement/"
         >Thérapie ACT</HeaderLink
       >
-      <HeaderLink href="/nicolas-devaux-psychologue">Qui suis-je ?</HeaderLink>
-      <HeaderLink href="/blog">Articles</HeaderLink>
+      <HeaderLink href="/nicolas-devaux-psychologue/">Qui suis-je ?</HeaderLink>
+      <HeaderLink href="/blog/">Articles</HeaderLink>
     </div>
   </nav>
 </header>

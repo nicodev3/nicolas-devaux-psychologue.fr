@@ -30,7 +30,7 @@ const posts = (await getCollection("blog")).sort(
                     width={720}
                     height={360}
                     src={post.data.heroImage}
-                    alt=""
+                    alt={post.data.title}
                   />
                   <h4 class="text-xl mt-5">{post.data.title}</h4>
                   <p class="italic">
