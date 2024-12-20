@@ -24,7 +24,7 @@ La psychanalyse, développée par Sigmund Freud, repose sur l'exploration de l'i
 
 Les TCC sont orientées vers le présent et visent à modifier les comportements, pensées et émotions problématiques. Elles sont basées sur des preuves scientifiques et sont souvent utilisées pour des troubles spécifiques comme les phobies, la dépression, et les troubles anxieux.
 
-Parmi les TCC modernes, parfois nommées de la 3e vague, on trouve la [thérapie d'acceptation et d'engagement (ACT)](/therapie-acceptation-et-engagement) et les [thérapies basées sur la pratique de la pleine conscience](/therapie-pleine-conscience) :
+Parmi les TCC modernes, parfois nommées de la 3e vague, on trouve la [thérapie d'acceptation et d'engagement (ACT)](/therapie-acceptation-et-engagement/) et les [thérapies basées sur la pratique de la pleine conscience](/therapie-pleine-conscience/) :
 
 ### Thérapie ACT
 
