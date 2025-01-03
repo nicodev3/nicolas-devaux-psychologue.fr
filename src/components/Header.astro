@@ -8,7 +8,7 @@ import HeaderLink from "./HeaderLink.astro";
     class="container flex flex-col md:flex-row md:items-center md:justify-between min-h-[4rem]"
   >
     <div class="flex items-center justify-between text-black-dark">
-      <a href="/" class="text-black text-lg hover:text-black"
+      <a href="/" class="text-black text-lg hover:text-black xl:text-xl md:bg-secondary md:px-6 md:py-3 md:rounded-full"
         >Nicolas Devaux psychologue</a
       >
       <button
@@ -33,7 +33,7 @@ import HeaderLink from "./HeaderLink.astro";
     <div
       x-cloak
       :class="open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 max-sm:hidden'"
-      class="overflow-hidden transition-all duration-300 ease-in-out flex flex-col md:flex-row gap-8 md:gap-4 mt-8 md:mt-0 md:max-h-96 md:opacity-100 *:text-black *:hover:text-black"
+      class="overflow-hidden transition-all duration-300 ease-in-out flex flex-col md:flex-row gap-8 md:gap-4 mt-8 md:mt-0 md:max-h-96 md:opacity-100 *:text-black *:hover:text-black xl:text-xl"
     >
       <HeaderLink href="/psychotherapie/">Psychothérapie</HeaderLink>
       <HeaderLink href="/therapie-pleine-conscience/"
