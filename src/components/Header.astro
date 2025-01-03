@@ -5,7 +5,7 @@ import HeaderLink from "./HeaderLink.astro";
 <header class="m-0 py-5 shadow-md bg-primary">
   <nav
     x-data="{ open: false }"
-    class="container flex flex-col md:flex-row md:items-center md:justify-between min-h-[4rem]"
+    class="container flex flex-col md:flex-row md:items-center md:justify-between"
   >
     <div class="flex items-center justify-between text-black-dark">
       <a href="/" class="text-black text-lg hover:text-black xl:text-xl md:bg-secondary md:px-6 md:py-3 md:rounded-full"
@@ -55,12 +55,9 @@ import HeaderLink from "./HeaderLink.astro";
     text-decoration: none;
   }
 
-  nav a {
-    border-bottom: 4px solid transparent;
-  }
   nav a.active {
+    border-bottom: 2px solid var(--accent);
     text-decoration: none;
-    border-bottom-color: var(--accent);
   }
 
   [x-cloak] {
