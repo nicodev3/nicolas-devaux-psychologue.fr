@@ -1,6 +1,6 @@
 ---
 title: "Guérir les traumatismess avec l'EMDR MOSAIC"
-description: "Découvrez l'hypnothérapie, une approche thérapeutique naturelle qui utilise l'état hypnotique pour favoriser le changement et le bien-être psychologique."
+description: "L'EMDR MOSAIC, soigner les traumatismes sans souffrance"
 pubDate: "april 26 2025"
 heroImage: "/hypnotherapie.webp"
 ---
