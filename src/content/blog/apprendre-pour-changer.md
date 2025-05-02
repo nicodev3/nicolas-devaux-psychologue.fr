@@ -2,7 +2,7 @@
 title: 'Apprendre pour changer'
 description: "Apprendre pour changer : une approche innovante qui combine pleine conscience et engagement dans l'action pour développer la flexibilité psychologique."
 pubDate: 'Dec 24 2024'
-heroImage: '/trouver-psychologue.jpg'
+heroImage: '/trouver-psychologue.webp'
 ---
 
 Apprendre à changer : l’art de se transformer avec bienveillance

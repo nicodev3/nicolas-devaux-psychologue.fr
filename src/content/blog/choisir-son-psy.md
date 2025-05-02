@@ -2,7 +2,7 @@
 title: 'Choisir son psy'
 description: 'Guide pour comprendre les différentes professions du domaine psy en France : psychologues, psychiatres, psychanalystes et autres praticiens.'
 pubDate: 'Jun 2 2024'
-heroImage: '/trouver-psychologue.jpg'
+heroImage: '/choisir-son-psy.webp'
 ---
 
 Psy… Voilà un drôle de mot passé dans le langage courant ! Mais qui est vraiment psy ? Il est difficile de se repérer lorsqu'on souhaite s'adresser à un professionnel. Il existe un dispositif légal qui encadre les activités du domaine psy. Voici donc un panel non exhaustif qui vous permettra de savoir à qui vous vous adressez. Petite boussole en milieu psy...

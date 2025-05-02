@@ -2,7 +2,7 @@
 title: "Guérir les traumatismess avec l'EMDR MOSAIC"
 description: "L'EMDR MOSAIC, soigner les traumatismes sans souffrance"
 pubDate: "april 26 2025"
-heroImage: "/hypnotherapie.webp"
+heroImage: "/emdr-mosaic.webp"
 ---
 
 La thérapie **EMDR-MOSAIC**, mise au point par **Stéphanie Khalfa**, psychologue clinicienne et psychothérapeute française, est une approche thérapeutique innovante qui élargit les possibilités de l'**EMDR** traditionnel (Eye Movement Desensitization and Reprocessing).
