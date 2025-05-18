@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+import { Image } from "astro:assets";
+import MonSoutienPsyImage from "../assets/soutien-psy.webp";
 ---
 
 <Layout
@@ -30,6 +32,9 @@ import Layout from "../layouts/BlogPost.astro";
       > auprès d’un psychologue partenaire, incluant une séance d’évaluation initiale
       et jusqu’à 11 séances de suivi.
     </p>
+    <div class="my-8 lg:w-10/12">
+      <Image src={MonSoutienPsyImage} alt="Mon Soutien Psy" class="w-full object-cover" />
+    </div>
     <div>
       <h2 class="mb-5">À qui s’adresse ce dispositif&nbsp;?</h2>
       <ul class="list-disc list-inside">

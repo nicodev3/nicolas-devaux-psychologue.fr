@@ -123,6 +123,7 @@ img {
 .text-link {
     color: var(--accent);
     transition: color 0.3s ease-out;
+    text-decoration: underline;
 }
 
 .text-link:hover {
