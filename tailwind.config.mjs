@@ -11,6 +11,7 @@ export default {
 			'white': '#fff',
 			'black': '#000',
 			'black-dark': '#000',
+			'transparent': 'transparent',
 			        // Ajout pour "Derniers articles"
 			'articles-bg': '#F9F5EE',    // Beige Pâle (Fond des articles)
 			'articles-title': '#365943', // Brun Foncé (Titre de la section articles)
