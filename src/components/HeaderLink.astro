@@ -10,13 +10,21 @@ const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === "/" + subpath?.[0];
 ---
 
-<a href={href} class:list={[className, { active: isActive }, "hover:border-accent lg:hover:border-b-2 transition-[border] duration-100 ease-out"]} {...props}>
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
   <slot />
 </a>
 <style>
   a.active {
-    font-weight: bolder;
-    border-bottom: 2px solid var(--accent);
-    text-decoration: none;
+    background-color: white;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  
+  @media (min-width: 1280px) {
+    a.active {
+      background-color: transparent;
+      border-bottom: 2px solid var(--accent);
+      border-radius: 0;
+    }
   }
 </style>

@@ -49,70 +49,99 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
     <Header />
     <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
       <div class="xl:w-2/3">
-        <h1 class="text-4xl md:text-5xl my-10 xl:mt-5">Psychologue à Sceaux</h1>
-        <p class="mb-5">
-          <strong>Psychologue clinicien</strong> diplômé de l’Université Paris 7,
-          psychothérapeute, je vous accueille dans mon cabinet situé au 63 rue Houdan,
-          au cœur de la rue piétonne de Sceaux. Je propose un accompagnement personnalisé
-          aux enfants, adolescents, adultes, couples, dans un cadre bienveillant
-          et confidentiel.
-        </p>
-        <h2 class="mb-3">Une approche intégrative centrée sur la personne</h2>
-        <p class="mb-5">
-          Ma pratique repose sur une approche intégrative, combinant différentes
-          méthodes thérapeutiques pour répondre au mieux à vos besoins
-          spécifiques. Je m'appuie notamment sur :
-        </p>
-        <ul class="mb-5 *:mb-2">
-          <li>
-            <strong>La psychothérapie psychodynamique</strong> : pour explorer les
-            conflits internes et les expériences passées influençant votre vie actuelle.
-          </li>
-          <li>
-            <strong>Les thérapies cognitives et comportementales (TCC)</strong> :
-            pour identifier et modifier les schémas de pensée et de comportement
-            problématiques.
-          </li>
-          <li>
-            <strong>La thérapie d'acceptation et d'engagement (ACT)</strong> : pour
-            développer la flexibilité psychologique et agir en accord avec vos valeurs
-            profondes .
-          </li>
-          <li>
-            <strong>La pleine conscience (MBCT et MBSR)</strong> : pour développer
-            une meilleure conscience du moment présent et gérer plus efficacement le stress
-            et les émotions difficiles.
-          </li>
-        </ul>
-        <Image
-          src={PsychologueImage}
-          alt="Psychologue adulte"
-          class="my-10"
-          loading="eager"
-        />
-        <h2>Pour quelles difficultés consulter ?</h2>
-        <p class="mb-5">
-          Je vous accompagne dans diverses problématiques, telles que :
-        </p>
-        <ul class="mb-5 list-disc list-inside">
-          <li>Troubles de l'humeur, anxiété, dépression, phobies, TOC</li>
-          <li>Difficultés relationnelles, professionnelles ou familiales</li>
-          <li>Traumatismes, deuils, gestion du stress</li>
-          <li>
-            Problèmes de confiance en soi, estime de soi, parentalité,
-            sexualité,
-          </li>
-          <li>Addictions, troubles du comportement, difficultés scolaires</li>
-          <li>Problèmes de couple</li>
-          <li>Situations de harcèlement ou de violence</li>
-        </ul>
+                <!-- Section Hero avec image intégrée -->
+        <div class="bg-white rounded-xl shadow-md p-8 mb-12 border border-gray-100">
+          <div class="grid lg:grid-cols-3 gap-8 items-center">
+            <!-- Contenu textuel -->
+            <div class="lg:col-span-2">
+              <h1 class="text-4xl md:text-5xl font-bold text-tertiary mb-6 leading-tight">
+                Psychologue à Sceaux
+              </h1>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                <strong class="text-tertiary">Psychologue clinicien</strong> diplômé de l'Université Paris 7,
+                psychothérapeute, je vous accueille dans mon cabinet situé au <strong>63 rue Houdan</strong>,
+                au cœur de la rue piétonne de Sceaux. Je propose un accompagnement personnalisé
+                aux enfants, adolescents, adultes, couples, dans un cadre bienveillant
+                et confidentiel.
+              </p>
+            </div>
+            
+            <!-- Image du psychologue -->
+            <div class="lg:col-span-1 flex justify-center lg:justify-end">
+              <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 max-w-xs">
+                <Image
+                  src={PsychologueImage}
+                  alt="Nicolas Devaux, Psychologue à Sceaux"
+                  class="rounded-xl w-full"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <section class="mb-16">
-          <h2 class="mb-8 text-2xl md:text-3xl">
+                <!-- Section Approche intégrative -->
+        <div class="mb-12">
+          <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
+            <h2 class="text-2xl font-bold text-tertiary mb-6">Une approche intégrative centrée sur la personne</h2>
+            
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Ma pratique repose sur une approche intégrative, combinant différentes
+              méthodes thérapeutiques pour répondre au mieux à vos besoins
+              spécifiques. Je m'appuie notamment sur :
+            </p>
+
+            <ul class="space-y-4 text-gray-700">
+              <li>
+                <strong class="text-tertiary">La psychothérapie psychodynamique</strong> : pour explorer les
+                conflits internes et les expériences passées influençant votre vie actuelle.
+              </li>
+              <li>
+                <strong class="text-tertiary">Les thérapies cognitives et comportementales (TCC)</strong> :
+                pour identifier et modifier les schémas de pensée et de comportement
+                problématiques.
+              </li>
+              <li>
+                <strong class="text-tertiary">La thérapie d'acceptation et d'engagement (ACT)</strong> : pour
+                développer la flexibilité psychologique et agir en accord avec vos valeurs
+                profondes.
+              </li>
+              <li>
+                <strong class="text-tertiary">La pleine conscience (MBCT et MBSR)</strong> : pour développer
+                une meilleure conscience du moment présent et gérer plus efficacement le stress
+                et les émotions difficiles.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section Difficultés -->
+        <div class="mb-12">
+          <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
+            <h2 class="text-2xl font-bold text-tertiary mb-6">Pour quelles difficultés consulter ?</h2>
+            
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Je vous accompagne dans diverses problématiques, telles que :
+            </p>
+
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+              <li>Troubles de l'humeur, anxiété, dépression, phobies, TOC</li>
+              <li>Difficultés relationnelles, professionnelles ou familiales</li>
+              <li>Traumatismes, deuils, gestion du stress</li>
+              <li>Problèmes de confiance en soi, estime de soi, parentalité, sexualité</li>
+              <li>Addictions, troubles du comportement, difficultés scolaires</li>
+              <li>Problèmes de couple</li>
+              <li>Situations de harcèlement ou de violence</li>
+            </ul>
+          </div>
+        </div>
+
+        <section class="mb-12">
+          <h2 class="mb-6 text-2xl md:text-3xl">
             Les différentes approches proposées au cabinet de psychologie de
             Sceaux
           </h2>
-          <div class="grid xl:grid-cols-2 gap-8 xl:gap-12">
+          <div class="grid xl:grid-cols-2 gap-8">
             <Card
               url="/psychotherapie/"
               image={(await import("../assets/psychotherapie.png")).default}
@@ -143,18 +172,109 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
             />
           </div>
         </section>
-        <section class="mb-16">
-          <h2 class="mb-8 text-2xl md:text-3xl">Horaires et tarifs</h2>
-          <p>
-            Je vous propose des séances de 45 minutes à 1h selon le travail
-            proposé. Le tarif est de 70€.
-          </p>
-          <p>
-            Les séances de psychologie et de psychothérapie ne sont pas
-            remboursées par la sécurité sociale mais certaines mutuelles les
-            prennent en charge. Renseignez-vous auprès de votre mutuelle.
-          </p>
-          <p>Le cabinet est ouvert du lundi au samedi de 8h à 20h.</p>
+
+        <section class="mb-12">
+          <h2 class="mb-6 text-2xl md:text-3xl text-center">Horaires et tarifs</h2>
+          
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Carte Tarifs -->
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-gray-100">
+              <div class="flex items-center mb-6">
+                <div class="bg-gray-50 p-3 rounded-full mr-4">
+                  <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-tertiary">Tarifs des consultations</h3>
+              </div>
+              
+              <div class="space-y-3">
+                <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span class="text-gray-700">Consultation individuelle</span>
+                  <span class="text-xl font-bold text-tertiary">70€</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span class="text-gray-700">Consultation de couple</span>
+                  <span class="text-xl font-bold text-tertiary">110€</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span class="text-gray-700">Consultation vidéo</span>
+                  <span class="text-xl font-bold text-tertiary">70€</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span class="text-gray-700">Mon Soutien Psy*</span>
+                  <span class="text-xl font-bold text-tertiary">50€</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-gray-700">Psychomotricité</span>
+                  <span class="text-xl font-bold text-tertiary">60€</span>
+                </div>
+              </div>
+              
+              <div class="mt-4 p-3 bg-blue-50 rounded-lg">
+                <p class="text-sm text-blue-800">
+                  <strong>*Mon Soutien Psy :</strong> Ces séances remboursées ne peuvent être prises qu'avec mon accord préalable. Nouveaux patients non acceptés actuellement pour ce dispositif. 
+                  <a href="https://www.ameli.fr/assure/remboursements/rembourse/mon-soutien-psy" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline">
+                    Plus d'infos sur le site officiel
+                  </a>.
+                </p>
+              </div>
+              
+              <div class="mt-3 p-3 bg-blue-50 rounded-lg">
+                <p class="text-sm text-blue-800">
+                  <strong>💳 Paiement :</strong> Chèques, espèces et virement bancaire. Cartes bancaires non acceptées.
+                </p>
+              </div>
+            </div>
+
+            <!-- Carte Horaires -->
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-gray-100">
+              <div class="flex items-center mb-6">
+                <div class="bg-gray-50 p-3 rounded-full mr-4">
+                  <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-tertiary">Horaires d'ouverture</h3>
+              </div>
+              
+              <div class="space-y-3">
+                <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span class="text-gray-700">Lundi - Samedi</span>
+                  <span class="font-semibold text-tertiary">8h00 - 20h00</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-gray-700">Dimanche</span>
+                  <span class="text-red-600 font-semibold">Fermé</span>
+                </div>
+              </div>
+              
+              <div class="mt-4 p-3 bg-green-50 rounded-lg">
+                <p class="text-sm text-green-800">
+                  <strong>📅 Prise de rendez-vous :</strong> Consultations sur rendez-vous uniquement. Réservez facilement via Doctolib.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Informations complémentaires -->
+          <div class="mt-8 bg-gradient-to-r from-secondary/30 to-primary/20 rounded-xl p-6 max-w-4xl mx-auto">
+            <div class="flex items-start">
+              <div class="bg-yellow-100 p-2 rounded-full mr-4 flex-shrink-0">
+                <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-tertiary mb-2">Informations importantes</h4>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  Les séances de psychologie et de psychothérapie ne sont pas remboursées par la Sécurité Sociale, 
+                  mais de nombreuses mutuelles proposent une prise en charge partielle ou totale. 
+                  N'hésitez pas à vous renseigner auprès de votre complémentaire santé.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
       <SideBar />

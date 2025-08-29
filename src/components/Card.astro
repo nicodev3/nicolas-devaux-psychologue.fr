@@ -11,26 +11,47 @@ interface Props {
 const { title, content, url, image } = Astro.props;
 ---
 
-<section
-  class="group border-secondary border-2 p-5 text-black flex flex-col gap-3"
+<article
+  class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
 >
-  <h3 class="text-2xl text-tertiary">
-    {title}
-  </h3>
-  <hr class="border-secondary" />
-  <Image
-    src={image}
-    alt={title}
-    width={174}
-    height={174}
-    class="mx-auto my-5"
-  />
-  <p>
-    {content}
-  </p>
-  <a
-    href={url}
-    class="bg-accent group-hover:bg-accent-dark transition-all ease-out hover:shadow-md py-3 px-5 rouded-sm ml-auto mt-auto text-right rounded-br-lg shadow-sm"
-    >{title}</a
-  >
-</section>
+  <!-- En-tête avec titre -->
+  <header class="p-6 pb-4">
+    <h3 class="text-2xl font-bold text-tertiary leading-tight">
+      {title}
+    </h3>
+    <div class="w-8 h-0.5 bg-accent rounded-full mt-3"></div>
+  </header>
+
+  <!-- Container image -->
+  <div class="px-6 flex justify-center">
+    <div class="bg-secondary/30 p-4 rounded-lg">
+      <Image
+        src={image}
+        alt={title}
+        width={174}
+        height={174}
+        class="rounded-lg"
+      />
+    </div>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="flex-grow px-6 py-4">
+    <p class="text-gray-700 leading-relaxed text-base">
+      {content}
+    </p>
+  </div>
+
+  <!-- Footer avec bouton -->
+  <footer class="p-6 pt-4 mt-auto">
+    <div class="flex justify-end">
+      <a
+        href={url}
+        class="btn-modern"
+        aria-label={`En savoir plus sur ${title}`}
+      >
+        {title}
+      </a>
+    </div>
+  </footer>
+</article>
