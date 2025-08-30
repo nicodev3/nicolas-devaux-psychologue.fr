@@ -107,6 +107,11 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
                 profondes.
               </li>
               <li>
+                <strong class="text-tertiary">La thérapie centrée sur les émotions (TCE)</strong> : pour
+                explorer et transformer les émotions difficiles, améliorer l'expression émotionnelle
+                et renforcer les liens relationnels.
+              </li>
+              <li>
                 <strong class="text-tertiary">La pleine conscience (MBCT et MBSR)</strong> : pour développer
                 une meilleure conscience du moment présent et gérer plus efficacement le stress
                 et les émotions difficiles.
@@ -146,7 +151,7 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
               url="/psychotherapie/"
               image={(await import("../assets/psychotherapie.png")).default}
               title="Psychothérapie psychodynamique"
-              content="Les psychothérapies psychanalytiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
+              content="Les psychothérapies psychodynamiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
             />
 
             <Card
@@ -170,6 +175,66 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
               title="Thérapies cognitives et comportementales (TCC)"
               content="La TCC (Thérapie cognitive et comportementale) utilise des techniques cognitives pour traiter les troubles émotionnels et comportementaux."
             />
+          </div>
+        </section>
+
+        <!-- Section FAQ -->
+        <section class="mb-12">
+          <h2 class="mb-8 text-2xl md:text-3xl text-center text-tertiary">Questions fréquentes</h2>
+          
+          <div class="max-w-4xl mx-auto space-y-6">
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
+              <h3 class="text-lg font-semibold text-tertiary mb-3">Comment prendre rendez-vous ?</h3>
+              <p class="text-gray-700 leading-relaxed">
+                Vous pouvez prendre rendez-vous facilement via <strong>Doctolib</strong> en cliquant sur le bouton "Prendre rendez-vous" ci-dessus. 
+                Les consultations se déroulent uniquement sur rendez-vous, du lundi au samedi de 8h à 20h.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
+              <h3 class="text-lg font-semibold text-tertiary mb-3">Quelle est la durée d'une séance ?</h3>
+              <p class="text-gray-700 leading-relaxed">
+                Les séances individuelles durent <strong>45 minutes</strong>, les consultations de couple <strong>50 minutes</strong>. 
+                Les séances avec les enfants sont plus courtes (<strong>30 minutes</strong>) car cette durée est plus adaptée à leur rythme et à leur capacité d'attention.
+                <br><br>
+                Dans le cadre du dispositif "Mon Soutien Psy", les séances sont également de <strong>30 minutes</strong> afin de garantir la pérennité de cette offre pour un maximum de personnes.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
+              <h3 class="text-lg font-semibold text-tertiary mb-3">Les séances sont-elles remboursées ?</h3>
+              <p class="text-gray-700 leading-relaxed">
+                Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses 
+                <strong>mutuelles proposent une prise en charge</strong> partielle ou totale. Le dispositif "Mon Soutien Psy" 
+                permet également un remboursement sous certaines conditions.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
+              <h3 class="text-lg font-semibold text-tertiary mb-3">Comment choisir entre les différentes approches ?</h3>
+              <p class="text-gray-700 leading-relaxed">
+                Chaque approche a ses spécificités. Lors de notre premier entretien, nous déterminerons ensemble 
+                la méthode la plus adaptée à vos besoins. Mon approche intégrative me permet d'adapter le traitement 
+                à votre situation unique.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
+              <h3 class="text-lg font-semibold text-tertiary mb-3">Combien de séances sont nécessaires ?</h3>
+              <p class="text-gray-700 leading-relaxed">
+                La durée varie selon vos besoins et objectifs. Certaines difficultés peuvent être résolues en quelques séances, 
+                tandis que d'autres nécessitent un accompagnement plus long. Nous évaluons régulièrement l'évolution 
+                et ajustons ensemble le rythme des consultations.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
+              <h3 class="text-lg font-semibold text-tertiary mb-3">Proposez-vous des consultations en ligne ?</h3>
+              <p class="text-gray-700 leading-relaxed">
+                Oui, je propose des <strong>consultations vidéo</strong> pour les personnes qui ne peuvent pas se déplacer 
+                ou préfèrent ce format. Les séances en ligne sont tout aussi efficaces et respectent la même confidentialité.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -205,10 +270,7 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
                   <span class="text-gray-700">Mon Soutien Psy*</span>
                   <span class="text-xl font-bold text-tertiary">50€</span>
                 </div>
-                <div class="flex justify-between items-center py-2">
-                  <span class="text-gray-700">Psychomotricité</span>
-                  <span class="text-xl font-bold text-tertiary">60€</span>
-                </div>
+
               </div>
               
               <div class="mt-4 p-3 bg-blue-50 rounded-lg">

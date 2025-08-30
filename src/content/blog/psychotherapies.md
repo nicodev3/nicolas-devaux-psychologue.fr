@@ -1,19 +1,19 @@
 ---
 title: 'Quelles différences entre les psychothérapies ?'
-description: 'Découvrez les principales approches thérapeutiques : psychanalyse, TCC, hypnose et autres méthodes. Guide pour comprendre leurs spécificités et indications.'
+description: 'Découvrez les principales approches thérapeutiques : psychothérapie psychodynamique, TCC, hypnose et autres méthodes. Guide pour comprendre leurs spécificités et indications.'
 pubDate: 'Oct 29 2024'
 heroImage: '/psychotherapies.webp'
 ---
 
-## Hypnose, TCC, relaxation, psychanalyse... quelles différences ?
+## Hypnose, TCC, relaxation, psychothérapie psychodynamique... quelles différences ?
 
-Il n'y a pas une mais des psychothérapies. Si la psychanalyse est la plus connue d'entre elles, les psychothérapies psychanalytiques, la thérapie comportementale et cognitive, l'hypnose ou encore la thérapie systémique font partie du paysage de soins courant. D'autres formes de thérapie, moins encadrées que les premières existent. C'est le cas par exemple de la gestalt thérapie, de la très médiatique EMDR, de la thérapie psychochorporelle, de l'art thérapie...
+Il n'y a pas une mais des psychothérapies. Si la psychothérapie psychodynamique est l'une des plus connues d'entre elles, les psychothérapies psychodynamiques, la thérapie comportementale et cognitive, l'hypnose ou encore la thérapie systémique font partie du paysage de soins courant. D'autres formes de thérapie, moins encadrées que les premières existent. C'est le cas par exemple de la gestalt thérapie, de la très médiatique EMDR, de la thérapie psychochorporelle, de l'art thérapie...
 
 Certaines psychothérapies sont éprouvées, d'autres plus empiriques. Certaines sont reconnues et maniées par des professionnels longuement formés, d'autres pratiquées par des thérapeutes parfois bien formés, et parfois peu scrupuleux... Il est important de savoir que le titre de psychothérapeute est encadré par la loi depuis peu afin de prévenir certaines dérives et de réserver ce titre à des professionnels sérieusement formés.
 
-## La psychanalyse
+## La psychothérapie psychodynamique
 
-La psychanalyse, développée par Sigmund Freud, repose sur l'exploration de l'inconscient, souvent à travers des souvenirs d'enfance, des rêves, et des associations d'idées. Elle implique une démarche introspective profonde et nécessite un engagement long.
+La psychothérapie psychodynamique, inspirée des travaux de Sigmund Freud et de ses successeurs, repose sur l'exploration des dynamiques inconscientes, souvent à travers des souvenirs d'enfance, des rêves, et des associations d'idées. Elle implique une démarche introspective profonde et nécessite un engagement à moyen ou long terme.
 
 - **Objectif** : Comprendre les conflits inconscients qui influencent les comportements.
 - **Méthode** : Libre association, analyse des rêves, transfert.
