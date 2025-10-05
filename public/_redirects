@@ -1,0 +1,21 @@
+# Redirections pour éviter les erreurs Google Search Console
+# Rediriger les URLs sans slash final vers celles avec slash final
+
+# Redirections du blog
+/blog /blog/ 301!
+/blog/* /blog/:splat/ 301!
+
+# Redirections des pages principales
+/psychotherapie /psychotherapie/ 301!
+/therapie-acceptation-et-engagement /therapie-acceptation-et-engagement/ 301!
+/therapie-cognitive-et-comportementale /therapie-cognitive-et-comportementale/ 301!
+/therapie-pleine-conscience /therapie-pleine-conscience/ 301!
+/mentions-legales /mentions-legales/ 301!
+/mon-soutien-psy /mon-soutien-psy/ 301!
+/nicolas-devaux-psychologue /nicolas-devaux-psychologue/ 301!
+
+# Redirection de l'ancien RSS (si nécessaire)
+/rss /rss.xml 301!
+
+# Fallback pour toutes les autres URLs
+/* /index.html 200
