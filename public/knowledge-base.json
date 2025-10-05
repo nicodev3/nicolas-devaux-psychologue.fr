@@ -34,11 +34,13 @@
         "name": "Nicolas Devaux - Psychologue",
         "description": "Cabinet de psychologie spécialisé en thérapies cognitives et comportementales",
         "url": "https://nicolas-devaux-psychologue.fr",
-        "medicalSpecialty": [
-            "Psychologie clinique",
-            "Thérapie cognitive et comportementale",
-            "Thérapie d'acceptation et d'engagement",
-            "Thérapie basée sur la pleine conscience"
+        "medicalSpecialty": {
+            "@type": "MedicalSpecialty",
+            "name": "Psychologie clinique"
+        },
+        "additionalType": [
+            "https://schema.org/MedicalBusiness",
+            "https://schema.org/ProfessionalService"
         ],
         "serviceArea": {
             "@type": "GeoCircle",

@@ -68,11 +68,13 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
   },
   "openingHours": "Mo-Fr 09:00-19:00",
   "priceRange": "€€",
-  "medicalSpecialty": [
-    "Psychologie clinique",
-    "Thérapie cognitive et comportementale",
-    "Thérapie d'acceptation et d'engagement",
-    "Thérapie basée sur la pleine conscience"
+  "medicalSpecialty": {
+    "@type": "MedicalSpecialty",
+    "name": "Psychologie clinique"
+  },
+  "additionalType": [
+    "https://schema.org/MedicalBusiness",
+    "https://schema.org/ProfessionalService"
   ],
   "serviceArea": {
     "@type": "GeoCircle",
