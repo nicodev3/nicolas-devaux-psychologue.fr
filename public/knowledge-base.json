@@ -46,8 +46,8 @@
             "@type": "GeoCircle",
             "geoMidpoint": {
                 "@type": "GeoCoordinates",
-                "latitude": 48.8566,
-                "longitude": 2.3522
+                "latitude": 48.7764,
+                "longitude": 2.2903
             },
             "geoRadius": "50000"
         }
@@ -178,6 +178,14 @@
     "contact": {
         "website": "https://nicolas-devaux-psychologue.fr",
         "appointmentBooking": "https://www.doctolib.fr/psychologue/nicolas-devaux",
-        "location": "Paris, Île-de-France, France"
+        "location": "Sceaux, Île-de-France, France",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "63 rue Houdan",
+            "addressLocality": "Sceaux",
+            "postalCode": "92330",
+            "addressRegion": "Île-de-France",
+            "addressCountry": "FR"
+        }
     }
 }
