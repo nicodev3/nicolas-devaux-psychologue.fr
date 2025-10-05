@@ -1,7 +1,7 @@
 # Redirections pour éviter les erreurs Google Search Console
 # Rediriger les URLs sans slash final vers celles avec slash final
 
-# Redirections du blog
+# Redirections du blog - éviter les doubles slashes
 /blog /blog/ 301!
 /blog/* /blog/:splat/ 301!
 
