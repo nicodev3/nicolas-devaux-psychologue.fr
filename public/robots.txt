@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+Allow: /knowledge-base.json
+Allow: /sitemap.xml
+
+# Fichiers spécifiques pour les IA
+User-agent: GPTBot
+Allow: /
+Allow: /knowledge-base.json
+Allow: /sitemap.xml
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /knowledge-base.json
+Allow: /sitemap.xml
+
+User-agent: CCBot
+Allow: /
+Allow: /knowledge-base.json
+Allow: /sitemap.xml
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /knowledge-base.json
+Allow: /sitemap.xml
+
+User-agent: Claude-Web
+Allow: /
+Allow: /knowledge-base.json
+Allow: /sitemap.xml
+
+Sitemap: https://nicolas-devaux-psychologue.fr/sitemap.xml
+Sitemap: https://nicolas-devaux-psychologue.fr/sitemap-index.xml

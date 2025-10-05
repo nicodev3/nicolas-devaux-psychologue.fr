@@ -1,0 +1,80 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  author?: string;
+}
+
+const { title, description, pubDate, slug, author = "Nicolas Devaux" } = Astro.props;
+const url = new URL(`/blog/${slug}/`, Astro.site);
+---
+
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {JSON.stringify(title)},
+  "description": {JSON.stringify(description)},
+  "url": {JSON.stringify(url.toString())},
+  "datePublished": {JSON.stringify(pubDate.toISOString())},
+  "dateModified": {JSON.stringify(pubDate.toISOString())},
+  "author": {
+    "@type": "Person",
+    "name": {JSON.stringify(author)},
+    "jobTitle": "Psychologue clinicien",
+    "worksFor": {
+      "@type": "MedicalBusiness",
+      "name": "Nicolas Devaux - Psychologue"
+    }
+  },
+  "publisher": {
+    "@type": "MedicalBusiness",
+    "name": "Nicolas Devaux - Psychologue",
+    "url": "https://nicolas-devaux-psychologue.fr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nicolas-devaux-psychologue.fr/logo-300.jpg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {JSON.stringify(url.toString())}
+  },
+  "keywords": [
+    "psychologie",
+    "psychothérapie",
+    "thérapie cognitive et comportementale",
+    "TCC",
+    "thérapie d'acceptation et d'engagement",
+    "ACT",
+    "pleine conscience",
+    "MBCT",
+    "anxiété",
+    "dépression",
+    "santé mentale"
+  ],
+  "about": [
+    {
+      "@type": "MedicalCondition",
+      "name": "Troubles anxieux"
+    },
+    {
+      "@type": "MedicalCondition", 
+      "name": "Dépression"
+    },
+    {
+      "@type": "MedicalCondition",
+      "name": "Troubles de l'humeur"
+    }
+  ],
+  "mentions": [
+    {
+      "@type": "MedicalBusiness",
+      "name": "Nicolas Devaux - Psychologue",
+      "url": "https://nicolas-devaux-psychologue.fr"
+    }
+  ]
+}
+</script>
