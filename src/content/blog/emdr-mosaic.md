@@ -1,6 +1,6 @@
 ---
 title: "Guérir les traumatismess avec l'EMDR MOSAIC"
-description: "Découvrez l'EMDR-MOSAIC, une approche thérapeutique innovante développée par Stéphanie Khalfa qui étend les possibilités de l'EMDR traditionnel pour traiter efficacement les traumatismes"
+description: "Découvrez l'EMDR-MOSAIC, une approche thérapeutique innovante pour traiter efficacement les traumatismes"
 pubDate: "april 26 2025"
 heroImage: "/emdr-mosaic.webp"
 ---

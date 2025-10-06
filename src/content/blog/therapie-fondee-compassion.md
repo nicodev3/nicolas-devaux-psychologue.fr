@@ -1,6 +1,6 @@
 ---
 title: 'La thérapie fondée sur la compassion (TFC)'
-description: 'Découvrez la thérapie fondée sur la compassion développée par Paul Gilbert, une approche innovante qui cultive la bienveillance envers soi-même pour guérir les blessures psychologiques.'
+description: 'La thérapie fondée sur la compassion : une approche innovante pour cultiver la bienveillance envers soi-même.'
 pubDate: 'oct 5 2025'
 heroImage: '/psychotherapies.webp'
 ---

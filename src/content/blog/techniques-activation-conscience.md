@@ -1,6 +1,6 @@
 ---
 title: 'Les techniques d''activation de la conscience (TAC)'
-description: 'Découvrez les techniques d''activation de la conscience, une approche innovante qui combine pleine conscience et activation émotionnelle pour faciliter le changement thérapeutique.'
+description: 'Les techniques d''activation de la conscience : une approche alliant pleine conscience et activation émotionnelle.'
 pubDate: 'Aug 30 2025'
 heroImage: '/psychotherapies.webp'
 ---

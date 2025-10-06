@@ -1,6 +1,6 @@
 ---
 title: 'Quelles différences entre les psychothérapies ?'
-description: 'Découvrez les principales approches thérapeutiques : psychothérapie psychodynamique, TCC, hypnose et autres méthodes. Guide pour comprendre leurs spécificités et indications.'
+description: 'Découvrez les principales approches thérapeutiques : psychothérapie psychodynamique, TCC, hypnose et autres méthodes.'
 pubDate: 'Oct 29 2024'
 heroImage: '/psychotherapies.webp'
 ---

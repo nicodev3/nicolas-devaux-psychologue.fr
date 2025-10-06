@@ -1,6 +1,6 @@
 ---
 title: 'La thérapie centrée sur les émotions (TCE)'
-description: 'Découvrez la thérapie centrée sur les émotions, une approche innovante développée par Leslie Greenberg pour transformer les émotions difficiles et améliorer les relations.'
+description: 'La thérapie centrée sur les émotions : une approche innovante pour transformer les émotions difficiles.'
 pubDate: 'Sept 1 2025'
 heroImage: '/psychotherapies.webp'
 ---
