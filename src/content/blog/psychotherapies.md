@@ -34,6 +34,9 @@ L’ACT aide les individus à accepter les émotions et pensées difficiles au l
 
 Ces approches, qui incluent des techniques de méditation, visent à renforcer la conscience et l'acceptation de l'instant présent, ce qui est utile pour gérer le stress et les pensées envahissantes.
 
+### Thérapie intégrative comportementale de couple (IBCT)
+Approche spécialisée couples qui combine acceptation émotionnelle et changement comportemental pour réduire les cycles coercitifs et renforcer l’intimité. Voir l’article dédié : [Thérapie intégrative comportementale de couple (IBCT)](/blog/therapie-integrative-comportementale-couple/).
+
 - **Objectif** : Changer les comportements et pensées dysfonctionnels.
 - **Méthode** : Exercices comportementaux, restructuration cognitive, exposition progressive, méditation de pleine conscience.
 - **Durée** : Court terme, de quelques mois à un an.

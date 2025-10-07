@@ -25,7 +25,22 @@ export default function remarkAutolinkKeywords(options = {}) {
         regexp: new RegExp(`(\\b)(${escapeRegex(kw)})(\\b)`, 'i'),
     }));
 
-    return function transformer(tree) {
+    return function transformer(tree, file) {
+        const currentPath = normalizePath(
+            (file && file.data && file.data.astro && (
+                (file.data.astro.url && file.data.astro.url.pathname) ||
+                (file.data.astro.canonicalURL && file.data.astro.canonicalURL.pathname) ||
+                (file.data.astro.fileUrl && file.data.astro.fileUrl.pathname) ||
+                (function() {
+                    try {
+                        const site = file.data.astro && file.data.astro.site;
+                        const reqUrl = file.data.astro && file.data.astro.request && file.data.astro.request.url;
+                        if (reqUrl) return new URL(reqUrl, site || 'http://localhost').pathname;
+                    } catch {}
+                    return null;
+                })()
+            )) || null
+        );
         let inserted = 0;
         visit(tree, 'text', (node, index, parent) => {
             if (inserted >= perPageLimit) return;
@@ -53,6 +68,15 @@ export default function remarkAutolinkKeywords(options = {}) {
                 const middle = remainingText.slice(start, end);
                 const after = remainingText.slice(end);
 
+                // Éviter de créer un lien vers la page courante
+                const targetPath = normalizePath(url);
+                if (currentPath && targetPath && currentPath === targetPath) {
+                    if (before) newChildren.push({ type: 'text', value: before });
+                    newChildren.push({ type: 'text', value: middle });
+                    remainingText = after;
+                    continue;
+                }
+
                 if (before) newChildren.push({ type: 'text', value: before });
                 newChildren.push({
                     type: 'link',
@@ -75,4 +99,20 @@ export default function remarkAutolinkKeywords(options = {}) {
 
 function escapeRegex(str) {
     return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function normalizePath(url) {
+    if (!url) return null;
+    try {
+        // If it's an absolute URL, parse and return pathname
+        if (String(url).startsWith('http://') || String(url).startsWith('https://')) {
+            return new URL(String(url)).pathname.replace(/\/*$/, '/');
+        }
+        // Ensure leading slash, collapse multiple slashes, ensure trailing slash for directories
+        const withLeading = ('/' + String(url)).replace(/\/+/g, '/');
+        const pathname = withLeading.endsWith('/') ? withLeading : withLeading + '/';
+        return pathname;
+    } catch {
+        return String(url);
+    }
 }

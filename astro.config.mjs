@@ -11,6 +11,7 @@ import robotsTxt from 'astro-robots-txt';
 import tailwindcss from '@tailwindcss/vite';
 import remarkAutolinkKeywords from './src/remark/remark-autolink-keywords.js';
 import keywordMap from './src/remark/keyword-map.js';
+import rehypeExternalLinks from './src/remark/rehype-external-links.js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,9 @@ export default defineConfig({
     markdown: {
         remarkPlugins: [
             [remarkAutolinkKeywords, { keywordMap, perPageLimit: 6 }],
+        ],
+        rehypePlugins: [
+            [rehypeExternalLinks, {}],
         ],
     },
 

@@ -80,6 +80,61 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
           </div>
         </div>
 
+        <!-- Bandeau publics et motifs (design amélioré) -->
+        <div class="mb-12">
+          <div class="relative rounded-2xl p-6 md:p-8 bg-white border border-gray-100 shadow-md">
+            <div class="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-r from-primary/5 via-secondary/5 to-tertiary/5"></div>
+            <div class="relative grid md:grid-cols-2 gap-8 items-stretch">
+              <!-- Publics -->
+              <div class="min-h-[200px] h-full flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                      <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                      <path fill-rule="evenodd" d="M12 14c-4.418 0-8 2.239-8 5v1a1 1 0 001 1h14a1 1 0 001-1v-1c0-2.761-3.582-5-8-5z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-tertiary">Publics accueillis</h3>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-800 text-sm">Enfants</span>
+                  <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-800 text-sm">Adolescents</span>
+                  <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-800 text-sm">Adultes</span>
+                  <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-800 text-sm">Couples</span>
+                  <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-800 text-sm">Visioconsultation</span>
+                </div>
+                <p class="text-sm text-gray-600 mt-auto">Consultations au cabinet de Sceaux et en visioconsultation.</p>
+              </div>
+
+              <!-- Motifs -->
+              <div class="min-h-[200px] h-full flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                      <path d="M12 3a9 9 0 100 18 9 9 0 000-18zM11 7h2v6h-2V7zm0 8h2v2h-2v-2z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-tertiary">Motifs fréquents</h3>
+                </div>
+                <ul class="grid sm:grid-cols-2 gap-2 text-sm">
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Difficultés parentales</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Conflits de couple</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Communication</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Anxiété</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Stress</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Dépression</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Estime de soi</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Trauma • Deuil</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">TOC • Phobies</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Sommeil</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Burn‑out</li>
+                  <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg">Préparation aux examens</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
                 <!-- Section Approche intégrative -->
         <div class="mb-12">
           <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
@@ -174,6 +229,13 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
               image={(await import("../assets/tcc.png")).default}
               title="Thérapies cognitives et comportementales (TCC)"
               content="La TCC (Thérapie cognitive et comportementale) utilise des techniques cognitives pour traiter les troubles émotionnels et comportementaux."
+            />
+
+            <Card
+              url="/blog/therapie-integrative-comportementale-couple/"
+              image={(await import("../assets/soutien-psy.webp")).default}
+              title="Thérapies de couple (IBCT)"
+              content="Apaiser les cycles de conflit, renforcer l’intimité et la coopération grâce à l’IBCT et des outils de l’ACT."
             />
           </div>
         </section>

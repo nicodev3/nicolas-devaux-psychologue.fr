@@ -26,6 +26,8 @@ export default {
     "méditation": "/therapie-pleine-conscience/",
     "thérapie centrée sur les émotions": "/blog/therapie-centree-emotions/",
     "thérapie de couple": "/blog/therapie-couple/",
+    "thérapie intégrative comportementale de couple": "/blog/therapie-integrative-comportementale-couple/",
+    "IBCT": "/blog/therapie-integrative-comportementale-couple/",
     "thérapie fondée sur la compassion": "/blog/therapie-fondee-compassion/",
     "CFT": "/blog/therapie-fondee-compassion/",
 

@@ -40,6 +40,20 @@ L'ACT, thérapie de troisième vague, offre des outils puissants pour les couple
 
 Cette approche permet aux couples de sortir des cercles vicieux de la lutte contre les émotions et de se reconnecter à ce qui compte vraiment dans leur relation.
 
+### Thérapie intégrative comportementale de couple (IBCT)
+Développée par Andrew Christensen et Neil Jacobson, l'IBCT combine des techniques de changement comportemental avec des interventions d'acceptation émotionnelle. Elle vise à réduire les cycles coercitifs (critiques, escalade, retrait défensif) en aidant les partenaires à voir leurs schémas interactionnels plutôt que de se blâmer mutuellement. L'accent est mis sur la création d'un contexte relationnel plus sûr, dans lequel l'empathie et la compréhension des différences – parfois peu accessibles au changement – permettent au changement comportemental de devenir possible et durable.
+
+En pratique, le travail thérapeutique met l'accent sur :
+
+- **La réunion empathique autour du problème** pour augmenter l'empathie et diminuer les reproches
+- **Le détachement unifié** (prendre du recul ensemble face au schéma, plutôt que contre la personne)
+- **La tolérance** de certaines différences stables, afin d'apaiser les luttes de contrôle
+- **Des changements ciblés** lorsque ceux-ci sont réalistes et soutenables pour le couple
+
+Pour une présentation en français, voir la ressource de l'ACBS : [La thérapie intégrative comportementale de couple](https://contextualscience.org/la_therapie_integrative_comportementale_de_couple).
+
+Pour en savoir plus, consultez aussi l’article dédié : [Thérapie intégrative comportementale de couple (IBCT)](/blog/therapie-integrative-comportementale-couple/).
+
 ## Les bénéfices de cette approche
 
 ### Compréhension profonde des dynamiques
@@ -61,6 +75,11 @@ Cette approche permet aux couples de sortir des cercles vicieux de la lutte cont
 - Expression authentique des besoins et émotions
 - Écoute empathique et non-jugeante
 - Résolution des conflits par la compréhension mutuelle
+
+### Réduction des cycles coercitifs (apports IBCT)
+- Diminution des escalades conflictuelles et du blâme réciproque
+- Meilleure tolérance des différences et validation émotionnelle
+- Contexte plus sûr pour des changements comportementaux qui tiennent dans le temps
 
 ## Comment se déroule une séance ?
 
