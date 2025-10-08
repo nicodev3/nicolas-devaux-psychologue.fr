@@ -1,191 +1,79 @@
 {
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    "name": "Base de connaissances - Nicolas Devaux Psychologue",
-    "description": "Informations structurées sur les services de psychothérapie, spécialisations et approches thérapeutiques",
-    "url": "https://nicolas-devaux-psychologue.fr/knowledge-base.json",
-    "publisher": {
-        "@type": "Person",
-        "name": "Nicolas Devaux",
-        "jobTitle": "Psychologue clinicien"
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Nicolas Devaux - Psychologue",
+  "description": "Psychologue clinicien spécialisé en TCC, ACT et approches basées sur la pleine conscience. Consultations à Sceaux et en visio.",
+  "url": "https://nicolas-devaux-psychologue.fr",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://nicolas-devaux-psychologue.fr/logo-300.jpg"
+  },
+  "image": [
+    "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg"
+  ],
+  "telephone": "+33629341367",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "63 rue Houdan",
+    "addressLocality": "Sceaux",
+    "postalCode": "92330",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.7764,
+    "longitude": 2.2903
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "19:00"
     },
-    "datePublished": "2025-01-15",
-    "dateModified": "2025-01-15",
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "keywords": [
-        "psychologie",
-        "psychothérapie",
-        "thérapie cognitive et comportementale",
-        "TCC",
-        "ACT",
-        "pleine conscience",
-        "MBCT",
-        "anxiété",
-        "dépression",
-        "santé mentale"
-    ],
-    "distribution": {
-        "@type": "DataDownload",
-        "contentUrl": "https://nicolas-devaux-psychologue.fr/knowledge-base.json",
-        "encodingFormat": "application/json"
-    },
-    "about": {
-        "@type": "MedicalBusiness",
-        "name": "Nicolas Devaux - Psychologue",
-        "description": "Cabinet de psychologie spécialisé en thérapies cognitives et comportementales",
-        "url": "https://nicolas-devaux-psychologue.fr",
-        "medicalSpecialty": {
-            "@type": "MedicalSpecialty",
-            "name": "Psychologie clinique"
-        },
-        "additionalType": [
-            "https://schema.org/MedicalBusiness",
-            "https://schema.org/ProfessionalService"
-        ],
-        "serviceArea": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": 48.7764,
-                "longitude": 2.2903
-            },
-            "geoRadius": "50000"
-        }
-    },
-    "specializations": [{
-            "name": "Thérapie Cognitive et Comportementale (TCC)",
-            "description": "Approche thérapeutique basée sur l'identification et la modification des pensées et comportements problématiques",
-            "indications": [
-                "Troubles anxieux",
-                "Dépression",
-                "Phobies",
-                "Troubles obsessionnels compulsifs",
-                "Troubles de l'alimentation"
-            ],
-            "techniques": [
-                "Restructuration cognitive",
-                "Exposition progressive",
-                "Techniques de relaxation",
-                "Journal de pensées"
-            ]
-        },
-        {
-            "name": "Thérapie d'Acceptation et d'Engagement (ACT)",
-            "description": "Approche de troisième vague des TCC qui combine acceptation psychologique et action engagée",
-            "indications": [
-                "Anxiété chronique",
-                "Dépression résistante",
-                "Douleur chronique",
-                "Stress post-traumatique",
-                "Burn-out"
-            ],
-            "techniques": [
-                "Défusion cognitive",
-                "Acceptation",
-                "Pleine conscience",
-                "Clarification des valeurs",
-                "Action engagée"
-            ]
-        },
-        {
-            "name": "Thérapie basée sur la Pleine Conscience (MBCT)",
-            "description": "Approche combinant TCC et méditation de pleine conscience pour prévenir les rechutes dépressives",
-            "indications": [
-                "Prévention des rechutes dépressives",
-                "Anxiété généralisée",
-                "Stress chronique",
-                "Régulation émotionnelle"
-            ],
-            "techniques": [
-                "Méditation de pleine conscience",
-                "Scan corporel",
-                "Méditation marchée",
-                "Exercices de respiration"
-            ]
-        },
-        {
-            "name": "Thérapie Fondée sur la Compassion (TFC)",
-            "description": "Approche développée par Paul Gilbert pour développer la compassion envers soi-même",
-            "indications": [
-                "Autocritique intense",
-                "Sentiments de honte",
-                "Traumatismes",
-                "Troubles de la personnalité",
-                "Difficultés d'estime de soi"
-            ],
-            "techniques": [
-                "Exercices de visualisation",
-                "Méditation de compassion",
-                "Travail sur chaise",
-                "Exercices de respiration"
-            ]
-        }
-    ],
-    "commonConditions": [{
-            "name": "Troubles anxieux",
-            "description": "Groupe de troubles mentaux caractérisés par une anxiété excessive et persistante",
-            "types": [
-                "Trouble d'anxiété généralisée",
-                "Trouble panique",
-                "Phobies spécifiques",
-                "Phobie sociale",
-                "Trouble d'anxiété de séparation"
-            ],
-            "symptoms": [
-                "Inquiétude excessive",
-                "Agitation",
-                "Fatigue",
-                "Difficultés de concentration",
-                "Irritabilité",
-                "Tension musculaire",
-                "Troubles du sommeil"
-            ]
-        },
-        {
-            "name": "Dépression",
-            "description": "Trouble de l'humeur caractérisé par une tristesse persistante et une perte d'intérêt",
-            "types": [
-                "Épisode dépressif majeur",
-                "Trouble dépressif persistant",
-                "Dépression saisonnière",
-                "Dépression post-partum"
-            ],
-            "symptoms": [
-                "Humeur dépressive",
-                "Perte d'intérêt ou de plaisir",
-                "Fatigue ou perte d'énergie",
-                "Sentiments de culpabilité",
-                "Difficultés de concentration",
-                "Pensées de mort",
-                "Troubles du sommeil",
-                "Changements d'appétit"
-            ]
-        }
-    ],
-    "therapeuticApproaches": [{
-            "name": "Approche intégrative",
-            "description": "Combinaison de différentes approches thérapeutiques adaptées aux besoins spécifiques du patient"
-        },
-        {
-            "name": "Approche centrée sur la personne",
-            "description": "Respect de l'autonomie et de la dignité du patient dans le processus thérapeutique"
-        },
-        {
-            "name": "Approche basée sur les preuves",
-            "description": "Utilisation de méthodes thérapeutiques validées par la recherche scientifique"
-        }
-    ],
-    "contact": {
-        "website": "https://nicolas-devaux-psychologue.fr",
-        "appointmentBooking": "https://www.doctolib.fr/psychologue/nicolas-devaux",
-        "location": "Sceaux, Île-de-France, France",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "63 rue Houdan",
-            "addressLocality": "Sceaux",
-            "postalCode": "92330",
-            "addressRegion": "Île-de-France",
-            "addressCountry": "FR"
-        }
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "12:30"
     }
+  ],
+  "priceRange": "€€",
+  "knowsAbout": [
+    "Thérapie cognitive et comportementale (TCC)",
+    "Thérapie d'acceptation et d'engagement (ACT)",
+    "Pleine conscience (MBCT, MBSR)",
+    "Psychologie clinique"
+  ],
+  "areaServed": {
+    "@type": "GeoShape",
+    "circle": "48.7764 2.2903 50000"
+  },
+  "makesOffer": [
+    {
+      "@type": "AggregateOffer",
+      "name": "Consultations de psychothérapie",
+      "priceCurrency": "EUR",
+      "lowPrice": 50,
+      "highPrice": 110,
+      "url": "https://nicolas-devaux-psychologue.fr/tarifs",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Consultations individuelles",
+        "serviceType": "Psychologie clinique et psychothérapie",
+        "description": "Accompagnement en TCC, ACT et approches de pleine conscience."
+      }
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Prise de rendez-vous",
+    "telephone": "+33629341367",
+    "url": "https://www.doctolib.fr/psychologue/nicolas-devaux",
+    "availableLanguage": ["fr-FR"]
+  },
+  "sameAs": [
+    "https://www.doctolib.fr/psychologue/nicolas-devaux"
+  ]
 }

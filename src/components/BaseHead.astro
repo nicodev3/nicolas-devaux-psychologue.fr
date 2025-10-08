@@ -48,13 +48,18 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": "ProfessionalService",
   "name": "Nicolas Devaux - Psychologue",
-  "description": "Psychologue clinicien spécialisé en thérapies cognitives et comportementales, thérapie d'acceptation et d'engagement (ACT), et thérapies basées sur la pleine conscience.",
+  "description": "Psychologue clinicien spécialisé en TCC, ACT et approches basées sur la pleine conscience. Consultations à Sceaux et en visio.",
   "url": "https://nicolas-devaux-psychologue.fr",
-  "logo": "https://nicolas-devaux-psychologue.fr/logo-300.jpg",
-  "image": "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg",
-  "telephone": "+33-1-XX-XX-XX-XX",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://nicolas-devaux-psychologue.fr/logo-300.jpg"
+  },
+  "image": [
+    "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg"
+  ],
+  "telephone": "+33629341367",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "63 rue Houdan",
@@ -68,54 +73,53 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
     "latitude": 48.7764,
     "longitude": 2.2903
   },
-  "openingHours": "Mo-Fr 09:00-19:00",
-  "priceRange": "€€",
-  "medicalSpecialty": {
-    "@type": "MedicalSpecialty",
-    "name": "Psychologie clinique"
-  },
-  "additionalType": [
-    "https://schema.org/MedicalBusiness",
-    "https://schema.org/ProfessionalService"
-  ],
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 48.8566,
-      "longitude": 2.3522
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "19:00"
     },
-    "geoRadius": "50000"
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "12:30"
+    }
+  ],
+  "priceRange": "€€",
+  "knowsAbout": [
+    "Thérapie cognitive et comportementale (TCC)",
+    "Thérapie d'acceptation et d'engagement (ACT)",
+    "Pleine conscience (MBCT, MBSR)",
+    "Psychologie clinique"
+  ],
+  "areaServed": {
+    "@type": "GeoShape",
+    "circle": "48.7764 2.2903 50000"
   },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Services de psychothérapie",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Thérapie cognitive et comportementale",
-          "description": "TCC pour traiter l'anxiété, la dépression et autres troubles psychologiques"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Thérapie d'acceptation et d'engagement (ACT)",
-          "description": "Approche thérapeutique basée sur l'acceptation et l'action engagée"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Thérapie basée sur la pleine conscience",
-          "description": "MBCT et autres approches de méditation pour la santé mentale"
-        }
+  "makesOffer": [
+    {
+      "@type": "AggregateOffer",
+      "name": "Consultations de psychothérapie",
+      "priceCurrency": "EUR",
+      "lowPrice": 50,
+      "highPrice": 110,
+      "url": "https://nicolas-devaux-psychologue.fr/tarifs",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Consultations individuelles",
+        "serviceType": "Psychologie clinique et psychothérapie",
+        "description": "Accompagnement en TCC, ACT et approches de pleine conscience."
       }
-    ]
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Prise de rendez-vous",
+    "telephone": "+33629341367",
+    "url": "https://www.doctolib.fr/psychologue/nicolas-devaux",
+    "availableLanguage": ["fr-FR"]
   },
   "sameAs": [
     "https://www.doctolib.fr/psychologue/nicolas-devaux"
