@@ -1,80 +1,214 @@
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"ProfessionalService",
-      "@id":"https://nicolas-devaux-psychologue.fr/#cabinet",
-      "name":"Nicolas Devaux - Psychologue",
-      "description":"Psychologue clinicien à Sceaux, spécialisé en TCC, ACT et pleine conscience. Consultations en français et en anglais, en cabinet ou en visio.",
-      "url":"https://nicolas-devaux-psychologue.fr",
-      "telephone":"+33629341367",
-      "identifier":{"@type":"PropertyValue","propertyID":"RPPS","value":"10008482910"},
-      "address":{
-        "@type":"PostalAddress",
-        "streetAddress":"63 rue Houdan",
-        "addressLocality":"Sceaux",
-        "postalCode":"92330",
-        "addressRegion":"Île-de-France",
-        "addressCountry":"FR"
+      "@type": ["LocalBusiness","ProfessionalService"],
+      "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+      "name": "Cabinet de psychologie — Nicolas Devaux",
+      "url": "https://nicolas-devaux-psychologue.fr",
+      "telephone": "+33629341367",
+      "email": "contact@nicolas-devaux-psychologue.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nicolas-devaux-psychologue.fr/logo.png"
       },
-      "geo":{"@type":"GeoCoordinates","latitude":48.7764,"longitude":2.2903},
-      "openingHoursSpecification":[
-        {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"20:00"}
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg",
+        "caption": "Cabinet de psychologie — Nicolas Devaux"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "63 rue Houdan",
+        "addressLocality": "Sceaux",
+        "postalCode": "92330",
+        "addressRegion": "Île-de-France",
+        "addressCountry": "FR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 48.7764, "longitude": 2.2903 },
+      "hasMap": "https://www.google.com/maps?q=63+rue+Houdan+Sceaux+92330",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
       ],
-      "priceRange":"€€",
-      "knowsAbout":[
+      "priceRange": "€€",
+      "areaServed": [
+        { "@type": "City", "name": "Sceaux" },
+        { "@type": "City", "name": "Bourg-la-Reine" },
+        { "@type": "City", "name": "Fontenay-aux-Roses" },
+        { "@type": "City", "name": "Châtenay-Malabry" },
+        { "@type": "City", "name": "Le Plessis-Robinson" },
+        { "@type": "City", "name": "Antony" },
+        { "@type": "City", "name": "Bagneux" },
+        { "@type": "City", "name": "Cachan" },
+        { "@type": "City", "name": "Fresnes" },
+        { "@type": "City", "name": "L'Haÿ-les-Roses" },
+        { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" },
+        { "@type": "AdministrativeArea", "name": "Val-de-Marne" },
+        { "@type": "AdministrativeArea", "name": "Île-de-France" }
+      ],
+      "knowsAbout": [
         "Thérapie cognitive et comportementale (TCC)",
         "Thérapie d'acceptation et d'engagement (ACT)",
         "Pleine conscience (MBCT, MBSR)",
-        "Psychologie clinique"
+        "Psychologie clinique",
+        "Thérapie de couple",
+        "Psychologie de l'enfant",
+        "Psychologie de l'adolescent",
+        "Gestion de l'anxiété",
+        "Dépression",
+        "Stress post-traumatique",
+        "Troubles du comportement",
+        "Difficultés relationnelles"
       ],
-      "makesOffer":[
+      "employee": {
+        "@type": "Person",
+        "@id": "https://nicolas-devaux-psychologue.fr/#nicolas",
+        "name": "Nicolas Devaux",
+        "jobTitle": "Psychologue clinicien",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "RPPS",
+          "value": "10008482910"
+        },
+        "knowsLanguage": [
+          { "@type": "Language", "name": "Français", "alternateName": "fr-FR" },
+          { "@type": "Language", "name": "Anglais", "alternateName": "en-GB" }
+        ]
+      },
+      "contactPoint": [
         {
-          "@type":"AggregateOffer",
-          "name":"Consultations de psychothérapie",
-          "priceCurrency":"EUR",
-          "lowPrice":50,
-          "highPrice":110,
-          "url":"https://nicolas-devaux-psychologue.fr/tarifs",
-          "itemOffered":{
-            "@type":"Service",
-            "name":"Consultations individuelles",
-            "serviceType":"Psychologie clinique et psychothérapie",
-            "availableChannel":{
-              "@type":"ServiceChannel",
-              "serviceUrl":"https://www.doctolib.fr/psychologue/nicolas-devaux",
-              "availableLanguage":["fr-FR","en-GB","en-US"]
-            }
+          "@type": "ContactPoint",
+          "contactType": "Prise de rendez-vous en ligne",
+          "url": "https://www.doctolib.fr/psychologue/nicolas-devaux",
+          "availableLanguage": ["fr-FR","en-GB"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "08:00",
+            "closes": "20:00"
           }
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "Renseignements",
+          "telephone": "+33629341367",
+          "availableLanguage": ["fr-FR","en-GB"]
         }
       ],
-      "contactPoint":{
-        "@type":"ContactPoint",
-        "contactType":"Prise de rendez-vous",
-        "telephone":"+33629341367",
-        "url":"https://www.doctolib.fr/psychologue/nicolas-devaux",
-        "availableLanguage":["fr-FR","en-GB","en-US"]
-      },
-      "sameAs":[
-        "https://www.doctolib.fr/psychologue/nicolas-devaux"
+      "sameAs": [
+        "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
+        "https://www.linkedin.com/in/nicodev3/"
+      ],
+      "makesOffer": [
+        {
+          "@type": "AggregateOffer",
+          "name": "Consultations de psychothérapie (fourchette tarifaire)",
+          "priceCurrency": "EUR",
+          "lowPrice": 50,
+          "highPrice": 110,
+          "url": "https://nicolas-devaux-psychologue.fr/tarifs",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Consultations de psychothérapie",
+            "serviceType": "Psychologie clinique et psychothérapie",
+            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Consultation individuelle en cabinet",
+          "price": 70,
+          "priceCurrency": "EUR",
+          "url": "https://nicolas-devaux-psychologue.fr/consultations",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Psychothérapie individuelle",
+            "serviceType": "Psychothérapie",
+            "audience": [{ "@type": "PeopleAudience", "suggestedMinAge": 6, "suggestedMaxAge": 99 }],
+            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Thérapie de couple",
+          "price": 110,
+          "priceCurrency": "EUR",
+          "url": "https://nicolas-devaux-psychologue.fr/therapie-couple",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Thérapie de couple",
+            "serviceType": "Counseling",
+            "audience": { "@type": "PeopleAudience", "audienceType": "Couples" },
+            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Consultation enfant/adolescent",
+          "price": 70,
+          "priceCurrency": "EUR",
+          "url": "https://nicolas-devaux-psychologue.fr/consultations",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Psychothérapie enfant/adolescent",
+            "serviceType": "Psychologie de l'enfant",
+            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 6, "suggestedMaxAge": 17 },
+            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Consultation en visioconférence",
+          "price": 70,
+          "priceCurrency": "EUR",
+          "url": "https://nicolas-devaux-psychologue.fr/consultations",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Téléconsultation psychologique",
+            "serviceType": "Téléconsultation",
+            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 12 },
+            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Programme MBCT (8 séances)",
+          "price": 50,
+          "priceCurrency": "EUR",
+          "url": "https://nicolas-devaux-psychologue.fr/pleine-conscience",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Programme de pleine conscience",
+            "serviceType": "Psychothérapie de groupe",
+            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 18 },
+            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
+          }
+        }
       ]
     },
     {
-      "@type":"LocalBusiness",
-      "@id":"https://nicolas-devaux-psychologue.fr/#local",
-      "name":"Cabinet de psychologie Nicolas Devaux",
-      "image":"https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg",
-      "priceRange":"€€",
-      "address":{
-        "@type":"PostalAddress",
-        "streetAddress":"63 rue Houdan",
-        "addressLocality":"Sceaux",
-        "postalCode":"92330",
-        "addressRegion":"Île-de-France",
-        "addressCountry":"FR"
-      },
-      "geo":{"@type":"GeoCoordinates","latitude":48.7764,"longitude":2.2903},
-      "hasMap":"https://www.google.com/maps?q=63+rue+Houdan+Sceaux+92330"
+      "@type": "WebSite",
+      "@id": "https://nicolas-devaux-psychologue.fr/#website",
+      "url": "https://nicolas-devaux-psychologue.fr",
+      "name": "Nicolas Devaux - Psychologue à Sceaux",
+      "description": "Site officiel du cabinet de psychologie de Nicolas Devaux (TCC, ACT, pleine conscience).",
+      "publisher": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
+      "inLanguage": ["fr-FR","en-GB"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://nicolas-devaux-psychologue.fr/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
   ]
 }
