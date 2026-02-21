@@ -1,0 +1,95 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+
+const SITE_URL = "https://nicolas-devaux-psychologue.fr";
+
+const LABEL_MAP: Record<string, string> = {
+  "psychotherapie": "Psychothérapie",
+  "therapie-cognitive-et-comportementale": "Thérapie cognitive et comportementale",
+  "therapie-acceptation-et-engagement": "Thérapie ACT",
+  "therapie-pleine-conscience": "Pleine conscience (MBCT/MBSR)",
+  "mon-soutien-psy": "Mon Soutien Psy",
+  "nicolas-devaux-psychologue": "Qui suis-je ?",
+  "mentions-legales": "Mentions légales",
+  "blog": "Articles",
+};
+
+const pathname = Astro.url.pathname;
+
+// Ne pas afficher le breadcrumb sur la page d'accueil
+const isHome = pathname === "/" || pathname === "";
+if (isHome) {
+  // Pas de rendu
+}
+
+const segments = pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+
+interface Crumb {
+  label: string;
+  href: string;
+}
+
+const crumbs: Crumb[] = [{ label: "Accueil", href: "/" }];
+
+let cumulativePath = "";
+segments.forEach((segment, index) => {
+  cumulativePath += `/${segment}`;
+  const isLast = index === segments.length - 1;
+
+  let label: string;
+  if (isLast && title && !LABEL_MAP[segment]) {
+    label = title;
+  } else {
+    label = LABEL_MAP[segment] ?? segment.replace(/-/g, " ");
+  }
+
+  crumbs.push({ label, href: `${cumulativePath}/` });
+});
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": crumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": crumb.label,
+    "item": `${SITE_URL}${crumb.href}`,
+  })),
+};
+---
+
+{!isHome && (
+  <>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <nav aria-label="Fil d'ariane" class="container py-2">
+      <ol class="flex flex-wrap items-center gap-1 text-sm text-gray-500">
+        {crumbs.map((crumb, index) => {
+          const isLast = index === crumbs.length - 1;
+          return (
+            <li class="flex items-center gap-1">
+              {index > 0 && (
+                <span aria-hidden="true" class="text-gray-300 select-none">/</span>
+              )}
+              {isLast ? (
+                <span class="text-tertiary font-medium" aria-current="page">
+                  {crumb.label}
+                </span>
+              ) : (
+                <a
+                  href={crumb.href}
+                  class="hover:text-accent transition-colors duration-200"
+                >
+                  {crumb.label}
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  </>
+)}

@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -29,6 +30,7 @@ const {
 
   <body class="bg-gradient-to-r from-blue-50 to-white">
     <Header />
+    <Breadcrumb title={title} />
     <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
       <article class="xl:w-2/3">
         <!-- Section Hero -->
