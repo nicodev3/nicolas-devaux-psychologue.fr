@@ -73,9 +73,8 @@ Les SBA semblent moduler ces réseaux et favoriser une reconsolidation de la mé
 
 ## Efficacité : ce qu'on peut dire avec rigueur
 
-- L'EMDR dispose déjà d'un niveau de validation élevé pour le TSPT.
-- MOSAIC est une approche récente, avec des bases cliniques et neurophysiologiques prometteuses.
-- Des études comparatives supplémentaires sont nécessaires pour confirmer son efficacité selon chaque indication.
+- L'EMDR est une thérapie validée scientifiquement pour le TSPT.
+- MOSAIC repose sur des bases cliniques et neurophysiologiques solides et montre déjà des résultats très prometteurs dans la prise en charge du psychotraumatisme.
 
 ## Pourquoi des patients choisissent MOSAIC
 
