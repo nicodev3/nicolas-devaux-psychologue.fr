@@ -1,4 +1,4 @@
-/*
+﻿/*
   The CSS in this style tag is based off of Bear Blog's default CSS.
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
@@ -7,7 +7,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Couleurs personnalisées pour Tailwind v4 - WCAG optimisées */
+  /* Couleurs personnalisÃ©es pour Tailwind v4 - WCAG optimisÃ©es */
   --color-primary: #8fa48e;        /* Assombri pour meilleur contraste */
   --color-secondary: #f2e9e1;
   --color-tertiary: #4a4a3e;       /* Assombri pour meilleur contraste */
@@ -19,7 +19,7 @@
   --color-articles-item: #4C7C5F;
   --color-articles-date: #7A431F;
 
-  /* Couleurs de base nécessaires */
+  /* Couleurs de base nÃ©cessaires */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-blue-50: #eff6ff;
@@ -177,6 +177,28 @@ img {
     color: var(--accent-dark);
 }
 
+abbr {
+    text-decoration: none;
+    border-bottom: none;
+    color: inherit;
+    cursor: inherit;
+}
+
+.c-wysiwig ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+}
+
+.c-wysiwig ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+}
+
+.c-wysiwig li {
+    margin: 0.25rem 0;
+}
 .prose {
     color: rgb(var(--gray-dark));
 }
@@ -198,7 +220,7 @@ blockquote {
     padding: 1rem;
 }
 
-/* Bouton moderne amélioré */
+/* Bouton moderne amÃ©liorÃ© */
 .btn-modern {
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
     color: white;
@@ -246,7 +268,7 @@ blockquote {
     box-shadow: 0 2px 10px 0 rgba(212, 99, 63, 0.3);
 }
 
-/* Variante avec classes Tailwind optimisées */
+/* Variante avec classes Tailwind optimisÃ©es */
 .btn-tailwind-modern {
     @apply bg-gradient-to-br from-accent to-accent-dark text-white font-semibold;
     @apply py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl;
@@ -257,7 +279,7 @@ blockquote {
     @apply relative overflow-hidden;
 }
 
-/* Container personnalisé pour Tailwind v4 */
+/* Container personnalisÃ© pour Tailwind v4 */
 .container {
     width: 100%;
     margin-left: auto;
@@ -279,3 +301,5 @@ blockquote {
         padding-right: 5rem;
     }
 }
+
+

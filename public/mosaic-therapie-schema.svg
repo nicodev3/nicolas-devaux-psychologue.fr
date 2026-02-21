@@ -1,0 +1,60 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Schéma clinique de la thérapie MOSAIC</title>
+  <desc id="desc">Schéma clinique présentant les stimulations bilatérales alternées, l'intégration cérébrale et l'objectif d'apaisement de la détresse traumatique.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 40px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #0F172A; }
+      .subtitle { font: 500 20px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #334155; }
+      .label { font: 600 20px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #0F172A; }
+      .small { font: 500 17px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #334155; }
+      .stroke-main { stroke: #1E40AF; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .stroke-soft { stroke: #64748B; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .panel { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+
+  <text x="600" y="88" text-anchor="middle" class="title">Thérapie MOSAIC</text>
+  <text x="600" y="122" text-anchor="middle" class="subtitle">Stimulations bilatérales alternées et intégration orientée solution</text>
+
+  <rect x="90" y="245" width="230" height="200" rx="16" class="panel"/>
+  <text x="205" y="286" text-anchor="middle" class="label">SBA</text>
+  <text x="205" y="315" text-anchor="middle" class="small">gauche / droite</text>
+  <circle cx="155" cy="360" r="11" fill="#1E40AF"/>
+  <circle cx="205" cy="360" r="11" fill="#0EA5A3"/>
+  <circle cx="255" cy="360" r="11" fill="#1E40AF"/>
+  <line x1="155" y1="390" x2="255" y2="390" class="stroke-soft"/>
+
+  <rect x="435" y="170" width="330" height="350" rx="165" class="panel"/>
+  <path d="M518 304c28-43 85-59 133-39 46 20 74 67 71 116-4 58-48 106-105 120-56 13-117-11-145-60" class="stroke-main"/>
+  <circle cx="548" cy="306" r="8" fill="#1E40AF"/>
+  <circle cx="622" cy="276" r="8" fill="#0EA5A3"/>
+  <circle cx="684" cy="326" r="8" fill="#1E40AF"/>
+  <circle cx="642" cy="390" r="8" fill="#0EA5A3"/>
+  <text x="600" y="548" text-anchor="middle" class="label">Intégration cérébrale</text>
+
+  <rect x="880" y="245" width="230" height="200" rx="16" class="panel"/>
+  <text x="995" y="286" text-anchor="middle" class="label">Solution</text>
+  <text x="995" y="315" text-anchor="middle" class="small">ressentie dans le corps</text>
+  <path d="M948 355c12-12 32-12 44 0s12 32 0 44-32 12-44 0-12-32 0-44z" fill="#DBEAFE"/>
+  <path d="M1000 355c12-12 32-12 44 0s12 32 0 44-32 12-44 0-12-32 0-44z" fill="#CCFBF1"/>
+
+  <line x1="320" y1="345" x2="435" y2="345" class="stroke-soft"/>
+  <line x1="765" y1="345" x2="880" y2="345" class="stroke-soft"/>
+  <path d="M412 335l23 10-23 10" fill="#1E40AF"/>
+  <path d="M788 335l-23 10 23 10" fill="#0EA5A3"/>
+
+  <rect x="250" y="555" width="700" height="116" rx="14" class="panel"/>
+  <text x="600" y="600" text-anchor="middle" class="label">Objectif clinique</text>
+  <text x="600" y="626" text-anchor="middle" class="small">
+    <tspan x="600" dy="0">Réduire la détresse traumatique sans exposition prolongée</tspan>
+    <tspan x="600" dy="24">à la douleur du souvenir.</tspan>
+  </text>
+</svg>
+

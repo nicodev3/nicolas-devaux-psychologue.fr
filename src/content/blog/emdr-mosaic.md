@@ -1,77 +1,136 @@
----
-title: "Guérir les traumatismess avec l'EMDR MOSAIC"
-description: "Découvrez l'EMDR-MOSAIC, une approche thérapeutique innovante pour traiter efficacement les traumatismes"
+﻿---
+title: "Thérapie MOSAIC à Sceaux : trauma et apaisement"
+description: "Psychologue à Sceaux, j'utilise la thérapie MOSAIC pour accompagner les difficultés liées aux mémoires douloureuses, aux émotions fortes et au stress, au cabinet ou en visioconsultation."
 pubDate: "april 26 2025"
 heroImage: "/emdr-mosaic.webp"
 ---
 
-La thérapie **EMDR-MOSAIC**, mise au point par **Stéphanie Khalfa**, psychologue clinicienne et psychothérapeute française, est une approche thérapeutique innovante qui élargit les possibilités de l'**EMDR** traditionnel (Eye Movement Desensitization and Reprocessing).
+La thérapie **MOSAIC** (*Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale*) est une approche de psychothérapie brève créée en **2019**. Elle utilise les **stimulations bilatérales alternées** (mouvements oculaires, sons alternés, stimulations tactiles), comme dans l'EMD&#82;, avec une logique très orientée vers les solutions.
 
-## Qu'est-ce que l'EMDR-MOSAIC ?
+Si vous cherchez une aide pour un traumatisme, l'objectif de MOSAIC est clair : **apaiser la détresse sans vous replonger longuement dans la douleur du souvenir**.
 
-L'**EMDR-MOSAIC** (Mouvement Oculaire et Stimulation Alternée pour l'Intégration Cérébrale) est une évolution de l'**EMDR** classique. Cette méthode conserve les principes fondamentaux de l'EMDR, tels que la stimulation bilatérale (oculaire, auditive ou tactile), tout en intégrant des techniques complémentaires visant à renforcer l'efficacité thérapeutique, notamment dans le traitement des traumatismes complexes.
+![Schéma simplifié de la thérapie MOSAIC : stimulations bilatérales alternées, intégration cérébrale et apaisement du trauma.](/mosaic-therapie-schema.svg)
+*Illustration : modèle simplifié du fonctionnement de la thérapie MOSAIC.*
 
-## Ce qui différencie EMDR-MOSAIC de l'EMDR classique
+## Thérapie MOSAIC à Sceaux : pour quelles difficultés ?
 
-La principale différence entre l'**EMDR-MOSAIC** et l'**EMDR** classique réside dans l'intégration de techniques complémentaires issues des neurosciences affectives, des thérapies cognitivo-comportementales et des approches psycho-corporelles.
+Au cabinet, dans le cadre de la **thérapie MOSAIC de référence**, je propose un accompagnement pour des difficultés liées à :
 
-Alors que l'EMDR traditionnel se concentre principalement sur les stimulations bilatérales et implique souvent de revivre émotionnellement les souvenirs traumatiques, l'**EMDR-MOSAIC** propose une approche plus complète et adaptative. Elle permet ainsi aux patients de traiter leurs traumatismes sans revivre pleinement l'intensité émotionnelle de l'expérience traumatique initiale, offrant un confort thérapeutique accru et réduisant le risque de retraumatisation.
+- Des mémoires douloureuses ou traumatiques,
+- Des situations provoquant des émotions fortes,
+- Un stress persistant après un événement difficile.
 
-## Les spécificités de l'approche EMDR-MOSAIC
+L'indication se décide toujours lors d'une évaluation clinique individuelle.
 
-La particularité de l'**EMDR-MOSAIC** réside dans son intégration de techniques issues :
+## MOSAIC : définition simple
 
-- Des neurosciences affectives,
-- Des thérapies cognitivo-comportementales,
-- Des approches psycho-corporelles.
+La thérapie MOSAIC vise à activer des ressources déjà présentes chez la personne, notamment à travers des **sensations corporelles de sécurité, d'apaisement ou de force**.
 
-**Stéphanie Khalfa** a ainsi développé une méthode complète qui permet :
+Au lieu de rester centrée sur le problème et son historique, la méthode travaille surtout sur :
 
-- Une régulation émotionnelle renforcée,
-- Une meilleure intégration des souvenirs traumatiques,
-- Un apaisement rapide et durable des symptômes anxieux ou dépressifs.
+- Ce qui aide déjà, même partiellement,
+- Ce que vous souhaitez ressentir à la place,
+- Comment stabiliser ce nouvel état dans la vie quotidienne.
 
-## Comment cela fonctionne sur le plan neuronal ?
+## Différence entre l'EMD&#82; et MOSAIC
 
-Sur le plan neuronal, l'**EMDR-MOSAIC** favorise la communication entre les différentes régions du cerveau impliquées dans le traitement émotionnel et la mémoire, telles que :
+L'EMD&#82; et MOSAIC partagent l'usage des SBA. La différence principale est le point d'entrée thérapeutique :
 
-- L'amygdale,
-- L'hippocampe,
-- Le cortex préfrontal.
+- L'EMD&#82; travaille classiquement avec le souvenir traumatique cible,
+- **MOSAIC** met davantage l'accent sur l'expérience corporelle de la solution.
 
-Les stimulations bilatérales alternées facilitent la reconsolidation des souvenirs traumatiques, diminuent leur charge émotionnelle et améliorent l'intégration adaptative des expériences passées, permettant ainsi un apaisement émotionnel durable.
+En pratique, de nombreuses personnes décrivent MOSAIC comme une approche plus douce, tout en restant active et structurée.
 
-## À qui s'adresse l'EMDR-MOSAIC ?
+## Comment se passe une séance MOSAIC ?
 
-La thérapie **EMDR-MOSAIC** convient à toute personne ayant vécu des traumatismes ponctuels ou répétés. Elle est particulièrement adaptée aux personnes souffrant de :
+Le protocole de référence est décrit en **4 étapes** :
 
-- Stress post-traumatique,
-- Anxiété chronique,
-- Troubles de l'attachement,
-- Difficultés émotionnelles importantes.
+1. **Entretien MOSAIC**  
+Définition de la situation limitante, des objectifs, et d'une sensation interne désirée (DIS).
 
-## Déroulement d'une séance d'EMDR-MOSAIC
+2. **Boucle de reconnexion**  
+Renforcement de la DIS avec SBA, puis reconnexion progressive à la situation difficile jusqu'à un ressenti suffisamment confortable.
 
-Une séance typique comprend :
+3. **Projection des bénéfices**  
+Travail sur les changements concrets attendus dans votre quotidien, toujours en appui sur le ressenti corporel.
 
-- Une évaluation initiale approfondie,
-- L'identification précise des souvenirs traumatiques ou problématiques,
-- L'application de stimulations bilatérales combinées à des techniques complémentaires spécifiques,
-- Un temps d'intégration pour stabiliser les effets thérapeutiques obtenus.
+4. **Debriefing et tâche sensorielle**  
+Intégration de la séance et exercice simple entre les séances pour stabiliser le travail.
 
-## Les bénéfices de la thérapie EMDR-MOSAIC
+## Ce que disent les neurosciences
 
-Cette approche permet de :
+Les recherches sur le psychotraumatisme et l'EMD&#82; montrent l'implication de réseaux cérébraux liés :
 
-- Traiter efficacement les traumatismes complexes,
-- Retrouver rapidement un équilibre émotionnel,
-- Renforcer les ressources internes pour mieux faire face aux situations stressantes à venir.
+- À la peur et la menace (amygdale),
+- À la mémoire contextuelle (hippocampe),
+- À la régulation émotionnelle (cortex préfrontal),
+- À la conscience de soi et l'intégration multisensorielle (insula, précuneus, cingulaire).
 
-## En conclusion
+Les SBA semblent moduler ces réseaux et favoriser une reconsolidation de la mémoire traumatique avec moins de charge émotionnelle.
 
-La thérapie **EMDR-MOSAIC** développée par **Stéphanie Khalfa** est une avancée significative dans le champ des thérapies brèves et intégratives. Elle constitue une alternative particulièrement efficace et adaptée pour toutes les personnes à la recherche d'un apaisement durable et d'un meilleur équilibre psychologique.
+## Efficacité : ce qu'on peut dire avec rigueur
+
+- L'EMD&#82; dispose déjà d'un niveau de validation élevé pour le TSPT.
+- MOSAIC est une approche récente, avec des bases cliniques et neurophysiologiques prometteuses.
+- Des études comparatives supplémentaires sont nécessaires pour confirmer son efficacité selon chaque indication.
+
+## Pourquoi des patients choisissent MOSAIC
+
+Les motifs fréquents sont :
+
+- Vouloir une approche active sans exposition prolongée à la douleur,
+- Retrouver un sentiment de sécurité intérieure,
+- Avancer à un rythme respectueux, avec des outils concrets entre les séances.
+
+## FAQ rapide
+
+### La thérapie MOSAIC est-elle reconnue ?
+MOSAIC est enseignée et pratiquée par des professionnels formés. Comme toute méthode récente, son niveau de preuve continue d'évoluer avec la recherche.
+
+### Combien de séances faut-il ?
+Cela dépend de la nature du trauma, de son ancienneté, de vos ressources actuelles et de votre situation globale. L'évaluation initiale permet d'estimer un cadre.
+
+### Peut-on faire MOSAIC si on a déjà suivi une thérapie EMD&#82; ?
+Oui, c'est possible. Les deux approches peuvent être complémentaires selon vos besoins.
+## Mon cadre actuel d'accompagnement en thérapie MOSAIC
+
+Je me forme actuellement à la **thérapie MOSAIC de référence** :  
+[Formation MOSAIC de référence](https://www.therapiemosaic.com/formations/mosaic-de-reference-1759841379915)
+
+Cette formation me permet d'appliquer le protocole de référence pour accompagner les mémoires douloureuses, les situations émotionnellement intenses et le stress, en m'appuyant sur les bases neurophysiologiques et psychologiques de la thérapie MOSAIC.
+
+Cette formation de référence ouvre ensuite vers des spécialisations :
+
+- Traumatisme complexe,
+- Dépression,
+- Troubles anxieux (trouble anxieux généralisé, trouble panique, phobie),
+- TOC,
+- Addiction / TCA,
+- Bébés / Enfants / Adolescents,
+- Couple.
+
+
+## Consultation MOSAIC à Sceaux (92) et en visio
+
+Je vous reçois au cabinet à **Sceaux** et propose aussi des **consultations en visioconsultation** selon la situation.
+
+Pour préparer votre démarche :
+
+- Voir les [psychothérapies proposées](/psychotherapie/),
+- Lire aussi : [Pourquoi consulter un psychologue ?](/blog/pourquoi-consulter-psychologue/),
+- Réserver un créneau via Doctolib.
+
+Le cabinet est accessible pour les personnes habitant Sceaux et les villes voisines (Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses, Le Plessis-Robinson).
 
 ## Pour aller plus loin
 
-- Visitez le [site officiel de la thérapie EMDR MOSAIC](https://therapiemosaic.com/).
-- Découvrez son livre *"[De l’EMDR à la thérapie MOSAIC : Guérir sans douleur les traumatismes psychologiques](https://therapiemosaic.com/publications/)"*.
+- Site officiel : [therapiemosaic.com](https://therapiemosaic.com)
+- Annuaire des praticiens formés : disponible sur le site officiel
+- Article : Khalfa S., Poupard G. *MOSAIC: A New Pain-Free Psychotherapy for Psychological Trauma* (Am J Psychother)
+
+
+
+
+
+
+
