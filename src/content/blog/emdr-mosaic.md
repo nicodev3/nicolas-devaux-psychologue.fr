@@ -1,7 +1,7 @@
----
+﻿---
 title: "Thérapie MOSAIC à Sceaux : trauma et apaisement"
 description: "Psychologue à Sceaux, j'utilise la thérapie MOSAIC pour accompagner les difficultés liées aux mémoires douloureuses, aux émotions fortes et au stress, au cabinet ou en visioconsultation."
-pubDate: "2024-02-21"
+pubDate: "2026-02-21"
 heroImage: "/emdr-mosaic.webp"
 ---
 
