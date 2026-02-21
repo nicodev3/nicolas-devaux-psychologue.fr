@@ -1,11 +1,11 @@
 ﻿---
 title: "Thérapie MOSAIC à Sceaux : trauma et apaisement"
-description: "Psychologue à Sceaux, j'utilise la thérapie MOSAIC pour accompagner les difficultés liées aux mémoires douloureuses, aux émotions fortes et au stress, au cabinet ou en visioconsultation."
+description: "Psychologue à Sceaux, j'utilise la thérapie MOSAIC pour accompagner les difficultés liées aux mémoires douloureuses, aux émotions fortes et au stress."
 pubDate: "2026-02-21"
 heroImage: "/emdr-mosaic.webp"
 ---
-
-La thérapie **MOSAIC** (*Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale*) est une approche de psychothérapie brève créée en **2019**. Elle utilise les **stimulations bilatérales alternées** (mouvements oculaires, sons alternés, stimulations tactiles), comme dans l'EMD&#82;, avec une logique très orientée vers les solutions.
+ 
+La thérapie **MOSAIC** (*Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale*) est une approche de psychothérapie brève créée en **2019**. Elle utilise les **stimulations bilatérales alternées** (mouvements oculaires, sons alternés, stimulations tactiles), comme dans l'EMDR, avec une logique orientée vers les solutions.
 
 Si vous cherchez une aide pour un traumatisme, l'objectif de MOSAIC est clair : **apaiser la détresse sans vous replonger longuement dans la douleur du souvenir**.
 
@@ -14,7 +14,7 @@ Si vous cherchez une aide pour un traumatisme, l'objectif de MOSAIC est clair : 
 
 ## Thérapie MOSAIC à Sceaux : pour quelles difficultés ?
 
-Au cabinet, dans le cadre de la **thérapie MOSAIC de référence**, je propose un accompagnement pour des difficultés liées à :
+Dans le cadre de la **thérapie MOSAIC**, je propose un accompagnement pour des difficultés liées à :
 
 - Des mémoires douloureuses ou traumatiques,
 - Des situations provoquant des émotions fortes,
@@ -32,11 +32,11 @@ Au lieu de rester centrée sur le problème et son historique, la méthode trava
 - Ce que vous souhaitez ressentir à la place,
 - Comment stabiliser ce nouvel état dans la vie quotidienne.
 
-## Différence entre l'EMD&#82; et MOSAIC
+## Différence entre l'EMDR et MOSAIC
 
-L'EMD&#82; et MOSAIC partagent l'usage des SBA. La différence principale est le point d'entrée thérapeutique :
+L'EMDR et MOSAIC partagent l'usage des SBA. La différence principale est le point d'entrée thérapeutique :
 
-- L'EMD&#82; travaille classiquement avec le souvenir traumatique cible,
+- L'EMDR travaille classiquement avec le souvenir traumatique cible,
 - **MOSAIC** met davantage l'accent sur l'expérience corporelle de la solution.
 
 En pratique, de nombreuses personnes décrivent MOSAIC comme une approche plus douce, tout en restant active et structurée.
@@ -59,7 +59,7 @@ Intégration de la séance et exercice simple entre les séances pour stabiliser
 
 ## Ce que disent les neurosciences
 
-Les recherches sur le psychotraumatisme et l'EMD&#82; montrent l'implication de réseaux cérébraux liés :
+Les recherches sur le psychotraumatisme et l'EMDR montrent l'implication de réseaux cérébraux liés :
 
 - À la peur et la menace (amygdale),
 - À la mémoire contextuelle (hippocampe),
@@ -68,9 +68,12 @@ Les recherches sur le psychotraumatisme et l'EMD&#82; montrent l'implication de 
 
 Les SBA semblent moduler ces réseaux et favoriser une reconsolidation de la mémoire traumatique avec moins de charge émotionnelle.
 
+![Régions cérébrales impliquées dans la régulation émotionnelle : amygdale, hippocampe, cortex préfrontal et cortex cingulaire antérieur.](/cerveau-regions-emotion-fr.webp)
+*Illustration : principales régions cérébrales impliquées dans la régulation émotionnelle.*
+
 ## Efficacité : ce qu'on peut dire avec rigueur
 
-- L'EMD&#82; dispose déjà d'un niveau de validation élevé pour le TSPT.
+- L'EMDR dispose déjà d'un niveau de validation élevé pour le TSPT.
 - MOSAIC est une approche récente, avec des bases cliniques et neurophysiologiques prometteuses.
 - Des études comparatives supplémentaires sont nécessaires pour confirmer son efficacité selon chaque indication.
 
@@ -82,7 +85,7 @@ Les motifs fréquents sont :
 - Retrouver un sentiment de sécurité intérieure,
 - Avancer à un rythme respectueux, avec des outils concrets entre les séances.
 
-## FAQ rapide
+## FAQ
 
 ### La thérapie MOSAIC est-elle reconnue ?
 MOSAIC est enseignée et pratiquée par des professionnels formés. Comme toute méthode récente, son niveau de preuve continue d'évoluer avec la recherche.
@@ -90,7 +93,7 @@ MOSAIC est enseignée et pratiquée par des professionnels formés. Comme toute 
 ### Combien de séances faut-il ?
 Cela dépend de la nature du trauma, de son ancienneté, de vos ressources actuelles et de votre situation globale. L'évaluation initiale permet d'estimer un cadre.
 
-### Peut-on faire MOSAIC si on a déjà suivi une thérapie EMD&#82; ?
+### Peut-on faire MOSAIC si on a déjà suivi une thérapie EMDR ?
 Oui, c'est possible. Les deux approches peuvent être complémentaires selon vos besoins.
 ## Mon cadre actuel d'accompagnement en thérapie MOSAIC
 
@@ -118,7 +121,7 @@ Pour préparer votre démarche :
 
 - Voir les [psychothérapies proposées](/psychotherapie/),
 - Lire aussi : [Pourquoi consulter un psychologue ?](/blog/pourquoi-consulter-psychologue/),
-- Réserver un créneau via Doctolib.
+- Réserver un créneau via Doctolib
 
 Le cabinet est accessible pour les personnes habitant Sceaux et les villes voisines (Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses, Le Plessis-Robinson).
 

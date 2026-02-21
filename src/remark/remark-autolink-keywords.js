@@ -26,21 +26,7 @@ export default function remarkAutolinkKeywords(options = {}) {
     }));
 
     return function transformer(tree, file) {
-        const currentPath = normalizePath(
-            (file && file.data && file.data.astro && (
-                (file.data.astro.url && file.data.astro.url.pathname) ||
-                (file.data.astro.canonicalURL && file.data.astro.canonicalURL.pathname) ||
-                (file.data.astro.fileUrl && file.data.astro.fileUrl.pathname) ||
-                (function() {
-                    try {
-                        const site = file.data.astro && file.data.astro.site;
-                        const reqUrl = file.data.astro && file.data.astro.request && file.data.astro.request.url;
-                        if (reqUrl) return new URL(reqUrl, site || 'http://localhost').pathname;
-                    } catch {}
-                    return null;
-                })()
-            )) || null
-        );
+        const currentPath = filePathToUrlPath(file && file.history && file.history[0]);
         let inserted = 0;
         visit(tree, 'text', (node, index, parent) => {
             if (inserted >= perPageLimit) return;
@@ -95,6 +81,19 @@ export default function remarkAutolinkKeywords(options = {}) {
             }
         });
     };
+}
+
+function filePathToUrlPath(filePath) {
+    if (!filePath) return null;
+    const normalized = filePath.replace(/\\/g, '/');
+    // Blog content: src/content/blog/my-slug.md → /blog/my-slug/
+    const blogMatch = normalized.match(/src\/content\/blog\/([^/]+)\.(md|mdx)$/);
+    if (blogMatch) return `/blog/${blogMatch[1]}/`;
+    // Pages: src/pages/my-page.astro → /my-page/
+    const pageMatch = normalized.match(/src\/pages\/([^/]+)\.(astro|md|mdx)$/);
+    if (pageMatch && pageMatch[1] !== 'index') return `/${pageMatch[1]}/`;
+    if (pageMatch && pageMatch[1] === 'index') return '/';
+    return null;
 }
 
 function escapeRegex(str) {

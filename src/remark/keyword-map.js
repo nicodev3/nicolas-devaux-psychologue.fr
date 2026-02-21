@@ -1,6 +1,5 @@
 export default {
     "thérapie d’acceptation et d’engagement": "/therapie-acceptation-et-engagement/",
-    "thérapie d'acceptation et d'engagement": "/therapie-acceptation-et-engagement/",
     ACT: "/therapie-acceptation-et-engagement/",
     "thérapie cognitive et comportementale": "/therapie-cognitive-et-comportementale/",
     TCC: "/therapie-cognitive-et-comportementale/",
@@ -8,7 +7,8 @@ export default {
     psychothérapie: "/psychotherapie/",
     psychothérapies: "/psychotherapie/",
     hypnothérapie: "/blog/hypnotherapie/",
-    EMDR: "/blog/emdr-mosaic/",
+    MOSAIC: "/blog/emdr-mosaic/",
+    "Doctolib": "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
 
     // Ajouts conditionnels (symptômes / besoins)
     "anxiété": "/psychotherapie/",
@@ -16,7 +16,6 @@ export default {
     "phobie": "/psychotherapie/",
     "attaques de panique": "/psychotherapie/",
     "attaque de panique": "/psychotherapie/",
-    "stress": "/psychotherapie/",
     "burn-out": "/psychotherapie/",
     "ruminations": "/therapie-pleine-conscience/",
     "TOC": "/therapie-cognitive-et-comportementale/",
