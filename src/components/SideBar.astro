@@ -22,7 +22,7 @@ const posts = (await getCollection("blog")).sort(
   
   <!-- Section Articles -->
   <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-    <h3 class="text-xl font-bold text-tertiary mb-6">Derniers articles</h3>
+    <p class="text-xl font-bold text-tertiary mb-6">Derniers articles</p>
     <ul class="space-y-4">
       {
         posts.map((post) => (
@@ -44,7 +44,7 @@ const posts = (await getCollection("blog")).sort(
   {
     showPsyInfo && (
       <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-        <h3 class="text-xl font-bold text-tertiary mb-4">Profession réglementée</h3>
+        <p class="text-xl font-bold text-tertiary mb-4">Profession réglementée</p>
         
         <div class="space-y-4 text-sm text-gray-700 leading-relaxed">
           <p>
