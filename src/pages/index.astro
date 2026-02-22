@@ -7,7 +7,7 @@ import SideBar from "../components/SideBar.astro";
 import { Schema } from "astro-seo-schema";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Image } from "astro:assets";
-import PsychologueImage from "../assets/psychologue-adulte.png";
+import PsychologueImage from "../assets/psychologue-adulte.webp";
 ---
 
 <!doctype html>
@@ -68,7 +68,7 @@ import PsychologueImage from "../assets/psychologue-adulte.png";
             
             <!-- Image du psychologue -->
             <div class="lg:col-span-1 flex justify-center lg:justify-end">
-              <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 max-w-xs">
+              <div class="rounded-2xl max-w-xs">
                 <Image
                   src={PsychologueImage}
                   alt="Nicolas Devaux, Psychologue à Sceaux"
