@@ -3,11 +3,12 @@ interface Props {
   title: string;
   description: string;
   pubDate: Date;
+  updatedDate?: Date;
   slug: string;
   author?: string;
 }
 
-const { title, description, pubDate, slug, author = "Nicolas Devaux" } = Astro.props;
+const { title, description, pubDate, updatedDate, slug, author = "Nicolas Devaux" } = Astro.props;
 const url = new URL(`/blog/${slug}/`, Astro.site);
 
 const blogJsonLd = {
@@ -17,7 +18,7 @@ const blogJsonLd = {
   "description": description,
   "url": url.toString(),
   "datePublished": pubDate.toISOString(),
-  "dateModified": pubDate.toISOString(),
+  "dateModified": (updatedDate ?? pubDate).toISOString(),
   "author": {
     "@type": "Person",
     "name": author,

@@ -29,7 +29,7 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
 <html lang="fr">
   <head>
     <BaseHead title={title} description={description} />
-    {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} slug={slug} />}
+    {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} updatedDate={updatedDate} slug={slug} />}
   </head>
 
   <body class="bg-gradient-to-r from-blue-50 to-white">
