@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
+import BlogSchema from "../components/BlogSchema.astro";
 import Header from "../components/Header.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 import Footer from "../components/Footer.astro";
@@ -21,11 +22,14 @@ const {
   blogPost = false,
   showDate = true,
 } = Astro.props;
+
+const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
 ---
 
 <html lang="fr">
   <head>
     <BaseHead title={title} description={description} />
+    {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} slug={slug} />}
   </head>
 
   <body class="bg-gradient-to-r from-blue-50 to-white">
