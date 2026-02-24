@@ -9,20 +9,18 @@ interface Props {
 
 const { title, description, pubDate, slug, author = "Nicolas Devaux" } = Astro.props;
 const url = new URL(`/blog/${slug}/`, Astro.site);
----
 
-<script type="application/ld+json" is:inline>
-{
+const blogJsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {JSON.stringify(title)},
-  "description": {JSON.stringify(description)},
-  "url": {JSON.stringify(url.toString())},
-  "datePublished": {JSON.stringify(pubDate.toISOString())},
-  "dateModified": {JSON.stringify(pubDate.toISOString())},
+  "headline": title,
+  "description": description,
+  "url": url.toString(),
+  "datePublished": pubDate.toISOString(),
+  "dateModified": pubDate.toISOString(),
   "author": {
     "@type": "Person",
-    "name": {JSON.stringify(author)},
+    "name": author,
     "jobTitle": "Psychologue clinicien",
     "worksFor": {
       "@type": "MedicalBusiness",
@@ -40,7 +38,7 @@ const url = new URL(`/blog/${slug}/`, Astro.site);
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": {JSON.stringify(url.toString())}
+    "@id": url.toString()
   },
   "keywords": [
     "psychologie",
@@ -61,7 +59,7 @@ const url = new URL(`/blog/${slug}/`, Astro.site);
       "name": "Troubles anxieux"
     },
     {
-      "@type": "MedicalCondition", 
+      "@type": "MedicalCondition",
       "name": "Dépression"
     },
     {
@@ -76,5 +74,7 @@ const url = new URL(`/blog/${slug}/`, Astro.site);
       "url": "https://nicolas-devaux-psychologue.fr"
     }
   ]
-}
-</script>
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(blogJsonLd)} />
