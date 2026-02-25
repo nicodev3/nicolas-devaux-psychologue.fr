@@ -2,14 +2,14 @@
 title: "Thérapie MOSAIC à Sceaux : trauma et apaisement"
 description: "Psychologue à Sceaux, j'utilise la thérapie MOSAIC pour accompagner les difficultés liées aux mémoires douloureuses, aux émotions fortes et au stress."
 pubDate: "2026-02-21"
-heroImage: "/emdr-mosaic.webp"
+heroImage: '../../assets/blog/emdr-mosaic.webp'
 ---
  
 La thérapie **MOSAIC** (*Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale*) est une approche de psychothérapie brève créée en **2019**. Elle utilise les **stimulations bilatérales alternées** (mouvements oculaires, sons alternés, stimulations tactiles), comme dans l'EMDR, avec une logique orientée vers les solutions.
 
 Si vous cherchez une aide pour un traumatisme, l'objectif de MOSAIC est clair : **apaiser la détresse sans vous replonger longuement dans la douleur du souvenir**.
 
-![Schéma simplifié de la thérapie MOSAIC : stimulations bilatérales alternées, intégration cérébrale et apaisement du trauma.](/mosaic-therapie-schema.svg)
+![Schéma simplifié de la thérapie MOSAIC : stimulations bilatérales alternées, intégration cérébrale et apaisement du trauma.](../../assets/blog/mosaic-therapie-schema.svg)
 *Illustration : modèle simplifié du fonctionnement de la thérapie MOSAIC.*
 
 ## Thérapie MOSAIC à Sceaux : pour quelles difficultés ?
@@ -68,7 +68,7 @@ Les recherches sur le psychotraumatisme et l'EMDR montrent l'implication de rés
 
 Les SBA semblent moduler ces réseaux et favoriser une reconsolidation de la mémoire traumatique avec moins de charge émotionnelle.
 
-![Régions cérébrales impliquées dans la régulation émotionnelle : amygdale, hippocampe, cortex préfrontal et cortex cingulaire antérieur.](/cerveau-regions-emotion-fr.webp)
+![Régions cérébrales impliquées dans la régulation émotionnelle : amygdale, hippocampe, cortex préfrontal et cortex cingulaire antérieur.](../../assets/blog/cerveau-regions-emotion-fr.webp)
 *Illustration : principales régions cérébrales impliquées dans la régulation émotionnelle.*
 
 ## Efficacité : ce qu'on peut dire avec rigueur

@@ -2,7 +2,7 @@
 title: 'Les techniques d''activation de la conscience (TAC)'
 description: 'Les techniques d''activation de la conscience : une approche alliant pleine conscience et activation émotionnelle.'
 pubDate: 'Aug 30 2025'
-heroImage: '/psychotherapies.webp'
+heroImage: '../../assets/blog/tac.webp'
 ---
 
 Les techniques d'activation de la conscience (TAC) représentent une approche thérapeutique innovante développée par Jean Becchio, qui allie la pleine conscience à l'activation émotionnelle pour faciliter le changement psychologique. Cette méthode, issue des recherches récentes en psychothérapie, offre des outils structurés pour travailler avec les émotions difficiles tout en maintenant une présence consciente et bienveillante.

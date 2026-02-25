@@ -2,7 +2,7 @@
 title: 'Les thérapies de couple'
 description: 'Découvrez comment la thérapie de couple peut aider à renforcer votre relation, améliorer la communication et résoudre les conflits dans votre couple.'
 pubDate: 'Aug 30 2025'
-heroImage: '/psychotherapies.webp'
+heroImage: '../../assets/blog/psychotherapies.webp'
 ---
 
 La thérapie de couple est une approche thérapeutique spécialisée qui vise à améliorer la qualité de la relation entre deux partenaires. Elle offre un espace sécurisé pour explorer les difficultés relationnelles et développer des outils de communication plus efficaces.

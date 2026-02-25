@@ -2,7 +2,7 @@
 title: "Thérapie intégrative comportementale de couple (IBCT)"
 description: "Comprendre l’IBCT : une approche qui combine acceptation émotionnelle et changement comportemental pour apaiser les cycles de conflit et renforcer l’intimité."
 pubDate: "Oct 7 2025"
-heroImage: "/psychotherapies.webp"
+heroImage: '../../assets/blog/icbt.webp'
 ---
 
 La thérapie intégrative comportementale de couple (IBCT), développée par Andrew Christensen et Neil Jacobson, associe des interventions d’acceptation émotionnelle à des stratégies de changement comportemental. Elle est particulièrement indiquée lorsque les tentatives de « faire changer l’autre » mènent à des cycles coercitifs (critiques, escalade, retrait défensif) et que la collaboration est devenue difficile.
