@@ -1,20 +1,112 @@
 ---
 const today = new Date();
+
+const siteMap = [
+  {
+    title: "Pages principales",
+    links: [
+      { href: "/", label: "Accueil" },
+      { href: "/nicolas-devaux-psychologue/", label: "Qui suis-je ?" },
+      { href: "/psychotherapie/", label: "Psychothérapie" },
+      { href: "/mon-soutien-psy/", label: "Mon Soutien Psy" },
+      { href: "/blog/", label: "Articles" },
+    ],
+  },
+  {
+    title: "Approches thérapeutiques",
+    links: [
+      { href: "/therapie-cognitive-et-comportementale/", label: "Thérapie cognitive et comportementale" },
+      { href: "/therapie-acceptation-et-engagement/", label: "Thérapie A.C.T." },
+      { href: "/therapie-pleine-conscience/", label: "Mindfulness (MBCT)" },
+    ],
+  }
+];
+
+const emergencyNumbers = [
+  { label: "SOS Amitié (écoute)", number: "09 72 39 40 50", tel: "0972394050" },
+  { label: "Fil Santé Jeunes", number: "0 800 235 236", tel: "0800235236" },
+  { label: "Suicide : écoute anonyme", number: "31 14", tel: "3114" },
+];
 ---
 
-<footer class="bg-primary py-10">
-	<div class="container">
-		<div class="flex flex-col md:flex-row justify-between items-center">
-			<p>&copy; {today.getFullYear()} Nicolas Devaux. Tous droits réservés.</p>
-			<p>
-				<a href="/mentions-legales/">Mentions légales</a>
-			</p>
-			<p>
-				Numéro RPPS : 10008482910
-			</p>
-		</div>
-	</div>
+<footer class="bg-tertiary text-white">
+  <div class="container py-12 md:py-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+      <!-- En cas d'urgence -->
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-white" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </span>
+          <h3 class="text-lg font-semibold !text-white">En cas d'urgence</h3>
+        </div>
+        <p class="text-sm text-gray-200 mb-4">
+          Ces numéros sont accessibles 24h/24 pour une écoute ou une aide immédiate.
+        </p>
+        <ul class="space-y-2">
+          {emergencyNumbers.map((item) => (
+            <li class="flex items-center justify-between gap-3 text-sm">
+              <span class="text-gray-200">{item.label}</span>
+              <a
+                href={`tel:${item.tel}`}
+                class="font-semibold text-white hover:text-gray-200 whitespace-nowrap transition-colors underline decoration-white/50 underline-offset-2"
+              >
+                {item.number}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Plan du site -->
+      <div class="lg:col-span-2">
+        <h3 class="text-lg font-semibold !text-white mb-4 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-gray-200" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Plan du site
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {siteMap.map((group) => (
+            <div>
+              <h4 class="text-xs font-medium uppercase tracking-wider !text-white mb-2">
+                {group.title}
+              </h4>
+              <ul class="space-y-1.5">
+                {group.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-gray-200 hover:text-white text-sm transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Séparateur -->
+    <div class="mt-12 pt-8 border-t border-white/10">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-gray-200">
+          © {today.getFullYear()} Nicolas Devaux – Psychologue à Sceaux. Tous droits réservés.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
+          <a href="/mentions-legales/" class="text-gray-200 hover:text-white transition-colors">
+            Mentions légales
+          </a>
+          <span class="text-gray-300" aria-hidden="true">|</span>
+          <span class="text-gray-200">RPPS : 10008482910</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
-
-
-
