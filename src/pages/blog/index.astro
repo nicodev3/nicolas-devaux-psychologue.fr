@@ -35,7 +35,7 @@ const posts = (await getCollection("blog")).sort(
       </div>
 
       <!-- Articles Grid -->
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
         {
           posts.map((post) => (
             <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 group">
@@ -54,7 +54,7 @@ const posts = (await getCollection("blog")).sort(
                   }
                 </div>
                 <div class="p-6">
-                  <h2 class="text-xl font-bold text-tertiary mb-3 group-hover:text-accent transition-colors duration-200 leading-tight">
+                  <h2 class="text-lg! font-bold text-tertiary mb-3 group-hover:text-accent transition-colors duration-200 leading-tight">
                     {post.data.title}
                   </h2>
                   <p class="text-sm text-gray-500 font-medium">

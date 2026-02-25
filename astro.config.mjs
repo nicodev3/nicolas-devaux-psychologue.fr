@@ -10,6 +10,7 @@ import robotsTxt from 'astro-robots-txt';
 
 import tailwindcss from '@tailwindcss/vite';
 import remarkAutolinkKeywords from './src/remark/remark-autolink-keywords.js';
+import remarkFrenchPunctuationSpacing from './src/remark/remark-french-punctuation-spacing.js';
 import keywordMap from './src/remark/keyword-map.js';
 import rehypeExternalLinks from './src/remark/rehype-external-links.js';
 
@@ -19,6 +20,7 @@ export default defineConfig({
     integrations: [mdx(), sitemap(), alpinejs(), robotsTxt()],
     markdown: {
         remarkPlugins: [
+            [remarkFrenchPunctuationSpacing, {}],
             [remarkAutolinkKeywords, { keywordMap, perPageLimit: 6 }],
         ],
         rehypePlugins: [

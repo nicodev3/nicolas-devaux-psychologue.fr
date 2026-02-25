@@ -5,6 +5,7 @@
  */
 
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   /* Couleurs personnalisÃ©es pour Tailwind v4 - WCAG optimisÃ©es */
@@ -44,6 +45,22 @@
 }
 
 @font-face {
+    font-family: "InterLocal";
+    src: url("/fonts/inter-latin.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "LoraLocal";
+    src: url("/fonts/lora-latin.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Atkinson';
     src: url('/fonts/atkinson-regular.woff') format('woff');
     font-weight: 400;
@@ -60,7 +77,7 @@
 }
 
 body {
-    font-family: 'Atkinson', sans-serif;
+    font-family: "InterLocal", "Atkinson", sans-serif;
     color: rgb(var(--gray-dark));
 }
 
@@ -71,6 +88,18 @@ h4,
 h5,
 h6 {
     color: var(--tertiary);
+    font-family: "LoraLocal", "InterLocal", serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+h1.font-bold,
+h2.font-bold,
+h3.font-bold,
+h4.font-bold,
+h5.font-bold,
+h6.font-bold {
+    font-weight: 600;
 }
 
 h2 {
@@ -199,6 +228,7 @@ abbr {
 .c-wysiwig li {
     margin: 0.25rem 0;
 }
+
 .prose {
     color: rgb(var(--gray-dark));
 }
