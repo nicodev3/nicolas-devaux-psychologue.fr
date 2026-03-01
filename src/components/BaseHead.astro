@@ -12,6 +12,8 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 ---
 
 <!-- Global Metadata -->
@@ -262,3 +264,11 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 }
 
 </script>
+
+{umamiId && umamiUrl && (
+  <script
+    defer
+    src={`${umamiUrl}/script.js`}
+    data-website-id={umamiId}
+  ></script>
+)}

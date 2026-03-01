@@ -26,21 +26,12 @@ const {
 } = Astro.props;
 
 const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
-const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
-const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 ---
 
 <html lang="fr">
   <head>
     <BaseHead title={title} description={description} />
     {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} slug={slug} />}
-    {umamiId && umamiUrl && (
-      <script
-        defer
-        src={`${umamiUrl}/script.js`}
-        data-website-id={umamiId}
-      ></script>
-    )}
   </head>
 
   <body class="bg-gradient-to-r from-blue-50 to-white">
