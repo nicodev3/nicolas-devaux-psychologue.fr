@@ -5,161 +5,129 @@ pubDate: 'oct 5 2025'
 heroImage: '../../assets/blog/psychotherapies.webp'
 ---
 
-La thérapie fondée sur la compassion (TFC), développée par le professeur Paul Gilbert au début des années 2000, représente une approche révolutionnaire qui place la compassion au cœur du processus thérapeutique. Cette méthode intégrative, qui combine des éléments des thérapies cognitivo-comportementales, de la psychologie évolutionniste et des neurosciences, offre des outils puissants pour guérir les blessures psychologiques et développer une relation bienveillante avec soi-même.
+> *« La compassion, c'est le courage de descendre dans la réalité de l'expérience humaine. »*  
+> — Paul Gilbert
 
-## Qu'est-ce que la thérapie fondée sur la compassion ?
+La thérapie fondée sur la compassion (TFC), développée par le professeur Paul Gilbert au début des années 2000, est une approche qui aide à transformer la relation à soi. Elle est particulièrement utile lorsque la honte, l'autocritique, l'anxiété ou la peur du jugement prennent trop de place.
 
-La TFC repose sur une vision évolutionniste de l'esprit humain qui reconnaît l'existence de trois systèmes émotionnels fondamentaux :
+La TFC combine les thérapies cognitivo-comportementales, la psychologie de l'attachement, la théorie de l'évolution et les neurosciences. Son objectif n'est pas de "se forcer à penser positif", mais d'apprendre à réguler la menace intérieure et à développer une posture de courage, de chaleur et de stabilité face à la souffrance.
 
-### Les trois systèmes émotionnels
+## D'où vient la TFC ?
 
-1. **Le système de menace** : Responsable de la détection des dangers et de la mise en place de réponses de protection (anxiété, colère, évitement)
+Les fondements scientifiques de la TFC reposent sur trois axes majeurs.
 
-2. **Le système d'activation** : Gère la motivation, la recherche de récompenses et l'atteinte d'objectifs
+### 1. Une perspective évolutionniste
 
-3. **Le système d'apaisement** : Favorise la sécurité, le calme et la connexion avec les autres
+Les travaux présentés dans les fondements de la TFC montrent que la compassion n'est pas un luxe moral : c'est une fonction adaptative qui a favorisé la survie de l'espèce.
 
-La TFC vise à développer et renforcer ce troisième système, souvent sous-développé chez les personnes en souffrance psychologique.
+Elle a notamment permis :
 
-## Les fondements théoriques de la TFC
+- de protéger les plus vulnérables (enfants, personnes blessées, personnes en détresse)
+- de favoriser le choix de partenaires perçus comme plus fiables et coopératifs
+- de soutenir la coopération entre individus, même sans liens de parenté
 
-### L'approche évolutionniste
+Autrement dit, la compassion a aussi une valeur de survie sociale.
 
-Paul Gilbert s'appuie sur la psychologie évolutionniste pour expliquer pourquoi notre esprit peut être si critique envers nous-mêmes. Cette autocritique, bien que douloureuse, était probablement utile dans un contexte social où l'approbation du groupe était cruciale pour la survie.
+### 2. La théorie de l'attachement
 
-### La théorie de l'attachement
+Dans la lignée de Bowlby, la TFC rappelle qu'un humain en détresse cherche trois choses : la proximité, le réconfort et la sécurité.
 
-La TFC intègre les découvertes sur l'attachement pour comprendre comment nos premières expériences relationnelles influencent notre capacité à nous apaiser et à nous réconforter.
+Quand ces expériences ont manqué ou ont été instables, il devient plus difficile, à l'âge adulte, de s'apaiser seul. On peut alors vivre avec un système de menace hyperactif (alerte, honte, autocritique, évitement).
 
-### Les neurosciences
+La TFC vise justement à reconstruire cette fonction d'apaisement. Elle permet de développer une relation "de soi à soi" plus protectrice, ce que Gilbert décrit comme une base d'autocompassion.
 
-Les recherches en neurosciences montrent que la compassion active des zones spécifiques du cerveau associées au bien-être et à la régulation émotionnelle.
+### 3. Les apports des neurosciences
 
-## Les principes fondamentaux
+Les recherches en psychophysiologie soulignent le rôle de plusieurs systèmes biologiques impliqués dans la régulation émotionnelle et sociale :
 
-### 1. La compassion comme compétence
+- l'ocytocine, associée au lien, à la sécurité relationnelle et à la baisse de la réactivité de stress
+- la vasopressine, qui peut, selon les contextes, augmenter des réponses de vigilance ou de menace
+- le système nerveux parasympathique (notamment le nerf vague), impliqué dans le retour au calme et les comportements d'affiliation
 
-La TFC considère la compassion comme une compétence qui peut être développée et renforcée, plutôt que comme une qualité innée.
+Ces données confortent une idée centrale de la TFC : la compassion est aussi un état physiologique qui s'entraîne.
 
-### 2. La compassion envers soi-même
+## Les trois systèmes émotionnels en TFC
 
-Cette approche met l'accent sur le développement d'une relation bienveillante avec soi-même, particulièrement importante pour les personnes souffrant de honte et d'autocritique intense.
+La TFC s'appuie sur un modèle simple et très utile en consultation :
 
-### 3. L'équilibre des systèmes émotionnels
+1. **Le système de menace** : détecte les dangers, active l'anxiété, la colère, l'évitement ou l'autocritique.
+2. **Le système d'activation** : pousse à agir, réussir, obtenir, performer.
+3. **Le système d'apaisement** : génère sécurité, affiliation, stabilité et récupération.
 
-La TFC vise à équilibrer les trois systèmes émotionnels, en particulier en renforçant le système d'apaisement souvent négligé.
+Chez beaucoup de personnes en souffrance, les deux premiers systèmes prennent toute la place, tandis que le système d'apaisement est insuffisamment accessible. La TFC apprend à rééquilibrer cet ensemble.
 
-## Les techniques principales
+## Ce que la compassion signifie en thérapie
 
-### Les exercices de visualisation
+En TFC, la compassion ne se réduit pas à "être gentil". Elle implique deux mouvements :
 
-La TFC utilise des visualisations guidées pour développer la compassion envers soi-même et les autres. Ces exercices aident à créer un sentiment de sécurité intérieure.
+- se rendre sensible à la souffrance (chez soi ou chez l'autre)
+- s'engager activement pour la soulager ou la transformer
 
-### La méditation de compassion
+Elle demande donc du courage. Elle n'est ni passivité, ni résignation, ni auto-indulgence.
 
-Des pratiques méditatives spécifiques permettent de cultiver progressivement une attitude bienveillante et empathique.
+## Comment se déroule une TFC ?
 
-### Le travail sur chaise
+### Phase 1 : évaluation et formulation
 
-Cette technique permet d'explorer et de transformer la relation avec différentes parties de soi, notamment la voix autocritique.
+On identifie les boucles de menace dominantes : autocritique, honte, peur du rejet, perfectionnisme, retrait, etc.
 
-### Les exercices de respiration
+### Phase 2 : psychoéducation
 
-Des techniques de respiration spécifiques aident à activer le système d'apaisement et à réduire l'activation du système de menace.
+Le patient comprend comment son cerveau et son corps ont appris à survivre, parfois au prix d'une grande dureté envers soi.
 
-## Les applications de la TFC
+### Phase 3 : entraînement compassionnel
 
-### Troubles anxieux et dépressifs
+On développe progressivement des compétences concrètes :
 
-La TFC s'est révélée particulièrement efficace pour traiter l'anxiété et la dépression en développant la capacité d'auto-apaisement et en réduisant l'autocritique.
+- respiration rythmée apaisante
+- ancrage corporel et ralentissement physiologique
+- imagerie de figure compatissante
+- dialogue avec la voix autocritique (travail des parties / travail sur chaises)
+- développement d'une voix intérieure plus stable, ferme et bienveillante
 
-### Troubles de la personnalité
+### Phase 4 : intégration dans la vie quotidienne
 
-Cette approche est particulièrement indiquée pour les troubles de la personnalité, notamment le trouble borderline, où les difficultés de régulation émotionnelle et l'autocritique sont centrales.
+Les compétences sont appliquées aux situations réelles : conflits, échec, fatigue, relation de couple, parentalité, travail, etc.
 
-### Traumatismes et maltraitance
+## Pour quelles difficultés ?
 
-La TFC offre des outils précieux pour les personnes ayant subi des traumatismes ou de la maltraitance, en développant un sentiment de sécurité intérieure.
+La TFC est souvent indiquée quand on retrouve :
 
-### Troubles des conduites alimentaires
+- une autocritique chronique ("je ne suis jamais assez bien")
+- une honte persistante ou un fort sentiment de défaillance
+- des troubles anxieux ou dépressifs avec rumination
+- des séquelles de traumatismes relationnels
+- des difficultés de régulation émotionnelle (dont certains tableaux borderline)
+- des difficultés relationnelles liées à la peur du rejet ou à l'hypervigilance
 
-Cette approche aide à transformer la relation avec le corps et l'alimentation en développant la compassion envers soi-même.
+## Quels bénéfices attendre ?
 
-### Honte et autocritique
+La TFC peut aider à :
 
-La TFC excelle dans le traitement des sentiments de honte et d'autocritique intense, en développant une voix intérieure plus bienveillante.
+- diminuer l'intensité de l'autocritique et de la honte
+- mieux réguler les pics de stress
+- retrouver une base de sécurité intérieure
+- renforcer l'estime de soi et la capacité à demander de l'aide
+- améliorer la qualité des liens avec les autres
 
-## Comment se déroule une thérapie TFC ?
-
-### Phase d'évaluation
-
-Le thérapeute explore l'histoire du patient, ses patterns d'autocritique et sa capacité actuelle à s'apaiser et à se réconforter.
-
-### Phase de psychoéducation
-
-Le patient apprend les bases théoriques de la TFC et comprend pourquoi son esprit peut être si critique envers lui-même.
-
-### Phase de développement des compétences
-
-Le patient apprend et pratique des techniques spécifiques pour développer la compassion envers soi-même et les autres.
-
-### Phase d'intégration
-
-Les nouvelles compétences sont intégrées dans la vie quotidienne et les relations du patient.
-
-## Les bénéfices de la TFC
-
-### Réduction de l'autocritique
-
-- Développement d'une voix intérieure plus bienveillante
-- Réduction des sentiments de honte et de culpabilité
-- Amélioration de l'estime de soi
-
-### Amélioration de la régulation émotionnelle
-
-- Capacité accrue à s'apaiser en situation de stress
-- Réduction de l'intensité des émotions difficiles
-- Développement d'une plus grande stabilité émotionnelle
-
-### Renforcement des relations
-
-- Amélioration de la capacité à recevoir et donner de la compassion
-- Développement de l'empathie
-- Création de liens plus authentiques et satisfaisants
-
-### Bien-être général
-
-- Réduction des symptômes anxieux et dépressifs
-- Amélioration de la qualité de vie
-- Développement d'un sentiment de sécurité intérieure
+Le changement est progressif : il s'agit d'un entraînement, pas d'une transformation instantanée.
 
 ## La TFC dans ma pratique
 
-J'intègre les techniques de la TFC dans mon travail thérapeutique, particulièrement pour :
+J'intègre des outils de TFC lorsque la souffrance est entretenue par une relation à soi dure, punitive ou honteuse. Le travail vise à développer une posture intérieure plus solide : lucide, engagée et bienveillante.
 
-- **L'autocritique et la honte** : Développer une relation plus bienveillante avec soi-même
-- **Les traumatismes** : Créer un sentiment de sécurité intérieure
-- **L'anxiété et la dépression** : Renforcer la capacité d'auto-apaisement
-- **Les difficultés relationnelles** : Améliorer la capacité à donner et recevoir de la compassion
-- **Les troubles des conduites alimentaires** : Transformer la relation avec le corps
+Je l'utilise notamment pour :
 
-## Pour qui est indiquée la TFC ?
+- les difficultés d'autocritique et de honte
+- l'anxiété et la dévalorisation
+- les conséquences de traumatismes psychologiques
+- les difficultés relationnelles répétitives
 
-La TFC est particulièrement adaptée aux personnes qui :
+## En conclusion
 
-- Souffrent d'autocritique intense et de sentiments de honte
-- Ont des difficultés à s'apaiser et à se réconforter
-- Présentent des troubles anxieux ou dépressifs complexes
-- Ont des antécédents de traumatismes ou de maltraitance
-- Souhaitent développer une relation plus bienveillante avec elles-mêmes
+La TFC propose une idée essentielle : vous n'êtes pas "faible" parce que vous souffrez. Vous pouvez apprendre à répondre à votre détresse autrement qu'avec la peur, l'attaque de soi ou l'évitement.
 
-## Conclusion
-
-La thérapie fondée sur la compassion de Paul Gilbert offre une approche innovante et profondément humaniste pour guérir les blessures psychologiques. En développant la compassion envers soi-même, elle permet de transformer la relation que nous entretenons avec nos souffrances et nos difficultés.
-
-Cette approche reconnaît que la souffrance fait partie de l'expérience humaine et que la compassion, loin d'être une faiblesse, est une force qui nous permet de guérir et de grandir. La TFC nous apprend à traiter nos blessures avec la même bienveillance que nous offririons à un ami cher.
-
-Si vous ressentez une autocritique intense, des difficultés à vous apaiser ou des sentiments de honte, la TFC peut vous offrir des outils précieux pour développer une relation plus bienveillante avec vous-même et améliorer votre bien-être psychologique.
+Développer la compassion envers soi n'efface pas les blessures, mais permet de les traverser avec plus de sécurité, de dignité et de liberté.
 
 ---
 
