@@ -6,13 +6,19 @@ interface Props {
   content: string;
   url: string;
   image: ImageMetadata;
+  featured?: boolean;
 }
 
-const { title, content, url, image } = Astro.props;
+const { title, content, url, image, featured = false } = Astro.props;
 ---
 
 <article
-  class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
+  class:list={[
+    "group bg-white rounded-xl transition-shadow duration-300 overflow-hidden flex flex-col h-full",
+    featured
+      ? "border-2 border-accent shadow-lg hover:shadow-xl"
+      : "border border-gray-100 shadow-md hover:shadow-lg",
+  ]}
 >
   <!-- En-tête avec titre -->
   <header class="p-6 pb-4">
@@ -44,13 +50,13 @@ const { title, content, url, image } = Astro.props;
 
   <!-- Footer avec bouton -->
   <footer class="p-6 pt-4 mt-auto">
-    <div class="flex justify-end">
+    <div class="flex">
       <a
         href={url}
-        class="btn-modern"
+        class="btn-modern w-full min-h-[3.25rem]"
         aria-label={`En savoir plus sur ${title}`}
       >
-        {title}
+        En savoir plus sur {title}
       </a>
     </div>
   </footer>

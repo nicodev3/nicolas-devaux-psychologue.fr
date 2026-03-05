@@ -45,19 +45,75 @@ import PsychologueImage from "../assets/psychologie.webp";
         currenciesAccepted: "EUR",
       }}
     />
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Comment prendre rendez-vous ?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Vous pouvez prendre rendez-vous facilement via Doctolib en cliquant sur le bouton \"Prendre rendez-vous\" ci-dessus. Les consultations se déroulent uniquement sur rendez-vous, du lundi au samedi de 8h à 20h.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Quelle est la durée d'une séance ?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Les séances individuelles durent 45 minutes, les consultations de couple 50 minutes. Les séances avec les enfants sont plus courtes (30 minutes) car cette durée est plus adaptée à leur rythme et à leur capacité d'attention. Dans le cadre du dispositif \"Mon Soutien Psy\", les séances sont également de 30 minutes afin de garantir la pérennité de cette offre pour un maximum de personnes.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Les séances sont-elles remboursées ?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses mutuelles proposent une prise en charge partielle ou totale. Le dispositif \"Mon Soutien Psy\" permet également un remboursement sous certaines conditions.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Comment choisir entre les différentes approches ?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Chaque approche a ses spécificités. Lors de notre premier entretien, nous déterminerons ensemble la méthode la plus adaptée à vos besoins. Mon approche intégrative me permet d'adapter le traitement à votre situation unique.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Combien de séances sont nécessaires ?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "La durée varie selon vos besoins et objectifs. Certaines difficultés peuvent être résolues en quelques séances, tandis que d'autres nécessitent un accompagnement plus long. Nous évaluons régulièrement l'évolution et ajustons ensemble le rythme des consultations.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Proposez-vous des consultations en ligne ?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Oui, je propose des consultations vidéo pour les personnes qui ne peuvent pas se déplacer ou préfèrent ce format. Les séances en ligne sont tout aussi efficaces et respectent la même confidentialité.",
+            },
+          },
+        ],
+      }}
+    />
   </head>
-  <body class="bg-gradient-to-r from-blue-50 to-white">
+  <body class="bg-gradient-to-r from-secondary to-white">
     <Header />
     <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
       <div class="xl:w-2/3">
-                <!-- Section Hero avec image intégrée -->
-        <div class="bg-white rounded-xl shadow-md p-8 mb-12 border border-gray-100">
+        <section id="hero" class="bg-white rounded-xl shadow-md p-8 mb-12 border border-gray-100" aria-labelledby="hero-heading">
           <div class="grid lg:grid-cols-3 gap-8 items-center">
             <!-- Contenu textuel -->
             <div class="lg:col-span-2">
-              <h1 class="text-4xl md:text-5xl font-bold text-tertiary mb-6 leading-tight">
+              <h1 id="hero-heading" class="text-4xl md:text-5xl font-bold text-tertiary mb-3 leading-tight">
                 Psychologue à Sceaux
               </h1>
+              <p class="text-xl text-gray-600 mb-6 italic">Accompagnement psychologique personnalisé à Sceaux</p>
               <p class="text-gray-700 leading-relaxed">
                 <strong class="text-tertiary">Psychologue clinicien</strong> diplômé de l'<strong>Université Paris Cité</strong> (anciennement Paris 7 Denis-Diderot),
                 psychothérapeute, je vous accueille dans mon cabinet situé au <strong>63 rue Houdan</strong>,
@@ -70,6 +126,18 @@ import PsychologueImage from "../assets/psychologie.webp";
                 méthodes thérapeutiques pour répondre au mieux à vos besoins
                 spécifiques. Je m'appuie notamment sur : <strong>psychothérapie psychodynamique, thérapie cognitive et comportementale, thérapie acceptation et engagement, EMDR MOSAIC<sup>®</sup></strong>.
               </p>
+              <a
+                href="https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex gap-2 items-center justify-center px-6 py-3 h-12 bg-[#107ACA] hover:bg-[#0E6BAD] text-white font-bold text-sm uppercase rounded-lg transition-colors duration-200 no-underline"
+                aria-label="Prendre rendez-vous sur Doctolib"
+                data-umami-event="Doctolib Click"
+                data-umami-event-location="Hero"
+              >
+                <svg xml:space="preserve" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12.8 7.8c.3-1.6.3-4.8-4.8-5.3-1.3-.1-3.4.2-4.8.5v.1c0 .1.2.3.4.4.1.1.4 0 .5 0 4.6-.4 7.9.6 7.3 4-.3 1.9-1.6 4.4-5.1 4.4-.7 0-.8-.1-.7-.6 0-.1 1.1-5.9 1.2-6.5 0 0-.8-.2-1 .6 0 .2-1.9 7-2 7.4-.1.5.2.8 2.5.8 5.5-.1 6.3-4.8 6.5-5.8"></path></svg>
+                Prendre rendez-vous
+              </a>
             </div>
             
             <!-- Image du psychologue -->
@@ -86,12 +154,12 @@ import PsychologueImage from "../assets/psychologie.webp";
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         <PublicsMotifsBanner />
 
-        <section class="mb-12">
-          <h2 class="mb-6 text-2xl md:text-3xl">
+        <section id="approches" class="mb-12" aria-labelledby="approches-heading">
+          <h2 id="approches-heading" class="mb-6 text-2xl md:text-3xl">
             Les différentes approches proposées au cabinet de psychologie de
             Sceaux
           </h2>
@@ -101,12 +169,7 @@ import PsychologueImage from "../assets/psychologie.webp";
               image={(await import("../assets/mosaic.webp")).default}
               title="Thérapie MOSAIC"
               content="La thérapie MOSAIC utilise les stimulations bilatérales alternées pour apaiser les mémoires douloureuses et les émotions fortes, sans vous replonger dans la douleur du souvenir."
-            />
-            <Card
-              url="/psychotherapie/"
-              image={(await import("../assets/psychotherapie.webp")).default}
-              title="Psychothérapie psychodynamique"
-              content="Les psychothérapies psychodynamiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
+              featured={true}
             />
 
             <Card
@@ -115,6 +178,14 @@ import PsychologueImage from "../assets/psychologie.webp";
                 .default}
               title="Thérapie d'Acceptation et d'Engagement (ACT)"
               content="La thérapie ACT (Acceptation et Engagement) encourage l'acceptation des émotions difficiles tout en s'engageant vers des actions alignées avec ses valeurs."
+              featured={true}
+              />
+
+            <Card
+              url="/psychotherapie/"
+              image={(await import("../assets/psychotherapie.webp")).default}
+              title="Psychothérapie psychodynamique"
+              content="Les psychothérapies psychodynamiques explorent les conflits internes et les expériences passées pour comprendre et traiter les troubles émotionnels"
             />
 
             <Card
@@ -140,79 +211,210 @@ import PsychologueImage from "../assets/psychologie.webp";
           </div>
         </section>
 
-        <!-- Section FAQ -->
-        <section class="mb-12">
-          <h2 class="mb-8 text-2xl md:text-3xl text-center text-tertiary">Questions fréquentes</h2>
+        <section id="faq" class="mb-12" aria-labelledby="faq-heading" x-data="{ openId: 'faq-1' }">
+          <h2 id="faq-heading" class="mb-8 text-2xl md:text-3xl text-center text-tertiary">Questions fréquentes</h2>
           
           <div class="max-w-4xl mx-auto space-y-6">
-            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
-              <h3 class="text-lg font-semibold text-tertiary mb-3">Comment prendre rendez-vous ?</h3>
-              <p class="text-gray-700 leading-relaxed">
-                Vous pouvez prendre rendez-vous facilement via <strong>Doctolib</strong> en cliquant sur le bouton "Prendre rendez-vous" ci-dessus. 
-                Les consultations se déroulent uniquement sur rendez-vous, du lundi au samedi de 8h à 20h.
-              </p>
-            </div>
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'faq-1' ? null : 'faq-1'"
+                class="w-full flex justify-between items-center gap-4 p-6 text-left"
+                :aria-expanded="openId === 'faq-1'"
+                aria-controls="faq-content-1"
+                id="faq-toggle-1"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Comment prendre rendez-vous ?</h3>
+                <svg class="w-5 h-5 text-tertiary flex-shrink-0 transition-transform duration-200" :class="openId === 'faq-1' && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="faq-content-1" role="region" aria-labelledby="faq-toggle-1" x-show="openId === 'faq-1'"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0">
+                <div class="px-6 pb-6 pt-0">
+                  <p class="text-gray-700 leading-relaxed">
+                    Vous pouvez prendre rendez-vous facilement via <strong>Doctolib</strong> en cliquant sur le bouton "Prendre rendez-vous" ci-dessus. 
+                    Les consultations se déroulent uniquement sur rendez-vous, du lundi au samedi de 8h à 20h.
+                  </p>
+                </div>
+              </div>
+            </article>
 
-            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
-              <h3 class="text-lg font-semibold text-tertiary mb-3">Quelle est la durée d'une séance ?</h3>
-              <p class="text-gray-700 leading-relaxed">
-                Les séances individuelles durent <strong>45 minutes</strong>, les consultations de couple <strong>50 minutes</strong>. 
-                Les séances avec les enfants sont plus courtes (<strong>30 minutes</strong>) car cette durée est plus adaptée à leur rythme et à leur capacité d'attention.
-                <br><br>
-                Dans le cadre du dispositif "Mon Soutien Psy", les séances sont également de <strong>30 minutes</strong> afin de garantir la pérennité de cette offre pour un maximum de personnes.
-              </p>
-            </div>
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'faq-2' ? null : 'faq-2'"
+                class="w-full flex justify-between items-center gap-4 p-6 text-left"
+                :aria-expanded="openId === 'faq-2'"
+                aria-controls="faq-content-2"
+                id="faq-toggle-2"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Quelle est la durée d'une séance ?</h3>
+                <svg class="w-5 h-5 text-tertiary flex-shrink-0 transition-transform duration-200" :class="openId === 'faq-2' && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="faq-content-2" role="region" aria-labelledby="faq-toggle-2" x-show="openId === 'faq-2'"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0">
+                <div class="px-6 pb-6 pt-0">
+                  <p class="text-gray-700 leading-relaxed">
+                    Les séances individuelles durent <strong>45 minutes</strong>, les consultations de couple <strong>50 minutes</strong>. 
+                    Les séances avec les enfants sont plus courtes (<strong>30 minutes</strong>) car cette durée est plus adaptée à leur rythme et à leur capacité d'attention.
+                  </p>
+                  <p class="text-gray-700 leading-relaxed mt-4">
+                    Dans le cadre du dispositif "Mon Soutien Psy", les séances sont également de <strong>30 minutes</strong> afin de garantir la pérennité de cette offre pour un maximum de personnes.
+                  </p>
+                </div>
+              </div>
+            </article>
 
-            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
-              <h3 class="text-lg font-semibold text-tertiary mb-3">Les séances sont-elles remboursées ?</h3>
-              <p class="text-gray-700 leading-relaxed">
-                Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses 
-                <strong>mutuelles proposent une prise en charge</strong> partielle ou totale. Le dispositif "Mon Soutien Psy" 
-                permet également un remboursement sous certaines conditions.
-              </p>
-            </div>
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'faq-3' ? null : 'faq-3'"
+                class="w-full flex justify-between items-center gap-4 p-6 text-left"
+                :aria-expanded="openId === 'faq-3'"
+                aria-controls="faq-content-3"
+                id="faq-toggle-3"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Les séances sont-elles remboursées ?</h3>
+                <svg class="w-5 h-5 text-tertiary flex-shrink-0 transition-transform duration-200" :class="openId === 'faq-3' && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="faq-content-3" role="region" aria-labelledby="faq-toggle-3" x-show="openId === 'faq-3'"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0">
+                <div class="px-6 pb-6 pt-0">
+                  <p class="text-gray-700 leading-relaxed">
+                    Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses 
+                    <strong>mutuelles proposent une prise en charge</strong> partielle ou totale. Le dispositif "Mon Soutien Psy" 
+                    permet également un remboursement sous certaines conditions.
+                  </p>
+                </div>
+              </div>
+            </article>
 
-            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
-              <h3 class="text-lg font-semibold text-tertiary mb-3">Comment choisir entre les différentes approches ?</h3>
-              <p class="text-gray-700 leading-relaxed">
-                Chaque approche a ses spécificités. Lors de notre premier entretien, nous déterminerons ensemble 
-                la méthode la plus adaptée à vos besoins. Mon approche intégrative me permet d'adapter le traitement 
-                à votre situation unique.
-              </p>
-            </div>
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'faq-4' ? null : 'faq-4'"
+                class="w-full flex justify-between items-center gap-4 p-6 text-left"
+                :aria-expanded="openId === 'faq-4'"
+                aria-controls="faq-content-4"
+                id="faq-toggle-4"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Comment choisir entre les différentes approches ?</h3>
+                <svg class="w-5 h-5 text-tertiary flex-shrink-0 transition-transform duration-200" :class="openId === 'faq-4' && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="faq-content-4" role="region" aria-labelledby="faq-toggle-4" x-show="openId === 'faq-4'"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0">
+                <div class="px-6 pb-6 pt-0">
+                  <p class="text-gray-700 leading-relaxed">
+                    Chaque approche a ses spécificités. Lors de notre premier entretien, nous déterminerons ensemble 
+                    la méthode la plus adaptée à vos besoins. Mon approche intégrative me permet d'adapter le traitement 
+                    à votre situation unique.
+                  </p>
+                </div>
+              </div>
+            </article>
 
-            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
-              <h3 class="text-lg font-semibold text-tertiary mb-3">Combien de séances sont nécessaires ?</h3>
-              <p class="text-gray-700 leading-relaxed">
-                La durée varie selon vos besoins et objectifs. Certaines difficultés peuvent être résolues en quelques séances, 
-                tandis que d'autres nécessitent un accompagnement plus long. Nous évaluons régulièrement l'évolution 
-                et ajustons ensemble le rythme des consultations.
-              </p>
-            </div>
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'faq-5' ? null : 'faq-5'"
+                class="w-full flex justify-between items-center gap-4 p-6 text-left"
+                :aria-expanded="openId === 'faq-5'"
+                aria-controls="faq-content-5"
+                id="faq-toggle-5"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Combien de séances sont nécessaires ?</h3>
+                <svg class="w-5 h-5 text-tertiary flex-shrink-0 transition-transform duration-200" :class="openId === 'faq-5' && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="faq-content-5" role="region" aria-labelledby="faq-toggle-5" x-show="openId === 'faq-5'"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0">
+                <div class="px-6 pb-6 pt-0">
+                  <p class="text-gray-700 leading-relaxed">
+                    La durée varie selon vos besoins et objectifs. Certaines difficultés peuvent être résolues en quelques séances, 
+                    tandis que d'autres nécessitent un accompagnement plus long. Nous évaluons régulièrement l'évolution 
+                    et ajustons ensemble le rythme des consultations.
+                  </p>
+                </div>
+              </div>
+            </article>
 
-            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
-              <h3 class="text-lg font-semibold text-tertiary mb-3">Proposez-vous des consultations en ligne ?</h3>
-              <p class="text-gray-700 leading-relaxed">
-                Oui, je propose des <strong>consultations vidéo</strong> pour les personnes qui ne peuvent pas se déplacer 
-                ou préfèrent ce format. Les séances en ligne sont tout aussi efficaces et respectent la même confidentialité.
-              </p>
-            </div>
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'faq-6' ? null : 'faq-6'"
+                class="w-full flex justify-between items-center gap-4 p-6 text-left"
+                :aria-expanded="openId === 'faq-6'"
+                aria-controls="faq-content-6"
+                id="faq-toggle-6"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Proposez-vous des consultations en ligne ?</h3>
+                <svg class="w-5 h-5 text-tertiary flex-shrink-0 transition-transform duration-200" :class="openId === 'faq-6' && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="faq-content-6" role="region" aria-labelledby="faq-toggle-6" x-show="openId === 'faq-6'"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0">
+                <div class="px-6 pb-6 pt-0">
+                  <p class="text-gray-700 leading-relaxed">
+                    Oui, je propose des <strong>consultations vidéo</strong> pour les personnes qui ne peuvent pas se déplacer 
+                    ou préfèrent ce format. Les séances en ligne sont tout aussi efficaces et respectent la même confidentialité.
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
 
-        <section class="mb-12">
-          <h2 class="mb-6 text-2xl md:text-3xl text-center">Horaires et tarifs</h2>
+        <section id="horaires-tarifs" class="mb-12" aria-labelledby="horaires-tarifs-heading">
+          <h2 id="horaires-tarifs-heading" class="mb-6 text-2xl md:text-3xl text-center">Horaires et tarifs</h2>
           
           <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- Carte Tarifs -->
-            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-gray-100">
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-gray-100" aria-labelledby="tarifs-heading">
               <div class="flex items-center mb-6">
                 <div class="bg-gray-50 p-3 rounded-full mr-4">
                   <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-tertiary">Tarifs des consultations</h3>
+                <h3 id="tarifs-heading" class="text-xl font-bold text-tertiary">Tarifs des consultations</h3>
               </div>
               
               <div class="space-y-3">
@@ -249,17 +451,16 @@ import PsychologueImage from "../assets/psychologie.webp";
                   <strong>💳 Paiement :</strong> Chèques, espèces et virement bancaire. Cartes bancaires non acceptées.
                 </p>
               </div>
-            </div>
+            </article>
 
-            <!-- Carte Horaires -->
-            <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-gray-100">
+            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-gray-100" aria-labelledby="horaires-heading">
               <div class="flex items-center mb-6">
                 <div class="bg-gray-50 p-3 rounded-full mr-4">
                   <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-tertiary">Horaires d'ouverture</h3>
+                <h3 id="horaires-heading" class="text-xl font-bold text-tertiary">Horaires d'ouverture</h3>
               </div>
               
               <div class="space-y-3">
@@ -278,11 +479,10 @@ import PsychologueImage from "../assets/psychologie.webp";
                   <strong>📅 Prise de rendez-vous :</strong> Consultations sur rendez-vous uniquement. Réservez facilement via Doctolib.
                 </p>
               </div>
-            </div>
+            </article>
           </div>
 
-          <!-- Informations complémentaires -->
-          <div class="mt-8 bg-gradient-to-r from-secondary/30 to-primary/20 rounded-xl p-6 max-w-4xl mx-auto">
+          <aside class="mt-8 bg-gradient-to-r from-secondary/30 to-primary/20 rounded-xl p-6 max-w-4xl mx-auto" aria-label="Informations complémentaires">
             <div class="flex items-start">
               <div class="bg-yellow-100 p-2 rounded-full mr-4 flex-shrink-0">
                 <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -290,7 +490,7 @@ import PsychologueImage from "../assets/psychologie.webp";
                 </svg>
               </div>
             </div>
-          </div>
+          </aside>
         </section>
       </div>
       <SideBar />
