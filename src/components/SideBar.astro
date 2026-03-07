@@ -13,24 +13,28 @@ const { showPsyInfo = true } = Astro.props;
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const latestPosts = posts.slice(0, 4);
 ---
 
 <aside
-  class="flex flex-col space-y-8 xl:w-[320px] xl:flex-none"
+  class="flex flex-col space-y-8 xl:w-[320px] xl:flex-none xl:sticky xl:top-6 self-start"
 >
   <Doctolib />
   
   <!-- Section Articles -->
   <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-    <p class="text-xl font-bold text-tertiary mb-6">Derniers articles</p>
+    <h2 class="text-xl font-bold text-tertiary mb-6">Derniers articles</h2>
     <ul class="space-y-4">
       {
-        posts.map((post) => (
+        latestPosts.map((post) => (
           <li class="border-b border-gray-100 pb-2 last:border-b-0 last:pb-0">
-            <a href={`/blog/${post.slug}/`} class="block group">
-              <h4 class="!text-lg font-medium text-gray-700 group-hover:text-accent transition-colors duration-200 leading-relaxed mb-1">
+            <a
+              href={`/blog/${post.slug}/`}
+              class="block group rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            >
+              <h3 class="!text-base font-medium text-gray-700 group-hover:text-accent transition-colors duration-200 leading-relaxed mb-1">
                 {post.data.title}
-              </h4>
+              </h3>
               <p class="text-xs italic text-gray-500">
                 <FormattedDate date={post.data.pubDate} />
               </p>
@@ -39,26 +43,29 @@ const posts = (await getCollection("blog")).sort(
         ))
       }
     </ul>
+    <a
+      href="/blog/"
+      class="mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark transition-colors duration-200 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+    >
+      Voir tous les articles
+    </a>
   </div>
 
   {
     showPsyInfo && (
       <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-        <p class="text-xl font-bold text-tertiary mb-4">Profession réglementée</p>
+        <h2 class="text-xl font-bold text-tertiary mb-4">Profession réglementée</h2>
         
         <div class="space-y-4 text-sm text-gray-700 leading-relaxed">
           <p>
-            En France, la profession de <strong class="text-tertiary">psychologue</strong>
-            est réglementée par le ministère de l'Enseignement supérieur, de la Recherche et de l'Innovation.
+            En France, le titre de <strong class="text-tertiary">psychologue</strong> est
+            réglementé et nécessite une formation universitaire complète en psychologie
+            (licence, master, mémoire et stage professionnel).
           </p>
           <p>
-            L'obtention du titre requiert une licence et un master en psychologie, incluant un mémoire
-            de recherche et un stage professionnel. Nicolas Devaux est diplômé de l'<strong>Université Paris Cité</strong> 
-            (anciennement Paris 7 Denis-Diderot).
-          </p>
-          <p>
-            Le psychologue respecte un code de déontologie garantissant des pratiques éthiques, 
-            la confidentialité des échanges et la protection des patients.
+            Nicolas Devaux est diplômé de l'<strong>Université Paris Cité</strong>
+            (anciennement Paris 7 Denis-Diderot) et exerce dans le respect du
+            code de déontologie, garantissant confidentialité et cadre éthique.
           </p>
         </div>
       </div>

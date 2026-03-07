@@ -1,63 +1,58 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 interface Props {
   title: string;
   content: string;
   url: string;
   image: ImageMetadata;
-  featured?: boolean;
 }
 
-const { title, content, url, image, featured = false } = Astro.props;
+const { title, content, url, image }: Props = Astro.props;
+const ctaLabel = `Découvrir\n${title}`;
+const ctaAriaLabel = `Découvrir ${title}`;
 ---
 
-<article
+<a
+  href={url}
   class:list={[
-    "group bg-white rounded-xl transition-shadow duration-300 overflow-hidden flex flex-col h-full",
-    featured
-      ? "border-2 border-accent shadow-lg hover:shadow-xl"
-      : "border border-gray-100 shadow-md hover:shadow-lg",
+    "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/90 bg-white shadow-sm transition-colors duration-200 hover:border-primary/40 focus-visible:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30",
   ]}
+  aria-label={ctaAriaLabel}
 >
   <!-- En-tête avec titre -->
-  <header class="p-6 pb-4">
-    <h3 class="text-2xl font-bold text-tertiary leading-tight">
+  <header class="p-6 pb-3 md:p-7">
+    <h3 class="text-xl md:text-2xl font-bold text-tertiary leading-tight text-balance">
       {title}
     </h3>
-    <div class="w-8 h-0.5 bg-accent rounded-full mt-3"></div>
+    <div class="mt-3 h-0.5 w-10 rounded-full bg-accent"></div>
   </header>
 
   <!-- Container image -->
-  <div class="px-6 flex justify-center">
-    <div class="bg-secondary/30 p-4 rounded-lg">
+  <div class="px-6 md:px-7 flex justify-center">
+    <div class="rounded-xl border border-primary/15 bg-secondary/35 p-4 shadow-inner">
       <Image
         src={image}
         alt={title}
         width={174}
         height={174}
-        class="rounded-lg"
+        class="rounded-lg object-contain"
       />
     </div>
   </div>
 
   <!-- Contenu principal -->
-  <div class="flex-grow px-6 py-4">
-    <p class="text-gray-700 leading-relaxed text-base">
+  <div class="grow px-6 py-5 md:px-7">
+    <p class="text-gray-700 leading-relaxed text-base text-pretty">
       {content}
     </p>
   </div>
 
   <!-- Footer avec bouton -->
-  <footer class="p-6 pt-4 mt-auto">
-    <div class="flex">
-      <a
-        href={url}
-        class="btn-modern w-full min-h-[5rem]"
-        aria-label={`En savoir plus sur ${title}`}
-      >
-        En savoir plus sur {title}
-      </a>
-    </div>
+  <footer class="mt-auto p-6 pt-2 md:px-7 md:pb-7">
+    <span class="inline-flex w-full min-h-14 items-center justify-center whitespace-pre-line rounded-xl bg-linear-to-r from-accent to-accent-dark px-6 py-3.5 text-center text-sm font-semibold tracking-wide text-white shadow-md transition-opacity duration-200 group-hover:opacity-95 group-focus-visible:opacity-95">
+      {ctaLabel}
+    </span>
   </footer>
-</article>
+</a>

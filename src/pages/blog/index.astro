@@ -38,7 +38,7 @@ const posts = (await getCollection("blog")).sort(
       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
         {
           posts.map((post) => (
-            <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 group">
+            <article class="bg-white rounded-xl shadow-md transition-colors duration-200 overflow-hidden border border-gray-100 hover:border-primary/30 group">
               <a href={`/blog/${post.slug}/`} class="block">
                 <div class="aspect-video overflow-hidden">
                   {
@@ -48,7 +48,7 @@ const posts = (await getCollection("blog")).sort(
                         alt={post.data.title}
                         width={720}
                         height={360}
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        class="w-full h-full object-cover"
                       />
                     )
                   }

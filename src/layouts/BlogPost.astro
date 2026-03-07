@@ -34,11 +34,11 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
     {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} slug={slug} />}
   </head>
 
-  <body class="bg-gradient-to-r from-blue-50 to-white">
+  <body class="bg-linear-to-r from-secondary to-white">
     <Header />
     <Breadcrumb title={title} />
-    <main class="container flex flex-col xl:flex-row gap-5 xl:gap-32 xl:py-8">
-      <article class="xl:w-2/3">
+    <main class="container flex flex-col xl:flex-row gap-8 xl:gap-12 xl:items-start py-8 xl:py-10">
+      <article class="xl:flex-1 xl:min-w-0">
         <!-- Section Hero -->
         <div class="bg-white rounded-xl shadow-md p-8 mb-12 border border-gray-100">
           {

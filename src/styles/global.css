@@ -274,7 +274,7 @@ blockquote {
     font-size: 0.95rem;
     letter-spacing: 0.025em;
     box-shadow: 0 4px 14px 0 rgba(212, 99, 63, 0.25);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     border: none;
@@ -316,9 +316,7 @@ blockquote {
 .btn-tailwind-modern {
     @apply bg-gradient-to-br from-accent to-accent-dark text-white font-semibold;
     @apply py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl;
-    @apply transition-all duration-300 ease-out;
-    @apply hover:-translate-y-0.5 hover:scale-[1.02];
-    @apply active:translate-y-0 active:scale-100;
+    @apply transition-shadow duration-300 ease-out;
     @apply focus:outline-none focus:ring-4 focus:ring-accent/30;
     @apply relative overflow-hidden;
 }
@@ -345,5 +343,3 @@ blockquote {
         padding-right: 5rem;
     }
 }
-
-

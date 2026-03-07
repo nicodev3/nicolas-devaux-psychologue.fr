@@ -1,0 +1,53 @@
+---
+import Card from "./Card.astro";
+
+const mosaicImage = (await import("../assets/mosaic.webp")).default;
+const tccImage = (await import("../assets/tcc.webp")).default;
+const psychotherapieImage = (await import("../assets/psychotherapie.webp")).default;
+---
+
+<section
+  id="approches"
+  class="mb-16 bg-white rounded-xl shadow-md p-8 md:p-10 border border-gray-100"
+  aria-labelledby="approches-heading"
+>
+  <h2 id="approches-heading" class="mb-5 text-2xl md:text-3xl">
+    Des approches adaptées à votre situation
+  </h2>
+  <p class="max-w-3xl text-gray-700 leading-relaxed mb-10 md:mb-12">
+    Je m'appuie sur plusieurs approches complémentaires. Le choix se
+    fait en fonction de votre demande, de votre histoire et des
+    difficultés rencontrées. Lors du premier rendez-vous, nous
+    déterminons ensemble le cadre le plus adapté.
+  </p>
+  <div class="grid xl:grid-cols-3 gap-8">
+    <Card
+      url="/blog/emdr-mosaic/"
+      image={mosaicImage}
+      title="Thérapie MOSAIC"
+      content="La thérapie MOSAIC, proche de l'EMDR, aide à retraiter les souvenirs douloureux et les vécus traumatiques. Elle peut être indiquée en cas de trauma, de deuil compliqué, d'anxiété persistante ou de blocages émotionnels."
+    />
+
+    <Card
+      url="/therapie-cognitive-et-comportementale/"
+      image={tccImage}
+      title="TCC et l'ACT"
+      content="Les TCC et l'ACT proposent des outils concrets pour mieux faire face à l'anxiété, aux phobies, aux TOC, aux ruminations, au stress ou aux difficultés d'affirmation de soi."
+    />
+
+    <Card
+      url="/psychotherapie/"
+      image={psychotherapieImage}
+      title="Psychothérapie"
+      content="Un espace pour comprendre ce que vous traversez, mettre des mots sur vos difficultés et avancer à votre rythme dans un cadre contenant et bienveillant."
+    />
+  </div>
+  <div class="mt-6">
+    <a
+      href="/psychotherapie/"
+      class="font-semibold text-accent-dark underline hover:no-underline"
+    >
+      Découvrir les approches proposées
+    </a>
+  </div>
+</section>

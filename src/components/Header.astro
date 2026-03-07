@@ -41,11 +41,11 @@ import HeaderLink from "./HeaderLink.astro";
     <div
       x-cloak
       :class="open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 xl:max-h-96 xl:opacity-100'"
-      class="overflow-hidden xl:overflow-visible transition-all duration-300 ease-in-out w-full xl:w-auto mt-4 xl:mt-0"
+      class="overflow-hidden xl:overflow-visible transition-[max-height,opacity] duration-300 ease-in-out w-full xl:w-auto mt-4 xl:mt-0"
     >
       <div class="flex flex-col xl:flex-row xl:items-center xl:gap-1 bg-gray-50 xl:bg-transparent rounded-lg xl:rounded-none p-2 xl:p-0">
         <HeaderLink
-          class="text-gray-600 hover:text-accent hover:bg-white xl:hover:bg-transparent rounded-md xl:rounded-none px-3 py-2.5 text-sm font-medium transition-all duration-200"
+          class="text-gray-600 hover:text-accent hover:bg-white xl:hover:bg-transparent rounded-md xl:rounded-none px-3 py-2.5 text-sm font-medium transition-colors duration-200"
           href="/psychotherapie/">Psychothérapie</HeaderLink
         >
         <!-- Dropdown desktop -->
@@ -56,7 +56,7 @@ import HeaderLink from "./HeaderLink.astro";
         >
           <button
             @click="dropdownOpen = !dropdownOpen"
-            class="flex items-center gap-1 text-gray-600 hover:text-accent px-3 py-2.5 text-sm font-medium transition-all duration-200"
+            class="flex items-center gap-1 text-gray-600 hover:text-accent px-3 py-2.5 text-sm font-medium transition-colors duration-200"
             :class="dropdownOpen ? 'text-accent' : ''"
             aria-haspopup="true"
             :aria-expanded="dropdownOpen"
@@ -106,27 +106,27 @@ import HeaderLink from "./HeaderLink.astro";
 
         <!-- Liens à plat en mobile -->
         <HeaderLink
-          class="xl:hidden text-gray-600 hover:text-accent hover:bg-white rounded-md px-3 py-2.5 text-sm font-medium transition-all duration-200"
+          class="xl:hidden text-gray-600 hover:text-accent hover:bg-white rounded-md px-3 py-2.5 text-sm font-medium transition-colors duration-200"
           href="/therapie-cognitive-et-comportementale/">T.C.C.</HeaderLink
         >
         <HeaderLink
-          class="xl:hidden text-gray-600 hover:text-accent hover:bg-white rounded-md px-3 py-2.5 text-sm font-medium transition-all duration-200"
+          class="xl:hidden text-gray-600 hover:text-accent hover:bg-white rounded-md px-3 py-2.5 text-sm font-medium transition-colors duration-200"
           href="/therapie-acceptation-et-engagement/">Thérapie A.C.T.</HeaderLink
         >
         <HeaderLink
-          class="xl:hidden text-gray-600 hover:text-accent hover:bg-white rounded-md px-3 py-2.5 text-sm font-medium transition-all duration-200"
+          class="xl:hidden text-gray-600 hover:text-accent hover:bg-white rounded-md px-3 py-2.5 text-sm font-medium transition-colors duration-200"
           href="/therapie-pleine-conscience/">Mindfulness</HeaderLink
         >
         <HeaderLink
-          class="text-gray-600 hover:text-accent hover:bg-white xl:hover:bg-transparent rounded-md xl:rounded-none px-3 py-2.5 text-sm font-medium transition-all duration-200"
+          class="text-gray-600 hover:text-accent hover:bg-white xl:hover:bg-transparent rounded-md xl:rounded-none px-3 py-2.5 text-sm font-medium transition-colors duration-200"
           href="/mon-soutien-psy/">Mon Soutien Psy</HeaderLink
         >
         <HeaderLink
-          class="text-gray-600 hover:text-accent hover:bg-white xl:hover:bg-transparent rounded-md xl:rounded-none px-3 py-2.5 text-sm font-medium transition-all duration-200"
+          class="text-gray-600 hover:text-accent hover:bg-white xl:hover:bg-transparent rounded-md xl:rounded-none px-3 py-2.5 text-sm font-medium transition-colors duration-200"
           href="/nicolas-devaux-psychologue/">Qui suis-je ?</HeaderLink
         >
         <HeaderLink
-          class="text-gray-600 hover:text-accent hover:bg-white xl:hover:bg-transparent rounded-md xl:rounded-none px-3 py-2.5 text-sm font-medium transition-all duration-200"
+          class="text-gray-600 hover:text-accent hover:bg-white xl:hover:bg-transparent rounded-md xl:rounded-none px-3 py-2.5 text-sm font-medium transition-colors duration-200"
           href="/blog/">Articles</HeaderLink
         >
       </div>
