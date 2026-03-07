@@ -10,8 +10,8 @@ const SITE_URL = "https://nicolas-devaux-psychologue.fr";
 const LABEL_MAP: Record<string, string> = {
   "psychotherapie": "Psychothérapie",
   "therapie-cognitive-et-comportementale": "Thérapie cognitive et comportementale",
-  "therapie-acceptation-et-engagement": "Thérapie ACT",
-  "therapie-pleine-conscience": "Pleine conscience (MBCT/MBSR)",
+  "therapie-acceptation-et-engagement": "ACT (TCC de 3e vague)",
+  "therapie-pleine-conscience": "MBCT/MBSR (TCC de 3e vague)",
   "mon-soutien-psy": "Mon Soutien Psy",
   "nicolas-devaux-psychologue": "Qui suis-je ?",
   "mentions-legales": "Mentions légales",
@@ -65,23 +65,26 @@ const jsonLd = {
 {!isHome && (
   <>
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    <nav aria-label="Fil d'ariane" class="container py-2">
-      <ol class="flex flex-wrap items-center gap-1 text-sm text-gray-500">
+    <nav aria-label="Fil d'ariane" class="container pt-4 pb-6 xl:pt-5 xl:pb-7">
+      <ol class="inline-flex flex-wrap items-center gap-1.5 rounded-xl border border-gray-200 bg-white/90 px-3 py-2 text-sm text-gray-600 shadow-sm backdrop-blur-sm">
         {crumbs.map((crumb, index) => {
           const isLast = index === crumbs.length - 1;
           return (
             <li class="flex items-center gap-1">
               {index > 0 && (
-                <span aria-hidden="true" class="text-gray-300 select-none">/</span>
+                <span aria-hidden="true" class="text-gray-300 select-none">›</span>
               )}
               {isLast ? (
-                <span class="text-tertiary font-medium" aria-current="page">
+                <span
+                  class="rounded-md bg-secondary px-2 py-1 text-tertiary font-semibold"
+                  aria-current="page"
+                >
                   {crumb.label}
                 </span>
               ) : (
                 <a
                   href={crumb.href}
-                  class="hover:text-accent transition-colors duration-200"
+                  class="rounded-md px-2 py-1 hover:text-accent hover:bg-secondary/60 transition-colors duration-200"
                 >
                   {crumb.label}
                 </a>
