@@ -1,56 +1,112 @@
 ---
-const publics = ["Enfants", "Adolescents", "Adultes", "Couples"];
+const publics = [
+  "Enfants",
+  "Adolescents",
+  "Étudiants et jeunes adultes",
+  "Adultes",
+  "Parents",
+  "Couples"
+];
 const motifs = [
-  "Difficultés parentales",
-  "Conflits de couple",
-  "Anxiété",
-  "Stress",
-  "Dépression",
-  "Estime de soi",
-  "Parentalité",
-  "Addictions",
-  "Trauma • Deuil",
-  "TOC • Phobies",
-  "Sommeil",
-  "Burn‑out",
-  "Préparation aux examens",
-  "Questions liées à la vie sexuelle et au genre"
+  {
+    label: "Anxiété et angoisse",
+    icon: ["M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z", "M12 8v4", "M12 16h.01"],
+  },
+  {
+    label: "Stress et burn-out",
+    icon: ["M12 6v6l4 2", "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"],
+  },
+  {
+    label: "Stress des examens et vie étudiante",
+    icon: ["M4 7.5 12 4l8 3.5-8 3.5L4 7.5Z", "M6 9.5V14c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5V9.5"],
+  },
+  {
+    label: "Dépression",
+    icon: ["M8 15s1.5-2 4-2 4 2 4 2", "M9 9h.01", "M15 9h.01", "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"],
+  },
+  {
+    label: "Phobies et TOC",
+    icon: ["M12 3v3", "M12 18v3", "M3 12h3", "M18 12h3", "M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"],
+  },
+  {
+    label: "Ruminations et évitement",
+    icon: ["M7.5 4.5A7.5 7.5 0 1 0 19.5 12", "M19.5 4.5v6h-6"],
+  },
+  {
+    label: "Difficultés relationnelles et de couple",
+    icon: ["M7.5 10.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z", "M16.5 10.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z", "M3.5 18a4.5 4.5 0 0 1 8 0", "M12.5 18a4.5 4.5 0 0 1 8 0"],
+  },
+  {
+    label: "Questions liées au genre, à l'identité et à l'orientation sexuelle",
+    icon: ["M12 21s7-4.35 7-10a4 4 0 0 0-7-2.65A4 4 0 0 0 5 11c0 5.65 7 10 7 10Z"],
+  },
+  {
+    label: "Trauma et deuil",
+    icon: ["M12 3c4 0 7 3.1 7 7 0 5.25-7 11-7 11S5 15.25 5 10c0-3.9 3-7 7-7Z", "M12 8v4"],
+  },
+  {
+    label: "TDAH et troubles de l'attention",
+    icon: ["M9 4.5h6", "M12 4.5v15", "M7.5 9H9", "M15 15h1.5"],
+  },
+  {
+    label: "Confiance en soi",
+    icon: ["M12 17.25 18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.25Z"],
+  },
+  {
+    label: "Transitions de vie",
+    icon: ["M4.5 19.5 19.5 4.5", "M8.25 4.5H19.5v11.25"],
+  }
 ];
 ---
 
-<section id="publics" class="mb-8" aria-labelledby="publics-heading">
-  <div class="rounded-2xl p-6 md:p-8 bg-white border border-gray-100 shadow-md">
-    <div class="flex items-center gap-3 mb-4">
-      <div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-          <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-          <path fill-rule="evenodd" d="M12 14c-4.418 0-8 2.239-8 5v1a1 1 0 001 1h14a1 1 0 001-1v-1c0-2.761-3.582-5-8-5z" clip-rule="evenodd"/>
-        </svg>
-      </div>
-      <h2 id="publics-heading" class="text-xl font-semibold text-tertiary">Publics accueillis</h2>
+<section id="publics" class="mb-16" aria-labelledby="publics-heading">
+  <div class="rounded-2xl p-6 md:p-10 bg-white border border-gray-100 shadow-md">
+    <div class="max-w-3xl mb-8">
+      <h2 id="publics-heading" class="text-2xl md:text-3xl font-bold text-tertiary mb-3">
+        Pour qui et pour quels besoins ?
+      </h2>
+      <p class="text-gray-700 leading-relaxed">
+        J'accueille différents publics et propose un accompagnement adapté aux
+        difficultés que vous traversez.
+      </p>
     </div>
-    <div class="flex flex-wrap gap-2">
-      {publics.map((label) => (
-        <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-800 text-sm transition-colors duration-200 hover:bg-primary/10 hover:border-primary/30">{label}</span>
-      ))}
-    </div>
-  </div>
-</section>
 
-<section id="motifs" class="mb-12" aria-labelledby="motifs-heading">
-  <div class="rounded-2xl p-6 md:p-8 bg-white border border-gray-100 shadow-md">
-    <div class="flex items-center gap-3 mb-4">
-      <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-          <path d="M12 3a9 9 0 100 18 9 9 0 000-18zM11 7h2v6h-2V7zm0 8h2v2h-2v-2z"/>
-        </svg>
+    <article class="rounded-2xl p-6 bg-white border border-gray-100 shadow-sm mb-6">
+      <div class="mb-4">
+        <h3 class="text-xl font-semibold text-tertiary">Publics accueillis</h3>
       </div>
-      <h2 id="motifs-heading" class="text-xl font-semibold text-tertiary">Motifs de consultation</h2>
+      <div class="flex flex-wrap gap-2">
+        {publics.map((label) => (
+          <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-800 text-sm transition-colors duration-200 hover:bg-primary/10 hover:border-primary/30">{label}</span>
+        ))}
+      </div>
+    </article>
+
+    <article class="rounded-2xl p-6 bg-white border border-gray-100 shadow-sm">
+      <div class="mb-4">
+        <h3 id="motifs-heading" class="text-xl font-semibold text-tertiary">Situations accompagnées</h3>
+      </div>
+      <ul class="grid sm:grid-cols-2 gap-3 text-sm">
+        {motifs.map((motif) => (
+          <li class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 leading-snug text-gray-800 transition-colors duration-200 hover:bg-primary/10 hover:border-primary/30">
+            <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                {motif.icon.map((path) => <path d={path}></path>)}
+              </svg>
+            </span>
+            <span>{motif.label}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+
+    <div class="mt-6 rounded-xl bg-secondary/60 border border-primary/30 px-4 py-4">
+      <p class="text-sm md:text-base text-tertiary">
+        Si vous hésitez sur la démarche à entreprendre, nous faisons le point ensemble lors du premier rendez-vous.
+        <a href="#approches" class="font-semibold underline hover:no-underline">
+          Voir les approches proposées
+        </a>
+      </p>
     </div>
-    <ul class="grid sm:grid-cols-2 gap-2 text-sm">
-      {motifs.map((motif) => (
-        <li class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:border-primary/30">{motif}</li>
-      ))}
-    </ul>
   </div>
 </section>
