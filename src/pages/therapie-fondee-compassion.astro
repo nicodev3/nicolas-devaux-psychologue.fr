@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import { Image } from "astro:assets";
-import CftSchemaImage from "../assets/blog/cft-schema.svg";
+import CftSchemaImage from "../assets/cft.webp";
 ---
 
 <Layout
@@ -37,14 +37,11 @@ import CftSchemaImage from "../assets/blog/cft-schema.svg";
       souffrance.
     </p>
 
-    <div class="my-2">
+    <div class="my-2 mx-auto w-1/2">
       <Image
         src={CftSchemaImage}
         alt="Schema des trois systemes emotionnels en therapie fondee sur la compassion"
       />
-      <p class="mt-2 text-sm text-gray-500">
-        Illustration : les trois systemes emotionnels en CFT et la place de la compassion.
-      </p>
     </div>
 
     <div>
