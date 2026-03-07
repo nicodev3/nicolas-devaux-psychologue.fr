@@ -3,11 +3,13 @@ export default {
     ACT: "/therapie-acceptation-et-engagement/",
     "thérapie cognitive et comportementale": "/therapie-cognitive-et-comportementale/",
     TCC: "/therapie-cognitive-et-comportementale/",
+    "TCC de 3e vague": "/tcc-troisieme-vague/",
     "pleine conscience": "/therapie-pleine-conscience/",
     psychothérapie: "/psychotherapie/",
     psychothérapies: "/psychotherapie/",
     hypnothérapie: "/blog/hypnotherapie/",
-    MOSAIC: "/blog/emdr-mosaic/",
+    EMDR: "/therapie-mosaic/",
+    MOSAIC: "/therapie-mosaic/",
     "Doctolib": "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
 
     // Ajouts conditionnels (symptômes / besoins)
@@ -27,12 +29,12 @@ export default {
     "thérapie de couple": "/blog/therapie-couple/",
     "thérapie intégrative comportementale de couple": "/blog/therapie-integrative-comportementale-couple/",
     "IBCT": "/blog/therapie-integrative-comportementale-couple/",
-    "thérapie fondée sur la compassion": "/blog/therapie-fondee-compassion/",
-    "CFT": "/blog/therapie-fondee-compassion/",
+    "thérapie fondée sur la compassion": "/therapie-fondee-compassion/",
+    CFT: "/therapie-fondee-compassion/",
 
     // Parcours patient / informations pratiques
-    "prendre rendez-vous": "/mon-soutien-psy/",
-    "consultation": "/mon-soutien-psy/",
+    "prendre rendez-vous": "/consulter/",
+    consultation: "/consulter/",
     "psychologue à boulogne-billancourt": "/nicolas-devaux-psychologue/",
     "psychologue boulogne-billancourt": "/nicolas-devaux-psychologue/",
 };

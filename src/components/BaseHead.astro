@@ -269,6 +269,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 
 {umamiId && umamiUrl && (
   <script
+    is:inline
     defer
     src={`${umamiUrl}/script.js`}
     data-website-id={umamiId}

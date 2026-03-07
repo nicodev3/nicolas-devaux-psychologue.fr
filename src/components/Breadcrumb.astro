@@ -8,12 +8,16 @@ const { title } = Astro.props;
 const SITE_URL = "https://nicolas-devaux-psychologue.fr";
 
 const LABEL_MAP: Record<string, string> = {
-  "psychotherapie": "Psychothérapie",
+  "consulter": "Consulter",
+  "psychotherapie": "Approches thérapeutiques",
+  "therapie-mosaic": "Thérapie MOSAIC",
+  "tcc-troisieme-vague": "TCC de 3e vague",
   "therapie-cognitive-et-comportementale": "Thérapie cognitive et comportementale",
   "therapie-acceptation-et-engagement": "ACT (TCC de 3e vague)",
   "therapie-pleine-conscience": "MBCT/MBSR (TCC de 3e vague)",
+  "therapie-fondee-compassion": "Thérapie fondée sur la compassion",
   "mon-soutien-psy": "Mon Soutien Psy",
-  "nicolas-devaux-psychologue": "Qui suis-je ?",
+  "nicolas-devaux-psychologue": "À propos",
   "mentions-legales": "Mentions légales",
   "blog": "Articles",
 };
@@ -64,7 +68,7 @@ const jsonLd = {
 
 {!isHome && (
   <>
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <nav aria-label="Fil d'ariane" class="container pt-4 pb-6 xl:pt-5 xl:pb-7">
       <ol class="inline-flex flex-wrap items-center gap-1.5 rounded-xl border border-gray-200 bg-white/90 px-3 py-2 text-sm text-gray-600 shadow-sm backdrop-blur-sm">
         {crumbs.map((crumb, index) => {

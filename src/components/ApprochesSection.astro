@@ -18,36 +18,46 @@ const psychotherapieImage = (await import("../assets/psychotherapie.webp")).defa
     Je m'appuie sur plusieurs approches complémentaires. Le choix se
     fait en fonction de votre demande, de votre histoire et des
     difficultés rencontrées. Lors du premier rendez-vous, nous
-    déterminons ensemble le cadre le plus adapté.
+    déterminons ensemble le cadre le plus adapté parmi la
+    psychothérapie, la thérapie MOSAIC et certaines approches TCC de
+    3e vague.
   </p>
   <div class="grid xl:grid-cols-3 gap-8">
     <Card
-      url="/blog/emdr-mosaic/"
+      url="/therapie-mosaic/"
       image={mosaicImage}
       title="Thérapie MOSAIC"
       content="La thérapie MOSAIC, proche de l'EMDR, aide à retraiter les souvenirs douloureux et les vécus traumatiques. Elle peut être indiquée en cas de trauma, de deuil compliqué, d'anxiété persistante ou de blocages émotionnels."
     />
 
     <Card
-      url="/therapie-cognitive-et-comportementale/"
+      url="/tcc-troisieme-vague/"
       image={tccImage}
-      title="Thérapies cognitives et comportementales (TCC)"
-      content="Les TCC proposent des outils concrets pour mieux faire face à l'anxiété, aux phobies, aux TOC, aux ruminations, au stress ou aux difficultés d'affirmation de soi. L'ACT et les approches MBCT/MBSR en font partie."
+      title="TCC et thérapies de 3e vague"
+      content="Certaines approches TCC de 3e vague comme l'ACT, la MBCT et la CFT proposent des outils concrets pour travailler l'anxiété, les ruminations, le stress, l'autocritique ou l'évitement."
     />
 
     <Card
       url="/psychotherapie/"
       image={psychotherapieImage}
       title="Psychothérapie"
-      content="Un espace pour comprendre ce que vous traversez, mettre des mots sur vos difficultés et avancer à votre rythme dans un cadre contenant et bienveillant."
+      content="Un accompagnement psychothérapeutique pour comprendre ce que vous traversez, mettre des mots sur vos difficultés et avancer à votre rythme dans un cadre contenant et structuré."
     />
   </div>
   <div class="mt-6">
-    <a
-      href="/psychotherapie/"
-      class="font-semibold text-accent-dark underline hover:no-underline"
-    >
-      Découvrir les approches proposées
-    </a>
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <a
+        href="/psychotherapie/"
+        class="font-semibold text-accent-dark underline hover:no-underline"
+      >
+        Voir l'ensemble des approches proposées
+      </a>
+      <a
+        href="/consulter/"
+        class="font-semibold text-accent-dark underline hover:no-underline"
+      >
+        Comprendre comment se déroule un suivi
+      </a>
+    </div>
   </div>
 </section>

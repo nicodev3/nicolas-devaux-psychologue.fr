@@ -4,9 +4,13 @@
     "ACT": "/therapie-acceptation-et-engagement/",
     "thérapie cognitive et comportementale": "/therapie-cognitive-et-comportementale/",
     "TCC": "/therapie-cognitive-et-comportementale/",
+    "TCC de 3e vague": "/tcc-troisieme-vague/",
     "pleine conscience": "/therapie-pleine-conscience/",
     "psychothérapie": "/psychotherapie/",
     "psychothérapies": "/psychotherapie/",
     "hypnothérapie": "/blog/hypnotherapie/",
-    "EMDR": "/blog/emdr-mosaic/"
+    "EMDR": "/therapie-mosaic/",
+    "MOSAIC": "/therapie-mosaic/",
+    "thérapie fondée sur la compassion": "/therapie-fondee-compassion/",
+    "CFT": "/therapie-fondee-compassion/"
 }

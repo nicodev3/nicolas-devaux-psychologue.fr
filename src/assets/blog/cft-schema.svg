@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Schema de la therapie fondee sur la compassion</title>
+  <desc id="desc">Illustration des trois systemes emotionnels en CFT : menace, activation et apaisement, relies par la compassion.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6efe6"/>
+      <stop offset="100%" stop-color="#f2e9e1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#c7b8aa" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="720" fill="url(#bg)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="70" width="1060" height="580" rx="36" fill="#fffdf9"/>
+  </g>
+
+  <text x="120" y="150" fill="#4a4a3e" font-family="Georgia, serif" font-size="42">Therapie fondee sur la compassion</text>
+  <text x="120" y="193" fill="#6b6b5c" font-family="Arial, sans-serif" font-size="22">Retrouver une relation a soi plus stable, courageuse et bienveillante</text>
+
+  <g transform="translate(135 280)">
+    <circle cx="0" cy="0" r="110" fill="#d4633f" fill-opacity="0.12" stroke="#d4633f" stroke-width="3"/>
+    <path d="M-28 -10c0-28 22-50 50-50 18 0 34 9 44 23 10-14 26-23 44-23 28 0 50 22 50 50 0 58-63 95-94 117-31-22-94-59-94-117Z" transform="translate(-22 6) scale(0.72)" fill="#d4633f"/>
+    <text x="0" y="-14" text-anchor="middle" fill="#8f3d28" font-family="Arial, sans-serif" font-size="28" font-weight="700">Menace</text>
+    <text x="0" y="18" text-anchor="middle" fill="#6a554a" font-family="Arial, sans-serif" font-size="18">Anxiete</text>
+    <text x="0" y="43" text-anchor="middle" fill="#6a554a" font-family="Arial, sans-serif" font-size="18">Honte</text>
+    <text x="0" y="68" text-anchor="middle" fill="#6a554a" font-family="Arial, sans-serif" font-size="18">Autocritique</text>
+  </g>
+
+  <g transform="translate(600 280)">
+    <circle cx="0" cy="0" r="110" fill="#cda86a" fill-opacity="0.14" stroke="#b48845" stroke-width="3"/>
+    <path d="M-34 18 0-58 34 18Z" fill="#b48845"/>
+    <rect x="-20" y="18" width="40" height="52" rx="10" fill="#b48845"/>
+    <text x="0" y="-14" text-anchor="middle" fill="#7f6235" font-family="Arial, sans-serif" font-size="28" font-weight="700">Activation</text>
+    <text x="0" y="18" text-anchor="middle" fill="#6a554a" font-family="Arial, sans-serif" font-size="18">Performance</text>
+    <text x="0" y="43" text-anchor="middle" fill="#6a554a" font-family="Arial, sans-serif" font-size="18">Objectifs</text>
+    <text x="0" y="68" text-anchor="middle" fill="#6a554a" font-family="Arial, sans-serif" font-size="18">Exigence</text>
+  </g>
+
+  <g transform="translate(1065 280)">
+    <circle cx="0" cy="0" r="110" fill="#8fa48e" fill-opacity="0.18" stroke="#6f876e" stroke-width="3"/>
+    <path d="M-34 26c0-31 20-62 56-88 36 26 56 57 56 88 0 24-18 44-40 44-11 0-22-5-30-14-8 9-19 14-30 14-22 0-40-20-40-44Z" fill="#6f876e" transform="translate(-12 -12) scale(0.9)"/>
+    <text x="0" y="-14" text-anchor="middle" fill="#4f674e" font-family="Arial, sans-serif" font-size="28" font-weight="700">Apaisement</text>
+    <text x="0" y="18" text-anchor="middle" fill="#5f655b" font-family="Arial, sans-serif" font-size="18">Securite</text>
+    <text x="0" y="43" text-anchor="middle" fill="#5f655b" font-family="Arial, sans-serif" font-size="18">Affiliation</text>
+    <text x="0" y="68" text-anchor="middle" fill="#5f655b" font-family="Arial, sans-serif" font-size="18">Recuperation</text>
+  </g>
+
+  <g>
+    <path d="M245 280C335 235 430 220 490 242" fill="none" stroke="#c7b8aa" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 12"/>
+    <path d="M710 242C790 218 885 234 955 280" fill="none" stroke="#c7b8aa" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 12"/>
+  </g>
+
+  <g transform="translate(600 505)">
+    <circle cx="0" cy="0" r="88" fill="#ffffff" stroke="#d8c9bb" stroke-width="3"/>
+    <path d="M-36 -6c0-26 18-46 42-46 16 0 30 8 39 22 9-14 23-22 39-22 24 0 42 20 42 46 0 50-51 80-81 103-30-23-81-53-81-103Z" fill="#d4633f"/>
+    <text x="0" y="88" text-anchor="middle" fill="#4a4a3e" font-family="Arial, sans-serif" font-size="28" font-weight="700">Compassion</text>
+    <text x="0" y="118" text-anchor="middle" fill="#6b6b5c" font-family="Arial, sans-serif" font-size="18">Reconnaissance de la souffrance</text>
+    <text x="0" y="144" text-anchor="middle" fill="#6b6b5c" font-family="Arial, sans-serif" font-size="18">et engagement pour y repondre</text>
+  </g>
+
+  <path d="M600 366v52" fill="none" stroke="#b9aa9c" stroke-width="4" stroke-linecap="round"/>
+</svg>

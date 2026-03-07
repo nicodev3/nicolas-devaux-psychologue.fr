@@ -43,15 +43,15 @@ import PsychologueImage from "../assets/psychologie.webp";
         <li
           class="bg-secondary/50 border border-primary/20 rounded-lg px-4 py-3"
         >
-          Psychothérapie, TCC, ACT, thérapie MOSAIC
+          Psychothérapie, thérapie MOSAIC, ACT, MBCT, CFT
         </li>
       </ul>
-      <div class="flex flex-col sm:flex-row gap-3 mt-8">
+      <div class="mt-8 flex flex-col gap-4">
         <a
           href="https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex gap-2 items-center justify-center px-6 py-3 h-12 bg-[#107ACA] hover:bg-[#0E6BAD] text-white font-bold text-sm uppercase rounded-lg transition-colors duration-200 no-underline"
+          class="inline-flex w-full sm:w-auto gap-2 items-center justify-center px-6 py-3 h-12 bg-[#107ACA] hover:bg-[#0E6BAD] text-white font-bold text-sm uppercase rounded-lg transition-colors duration-200 no-underline"
           aria-label="Prendre rendez-vous sur Doctolib"
           data-umami-event="Doctolib Click"
           data-umami-event-location="Hero"
@@ -71,12 +71,34 @@ import PsychologueImage from "../assets/psychologie.webp";
           >
           Prendre rendez-vous
         </a>
-        <a
-          href="#horaires-tarifs"
-          class="inline-flex items-center justify-center px-6 py-3 h-12 rounded-lg border border-primary/30 bg-white text-tertiary font-semibold hover:bg-secondary/40 transition-colors duration-200 no-underline"
+
+        <nav
+          aria-label="Parcours de consultation"
+          class="grid gap-3 sm:grid-cols-2 max-w-2xl"
         >
-          Voir les tarifs
-        </a>
+          <a
+            href="/psychotherapie/"
+            class="group rounded-xl border border-gray-200 bg-secondary/35 px-4 py-4 no-underline transition-colors duration-200 hover:bg-secondary/60 hover:border-primary/30"
+          >
+            <span class="block text-sm font-semibold text-tertiary">
+              Choisir une approche
+            </span>
+            <span class="mt-1 block text-sm text-gray-600">
+              Psychothérapie, MOSAIC, ACT, MBCT, CFT
+            </span>
+          </a>
+          <a
+            href="/consulter/"
+            class="group rounded-xl border border-gray-200 bg-secondary/35 px-4 py-4 no-underline transition-colors duration-200 hover:bg-secondary/60 hover:border-primary/30"
+          >
+            <span class="block text-sm font-semibold text-tertiary">
+              Préparer une consultation
+            </span>
+            <span class="mt-1 block text-sm text-gray-600">
+              Déroulement, tarifs, rythme et modalités pratiques
+            </span>
+          </a>
+        </nav>
       </div>
     </div>
 

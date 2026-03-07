@@ -5,31 +5,60 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
 ---
 
 <Layout
-  title="Psychothérapie et approches thérapeutiques"
-  description="Découvrez mon approche intégrative en psychothérapie: un accompagnement personnalisé qui combine différentes méthodes validées selon vos besoins."
+  title="Approches thérapeutiques au cabinet"
+  description="Découvrez les approches thérapeutiques proposées au cabinet de Nicolas Devaux à Sceaux : psychothérapie, thérapie MOSAIC et TCC de 3e vague."
   pubDate={new Date("November 15 2024")}
   showDate={false}
-  blogPost={true}
 >
   <section class="flex flex-col gap-8 xl:gap-10">
     <p>
-      Cette page présente le cadre général de mon travail: une
-      <strong> approche intégrative en psychothérapie</strong>. L'objectif n'est pas
-      d'appliquer une seule méthode à tout le monde, mais d'adapter
-      l'accompagnement à votre problématique, votre histoire et vos ressources.
+      Cette page présente la logique générale de mon travail au cabinet. Je ne
+      propose pas une méthode unique appliquée de la même façon à tout le monde :
+      j'adapte le cadre thérapeutique à votre demande, à votre histoire et aux
+      difficultés rencontrées.
     </p>
 
     <div class="my-2">
-      <Image src={PsychotherapieImage} alt="Approche intégrative en psychothérapie" />
+      <Image src={PsychotherapieImage} alt="Approches thérapeutiques proposées au cabinet" />
     </div>
 
     <div>
-      <h2 class="mb-5">Qu'est-ce qu'une approche intégrative ?</h2>
+      <h2 class="mb-5">Comment je choisis l'approche thérapeutique</h2>
       <p>
-        Une approche intégrative combine plusieurs modèles validés en psychologie
-        clinique pour construire un suivi sur mesure. Concrètement, nous choisissons
-        les outils les plus utiles selon votre situation, puis nous les ajustons au fil
-        des séances en fonction de votre évolution.
+        Le premier travail consiste à comprendre ce qui motive votre consultation
+        et ce qui maintient la difficulté dans le temps. À partir de là, nous
+        déterminons ensemble le cadre le plus pertinent : une psychothérapie, une
+        approche MOSAIC, ou certaines approches issues des TCC de 3e vague.
+      </p>
+      <p>
+        Cette logique intégrative permet de construire un accompagnement cohérent,
+        sans enfermer votre situation dans un protocole standard appliqué
+        automatiquement.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="mb-5">Les trois grandes familles proposées au cabinet</h2>
+      <h3 class="mb-3">Psychothérapie</h3>
+      <p>
+        La psychothérapie constitue le cadre général d'accompagnement lorsque le
+        travail demande du temps pour élaborer ce que vous traversez, comprendre
+        certains répétitions, mettre des mots sur vos difficultés et avancer à
+        votre rythme dans une relation thérapeutique structurée.
+      </p>
+
+      <h3 class="mb-3">Thérapie MOSAIC</h3>
+      <p>
+        La thérapie MOSAIC est une approche spécifique qui peut être proposée
+        lorsque la difficulté est liée à une mémoire douloureuse, à un vécu
+        traumatique ou à une réaction émotionnelle persistante.
+      </p>
+
+      <h3 class="mb-3">TCC et thérapies de 3e vague</h3>
+      <p>
+        Certaines approches de 3e vague comme l'ACT, la MBCT et la thérapie
+        fondée sur la compassion sont utiles lorsqu'un travail plus ciblé,
+        structuré et orienté vers des outils concrets est indiqué.
       </p>
     </div>
 
@@ -58,34 +87,31 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
     </div>
 
     <div>
-      <h2 class="mb-5">Quand cette approche est-elle pertinente ?</h2>
+      <h2 class="mb-5">Quand consulter ?</h2>
       <p>
-        L'approche intégrative est particulièrement adaptée lorsque les difficultés
-        sont multiples ou installées dans le temps: anxiété, humeur dépressive,
+        Cette organisation est particulièrement pertinente lorsque les difficultés
+        sont multiples ou installées dans le temps : anxiété, humeur dépressive,
         difficultés relationnelles, traumatisme, transitions de vie, estime de soi
-        ou besoin de mieux se comprendre.
+        ou besoin de mieux comprendre ce qui se joue pour vous.
       </p>
     </div>
 
     <div class="border border-gray-200 rounded-xl bg-secondary/40 p-5">
-      <h2 class="mb-4">En savoir plus sur chaque méthode</h2>
+      <h2 class="mb-4">Découvrir les approches proposées</h2>
       <p class="mb-3">
-        Si vous souhaitez un niveau de détail plus technique, vous pouvez consulter les
-        pages dédiées:
-      </p>
-      <p class="mb-3">
-        Les approches ACT et MBCT/MBSR sont présentées comme des sous-approches des
-        thérapies cognitives et comportementales (TCC), dites de 3e vague.
+        Si vous souhaitez aller plus loin, vous pouvez consulter les pages dédiées :
       </p>
       <ul class="list-disc list-inside space-y-2 mb-4">
-        <li><a href="/therapie-cognitive-et-comportementale/" class="text-accent hover:text-link transition-colors duration-200">Thérapie cognitive et comportementale (TCC)</a></li>
+        <li><a href="/therapie-mosaic/" class="text-accent hover:text-link transition-colors duration-200">Thérapie MOSAIC</a></li>
+        <li><a href="/tcc-troisieme-vague/" class="text-accent hover:text-link transition-colors duration-200">TCC de 3e vague</a></li>
         <li><a href="/therapie-acceptation-et-engagement/" class="text-accent hover:text-link transition-colors duration-200">ACT (sous-approche TCC de 3e vague)</a></li>
         <li><a href="/therapie-pleine-conscience/" class="text-accent hover:text-link transition-colors duration-200">MBCT/MBSR (sous-approches TCC de 3e vague)</a></li>
+        <li><a href="/therapie-fondee-compassion/" class="text-accent hover:text-link transition-colors duration-200">Thérapie fondée sur la compassion (CFT)</a></li>
       </ul>
-      <p class="mb-3">Autres approches complémentaires :</p>
-      <ul class="list-disc list-inside space-y-2">
-        <li><a href="/blog/emdr-mosaic/" class="text-accent hover:text-link transition-colors duration-200">Thérapie MOSAIC</a></li>
-      </ul>
+      <p>
+        L'article de blog consacré à MOSAIC reste disponible si vous souhaitez un
+        contenu plus détaillé sur cette méthode.
+      </p>
     </div>
   </section>
 </Layout>

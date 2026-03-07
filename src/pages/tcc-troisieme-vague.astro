@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/BlogPost.astro";
+import { Image } from "astro:assets";
+import TccImage from "../assets/tcc-landscape.webp";
+---
+
+<Layout
+  title="TCC de 3e vague à Sceaux"
+  description="Découvrez les approches TCC de 3e vague proposées au cabinet à Sceaux : ACT, MBCT et thérapie fondée sur la compassion."
+  pubDate={new Date("March 07 2026")}
+  showDate={false}
+>
+  <section class="flex flex-col gap-8 xl:gap-10">
+    <p>
+      Les <strong>TCC de 3e vague</strong> regroupent des approches qui conservent
+      le cadre structuré des thérapies cognitives et comportementales tout en
+      intégrant davantage la relation aux émotions, aux pensées, au corps, à la
+      pleine conscience et à la compassion.
+    </p>
+
+    <div class="my-2">
+      <Image src={TccImage} alt="TCC de 3e vague" />
+    </div>
+
+    <div>
+      <h2>Quand ces approches peuvent-elles être utiles ?</h2>
+      <p>
+        Elles peuvent être indiquées lorsque la difficulté demande un travail
+        concret, structuré et centré sur les processus qui entretiennent la
+        souffrance au quotidien.
+      </p>
+      <ul>
+        <li>Anxiété, stress et ruminations.</li>
+        <li>Dépression et risque de rechute.</li>
+        <li>Autocritique, honte et difficultés d'estime de soi.</li>
+        <li>Évitement émotionnel ou rigidité comportementale.</li>
+        <li>Difficultés relationnelles répétitives.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Ce qu'ont en commun ACT, MBCT et CFT</h2>
+      <p>
+        Ces approches ne cherchent pas seulement à faire disparaître un symptôme.
+        Elles aident aussi à modifier la manière de vivre avec certaines pensées,
+        émotions ou sensations, afin de retrouver plus de souplesse, de stabilité
+        et de capacité d'action.
+      </p>
+      <ul>
+        <li>Travail sur l'expérience présente et les boucles qui maintiennent la difficulté.</li>
+        <li>Outils concrets à intégrer dans le quotidien.</li>
+        <li>Cadre collaboratif et objectifs explicites.</li>
+        <li>Place importante donnée à la régulation émotionnelle.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Les approches proposées au cabinet</h2>
+
+      <h3 class="mb-3">ACT</h3>
+      <p>
+        L'ACT travaille la flexibilité psychologique : apprendre à ne pas rester
+        prisonnier de ses pensées ou de ses émotions, et se réengager dans des
+        actions cohérentes avec ses valeurs.
+      </p>
+
+      <h3 class="mb-3">MBCT</h3>
+      <p>
+        La MBCT s'appuie sur la pleine conscience et sur des outils issus des TCC.
+        Elle est particulièrement utile pour les ruminations, le stress et la
+        prévention des rechutes dépressives.
+      </p>
+
+      <h3 class="mb-3">Thérapie fondée sur la compassion</h3>
+      <p>
+        La CFT est indiquée lorsque la souffrance est entretenue par l'autocritique,
+        la honte, la peur du jugement ou une relation à soi trop dure. Elle aide à
+        développer une posture intérieure plus stable, ferme et bienveillante.
+      </p>
+    </div>
+
+    <div>
+      <h2>Comment choisir entre ces approches ?</h2>
+      <p>
+        Le choix dépend moins d'une étiquette que de votre problématique actuelle.
+        Certaines situations appellent surtout un travail sur l'évitement et
+        l'engagement dans l'action, d'autres sur les ruminations, la présence à
+        soi ou la relation à l'autocritique.
+      </p>
+      <p>
+        Lors des premières séances, nous déterminons ensemble si l'une de ces
+        approches est pertinente et laquelle correspond le mieux à votre situation.
+      </p>
+    </div>
+
+    <div class="border border-gray-200 rounded-xl bg-secondary/40 p-5">
+      <h2 class="mb-4">Pages dédiées</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li><a href="/therapie-acceptation-et-engagement/" class="text-link">ACT</a></li>
+        <li><a href="/therapie-pleine-conscience/" class="text-link">MBCT</a></li>
+        <li><a href="/therapie-fondee-compassion/" class="text-link">Thérapie fondée sur la compassion</a></li>
+      </ul>
+    </div>
+  </section>
+</Layout>
