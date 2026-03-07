@@ -189,13 +189,19 @@ img {
 }
 
 .text-link {
-    color: var(--accent);
+    color: #7A431F;
     transition: color 0.3s ease-out;
     text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.12em;
 }
 
 .text-link:hover {
-    color: var(--accent-dark);
+    color: #5C2F14;
+}
+
+.text-link:focus-visible {
+    color: #5C2F14;
 }
 
 .c-wysiwig h2 {
