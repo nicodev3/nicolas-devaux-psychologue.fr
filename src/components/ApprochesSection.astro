@@ -1,8 +1,8 @@
 ---
 import Card from "./Card.astro";
 
-const mosaicImage = (await import("../assets/mosaic.webp")).default;
-const tccImage = (await import("../assets/tcc.webp")).default;
+const mosaicImage = (await import("../assets/logo-mosaic.svg")).default;
+const tccImage = (await import("../assets/ACBS-logo.webp")).default;
 const psychotherapieImage = (await import("../assets/psychotherapie.webp")).default;
 ---
 
@@ -26,21 +26,21 @@ const psychotherapieImage = (await import("../assets/psychotherapie.webp")).defa
     <Card
       url="/therapie-mosaic/"
       image={mosaicImage}
-      title="Thérapie MOSAIC"
+      title="Thérapie MOSAIC (EMDR)"
       content="La thérapie MOSAIC, proche de l'EMDR, aide à retraiter les souvenirs douloureux et les vécus traumatiques. Elle peut être indiquée en cas de trauma, de deuil compliqué, d'anxiété persistante ou de blocages émotionnels."
     />
 
     <Card
       url="/tcc-troisieme-vague/"
       image={tccImage}
-      title="TCC et thérapies de 3e vague"
-      content="Certaines approches TCC de 3e vague comme l'ACT, la MBCT et la CFT proposent des outils concrets pour travailler l'anxiété, les ruminations, le stress, l'autocritique ou l'évitement."
+      title="Thérapies Cognitives et Comportementales"
+      content="Certaines approches TCC de 3e vague comme l'ACT et la CFT proposent des outils concrets pour travailler l'anxiété, les ruminations, le stress, l'autocritique ou l'évitement."
     />
 
     <Card
       url="/psychotherapie/"
       image={psychotherapieImage}
-      title="Psychothérapie"
+      title="Psychothérapies intégratives"
       content="Un accompagnement psychothérapeutique pour comprendre ce que vous traversez, mettre des mots sur vos difficultés et avancer à votre rythme dans un cadre contenant et structuré."
     />
   </div>

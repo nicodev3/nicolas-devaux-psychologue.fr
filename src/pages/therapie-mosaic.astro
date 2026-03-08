@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import { Image } from "astro:assets";
-import MosaicImage from "../assets/mosaic.webp";
+import MosaicImage from "../assets/emdr-therapie-mosaic.webp";
 import MosaicSchemaImage from "../assets/blog/mosaic-therapie-schema.svg";
 import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp";
+import MosaicFormationImage from "../assets/logo-mosaic.svg";
 ---
 
 <Layout
@@ -14,25 +15,48 @@ import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp"
 >
   <section class="flex flex-col gap-8 xl:gap-10">
     <p>
-      La thérapie <strong>MOSAIC</strong> fait partie des approches spécifiques
-      que je peux proposer au cabinet lorsque la difficulté est liée à une mémoire
-      douloureuse, à un vécu traumatique ou à une réaction émotionnelle qui reste
-      trop intense malgré le temps écoulé.
+      La thérapie <strong>
+        <a
+          href="https://www.therapiemosaic.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-link">MOSAIC</a
+        ></strong
+      > fait partie des approches spécifiques que je peux proposer au cabinet lorsque
+      la difficulté est liée à une mémoire douloureuse, à un vécu traumatique ou à
+      une réaction émotionnelle qui reste trop intense malgré le temps écoulé. Je
+      suis formé à la thérapie MOSAIC de référence auprès du Dr Stéphanie Khalfa.
+    </p>
+    <div class="my-2 md:w-1/3 flex">
+      <Image
+        src={MosaicFormationImage}
+        alt="Logo de la thérapie MOSAIC"
+        class="mx-auto"
+      />
+    </div>
+
+    <p>
+      MOSAIC signifie <strong
+        >Mouvements Oculaires et Stimulations Alternées pour l'Intégration
+        Cérébrale</strong
+      >. Cette approche récente utilise les stimulations bilatérales alternées,
+      comme dans l'EMDR, avec une logique orientée vers les solutions et
+      l'apaisement. Cette méthode, développée en 2019 par Guillaume Poupard
+      (psychologue clinicien, docteur en psychopathologie) et Stéphanie Khalfa
+      (chercheuse en neurosciences et psychologue), s'appuie sur des connaissances actuelles en
+      psychologie et neurosciences pour faciliter la transformation des
+      souvenirs difficiles.
     </p>
     <p>
-      MOSAIC signifie <strong>Mouvements Oculaires et Stimulations Alternées pour
-      l'Intégration Cérébrale</strong>. Cette approche récente utilise les
-      stimulations bilatérales alternées, comme dans l'EMDR, avec une logique
-      orientée vers les solutions et l'apaisement.
-    </p>
-    <p>
-      Si vous cherchez une aide pour un traumatisme ou pour un souvenir qui reste
-      envahissant, l'objectif est clair : <strong>apaiser la détresse sans vous
-      replonger longuement dans la douleur du souvenir</strong>.
+      Si vous cherchez une aide pour un traumatisme ou pour un souvenir qui
+      reste envahissant, l'objectif est clair : <strong
+        >apaiser la détresse sans vous replonger longuement dans la douleur du
+        souvenir</strong
+      >.
     </p>
 
     <div class="my-2">
-      <Image src={MosaicImage} alt="Thérapie MOSAIC" />
+      <Image src={MosaicImage} alt="Thérapie MOSAIC" class="mx-auto" />
     </div>
 
     <div>
@@ -46,10 +70,14 @@ import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp"
         <li>Souvenirs douloureux ou traumatiques.</li>
         <li>Stress persistant après un événement difficile.</li>
         <li>Réactions émotionnelles envahissantes ou disproportionnées.</li>
-        <li>Blocages qui se répètent malgré un travail de compréhension déjà engagé.</li>
+        <li>
+          Blocages qui se répètent malgré un travail de compréhension déjà
+          engagé.
+        </li>
       </ul>
       <p>
-        L'indication se décide toujours au cas par cas, après évaluation clinique.
+        L'indication se décide toujours au cas par cas, après évaluation
+        clinique.
       </p>
     </div>
 
@@ -61,22 +89,28 @@ import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp"
         d'apaisement ou de solidité.
       </p>
       <p>
-        Au lieu de rester centrée sur le problème et sur son historique, la méthode
-        travaille aussi sur ce qui aide déjà, sur ce que vous souhaitez ressentir
-        à la place, et sur la manière de stabiliser ce nouvel état dans votre vie
-        quotidienne.
+        Au lieu de rester centrée sur le problème et sur son historique, la
+        méthode travaille aussi sur ce qui aide déjà, sur ce que vous souhaitez
+        ressentir à la place, et sur la manière de stabiliser ce nouvel état
+        dans votre vie quotidienne.
       </p>
     </div>
 
     <div>
       <h2>Différence entre l'EMDR et MOSAIC</h2>
       <p>
-        L'EMDR et MOSAIC partagent l'usage des stimulations bilatérales alternées.
-        La différence principale tient au point d'entrée thérapeutique.
+        L'EMDR et MOSAIC partagent l'usage des stimulations bilatérales
+        alternées. La différence principale tient au point d'entrée
+        thérapeutique.
       </p>
       <ul>
-        <li>L'EMDR travaille classiquement avec le souvenir traumatique cible.</li>
-        <li>MOSAIC met davantage l'accent sur l'expérience corporelle de la solution.</li>
+        <li>
+          L'EMDR travaille classiquement avec le souvenir traumatique cible.
+        </li>
+        <li>
+          MOSAIC met davantage l'accent sur l'expérience corporelle de la
+          solution.
+        </li>
       </ul>
       <p>
         En pratique, de nombreuses personnes décrivent MOSAIC comme une approche
@@ -97,15 +131,28 @@ import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp"
     <div>
       <h2>Comment se déroule l'accompagnement ?</h2>
       <p>
-        Les premières séances permettent de comprendre votre demande, de vérifier
-        si cette approche est adaptée et de définir un cadre clair. Le travail
-        thérapeutique se fait ensuite de manière progressive et structurée.
+        Les premières séances permettent de comprendre votre demande, de
+        vérifier si cette approche est adaptée et de définir un cadre clair. Le
+        travail thérapeutique se fait ensuite de manière progressive et
+        structurée.
       </p>
       <ol>
-        <li><strong>Entretien MOSAIC :</strong> définition de la situation limitante, des objectifs et de l'état interne désiré.</li>
-        <li><strong>Boucle de reconnexion :</strong> renforcement progressif de l'état recherché avec stimulations bilatérales alternées.</li>
-        <li><strong>Projection des bénéfices :</strong> travail sur les changements concrets attendus dans le quotidien.</li>
-        <li><strong>Intégration :</strong> débriefing et exercice simple entre les séances pour stabiliser le travail.</li>
+        <li>
+          <strong>Entretien MOSAIC :</strong> définition de la situation limitante,
+          des objectifs et de l'état interne désiré.
+        </li>
+        <li>
+          <strong>Boucle de reconnexion :</strong> renforcement progressif de l'état
+          recherché avec stimulations bilatérales alternées.
+        </li>
+        <li>
+          <strong>Projection des bénéfices :</strong> travail sur les changements
+          concrets attendus dans le quotidien.
+        </li>
+        <li>
+          <strong>Intégration :</strong> débriefing et exercice simple entre les séances
+          pour stabiliser le travail.
+        </li>
       </ol>
     </div>
 
@@ -120,7 +167,10 @@ import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp"
         <li>Amygdale : détection de la menace.</li>
         <li>Hippocampe : mémoire contextuelle.</li>
         <li>Cortex préfrontal : régulation émotionnelle.</li>
-        <li>Insula, précuneus, cingulaire : intégration multisensorielle et conscience de soi.</li>
+        <li>
+          Insula, précuneus, cingulaire : intégration multisensorielle et
+          conscience de soi.
+        </li>
       </ul>
       <p>
         Les stimulations bilatérales alternées semblent moduler ces réseaux et
@@ -135,68 +185,77 @@ import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp"
         alt="Régions cérébrales impliquées dans la régulation émotionnelle"
       />
       <p class="mt-2 text-sm text-gray-500">
-        Illustration : principales régions cérébrales impliquées dans la régulation émotionnelle.
+        Illustration : principales régions cérébrales impliquées dans la
+        régulation émotionnelle.
       </p>
     </div>
 
     <div>
       <h2>Efficacité : ce qu'on peut dire avec rigueur</h2>
       <ul>
-        <li>L'EMDR est une thérapie validée scientifiquement pour le trouble de stress post-traumatique.</li>
-        <li>MOSAIC repose sur des bases cliniques et neurophysiologiques solides et montre déjà des résultats prometteurs dans la prise en charge du psychotraumatisme.</li>
+        <li>
+          L'EMDR est une thérapie validée scientifiquement pour le trouble de
+          stress post-traumatique.
+        </li>
+        <li>
+          MOSAIC repose sur des bases cliniques et neurophysiologiques solides
+          et montre déjà des résultats prometteurs dans la prise en charge du
+          psychotraumatisme.
+        </li>
       </ul>
     </div>
 
     <div>
       <h2>Pourquoi des patients choisissent MOSAIC</h2>
       <ul>
-        <li>Vouloir une approche active sans exposition prolongée à la douleur.</li>
+        <li>
+          Vouloir une approche active sans exposition prolongée à la douleur.
+        </li>
         <li>Retrouver un sentiment de sécurité intérieure.</li>
-        <li>Avancer à un rythme respectueux, avec des outils concrets entre les séances.</li>
+        <li>
+          Avancer à un rythme respectueux, avec des outils concrets entre les
+          séances.
+        </li>
       </ul>
     </div>
 
     <div>
       <h2>Quelle place parmi les autres approches du cabinet ?</h2>
       <p>
-        La thérapie MOSAIC n'est pas systématiquement la bonne porte d'entrée. Selon
-        votre situation, il peut être plus pertinent de commencer par une
+        La thérapie MOSAIC n'est pas systématiquement la bonne porte d'entrée.
+        Selon votre situation, il peut être plus pertinent de commencer par une
         <a href="/psychotherapie/" class="text-link">psychothérapie</a> ou par une
-        approche de <a href="/tcc-troisieme-vague/" class="text-link">TCC de 3e vague</a>.
+        approche de <a href="/tcc-troisieme-vague/" class="text-link"
+          >TCC de 3e vague</a
+        >.
       </p>
       <p>
-        Elle s'inscrit donc dans une logique d'accompagnement intégratif : l'approche
-        retenue dépend de votre demande, de votre histoire et de vos objectifs.
+        Elle s'inscrit donc dans une logique d'accompagnement intégratif :
+        l'approche retenue dépend de votre demande, de votre histoire et de vos
+        objectifs.
       </p>
     </div>
 
     <div>
       <h2>Mon cadre actuel d'accompagnement en thérapie MOSAIC</h2>
       <p>
-        Je me forme actuellement à la <strong>thérapie MOSAIC de référence</strong>.
-        Cette formation me permet d'appliquer le protocole de référence pour
+        Je suis formé à la <strong>thérapie MOSAIC de référence</strong>. Cette
+        formation me permet d'appliquer le protocole de référence pour
         accompagner les mémoires douloureuses, les situations émotionnellement
-        intenses et le stress, en m'appuyant sur les bases neurophysiologiques
-        et psychologiques de la méthode.
-      </p>
-      <p>
-        Cette formation ouvre ensuite vers des spécialisations concernant
-        notamment le traumatisme complexe, les troubles anxieux, les TOC, la
-        dépression, certaines problématiques addictives ou encore le travail avec
-        les enfants, adolescents et couples.
+        intenses et le stress.
       </p>
     </div>
 
     <div>
       <h2>Consultation MOSAIC à Sceaux et en visio</h2>
       <p>
-        Je vous reçois au cabinet à <strong>Sceaux</strong> et propose aussi des
-        consultations en visioconsultation selon la situation.
+        Je vous reçois au cabinet à <strong>Sceaux</strong> et propose aussi des consultations
+        en visioconsultation selon la situation.
       </p>
       <p>
-        Le cabinet est accessible pour les personnes habitant Sceaux et les villes
-        voisines comme Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses
-        ou Le Plessis-Robinson.
+        Le cabinet est accessible pour les personnes habitant Sceaux et les
+        villes voisines comme Antony, Bourg-la-Reine, Châtenay-Malabry,
+        Fontenay-aux-Roses ou Le Plessis-Robinson.
       </p>
     </div>
 
@@ -204,9 +263,10 @@ import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp"
       <h2>Questions fréquentes</h2>
       <h3>La thérapie MOSAIC est-elle reconnue ?</h3>
       <p>
-        MOSAIC est enseignée et pratiquée par des professionnels formés. Comme
-        toute méthode récente, son niveau de preuve continue d'évoluer avec la
-        recherche.
+        MOSAIC est enseignée et pratiquée par des professionnels formés. Les
+        études ont montré que cette approche est efficace pour traiter le stress
+        post-traumatique ainsi que les mémoires douloureuses et les difficultés
+        émotionnelles persistantes.
       </p>
 
       <h3>Combien de séances faut-il ?</h3>
@@ -228,14 +288,40 @@ import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp"
         Pour préparer votre démarche, vous pouvez aussi consulter :
       </p>
       <ul class="list-disc list-inside space-y-2 mb-4">
-        <li><a href="/psychotherapie/" class="text-link">Approches thérapeutiques au cabinet</a></li>
-        <li><a href="/consulter/" class="text-link">Consulter un psychologue à Sceaux</a></li>
-        <li><a href="/blog/pourquoi-consulter-psychologue/" class="text-link">Pourquoi consulter un psychologue ?</a></li>
+        <li>
+          <a href="/psychotherapie/" class="text-link"
+            >Approches thérapeutiques au cabinet</a
+          >
+        </li>
+        <li>
+          <a href="/consulter/" class="text-link"
+            >Consulter un psychologue à Sceaux</a
+          >
+        </li>
+        <li>
+          <a href="/blog/pourquoi-consulter-psychologue/" class="text-link"
+            >Pourquoi consulter un psychologue ?</a
+          >
+        </li>
       </ul>
       <p class="mb-3">Ressources complémentaires :</p>
       <ul class="list-disc list-inside space-y-2">
-        <li><a href="https://www.therapiemosaic.com" target="_blank" rel="noopener noreferrer" class="text-link">Site officiel therapiemosaic.com</a></li>
-        <li><a href="https://www.therapiemosaic.com/formations/mosaic-de-reference-1759841379915" target="_blank" rel="noopener noreferrer" class="text-link">Formation MOSAIC de référence</a></li>
+        <li>
+          <a
+            href="https://www.therapiemosaic.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-link">Site officiel therapiemosaic.com</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.therapiemosaic.com/formations/mosaic-de-reference-1759841379915"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-link">Formation MOSAIC de référence</a
+          >
+        </li>
       </ul>
     </div>
   </section>
