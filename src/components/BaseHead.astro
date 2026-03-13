@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import { SITE_NAME } from '../consts';
 
 interface Props {
 	title: string;
@@ -12,6 +13,7 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const pageTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
 const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 ---
@@ -30,19 +32,19 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
+<title>{pageTitle}</title>
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
+<meta name="twitter:title" content={pageTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={new URL(image, Astro.url)} />
 

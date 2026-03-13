@@ -3,10 +3,13 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { Image } from "astro:assets";
+
+const BLOG_INDEX_TITLE = "Blog psychologie";
+const BLOG_INDEX_DESCRIPTION =
+  "Articles de psychologie, therapies et bien-etre mental par Nicolas Devaux, psychologue a Sceaux.";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -16,7 +19,7 @@ const posts = (await getCollection("blog")).sort(
 <!doctype html>
 <html lang="fr">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={BLOG_INDEX_TITLE} description={BLOG_INDEX_DESCRIPTION} />
   </head>
   <body class="bg-gradient-to-r from-blue-50 to-white">
     <Header />
