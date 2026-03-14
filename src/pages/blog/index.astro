@@ -42,7 +42,7 @@ const posts = (await getCollection("blog")).sort(
         {
           posts.map((post) => (
             <article class="bg-white rounded-xl shadow-md transition-colors duration-200 overflow-hidden border border-gray-100 hover:border-primary/30 group">
-              <a href={`/blog/${post.slug}/`} class="block">
+              <a href={`/blog/${post.id}/`} class="block">
                 <div class="aspect-video overflow-hidden">
                   {
                     post.data.heroImage && (
