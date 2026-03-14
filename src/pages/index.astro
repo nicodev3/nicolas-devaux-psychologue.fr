@@ -8,9 +8,63 @@ import ApprochesSection from "../components/ApprochesSection.astro";
 import FAQSection from "../components/FAQSection.astro";
 import HorairesTarifsSection from "../components/HorairesTarifsSection.astro";
 import SideBar from "../components/SideBar.astro";
-import { Schema } from "astro-seo-schema";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
 const isProd = import.meta.env.PROD;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Comment prendre rendez-vous ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: 'Vous pouvez prendre rendez-vous facilement via Doctolib en cliquant sur le bouton "Prendre rendez-vous" ci-dessus. Les consultations se déroulent uniquement sur rendez-vous, du lundi au samedi de 8h à 20h.',
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quelle est la durée d'une séance ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: 'Les consultations individuelles et vidéo durent 45 minutes. Les consultations de couple et les séances MOSAIC durent 1 heure. Dans le cadre du dispositif "Mon Soutien Psy", les séances durent 30 minutes.',
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Les séances sont-elles remboursées ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: 'Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses mutuelles proposent une prise en charge partielle ou totale. Le dispositif "Mon Soutien Psy" permet également un remboursement sous certaines conditions.',
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Comment choisir entre les différentes approches ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Chaque approche a ses spécificités. Lors de notre premier entretien, nous déterminerons ensemble la méthode la plus adaptée à vos besoins. Mon approche intégrative me permet d'adapter le traitement à votre situation unique.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Combien de séances sont nécessaires ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La durée varie selon vos besoins et objectifs. Certaines difficultés peuvent être résolues en quelques séances, tandis que d'autres nécessitent un accompagnement plus long. Nous évaluons régulièrement l'évolution et ajustons ensemble le rythme des consultations.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Proposez-vous des consultations en ligne ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, je propose des consultations vidéo pour les personnes qui ne peuvent pas se déplacer ou préfèrent ce format. Les séances en ligne sont tout aussi efficaces et respectent la même confidentialité.",
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -18,62 +72,7 @@ const isProd = import.meta.env.PROD;
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     {isProd && (
-    <Schema
-      item={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Comment prendre rendez-vous ?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: 'Vous pouvez prendre rendez-vous facilement via Doctolib en cliquant sur le bouton "Prendre rendez-vous" ci-dessus. Les consultations se déroulent uniquement sur rendez-vous, du lundi au samedi de 8h à 20h.',
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Quelle est la durée d'une séance ?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: 'Les consultations individuelles et vidéo durent 45 minutes. Les consultations de couple et les séances MOSAIC durent 1 heure. Dans le cadre du dispositif "Mon Soutien Psy", les séances durent 30 minutes.',
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Les séances sont-elles remboursées ?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: 'Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses mutuelles proposent une prise en charge partielle ou totale. Le dispositif "Mon Soutien Psy" permet également un remboursement sous certaines conditions.',
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Comment choisir entre les différentes approches ?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Chaque approche a ses spécificités. Lors de notre premier entretien, nous déterminerons ensemble la méthode la plus adaptée à vos besoins. Mon approche intégrative me permet d'adapter le traitement à votre situation unique.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Combien de séances sont nécessaires ?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "La durée varie selon vos besoins et objectifs. Certaines difficultés peuvent être résolues en quelques séances, tandis que d'autres nécessitent un accompagnement plus long. Nous évaluons régulièrement l'évolution et ajustons ensemble le rythme des consultations.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Proposez-vous des consultations en ligne ?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Oui, je propose des consultations vidéo pour les personnes qui ne peuvent pas se déplacer ou préfèrent ce format. Les séances en ligne sont tout aussi efficaces et respectent la même confidentialité.",
-            },
-          },
-        ],
-      }}
-    />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     )}
   </head>
   <body class="bg-linear-to-r from-secondary to-white">
