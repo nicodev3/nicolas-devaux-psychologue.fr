@@ -111,7 +111,7 @@
           "priceCurrency": "EUR",
           "lowPrice": 50,
           "highPrice": 110,
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs",
+          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
           "itemOffered": {
             "@type": "Service",
             "name": "Consultations de psychothérapie",
@@ -122,9 +122,9 @@
         {
           "@type": "Offer",
           "name": "Consultation individuelle en cabinet",
-          "price": 70,
+          "price": 80,
           "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/consultations",
+          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
@@ -139,7 +139,7 @@
           "name": "Thérapie de couple",
           "price": 110,
           "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/therapie-couple",
+          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
@@ -152,9 +152,9 @@
         {
           "@type": "Offer",
           "name": "Consultation enfant/adolescent",
-          "price": 70,
+          "price": 80,
           "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/consultations",
+          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
@@ -167,9 +167,9 @@
         {
           "@type": "Offer",
           "name": "Consultation en visioconférence",
-          "price": 70,
+          "price": 80,
           "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/consultations",
+          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
@@ -184,7 +184,7 @@
           "name": "Programme MBCT (8 séances)",
           "price": 50,
           "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/pleine-conscience",
+          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
