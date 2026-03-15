@@ -206,7 +206,9 @@ img {
     margin-bottom: 0.75rem;
 }
 
-.c-wysiwig a {
+.c-wysiwig p a,
+.c-wysiwig li a,
+.c-wysiwig td a {
     color: var(--accent-dark);
 }
 
