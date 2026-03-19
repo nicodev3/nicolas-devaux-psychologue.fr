@@ -7,43 +7,50 @@ import Layout from "../layouts/BlogPost.astro";
   description="Mentions légales du site internet du cabinet de psychologie de Nicolas Devaux, psychologue clinicien, RPPS : 10008482910, Sceaux, Hauts-de-Seine"
   pubDate={new Date("August 08 2024")}
   showDate={false}
-  blogPost={true}
+  blogPost={false}
 >
-  <section class="flex flex-col gap-8 xl:gap-10">
+  <div class="c-mentions-legales">
     <h2>Éditeur du site</h2>
-    <p>Ce site est édité par Nicolas Devaux, Psychologue</p>
-    <p>Numéro RPPS : 10008482910</p>
-    <p>Adresse : 63 rue Houdan 92330 Sceaux</p>
-    <p>Téléphone : <span x-data="{ revealed: false }" 
-        @click="revealed = true"
-        :class="{ 'cursor-pointer underline': !revealed }">
-        <span x-text="revealed ? '06 29 34 13 67' : 'Cliquez pour afficher'"></span>
-    </span></p>
-    <p>Email : <span x-data="{ revealed: false }" 
-        @click="revealed = true"
-        :class="{ 'cursor-pointer underline': !revealed }">
-        <span x-text="revealed ? 'ndevaux@gmail.com' : 'Cliquez pour afficher'"></span>
-    </span></p>
+    <p>Ce site est édité par <strong>Nicolas Devaux</strong>, psychologue clinicien.</p>
+    <ul>
+      <li>Numéro RPPS : 10008482910</li>
+      <li>Adresse : 63 rue Houdan, 92330 Sceaux</li>
+      <li>Téléphone : <span x-data="{ revealed: false }"
+          @click="revealed = true"
+          :class="{ 'cursor-pointer underline': !revealed }">
+          <span x-text="revealed ? '06 29 34 13 67' : 'Cliquez pour afficher'"></span>
+      </span></li>
+      <li>Email : <span x-data="{ revealed: false }"
+          @click="revealed = true"
+          :class="{ 'cursor-pointer underline': !revealed }">
+          <span x-text="revealed ? 'ndevaux@gmail.com' : 'Cliquez pour afficher'"></span>
+      </span></li>
+    </ul>
+    <p>Directeur de la publication : Nicolas Devaux.</p>
 
     <h2>Hébergement</h2>
-    <p>Ce site est hébergé par :</p>
-    <p>Netlify</p>
-    <p>610 22nd Street, Suite 315, San Francisco, CA 94107, États-Unis</p>
+    <p>Ce site est hébergé par <strong>Netlify, Inc.</strong><br>
+    610 22nd Street, Suite 315, San Francisco, CA 94107, États-Unis.<br>
+    Site web : <a href="https://www.netlify.com" rel="noopener noreferrer" target="_blank" class="text-link">www.netlify.com</a></p>
 
     <h2>Propriété intellectuelle</h2>
-    <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+    <p>L'ensemble du contenu de ce site (textes, images, photographies, logos, icônes) est protégé par la législation française et internationale relative au droit d'auteur et à la propriété intellectuelle. Toute reproduction, représentation, modification ou adaptation, totale ou partielle, est interdite sans l'autorisation écrite préalable de l'éditeur.</p>
 
     <h2>Protection des données personnelles</h2>
-    <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.</p>
-    <p>Ce site ne collecte aucune donnée personnelle sans votre consentement explicite.</p>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, vous disposez des droits suivants sur vos données personnelles :</p>
+    <ul>
+      <li>Droit d'accès, de rectification et de suppression</li>
+      <li>Droit à la portabilité des données</li>
+      <li>Droit d'opposition et de limitation du traitement</li>
+    </ul>
+    <p>Pour exercer ces droits, vous pouvez adresser votre demande par email ou par courrier aux coordonnées indiquées ci-dessus.</p>
+    <p>Ce site ne collecte aucune donnée personnelle sans votre consentement explicite. Aucun cookie à des fins publicitaires ou de traçage n'est utilisé.</p>
 
     <h2>Responsabilité</h2>
-    <p>Les informations contenues sur ce site sont aussi précises que possible et mises à jour régulièrement. Toutefois, elles ne sauraient engager la responsabilité de l'éditeur.</p>
-    <p>Les liens hypertextes mis en place dans le cadre du présent site internet en direction d'autres ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de l'éditeur.</p>
+    <p>Les informations fournies sur ce site le sont à titre indicatif et ne sauraient se substituer à un avis professionnel. L'éditeur s'efforce de maintenir des informations exactes et à jour, mais ne garantit pas l'absence d'erreurs ou d'omissions.</p>
+    <p>L'éditeur ne saurait être tenu responsable du contenu des sites externes vers lesquels des liens hypertextes peuvent renvoyer.</p>
 
     <h2>Loi applicable et juridiction</h2>
-    <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
-
-
-  </section>
+    <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
+  </div>
 </Layout>

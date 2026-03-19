@@ -235,6 +235,41 @@ abbr {
     margin: 0.25rem 0;
 }
 
+/* Mentions légales - rythme vertical compact */
+.c-mentions-legales h2 {
+    font-size: 1.35rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.c-mentions-legales h2:first-child {
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .c-mentions-legales h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.c-mentions-legales p {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+    color: #4a4a4a;
+}
+
+.c-mentions-legales ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.c-mentions-legales li {
+    margin: 0.2rem 0;
+    line-height: 1.7;
+    color: #4a4a4a;
+}
+
 .prose {
     color: rgb(var(--gray-dark));
 }
