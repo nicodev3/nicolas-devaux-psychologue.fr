@@ -270,10 +270,46 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 )}
 
 {umamiId && umamiUrl && (
-  <script
-    is:inline
-    defer
-    src={`${umamiUrl}/script.js`}
-    data-website-id={umamiId}
-  ></script>
+  <>
+    <script
+      is:inline
+      defer
+      src={`${umamiUrl}/script.js`}
+      data-website-id={umamiId}
+    ></script>
+    <script is:inline defer>
+      document.addEventListener(
+        "click",
+        function (e) {
+          if (e.defaultPrevented) return;
+          if (e.button !== 0) return;
+          if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+          var link = e.target.closest("a[data-track-doctolib]");
+          if (!link || !link.href) return;
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          var loc = link.getAttribute("data-track-location") || "";
+          var href = link.href;
+          var opened = false;
+          function go() {
+            if (opened) return;
+            opened = true;
+            window.open(href, "_blank", "noopener,noreferrer");
+          }
+          try {
+            var p = window.umami && window.umami.track("Doctolib Click", loc ? { location: loc } : {});
+            if (p && typeof p.then === "function") {
+              p.then(go, go);
+            } else {
+              go();
+            }
+          } catch (err) {
+            go();
+          }
+          setTimeout(go, 500);
+        },
+        true
+      );
+    </script>
+  </>
 )}
