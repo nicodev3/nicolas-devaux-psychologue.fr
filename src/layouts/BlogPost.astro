@@ -8,6 +8,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
 import "../styles/global.css";
+import "../styles/content.css";
 import { formatFrenchDate, toDateTime } from "../utils/formatDate";
 
 type Props = CollectionEntry<"blog">["data"] & {
@@ -83,7 +84,7 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
         <div
           class={`bg-white rounded-xl shadow-md p-8 border border-gray-100 ${
             blogPost
-              ? "prose prose-slate max-w-none prose-p:text-gray-700 prose-p:leading-8 prose-p:mb-5 prose-headings:font-medium prose-headings:text-tertiary prose-headings:tracking-tight prose-h2:mt-12 prose-h2:mb-4 prose-h2:text-3xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-2xl prose-a:text-accent-dark prose-a:no-underline hover:prose-a:text-accent prose-a:font-medium prose-strong:text-tertiary prose-strong:font-semibold prose-li:marker:text-accent-dark prose-li:my-1 prose-blockquote:border-l-accent prose-blockquote:text-gray-700 prose-blockquote:italic prose-img:rounded-xl prose-img:shadow-sm"
+              ? "c-prose"
               : "c-wysiwig"
           }`}
         >
