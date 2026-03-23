@@ -1,7 +1,7 @@
 ---
 import Doctolib from "./Doctolib.astro";
 import { getCollection } from "astro:content";
-import FormattedDate from "./FormattedDate.astro";
+import { formatFrenchDate, toDateTime } from "../utils/formatDate";
 
 // Ajout de la prop
 interface Props {
@@ -36,7 +36,9 @@ const latestPosts = posts.slice(0, 4);
                 {post.data.title}
               </h3>
               <p class="text-xs italic text-gray-500">
-                <FormattedDate date={post.data.pubDate} />
+                <time datetime={toDateTime(post.data.pubDate)}>
+                  {formatFrenchDate(post.data.pubDate)}
+                </time>
               </p>
             </a>
           </li>
