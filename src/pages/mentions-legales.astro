@@ -23,7 +23,7 @@ import Layout from "../layouts/BlogPost.astro";
       <li>Email : <span x-data="{ revealed: false }"
           @click="revealed = true"
           :class="{ 'cursor-pointer underline': !revealed }">
-          <span x-text="revealed ? 'ndevaux@gmail.com' : 'Cliquez pour afficher'"></span>
+          <span x-text="revealed ? ['ndevaux','gmail.com'].join('@') : 'Cliquez pour afficher'"></span>
       </span></li>
     </ul>
     <p>Directeur de la publication : Nicolas Devaux.</p>
