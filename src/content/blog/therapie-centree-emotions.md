@@ -2,7 +2,7 @@
 title: 'La thérapie centrée sur les émotions (TCE)'
 description: 'La thérapie centrée sur les émotions : une approche innovante pour transformer les émotions difficiles.'
 pubDate: 'Sept 1 2025'
-heroImage: '../../assets/blog/psychotherapies.webp'
+heroImage: '../../assets/blog/tce.webp'
 ---
 
 La thérapie centrée sur les émotions (TCE), développée par le psychologue canadien Leslie Greenberg, représente une approche révolutionnaire qui place les émotions au cœur du processus thérapeutique. Cette méthode, issue de la troisième vague des thérapies cognitives et comportementales, offre des outils puissants pour transformer les émotions difficiles et améliorer les relations interpersonnelles.
