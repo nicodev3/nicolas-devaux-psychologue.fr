@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/Ici-votre-praticien-MOSAIC.pdf",
+    "/*.png",
+    "/*.jpg",
+    "/*.svg",
+    "/*.json",
+    "/*.txt",
+    "/fonts/*"
+  ],
+  "routes": [
+    {
+      "pattern": "/blog/emdr-mosaic/",
+      "destination": "/therapie-mosaic/"
+    },
+    {
+      "pattern": "/blog/therapie-fondee-compassion/",
+      "destination": "/therapie-fondee-compassion/"
+    },
+    {
+      "pattern": "/approches/",
+      "destination": "/psychotherapie/"
+    },
+    {
+      "pattern": "/psychotherapies/",
+      "destination": "/psychotherapie/"
+    },
+    {
+      "pattern": "/qui-suis-je/",
+      "destination": "/nicolas-devaux-psychologue/"
+    },
+    {
+      "pattern": "/mosaic/",
+      "destination": "/therapie-mosaic/"
+    },
+    {
+      "pattern": "/act/",
+      "destination": "/therapie-acceptation-et-engagement/"
+    },
+    {
+      "pattern": "/mbct/",
+      "destination": "/therapie-pleine-conscience/"
+    },
+    {
+      "pattern": "/cft/",
+      "destination": "/therapie-fondee-compassion/"
+    },
+    {
+      "pattern": "/tcc-3e-vague/",
+      "destination": "/tcc-troisieme-vague/"
+    },
+    {
+      "pattern": "/tarifs",
+      "destination": "/tarifs/"
+    }
+  ]
+}
