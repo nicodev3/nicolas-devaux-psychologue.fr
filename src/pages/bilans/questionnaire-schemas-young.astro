@@ -1,0 +1,677 @@
+---
+import FormLayout from "../../layouts/FormLayout.astro";
+
+const title = "Questionnaire des Schémas de Young (YSQ-L2)";
+const description = "Passez le Questionnaire des Schémas de Young en ligne — 205 affirmations explorant 16 schémas précoces inadaptés dans le cadre de la thérapie des schémas.";
+---
+
+<FormLayout title={title} description={description}>
+  <div x-data="ysqForm" class="max-w-4xl mx-auto">
+
+    <!-- Barre de progression sticky -->
+    <div class="sticky top-2 z-30 mb-6" x-show="!submitted">
+      <div class="bg-white/95 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm px-4 py-3">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-medium text-gray-500">Progression</span>
+          <span class="text-xs font-semibold text-gray-700">
+            <span x-text="answeredCount"></span>/205
+          </span>
+        </div>
+        <div class="w-full bg-gray-100 rounded-full h-2">
+          <div
+            class="bg-accent h-2 rounded-full transition-all duration-300"
+            :style="`width: ${progress}%`"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- En-tête et instructions -->
+    <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-tertiary mb-1">
+        Questionnaire des Schémas de Young
+      </h1>
+      <p class="text-gray-500 text-sm mb-6">YSQ-L2 — Version 1994, traduction J. Cottraux (1995, révisée 1999)</p>
+
+      <div class="p-5 bg-secondary/60 rounded-xl">
+        <h2 class="font-semibold text-tertiary mb-3 text-base">Instructions</h2>
+        <p class="text-gray-700 text-sm leading-relaxed mb-4">
+          Lisez chaque affirmation et décidez à quel point elle vous correspond.
+          Lorsque vous hésitez, basez votre réponse sur ce que vous ressentez
+          <strong>émotionnellement</strong>, et non pas sur ce que vous pensez rationnellement être vrai pour vous.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+          {[
+            [1, "Cela ne m'a jamais correspondu tout au long de ma vie"],
+            [2, "Cela a été vrai pour une période de ma vie, mais pas la plupart du temps"],
+            [3, "Cela me concerne en ce moment, mais généralement pas au cours de ma vie"],
+            [4, "Assez vrai pour moi durant la majeure partie de ma vie"],
+            [5, "Tout à fait vrai pour moi la majeure partie de ma vie"],
+            [6, "Me décrit parfaitement tout au long de ma vie"],
+          ].map(([n, label]) => (
+            <div class="flex items-start gap-2.5">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-xs font-bold text-tertiary">{n}</span>
+              <span class="text-gray-600 leading-snug">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <p class="text-xs text-gray-400 mt-4 flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Vos réponses sont sauvegardées automatiquement dans votre navigateur. Vous pouvez reprendre le questionnaire plus tard.
+      </p>
+    </div>
+
+    <!-- Section résultats (après soumission) -->
+    <div id="results" x-show="submitted" class="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-8 print-results">
+      <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-tertiary mb-1">Résultats</h2>
+          <p class="text-sm text-gray-500">YSQ-L2 — Questionnaire des Schémas de Young</p>
+        </div>
+        <div class="flex gap-2 shrink-0 no-print">
+          <button
+            onclick="window.print()"
+            class="flex items-center gap-1.5 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Imprimer
+          </button>
+          <button
+            @click="reset()"
+            class="flex items-center gap-1.5 px-3 py-2 bg-red-50 hover:bg-red-100 text-red-700 rounded-lg text-sm font-medium transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Recommencer
+          </button>
+        </div>
+      </div>
+
+      <p class="text-sm text-gray-600 mb-6 p-4 bg-secondary/40 rounded-lg">
+        Ces résultats sont destinés à être partagés avec votre psychologue. Un score élevé indique qu'un schéma est davantage présent dans votre vie.
+        <strong>Ils ne constituent pas un diagnostic.</strong>
+      </p>
+
+      <!-- Légende -->
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="text-xs px-2.5 py-1 bg-green-100 text-green-700 rounded-full font-medium">1,0–2,0 : Très faible</span>
+        <span class="text-xs px-2.5 py-1 bg-lime-100 text-lime-700 rounded-full font-medium">2,0–3,0 : Faible</span>
+        <span class="text-xs px-2.5 py-1 bg-yellow-100 text-yellow-700 rounded-full font-medium">3,0–4,0 : Modéré</span>
+        <span class="text-xs px-2.5 py-1 bg-orange-100 text-orange-700 rounded-full font-medium">4,0–5,0 : Élevé</span>
+        <span class="text-xs px-2.5 py-1 bg-red-100 text-red-700 rounded-full font-medium">5,0–6,0 : Très élevé</span>
+      </div>
+
+      <!-- Résultats par domaine -->
+      <template x-for="domainName in uniqueDomains" :key="domainName">
+        <div class="mb-8">
+          <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4 pb-2 border-b border-gray-100" x-text="domainName"></h3>
+          <div class="space-y-4">
+            <template x-for="schema in schemasInDomain(domainName)" :key="schema.code">
+              <div class="flex items-center gap-3">
+                <div class="w-48 shrink-0">
+                  <span class="text-sm font-medium text-gray-700 leading-snug" x-text="schema.name"></span>
+                </div>
+                <div class="flex-1 min-w-0 flex items-center gap-3">
+                  <div class="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden">
+                    <div
+                      class="h-3 rounded-full transition-all duration-700"
+                      :class="scoreBarColor(schemaScore(schema).avg)"
+                      :style="`width: ${scoreBarWidth(schemaScore(schema).avg)}`"
+                    ></div>
+                  </div>
+                  <span
+                    class="text-sm font-bold w-10 text-right shrink-0"
+                    :class="scoreTextColor(schemaScore(schema).avg)"
+                    x-text="schemaScore(schema).avg.toFixed(1)"
+                  ></span>
+                  <span
+                    class="text-xs px-2 py-0.5 rounded-full font-medium w-20 text-center shrink-0"
+                    :class="scoreBadgeClass(schemaScore(schema).avg)"
+                    x-text="scoreLabel(schemaScore(schema).avg)"
+                  ></span>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Formulaire -->
+    <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
+      <template x-for="(schema, si) in schemas" :key="schema.code">
+        <div class="bg-white rounded-xl shadow-md border border-gray-100 mb-6 overflow-hidden">
+          <!-- En-tête du schéma -->
+          <div class="bg-secondary/50 px-6 py-4 border-b border-gray-100">
+            <p class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-0.5" x-text="schema.domain"></p>
+            <h2 class="text-base font-semibold text-tertiary m-0" x-text="schema.name"></h2>
+          </div>
+
+          <!-- Questions -->
+          <div class="divide-y divide-gray-50">
+            <template x-for="(question, qi) in schema.questions" :key="si + '-' + qi">
+              <div
+                class="px-4 sm:px-6 py-4 transition-colors duration-150"
+                :class="answers[schema.startIdx + qi] > 0 ? 'bg-green-50/40' : ''"
+              >
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                  <p class="flex-1 text-sm text-gray-700 leading-relaxed m-0">
+                    <span class="text-gray-400 font-medium mr-1.5" x-text="(schema.startIdx + qi) + '.'"></span>
+                    <span x-text="question"></span>
+                  </p>
+                  <div class="flex gap-1.5 shrink-0">
+                    <template x-for="scale in [1, 2, 3, 4, 5, 6]" :key="scale">
+                      <label class="cursor-pointer select-none">
+                        <input
+                          type="radio"
+                          :name="'q' + (schema.startIdx + qi)"
+                          :value="scale"
+                          x-model.number="answers[schema.startIdx + qi]"
+                          @change="saveAnswers()"
+                          class="sr-only"
+                        />
+                        <span
+                          class="flex items-center justify-center w-9 h-9 rounded-full border-2 text-sm font-semibold transition-all duration-150"
+                          :class="scaleClass(answers[schema.startIdx + qi], scale)"
+                          x-text="scale"
+                        ></span>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
+
+      <!-- Avertissement réponses manquantes -->
+      <div
+        x-show="showWarning"
+        x-transition
+        class="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6 text-orange-800 text-sm flex items-start gap-2"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        <span>
+          <strong>Questionnaire incomplet :</strong>
+          vous avez répondu à <span x-text="answeredCount"></span> question(s) sur 205.
+          Veuillez répondre à toutes les questions pour obtenir vos résultats.
+        </span>
+      </div>
+
+      <!-- Bouton de soumission -->
+      <div class="text-center mb-8">
+        <button type="submit" class="btn-modern text-base px-8 py-4">
+          Calculer mes résultats
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</FormLayout>
+
+<style>
+  @media print {
+    header, footer, nav, .no-print, #form-container { display: none !important; }
+    .print-results { display: block !important; }
+    body { background: white !important; }
+  }
+</style>
+
+<script is:inline>
+document.addEventListener('alpine:init', () => {
+  const SCHEMAS = [
+    {
+      code: 'ed', startIdx: 1,
+      name: 'Manque Affectif',
+      domain: 'A. Séparation et rejet',
+      questions: [
+        "Les autres n'ont pas satisfait mes besoins émotionnels.",
+        "Je n'ai reçu ni amour, ni attention.",
+        "La plupart du temps, je n'ai eu personne dont je dépende pour donner des conseils et un soutien émotionnel.",
+        "La plupart du temps, je n'ai eu personne pour m'éduquer et avec qui je puisse partager une relation ou pour se soucier profondément de tout ce qui m'arrive.",
+        "Pour la plus grande part de ma vie, je n'ai eu personne qui voulait être près de moi et passer beaucoup de temps avec moi.",
+        "En général, les autres n'ont pas été présents pour me donner de la chaleur, du soutien et de l'affection.",
+        "Pour la plus grande part de ma vie, je n'ai jamais eu le sentiment que je représentais quelqu'un d'important pour quelqu'un d'autre.",
+        "En grande partie, je n'ai eu personne qui m'écoute réellement, me comprenne et soit en accord avec mes vrais besoins et mes vrais sentiments.",
+        "J'ai eu rarement une personne forte pour me donner des avis valables ou pour m'indiquer le chemin à suivre quand je n'étais par sûr(e) de ce qu'il fallait faire."
+      ]
+    },
+    {
+      code: 'ab', startIdx: 10,
+      name: 'Abandon/Instabilité',
+      domain: 'A. Séparation et rejet',
+      questions: [
+        "Je suis préoccupé(e) par le fait que les gens que j'aime vont mourir bientôt même s'il y a peu de raisons médicales pour valider ma préoccupation.",
+        "Je suis souvent en train de m'accrocher aux autres dont je suis proche car j'ai peur qu'ils ne me quittent.",
+        "Je crains que les gens dont je me sens proche ne me quittent ou ne m'abandonnent.",
+        "J'ai le sentiment de manquer d'une base stable qui me soutienne émotionnellement.",
+        "Je n'ai pas le sentiment que les relations importantes dureront ; je m'attends à ce qu'elles finissent.",
+        "Je me sens en dépendance des partenaires qui ne peuvent être là pour moi d'une façon constante.",
+        "Je finirai seul(e).",
+        "Quand je sens que quelqu'un à qui je tiens s'éloigne de moi, je deviens désespéré(e).",
+        "Parfois, je suis si préoccupé(e) que les autres ne me quittent que je les rejette.",
+        "Je deviens bouleversé(e) quand quelqu'un me laisse seul(e) même pour une courte période.",
+        "Je ne peux compter sur la présence régulière de ceux qui me soutiennent.",
+        "Je ne peux me permettre d'être vraiment proche des autres car je ne peux être sûr(e) qu'ils seront toujours là.",
+        "Il me semble que les personnes importantes dans ma vie sont toujours en train de venir et de repartir.",
+        "Je m'inquiète beaucoup que les personnes que j'aime ne trouvent quelqu'un d'autre qu'ils préfèrent et qu'ils m'abandonnent.",
+        "Les gens qui sont proches de moi sont toujours tout à fait imprévisibles ; un moment ils sont disponibles et gentil(le)s puis ils sont en colère, bouleversés, préoccupés par eux-mêmes, agressif(ve)s...",
+        "J'ai tellement besoin des autres que je m'inquiète de les perdre.",
+        "Je me sens tellement sans défense si je n'ai personne pour me protéger que je crains beaucoup de perdre mes relations.",
+        "Je ne peux être moi-même ou exprimer ce que je sens véritablement ou les autres me quitteront."
+      ]
+    },
+    {
+      code: 'ma', startIdx: 28,
+      name: 'Méfiance/Abus',
+      domain: 'A. Séparation et rejet',
+      questions: [
+        "J'ai l'impression que les autres abusent de moi.",
+        "Je me sens souvent dans la nécessité de me protéger vis-à-vis des autres.",
+        "Je sens que je ne peux pas baisser ma garde devant les autres sinon ils vont faire exprès de me blesser.",
+        "Si une personne agit de façon aimable à mon égard, je considère qu'elle cherche à obtenir quelque chose.",
+        "Être trahi(e) par quelqu'un est uniquement une question de temps.",
+        "La plupart des gens pensent uniquement à eux.",
+        "J'ai la plus grande difficulté à faire confiance aux autres.",
+        "Je trouve tout à fait suspectes les motivations des autres.",
+        "Les autres sont rarement honnêtes, ils ne sont pas en général ce qu'ils paraissent.",
+        "Habituellement, je cherche les motivations lointaines des autres.",
+        "Si je pense que quelqu'un cherche à me blesser, je cherche à le blesser en premier.",
+        "Les autres habituellement doivent faire leurs preuves avec moi avant que je leur accorde ma confiance.",
+        "Je teste les autres pour voir s'ils me disent la vérité ou sont bien attentionnés.",
+        "Je suis d'accord avec la croyance : « contrôle ou sois contrôlé(e) ».",
+        "Je me mets en colère quand je pense aux façons dont j'ai été maltraité(e) par les autres tout au long de ma vie.",
+        "Tout au long de ma vie, mes proches ont abusé de moi et m'ont utilisé pour leurs propres desseins.",
+        "J'ai été physiquement, émotionnellement ou sexuellement abusé(e) par des personnes importantes dans ma vie."
+      ]
+    },
+    {
+      code: 'si', startIdx: 45,
+      name: 'Isolement Social',
+      domain: 'A. Séparation et rejet',
+      questions: [
+        "Je ne suis pas adapté(e).",
+        "Je suis fondamentalement différent(e) des autres.",
+        "Je suis à part ; je suis un(e) solitaire.",
+        "Je me sens éloigné(e) des autres.",
+        "Je me sens isolé(e) et seul(e).",
+        "Je me sens toujours à l'extérieur des groupes.",
+        "Personne ne me comprend vraiment.",
+        "Ma famille était toujours différente des familles aux alentours.",
+        "Je me sens souvent étranger(e).",
+        "Si je disparaissais demain, personne ne le remarquerait."
+      ]
+    },
+    {
+      code: 'ds', startIdx: 55,
+      name: 'Imperfection/Honte',
+      domain: 'A. Séparation et rejet',
+      questions: [
+        "Aucun homme ou femme que je désire ne pourrait m'aimer une fois qu'il(elle) aurait vu mes déficiences.",
+        "Aucune personne que je désire ne pourrait rester proche de moi si elle connaissait ce que je suis réellement.",
+        "Je suis fondamentalement marqué(e) par un défaut et déficient(e).",
+        "Même si je me donne le plus grand mal, je sens qu'il ne me sera pas possible d'avoir le respect d'un homme ou d'une femme importante et de sentir que je suis valable.",
+        "Je ne mérite pas l'amour, l'attention et le respect des autres.",
+        "Je sens que je suis quelqu'un que l'on ne peut pas aimer.",
+        "Je suis trop fondamentalement inacceptable pour me révéler aux autres.",
+        "Si les autres trouvaient mes déficiences fondamentales, je ne pourrais les rencontrer.",
+        "Lorsque les gens m'apprécient, je pense que je les trompe.",
+        "Souvent, je me sens attiré(e) par les gens qui sont vraiment critiques ou me rejettent.",
+        "J'ai des secrets intérieurs que je ne veux pas que mes proches connaissent.",
+        "C'est ma faute si mes parents n'ont pu m'aimer suffisamment.",
+        "Je ne laisse pas les gens connaître ce que je suis réellement.",
+        "Une de mes plus grandes peurs est que mes déficiences deviennent publiques.",
+        "Je ne puis comprendre comment qui que ce soit pourrait m'aimer."
+      ]
+    },
+    {
+      code: 'su', startIdx: 70,
+      name: 'Non-Désirabilité Sociale',
+      domain: 'A. Séparation et rejet',
+      questions: [
+        "Je ne suis pas attirant(e) sexuellement.",
+        "Je suis trop gros(se).",
+        "Je suis laid(e).",
+        "Je ne peux soutenir une conversation convenable.",
+        "Je suis banal(e) et ennuyeux(se) dans des situations sociales.",
+        "Les gens que j'estime ne voudraient pas s'associer avec moi à cause de mon statut social (revenu, niveau d'études, carrière...).",
+        "Je ne sais jamais que dire en société.",
+        "Les autres ne veulent pas m'accepter dans leur groupe.",
+        "Je m'observe vraiment beaucoup quand je suis en société."
+      ]
+    },
+    {
+      code: 'fa', startIdx: 79,
+      name: 'Échec',
+      domain: "B. Manque d'autonomie et de performance",
+      questions: [
+        "Presque rien de ce que je fais au travail (ou à l'école) ne vaut autant que ce que les autres font.",
+        "Je suis incompétent(e) quand il s'agit de réussir.",
+        "La plupart des gens sont plus capables que moi en ce qui concerne le travail et la réussite.",
+        "Je suis un raté.",
+        "Je n'ai pas autant de talent que les autres au travail.",
+        "Je ne suis pas aussi intelligent(e) que la plupart des gens quand il s'agit du travail (ou de l'école).",
+        "Je suis humilié(e) par mes fautes ou mes manques dans le monde du travail.",
+        "Je me sens souvent embarrassé(e) vis-à-vis des autres car je ne les vaux pas en termes de réalisations.",
+        "Je compare souvent mes réalisations avec les autres et je trouve qu'ils ont beaucoup plus de réussite."
+      ]
+    },
+    {
+      code: 'di', startIdx: 88,
+      name: 'Dépendance/Incompétence',
+      domain: "B. Manque d'autonomie et de performance",
+      questions: [
+        "Je ne me sens pas capable de me débrouiller par moi-même dans la vie de tous les jours.",
+        "J'ai besoin des autres pour m'aider à m'en sortir.",
+        "Je n'ai pas le sentiment que je puisse bien m'adapter par moi-même.",
+        "Je crois que les autres peuvent prendre soin de moi mieux que je ne le peux moi-même.",
+        "J'ai des difficultés à prendre en charge de nouvelles tâches en dehors du travail à moins que quelqu'un ne me guide.",
+        "Je me considère comme une personne dépendante en ce qui concerne le fonctionnement quotidien.",
+        "Je gâche tout ce que j'entreprends même à l'extérieur du travail (ou à l'école).",
+        "Je suis stupide dans la plupart des domaines de la vie.",
+        "Si je fais confiance à mon propre jugement dans les situations quotidiennes, je prendrai la mauvaise décision.",
+        "Je manque de bon sens.",
+        "On ne peut se fier à mon jugement dans les situations quotidiennes.",
+        "Je n'ai pas confiance dans ma capacité de résoudre les problèmes qui se posent tous les jours.",
+        "Je pense que j'ai besoin de quelqu'un sur qui je puisse compter pour me donner des conseils en ce qui concerne les problèmes pratiques.",
+        "Je me sens plus un(e) enfant qu'un(e) adulte quand il s'agit de prendre en main les responsabilités quotidiennes.",
+        "Je trouve que les responsabilités quotidiennes sont accablantes."
+      ]
+    },
+    {
+      code: 'vh', startIdx: 103,
+      name: 'Vulnérabilité au Danger/Maladie',
+      domain: "B. Manque d'autonomie et de performance",
+      questions: [
+        "Il ne me semble pas possible d'échapper au sentiment que quelque chose de mauvais va bientôt se passer.",
+        "J'ai le sentiment qu'un désastre naturel, criminel, financier ou médical pourrait frapper à tout moment.",
+        "Je me soucie de devenir un(e) sans domicile fixe ou un(e) mendiant(e).",
+        "J'ai peur d'être attaqué(e).",
+        "Je sens que je dois être tout à fait prudent(e) en ce qui concerne l'argent ou autrement je finirai avec rien.",
+        "Je prends de grandes précautions pour éviter de tomber malade ou d'être blessé(e).",
+        "Je me soucie de perdre tout mon argent et de déchoir.",
+        "Je me soucie de développer une maladie sérieuse même si rien de sérieux n'a été diagnostiqué par un médecin.",
+        "Je suis quelqu'un de peureux.",
+        "Je me soucie beaucoup de ce qui va mal dans le monde : le crime, la pollution, etc.",
+        "J'ai souvent le sentiment que je pourrais devenir fou(folle).",
+        "J'ai souvent le sentiment que je suis sur le point d'avoir une attaque d'anxiété.",
+        "Je me soucie souvent que je pourrais avoir une attaque cardiaque, même s'il y a peu de raisons médicales de s'en soucier.",
+        "Je pense que le monde est un endroit dangereux."
+      ]
+    },
+    {
+      code: 'em', startIdx: 117,
+      name: 'Fusionnement/Personnalité Atrophiée',
+      domain: "B. Manque d'autonomie et de performance",
+      questions: [
+        "Je n'ai pas été capable de me séparer de mes parents comme les autres personnes de mon âge ont l'air de le faire.",
+        "Mes parents et moi avons tendance à être surimpliqués dans les vies et les problèmes des uns et autres.",
+        "Il est vraiment difficile pour mes parents et moi de garder secrets des détails intimes sans se sentir trahis ou coupables.",
+        "Mes parents et moi devons nous parler presque tous les jours ou autrement l'un de nous se sent coupable, blessé(e), désappointé(e), ou seul(e)...",
+        "Je sens souvent que je n'ai pas une identité séparée de mes parents ou de mon partenaire.",
+        "J'ai souvent l'impression que mes parents vivent à travers moi – je n'ai pas une vie qui me soit propre.",
+        "Il est vraiment difficile de maintenir une distance vis-à-vis des gens dont je suis intime ; j'ai des difficultés à maintenir un sens séparé de moi-même, quel qu'il soit.",
+        "Je suis si impliqué(e) avec mon partenaire ou mes parents que je ne sais pas vraiment qui je suis et ce que je veux.",
+        "J'ai des difficultés à distinguer mon point de vue ou mon opinion de celle de mes parents ou de mon partenaire.",
+        "Je sens souvent que je n'ai pas d'intimité quand il s'agit de mes parents ou de mon partenaire.",
+        "Je sens que mes parents sont ou seraient véritablement blessés si je vivais seul(e) loin d'eux."
+      ]
+    },
+    {
+      code: 'sb', startIdx: 128,
+      name: 'Assujettissement',
+      domain: 'C. Orientation vers les autres',
+      questions: [
+        "Je laisse les autres faire ce qu'ils veulent car j'ai peur des conséquences.",
+        "Je pense que si je fais ce que je veux, je suis seulement en train de créer des problèmes.",
+        "Je sens que je n'ai pas d'autre choix que de me soumettre aux souhaits des autres, ou autrement ils exerceront des représailles ou me rejetteront d'une façon ou d'une autre.",
+        "Dans les relations, je laisse l'autre avoir la haute main sur moi.",
+        "Je laisse toujours les autres faire les choix pour moi, ainsi je ne sais pas vraiment ce que je veux pour moi-même.",
+        "Je sens que les décisions majeures de ma vie n'étaient pas vraiment les miennes.",
+        "Je me soucie beaucoup de plaire aux autres pour qu'ils ne me rejettent pas.",
+        "J'ai beaucoup de difficultés à exiger que mes droits soient respectés et que mes sentiments soient pris en compte.",
+        "Je réponds aux autres d'une manière faible plutôt que de montrer ma colère.",
+        "Je laisse beaucoup plus traîner les choses en longueur que la plupart des gens pour éviter les confrontations."
+      ]
+    },
+    {
+      code: 'ss', startIdx: 138,
+      name: 'Abnégation',
+      domain: 'C. Orientation vers les autres',
+      questions: [
+        "Je fais passer les besoins des autres avant les miens ou autrement je me sens coupable.",
+        "Je me sens coupable de laisser tomber les autres ou de les désappointer.",
+        "Je donne plus aux autres que je ne reçois en retour.",
+        "Je suis celui ou celle qui habituellement finit par prendre soin des gens dont je suis proche.",
+        "Il n'y a presque rien que je pourrais refuser si j'aimais quelqu'un.",
+        "Je suis quelqu'un de bon car je pense aux autres plus qu'à moi-même.",
+        "Au travail, je suis habituellement celui ou celle qui est volontaire pour faire des tâches en plus ou des heures supplémentaires.",
+        "Peu importe à quel point je suis occupé(e), je trouverai toujours du temps pour les autres.",
+        "Je peux m'en sortir avec vraiment peu car mes besoins sont minimes.",
+        "Je suis heureux(se) seulement quand ceux qui sont autour de moi le sont.",
+        "Je suis si occupé(e) à faire des choses pour les gens dont je me soucie que j'ai peu de temps pour moi-même.",
+        "J'ai toujours été celui ou celle qui écoute les problèmes des autres.",
+        "Je me sens plus à l'aise en donnant un présent qu'en en recevant un.",
+        "On me voit comme quelqu'un qui en fait trop pour les autres mais pas assez pour moi-même.",
+        "Peu importe combien je donne, ce n'est jamais assez.",
+        "Si je fais ce que je veux, je me sens vraiment mal à l'aise.",
+        "Il m'est vraiment difficile de demander aux autres de se soucier de mes besoins."
+      ]
+    },
+    {
+      code: 'ei', startIdx: 155,
+      name: 'Surcontrôle Émotionnel',
+      domain: 'D. Survigilance et inhibition',
+      questions: [
+        "Je me soucie de perdre le contrôle de mes actions.",
+        "Je me soucie de ce que je pourrais faire du mal à quelqu'un physiquement ou émotionnellement si je perdais tout contrôle sur ma colère.",
+        "Je sens que je dois contrôler mes émotions et mes impulsions ou quelque chose de mauvais risque de m'arriver.",
+        "Beaucoup de colère et de ressentiment monte à l'intérieur de moi sans que je ne l'exprime.",
+        "Je suis trop préoccupé(e) de moi-même pour montrer les sentiments positifs (affection) aux autres ou pour montrer que je m'en préoccupe.",
+        "Je trouve embarrassant de montrer mes sentiments aux autres.",
+        "Il me semble difficile d'être chaud et spontané.",
+        "Je me contrôle tant que les autres pensent que je suis sans émotion.",
+        "Les gens me considèrent comme trop contrôlé(e) émotionnellement."
+      ]
+    },
+    {
+      code: 'us', startIdx: 164,
+      name: 'Idéaux Exigeants/Critique Excessive',
+      domain: 'D. Survigilance et inhibition',
+      questions: [
+        "Je dois être le(a) meilleur(e) dans tout ce que je fais, je ne peux accepter d'être le(a) second(e).",
+        "Je m'efforce de maintenir presque toutes choses en ordre parfait.",
+        "Je dois apparaître sous mon meilleur jour la plupart du temps.",
+        "J'essaie de faire de mon mieux ; il ne suffit pas d'être assez bien.",
+        "J'ai tant de choses à réaliser qu'il ne me reste presque pas de temps pour véritablement me relaxer.",
+        "Presque rien de ce que je fais n'est assez bon, je pourrais toujours faire mieux.",
+        "Je dois faire face à toutes mes responsabilités.",
+        "Je sens qu'il y a une pression constante pour que je réussisse et termine les choses.",
+        "Mes relations souffrent de ce que je m'impose trop de choses.",
+        "Ma santé souffre car je me mets moi-même sous une pression si importante pour bien faire.",
+        "Souvent, je sacrifie le plaisir et le bonheur pour atteindre mes idéaux.",
+        "Quand je fais une erreur, je mérite une forte critique.",
+        "Je ne peux me dégager facilement ou faire des excuses pour mes erreurs.",
+        "Je suis une personne tout à fait compétitive.",
+        "J'attache beaucoup de prix à l'argent et au statut social.",
+        "Je dois toujours être le numéro un en ce qui concerne mes activités."
+      ]
+    },
+    {
+      code: 'et', startIdx: 180,
+      name: 'Droits Personnels Exagérés/Grandeur',
+      domain: 'E. Manque de limites',
+      questions: [
+        "J'ai beaucoup de difficultés à accepter qu'on me réponde non quand je veux quelque chose des autres.",
+        "Je deviens souvent coléreux et irritable quand je ne peux pas avoir ce que je veux.",
+        "Je suis quelqu'un de particulier et je ne devrais pas accepter beaucoup des restrictions auxquelles les autres doivent se soumettre.",
+        "Je déteste être limité(e) ou empêché(e) de faire ce que je veux.",
+        "J'ai le sentiment que je n'ai pas à suivre les règles et les conventions comme les autres.",
+        "Je ressens que ce que j'ai à offrir est de plus grande valeur que les contributions des autres.",
+        "Habituellement, je fais passer mes besoins avant ceux des autres.",
+        "Souvent, je trouve que je suis si impliqué(e) dans mes propres priorités que je n'ai pas le temps à donner pour les autres et ma famille.",
+        "Souvent les gens me disent que je contrôle trop la façon dont les choses sont faites.",
+        "Je deviens vraiment irrité(e) contre les gens qui ne font pas ce que je leur demande.",
+        "Je ne peux tolérer que les autres me disent ce que je dois faire."
+      ]
+    },
+    {
+      code: 'is', startIdx: 191,
+      name: 'Contrôle de Soi/Autodiscipline Insuffisants',
+      domain: 'E. Manque de limites',
+      questions: [
+        "J'ai de grandes difficultés à m'arrêter de boire, de fumer, de trop manger et à arrêter d'autres comportements problèmes.",
+        "Il ne me semble pas possible de me discipliner pour terminer des tâches de routine ou ennuyeuses.",
+        "Souvent, je me permets de me laisser aller à des impulsions ou à exprimer des émotions qui me créent des difficultés ou blessent les autres.",
+        "Si je ne peux atteindre un but, je deviens aisément frustré(e) et abandonne.",
+        "J'ai un moment tout à fait difficile quand je sacrifie une gratification immédiate pour mener à bien un but à long terme.",
+        "Il m'arrive souvent, une fois que j'ai commencé à me sentir en colère, de ne vraiment pas pouvoir me contrôler.",
+        "J'ai tendance à en faire trop, même si je sais que les choses sont mauvaises pour moi.",
+        "Je suis très facilement ennuyé(e).",
+        "Quand les tâches deviennent difficiles, habituellement, je ne peux persévérer et les terminer.",
+        "Je ne peux me concentrer sur quelque chose pendant trop longtemps.",
+        "Je ne peux me forcer à faire les choses qui ne me plaisent pas, même quand je sais que c'est pour mon propre bien.",
+        "Je perds mon calme à la plus petite offense.",
+        "Il m'est arrivé(e) rarement d'être capable de me tenir à mes résolutions.",
+        "Je ne peux presque jamais me retenir de montrer aux gens mes véritables sentiments, même si cela doit me coûter beaucoup.",
+        "Souvent, je fais des choses impulsivement que je regrette plus tard."
+      ]
+    }
+  ];
+
+  Alpine.data('ysqForm', () => ({
+    schemas: SCHEMAS,
+    answers: new Array(206).fill(0),
+    submitted: false,
+    showWarning: false,
+    uniqueDomains: [],
+
+    get answeredCount() {
+      let count = 0;
+      for (let i = 1; i <= 205; i++) {
+        if (this.answers[i] > 0) count++;
+      }
+      return count;
+    },
+
+    get progress() {
+      return Math.round(this.answeredCount / 205 * 100);
+    },
+
+    schemaScore(schema) {
+      let total = 0, count = 0;
+      for (let i = schema.startIdx; i < schema.startIdx + schema.questions.length; i++) {
+        if (this.answers[i] > 0) {
+          total += this.answers[i];
+          count++;
+        }
+      }
+      return { total, count, avg: count > 0 ? total / count : 0 };
+    },
+
+    schemasInDomain(domain) {
+      return this.schemas.filter(s => s.domain === domain);
+    },
+
+    scoreLabel(avg) {
+      if (avg < 2) return 'Très faible';
+      if (avg < 3) return 'Faible';
+      if (avg < 4) return 'Modéré';
+      if (avg < 5) return 'Élevé';
+      return 'Très élevé';
+    },
+
+    scoreBarWidth(avg) {
+      return `${Math.round((avg / 6) * 100)}%`;
+    },
+
+    scoreBarColor(avg) {
+      if (avg < 2) return 'bg-green-400';
+      if (avg < 3) return 'bg-lime-400';
+      if (avg < 4) return 'bg-yellow-400';
+      if (avg < 5) return 'bg-orange-500';
+      return 'bg-red-500';
+    },
+
+    scoreTextColor(avg) {
+      if (avg < 2) return 'text-green-600';
+      if (avg < 3) return 'text-lime-600';
+      if (avg < 4) return 'text-yellow-600';
+      if (avg < 5) return 'text-orange-600';
+      return 'text-red-600';
+    },
+
+    scaleClass(answer, scale) {
+      return answer === scale
+        ? 'bg-accent border-accent text-white shadow-sm'
+        : 'border-gray-200 text-gray-500 hover:border-accent hover:text-accent cursor-pointer';
+    },
+
+    scoreBadgeClass(avg) {
+      if (avg < 2) return 'bg-green-100 text-green-700';
+      if (avg < 3) return 'bg-lime-100 text-lime-700';
+      if (avg < 4) return 'bg-yellow-100 text-yellow-700';
+      if (avg < 5) return 'bg-orange-100 text-orange-700';
+      return 'bg-red-100 text-red-700';
+    },
+
+    saveAnswers() {
+      try { localStorage.setItem('ysq-l2', JSON.stringify(this.answers)); } catch(e) {}
+    },
+
+    submit() {
+      if (this.answeredCount < 205) {
+        this.showWarning = true;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      this.submitted = true;
+      this.saveAnswers();
+      this.$nextTick(() => {
+        const el = document.getElementById('results');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    },
+
+    reset() {
+      if (!confirm('Voulez-vous recommencer le questionnaire ? Toutes vos réponses seront perdues.')) return;
+      this.answers = new Array(206).fill(0);
+      this.submitted = false;
+      this.showWarning = false;
+      try { localStorage.removeItem('ysq-l2'); } catch(e) {}
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+
+    init() {
+      // Compute uniqueDomains once
+      const domains = [];
+      const seen = new Set();
+      this.schemas.forEach(s => {
+        if (!seen.has(s.domain)) { domains.push(s.domain); seen.add(s.domain); }
+      });
+      this.uniqueDomains = domains;
+
+      // Restore saved answers
+      try {
+        const saved = localStorage.getItem('ysq-l2');
+        if (saved) {
+          const data = JSON.parse(saved);
+          if (Array.isArray(data) && data.length === 206) this.answers = data;
+        }
+      } catch(e) {}
+    }
+  }));
+});
+</script>
