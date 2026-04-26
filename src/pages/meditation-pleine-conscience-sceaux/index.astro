@@ -1,0 +1,380 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import SideBar from "../../components/SideBar.astro";
+
+const seoTitle = "Méditation de pleine conscience et gestion du stress à Sceaux";
+const pageTitle = "Méditation de pleine conscience et régulation du stress à Sceaux";
+const description =
+  "Ateliers de méditation de pleine conscience en petit groupe à Sceaux : respiration, attention au corps et régulation du stress, animés par un psychologue et psychomotricien.";
+
+const isProd = import.meta.env.PROD;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Faut-il avoir déjà médité ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Non. Les ateliers sont ouverts aux débutants. Les pratiques sont guidées et progressives.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Est-ce adapté si je suis anxieux ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, ces ateliers sont pensés pour aider à mieux observer les pensées envahissantes, réguler le stress et revenir au présent, dans un cadre structuré.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Est-ce une thérapie ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Non. Ces groupes ne proposent pas de suivi thérapeutique individuel. Ils ne remplacent pas une psychothérapie individuelle.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Puis-je venir une seule fois ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Non. Les ateliers sont proposés sous forme de cycles de 8 séances.",
+      },
+    },
+  ],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://nicolas-devaux-psychologue.fr/meditation-pleine-conscience-sceaux/#service",
+  serviceType: "Ateliers de meditation de pleine conscience en groupe",
+  name: "Meditation de pleine conscience et regulation du stress a Sceaux",
+  description:
+    "Cycles de 8 seances en petit groupe (5 participants maximum) axes sur la meditation de pleine conscience, la respiration consciente, l'attention au corps et la regulation du stress.",
+  provider: {
+    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+  },
+  areaServed: [
+    { "@type": "City", name: "Sceaux" },
+    { "@type": "City", name: "Antony" },
+    { "@type": "City", name: "Bourg-la-Reine" },
+    { "@type": "City", name: "Chatenay-Malabry" },
+    { "@type": "AdministrativeArea", name: "Hauts-de-Seine" },
+  ],
+  audience: {
+    "@type": "PeopleAudience",
+    audienceType: "Adultes",
+  },
+  offers: {
+    "@type": "Offer",
+    price: 30,
+    priceCurrency: "EUR",
+    url: "https://nicolas-devaux-psychologue.fr/meditation-pleine-conscience-sceaux/",
+    availability: "https://schema.org/InStock",
+  },
+};
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <BaseHead title={seoTitle} description={description} />
+    {isProd && (
+      <>
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+      </>
+    )}
+  </head>
+  <body class="bg-linear-to-r from-secondary to-white">
+    <Header />
+    <main class="container flex flex-col xl:flex-row gap-8 xl:gap-12 xl:items-start py-8 xl:py-10">
+      <article class="xl:flex-1 xl:min-w-0">
+        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
+          <h1 class="text-4xl md:text-5xl font-bold text-tertiary mb-5 leading-tight">
+            {pageTitle}
+          </h1>
+          <p class="text-gray-700 leading-relaxed max-w-3xl">
+            Ces ateliers collectifs vous proposent un espace guidé pour apprendre à vous poser,
+            observer vos pensées et réguler le stress. Le cadre est simple, sobre et adapté à une
+            pratique progressive de la pleine conscience.
+          </p>
+          <p class="text-gray-700 leading-relaxed max-w-3xl mt-4">
+            Les pratiques s'inspirent de la MBCT (thérapie cognitive basée sur la pleine
+            conscience), de la MBSR (réduction du stress par la pleine conscience) et de l'ACT
+            (thérapie d'acceptation et d'engagement).
+          </p>
+          <p class="text-gray-700 leading-relaxed max-w-3xl mt-4">
+            Je les anime en tant que <strong>psychologue clinicien et psychomotricien</strong>,
+            avec une attention particulière à l'articulation entre vécu psychique, respiration et
+            conscience corporelle.
+          </p>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
+          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">À qui s'adressent ces groupes ?</h2>
+          <ul class="grid sm:grid-cols-2 gap-3 text-gray-700">
+            <li class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
+              Personnes stressées ou sous tension mentale persistante
+            </li>
+            <li class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
+              Pensées envahissantes et difficulté à prendre du recul
+            </li>
+            <li class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
+              Tensions corporelles et sensation de surcharge
+            </li>
+            <li class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
+              Besoin de ralentir et de retrouver un appui dans le présent
+            </li>
+          </ul>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
+          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">Ce que nous pratiquons</h2>
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <h3 class="text-xl text-tertiary font-semibold">Pratiques guidées en petit groupe</h3>
+            <p>
+              Les méthodes proposées s'inspirent de la MBCT (thérapie cognitive basée sur la pleine
+              conscience), de la MBSR (réduction du stress par la pleine conscience) et de l'ACT
+              (thérapie d'acceptation et d'engagement). Elles articulent pratique attentionnelle,
+              respiration et conscience corporelle pour soutenir la régulation du stress au
+              quotidien.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>Méditation de pleine conscience</li>
+              <li>Respiration consciente, cohérence cardiaque</li>
+              <li>Attention au corps et aux sensations</li>
+              <li>Ancrage dans le présent</li>
+              <li>Régulation du stress au quotidien</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
+          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">
+            Un cadre différent de la psychothérapie
+          </h2>
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              Ces ateliers ne sont pas un espace d'analyse individuelle et ne constituent pas un
+              suivi thérapeutique personnalisé.
+            </p>
+            <p>
+              Le travail repose sur la pratique guidée et l'expérience directe. Les groupes ne
+              remplacent pas une psychothérapie individuelle quand celle-ci est nécessaire.
+            </p>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
+          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">Format des séances</h2>
+          <ul class="space-y-3 text-gray-700 leading-relaxed">
+            <li><strong>Petit groupe :</strong> 5 participants maximum</li>
+            <li><strong>Durée :</strong> 1 heure</li>
+            <li><strong>Fréquence :</strong> cycle hebdomadaire de 8 séances</li>
+            <li><strong>Horaire :</strong> le mardi à 18h30</li>
+            <li><strong>Tarif :</strong> 30 € par séance</li>
+            <li><strong>Cadre :</strong> calme, confidentiel et respectueux du rythme de chacun</li>
+          </ul>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
+          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">Pourquoi le petit groupe ?</h2>
+          <ul class="space-y-3 text-gray-700 leading-relaxed">
+            <li>Un groupe restreint facilite l'attention et la qualité de présence.</li>
+            <li>Le cadre est plus sécurisant et soutient la régularité de la pratique.</li>
+            <li>L'expérience est partagée, sans obligation de parler de soi.</li>
+          </ul>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
+          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">Prochaines dates et inscription</h2>
+          <p class="text-gray-700 leading-relaxed">
+            Vous pouvez utiliser ce formulaire pour demander une inscription, poser une question
+            ou être informé des prochaines sessions.
+          </p>
+          <p class="text-gray-700 leading-relaxed mt-3">
+            Les séances ont lieu <strong>le mardi à 18h30</strong>, en cycle de 8 séances.
+          </p>
+          <form
+            class="mt-6 grid gap-4"
+            action="https://formspree.io/f/xkokedlw"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="Demande ateliers pleine conscience - Sceaux"
+            />
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="group-name" class="block text-sm font-medium text-tertiary mb-1.5">
+                  Nom
+                </label>
+                <input
+                  id="group-name"
+                  name="nom"
+                  type="text"
+                  required
+                  class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent/40"
+                />
+              </div>
+              <div>
+                <label for="group-email" class="block text-sm font-medium text-tertiary mb-1.5">
+                  E-mail
+                </label>
+                <input
+                  id="group-email"
+                  name="email"
+                  type="email"
+                  required
+                  class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent/40"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="group-phone" class="block text-sm font-medium text-tertiary mb-1.5">
+                Téléphone (optionnel)
+              </label>
+              <input
+                id="group-phone"
+                name="telephone"
+                type="tel"
+                class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent/40"
+              />
+            </div>
+
+            <div>
+              <label for="group-message" class="block text-sm font-medium text-tertiary mb-1.5">
+                Message
+              </label>
+              <textarea
+                id="group-message"
+                name="message"
+                rows="5"
+                required
+                class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent/40"
+                placeholder="Je souhaite m'inscrire / être informé des prochaines dates..."
+              ></textarea>
+            </div>
+
+            <label class="flex items-start gap-3 text-sm text-gray-700">
+              <input
+                type="checkbox"
+                name="etre_informe_des_prochaines_dates"
+                value="oui"
+                class="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent/40"
+              />
+              <span>Je souhaite être informé des prochaines dates d'ateliers.</span>
+            </label>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center rounded-lg bg-linear-to-r from-accent to-accent-dark px-5 py-3 text-white font-semibold"
+              >
+                Envoyer ma demande
+              </button>
+            </div>
+          </form>
+          <p class="text-sm text-gray-600 mt-4">
+            Les ateliers sont ouverts à toute personne souhaitant participer, à Sceaux et plus
+            largement dans le sud des Hauts-de-Seine et les communes voisines.
+          </p>
+        </section>
+
+        <section
+          class="bg-white rounded-xl shadow-md p-8 md:p-10 border border-gray-100"
+          x-data="{ openId: 'group-faq-1' }"
+        >
+          <h2 class="text-2xl md:text-3xl text-tertiary mb-6">FAQ</h2>
+          <div class="space-y-4">
+            <article class="rounded-xl border border-gray-200 bg-secondary/35 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'group-faq-1' ? null : 'group-faq-1'"
+                class="w-full flex justify-between items-center gap-3 p-5 text-left"
+                :aria-expanded="openId === 'group-faq-1'"
+                aria-controls="group-faq-content-1"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Faut-il avoir déjà médité ?</h3>
+                <span class="text-tertiary" aria-hidden="true">+</span>
+              </button>
+              <div id="group-faq-content-1" x-show="openId === 'group-faq-1'" class="px-5 pb-5">
+                <p class="text-gray-700 leading-relaxed">
+                  Non. Les ateliers sont ouverts aux débutants, avec des indications progressives.
+                </p>
+              </div>
+            </article>
+
+            <article class="rounded-xl border border-gray-200 bg-secondary/35 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'group-faq-2' ? null : 'group-faq-2'"
+                class="w-full flex justify-between items-center gap-3 p-5 text-left"
+                :aria-expanded="openId === 'group-faq-2'"
+                aria-controls="group-faq-content-2"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Est-ce adapté si je suis anxieux ?</h3>
+                <span class="text-tertiary" aria-hidden="true">+</span>
+              </button>
+              <div id="group-faq-content-2" x-show="openId === 'group-faq-2'" class="px-5 pb-5">
+                <p class="text-gray-700 leading-relaxed">
+                  Oui, les pratiques proposées peuvent aider à mieux réguler le stress et à
+                  retrouver un appui corporel dans les moments d'anxiété.
+                </p>
+              </div>
+            </article>
+
+            <article class="rounded-xl border border-gray-200 bg-secondary/35 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'group-faq-3' ? null : 'group-faq-3'"
+                class="w-full flex justify-between items-center gap-3 p-5 text-left"
+                :aria-expanded="openId === 'group-faq-3'"
+                aria-controls="group-faq-content-3"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Est-ce une thérapie ?</h3>
+                <span class="text-tertiary" aria-hidden="true">+</span>
+              </button>
+              <div id="group-faq-content-3" x-show="openId === 'group-faq-3'" class="px-5 pb-5">
+                <p class="text-gray-700 leading-relaxed">
+                  Non. Ces groupes ne remplacent pas une psychothérapie individuelle.
+                </p>
+              </div>
+            </article>
+
+            <article class="rounded-xl border border-gray-200 bg-secondary/35 overflow-hidden">
+              <button
+                type="button"
+                @click="openId = openId === 'group-faq-4' ? null : 'group-faq-4'"
+                class="w-full flex justify-between items-center gap-3 p-5 text-left"
+                :aria-expanded="openId === 'group-faq-4'"
+                aria-controls="group-faq-content-4"
+              >
+                <h3 class="text-lg font-semibold text-tertiary">Puis-je venir une seule fois ?</h3>
+                <span class="text-tertiary" aria-hidden="true">+</span>
+              </button>
+              <div id="group-faq-content-4" x-show="openId === 'group-faq-4'" class="px-5 pb-5">
+                <p class="text-gray-700 leading-relaxed">
+                  Non. Les groupes sont organisés en cycles de 8 séances, avec une continuité de
+                  pratique d'une semaine à l'autre.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </article>
+      <SideBar showPsyInfo={false} />
+    </main>
+    <Footer />
+  </body>
+</html>

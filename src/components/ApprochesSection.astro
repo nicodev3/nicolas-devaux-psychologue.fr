@@ -4,6 +4,7 @@ import Card from "./Card.astro";
 const mosaicImage = (await import("../assets/logo-mosaic.svg")).default;
 const tccImage = (await import("../assets/ACBS-logo.webp")).default;
 const psychotherapieImage = (await import("../assets/psychotherapie.webp")).default;
+const meditationImage = (await import("../assets/mbct-landscape.webp")).default;
 ---
 
 <section
@@ -19,10 +20,10 @@ const psychotherapieImage = (await import("../assets/psychotherapie.webp")).defa
     fait en fonction de votre demande, de votre histoire et des
     difficultés rencontrées. Lors du premier rendez-vous, nous
     déterminons ensemble le cadre le plus adapté parmi la
-    psychothérapie, la thérapie MOSAIC et certaines approches TCC de
-    3e vague.
+    psychothérapie, la thérapie MOSAIC, certaines approches TCC de
+    3e vague, et des ateliers de pleine conscience.
   </p>
-  <div class="grid xl:grid-cols-3 gap-8">
+  <div class="grid md:grid-cols-2 gap-8">
     <Card
       url="/therapie-mosaic/"
       image={mosaicImage}
@@ -42,6 +43,13 @@ const psychotherapieImage = (await import("../assets/psychotherapie.webp")).defa
       image={psychotherapieImage}
       title="Psychothérapies intégratives"
       content="Un accompagnement psychothérapeutique pour comprendre ce que vous traversez, mettre des mots sur vos difficultés et avancer à votre rythme dans un cadre contenant et structuré."
+    />
+
+    <Card
+      url="/meditation-pleine-conscience-sceaux/"
+      image={meditationImage}
+      title="Méditation de pleine conscience"
+      content="Des ateliers en petit groupe pour apprendre à porter attention à ses pensées, apaiser le stress et se reconnecter à ses sensations corporelles, dans un cadre simple et guidé."
     />
   </div>
   <div class="mt-8 rounded-xl border border-primary/30 bg-secondary/45 px-5 py-5">

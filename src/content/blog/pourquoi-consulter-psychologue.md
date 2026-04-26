@@ -7,7 +7,7 @@ heroImage: '../../assets/blog/consulter.png'
 
 Nombreuses sont les raisons de consulter un psychologue, un psychiatre ou un psychanalyste. Pour une aide ponctuelle ou pour un travail plus en profondeur, après mûre réflexion, dans un moment de crise ou sur les conseils de son médecin. Pour des troubles importants, voire invalidants ou simplement pour un mieux-être, pour donner plus de sens à sa vie. Les raisons de consulter sont toujours intimes.
 
-On consulte seul, à deux, ou avec son enfant. Voici un panel non exhaustif de ce qui mène les personnes à mon cabinet.
+On consulte seul, à deux, en famille ou en couple. Voici un panel non exhaustif de ce qui mène les personnes à mon cabinet.
 
 ## Les angoisses
 

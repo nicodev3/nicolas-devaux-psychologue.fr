@@ -30,7 +30,7 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "dayOfWeek": ["Monday","Tuesday","Friday"],
           "opens": "08:00",
           "closes": "20:00"
         }
@@ -57,7 +57,6 @@
         "Pleine conscience (MBCT, MBSR)",
         "Psychologie clinique",
         "Thérapie de couple",
-        "Psychologie de l'enfant",
         "Psychologie de l'adolescent",
         "Gestion de l'anxiété",
         "Dépression",
@@ -88,7 +87,7 @@
           "availableLanguage": ["fr-FR","en-GB"],
           "hoursAvailable": {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "dayOfWeek": ["Monday","Tuesday","Friday"],
             "opens": "08:00",
             "closes": "20:00"
           }
@@ -130,7 +129,7 @@
             "@type": "Service",
             "name": "Psychothérapie individuelle",
             "serviceType": "Psychothérapie",
-            "audience": [{ "@type": "PeopleAudience", "suggestedMinAge": 6, "suggestedMaxAge": 99 }],
+            "audience": [{ "@type": "PeopleAudience", "suggestedMinAge": 12, "suggestedMaxAge": 99 }],
             "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
           }
         },
@@ -146,21 +145,6 @@
             "name": "Thérapie de couple",
             "serviceType": "Counseling",
             "audience": { "@type": "PeopleAudience", "audienceType": "Couples" },
-            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "Consultation enfant/adolescent",
-          "price": 80,
-          "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
-          "availability": "https://schema.org/InStock",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Psychothérapie enfant/adolescent",
-            "serviceType": "Psychologie de l'enfant",
-            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 6, "suggestedMaxAge": 17 },
             "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
           }
         },
