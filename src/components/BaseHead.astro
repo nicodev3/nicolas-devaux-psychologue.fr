@@ -296,6 +296,24 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
         },
         true
       );
+
+      document.addEventListener(
+        "submit",
+        function (e) {
+          var form = e.target;
+          if (!(form instanceof HTMLFormElement)) return;
+          if (!form.matches("form[data-track-contact]")) return;
+          var eventName = form.getAttribute("data-track-event") || "Contact Form Submit";
+          var location = form.getAttribute("data-track-location") || "";
+          try {
+            window.umami &&
+              window.umami.track(eventName, location ? { location: location } : {});
+          } catch (err) {
+            // Do not block form submission if tracking fails.
+          }
+        },
+        true
+      );
     </script>
   </>
 )}
