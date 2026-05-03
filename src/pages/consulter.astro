@@ -1,10 +1,11 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+import { NEARBY_CITIES } from "../consts";
 ---
 
 <Layout
   title="Consulter un psychologue à Sceaux"
-  description="Informations pratiques pour consulter au cabinet de Nicolas Devaux à Sceaux : premier rendez-vous, rythme des séances, tarifs et Mon Soutien Psy."
+  description={`Informations pour consulter au cabinet à Sceaux, proche de ${NEARBY_CITIES.replace(" et ", ", ")} : premier rendez-vous, rythme des séances, tarifs et Mon Soutien Psy.`}
   pubDate={new Date("March 07 2026")}
   showDate={false}
 >
@@ -59,6 +60,9 @@ import Layout from "../layouts/BlogPost.astro";
 
     <div>
       <h2>Modalités pratiques</h2>
+      <p>
+        Le cabinet se trouve à Sceaux (92330), à proximité de {NEARBY_CITIES}.
+      </p>
       <ul>
         <li>Consultations sur rendez-vous uniquement.</li>
         <li>Cabinet à Sceaux et téléconsultation selon les situations.</li>

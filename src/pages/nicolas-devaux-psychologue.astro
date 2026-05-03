@@ -2,11 +2,12 @@
 import Layout from "../layouts/BlogPost.astro";
 import { Image } from "astro:assets";
 import NicolasDevauxImage from "../assets/nicolas_devaux.jpg";
+import { NEARBY_CITIES } from "../consts";
 ---
 
 <Layout
   title="Nicolas Devaux, psychologue à Sceaux"
-  description="Découvrez le parcours, les diplômes et l'approche thérapeutique de Nicolas Devaux, psychologue clinicien à Sceaux."
+  description={`Parcours, diplômes et approche de Nicolas Devaux, psychologue clinicien à Sceaux — cabinet accessible depuis ${NEARBY_CITIES.replace(" et ", ", ")}.`}
   pubDate={new Date("November 01 2024")}
   showDate={false}
   blogPost={true}
@@ -28,6 +29,10 @@ import NicolasDevauxImage from "../assets/nicolas_devaux.jpg";
               >clair, sérieux et humain</strong
             >, pour vous aider à mieux comprendre ce que vous traversez et à
             avancer à votre rythme.
+          </p>
+          <p>
+            Le cabinet à Sceaux est facilement accessible depuis les villes
+            voisines : {NEARBY_CITIES}.
           </p>
         </div>
         <aside class="border-radius-md overflow-hidden w-full md:w-3/5">

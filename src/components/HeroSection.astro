@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import PsychologueImage from "../assets/psychologie.webp";
+import { NEARBY_CITIES } from "../consts";
 ---
 
 <section
@@ -28,6 +29,10 @@ import PsychologueImage from "../assets/psychologie.webp";
         Paris Cité, je vous accueille à Sceaux dans un cadre bienveillant et confidentiel.
         Mon approche est intégrative et s'adapte à votre situation, à votre rythme
         et à vos objectifs.
+      </p>
+      <p class="text-gray-600 leading-relaxed max-w-3xl text-base">
+        Le cabinet est idéalement situé pour les personnes habitant Sceaux ou à
+        proximité : {NEARBY_CITIES}.
       </p>
 
       <nav class="flex flex-col gap-4" aria-label="Propositions thérapeutiques">

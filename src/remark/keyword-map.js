@@ -37,4 +37,15 @@ export default {
     consultation: "/consulter/",
     "psychologue à boulogne-billancourt": "/nicolas-devaux-psychologue/",
     "psychologue boulogne-billancourt": "/nicolas-devaux-psychologue/",
+
+    // Villes voisines du cabinet (Sceaux)
+    "psychologue antony": "/consulter/",
+    "psychologue à antony": "/consulter/",
+    "psychologue bourg-la-reine": "/consulter/",
+    "psychologue à bourg-la-reine": "/consulter/",
+    "psychologue châtenay-malabry": "/consulter/",
+    "psychologue à châtenay-malabry": "/consulter/",
+    "psychologue chatenay-malabry": "/consulter/",
+    "psychologue fontenay-aux-roses": "/consulter/",
+    "psychologue à fontenay-aux-roses": "/consulter/",
 };

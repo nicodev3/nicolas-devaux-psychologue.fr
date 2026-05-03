@@ -6,6 +6,7 @@ import MosaicSchemaImage from "../assets/blog/mosaic-therapie-schema.svg";
 import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp";
 import MosaicFormationImage from "../assets/logo-mosaic.svg";
 import MosaicPractitionerPdf from "../assets/Ici-votre-praticien-MOSAIC.pdf?url";
+import { NEARBY_CITIES } from "../consts";
 ---
 
 <Layout
@@ -255,8 +256,8 @@ import MosaicPractitionerPdf from "../assets/Ici-votre-praticien-MOSAIC.pdf?url"
       </p>
       <p>
         Le cabinet est accessible pour les personnes habitant Sceaux et les
-        villes voisines comme Antony, Bourg-la-Reine, Châtenay-Malabry,
-        Fontenay-aux-Roses ou Le Plessis-Robinson.
+        villes voisines comme {NEARBY_CITIES.replace(" et ", ", ")} ou Le
+        Plessis-Robinson.
       </p>
     </div>
 

@@ -1,4 +1,5 @@
 ---
+import { NEARBY_CITIES } from "../consts";
 // Section FAQ avec accordion Alpine.js
 ---
 
@@ -333,6 +334,57 @@
             les personnes qui ne peuvent pas se déplacer ou préfèrent ce format.
             Les séances en ligne sont tout aussi efficaces et respectent la
             même confidentialité.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article
+      class="bg-secondary/35 rounded-xl border border-gray-100 overflow-hidden"
+    >
+      <button
+        type="button"
+        @click="openId = openId === 'faq-7' ? null : 'faq-7'"
+        class="w-full flex justify-between items-center gap-4 p-6 text-left"
+        :aria-expanded="openId === 'faq-7'"
+        aria-controls="faq-content-7"
+        id="faq-toggle-7"
+      >
+        <h3 class="text-lg font-semibold text-tertiary">
+          Le cabinet est-il accessible depuis les villes voisines ?
+        </h3>
+        <svg
+          class="w-5 h-5 text-tertiary shrink-0 transition-transform duration-200"
+          :class="openId === 'faq-7' && 'rotate-180'"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div
+        id="faq-content-7"
+        role="region"
+        aria-labelledby="faq-toggle-7"
+        x-show="openId === 'faq-7'"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+      >
+        <div class="px-6 pb-6 pt-0">
+          <p class="text-gray-700 leading-relaxed">
+            Oui. Le cabinet est à Sceaux, à proximité de {NEARBY_CITIES}. Des
+            consultations en visioconférence sont également possibles si vous
+            préférez ne pas vous déplacer.
           </p>
         </div>
       </div>
