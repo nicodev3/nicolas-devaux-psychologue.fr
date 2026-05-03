@@ -44,16 +44,13 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
         <div class="bg-white rounded-xl shadow-md p-8 mb-12 border border-gray-100">
           {
             heroImage && (
-              <div
-                class="mb-8 overflow-hidden rounded-xl mx-auto"
-                style="width: fit-content; max-width: min(100%, 760px);"
-              >
+              <div class="mb-8 mx-auto flex max-h-[min(40vh,320px)] w-full max-w-[min(100%,560px)] items-center justify-center overflow-hidden rounded-xl sm:max-h-[min(45vh,380px)]">
                 <Image
                   src={heroImage}
                   alt={title}
                   width={heroImage.width}
                   height={heroImage.height}
-                  class="h-auto w-auto max-w-full"
+                  class="h-auto max-h-[min(40vh,320px)] w-auto max-w-full object-contain sm:max-h-[min(45vh,380px)]"
                 />
               </div>
             )
