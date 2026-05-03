@@ -48,7 +48,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Schema.org structured data (prod only to keep dev tools stable) -->
+<!-- Schema.org (prod). hasMap = GOOGLE_MAPS_CABINET_URL dans consts.ts (script is:inline). -->
 {import.meta.env.PROD && (
 <!--email_off-->
 <script type="application/ld+json" is:inline>
@@ -80,7 +80,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
         "addressCountry": "FR"
       },
       "geo": { "@type": "GeoCoordinates", "latitude": 48.7764, "longitude": 2.2903 },
-      "hasMap": "https://www.google.com/maps?q=63+rue+Houdan+Sceaux+92330",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=63%20rue%20Houdan%2C%2092330%20Sceaux",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",

@@ -4,6 +4,23 @@
 export const SITE_NAME = 'Nicolas Devaux, psychologue à Sceaux';
 export const SITE_TITLE = `${SITE_NAME} | TCC, ACT, MBCT`;
 
+/** Adresse complète du cabinet (une ligne). */
+export const CABINET_ADDRESS_LINE = '63 rue Houdan, 92330 Sceaux';
+
+/**
+ * Lien Google Maps (itinéraire / fiche lieu).
+ * Doublon figé dans `BaseHead.astro` (`hasMap`, script `is:inline`) : garder la même URL.
+ */
+export const GOOGLE_MAPS_CABINET_URL =
+  'https://www.google.com/maps/search/?api=1&query=' +
+  encodeURIComponent(CABINET_ADDRESS_LINE);
+
+/** URL d’intégration carte (iframe Google Maps, sans clé API). */
+export const GOOGLE_MAPS_EMBED_URL =
+  'https://www.google.com/maps?q=' +
+  encodeURIComponent(`${CABINET_ADDRESS_LINE}, France`) +
+  '&hl=fr&z=17&output=embed';
+
 /** Villes voisines du cabinet (SEO local, formulations sur le site). */
 export const NEARBY_CITIES =
   'Antony, Bourg-la-Reine, Châtenay-Malabry et Fontenay-aux-Roses';

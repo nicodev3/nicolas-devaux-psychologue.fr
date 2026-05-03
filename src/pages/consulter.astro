@@ -1,11 +1,16 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import { NEARBY_CITIES } from "../consts";
+import {
+  NEARBY_CITIES,
+  CABINET_ADDRESS_LINE,
+  GOOGLE_MAPS_CABINET_URL,
+  GOOGLE_MAPS_EMBED_URL,
+} from "../consts";
 ---
 
 <Layout
   title="Consulter un psychologue à Sceaux"
-  description={`Informations pour consulter au cabinet à Sceaux, proche de ${NEARBY_CITIES.replace(" et ", ", ")} : premier rendez-vous, rythme des séances, tarifs et Mon Soutien Psy.`}
+  description={`Informations pour consulter au cabinet à Sceaux (${CABINET_ADDRESS_LINE}), proche de ${NEARBY_CITIES.replace(" et ", ", ")} : accès RER B, parkings, premier rendez-vous, tarifs et Mon Soutien Psy.`}
   pubDate={new Date("March 07 2026")}
   showDate={false}
 >
@@ -59,10 +64,57 @@ import { NEARBY_CITIES } from "../consts";
     </div>
 
     <div>
-      <h2>Modalités pratiques</h2>
+      <h2>Adresse et accès au cabinet</h2>
       <p>
-        Le cabinet se trouve à Sceaux (92330), à proximité de {NEARBY_CITIES}.
+        <strong>{CABINET_ADDRESS_LINE}</strong> — à proximité de {NEARBY_CITIES}.
       </p>
+      <p>
+        <a
+          href={GOOGLE_MAPS_CABINET_URL}
+          class="text-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Ouvrir l’adresse dans Google Maps</a
+        >
+        pour calculer un itinéraire.
+      </p>
+
+      <div
+        class="my-6 rounded-xl border border-gray-200 overflow-hidden shadow-sm bg-gray-100"
+      >
+        <iframe
+          src={GOOGLE_MAPS_EMBED_URL}
+          class="w-full aspect-video min-h-[260px] border-0"
+          title={`Carte — ${CABINET_ADDRESS_LINE}`}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+
+      <h3 class="text-xl font-bold mt-8 mb-3">Transports en commun</h3>
+      <p>
+        Le cabinet est desservi par la <strong>ligne B du RER</strong> (branche
+        Robinson). Les gares <strong>Sceaux</strong> et <strong>Robinson</strong> sont
+        à quelques minutes à pied ; Robinson est en pratique souvent la plus proche.
+        La RER B relie directement le centre de Paris (par exemple Châtelet — Les Halles,
+        Denfert-Rochereau, Cité universitaire) et plusieurs communes du nord de la
+        métropole.
+      </p>
+
+      <h3 class="text-xl font-bold mt-8 mb-3">Stationnement et parkings</h3>
+      <p>
+        Le <strong>parking Penthièvre</strong> (76 rue Houdan) se trouve sur la même
+        rue que le cabinet, à très courte distance. D’autres parkings couverts sont
+        disponibles en centre-ville, notamment <strong>Charaire</strong> (avenue
+        Camberwell), <strong>Robinson</strong> (près de la gare) et <strong>Amiral</strong>
+        (rue Fontenay). Le <strong>stationnement en voirie</strong> est également
+        possible selon les zones et horaires en vigueur sur Sceaux ; renseignez-vous
+        sur les règles affichées sur place ou auprès de la mairie.
+      </p>
+    </div>
+
+    <div>
+      <h2>Modalités pratiques</h2>
       <ul>
         <li>Consultations sur rendez-vous uniquement.</li>
         <li>Cabinet à Sceaux et téléconsultation selon les situations.</li>
