@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import { Image } from "astro:assets";
+import SectionHeading from "../components/SectionHeading.astro";
+import { Picture } from "astro:assets";
 import PsychotherapieImage from "../assets/psychotherapies.jpg";
 ---
 
@@ -25,11 +26,17 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
     </p>
 
     <div class="my-2">
-      <Image src={PsychotherapieImage} alt="Approches thérapeutiques proposées au cabinet" />
+      <Picture
+        src={PsychotherapieImage}
+        alt="Approches thérapeutiques proposées au cabinet"
+        formats={["avif", "webp"]}
+        loading="lazy"
+        decoding="async"
+      />
     </div>
 
     <div>
-      <h2 class="mb-5">Comment je choisis l'approche thérapeutique</h2>
+      <SectionHeading class="mb-5" eyebrow="01 — Choix" title="Comment je choisis l'approche thérapeutique" />
       <p>
         Le premier travail consiste à comprendre ce qui motive votre consultation
         et ce qui maintient la difficulté dans le temps. À partir de là, nous
@@ -52,8 +59,8 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
     </div>
 
     <div>
-      <h2 class="mb-5">Les trois grandes familles proposées au cabinet</h2>
-      <h3 class="mb-3">Psychothérapie</h3>
+      <SectionHeading class="mb-5" eyebrow="02 — Cadres" title="Les trois grandes familles proposées au cabinet" />
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Psychothérapie</h3>
       <p>
         La psychothérapie constitue le cadre général d'accompagnement lorsque le
         travail demande du temps pour élaborer ce que vous traversez, comprendre
@@ -66,14 +73,14 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
         parfois, et la place qu'il prend dans votre équilibre actuel.
       </p>
 
-      <h3 class="mb-3">Thérapie MOSAIC</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Thérapie MOSAIC</h3>
       <p>
         La thérapie MOSAIC est une approche spécifique qui peut être proposée
         lorsque la difficulté est liée à une mémoire douloureuse, à un vécu
         traumatique ou à une réaction émotionnelle persistante.
       </p>
 
-      <h3 class="mb-3">TCC et thérapies de 3e vague</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">TCC et thérapies de 3e vague</h3>
       <p>
         Certaines approches de 3e vague comme l'ACT, la MBCT et la thérapie
         fondée sur la compassion sont utiles lorsqu'un travail plus ciblé,
@@ -88,7 +95,7 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
     </div>
 
     <div>
-      <h2 class="mb-5">Les principes de travail</h2>
+      <SectionHeading class="mb-5" eyebrow="03 — Principes" title="Les principes de travail" />
       <ul class="list-disc list-inside space-y-2">
         <li><strong>Individualisation:</strong> pas de protocole standard appliqué automatiquement.</li>
         <li><strong>Cohérence clinique:</strong> chaque technique utilisée répond à un objectif précis.</li>
@@ -100,7 +107,11 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
     </div>
 
     <div>
-      <h2 class="mb-5">Une approche intégrative ne consiste pas à tout mélanger</h2>
+      <SectionHeading
+        class="mb-5"
+        eyebrow="04 — Précision"
+        title="Une approche intégrative ne consiste pas à tout mélanger"
+      />
       <p>
         Intégrer ne veut pas dire additionner des méthodes au hasard ni multiplier
         les techniques pour répondre coûte que coûte à une difficulté. Le but est
@@ -116,7 +127,7 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
     </div>
 
     <div>
-      <h2 class="mb-5">Comment se déroule l'accompagnement ?</h2>
+      <SectionHeading class="mb-5" eyebrow="05 — Déroulement" title="Comment se déroule l'accompagnement ?" />
       <p>
         Les premières séances permettent de clarifier votre demande, comprendre ce qui
         maintient la difficulté et définir des objectifs concrets. Ensuite, nous
@@ -135,7 +146,7 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
     </div>
 
     <div>
-      <h2 class="mb-5">La rencontre thérapeutique reste centrale</h2>
+      <SectionHeading class="mb-5" eyebrow="06 — Relation" title="La rencontre thérapeutique reste centrale" />
       <p>
         Au-delà des modèles, l'efficacité d'un accompagnement dépend aussi de la
         qualité de la rencontre thérapeutique. La confiance, la clarté des
@@ -150,7 +161,7 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
     </div>
 
     <div>
-      <h2 class="mb-5">Quand consulter ?</h2>
+      <SectionHeading class="mb-5" eyebrow="07 — Indications" title="Quand consulter ?" />
       <p>
         Cette organisation est particulièrement pertinente lorsque les difficultés
         sont multiples ou installées dans le temps : anxiété, humeur dépressive,
@@ -159,18 +170,18 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
       </p>
     </div>
 
-    <div class="border border-gray-200 rounded-xl bg-secondary/40 p-5">
-      <h2 class="mb-4">Découvrir les approches proposées</h2>
+    <div class="border border-border-strong rounded-xl bg-secondary/40 p-5">
+      <SectionHeading class="mb-4" eyebrow="08 — Pour aller plus loin" title="Découvrir les approches proposées" />
       <p class="mb-3">
         Si vous souhaitez aller plus loin, vous pouvez consulter les pages dédiées :
       </p>
       <ul class="list-disc list-inside space-y-2 mb-4">
-        <li><a href="/therapie-mosaic/" class="text-accent hover:text-link transition-colors duration-200">Thérapie MOSAIC</a></li>
-        <li><a href="/therapie-cognitive-et-comportementale/" class="text-accent hover:text-link transition-colors duration-200">Thérapie cognitive et comportementale</a></li>
-        <li><a href="/tcc-troisieme-vague/" class="text-accent hover:text-link transition-colors duration-200">TCC de 3e vague</a></li>
-        <li><a href="/therapie-acceptation-et-engagement/" class="text-accent hover:text-link transition-colors duration-200">Thérapie d'acceptation et d'engagement (ACT)</a></li>
-        <li><a href="/therapie-pleine-conscience/" class="text-accent hover:text-link transition-colors duration-200">Thérapie cognitive basée sur la pleine conscience (MBCT/MBSR)</a></li>
-        <li><a href="/therapie-fondee-compassion/" class="text-accent hover:text-link transition-colors duration-200">Thérapie fondée sur la compassion (CFT)</a></li>
+        <li><a href="/therapie-mosaic/" class="text-brand transition-colors duration-200 hover:text-link">Thérapie MOSAIC</a></li>
+        <li><a href="/therapie-cognitive-et-comportementale/" class="text-brand transition-colors duration-200 hover:text-link">Thérapie cognitive et comportementale</a></li>
+        <li><a href="/tcc-troisieme-vague/" class="text-brand transition-colors duration-200 hover:text-link">TCC de 3e vague</a></li>
+        <li><a href="/therapie-acceptation-et-engagement/" class="text-brand transition-colors duration-200 hover:text-link">Thérapie d'acceptation et d'engagement (ACT)</a></li>
+        <li><a href="/therapie-pleine-conscience/" class="text-brand transition-colors duration-200 hover:text-link">Thérapie cognitive basée sur la pleine conscience (MBCT/MBSR)</a></li>
+        <li><a href="/therapie-fondee-compassion/" class="text-brand transition-colors duration-200 hover:text-link">Thérapie fondée sur la compassion (CFT)</a></li>
       </ul>
       <p>
         L'article de blog consacré à MOSAIC reste disponible si vous souhaitez un

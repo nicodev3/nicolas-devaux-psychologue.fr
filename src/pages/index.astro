@@ -3,11 +3,13 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
-import PublicsMotifsBanner from "../components/PublicsMotifsBanner.astro";
 import ApprochesSection from "../components/ApprochesSection.astro";
+import ConsultationRoomGallery from "../components/ConsultationRoomGallery.astro";
 import FAQSection from "../components/FAQSection.astro";
 import HorairesTarifsSection from "../components/HorairesTarifsSection.astro";
-import SideBar from "../components/SideBar.astro";
+import HomeLatestArticles from "../components/HomeLatestArticles.astro";
+import HomeProfessionNotice from "../components/HomeProfessionNotice.astro";
+import BookingFab from "../components/BookingFab.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, NEARBY_CITIES } from "../consts";
 
 const isProd = import.meta.env.PROD;
@@ -20,7 +22,7 @@ const faqSchema = {
       name: "Comment prendre rendez-vous ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: 'Vous pouvez prendre rendez-vous facilement via Doctolib en cliquant sur le bouton "Prendre rendez-vous" ci-dessus. Les consultations se déroulent uniquement sur rendez-vous, le lundi, le mardi et le vendredi de 8h à 20h.',
+        text: "Vous pouvez prendre rendez-vous via Doctolib depuis la page d'accueil (bloc d'introduction, section Horaires et tarifs ou lien en pied de page). Les consultations se déroulent uniquement sur rendez-vous, le lundi, le mardi et le vendredi de 8h à 20h.",
       },
     },
     {
@@ -83,20 +85,35 @@ const faqSchema = {
       <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     )}
   </head>
-  <body class="bg-linear-to-r from-secondary to-white">
-    <Header />
-    <main
-      class="container flex flex-col xl:flex-row gap-8 xl:gap-12 xl:items-start py-8 xl:py-10"
-    >
-      <div class="xl:flex-1 xl:min-w-0">
+  <body class="bg-surface-page" data-home-reveal-page>
+    <Header suppressMobileBookingCta />
+    <main class="page-shell">
+      <div data-home-reveal="hero">
         <HeroSection />
-        <PublicsMotifsBanner />
+      </div>
+      <div data-home-reveal="approches">
         <ApprochesSection />
+      </div>
+      <div data-home-reveal="cabinet">
+        <ConsultationRoomGallery />
+      </div>
+      <div data-home-reveal="faq">
         <FAQSection />
+      </div>
+      <div data-home-reveal="horaires">
         <HorairesTarifsSection />
       </div>
-      <SideBar />
+      <div data-home-reveal="articles">
+        <HomeLatestArticles />
+      </div>
+      <div data-home-reveal="notice">
+        <HomeProfessionNotice />
+      </div>
     </main>
+    <BookingFab />
     <Footer />
+    <script>
+      import "../scripts/home-reveal.ts";
+    </script>
   </body>
 </html>

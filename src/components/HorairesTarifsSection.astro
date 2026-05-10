@@ -1,220 +1,142 @@
 ---
-// Section Horaires et tarifs
+import { Clock, Euro } from "lucide";
+import SectionHeading from "./SectionHeading.astro";
+import LucideIcon from "./LucideIcon.astro";
+import { buttonClasses } from "./ui/button";
+import { DOCTOLIB_BOOKING_URL } from "../consts";
+
+const tariffs = [
+  { label: "Consultation individuelle", duration: "45 min", price: "80€" },
+  { label: "Consultation MOSAIC", duration: "1 h", price: "90€" },
+  { label: "Consultation de couple", duration: "1 h", price: "110€" },
+  { label: "Mon Soutien Psy*", duration: "30 min", price: "50€" },
+  { label: "Participation aux groupes", duration: "8 séances", price: "30€ / séance" },
+] as const;
 ---
 
 <section
   id="horaires-tarifs"
-  class="mb-16 bg-white rounded-xl shadow-md p-8 md:p-10 border border-gray-100"
+  class="py-16 md:py-24"
   aria-labelledby="horaires-tarifs-heading"
 >
-  <h2
-    id="horaires-tarifs-heading"
-    class="mb-6 text-2xl md:text-3xl text-center"
-  >
-    <a href="/tarifs/" class="no-underline text-inherit hover:text-accent transition-colors">
-      Horaires et tarifs
-    </a>
-  </h2>
+  <div class="w-full min-w-0">
+    <SectionHeading class="mb-10 md:mb-12" eyebrow="04 — Pratique" id="horaires-tarifs-heading">
+      <a href="/tarifs/" class="text-inherit no-underline transition-colors hover:text-brand">
+        Horaires et tarifs
+      </a>
+    </SectionHeading>
 
-  <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-    <article
-      class="bg-secondary/35 rounded-xl p-8 border border-gray-100"
-      aria-labelledby="tarifs-heading"
-    >
-      <div class="flex items-center mb-6">
-        <div class="bg-gray-50 p-3 rounded-full mr-4">
-          <svg
-            class="w-6 h-6 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+    <div class="grid min-w-0 gap-10 md:grid-cols-2 md:gap-12">
+      <article class="min-w-0" aria-labelledby="tarifs-heading">
+        <div class="mb-6 flex items-center gap-3">
+          <div
+            class="flex size-12 shrink-0 items-center justify-center rounded-full bg-surface-muted"
+            aria-hidden="true"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-            ></path>
-          </svg>
+            <LucideIcon icon={Euro} size="lg" class="text-ink-secondary" />
+          </div>
+          <h3 id="tarifs-heading" class="font-display typo-display-md text-ink-primary">
+            Tarifs des consultations
+          </h3>
         </div>
-        <h3 id="tarifs-heading" class="text-xl font-bold text-tertiary">
-          Tarifs des consultations
-        </h3>
-      </div>
 
-      <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="border-b border-gray-200">
-              <th
-                scope="col"
-                class="py-3 pr-4 text-sm font-semibold text-tertiary"
-                >Prestation</th
-              >
-              <th
-                scope="col"
-                class="py-3 px-4 text-sm font-semibold text-tertiary whitespace-nowrap"
-                >Temps</th
-              >
-              <th
-                scope="col"
-                class="py-3 pl-4 text-sm font-semibold text-tertiary text-right"
-                >Tarif</th
-              >
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700"
-                >Consultation individuelle</td
-              >
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap"
-                >45 min</td
-              >
-              <td
-                class="py-3 pl-4 text-right text-xl font-bold text-tertiary"
-                >80€</td
-              >
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700"
-                >Consultation MOSAIC</td
-              >
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap"
-                >1h</td
-              >
-              <td
-                class="py-3 pl-4 text-right text-xl font-bold text-tertiary"
-                >90€</td
-              >
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700"
-                >Consultation de couple</td
-              >
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap"
-                >1h</td
-              >
-              <td
-                class="py-3 pl-4 text-right text-xl font-bold text-tertiary"
-                >110€</td
-              >
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700">Mon Soutien Psy*</td>
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap"
-                >30 min</td
-              >
-              <td
-                class="py-3 pl-4 text-right text-xl font-bold text-tertiary"
-                >50€</td
-              >
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700">Participation aux groupes</td>
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap"
-                >8 sessions</td
-              >
-              <td
-                class="py-3 pl-4 text-right text-xl font-bold text-tertiary"
-                >30€ / session</td
-              >
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <ul class="list-none border-t border-border-strong p-0" role="list">
+          {
+            tariffs.map(({ label, duration, price }) => (
+              <li class="border-b border-border-subtle py-4 last:border-b-0">
+                <div
+                  class="grid items-baseline gap-x-4 font-ui [grid-template-columns:minmax(0,1fr)_88px_112px] md:gap-x-5"
+                >
+                  <span class="min-w-0 text-pretty text-base leading-snug text-ink-secondary">{label}</span>
+                  <span class="whitespace-nowrap text-base leading-snug tabular-nums text-ink-secondary">{duration}</span>
+                  <span class="text-right text-lg font-semibold leading-snug tabular-nums text-ink-primary">{price}</span>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
 
-      <div
-        class="mt-4 p-3 bg-secondary/60 border border-primary/30 rounded-lg"
-      >
-        <p class="text-sm text-tertiary">
-          <strong>*Mon Soutien Psy :</strong> Ces séances remboursées ne peuvent
-          être prises qu'avec mon accord préalable. <a
-            href="/mon-soutien-psy/"
-            class="text-link underline hover:no-underline"
+        <div class="mt-6 border-l-2 border-info-border bg-info-surface/80 py-3 pl-4 pr-3">
+          <p class="text-sm text-info-ink">
+            <strong>*Mon Soutien Psy :</strong> Ces séances remboursées ne peuvent être prises qu'avec mon accord
+            préalable.
+            <a href="/mon-soutien-psy/" class="text-link underline hover:no-underline">
+              Voir les conditions d'accès
+            </a>.
+          </p>
+        </div>
+
+        <div class="mt-4 border-l-2 border-border-strong py-2 pl-4">
+          <p class="text-sm text-ink-secondary">
+            <strong class="text-ink-primary">Paiement :</strong> Chèques, espèces et virement bancaire. Cartes
+            bancaires non acceptées.
+          </p>
+        </div>
+      </article>
+
+      <article class="min-w-0" aria-labelledby="horaires-heading">
+        <div class="mb-6 flex items-center gap-3">
+          <div
+            class="flex size-12 shrink-0 items-center justify-center rounded-full bg-surface-muted"
+            aria-hidden="true"
           >
-            Voir les conditions d'accès
-          </a>.
-        </p>
-      </div>
+            <LucideIcon icon={Clock} size="lg" class="text-ink-secondary" />
+          </div>
+          <h3 id="horaires-heading" class="font-display typo-display-md text-ink-primary">Horaires d'ouverture</h3>
+        </div>
 
-      <div
-        class="mt-3 p-3 bg-secondary/60 border border-primary/30 rounded-lg"
-      >
-        <p class="text-sm text-tertiary">
-          <strong>💳 Paiement :</strong> Chèques, espèces et virement bancaire.
-          Cartes bancaires non acceptées.
-        </p>
-      </div>
-    </article>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between gap-4 border-b border-border-subtle py-2">
+            <span class="min-w-0 text-pretty text-ink-secondary">Lundi, mardi et vendredi</span>
+            <span class="shrink-0 font-medium tabular-nums text-ink-primary">8h00 - 20h00</span>
+          </div>
+          <div class="flex items-center justify-between gap-4 py-2">
+            <span class="min-w-0 text-ink-secondary">Autres jours</span>
+            <span class="shrink-0 font-medium text-danger">Fermé</span>
+          </div>
+        </div>
 
-    <article
-      class="bg-secondary/35 rounded-xl p-8 border border-gray-100"
-      aria-labelledby="horaires-heading"
-    >
-      <div class="flex items-center mb-6">
-        <div class="bg-gray-50 p-3 rounded-full mr-4">
-          <svg
-            class="w-6 h-6 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        <div class="mt-6 border-l-2 border-border-strong py-2 pl-4">
+          <p class="text-sm text-ink-secondary">
+            <strong class="text-ink-primary">Prise de rendez-vous :</strong> Consultations sur rendez-vous uniquement.
+            <a href="/consulter/" class="text-link underline hover:no-underline">Voir les modalités de consultation</a>.
+          </p>
+        </div>
+
+        <div class="mt-6 flex max-w-md flex-col gap-3">
+          <a
+            href={DOCTOLIB_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={buttonClasses({
+              variant: "primary",
+              size: "lg",
+              fullWidth: true,
+              className: "justify-center normal-case",
+            })}
+            aria-label="Prendre rendez-vous sur Doctolib"
+            data-track-doctolib
+            data-track-location="Bloc horaires accueil"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
+            Prendre rendez-vous
+          </a>
+          <a
+            href="/consulter/"
+            class={buttonClasses({
+              variant: "secondary",
+              size: "lg",
+              fullWidth: true,
+              className: "justify-center font-normal normal-case",
+            })}
+          >
+            En savoir plus →
+          </a>
+          <p class="text-sm text-ink-tertiary">
+            Les créneaux et la réservation se font sur Doctolib ; la page Consulter détaille le déroulé et les modalités
+            avant le premier rendez-vous.
+          </p>
         </div>
-        <h3
-          id="horaires-heading"
-          class="text-xl font-bold text-tertiary"
-        >
-          Horaires d'ouverture
-        </h3>
-      </div>
-
-      <div class="space-y-3">
-        <div
-          class="flex justify-between items-center py-2 border-b border-gray-100"
-        >
-          <span class="text-gray-700">Lundi, mardi et vendredi</span>
-          <span class="font-semibold text-tertiary">8h00 - 20h00</span>
-        </div>
-        <div class="flex justify-between items-center py-2">
-          <span class="text-gray-700">Autres jours</span>
-          <span class="text-red-700 font-semibold">Fermé</span>
-        </div>
-      </div>
-
-      <div
-        class="mt-4 p-3 bg-secondary/60 border border-primary/30 rounded-lg"
-      >
-        <p class="text-sm text-tertiary">
-          <strong>📅 Prise de rendez-vous :</strong> Consultations sur rendez-vous
-          uniquement. <a href="/consulter/" class="text-link underline hover:no-underline">Voir les modalités de consultation</a>.
-        </p>
-      </div>
-
-      <div class="mt-4 flex flex-col sm:flex-row gap-3">
-        <a
-          href="/consulter/"
-          class="inline-flex items-center justify-center rounded-lg border border-primary/30 bg-white px-4 py-3 text-sm font-semibold text-tertiary no-underline transition-colors duration-200 hover:bg-secondary/40"
-        >
-          En savoir plus avant de consulter
-        </a>
-        <a
-          href="https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center rounded-lg bg-[#0B5F8A] px-4 py-3 text-sm font-bold text-white no-underline transition-colors duration-200 hover:bg-[#094A6E]"
-          data-track-doctolib
-          data-track-location="Horaires Tarifs"
-        >
-          Prendre rendez-vous
-        </a>
-      </div>
-    </article>
+      </article>
+    </div>
   </div>
 </section>

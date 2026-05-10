@@ -1,5 +1,25 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { buttonClasses } from "../components/ui/button";
+
+type TariffRow = {
+  label: string;
+  duration: string;
+  price: string;
+};
+
+const tariffs: TariffRow[] = [
+  { label: "Consultation individuelle", duration: "45 min", price: "80€" },
+  { label: "Consultation MOSAIC", duration: "1 h", price: "90€" },
+  { label: "Consultation de couple", duration: "1 h", price: "110€" },
+  { label: "Mon Soutien Psy*", duration: "40 min", price: "50€" },
+  {
+    label: "Participation aux groupes de pleine conscience",
+    duration: "8 sessions de 1 heure",
+    price: "30€ / session",
+  },
+];
 ---
 
 <Layout
@@ -15,55 +35,27 @@ import Layout from "../layouts/BlogPost.astro";
       en téléconsultation selon les situations.
     </p>
 
-    <div class="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
-      <h2 class="text-xl font-bold text-tertiary mb-6">Tarifs des consultations</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="border-b border-gray-200">
-              <th scope="col" class="py-3 pr-4 text-sm font-semibold text-tertiary">
-                Prestation
-              </th>
-              <th scope="col" class="py-3 px-4 text-sm font-semibold text-tertiary whitespace-nowrap">
-                Durée
-              </th>
-              <th scope="col" class="py-3 pl-4 text-sm font-semibold text-tertiary text-right">
-                Tarif
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700">Consultation individuelle</td>
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap">45 min</td>
-              <td class="py-3 pl-4 text-right text-xl font-bold text-tertiary">80€</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700">Consultation MOSAIC</td>
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap">1h</td>
-              <td class="py-3 pl-4 text-right text-xl font-bold text-tertiary">90€</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700">Consultation de couple</td>
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap">1h</td>
-              <td class="py-3 pl-4 text-right text-xl font-bold text-tertiary">110€</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700">Mon Soutien Psy*</td>
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap">40 min</td>
-              <td class="py-3 pl-4 text-right text-xl font-bold text-tertiary">50€</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="py-3 pr-4 text-gray-700">Participation aux groupes de pleine conscience</td>
-              <td class="py-3 px-4 text-gray-700 whitespace-nowrap">8 sessions de 1 heure</td>
-              <td class="py-3 pl-4 text-right text-xl font-bold text-tertiary">30€ / session</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <SectionHeading class="mb-4" eyebrow="01 — Tarifs" title="Tarifs des consultations" />
 
-      <div class="mt-4 p-3 bg-secondary/60 border border-primary/30 rounded-lg">
-        <p class="text-sm text-tertiary">
+    <div class="min-w-0 rounded-xl border border-border-subtle bg-surface-raised px-4 py-6 shadow-md md:px-5 md:py-8">
+      <ul class="!m-0 list-none border-t border-border-strong !ps-0" role="list">
+        {
+          tariffs.map(({ label, duration, price }) => (
+            <li class="!my-0 border-b border-border-subtle py-4 last:border-b-0">
+              <div
+                class="grid items-baseline gap-x-4 font-ui [grid-template-columns:minmax(0,1fr)_minmax(80px,11rem)_96px] md:gap-x-5 md:[grid-template-columns:minmax(0,1fr)_minmax(88px,11rem)_112px]"
+              >
+                <span class="min-w-0 text-pretty text-base leading-snug text-ink-secondary">{label}</span>
+                <span class="text-base leading-snug tabular-nums text-ink-secondary">{duration}</span>
+                <span class="text-right text-lg font-semibold leading-snug tabular-nums text-ink-primary">{price}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-4 rounded-lg border border-info-border bg-info-surface p-3">
+        <p class="text-sm text-info-ink">
           <strong>*Mon Soutien Psy :</strong> Ces séances remboursées ne peuvent
           être prises qu'avec mon accord préalable.
           <a href="/mon-soutien-psy/" class="text-link underline hover:no-underline">
@@ -72,8 +64,8 @@ import Layout from "../layouts/BlogPost.astro";
         </p>
       </div>
 
-      <div class="mt-3 p-3 bg-secondary/60 border border-primary/30 rounded-lg">
-        <p class="text-sm text-tertiary">
+      <div class="mt-3 rounded-lg border border-border-strong bg-surface-muted p-3">
+        <p class="text-sm text-ink-primary">
           <strong>Paiement :</strong> Chèques, espèces et virement bancaire. Cartes
           bancaires non acceptées.
         </p>
@@ -81,25 +73,25 @@ import Layout from "../layouts/BlogPost.astro";
     </div>
 
     <div>
-      <h2 class="text-xl font-bold mb-4">Horaires d'ouverture</h2>
-      <div class="rounded-xl border border-gray-200 bg-secondary/30 p-6 max-w-md">
-        <div class="flex justify-between items-center py-2 border-b border-gray-200">
-          <span class="text-gray-700">Lundi, mardi et vendredi</span>
-          <span class="font-semibold text-tertiary">8h00 - 20h00</span>
+      <SectionHeading class="mb-4" eyebrow="02 — Horaires" title="Horaires d'ouverture" />
+      <div class="rounded-xl border border-border-strong bg-secondary/30 p-6 max-w-md">
+        <div class="flex justify-between items-center py-2 border-b border-border-strong">
+          <span class="text-ink-secondary">Lundi, mardi et vendredi</span>
+          <span class="font-medium text-tertiary">8h00 - 20h00</span>
         </div>
         <div class="flex justify-between items-center py-2">
-          <span class="text-gray-700">Autres jours</span>
-          <span class="text-red-700 font-semibold">Fermé</span>
+          <span class="text-ink-secondary">Autres jours</span>
+          <span class="font-medium text-danger">Fermé</span>
         </div>
       </div>
-      <p class="mt-4 text-gray-600">
+      <p class="mt-4 text-ink-secondary">
         Consultations sur rendez-vous uniquement. Prise de rendez-vous via
         Doctolib.
       </p>
     </div>
 
     <div>
-      <h2 class="text-xl font-bold mb-4">Remboursement</h2>
+      <SectionHeading class="mb-4" eyebrow="03 — Remboursement" title="Remboursement" />
       <p>
         Les consultations de psychologie ne sont pas remboursées par la Sécurité
         sociale hors dispositifs spécifiques, mais de nombreuses mutuelles
@@ -113,8 +105,8 @@ import Layout from "../layouts/BlogPost.astro";
       </p>
     </div>
 
-    <div class="rounded-xl border border-primary/20 bg-secondary/30 p-6">
-      <h2 class="text-xl font-bold mb-4">Prendre rendez-vous</h2>
+    <div class="rounded-xl border border-border-strong bg-surface-muted p-6">
+      <SectionHeading class="mb-4" eyebrow="04 — Rendez-vous" title="Prendre rendez-vous" />
       <p class="mb-4">
         La prise de rendez-vous se fait via Doctolib. Vous pouvez consulter les
         créneaux disponibles et réserver en ligne.
@@ -123,26 +115,11 @@ import Layout from "../layouts/BlogPost.astro";
         href="https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex gap-2 items-center justify-center px-6 py-3 h-12 bg-[#107ACA] hover:bg-[#0E6BAD] text-white font-bold text-sm uppercase rounded-lg transition-colors duration-200 no-underline shrink-0"
+        class={buttonClasses({ variant: "primary", size: "lg", className: "shrink-0" })}
         aria-label="Prendre rendez-vous sur Doctolib"
         data-track-doctolib
         data-track-location="Page Tarifs"
       >
-        <svg
-          xml:space="preserve"
-          width="18"
-          height="18"
-          fill="currentColor"
-          viewBox="0 0 16 16"
-          xmlns="http://www.w3.org/2000/svg"
-          class="pointer-events-none"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path
-            d="M12.8 7.8c.3-1.6.3-4.8-4.8-5.3-1.3-.1-3.4.2-4.8.5v.1c0 .1.2.3.4.4.1.1.4 0 .5 0 4.6-.4 7.9.6 7.3 4-.3 1.9-1.6 4.4-5.1 4.4-.7 0-.8-.1-.7-.6 0-.1 1.1-5.9 1.2-6.5 0 0-.8-.2-1 .6 0 .2-1.9 7-2 7.4-.1.5.2.8 2.5.8 5.5-.1 6.3-4.8 6.5-5.8"
-          />
-        </svg>
         Prendre rendez-vous
       </a>
     </div>

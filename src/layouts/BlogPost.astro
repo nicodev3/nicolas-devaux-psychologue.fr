@@ -1,12 +1,12 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import BaseHead from "../components/BaseHead.astro";
 import BlogSchema from "../components/BlogSchema.astro";
 import Header from "../components/Header.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 import Footer from "../components/Footer.astro";
-import SideBar from "../components/SideBar.astro";
+import ArticleScrollProgress from "../components/ArticleScrollProgress.astro";
 import "../styles/global.css";
 import "../styles/content.css";
 import { formatFrenchDate, toDateTime } from "../utils/formatDate";
@@ -31,64 +31,59 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
 
 <html lang="fr">
   <head>
-    <BaseHead title={title} description={description} image={heroImage?.src} />
+    <BaseHead title={title} description={description} />
     {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} slug={slug} />}
   </head>
 
-  <body class="bg-linear-to-r from-secondary to-white">
+  <body class="bg-surface-page">
+    <ArticleScrollProgress enabled={blogPost} />
     <Header />
-    <Breadcrumb title={title} />
-    <main class="container flex flex-col xl:flex-row gap-8 xl:gap-12 xl:items-start pb-8 xl:pb-10">
-      <article class="xl:flex-1 xl:min-w-0">
-        <!-- Section Hero -->
-        <div class="bg-white rounded-xl shadow-md p-8 mb-12 border border-gray-100">
+    <main class="page-shell">
+      <Breadcrumb title={title} />
+      <article class="w-full">
+        <header class="mb-10 md:mb-12">
           {
             heroImage && (
-              <div class="mb-8 mx-auto flex max-h-[min(40vh,320px)] w-full max-w-[min(100%,560px)] items-center justify-center overflow-hidden rounded-xl sm:max-h-[min(45vh,380px)]">
-                <Image
+              <div class="mb-8 w-full overflow-hidden rounded-xl border border-border-subtle">
+                <Picture
                   src={heroImage}
                   alt={title}
                   width={heroImage.width}
                   height={heroImage.height}
-                  class="h-auto max-h-[min(40vh,320px)] w-auto max-w-full object-contain sm:max-h-[min(45vh,380px)]"
+                  formats={["avif", "webp"]}
+                  loading="lazy"
+                  decoding="async"
+                  class="h-auto w-full max-w-full"
                 />
               </div>
             )
           }
-          <header class="text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-tertiary mb-4 leading-tight">
-              {title}
-            </h1>
-            {
-              showDate && (
-                <p class="text-sm text-gray-500 font-medium">
-                  <time datetime={toDateTime(pubDate)}>{formatFrenchDate(pubDate)}</time>
-                  {updatedDate && (
-                    <span class="italic ml-2">
-                      - Mis à jour le{" "}
-                      <time datetime={toDateTime(updatedDate)}>
-                        {formatFrenchDate(updatedDate)}
-                      </time>
-                    </span>
-                  )}
-                </p>
-              )
-            }
-          </header>
-        </div>
+          <h1 class="font-display typo-h1 mb-6 text-pretty text-ink-primary md:mb-8">
+            {title}
+          </h1>
+          {
+            showDate && (
+              <p class="font-ui typo-meta text-body-muted">
+                <time datetime={toDateTime(pubDate)}>{formatFrenchDate(pubDate)}</time>
+                {updatedDate && (
+                  <span class="ml-2 font-medium">
+                    — Mis à jour le{" "}
+                    <time datetime={toDateTime(updatedDate)}>
+                      {formatFrenchDate(updatedDate)}
+                    </time>
+                  </span>
+                )}
+              </p>
+            )
+          }
+        </header>
 
-        <!-- Contenu -->
         <div
-          class={`bg-white rounded-xl shadow-md p-8 border border-gray-100 ${
-            blogPost
-              ? "c-prose"
-              : "c-wysiwig"
-          }`}
+          class:list={[blogPost ? "c-prose" : "c-wysiwig", "border-t border-border-subtle pt-10 md:pt-12"]}
         >
           <slot />
         </div>
       </article>
-      <SideBar showPsyInfo={false} />
     </main>
     <Footer />
   </body>

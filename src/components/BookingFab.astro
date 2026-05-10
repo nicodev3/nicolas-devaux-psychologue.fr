@@ -1,0 +1,155 @@
+---
+import { ArrowRight, X } from "lucide";
+import LucideIcon from "./LucideIcon.astro";
+import { buttonClasses } from "./ui/button";
+import { DOCTOLIB_BOOKING_URL } from "../consts";
+---
+
+<script>
+  document.addEventListener("alpine:init", () => {
+    window["Alpine"].data("bookingFabHome", () => ({
+      expanded: false,
+      md: false,
+      heroOut: false,
+      horairesIn: false,
+      footerIn: false,
+      visible: false,
+      sync() {
+        this.visible = this.heroOut && !this.horairesIn && !this.footerIn;
+        if (!this.visible) this.expanded = false;
+      },
+      init() {
+        const hero = document.getElementById("hero");
+        const horaires = document.getElementById("horaires-tarifs");
+        const footer = document.querySelector("footer");
+
+        if (hero) {
+          const rHero = hero.getBoundingClientRect();
+          this.heroOut = !(rHero.top < window.innerHeight && rHero.bottom > 0);
+          const ioHero = new IntersectionObserver(([e]) => {
+            this.heroOut = !e.isIntersecting;
+            this.sync();
+          }, { threshold: 0 });
+          ioHero.observe(hero);
+        } else {
+          this.heroOut = true;
+        }
+
+        if (horaires) {
+          const rHoraires = horaires.getBoundingClientRect();
+          this.horairesIn =
+            rHoraires.top < window.innerHeight && rHoraires.bottom > 0;
+        } else {
+          this.horairesIn = false;
+        }
+
+        if (footer) {
+          const rFooter = footer.getBoundingClientRect();
+          this.footerIn = rFooter.top < window.innerHeight && rFooter.bottom > 0;
+        } else {
+          this.footerIn = false;
+        }
+
+        this.sync();
+
+        if (horaires) {
+          const ioHoraires = new IntersectionObserver(([e]) => {
+            this.horairesIn = e.isIntersecting;
+            this.sync();
+          }, { threshold: 0 });
+          ioHoraires.observe(horaires);
+        }
+
+        if (footer) {
+          const ioFooter = new IntersectionObserver(([e]) => {
+            this.footerIn = e.isIntersecting;
+            this.sync();
+          }, { threshold: 0 });
+          ioFooter.observe(footer);
+        }
+
+        const mq = window.matchMedia("(min-width: 768px)");
+        const syncMd = () => {
+          this.md = mq.matches;
+          if (this.md) this.expanded = false;
+        };
+        mq.addEventListener("change", syncMd);
+        syncMd();
+
+        if (!hero) this.sync();
+      },
+    }));
+  });
+</script>
+
+<div
+  class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2"
+  x-data="bookingFabHome()"
+  x-show="visible"
+  x-transition.opacity.duration.200ms
+  x-cloak
+  @click.outside="if (!md) expanded = false"
+  aria-live="polite"
+>
+  <div
+    id="booking-fab-panel"
+    class="md:hidden"
+    x-show="expanded"
+    x-transition.opacity.duration.150ms
+    role="region"
+    aria-label="Réservation"
+  >
+    <div
+      class="mb-2 w-[min(calc(100vw-3rem),18rem)] rounded-xl border border-border-subtle bg-surface-raised/90 p-3 shadow-lg backdrop-blur-md"
+    >
+      <a
+        href={DOCTOLIB_BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={buttonClasses({ variant: "primary", size: "lg", fullWidth: true })}
+        data-track-doctolib
+        data-track-location="FAB mobile expanded"
+      >
+        Prendre RDV →
+      </a>
+    </div>
+  </div>
+
+  <a
+    href={DOCTOLIB_BOOKING_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={buttonClasses({
+      variant: "primary",
+      size: "lg",
+      className: "hidden md:inline-flex",
+    })}
+    data-track-doctolib
+    data-track-location="FAB desktop"
+    x-show="md"
+  >
+    Prendre RDV →
+  </a>
+
+  <button
+    type="button"
+    class={buttonClasses({
+      variant: "primary",
+      size: "lg",
+      className:
+        "!size-11 !min-h-[44px] !min-w-[44px] !max-h-[44px] !max-w-[44px] !rounded-[10px] !px-0 md:hidden",
+    })}
+    x-show="!md"
+    x-bind:aria-expanded="expanded"
+    aria-controls="booking-fab-panel"
+    @click="expanded = !expanded"
+  >
+    <span class="sr-only" x-text="expanded ? 'Fermer le menu rendez-vous' : 'Ouvrir la réservation'"></span>
+    <span class="inline-flex items-center justify-center" aria-hidden="true" x-show="!expanded">
+      <LucideIcon icon={ArrowRight} size="lg" class="text-brand-ink-on" />
+    </span>
+    <span class="inline-flex items-center justify-center" aria-hidden="true" x-show="expanded">
+      <LucideIcon icon={X} size="lg" class="text-brand-ink-on" />
+    </span>
+  </button>
+</div>

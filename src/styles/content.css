@@ -1,20 +1,15 @@
 .c-wysiwig h2,
 .c-prose h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 1vw + 1.2rem, 2.25rem);
+  font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-  .c-wysiwig h2,
-  .c-prose h2 {
-    font-size: 1.875rem;
-  }
-}
-
 .c-wysiwig h3,
 .c-prose h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-top: 1.25rem;
   margin-bottom: 0.75rem;
 }
@@ -23,24 +18,24 @@
 .c-wysiwig li a,
 .c-wysiwig td a,
 .c-prose a {
-  color: var(--color-accent-dark);
+  color: var(--color-brand);
   text-decoration: none;
 }
 
 .c-prose a:hover,
 .c-prose a:focus-visible {
-  color: var(--color-accent);
+  color: var(--color-brand-hover);
 }
 
 .c-prose p {
-  color: var(--color-gray-700);
+  color: var(--color-body);
   line-height: 2rem;
   margin-bottom: 1.25rem;
 }
 
 .c-prose strong {
   color: var(--color-tertiary);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .c-prose ul,
@@ -65,16 +60,17 @@
 
 .c-prose li {
   margin: 0.25rem 0;
+  color: var(--color-body);
 }
 
 .c-prose li::marker {
-  color: var(--color-accent-dark);
+  color: var(--color-brand-hover);
 }
 
 .c-prose blockquote,
 blockquote {
-  border-left: 4px solid var(--color-accent);
-  color: var(--color-gray-700);
+  border-left: 4px solid var(--color-brand);
+  color: var(--color-body);
   font-style: italic;
   margin: 1.5rem 0;
   padding: 1rem;
@@ -107,7 +103,7 @@ blockquote {
 }
 
 .c-mentions-legales p {
-  color: #4a4a4a;
+  color: var(--color-ink-secondary);
   line-height: 1.7;
   margin-bottom: 0.5rem;
 }
@@ -117,7 +113,7 @@ blockquote {
 }
 
 .c-mentions-legales li {
-  color: #4a4a4a;
+  color: var(--color-ink-secondary);
   line-height: 1.7;
   margin: 0.2rem 0;
 }

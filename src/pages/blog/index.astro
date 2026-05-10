@@ -4,12 +4,12 @@ import Header from "../../components/Header.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import Footer from "../../components/Footer.astro";
 import { getCollection } from "astro:content";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { formatFrenchDate, toDateTime } from "../../utils/formatDate";
 
-const BLOG_INDEX_TITLE = "Blog psychologie";
+const BLOG_INDEX_TITLE = "Blog — articles de psychologie";
 const BLOG_INDEX_DESCRIPTION =
-  "Articles de psychologie, therapies et bien-etre mental par Nicolas Devaux, psychologue a Sceaux.";
+  "Articles de psychologie, thérapies et bien-être mental par Nicolas Devaux, psychologue à Sceaux.";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -21,49 +21,48 @@ const posts = (await getCollection("blog")).sort(
   <head>
     <BaseHead title={BLOG_INDEX_TITLE} description={BLOG_INDEX_DESCRIPTION} />
   </head>
-  <body class="bg-gradient-to-r from-blue-50 to-white">
+  <body class="bg-surface-page">
     <Header />
-    <Breadcrumb />
-    <main class="container py-8">
-      <!-- Section Hero -->
-      <div class="bg-white rounded-xl shadow-md p-8 mb-12 border border-gray-100">
-        <h1 class="text-4xl md:text-5xl font-bold text-tertiary mb-4 leading-tight text-center">
+    <main class="page-shell page-shell--wide">
+      <Breadcrumb title={BLOG_INDEX_TITLE} />
+      <header class="mb-10 md:mb-14">
+        <p class="typo-eyebrow mb-3 md:mb-4">Blog</p>
+        <h1 class="font-display typo-h1 mb-5 text-pretty text-ink-primary md:mb-6">
           Articles de psychologie
         </h1>
-        <p class="text-lg text-gray-700 text-center leading-relaxed max-w-3xl mx-auto">
-          Découvrez mes articles sur la psychologie, les thérapies et le bien-être mental.
-          Des conseils pratiques et des éclairages professionnels pour mieux comprendre
-          l'accompagnement psychologique.
+        <p class="typo-body-lg text-body-muted mb-0 max-w-2xl text-pretty">
+          Découvrez mes articles sur la psychologie, les thérapies et le bien-être mental. Des conseils pratiques et des
+          éclairages professionnels pour mieux comprendre l'accompagnement psychologique.
         </p>
-      </div>
+      </header>
 
-      <!-- Articles Grid -->
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+      <div class="grid gap-8 border-t border-border-subtle pt-10 md:grid-cols-2 md:pt-12 xl:grid-cols-4">
         {
           posts.map((post) => (
-            <article class="bg-white rounded-xl shadow-md transition-colors duration-200 overflow-hidden border border-gray-100 hover:border-primary/30 group">
-              <a href={`/blog/${post.id}/`} class="block">
-                <div class="aspect-video overflow-hidden">
+            <article class="overflow-hidden rounded-xl border border-border-subtle transition-colors hover:border-brand/35">
+              <a href={`/blog/${post.id}/`} class="group block">
+                <div class="aspect-video overflow-hidden bg-surface-muted">
                   {
                     post.data.heroImage && (
-                      <Image
+                      <Picture
                         src={post.data.heroImage}
                         alt={post.data.title}
                         width={720}
                         height={360}
-                        class="w-full h-full object-cover"
+                        formats={["avif", "webp"]}
+                        loading="lazy"
+                        decoding="async"
+                        class="h-full w-full object-cover"
                       />
                     )
                   }
                 </div>
                 <div class="p-6">
-                  <h2 class="text-lg! font-bold text-tertiary mb-3 group-hover:text-accent transition-colors duration-200 leading-tight">
+                  <h3 class="typo-display-md mb-2 font-semibold text-ink-primary transition-colors group-hover:text-brand">
                     {post.data.title}
-                  </h2>
-                  <p class="text-sm text-gray-500 font-medium">
-                    <time datetime={toDateTime(post.data.pubDate)}>
-                      {formatFrenchDate(post.data.pubDate)}
-                    </time>
+                  </h3>
+                  <p class="font-ui typo-meta text-body-muted">
+                    <time datetime={toDateTime(post.data.pubDate)}>{formatFrenchDate(post.data.pubDate)}</time>
                   </p>
                 </div>
               </a>

@@ -8,8 +8,8 @@ const { title } = Astro.props;
 const SITE_URL = "https://nicolas-devaux-psychologue.fr";
 
 const LABEL_MAP: Record<string, string> = {
-  "consulter": "Consulter",
-  "psychotherapie": "Approches thérapeutiques",
+  consulter: "Consulter",
+  psychotherapie: "Approches thérapeutiques",
   "therapie-mosaic": "Thérapie MOSAIC",
   "tcc-troisieme-vague": "TCC de 3e vague",
   "therapie-cognitive-et-comportementale": "Thérapie cognitive et comportementale",
@@ -19,13 +19,13 @@ const LABEL_MAP: Record<string, string> = {
   "mon-soutien-psy": "Mon Soutien Psy",
   "nicolas-devaux-psychologue": "À propos",
   "mentions-legales": "Mentions légales",
-  "blog": "Articles",
-  "outils": "Outils",
+  blog: "Articles",
+  outils: "Outils",
+  "meditation-pleine-conscience-sceaux": "Méditation (groupes)",
 };
 
 const pathname = Astro.url.pathname;
 
-// Ne pas afficher le breadcrumb sur la page d'accueil
 const isHome = pathname === "/" || pathname === "";
 if (isHome) {
   // Pas de rendu
@@ -58,46 +58,40 @@ segments.forEach((segment, index) => {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": crumbs.map((crumb, index) => ({
+  itemListElement: crumbs.map((crumb, index) => ({
     "@type": "ListItem",
-    "position": index + 1,
-    "name": crumb.label,
-    "item": `${SITE_URL}${crumb.href}`,
+    position: index + 1,
+    name: crumb.label,
+    item: `${SITE_URL}${crumb.href}`,
   })),
 };
 ---
 
-{!isHome && (
-  <>
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    <nav aria-label="Fil d'ariane" class="container pt-4 pb-6 xl:pt-5 xl:pb-7">
-      <ol class="inline-flex flex-wrap items-center gap-1.5 rounded-xl border border-gray-200 bg-white/90 px-3 py-2 text-sm text-gray-600 shadow-sm backdrop-blur-sm">
-        {crumbs.map((crumb, index) => {
-          const isLast = index === crumbs.length - 1;
-          return (
-            <li class="flex items-center gap-1">
-              {index > 0 && (
-                <span aria-hidden="true" class="text-gray-300 select-none">›</span>
-              )}
-              {isLast ? (
-                <span
-                  class="rounded-md bg-secondary px-2 py-1 text-tertiary font-semibold"
-                  aria-current="page"
-                >
-                  {crumb.label}
-                </span>
-              ) : (
-                <a
-                  href={crumb.href}
-                  class="rounded-md px-2 py-1 hover:text-accent hover:bg-secondary/60 transition-colors duration-200"
-                >
-                  {crumb.label}
-                </a>
-              )}
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
-  </>
-)}
+{
+  !isHome && (
+    <>
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      <nav aria-label="Fil d'Ariane" class="mb-6 md:mb-8">
+        <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 typo-meta text-ink-tertiary">
+          {crumbs.map((crumb, index) => {
+            const isLast = index === crumbs.length - 1;
+            return (
+              <li class="flex items-center gap-x-2">
+                {index > 0 && <span aria-hidden="true">/</span>}
+                {isLast ? (
+                  <span class="text-ink-primary" aria-current="page">
+                    {crumb.label}
+                  </span>
+                ) : (
+                  <a href={crumb.href} class="text-link transition-colors hover:text-brand-hover">
+                    {crumb.label}
+                  </a>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+    </>
+  )
+}

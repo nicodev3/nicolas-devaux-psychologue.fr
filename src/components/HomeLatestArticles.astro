@@ -1,0 +1,39 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { getCollection } from "astro:content";
+import { formatFrenchDate, toDateTime } from "../utils/formatDate";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const latestPosts = posts.slice(0, 4);
+---
+
+<section class="py-16 md:py-24" aria-labelledby="home-articles-heading">
+  <SectionHeading class="mb-6 md:mb-7" eyebrow="05 — Lecture" title="Derniers articles" id="home-articles-heading" />
+  <ul class="space-y-5">
+    {
+      latestPosts.map((post) => (
+        <li>
+          <a
+            href={`/blog/${post.id}/`}
+            class="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
+          >
+            <h3 class="typo-body mb-1 font-semibold leading-snug text-ink-secondary transition-colors group-hover:text-brand">
+              {post.data.title}
+            </h3>
+            <p class="font-ui text-xs font-medium text-ink-tertiary">
+              <time datetime={toDateTime(post.data.pubDate)}>{formatFrenchDate(post.data.pubDate)}</time>
+            </p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <a
+    href="/blog/"
+    class="font-ui mt-6 inline-flex text-sm font-medium text-brand transition-colors hover:text-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
+  >
+    Voir tous les articles →
+  </a>
+</section>

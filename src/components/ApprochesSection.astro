@@ -1,70 +1,82 @@
 ---
-import Card from "./Card.astro";
+import SectionHeading from "./SectionHeading.astro";
+import { buttonClasses } from "./ui/button";
 
-const mosaicImage = (await import("../assets/logo-mosaic.svg")).default;
-const tccImage = (await import("../assets/ACBS-logo.webp")).default;
-const psychotherapieImage = (await import("../assets/psychotherapie.webp")).default;
-const meditationImage = (await import("../assets/pleine-conscience.webp")).default;
+const items = [
+  {
+    url: "/therapie-mosaic/",
+    title: "Thérapie MOSAIC (EMDR)",
+    content:
+      "La thérapie MOSAIC, proche de l'EMDR, aide à retraiter les souvenirs douloureux et les vécus traumatiques. Elle peut être indiquée en cas de trauma, de deuil compliqué, d'anxiété persistante ou de blocages émotionnels.",
+  },
+  {
+    url: "/tcc-troisieme-vague/",
+    title: "Thérapies cognitives et comportementales (TCC)",
+    content:
+      "Certaines approches TCC de 3e vague comme l'ACT et la CFT proposent des outils concrets pour travailler l'anxiété, les ruminations, le stress, l'autocritique ou l'évitement.",
+  },
+  {
+    url: "/psychotherapie/",
+    title: "Psychothérapies intégratives",
+    content:
+      "Un accompagnement psychothérapeutique pour comprendre ce que vous traversez, mettre des mots sur vos difficultés et avancer à votre rythme dans un cadre contenant et structuré.",
+  },
+  {
+    url: "/meditation-pleine-conscience-sceaux/",
+    title: "Méditation de pleine conscience",
+    content:
+      "Des ateliers en petit groupe pour apprendre à porter attention à ses pensées, apaiser le stress et se reconnecter à ses sensations corporelles, dans un cadre simple et guidé.",
+  },
+];
 ---
 
 <section
   id="approches"
-  class="mb-16 bg-white rounded-xl shadow-md p-8 md:p-10 border border-gray-100"
+  class="py-16 md:py-24"
   aria-labelledby="approches-heading"
 >
-  <h2 id="approches-heading" class="mb-5 text-2xl md:text-3xl">
-    Des approches adaptées à votre situation
-  </h2>
-  <p class="max-w-3xl text-gray-700 leading-relaxed mb-10 md:mb-12">
-    Je m'appuie sur plusieurs approches complémentaires. Le choix se
-    fait en fonction de votre demande, de votre histoire et des
-    difficultés rencontrées. Lors du premier rendez-vous, nous
-    déterminons ensemble le cadre le plus adapté parmi la
-    psychothérapie, la thérapie MOSAIC, certaines approches TCC de
-    3e vague, et des ateliers de pleine conscience.
-  </p>
-  <div class="grid md:grid-cols-2 gap-8">
-    <Card
-      url="/therapie-mosaic/"
-      image={mosaicImage}
-      title="Thérapie MOSAIC (EMDR)"
-      content="La thérapie MOSAIC, proche de l'EMDR, aide à retraiter les souvenirs douloureux et les vécus traumatiques. Elle peut être indiquée en cas de trauma, de deuil compliqué, d'anxiété persistante ou de blocages émotionnels."
-    />
+  <div class="w-full px-0">
+    <div class="w-full">
+      <SectionHeading
+        class="mb-4 md:mb-5"
+        eyebrow="01 — Approches"
+        title="Des approches adaptées à votre situation"
+        id="approches-heading"
+      />
+      <p class="typo-body mb-8 text-ink-secondary leading-relaxed md:mb-10">
+        Je m'appuie sur plusieurs approches complémentaires. Le choix se fait en fonction de votre
+        demande, de votre histoire et des difficultés rencontrées. Lors du premier rendez-vous, nous
+        déterminons ensemble le cadre le plus adapté parmi la psychothérapie, la thérapie MOSAIC,
+        certaines approches TCC de 3e vague, et des ateliers de pleine conscience.
+      </p>
+    </div>
 
-    <Card
-      url="/tcc-troisieme-vague/"
-      image={tccImage}
-      title="Thérapies Cognitives et Comportementales (TCC)"
-      content="Certaines approches TCC de 3e vague comme l'ACT et la CFT proposent des outils concrets pour travailler l'anxiété, les ruminations, le stress, l'autocritique ou l'évitement."
-    />
+    <div class="grid gap-10 md:grid-cols-2 md:gap-x-12 md:gap-y-14">
+      {
+        items.map((item) => (
+          <article class="flex flex-col">
+            <h3 class="font-display typo-display-md text-balance text-ink-primary">
+              {item.title}
+            </h3>
+            <div class="mt-4 h-px w-12 bg-brand" aria-hidden="true" />
+            <p class="mt-5 text-ink-secondary leading-relaxed text-pretty">{item.content}</p>
+            <a
+              href={item.url}
+              class={buttonClasses({ variant: "link", className: "mt-5 w-fit font-medium normal-case" })}
+            >
+              Découvrir →
+            </a>
+          </article>
+        ))
+      }
+    </div>
 
-    <Card
-      url="/psychotherapie/"
-      image={psychotherapieImage}
-      title="Psychothérapies intégratives"
-      content="Un accompagnement psychothérapeutique pour comprendre ce que vous traversez, mettre des mots sur vos difficultés et avancer à votre rythme dans un cadre contenant et structuré."
-    />
-
-    <Card
-      url="/meditation-pleine-conscience-sceaux/"
-      image={meditationImage}
-      title="Méditation de pleine conscience"
-      content="Des ateliers en petit groupe pour apprendre à porter attention à ses pensées, apaiser le stress et se reconnecter à ses sensations corporelles, dans un cadre simple et guidé."
-    />
-  </div>
-  <div class="mt-6">
-    <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-      <a
-        href="/psychotherapie/"
-        class="font-semibold text-accent-dark underline hover:no-underline"
-      >
-        Voir l'ensemble des approches proposées
+    <div class="mt-10 flex flex-col gap-3 border-t border-border-subtle pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8">
+      <a href="/psychotherapie/" class={buttonClasses({ variant: "link", className: "font-medium normal-case" })}>
+        Toutes les approches
       </a>
-      <a
-        href="/consulter/"
-        class="font-semibold text-accent-dark underline hover:no-underline"
-      >
-        Comprendre comment se déroule un suivi
+      <a href="/consulter/" class={buttonClasses({ variant: "link", className: "font-medium normal-case" })}>
+        Comment ça se passe ?
       </a>
     </div>
   </div>

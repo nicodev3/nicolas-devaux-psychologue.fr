@@ -1,0 +1,32 @@
+---
+import { Picture } from "astro:assets";
+import portrait from "../assets/nicolas_devaux.jpg";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["flex max-w-lg items-center gap-3", className]}>
+  <div class="size-12 shrink-0 overflow-hidden rounded-full ring-1 ring-border-subtle">
+    <Picture
+      src={portrait}
+      alt="Nicolas Devaux"
+      width={48}
+      height={48}
+      formats={["avif", "webp"]}
+      densities={[1, 2]}
+      loading="eager"
+      fetchpriority="high"
+      class="block h-full w-full object-cover"
+    />
+  </div>
+  <div class="min-w-0">
+    <p class="font-ui text-base font-semibold leading-tight text-ink-primary">Nicolas Devaux</p>
+    <p class="font-ui mt-1 text-sm leading-snug text-ink-secondary">
+      Psychologue clinicien · Diplômé Université Paris Cité
+    </p>
+  </div>
+</div>

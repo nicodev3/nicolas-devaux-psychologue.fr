@@ -7,26 +7,41 @@
         "start": "astro dev",
         "build": "astro check && astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "a11y:axe": "axe http://127.0.0.1:4344 --exit --tags wcag2a,wcag2aa,best-practice",
+        "a11y:serve": "astro preview --host 127.0.0.1 --port 4344"
     },
     "dependencies": {
         "@astrojs/alpinejs": "^0.5.0",
         "@astrojs/check": "^0.9.9",
         "@astrojs/mdx": "^5.0.4",
+        "@astrojs/react": "^5.0.4",
         "@astrojs/rss": "^4.0.18",
         "@astrojs/sitemap": "^3.7.2",
+        "@fontsource-variable/inter": "^5.2.8",
+        "@fontsource-variable/source-serif-4": "^5.2.9",
+        "@fontsource/source-serif-4": "^5.2.9",
+        "@resvg/resvg-js": "^2.6.2",
         "@tailwindcss/vite": "^4.1.12",
         "@types/alpinejs": "^3.13.11",
         "alpinejs": "^3.14.3",
-        "astro": "^6.2.1",
+        "astro": "^6.3.1",
         "astro-robots-txt": "^1.0.0",
+        "framer-motion": "^12.38.0",
+        "lucide": "^1.14.0",
+        "react": "^19.2.6",
+        "react-dom": "^19.2.6",
+        "satori": "^0.26.0",
         "sharp": "^0.33.5",
         "tailwindcss": "^4.1.12",
         "typescript": "^5.6.2",
         "unist-util-visit": "^5.0.0"
     },
     "devDependencies": {
+        "@axe-core/cli": "^4.11.3",
         "@tailwindcss/typography": "^0.5.19",
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
         "prettier": "^3.3.3",
         "prettier-plugin-tailwindcss": "^0.6.8"
     }

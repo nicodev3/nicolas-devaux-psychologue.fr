@@ -2,9 +2,12 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import SideBar from "../../components/SideBar.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { accordionDisclosureClasses, buttonClasses } from "../../components/ui/button";
 
 const seoTitle = "Méditation de pleine conscience et gestion du stress à Sceaux";
+
+const meditationAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
 const pageTitle = "Méditation de pleine conscience et régulation du stress à Sceaux";
 const description =
   "Ateliers de méditation de pleine conscience en petit groupe à Sceaux : respiration, attention au corps et régulation du stress, animés par un psychologue et psychomotricien.";
@@ -92,53 +95,46 @@ const serviceSchema = {
       </>
     )}
   </head>
-  <body class="bg-linear-to-r from-secondary to-white">
+  <body class="bg-surface-page">
     <Header />
-    <main class="container flex flex-col xl:flex-row gap-8 xl:gap-12 xl:items-start py-8 xl:py-10">
-      <article class="xl:flex-1 xl:min-w-0">
-        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
-          <h1 class="text-4xl md:text-5xl font-bold text-tertiary mb-5 leading-tight">
+    <main class="page-shell">
+      <article class="w-full">
+        <section class="pb-12 md:pb-14">
+          <p class="typo-eyebrow mb-3 md:mb-4">Groupes</p>
+          <h1 class="font-display typo-h1 mb-6 text-pretty text-ink-primary md:mb-8">
             {pageTitle}
           </h1>
-          <p class="text-gray-700 leading-relaxed max-w-3xl">
+          <p class="text-ink-secondary leading-relaxed max-w-3xl">
             Ces ateliers collectifs vous proposent un espace guidé pour apprendre à vous poser,
             observer vos pensées et réguler le stress. Le cadre est simple, sobre et adapté à une
             pratique progressive de la pleine conscience.
           </p>
-          <p class="text-gray-700 leading-relaxed max-w-3xl mt-4">
+          <p class="text-ink-secondary leading-relaxed max-w-3xl mt-4">
             Les pratiques s'inspirent de la MBCT (thérapie cognitive basée sur la pleine
             conscience), de la MBSR (réduction du stress par la pleine conscience) et de l'ACT
             (thérapie d'acceptation et d'engagement).
           </p>
-          <p class="text-gray-700 leading-relaxed max-w-3xl mt-4">
+          <p class="text-ink-secondary leading-relaxed max-w-3xl mt-4">
             Je les anime en tant que <strong>psychologue clinicien et psychomotricien</strong>,
             avec une attention particulière à l'articulation entre vécu psychique, respiration et
             conscience corporelle.
           </p>
         </section>
 
-        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
-          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">À qui s'adressent ces groupes ?</h2>
-          <ul class="grid sm:grid-cols-2 gap-3 text-gray-700">
-            <li class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-              Personnes stressées ou sous tension mentale persistante
-            </li>
-            <li class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-              Pensées envahissantes et difficulté à prendre du recul
-            </li>
-            <li class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-              Tensions corporelles et sensation de surcharge
-            </li>
-            <li class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-              Besoin de ralentir et de retrouver un appui dans le présent
-            </li>
+        <section class="border-t border-border-subtle py-12 md:py-14">
+          <SectionHeading class="mb-5" eyebrow="01 — Publics" title="À qui s'adressent ces groupes ?" />
+          <ul class="list-disc space-y-2 pl-5 text-ink-secondary marker:text-brand-hover">
+            <li>Personnes stressées ou sous tension mentale persistante</li>
+            <li>Pensées envahissantes et difficulté à prendre du recul</li>
+            <li>Tensions corporelles et sensation de surcharge</li>
+            <li>Besoin de ralentir et de retrouver un appui dans le présent</li>
           </ul>
         </section>
 
-        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
-          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">Ce que nous pratiquons</h2>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <h3 class="text-xl text-tertiary font-semibold">Pratiques guidées en petit groupe</h3>
+        <section class="border-t border-border-subtle py-12 md:py-14">
+          <SectionHeading class="mb-5" eyebrow="02 — Pratiques" title="Ce que nous pratiquons" />
+          <div class="space-y-4 text-ink-secondary leading-relaxed">
+            <h3 class="font-display typo-display-md text-ink-primary">Pratiques guidées en petit groupe</h3>
             <p>
               Les méthodes proposées s'inspirent de la MBCT (thérapie cognitive basée sur la pleine
               conscience), de la MBSR (réduction du stress par la pleine conscience) et de l'ACT
@@ -156,11 +152,13 @@ const serviceSchema = {
           </div>
         </section>
 
-        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
-          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">
-            Un cadre différent de la psychothérapie
-          </h2>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
+        <section class="border-t border-border-subtle py-12 md:py-14">
+          <SectionHeading
+            class="mb-5"
+            eyebrow="03 — Cadre"
+            title="Un cadre différent de la psychothérapie"
+          />
+          <div class="space-y-4 text-ink-secondary leading-relaxed">
             <p>
               Ces ateliers ne sont pas un espace d'analyse individuelle et ne constituent pas un
               suivi thérapeutique personnalisé.
@@ -172,9 +170,9 @@ const serviceSchema = {
           </div>
         </section>
 
-        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
-          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">Format des séances</h2>
-          <ul class="space-y-3 text-gray-700 leading-relaxed">
+        <section class="border-t border-border-subtle py-12 md:py-14">
+          <SectionHeading class="mb-5" eyebrow="04 — Format" title="Format des séances" />
+          <ul class="space-y-3 text-ink-secondary leading-relaxed">
             <li><strong>Petit groupe :</strong> 5 participants maximum</li>
             <li><strong>Durée :</strong> 1 heure</li>
             <li><strong>Fréquence :</strong> cycle hebdomadaire de 8 séances</li>
@@ -184,22 +182,22 @@ const serviceSchema = {
           </ul>
         </section>
 
-        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
-          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">Pourquoi le petit groupe ?</h2>
-          <ul class="space-y-3 text-gray-700 leading-relaxed">
+        <section class="border-t border-border-subtle py-12 md:py-14">
+          <SectionHeading class="mb-5" eyebrow="05 — Groupe" title="Pourquoi le petit groupe ?" />
+          <ul class="space-y-3 text-ink-secondary leading-relaxed">
             <li>Un groupe restreint facilite l'attention et la qualité de présence.</li>
             <li>Le cadre est plus sécurisant et soutient la régularité de la pratique.</li>
             <li>L'expérience est partagée, sans obligation de parler de soi.</li>
           </ul>
         </section>
 
-        <section class="bg-white rounded-xl shadow-md p-8 md:p-10 mb-8 border border-gray-100">
-          <h2 class="text-2xl md:text-3xl text-tertiary mb-5">Prochaines dates et inscription</h2>
-          <p class="text-gray-700 leading-relaxed">
+        <section class="border-t border-border-subtle py-12 md:py-14">
+          <SectionHeading class="mb-5" eyebrow="06 — Inscription" title="Prochaines dates et inscription" />
+          <p class="text-ink-secondary leading-relaxed">
             Vous pouvez utiliser ce formulaire pour demander une inscription, poser une question
             ou être informé des prochaines sessions.
           </p>
-          <p class="text-gray-700 leading-relaxed mt-3">
+          <p class="text-ink-secondary leading-relaxed mt-3">
             Les séances ont lieu <strong>le mardi à 18h30</strong>, en cycle de 8 séances.
           </p>
           <form
@@ -226,7 +224,7 @@ const serviceSchema = {
                   name="nom"
                   type="text"
                   required
-                  class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent/40"
+                  class="w-full rounded-lg border border-border-strong bg-surface-raised px-3 py-2.5 text-ink-primary focus:outline-none focus:ring-2 focus:ring-brand/40"
                 />
               </div>
               <div>
@@ -238,7 +236,7 @@ const serviceSchema = {
                   name="email"
                   type="email"
                   required
-                  class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent/40"
+                  class="w-full rounded-lg border border-border-strong bg-surface-raised px-3 py-2.5 text-ink-primary focus:outline-none focus:ring-2 focus:ring-brand/40"
                 />
               </div>
             </div>
@@ -251,7 +249,7 @@ const serviceSchema = {
                 id="group-phone"
                 name="telephone"
                 type="tel"
-                class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent/40"
+                class="w-full rounded-lg border border-border-strong bg-surface-raised px-3 py-2.5 text-ink-primary focus:outline-none focus:ring-2 focus:ring-brand/40"
               />
             </div>
 
@@ -264,17 +262,17 @@ const serviceSchema = {
                 name="message"
                 rows="5"
                 required
-                class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent/40"
+                class="w-full rounded-lg border border-border-strong bg-surface-raised px-3 py-2.5 text-ink-primary focus:outline-none focus:ring-2 focus:ring-brand/40"
                 placeholder="Je souhaite m'inscrire / être informé des prochaines dates..."
               ></textarea>
             </div>
 
-            <label class="flex items-start gap-3 text-sm text-gray-700">
+            <label class="flex items-start gap-3 text-sm text-ink-secondary">
               <input
                 type="checkbox"
                 name="etre_informe_des_prochaines_dates"
                 value="oui"
-                class="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent/40"
+                class="mt-0.5 h-4 w-4 rounded border-border-strong text-brand focus:ring-brand/40"
               />
               <span>Je souhaite être informé des prochaines dates d'ateliers.</span>
             </label>
@@ -282,92 +280,103 @@ const serviceSchema = {
             <div class="flex flex-col sm:flex-row gap-3">
               <button
                 type="submit"
-                class="inline-flex items-center justify-center rounded-lg bg-linear-to-r from-accent to-accent-dark px-5 py-3 text-white font-semibold"
+                class={buttonClasses({
+                  variant: "primary",
+                  size: "lg",
+                  className: "w-full normal-case sm:w-auto",
+                })}
               >
                 Envoyer ma demande
               </button>
             </div>
           </form>
-          <p class="text-sm text-gray-600 mt-4">
+          <p class="text-sm text-ink-secondary mt-4">
             Les ateliers sont ouverts à toute personne souhaitant participer, à Sceaux et plus
             largement dans le sud des Hauts-de-Seine et les communes voisines.
           </p>
         </section>
 
-        <section
-          class="bg-white rounded-xl shadow-md p-8 md:p-10 border border-gray-100"
-          x-data="{ openId: 'group-faq-1' }"
-        >
-          <h2 class="text-2xl md:text-3xl text-tertiary mb-6">FAQ</h2>
+        <section class="border-t border-border-subtle py-12 md:py-14" x-data="{ openId: 'group-faq-1' }">
+          <SectionHeading class="mb-6" eyebrow="07 — FAQ" title="Questions fréquentes" />
           <div class="space-y-4">
-            <article class="rounded-xl border border-gray-200 bg-secondary/35 overflow-hidden">
+            <article class="rounded-xl border border-border-strong bg-secondary/35 overflow-hidden">
               <button
                 type="button"
                 @click="openId = openId === 'group-faq-1' ? null : 'group-faq-1'"
-                class="w-full flex justify-between items-center gap-3 p-5 text-left"
+                class={meditationAccordionBtn}
                 :aria-expanded="openId === 'group-faq-1'"
                 aria-controls="group-faq-content-1"
               >
-                <h3 class="text-lg font-semibold text-tertiary">Faut-il avoir déjà médité ?</h3>
-                <span class="text-tertiary" aria-hidden="true">+</span>
+                <span class="min-w-0 flex-1 pr-3 text-left">
+                  <h3 class="text-left font-display typo-display-md text-ink-primary">Faut-il avoir déjà médité ?</h3>
+                </span>
+                <span class="shrink-0 self-start font-ui text-xl leading-none text-ink-tertiary" aria-hidden="true">+</span>
               </button>
-              <div id="group-faq-content-1" x-show="openId === 'group-faq-1'" class="px-5 pb-5">
-                <p class="text-gray-700 leading-relaxed">
+              <div id="group-faq-content-1" x-show="openId === 'group-faq-1'" class="px-4 pb-4 pt-0 text-left">
+                <p class="text-ink-secondary leading-relaxed">
                   Non. Les ateliers sont ouverts aux débutants, avec des indications progressives.
                 </p>
               </div>
             </article>
 
-            <article class="rounded-xl border border-gray-200 bg-secondary/35 overflow-hidden">
+            <article class="rounded-xl border border-border-strong bg-secondary/35 overflow-hidden">
               <button
                 type="button"
                 @click="openId = openId === 'group-faq-2' ? null : 'group-faq-2'"
-                class="w-full flex justify-between items-center gap-3 p-5 text-left"
+                class={meditationAccordionBtn}
                 :aria-expanded="openId === 'group-faq-2'"
                 aria-controls="group-faq-content-2"
               >
-                <h3 class="text-lg font-semibold text-tertiary">Est-ce adapté si je suis anxieux ?</h3>
-                <span class="text-tertiary" aria-hidden="true">+</span>
+                <span class="min-w-0 flex-1 pr-3 text-left">
+                  <h3 class="text-left font-display typo-display-md text-ink-primary">
+                    Est-ce adapté si je suis anxieux ?
+                  </h3>
+                </span>
+                <span class="shrink-0 self-start font-ui text-xl leading-none text-ink-tertiary" aria-hidden="true">+</span>
               </button>
-              <div id="group-faq-content-2" x-show="openId === 'group-faq-2'" class="px-5 pb-5">
-                <p class="text-gray-700 leading-relaxed">
+              <div id="group-faq-content-2" x-show="openId === 'group-faq-2'" class="px-4 pb-4 pt-0 text-left">
+                <p class="text-ink-secondary leading-relaxed">
                   Oui, les pratiques proposées peuvent aider à mieux réguler le stress et à
                   retrouver un appui corporel dans les moments d'anxiété.
                 </p>
               </div>
             </article>
 
-            <article class="rounded-xl border border-gray-200 bg-secondary/35 overflow-hidden">
+            <article class="rounded-xl border border-border-strong bg-secondary/35 overflow-hidden">
               <button
                 type="button"
                 @click="openId = openId === 'group-faq-3' ? null : 'group-faq-3'"
-                class="w-full flex justify-between items-center gap-3 p-5 text-left"
+                class={meditationAccordionBtn}
                 :aria-expanded="openId === 'group-faq-3'"
                 aria-controls="group-faq-content-3"
               >
-                <h3 class="text-lg font-semibold text-tertiary">Est-ce une thérapie ?</h3>
-                <span class="text-tertiary" aria-hidden="true">+</span>
+                <span class="min-w-0 flex-1 pr-3 text-left">
+                  <h3 class="text-left font-display typo-display-md text-ink-primary">Est-ce une thérapie ?</h3>
+                </span>
+                <span class="shrink-0 self-start font-ui text-xl leading-none text-ink-tertiary" aria-hidden="true">+</span>
               </button>
-              <div id="group-faq-content-3" x-show="openId === 'group-faq-3'" class="px-5 pb-5">
-                <p class="text-gray-700 leading-relaxed">
+              <div id="group-faq-content-3" x-show="openId === 'group-faq-3'" class="px-4 pb-4 pt-0 text-left">
+                <p class="text-ink-secondary leading-relaxed">
                   Non. Ces groupes ne remplacent pas une psychothérapie individuelle.
                 </p>
               </div>
             </article>
 
-            <article class="rounded-xl border border-gray-200 bg-secondary/35 overflow-hidden">
+            <article class="rounded-xl border border-border-strong bg-secondary/35 overflow-hidden">
               <button
                 type="button"
                 @click="openId = openId === 'group-faq-4' ? null : 'group-faq-4'"
-                class="w-full flex justify-between items-center gap-3 p-5 text-left"
+                class={meditationAccordionBtn}
                 :aria-expanded="openId === 'group-faq-4'"
                 aria-controls="group-faq-content-4"
               >
-                <h3 class="text-lg font-semibold text-tertiary">Puis-je venir une seule fois ?</h3>
-                <span class="text-tertiary" aria-hidden="true">+</span>
+                <span class="min-w-0 flex-1 pr-3 text-left">
+                  <h3 class="text-left font-display typo-display-md text-ink-primary">Puis-je venir une seule fois ?</h3>
+                </span>
+                <span class="shrink-0 self-start font-ui text-xl leading-none text-ink-tertiary" aria-hidden="true">+</span>
               </button>
-              <div id="group-faq-content-4" x-show="openId === 'group-faq-4'" class="px-5 pb-5">
-                <p class="text-gray-700 leading-relaxed">
+              <div id="group-faq-content-4" x-show="openId === 'group-faq-4'" class="px-4 pb-4 pt-0 text-left">
+                <p class="text-ink-secondary leading-relaxed">
                   Non. Les groupes sont organisés en cycles de 8 séances, avec une continuité de
                   pratique d'une semaine à l'autre.
                 </p>
@@ -376,7 +385,6 @@ const serviceSchema = {
           </div>
         </section>
       </article>
-      <SideBar showPsyInfo={false} />
     </main>
     <Footer />
   </body>

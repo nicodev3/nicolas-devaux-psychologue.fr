@@ -1,38 +1,41 @@
 ---
+import SectionHeading from "./SectionHeading.astro";
+import { accordionDisclosureClasses, buttonClasses } from "./ui/button";
 import { NEARBY_CITIES } from "../consts";
-// Section FAQ avec accordion Alpine.js
+
+const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
 ---
 
 <section
   id="faq"
-  class="mb-16 bg-white rounded-xl shadow-md p-8 md:p-10 border border-gray-100"
+  class="py-16 text-left md:py-24"
   aria-labelledby="faq-heading"
   x-data="{ openId: 'faq-1' }"
 >
-  <h2
+  <SectionHeading
+    class="mb-8 md:mb-10"
+    eyebrow="03 — FAQ"
+    title="Questions fréquentes"
     id="faq-heading"
-    class="mb-8 text-2xl md:text-3xl text-center text-tertiary"
-  >
-    Questions fréquentes
-  </h2>
+  />
 
-  <div class="max-w-4xl mx-auto space-y-5">
-    <article
-      class="bg-secondary/35 rounded-xl border border-gray-100 overflow-hidden"
-    >
+  <div class="w-full divide-y divide-border-subtle">
+    <article class="overflow-hidden">
       <button
         type="button"
         @click="openId = openId === 'faq-1' ? null : 'faq-1'"
-        class="w-full flex justify-between items-center gap-4 p-6 text-left"
+        class={faqAccordionBtn}
         :aria-expanded="openId === 'faq-1'"
         aria-controls="faq-content-1"
         id="faq-toggle-1"
       >
-        <h3 class="text-lg font-semibold text-tertiary">
-          Comment prendre rendez-vous ?
-        </h3>
+        <span class="min-w-0 flex-1 pr-3 text-left">
+          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
+            Comment prendre rendez-vous ?
+          </h3>
+        </span>
         <svg
-          class="w-5 h-5 text-tertiary shrink-0 transition-transform duration-200"
+          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
           :class="openId === 'faq-1' && 'rotate-180'"
           fill="none"
           stroke="currentColor"
@@ -42,7 +45,7 @@ import { NEARBY_CITIES } from "../consts";
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            stroke-width="1.5"
             d="M19 9l-7 7-7-7"></path>
         </svg>
       </button>
@@ -58,8 +61,8 @@ import { NEARBY_CITIES } from "../consts";
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-6 pb-6 pt-0">
-          <p class="text-gray-700 leading-relaxed">
+        <div class="px-4 pb-4 pt-0 text-left">
+          <p class="text-ink-secondary leading-relaxed">
             Vous pouvez prendre rendez-vous facilement via <strong
               >Doctolib</strong
             > en cliquant sur le bouton "Prendre rendez-vous" ci-dessus. Les
@@ -70,22 +73,22 @@ import { NEARBY_CITIES } from "../consts";
       </div>
     </article>
 
-    <article
-      class="bg-secondary/35 rounded-xl border border-gray-100 overflow-hidden"
-    >
+    <article class="overflow-hidden">
       <button
         type="button"
         @click="openId = openId === 'faq-2' ? null : 'faq-2'"
-        class="w-full flex justify-between items-center gap-4 p-6 text-left"
+        class={faqAccordionBtn}
         :aria-expanded="openId === 'faq-2'"
         aria-controls="faq-content-2"
         id="faq-toggle-2"
       >
-        <h3 class="text-lg font-semibold text-tertiary">
-          Quelle est la durée d'une séance ?
-        </h3>
+        <span class="min-w-0 flex-1 pr-3 text-left">
+          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
+            Quelle est la durée d'une séance ?
+          </h3>
+        </span>
         <svg
-          class="w-5 h-5 text-tertiary shrink-0 transition-transform duration-200"
+          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
           :class="openId === 'faq-2' && 'rotate-180'"
           fill="none"
           stroke="currentColor"
@@ -95,7 +98,7 @@ import { NEARBY_CITIES } from "../consts";
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            stroke-width="1.5"
             d="M19 9l-7 7-7-7"></path>
         </svg>
       </button>
@@ -111,8 +114,8 @@ import { NEARBY_CITIES } from "../consts";
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-6 pb-6 pt-0">
-          <p class="text-gray-700 leading-relaxed">
+        <div class="px-4 pb-4 pt-0 text-left">
+          <p class="text-ink-secondary leading-relaxed">
             Les <strong>consultations individuelles</strong> et les <strong
               >consultations vidéo</strong
             > durent
@@ -121,7 +124,7 @@ import { NEARBY_CITIES } from "../consts";
             > et les séances
             <strong>MOSAIC</strong> durent <strong>1 heure</strong>.
           </p>
-          <p class="text-gray-700 leading-relaxed mt-4">
+          <p class="text-ink-secondary leading-relaxed mt-4">
             Dans le cadre du dispositif "Mon Soutien Psy", les séances
             durent <strong>30 minutes</strong>.
           </p>
@@ -129,22 +132,22 @@ import { NEARBY_CITIES } from "../consts";
       </div>
     </article>
 
-    <article
-      class="bg-secondary/35 rounded-xl border border-gray-100 overflow-hidden"
-    >
+    <article class="overflow-hidden">
       <button
         type="button"
         @click="openId = openId === 'faq-3' ? null : 'faq-3'"
-        class="w-full flex justify-between items-center gap-4 p-6 text-left"
+        class={faqAccordionBtn}
         :aria-expanded="openId === 'faq-3'"
         aria-controls="faq-content-3"
         id="faq-toggle-3"
       >
-        <h3 class="text-lg font-semibold text-tertiary">
-          Les séances sont-elles remboursées ?
-        </h3>
+        <span class="min-w-0 flex-1 pr-3 text-left">
+          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
+            Les séances sont-elles remboursées ?
+          </h3>
+        </span>
         <svg
-          class="w-5 h-5 text-tertiary shrink-0 transition-transform duration-200"
+          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
           :class="openId === 'faq-3' && 'rotate-180'"
           fill="none"
           stroke="currentColor"
@@ -154,7 +157,7 @@ import { NEARBY_CITIES } from "../consts";
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            stroke-width="1.5"
             d="M19 9l-7 7-7-7"></path>
         </svg>
       </button>
@@ -170,8 +173,8 @@ import { NEARBY_CITIES } from "../consts";
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-6 pb-6 pt-0">
-          <p class="text-gray-700 leading-relaxed">
+        <div class="px-4 pb-4 pt-0 text-left">
+          <p class="text-ink-secondary leading-relaxed">
             Les consultations de psychologie ne sont pas remboursées par
             la Sécurité Sociale, mais de nombreuses
             <strong>mutuelles proposent une prise en charge</strong> partielle
@@ -182,22 +185,22 @@ import { NEARBY_CITIES } from "../consts";
       </div>
     </article>
 
-    <article
-      class="bg-secondary/35 rounded-xl border border-gray-100 overflow-hidden"
-    >
+    <article class="overflow-hidden">
       <button
         type="button"
         @click="openId = openId === 'faq-4' ? null : 'faq-4'"
-        class="w-full flex justify-between items-center gap-4 p-6 text-left"
+        class={faqAccordionBtn}
         :aria-expanded="openId === 'faq-4'"
         aria-controls="faq-content-4"
         id="faq-toggle-4"
       >
-        <h3 class="text-lg font-semibold text-tertiary">
-          Comment choisir entre les différentes approches ?
-        </h3>
+        <span class="min-w-0 flex-1 pr-3 text-left">
+          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
+            Comment choisir entre les différentes approches ?
+          </h3>
+        </span>
         <svg
-          class="w-5 h-5 text-tertiary shrink-0 transition-transform duration-200"
+          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
           :class="openId === 'faq-4' && 'rotate-180'"
           fill="none"
           stroke="currentColor"
@@ -207,7 +210,7 @@ import { NEARBY_CITIES } from "../consts";
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            stroke-width="1.5"
             d="M19 9l-7 7-7-7"></path>
         </svg>
       </button>
@@ -223,8 +226,8 @@ import { NEARBY_CITIES } from "../consts";
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-6 pb-6 pt-0">
-          <p class="text-gray-700 leading-relaxed">
+        <div class="px-4 pb-4 pt-0 text-left">
+          <p class="text-ink-secondary leading-relaxed">
             Chaque approche a ses spécificités. Lors de notre premier
             entretien, nous déterminerons ensemble la méthode la plus
             adaptée à vos besoins. Mon approche intégrative me permet
@@ -234,22 +237,22 @@ import { NEARBY_CITIES } from "../consts";
       </div>
     </article>
 
-    <article
-      class="bg-secondary/35 rounded-xl border border-gray-100 overflow-hidden"
-    >
+    <article class="overflow-hidden">
       <button
         type="button"
         @click="openId = openId === 'faq-5' ? null : 'faq-5'"
-        class="w-full flex justify-between items-center gap-4 p-6 text-left"
+        class={faqAccordionBtn}
         :aria-expanded="openId === 'faq-5'"
         aria-controls="faq-content-5"
         id="faq-toggle-5"
       >
-        <h3 class="text-lg font-semibold text-tertiary">
-          Combien de séances sont nécessaires ?
-        </h3>
+        <span class="min-w-0 flex-1 pr-3 text-left">
+          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
+            Combien de séances sont nécessaires ?
+          </h3>
+        </span>
         <svg
-          class="w-5 h-5 text-tertiary shrink-0 transition-transform duration-200"
+          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
           :class="openId === 'faq-5' && 'rotate-180'"
           fill="none"
           stroke="currentColor"
@@ -259,7 +262,7 @@ import { NEARBY_CITIES } from "../consts";
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            stroke-width="1.5"
             d="M19 9l-7 7-7-7"></path>
         </svg>
       </button>
@@ -275,8 +278,8 @@ import { NEARBY_CITIES } from "../consts";
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-6 pb-6 pt-0">
-          <p class="text-gray-700 leading-relaxed">
+        <div class="px-4 pb-4 pt-0 text-left">
+          <p class="text-ink-secondary leading-relaxed">
             La durée varie selon vos besoins et objectifs. Certaines
             difficultés peuvent être résolues en quelques séances,
             tandis que d'autres nécessitent un accompagnement plus long.
@@ -287,22 +290,22 @@ import { NEARBY_CITIES } from "../consts";
       </div>
     </article>
 
-    <article
-      class="bg-secondary/35 rounded-xl border border-gray-100 overflow-hidden"
-    >
+    <article class="overflow-hidden">
       <button
         type="button"
         @click="openId = openId === 'faq-6' ? null : 'faq-6'"
-        class="w-full flex justify-between items-center gap-4 p-6 text-left"
+        class={faqAccordionBtn}
         :aria-expanded="openId === 'faq-6'"
         aria-controls="faq-content-6"
         id="faq-toggle-6"
       >
-        <h3 class="text-lg font-semibold text-tertiary">
-          Proposez-vous des consultations en ligne ?
-        </h3>
+        <span class="min-w-0 flex-1 pr-3 text-left">
+          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
+            Proposez-vous des consultations en ligne ?
+          </h3>
+        </span>
         <svg
-          class="w-5 h-5 text-tertiary shrink-0 transition-transform duration-200"
+          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
           :class="openId === 'faq-6' && 'rotate-180'"
           fill="none"
           stroke="currentColor"
@@ -312,7 +315,7 @@ import { NEARBY_CITIES } from "../consts";
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            stroke-width="1.5"
             d="M19 9l-7 7-7-7"></path>
         </svg>
       </button>
@@ -328,8 +331,8 @@ import { NEARBY_CITIES } from "../consts";
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-6 pb-6 pt-0">
-          <p class="text-gray-700 leading-relaxed">
+        <div class="px-4 pb-4 pt-0 text-left">
+          <p class="text-ink-secondary leading-relaxed">
             Oui, je propose des <strong>consultations vidéo</strong> pour
             les personnes qui ne peuvent pas se déplacer ou préfèrent ce format.
             Les séances en ligne sont tout aussi efficaces et respectent la
@@ -391,26 +394,15 @@ import { NEARBY_CITIES } from "../consts";
     </article>
   </div>
 
-  <div class="max-w-4xl mx-auto mt-8 rounded-xl border border-primary/30 bg-secondary/50 p-5">
-    <div class="flex flex-col gap-3 sm:items-center sm:justify-between">
-      <p class="text-sm md:text-base text-tertiary">
-        Vous pouvez aussi consulter les informations pratiques ou prendre rendez-vous directement.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a href="/consulter/" class="font-semibold underline hover:no-underline">
-          Voir les modalités de consultation
-        </a>
-        <a
-          href="https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="font-semibold underline hover:no-underline"
-          data-track-doctolib
-          data-track-location="FAQ"
-        >
-          Prendre rendez-vous
-        </a>
-      </div>
+  <div class="mt-10 border-t border-border-subtle pt-8 text-left">
+    <p class="text-sm text-ink-secondary md:text-base">
+      Les informations pratiques avant une première séance sont résumées dans la page Consulter et dans la section
+      Horaires et tarifs ci-dessous.
+    </p>
+    <div class="mt-4">
+      <a href="/consulter/" class={buttonClasses({ variant: "link", className: "font-medium" })}>
+        Voir modalités →
+      </a>
     </div>
   </div>
 </section>

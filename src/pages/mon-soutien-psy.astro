@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import { Image } from "astro:assets";
+import SectionHeading from "../components/SectionHeading.astro";
+import { Picture } from "astro:assets";
 import MonSoutienPsyImage from "../assets/soutien-psy.webp";
 ---
 
@@ -17,10 +18,24 @@ import MonSoutienPsyImage from "../assets/soutien-psy.webp";
       facilite l’accès à un accompagnement psychologique pour les adolescents
       et adultes souffrant de troubles psychiques légers à modérés.
     </p>
-    <div class="border-accent border-2 p-4 rounded-md shadow-md bg-articles-bg">
+
+    <div class="rounded-lg border border-info-border bg-info-surface p-4 text-info-ink shadow-sm">
+      <p class="typo-eyebrow mb-2 text-info-ink/90">Accès cabinet</p>
+      <h2 class="font-display typo-display-md mb-2 text-info-ink">Accès au cabinet (Nicolas Devaux)</h2>
+      <p class="mb-2 leading-relaxed">
+        Dans ce cadre, les séances avec moi sont accessibles <strong>sur accord préalable</strong> (téléphone ou
+        messagerie Doctolib), après vérification que vous correspondez aux critères du dispositif.
+      </p>
+      <ul class="mb-0 list-disc space-y-1 pl-5 leading-relaxed">
+        <li>Public concerné en priorité : étudiants et personnes en recherche d’emploi.</li>
+        <li>Les critères sont vérifiés avant confirmation du rendez-vous.</li>
+      </ul>
+    </div>
+
+    <div class="rounded-md border-2 border-info-border bg-info-surface p-4 shadow-md text-info-ink">
       <p class="text-lg">
         Les places pour ce dispositif sont limitées. Pour prendre rendez-vous,
-        veuillez sélectionner la bonne catégorie sur Doctolib : 👉 Au cabinet 👉
+        veuillez sélectionner la bonne catégorie sur Doctolib : Au cabinet, puis
         Mon soutien Psy.
       </p>
       <p>
@@ -35,14 +50,17 @@ import MonSoutienPsyImage from "../assets/soutien-psy.webp";
       et jusqu’à 11 séances de suivi.
     </p>
     <div class="my-8 lg:w-10/12">
-      <Image
+      <Picture
         src={MonSoutienPsyImage}
         alt="Mon Soutien Psy"
+        formats={["avif", "webp"]}
+        loading="lazy"
+        decoding="async"
         class="w-full object-cover"
       />
     </div>
     <div>
-      <h2 class="mb-5">À qui s’adresse ce dispositif&nbsp;?</h2>
+      <SectionHeading class="mb-5" eyebrow="01 — Public" title="À qui s’adresse ce dispositif ?" />
       <ul class="list-disc list-inside">
         <li>Anxiété ou dépression légère à modérée</li>
         <li>Troubles du sommeil</li>
@@ -53,14 +71,14 @@ import MonSoutienPsyImage from "../assets/soutien-psy.webp";
         <li>Mal-être ou stress persistant</li>
       </ul>
       <p class="mt-5">
-        <em class="italic font-semibold"
+        <em class="italic font-medium"
           >Le dispositif ne s’applique pas aux troubles psychiatriques sévères
           ou aux situations de crise aiguë.</em
         >
       </p>
     </div>
     <div>
-      <h2 class="mb-5">Comment en bénéficier&nbsp;?</h2>
+      <SectionHeading class="mb-5" eyebrow="02 — Démarche" title="Comment en bénéficier ?" />
       <p>
         Depuis 2025, il est possible de prendre rendez-vous <strong
           >directement avec un psychologue conventionné</strong
@@ -68,7 +86,7 @@ import MonSoutienPsyImage from "../assets/soutien-psy.webp";
         Les suivantes peuvent se faire en téléconsultation si souhaité.
       </p>
 
-      <h2 class="mb-5">Tarifs et remboursement</h2>
+      <SectionHeading class="mb-5" eyebrow="03 — Tarifs" title="Tarifs et remboursement" />
       <ul class="list-disc list-inside">
         <li><strong>Tarif unique :</strong> 50&nbsp;€ par séance</li>
         <li>
@@ -83,7 +101,7 @@ import MonSoutienPsyImage from "../assets/soutien-psy.webp";
       </ul>
     </div>
     <div>
-      <h2 class="mb-5">Trouver un psychologue partenaire</h2>
+      <SectionHeading class="mb-5" eyebrow="04 — Annuaire" title="Trouver un psychologue partenaire" />
       <p>
         Pour consulter un psychologue participant au dispositif, rendez-vous sur
         l’annuaire en ligne :

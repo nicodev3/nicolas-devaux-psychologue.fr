@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import { Image } from "astro:assets";
+import SectionHeading from "../components/SectionHeading.astro";
+import { Picture } from "astro:assets";
 import CftSchemaImage from "../assets/cft.webp";
 ---
 
@@ -11,12 +12,12 @@ import CftSchemaImage from "../assets/cft.webp";
   showDate={false}
 >
   <section class="flex flex-col gap-8 xl:gap-10">
-    <blockquote class="border-l-4 border-accent pl-4 italic text-gray-700">
+    <blockquote class="border-l-4 border-accent pl-4 italic text-ink-secondary">
       <p>
         La compassion, c'est le courage de descendre dans la réalité de
         l'expérience humaine.
       </p>
-      <footer class="mt-2 not-italic text-sm text-gray-500">Paul Gilbert</footer>
+      <footer class="mt-2 not-italic text-sm text-ink-tertiary">Paul Gilbert</footer>
     </blockquote>
 
     <p>
@@ -38,14 +39,21 @@ import CftSchemaImage from "../assets/cft.webp";
     </p>
 
     <div class="my-2 mx-auto w-full md:w-1/2">
-      <Image
+      <Picture
         src={CftSchemaImage}
         alt="Schema des trois systemes emotionnels en therapie fondee sur la compassion"
+        formats={["avif", "webp"]}
+        loading="lazy"
+        decoding="async"
       />
     </div>
 
     <div>
-      <h2>Dans quels cas cette approche est-elle pertinente ?</h2>
+      <SectionHeading
+        class="mb-4"
+        eyebrow="01 — Indications"
+        title="Dans quels cas cette approche est-elle pertinente ?"
+      />
       <p>
         Elle est souvent indiquée lorsque l'on retrouve une forte autocritique,
         une peur du jugement, un sentiment de défaillance ou des difficultés à
@@ -61,21 +69,21 @@ import CftSchemaImage from "../assets/cft.webp";
     </div>
 
     <div>
-      <h2>D'où vient la CFT ?</h2>
+      <SectionHeading class="mb-4" eyebrow="02 — Origines" title="D'où vient la CFT ?" />
       <p>
         Les fondements scientifiques de la CFT reposent sur trois axes majeurs :
         une perspective évolutionniste, la théorie de l'attachement et les apports
         contemporains des neurosciences.
       </p>
 
-      <h3>Perspective évolutionniste</h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Perspective évolutionniste</h3>
       <p>
         La compassion n'est pas un luxe moral. Elle a aussi une fonction
         adaptative : protéger les plus vulnérables, soutenir la coopération et
         favoriser des liens plus fiables et sécurisants.
       </p>
 
-      <h3>Théorie de l'attachement</h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Théorie de l'attachement</h3>
       <p>
         Dans la lignée de Bowlby, la CFT rappelle qu'un être humain en détresse
         cherche proximité, réconfort et sécurité. Quand ces expériences ont manqué
@@ -83,7 +91,7 @@ import CftSchemaImage from "../assets/cft.webp";
         adulte.
       </p>
 
-      <h3>Apports des neurosciences</h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Apports des neurosciences</h3>
       <p>
         Les recherches en psychophysiologie soulignent le rôle de plusieurs
         systèmes impliqués dans la régulation émotionnelle et sociale, notamment
@@ -93,7 +101,7 @@ import CftSchemaImage from "../assets/cft.webp";
     </div>
 
     <div>
-      <h2>Les trois systèmes émotionnels en CFT</h2>
+      <SectionHeading class="mb-4" eyebrow="03 — Modèle" title="Les trois systèmes émotionnels en CFT" />
       <p>
         La thérapie fondée sur la compassion s'appuie sur un modèle simple et très
         utile en consultation :
@@ -111,7 +119,7 @@ import CftSchemaImage from "../assets/cft.webp";
     </div>
 
     <div>
-      <h2>En quoi consiste la CFT ?</h2>
+      <SectionHeading class="mb-4" eyebrow="04 — Définition" title="En quoi consiste la CFT ?" />
       <p>
         Cette approche aide à comprendre comment certains systèmes de menace se
         sont installés, puis à développer progressivement une façon plus stable,
@@ -131,20 +139,20 @@ import CftSchemaImage from "../assets/cft.webp";
     </div>
 
     <div>
-      <h2>Comment se déroule l'accompagnement ?</h2>
-      <h3>Phase 1 : évaluation et formulation</h3>
+      <SectionHeading class="mb-4" eyebrow="05 — Déroulement" title="Comment se déroule l'accompagnement ?" />
+      <h3 class="font-display typo-display-md text-ink-primary">Phase 1 : évaluation et formulation</h3>
       <p>
         Nous identifions les boucles de menace dominantes : autocritique, honte,
         peur du rejet, perfectionnisme, retrait ou évitement.
       </p>
 
-      <h3>Phase 2 : psychoéducation</h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Phase 2 : psychoéducation</h3>
       <p>
         Le travail aide à comprendre comment le cerveau et le corps ont appris à
         survivre, parfois au prix d'une grande dureté envers soi.
       </p>
 
-      <h3>Phase 3 : entraînement compassionnel</h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Phase 3 : entraînement compassionnel</h3>
       <ul>
         <li>Respiration rythmée apaisante.</li>
         <li>Ancrage corporel et ralentissement physiologique.</li>
@@ -153,7 +161,7 @@ import CftSchemaImage from "../assets/cft.webp";
         <li>Développement d'une voix intérieure plus stable, ferme et bienveillante.</li>
       </ul>
 
-      <h3>Phase 4 : intégration dans la vie quotidienne</h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Phase 4 : intégration dans la vie quotidienne</h3>
       <p>
         L'objectif est de construire une base intérieure plus sécurisante, plus
         ferme et plus bienveillante, qui puisse ensuite être mobilisée dans les
@@ -163,7 +171,7 @@ import CftSchemaImage from "../assets/cft.webp";
     </div>
 
     <div>
-      <h2>Quels bénéfices attendre ?</h2>
+      <SectionHeading class="mb-4" eyebrow="06 — Bénéfices" title="Quels bénéfices attendre ?" />
       <ul>
         <li>Diminuer l'intensité de l'autocritique et de la honte.</li>
         <li>Mieux réguler les pics de stress.</li>
@@ -178,7 +186,7 @@ import CftSchemaImage from "../assets/cft.webp";
     </div>
 
     <div>
-      <h2>La CFT dans ma pratique</h2>
+      <SectionHeading class="mb-4" eyebrow="07 — Pratique" title="La CFT dans ma pratique" />
       <p>
         J'intègre des outils de CFT lorsque la souffrance est entretenue par une
         relation à soi dure, punitive ou honteuse. Le travail vise à développer
@@ -192,7 +200,11 @@ import CftSchemaImage from "../assets/cft.webp";
     </div>
 
     <div>
-      <h2>Quelle place parmi les autres approches de 3e vague ?</h2>
+      <SectionHeading
+        class="mb-4"
+        eyebrow="08 — Intégration"
+        title="Quelle place parmi les autres approches de 3e vague ?"
+      />
       <p>
         La CFT fait partie des <a href="/tcc-troisieme-vague/" class="text-link">TCC de 3e vague</a>.
         Elle peut être proposée seule ou articulée à d'autres outils selon votre
@@ -201,8 +213,8 @@ import CftSchemaImage from "../assets/cft.webp";
       </p>
     </div>
 
-    <div class="border border-gray-200 rounded-xl bg-secondary/40 p-5">
-      <h2 class="mb-4">Pour aller plus loin</h2>
+    <div class="border border-border-strong rounded-xl bg-secondary/40 p-5">
+      <SectionHeading class="mb-4" eyebrow="09 — Synthèse" title="Pour aller plus loin" />
       <p class="mb-3">
         Cette approche propose une idée essentielle : vous n'êtes pas faible parce
         que vous souffrez. Vous pouvez apprendre à répondre à votre détresse

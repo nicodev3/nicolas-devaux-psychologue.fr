@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import { Image } from "astro:assets";
+import SectionHeading from "../components/SectionHeading.astro";
+import { Picture } from "astro:assets";
 import MbsrImage from "../assets/mbct-landscape.webp";
 ---
 
@@ -35,12 +36,18 @@ import MbsrImage from "../assets/mbct-landscape.webp";
         >.
       </p>
       <div class="my-8">
-        <Image src={MbsrImage} alt="Thérapie basée sur la pleine conscience" />
+        <Picture
+          src={MbsrImage}
+          alt="Thérapie basée sur la pleine conscience"
+          formats={["avif", "webp"]}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
 
     <div>
-      <h2 class="mb-5">MBSR (Mindfulness-Based Stress Reduction)</h2>
+      <SectionHeading class="mb-5" eyebrow="01 — MBSR" title="MBSR (Mindfulness-Based Stress Reduction)" />
       <p>
         <strong>Description</strong> : Développée par Jon Kabat-Zinn dans les années
         1970, la MBSR est une thérapie qui utilise la pleine conscience pour réduire
@@ -51,7 +58,7 @@ import MbsrImage from "../assets/mbct-landscape.webp";
           class="text-link">TCC de 3e vague</a
         >.
       </p>
-      <h3 class="mb-3">Pour qui la MBSR est-elle indiquée ?</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Pour qui la MBSR est-elle indiquée ?</h3>
       <p>
         La MBSR est particulièrement indiquée pour la gestion du stress, les
         douleurs chroniques, les troubles anxieux et l'amélioration du bien-être
@@ -63,7 +70,7 @@ import MbsrImage from "../assets/mbct-landscape.webp";
         >.
       </p>
 
-      <h3 class="mb-3">Comment se déroule le programme MBSR ?</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Comment se déroule le programme MBSR ?</h3>
       <p>
         Le programme MBSR se déroule sur une période de 8 semaines, avec des
         séances hebdomadaires structurées. Il comprend également une pratique
@@ -73,7 +80,7 @@ import MbsrImage from "../assets/mbct-landscape.webp";
     </div>
 
     <div>
-      <h2 class="mb-5">MBCT (Mindfulness-Based Cognitive Therapy)</h2>
+      <SectionHeading class="mb-5" eyebrow="02 — MBCT" title="MBCT (Mindfulness-Based Cognitive Therapy)" />
       <p>
         <strong>Description</strong> : La MBCT est une combinaison de la MBSR et
         des principes des <a href="/tcc-troisieme-vague/" class="text-link"
@@ -81,7 +88,7 @@ import MbsrImage from "../assets/mbct-landscape.webp";
         >. Créée pour prévenir les rechutes dépressives, elle aide les personnes
         à reconnaître et accepter les pensées négatives sans y réagir.
       </p>
-      <h3 class="mb-3">Pour qui la MBCT est-elle indiquée ?</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Pour qui la MBCT est-elle indiquée ?</h3>
       <p>
         La MBCT est particulièrement indiquée pour la prévention des rechutes
         dans la dépression et la gestion des troubles anxieux. Cette approche
@@ -93,7 +100,7 @@ import MbsrImage from "../assets/mbct-landscape.webp";
         >.
       </p>
 
-      <h3 class="mb-3">Comment se déroule le programme MBCT ?</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Comment se déroule le programme MBCT ?</h3>
       <p>
         La MBCT se déroule sur un programme structuré de 8 semaines, avec des
         séances hebdomadaires et des exercices quotidiens à réaliser entre les
@@ -103,7 +110,7 @@ import MbsrImage from "../assets/mbct-landscape.webp";
     </div>
 
     <div>
-      <h2 class="mb-5">Autres approches de 3e vague</h2>
+      <SectionHeading class="mb-5" eyebrow="03 — Autres" title="Autres approches de 3e vague" />
       <p>
         Selon les besoins, le travail peut aussi s'appuyer sur l'<a
           href="/therapie-acceptation-et-engagement/"

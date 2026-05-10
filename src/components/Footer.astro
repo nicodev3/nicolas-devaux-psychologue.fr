@@ -1,5 +1,19 @@
 ---
-const today = new Date();
+import { LayoutList } from "lucide";
+import LucideIcon from "./LucideIcon.astro";
+import { buttonClasses } from "./ui/button";
+import {
+  ADELI_NUMBER,
+  DOCTOLIB_BOOKING_URL,
+  RPPS_NUMBER,
+} from "../consts";
+
+const footerBookingClasses = buttonClasses({
+  variant: "primary",
+  size: "lg",
+  className:
+    "inline-flex w-full max-w-sm items-center justify-center normal-case md:w-auto md:min-w-[240px]",
+});
 
 const siteMap = [
   {
@@ -17,7 +31,10 @@ const siteMap = [
     title: "Approches thérapeutiques",
     links: [
       { href: "/therapie-mosaic/", label: "Thérapie MOSAIC" },
-      { href: "/therapie-cognitive-et-comportementale/", label: "Thérapie cognitive et comportementale" },
+      {
+        href: "/therapie-cognitive-et-comportementale/",
+        label: "Thérapie cognitive et comportementale",
+      },
       { href: "/tcc-troisieme-vague/", label: "TCC de 3e vague" },
       { href: "/therapie-acceptation-et-engagement/", label: "ACT (TCC de 3e vague)" },
       { href: "/therapie-pleine-conscience/", label: "MBCT/MBSR (TCC de 3e vague)" },
@@ -30,68 +47,32 @@ const siteMap = [
       { href: "/mon-soutien-psy/", label: "Mon Soutien Psy" },
       { href: "/mentions-legales/", label: "Mentions légales" },
     ],
-  }
+  },
 ];
 
-const emergencyNumbers = [
-  { label: "SOS Amitié (écoute)", number: "09 72 39 40 50", tel: "0972394050" },
-  { label: "Fil Santé Jeunes", number: "0 800 235 236", tel: "0800235236" },
-  { label: "Suicide : écoute anonyme", number: "31 14", tel: "3114" },
-];
+const rgpdHref = "/mentions-legales/#protection-des-donnees-personnelles";
 ---
 
-<footer class="bg-tertiary text-white">
+<footer class="bg-surface-footer text-brand-ink-on">
   <div class="container py-12 md:py-16">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-      <!-- En cas d'urgence -->
-      <div class="lg:col-span-1">
-        <div class="flex items-center gap-2 mb-4">
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-white" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-          </span>
-          <h3 class="text-lg font-semibold text-white!">En cas d'urgence</h3>
-        </div>
-        <p class="text-sm text-gray-200 mb-4">
-          Ces numéros sont accessibles 24h/24 pour une écoute ou une aide immédiate.
-        </p>
-        <ul class="space-y-2">
-          {emergencyNumbers.map((item) => (
-            <li class="flex items-center justify-between gap-3 text-sm">
-              <span class="text-gray-200">{item.label}</span>
-              <a
-                href={`tel:${item.tel}`}
-                class="font-semibold text-white hover:text-gray-200 whitespace-nowrap transition-colors underline decoration-white/50 underline-offset-2"
-              >
-                {item.number}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Plan du site -->
-      <div class="lg:col-span-2">
-        <h3 class="text-lg font-semibold text-white! mb-4 flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-gray-200" aria-hidden="true">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          Plan du site
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {siteMap.map((group) => (
-            <div>
-              <h4 class="text-xs font-medium uppercase tracking-wider text-white! mb-2">
-                {group.title}
-              </h4>
-              <ul class="space-y-1.5">
+    <div class="min-w-0">
+      <h3 class="footer-section-label mb-8 flex items-center gap-2 sm:mb-10">
+        <LucideIcon icon={LayoutList} size="lg" class="text-brand-ink-on/85" />
+        Plan du site
+      </h3>
+      <div
+        class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-[repeat(2,minmax(0,1fr))] sm:gap-x-5 sm:gap-y-10 lg:grid-cols-[repeat(3,minmax(0,1fr))] lg:gap-x-6 lg:gap-y-10"
+      >
+        {
+          siteMap.map((group) => (
+            <div class="min-w-0">
+              <h4 class="footer-section-label mb-4">{group.title}</h4>
+              <ul class="space-y-1.5 font-ui">
                 {group.links.map((link) => (
                   <li>
                     <a
                       href={link.href}
-                      class="text-gray-200 hover:text-white text-sm transition-colors"
+                      class="text-sm font-medium text-brand-ink-on underline decoration-brand-ink-on/35 underline-offset-2 transition-colors hover:text-brand-ink-on hover:decoration-brand-ink-on"
                     >
                       {link.label}
                     </a>
@@ -99,23 +80,62 @@ const emergencyNumbers = [
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
+          ))
+        }
       </div>
     </div>
 
-    <!-- Séparateur -->
-    <div class="mt-12 pt-8 border-t border-white/10">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm text-gray-200">
-          © {today.getFullYear()} Nicolas Devaux – Psychologue à Sceaux. Tous droits réservés.
+    <div class="mt-12 flex justify-center border-t border-brand-ink-on/15 px-4 pt-10">
+      <a
+        href={DOCTOLIB_BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={footerBookingClasses}
+        aria-label="Prendre rendez-vous sur Doctolib"
+        data-track-doctolib
+        data-track-location="Footer"
+      >
+        Prendre rendez-vous
+      </a>
+    </div>
+
+    <div class="mt-12 border-t border-brand-ink-on/15 pt-8">
+      <p class="mx-auto mb-6 max-w-3xl text-center text-sm font-ui leading-relaxed text-brand-ink-on/90">
+        Les informations échangées dans le cadre des consultations sont protégées par le secret professionnel ; les
+        traitements de données liés au site sont décrits dans les mentions légales (RGPD).
+      </p>
+      <div class="flex flex-col items-center gap-4 md:flex-row md:justify-between md:gap-6">
+        <p class="text-center text-sm text-brand-ink-on/90 md:text-left">
+          © {new Date().getFullYear()} Nicolas Devaux – Psychologue à Sceaux. Tous droits réservés.
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
-          <a href="/mentions-legales/" class="text-gray-200 hover:text-white transition-colors">
+        <div
+          class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-ui md:justify-end"
+        >
+          <a
+            href="/mentions-legales/"
+            class="font-semibold text-brand-ink-on underline decoration-brand-ink-on/45 underline-offset-2 transition-colors hover:decoration-brand-ink-on"
+          >
             Mentions légales
           </a>
-          <span class="text-gray-300" aria-hidden="true">|</span>
-          <span class="text-gray-200">RPPS : 10008482910</span>
+          <span class="text-brand-ink-on/35" aria-hidden="true">·</span>
+          <a
+            href={rgpdHref}
+            class="font-semibold text-brand-ink-on underline decoration-brand-ink-on/45 underline-offset-2 transition-colors hover:decoration-brand-ink-on"
+          >
+            Secret professionnel & RGPD
+          </a>
+          <span class="text-brand-ink-on/35" aria-hidden="true">·</span>
+          <span class="tabular-nums text-brand-ink-on/90">RPPS : {RPPS_NUMBER}</span>
+          {
+            ADELI_NUMBER ? (
+              <span class="inline-flex items-center gap-x-4">
+                <span class="text-brand-ink-on/35" aria-hidden="true">
+                  ·
+                </span>
+                <span class="tabular-nums text-brand-ink-on/90">ADELI : {ADELI_NUMBER}</span>
+              </span>
+            ) : null
+          }
         </div>
       </div>
     </div>

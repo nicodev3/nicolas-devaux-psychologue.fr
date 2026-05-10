@@ -1,4 +1,5 @@
 ---
+import SectionHeading from "../../components/SectionHeading.astro";
 import FormLayout from "../../layouts/FormLayout.astro";
 ---
 
@@ -6,48 +7,74 @@ import FormLayout from "../../layouts/FormLayout.astro";
   title="Outils psychologiques"
   description="Questionnaires et outils psychologiques en ligne, à réaliser avant une consultation avec Nicolas Devaux, psychologue à Sceaux."
 >
-  <div class="max-w-4xl mx-auto">
-    <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-8">
-      <h1 class="text-4xl font-bold text-tertiary mb-4">Outils psychologiques</h1>
-      <p class="text-gray-600 leading-relaxed">
-        Ces questionnaires peuvent etre proposes avant ou au cours d'une therapie, afin de soutenir le travail clinique.
-        Ils peuvent aussi etre realises simplement par curiosite personnelle pour mieux comprendre certains fonctionnements.
-        Vos reponses sont sauvegardees localement dans votre navigateur et ne sont transmises a personne.
-      </p>
-    </div>
+  <header class="mb-10 md:mb-12">
+    <p class="typo-eyebrow mb-3 md:mb-4">Ressources</p>
+    <h1 class="font-display typo-h1 mb-0 text-pretty text-ink-primary">Outils psychologiques</h1>
+    <p class="mt-6 leading-relaxed text-ink-secondary">
+      Ces questionnaires peuvent etre proposes avant ou au cours d'une therapie, afin de soutenir le travail clinique.
+      Ils peuvent aussi etre realises simplement par curiosite personnelle pour mieux comprendre certains fonctionnements.
+      Vos reponses sont sauvegardees localement dans votre navigateur et ne sont transmises a personne.
+    </p>
+  </header>
 
-    <div class="grid gap-6">
-      <a
-        href="/outils/questionnaire-schemas-young/"
-        class="group bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg hover:border-accent/30 transition-all duration-200 block"
-      >
-        <div class="flex items-start gap-4">
-          <div class="shrink-0 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            </svg>
-          </div>
-          <div class="flex-1 min-w-0">
-            <h2 class="text-xl font-semibold text-tertiary group-hover:text-accent-dark transition-colors mb-2">
-              Questionnaire des Schémas de Young (YSQ-L2)
-            </h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-3">
-              Ce questionnaire de 205 affirmations explore 16 schémas précoces inadaptés répartis en 5 domaines.
-              Utilisé dans le cadre de la thérapie des schémas pour identifier les croyances profondes qui influencent
-              vos pensées, émotions et comportements.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-2 py-1 bg-secondary rounded-md text-tertiary font-medium">205 questions</span>
-              <span class="text-xs px-2 py-1 bg-secondary rounded-md text-tertiary font-medium">16 schémas</span>
-              <span class="text-xs px-2 py-1 bg-secondary rounded-md text-tertiary font-medium">~25 minutes</span>
-              <span class="text-xs px-2 py-1 bg-secondary rounded-md text-tertiary font-medium">Sauvegarde automatique</span>
-            </div>
-          </div>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+  <SectionHeading
+    class="border-t border-border-subtle pt-10 md:pt-12"
+    eyebrow="01 — Schémas"
+    title="Questionnaires en ligne"
+  />
+  <div class="grid gap-6">
+    <a
+      href="/outils/questionnaire-schemas-young/"
+      class="group block rounded-xl border border-border-subtle p-6 transition-colors hover:border-brand/35"
+    >
+      <div class="flex items-start gap-4">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-brand-hover"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"
+            ></path>
           </svg>
         </div>
-      </a>
-    </div>
+        <div class="min-w-0 flex-1">
+          <h3 class="typo-display-md mb-2 text-ink-primary transition-colors group-hover:text-brand-hover">
+            Questionnaire des Schémas de Young (YSQ-L2)
+          </h3>
+          <p class="mb-3 text-sm leading-relaxed text-ink-secondary">
+            Ce questionnaire de 205 affirmations explore 16 schémas précoces inadaptés répartis en 5 domaines. Utilisé
+            dans le cadre de la thérapie des schémas pour identifier les croyances profondes qui influencent vos
+            pensées, émotions et comportements.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-md bg-secondary px-2 py-1 text-xs font-medium text-tertiary">205 questions</span>
+            <span class="rounded-md bg-secondary px-2 py-1 text-xs font-medium text-tertiary">16 schémas</span>
+            <span class="rounded-md bg-secondary px-2 py-1 text-xs font-medium text-tertiary">~25 minutes</span>
+            <span class="rounded-md bg-secondary px-2 py-1 text-xs font-medium text-tertiary">Sauvegarde automatique</span>
+          </div>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="mt-1 h-5 w-5 shrink-0 text-ink-tertiary transition-colors group-hover:text-brand"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m9 5 7 7-7 7"></path>
+        </svg>
+      </div>
+    </a>
   </div>
 </FormLayout>

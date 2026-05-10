@@ -1,26 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-    <!-- Cercle principal représentant l'esprit/la conscience -->
-    <circle cx="64" cy="64" r="56" fill="#4A90E2" stroke="#2C5F8A" stroke-width="4"/>
-    
-    <!-- Symbole de l'infini stylisé au centre pour représenter l'équilibre et la continuité -->
-    <path d="M50 64c0-7.7 6.3-14 14-14s14 6.3 14 14c0 7.7-6.3 14-14 14s-14-6.3-14-14z" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.9"/>
-    <path d="M78 64c0-7.7 6.3-14 14-14s14 6.3 14 14c0 7.7-6.3 14-14 14s-14-6.3-14-14z" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.9"/>
-    
-    <!-- Points d'équilibre -->
-    <circle cx="64" cy="50" r="4" fill="#FFFFFF" opacity="0.8"/>
-    <circle cx="64" cy="78" r="4" fill="#FFFFFF" opacity="0.8"/>
-    
-    <!-- Lignes de connexion subtiles -->
-    <path d="M40 40 L58 58" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
-    <path d="M88 40 L70 58" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
-    <path d="M40 88 L58 70" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
-    <path d="M88 88 L70 70" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
-    
+    <!-- Cercle principal — palette marque (terracotta / crème) -->
+    <circle cx="64" cy="64" r="56" fill="#b75740" stroke="#8a422f" stroke-width="4"/>
+
+    <path d="M50 64c0-7.7 6.3-14 14-14s14 6.3 14 14c0 7.7-6.3 14-14 14s-14-6.3-14-14z" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.95"/>
+    <path d="M78 64c0-7.7 6.3-14 14-14s14 6.3 14 14c0 7.7-6.3 14-14 14s-14-6.3-14-14z" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.95"/>
+
+    <circle cx="64" cy="50" r="4" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="64" cy="78" r="4" fill="#FFFFFF" opacity="0.9"/>
+
+    <path d="M40 40 L58 58" stroke="#FFFFFF" stroke-width="2" opacity="0.45"/>
+    <path d="M88 40 L70 58" stroke="#FFFFFF" stroke-width="2" opacity="0.45"/>
+    <path d="M40 88 L58 70" stroke="#FFFFFF" stroke-width="2" opacity="0.45"/>
+    <path d="M88 88 L70 70" stroke="#FFFFFF" stroke-width="2" opacity="0.45"/>
+
     <style>
         @media (prefers-color-scheme: dark) {
-            circle:first-child { fill: #2C5F8A; stroke: #4A90E2; }
-            path { stroke: #E8F4FD; }
-            circle:not(:first-child) { fill: #E8F4FD; }
+            circle:first-child { fill: #8a422f; stroke: #d4a090; }
+            path { stroke: #fdf8f5; }
+            circle:not(:first-child) { fill: #fdf8f5; }
         }
     </style>
 </svg>

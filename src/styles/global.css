@@ -5,45 +5,150 @@
  */
 
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/*
+ * Icônes UI du site : trait uniforme 1,5px (attribut SVG stroke-width="1.5"),
+ * tailles normalisées 16px · 20px · 24px (classes Tailwind w-4 h-4, w-5 h-5, w-6 h-6).
+ * Exclus : glyphes de marque (ex. Doctolib), logos partenaires, illustrations SVG éditoriales / schémas.
+ */
+
+@import "@fontsource-variable/inter/opsz.css";
+@import "@fontsource-variable/inter/opsz-italic.css";
+@import "@fontsource-variable/source-serif-4/index.css";
+
+/*
+ * Breakpoints alignés produit : sm 640 · md 768 · lg 1024 · xl 1280 · 2xl 1440.
+ * (Doublon explicite avec tailwind.config.ts pour la doc et la cohérence des builds.)
+ */
 @theme {
-  /* Couleurs personnalisÃ©es pour Tailwind v4 - WCAG optimisÃ©es */
-  --color-primary: #8fa48e;        /* Assombri pour meilleur contraste */
-  --color-secondary: #f2e9e1;
-  --color-tertiary: #4a4a3e;       /* Assombri pour meilleur contraste */
-  --color-accent: #D4633F;         /* Assombri pour meilleur contraste avec blanc */
-  --color-accent-dark: #B8472A;    /* Plus sombre pour excellent contraste */
-  --color-black-dark: #000;
-  --color-articles-bg: #F9F5EE;
-  --color-articles-title: #365943;
-  --color-articles-item: #4C7C5F;
-  --color-articles-date: #7A431F;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+  /*
+   * Thème crème / sable — terracotta comme unique accent marque.
+   * Hiérarchie : titres = gris neutre foncé ; corps = brun chaud (ink-secondary) ;
+   * méta / dates / notes = gris moyen désaturé (meilleur contraste sur crème) ;
+   * bordures = gris intermédiaire peu chromatique (distinct du beige surface).
+   * Contraste (culori wcagContrast sur les OKLCH ci-dessous, fond page ≈ surface-page / muted) :
+   * - ink-primary / surface-page | raised : titres neutres >> 7:1
+   * - ink-secondary / surface-page : corps brun ~ 8:1
+   * - ink-tertiary / surface-page | muted : méta & UI secondaire ≥ ~8 / ~7.8 (AAA efficace, hors italique)
+   * - brand / surface-page | muted : liens & accent ≥ ~6 / ~5.8 ; hover plus soutenu
+   * - border-* / surface-page : séparation lisible sans fusion avec le fond crème
+   * - brand-ink-on / brand & brand-hover : > 4.5:1 (CTA)
+   * - info-ink / info-surface : >> 7:1
+   * - danger / danger-surface : viser ≥ 4.5:1 pour boutons ou liens « réinitialiser »
+   */
+  --color-surface-page: oklch(0.985 0.012 60);
+  --color-surface-raised: oklch(1 0 0);
+  --color-surface-muted: oklch(0.965 0.012 60);
+  /* Fond pied de page : noir chaud désaturé (extension palette marque / encres). */
+  --color-surface-footer: oklch(0.28 0.02 50);
+  /* Libellés de section footer : lisibles sur surface-footer (titres héritent sinon de ink-primary). */
+  --color-footer-label: oklch(0.82 0.018 52);
+  /* Titres / hiérarchie forte : neutre foncé (pas le brun du corps). */
+  --color-ink-primary: oklch(0.22 0.004 58);
+  /* Corps de texte : brun chaud réservé au paragraphe. */
+  --color-ink-secondary: oklch(0.42 0.02 50);
+  /* Méta, dates, notes UI : neutre un peu plus soutenu que le corps pour ≥7:1 sur crème/muted (sans italique). */
+  --color-ink-tertiary: oklch(0.4 0.008 58);
+  --color-border-subtle: oklch(0.91 0.004 60);
+  --color-border-strong: oklch(0.85 0.005 60);
+  /* Terracotta marque : lisibilité renforcée sur fond crème / muted (~6:1 liens, hover plus foncé). */
+  --color-brand: oklch(0.5 0.135 35);
+  --color-brand-hover: oklch(0.43 0.125 35);
+  --color-brand-ink-on: oklch(0.99 0 0);
+  --color-info-surface: oklch(0.97 0.03 85);
+  --color-info-border: oklch(0.86 0.07 85);
+  --color-info-ink: oklch(0.35 0.05 70);
 
-  /* Couleurs de base nÃ©cessaires */
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-blue-50: #eff6ff;
+  /* États ponctuels (hors marque) */
+  --color-danger: oklch(0.45 0.14 28);
+  --color-danger-surface: oklch(0.97 0.02 28);
 
-  /* Configuration du container */
+  --color-body: var(--color-ink-secondary);
+  --color-body-muted: var(--color-ink-tertiary);
+  --color-accent: var(--color-brand);
+  --color-accent-dark: var(--color-brand-hover);
+  --color-tertiary: var(--color-ink-primary);
+  --color-secondary: var(--color-surface-muted);
+  --color-primary: var(--color-surface-muted);
+
+  --color-black: oklch(0 0 0);
+  --color-white: oklch(1 0 0);
+
   --width-container: 100%;
   --max-width-container: 1200px;
+
+  --font-family-display: "Source Serif 4 Variable", ui-serif, Georgia, "Times New Roman",
+    serif;
+  --font-family-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-family-ui: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Ombres réutilisables (évite rgba(#000) dans les composants). */
+  --shadow-menu-panel: 0 1px 0 oklch(0 0 0 / 0.03), 0 20px 40px -20px oklch(0 0 0 / 0.08);
+  /* CTA : relief minimal (évite le look « gros drop shadow »). */
+  --shadow-button-primary: 0 1px 2px rgb(0 0 0 / 0.06);
 }
 
 :root {
-    --accent: #F47677;
-    --accent-dark: #e36767;
-    --black: #464646;
+    --accent: var(--color-brand);
+    --accent-dark: var(--color-brand-hover);
+    --black: var(--color-ink-primary);
     --gray: 96, 115, 159;
     --gray-light: 229, 233, 240;
-    --gray-dark: 34, 41, 57;
-    --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+    --gray-dark: 69, 64, 56;
+
+    /*
+     * Échelle modulaire : 56 / 36 / 24 / 18 / 16 / 14 (px),
+     * avec equivalents rem pour le clamp où utile.
+     */
+    --text-h1: clamp(2.125rem, 1.75vw + 1.25rem, 3.5rem); /* → 56px desktop */
+    --text-h2-section: clamp(1.75rem, 1vw + 1.35rem, 2.25rem); /* → 36px desktop */
+    --text-h3: 1.5rem; /* 24px */
+    --text-body-lg: 1.125rem; /* 18px */
+    --text-body: 1rem; /* 16px */
+    --text-meta-sm: 0.875rem; /* 14px — eyebrow, méta */
+    /* Alias rétrocompat */
+    --text-display-xl: var(--text-h1);
+    --text-display-lg: var(--text-h2-section);
+    --text-display-md: var(--text-h3);
+    --text-meta: var(--text-meta-sm);
+    --gray-gradient: rgba(var(--gray-light), 50%), var(--color-white);
     --box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
-    --tertiary: #333;
-    --secondary: #f8f9fa;
-    --primary: #e9ecef;
+    --tertiary: var(--color-ink-primary);
+    --secondary: var(--color-surface-muted);
+    --primary: var(--color-border-subtle);
 }
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--color-surface-page);
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * Thème sombre : jetons réservés uniquement (pas d’activation visuelle — site reste clair).
+ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: light dark;
+        --color-dark-surface-page: oklch(0.2 0.015 55);
+        --color-dark-surface-raised: oklch(0.24 0.015 55);
+        --color-dark-surface-muted: oklch(0.28 0.018 54);
+        --color-dark-ink-primary: oklch(0.94 0.01 60);
+        --color-dark-ink-secondary: oklch(0.82 0.012 58);
+        --color-dark-ink-tertiary: oklch(0.68 0.014 55);
+        --color-dark-border-subtle: oklch(0.34 0.02 52);
+        --color-dark-brand: oklch(0.62 0.14 35);
+        --color-dark-brand-hover: oklch(0.58 0.15 35);
+    }
 }
 
 :target {
@@ -54,27 +159,78 @@ html {
     html {
         scroll-behavior: auto;
     }
+
+    *,
+    *::before,
+    *::after {
+        transition-property: opacity, background-color, border-color, color, fill, stroke,
+            outline-color, outline-offset, box-shadow, filter, visibility, max-height !important;
+    }
 }
 
-@font-face {
-    font-family: "InterLocal";
-    src: url("/fonts/inter-latin.woff2") format("woff2");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
+/* Révélations d’accueil : une fois déclenchées, classe .home-reveal-done (sessionStorage côté script). */
+body[data-home-reveal-page] [data-home-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@font-face {
-    font-family: "LoraLocal";
-    src: url("/fonts/lora-latin.woff2") format("woff2");
-    font-weight: 400 700;
-    font-style: normal;
-    font-display: swap;
+body[data-home-reveal-page] [data-home-reveal].home-reveal-done {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body[data-home-reveal-page] [data-home-reveal] {
+        transform: none;
+        transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body[data-home-reveal-page] [data-home-reveal].home-reveal-done {
+        transform: none;
+    }
+}
+
+@utility font-ui {
+    font-family: var(--font-family-ui);
+    font-variation-settings: "opsz" 22;
+}
+
+/* Libellés de colonnes pied de page : alignés sur les eyebrows (~13px UI), sans serif display. */
+@utility footer-section-label {
+    font-family: var(--font-family-ui);
+    font-variation-settings: "opsz" 14;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: var(--color-footer-label);
+    text-wrap: nowrap;
+}
+
+@layer base {
+    :where(
+            a[href],
+            button:not(:disabled),
+            summary,
+            input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]),
+            textarea,
+            select
+        ):focus-visible {
+        outline: 2px solid var(--color-brand);
+        outline-offset: 3px;
+        border-radius: inherit;
+    }
 }
 
 body {
-    font-family: "InterLocal", sans-serif;
-    color: rgb(var(--gray-dark));
+    font-family: var(--font-family-sans);
+    font-variation-settings: "opsz" 14;
+    font-feature-settings: "ss01", "cv11", "kern";
+    color: var(--color-body);
 }
 
 h1,
@@ -83,33 +239,148 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--tertiary);
-    font-family: "LoraLocal", "InterLocal", serif;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    color: var(--color-ink-primary);
+    font-family: var(--font-family-display);
+    font-optical-sizing: auto;
+    text-wrap: balance;
 }
 
-h1.font-bold,
-h2.font-bold,
-h3.font-bold,
-h4.font-bold,
-h5.font-bold,
-h6.font-bold {
+h1,
+h2 {
     font-weight: 600;
 }
 
-h2 {
-    font-size: 1.5rem;
+h3 {
+    font-weight: 600;
+}
+
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+/*
+ * Pied de page foncé : les titres h* reprennent ink-primary par défaut → quasi invisible sur surface-footer.
+ * Spécificité > seule la classe utilitaire, pour gagner sur la règle h3/h4 du @layer base.
+ */
+footer .footer-section-label {
+    color: var(--color-footer-label);
+    font-family: var(--font-family-ui);
+    font-variation-settings: "opsz" 14;
+    /* Évite l’héritage display/balance des h* du @layer base. */
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+}
+
+.typo-display-xl {
+    font-size: var(--text-h1);
+    line-height: 1.06;
+    letter-spacing: -0.022em;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+/* Titres principaux (hero + pages) : plafonnés à ~56px desktop, plus d’air */
+.hero-heading-display,
+.typo-h1 {
+    font-size: var(--text-h1);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.typo-display-lg {
+    font-size: var(--text-h2-section);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.typo-display-md {
+    font-size: var(--text-h3);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+/* Libellé de section au-dessus du H2 : sans serif, uppercase, tracking +6 % */
+.typo-eyebrow {
+    font-family: var(--font-family-ui);
+    font-variation-settings: "opsz" 14;
+    font-size: var(--text-meta-sm);
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-tertiary);
+}
+
+.section-heading-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
 }
 
 @media (min-width: 768px) {
-    h2 {
-        font-size: 1.875rem;
+    .section-heading-group {
+        gap: 0.5rem;
     }
 }
 
+.typo-body-lg {
+    font-size: var(--text-body-lg);
+    line-height: 1.65;
+    letter-spacing: -0.005em;
+    font-weight: 400;
+}
+
+.typo-body {
+    font-size: var(--text-body);
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+.typo-meta {
+    font-size: var(--text-meta-sm);
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/*
+ * Métadonnées « ruban » (RPPS, dates listées, etc.) : pas d’italique — hiérarchie par graisse + capitals.
+ * Préféré aux petites capitales CSS seules (rendu Inter peu homogène).
+ */
+.typo-meta-caps {
+    font-family: var(--font-family-ui);
+    font-variation-settings: "opsz" 14;
+    font-size: var(--text-meta-sm);
+    line-height: 1.45;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+/* Hiérarchie hors classes utilitaires : H2 document ~24px, H3 ~24px (échelle interne) */
+h2 {
+    font-size: var(--text-h3);
+    font-weight: 600;
+}
+
 h3 {
-    font-size: 1.25rem;
+    font-size: var(--text-h3);
+    font-weight: 600;
 }
 
 h4 {
@@ -122,7 +393,12 @@ h5 {
 
 strong,
 b {
-    font-weight: 700;
+    font-weight: 600;
+}
+
+p,
+li {
+    text-wrap: pretty;
 }
 
 p {
@@ -149,14 +425,14 @@ img {
 }
 
 .alert-box {
-    background-color: var(--secondary);
-    border: 1px solid var(--primary);
+    background-color: var(--color-surface-muted);
+    border: 1px solid var(--color-border-subtle);
     padding: 1.25rem;
     border-radius: 0.375rem;
 }
 
 .btn {
-    color: var(--black);
+    color: var(--color-brand-ink-on);
     background-color: var(--accent);
     font-size: 1.125rem;
     margin-right: auto;
@@ -167,11 +443,11 @@ img {
 
 .btn:hover {
     background-color: var(--accent-dark);
-    color: white;
+    color: var(--color-brand-ink-on);
 }
 
 .text-link {
-    color: #7A431F;
+    color: var(--color-brand);
     transition: color 0.3s ease-out;
     text-decoration: underline;
     text-decoration-thickness: 0.08em;
@@ -179,11 +455,16 @@ img {
 }
 
 .text-link:hover {
-    color: #5C2F14;
+    color: var(--color-brand-hover);
 }
 
 .text-link:focus-visible {
-    color: #5C2F14;
+    color: var(--color-brand-hover);
+}
+
+/* Liens dans le corps : soulignement un peu plus visible pour repérage hors couleur seule (WCAG 1.4.1). */
+main .text-link {
+    text-decoration-thickness: max(0.08em, 1px);
 }
 
 abbr {
@@ -191,63 +472,6 @@ abbr {
     border-bottom: none;
     color: inherit;
     cursor: inherit;
-}
-
-/* Bouton moderne amÃ©liorÃ© */
-.btn-modern {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
-    color: white;
-    padding: 0.875rem 1.5rem;
-    border-radius: 0.75rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.025em;
-    box-shadow: 0 4px 14px 0 rgba(212, 99, 63, 0.25);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.btn-modern::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s;
-}
-
-.btn-modern:hover::before {
-    left: 100%;
-}
-
-.btn-modern:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px 0 rgba(212, 99, 63, 0.4);
-    background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 100%);
-}
-
-.btn-modern:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px 0 rgba(212, 99, 63, 0.3);
-}
-
-/* Variante avec classes Tailwind optimisÃ©es */
-.btn-tailwind-modern {
-    @apply bg-gradient-to-br from-accent to-accent-dark text-white font-semibold;
-    @apply py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl;
-    @apply transition-shadow duration-300 ease-out;
-    @apply focus:outline-none focus:ring-4 focus:ring-accent/30;
-    @apply relative overflow-hidden;
 }
 
 /* Container personnalisÃ© pour Tailwind v4 */
@@ -271,4 +495,26 @@ abbr {
         padding-left: 5rem;
         padding-right: 5rem;
     }
+}
+
+/*
+ * Coquille de page alignée sur l’accueil : colonne de lecture 720px ;
+ * variante `--wide` pour grilles (ex. index blog), max 1120px.
+ */
+.page-shell {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 720px;
+    padding: 1rem 1rem 5rem;
+}
+
+@media (min-width: 768px) {
+    .page-shell {
+        padding: 1.5rem 1.25rem 6rem;
+    }
+}
+
+.page-shell--wide {
+    max-width: 1120px;
 }

@@ -1,25 +1,26 @@
 ---
 import FormLayout from "../../layouts/FormLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { buttonClasses } from "../../components/ui/button";
 
 const title = "Questionnaire des Schémas de Young (YSQ-L2)";
 const description = "Passez le Questionnaire des Schémas de Young en ligne — 205 affirmations explorant 16 schémas précoces inadaptés dans le cadre de la thérapie des schémas.";
 ---
 
 <FormLayout title={title} description={description}>
-  <div x-data="ysqForm" class="max-w-4xl mx-auto">
-
-    <!-- Barre de progression sticky -->
-    <div class="sticky top-2 z-30 mb-6" x-show="!submitted">
-      <div class="bg-white/95 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm px-4 py-3">
+  <div x-data="ysqForm" class="w-full">
+    <!-- Barre de progression sticky (sous l’en-tête fixe du site) -->
+    <div class="sticky top-14 z-20 mb-6 md:top-[4.5rem]" x-show="!submitted">
+      <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
         <div class="flex items-center justify-between mb-1.5">
-          <span class="text-xs font-medium text-gray-500">Progression</span>
-          <span class="text-xs font-semibold text-gray-700">
+          <span class="text-xs font-medium text-ink-tertiary">Progression</span>
+          <span class="font-ui text-xs font-medium text-ink-secondary">
             <span x-text="answeredCount"></span>/205
           </span>
         </div>
-        <div class="w-full bg-gray-100 rounded-full h-2">
+        <div class="w-full bg-surface-muted rounded-full h-2">
           <div
-            class="bg-accent h-2 rounded-full transition-all duration-300"
+            class="h-2 rounded-full bg-brand transition-all duration-300"
             :style="`width: ${progress}%`"
           ></div>
         </div>
@@ -27,15 +28,16 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
     </div>
 
     <!-- En-tête et instructions -->
-    <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-8">
-      <h1 class="text-3xl md:text-4xl font-bold text-tertiary mb-1">
+    <header class="mb-10 md:mb-12">
+      <p class="typo-eyebrow mb-3 md:mb-4">YSQ-L2</p>
+      <h1 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
         Questionnaire des Schémas de Young
       </h1>
-      <p class="text-gray-500 text-sm mb-6">YSQ-L2 — Version 1994, traduction J. Cottraux (1995, révisée 1999)</p>
+      <p class="mb-6 text-sm text-ink-tertiary">Version 1994, traduction J. Cottraux (1995, révisée 1999)</p>
 
-      <div class="p-5 bg-secondary/60 rounded-xl">
-        <h2 class="font-semibold text-tertiary mb-3 text-base">Instructions</h2>
-        <p class="text-gray-700 text-sm leading-relaxed mb-4">
+      <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
+        <SectionHeading class="mb-4" eyebrow="01 — Consignes" title="Instructions" />
+        <p class="text-ink-secondary text-sm leading-relaxed mb-4">
           Lisez chaque affirmation et décidez à quel point elle vous correspond.
           Lorsque vous hésitez, basez votre réponse sur ce que vous ressentez
           <strong>émotionnellement</strong>, et non pas sur ce que vous pensez rationnellement être vrai pour vous.
@@ -50,51 +52,63 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
             [6, "Me décrit parfaitement tout au long de ma vie"],
           ].map(([n, label]) => (
             <div class="flex items-start gap-2.5">
-              <span class="shrink-0 w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-xs font-bold text-tertiary">{n}</span>
-              <span class="text-gray-600 leading-snug">{label}</span>
+              <span class="font-ui shrink-0 w-6 h-6 rounded-full bg-surface-raised border border-border-strong flex items-center justify-center text-xs font-medium text-tertiary">{n}</span>
+              <span class="text-ink-secondary leading-snug">{label}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <p class="text-xs text-gray-400 mt-4 flex items-center gap-1.5">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <p class="mt-4 flex items-center gap-1.5 text-xs text-ink-tertiary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 16v-4M12 8h.01" />
         </svg>
         Vos réponses sont sauvegardées automatiquement dans votre navigateur. Vous pouvez reprendre le questionnaire plus tard.
       </p>
-    </div>
+    </header>
 
     <!-- Section résultats (après soumission) -->
-    <div id="results" x-show="submitted" class="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-8 print-results">
+    <div id="results" x-show="submitted" class="mb-8 rounded-xl border border-border-subtle p-8 print-results">
       <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
         <div>
-          <h2 class="text-2xl font-bold text-tertiary mb-1">Résultats</h2>
-          <p class="text-sm text-gray-500">YSQ-L2 — Questionnaire des Schémas de Young</p>
+          <SectionHeading class="mb-1" eyebrow="02 — Synthèse" title="Résultats" />
+          <p class="text-sm text-ink-tertiary">YSQ-L2 — Questionnaire des Schémas de Young</p>
         </div>
         <div class="flex gap-2 shrink-0 no-print">
           <button
             onclick="window.print()"
-            class="flex items-center gap-1.5 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors"
+            type="button"
+            class={buttonClasses({
+              variant: "secondary",
+              size: "sm",
+              className: "gap-1.5 font-normal normal-case text-ink-secondary",
+            })}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2m2 4h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm8-12V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4h10Z" />
             </svg>
             Imprimer
           </button>
           <button
+            type="button"
             @click="reset()"
-            class="flex items-center gap-1.5 px-3 py-2 bg-red-50 hover:bg-red-100 text-red-700 rounded-lg text-sm font-medium transition-colors"
+            class={buttonClasses({
+              variant: "secondary",
+              size: "sm",
+              className:
+                "gap-1.5 border-danger bg-danger-surface font-normal normal-case text-danger hover:bg-border-subtle",
+            })}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15" />
             </svg>
             Recommencer
           </button>
         </div>
       </div>
 
-      <p class="text-sm text-gray-600 mb-6 p-4 bg-secondary/40 rounded-lg">
+      <p class="text-sm text-ink-secondary mb-6 p-4 bg-secondary/40 rounded-lg">
         Ces résultats sont destinés à être partagés avec votre psychologue. Un score élevé indique qu'un schéma est davantage présent dans votre vie.
         <strong>Ils ne constituent pas un diagnostic.</strong>
       </p>
@@ -111,15 +125,15 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
       <!-- Résultats par domaine -->
       <template x-for="domainName in uniqueDomains" :key="domainName">
         <div class="mb-8">
-          <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4 pb-2 border-b border-gray-100" x-text="domainName"></h3>
+          <h3 class="font-ui text-xs font-medium uppercase tracking-widest text-ink-tertiary mb-4 pb-2 border-b border-border-subtle" x-text="domainName"></h3>
           <div class="space-y-4">
             <template x-for="schema in schemasInDomain(domainName)" :key="schema.code">
               <div class="flex items-center gap-3">
                 <div class="w-48 shrink-0">
-                  <span class="text-sm font-medium text-gray-700 leading-snug" x-text="schema.name"></span>
+                  <span class="text-sm font-medium text-ink-secondary leading-snug" x-text="schema.name"></span>
                 </div>
                 <div class="flex-1 min-w-0 flex items-center gap-3">
-                  <div class="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden">
+                  <div class="flex-1 bg-surface-muted rounded-full h-3 overflow-hidden">
                     <div
                       class="h-3 rounded-full transition-all duration-700"
                       :class="scoreBarColor(schemaScore(schema).avg)"
@@ -127,7 +141,7 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
                     ></div>
                   </div>
                   <span
-                    class="text-sm font-bold w-10 text-right shrink-0"
+                    class="font-ui text-sm font-medium w-10 text-right shrink-0"
                     :class="scoreTextColor(schemaScore(schema).avg)"
                     x-text="schemaScore(schema).avg.toFixed(1)"
                   ></span>
@@ -147,23 +161,23 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
     <!-- Formulaire -->
     <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
       <template x-for="(schema, si) in schemas" :key="schema.code">
-        <div class="bg-white rounded-xl shadow-md border border-gray-100 mb-6 overflow-hidden">
+        <div class="mb-6 overflow-hidden rounded-xl border border-border-subtle">
           <!-- En-tête du schéma -->
-          <div class="bg-secondary/50 px-6 py-4 border-b border-gray-100">
-            <p class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-0.5" x-text="schema.domain"></p>
-            <h2 class="text-base font-semibold text-tertiary m-0" x-text="schema.name"></h2>
+          <div class="bg-secondary/50 px-6 py-4 border-b border-border-subtle">
+            <p class="text-xs font-medium text-ink-tertiary uppercase tracking-wider mb-0.5" x-text="schema.domain"></p>
+            <h3 class="typo-display-md m-0 text-ink-primary" x-text="schema.name"></h3>
           </div>
 
           <!-- Questions -->
-          <div class="divide-y divide-gray-50">
+          <div class="divide-y divide-border-subtle">
             <template x-for="(question, qi) in schema.questions" :key="si + '-' + qi">
               <div
                 class="px-4 sm:px-6 py-4 transition-colors duration-150"
                 :class="answers[schema.startIdx + qi] > 0 ? 'bg-green-50/40' : ''"
               >
                 <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-                  <p class="flex-1 text-sm text-gray-700 leading-relaxed m-0">
-                    <span class="text-gray-400 font-medium mr-1.5" x-text="(schema.startIdx + qi) + '.'"></span>
+                  <p class="flex-1 text-sm text-ink-secondary leading-relaxed m-0">
+                    <span class="text-ink-tertiary font-medium mr-1.5" x-text="(schema.startIdx + qi) + '.'"></span>
                     <span x-text="question"></span>
                   </p>
                   <div class="flex gap-1.5 shrink-0">
@@ -178,7 +192,7 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
                           class="sr-only"
                         />
                         <span
-                          class="flex items-center justify-center w-9 h-9 rounded-full border-2 text-sm font-semibold transition-all duration-150"
+                          class="font-ui flex items-center justify-center w-9 h-9 rounded-full border-2 text-sm font-medium transition-all duration-150"
                           :class="scaleClass(answers[schema.startIdx + qi], scale)"
                           x-text="scale"
                         ></span>
@@ -196,11 +210,14 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
       <div
         x-show="showWarning"
         x-transition
-        class="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6 text-orange-800 text-sm flex items-start gap-2"
+        class="mb-6 flex items-start gap-2 rounded-xl border border-info-border bg-info-surface p-4 text-sm text-info-ink"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-        </svg>
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-info-border bg-surface-raised text-info-ink" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 16v-4M12 8h.01" />
+          </svg>
+        </span>
         <span>
           <strong>Questionnaire incomplet :</strong>
           vous avez répondu à <span x-text="answeredCount"></span> question(s) sur 205.
@@ -210,10 +227,13 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
 
       <!-- Bouton de soumission -->
       <div class="text-center mb-8">
-        <button type="submit" class="btn-modern text-base px-8 py-4">
+        <button
+          type="submit"
+          class={buttonClasses({ variant: "primary", size: "lg", className: "gap-2 normal-case" })}
+        >
           Calculer mes résultats
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m9 5 7 7-7 7" />
           </svg>
         </button>
       </div>
@@ -615,8 +635,8 @@ document.addEventListener('alpine:init', () => {
 
     scaleClass(answer, scale) {
       return answer === scale
-        ? 'bg-accent border-accent text-white shadow-sm'
-        : 'border-gray-200 text-gray-500 hover:border-accent hover:text-accent cursor-pointer';
+        ? 'border-brand bg-brand text-brand-ink-on shadow-sm'
+        : 'border-border-strong text-ink-tertiary hover:border-brand hover:text-brand cursor-pointer';
     },
 
     scoreBadgeClass(avg) {

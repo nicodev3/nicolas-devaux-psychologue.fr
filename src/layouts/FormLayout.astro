@@ -17,10 +17,10 @@ const { title, description } = Astro.props;
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="bg-linear-to-r from-secondary to-white">
+  <body class="bg-surface-page">
     <Header />
-    <Breadcrumb title={title} />
-    <main class="container pb-12">
+    <main class="page-shell">
+      <Breadcrumb title={title} />
       <slot />
     </main>
     <Footer />

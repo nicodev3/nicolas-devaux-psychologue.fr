@@ -1,0 +1,48 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { Picture } from "astro:assets";
+import cabinet1 from "../assets/cabinet-1.webp";
+import cabinet2 from "../assets/cabinet-2.webp";
+
+const shots = [
+  {
+    src: cabinet1,
+    alt: "Vue du cabinet de consultation à Sceaux : cadre de séance.",
+  },
+  {
+    src: cabinet2,
+    alt: "Autre vue du cabinet : espace d’accueil pour les consultations.",
+  },
+] as const;
+---
+
+<section
+  class="py-16 md:py-24"
+  aria-labelledby="cabinet-gallery-heading"
+>
+  <div class="w-full px-0">
+    <SectionHeading class="mb-3 md:mb-4" eyebrow="02 — Cabinet" title="Le cabinet" id="cabinet-gallery-heading" />
+    <p class="font-body typo-body max-w-measure text-pretty text-ink-secondary">
+      Quelques images du lieu où je reçois à Sceaux : un espace simple et calme, pensé pour échanger en toute
+      confidentialité.
+    </p>
+    <div class="mt-8 grid gap-3 sm:grid-cols-2">
+      {
+        shots.map(({ src, alt }) => (
+          <figure class="overflow-hidden rounded-xl border border-border-subtle bg-surface-muted shadow-[var(--shadow-soft)]">
+            <Picture
+              src={src}
+              formats={["avif", "webp"]}
+              widths={[320, 480, 640]}
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 480px"
+              alt={alt}
+              loading="lazy"
+              decoding="async"
+              class="aspect-[4/3] h-auto w-full object-cover"
+            />
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

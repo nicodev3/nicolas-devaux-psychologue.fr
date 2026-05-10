@@ -1,0 +1,23 @@
+---
+const items = [
+  "Inscrit RPPS",
+  "Secret professionnel",
+  "Visio sécurisée",
+  "Conventionné Mon Soutien Psy",
+] as const;
+---
+
+<p
+  class="typo-meta-caps max-w-none border-t border-border-subtle pt-4 text-ink-tertiary"
+  role="group"
+  aria-label="Garanties et cadre réglementaire"
+>
+  {
+    items.map((label, i) => (
+      <>
+        {i > 0 && <span aria-hidden="true"> · </span>}
+        <span class="whitespace-nowrap">{label}</span>
+      </>
+    ))
+  }
+</p>

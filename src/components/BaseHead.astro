@@ -1,19 +1,27 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
-import { SITE_NAME } from '../consts';
+import "../styles/global.css";
+import { SITE_NAME } from "../consts";
+import { pathnameToOgSlug } from "../utils/pathname-to-og-slug";
 
 interface Props {
 	title: string;
 	description: string;
-	image?: string;
+	/** Surcharge du fichier `/og/{slug}.png` (cas rare). */
+	ogImageSlug?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title, description, ogImageSlug } = Astro.props;
 const pageTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+const siteBase = Astro.site ?? Astro.url.origin;
+const ogSlug = ogImageSlug ?? pathnameToOgSlug(Astro.url.pathname);
+const ogImagePath = `/og/${ogSlug}.png`;
+const ogImageAbsolute = new URL(ogImagePath, siteBase).href;
+const OG_RW = 1200;
+const OG_RH = 630;
 const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 ---
@@ -24,9 +32,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads (Inter et Lora sont dans le chemin critique LCP, chargement en parallèle du CSS) -->
-<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/lora-latin.woff2" as="font" type="font/woff2" crossorigin />
+<!-- Polices : Inter Variable (axe opsz) et Source Serif 4 Variable via CSS bundlé -->
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -37,16 +43,20 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL.href} />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={ogImageAbsolute} />
+<meta property="og:image:width" content={String(OG_RW)} />
+<meta property="og:image:height" content={String(OG_RH)} />
+<meta property="og:image:alt" content={pageTitle} />
+<meta property="og:locale" content="fr_FR" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={pageTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={new URL(image, Astro.url)} />
+<meta name="twitter:image" content={ogImageAbsolute} />
 
 <!-- Schema.org (prod). hasMap = GOOGLE_MAPS_CABINET_URL dans consts.ts (script is:inline). -->
 {import.meta.env.PROD && (

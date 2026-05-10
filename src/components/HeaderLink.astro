@@ -17,10 +17,10 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
   a.active {
     background-color: white;
     color: var(--accent);
-    font-weight: 600;
+    font-weight: 500;
   }
   
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     a.active {
       background-color: transparent;
       border-bottom: 2px solid var(--accent);

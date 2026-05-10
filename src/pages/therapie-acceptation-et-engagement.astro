@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import { Image } from "astro:assets";
+import SectionHeading from "../components/SectionHeading.astro";
+import { Picture } from "astro:assets";
 import ActImage from "../assets/act-therapy.webp";
 ---
 
@@ -33,9 +34,11 @@ import ActImage from "../assets/act-therapy.webp";
       </p>
     </div>
     <div>
-      <h2 class="mb-5">
-        Qu'est-ce que la thérapie d'acceptation et d'engagement (ACT)&nbsp;?
-      </h2>
+      <SectionHeading
+        class="mb-5"
+        eyebrow="01 — Définition"
+        title="Qu'est-ce que la thérapie d'acceptation et d'engagement (ACT) ?"
+      />
       <p>
         La thérapie ACT vise à développer votre flexibilité psychologique,
         c'est-à-dire votre capacité à :
@@ -53,7 +56,13 @@ import ActImage from "../assets/act-therapy.webp";
         personnels et vos valeurs.
       </p>
       <div class="my-8">
-        <Image src={ActImage} alt="Thérapie d'acceptation et d'engagement" />
+        <Picture
+          src={ActImage}
+          alt="Thérapie d'acceptation et d'engagement"
+          formats={["avif", "webp"]}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <p>
         Cette approche intègre des techniques de <a
@@ -65,7 +74,7 @@ import ActImage from "../assets/act-therapy.webp";
     </div>
 
     <div>
-      <h2 class="mb-5">Pour quelles difficultés consulter en ACT ?</h2>
+      <SectionHeading class="mb-5" eyebrow="02 — Indications" title="Pour quelles difficultés consulter en ACT ?" />
       <p>La thérapie ACT est particulièrement efficace pour :</p>
       <ul class="list-disc ml-6 mt-2">
         <li>L'anxiété et le stress</li>
@@ -79,8 +88,8 @@ import ActImage from "../assets/act-therapy.webp";
     </div>
 
     <div>
-      <h2 class="mb-5">Comment se déroule une thérapie ACT ?</h2>
-      <h3 class="mb-3">1. Phase d'évaluation et de définition des objectifs</h3>
+      <SectionHeading class="mb-5" eyebrow="03 — Déroulement" title="Comment se déroule une thérapie ACT ?" />
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">1. Phase d'évaluation et de définition des objectifs</h3>
       <p>
         Les premières séances permettent d'identifier vos difficultés actuelles
         et de comprendre comment vos tentatives de solutions ont pu parfois
@@ -88,7 +97,7 @@ import ActImage from "../assets/act-therapy.webp";
         thérapeutiques alignés avec vos valeurs personnelles.
       </p>
 
-      <h3 class="mb-3">2. Apprentissage des compétences ACT</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">2. Apprentissage des compétences ACT</h3>
       <p>Au cours de la thérapie, vous apprendrez à :</p>
       <ul class="list-disc ml-6 mb-5 mt-2">
         <li>Développer une plus grande conscience du moment présent</li>
@@ -98,7 +107,7 @@ import ActImage from "../assets/act-therapy.webp";
         <li>Vous engager dans des actions cohérentes avec ces valeurs</li>
       </ul>
 
-      <h3 class="mb-3">3. Mise en pratique et consolidation</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">3. Mise en pratique et consolidation</h3>
       <p>
         La thérapie inclut des exercices pratiques à réaliser entre les séances
         pour intégrer les apprentissages dans votre quotidien. Cette approche
@@ -110,7 +119,7 @@ import ActImage from "../assets/act-therapy.webp";
     </div>
 
     <div>
-      <h2 class="mb-5">Quelle est la durée d'une thérapie ACT ?</h2>
+      <SectionHeading class="mb-5" eyebrow="04 — Durée" title="Quelle est la durée d'une thérapie ACT ?" />
       <p>
         La durée de la thérapie est adaptée à chaque situation. Elle peut varier
         de quelques séances à plusieurs mois, selon vos objectifs et votre
@@ -120,7 +129,7 @@ import ActImage from "../assets/act-therapy.webp";
       </p>
     </div>
     <div>
-      <h2 class="mb-5">Autres approches de 3e vague</h2>
+      <SectionHeading class="mb-5" eyebrow="05 — Pistes" title="Autres approches de 3e vague" />
       <p>
         Selon votre situation, le travail peut aussi s'orienter vers la <a
           href="/therapie-pleine-conscience/"
@@ -131,7 +140,7 @@ import ActImage from "../assets/act-therapy.webp";
       </p>
     </div>
     <section class="references">
-      <h2 class="mb-5">Bibliographie</h2>
+      <SectionHeading class="mb-5" eyebrow="06 — Sources" title="Bibliographie" />
       <p>
         Pour découvrir ou approfondir vos connaissances sur la thérapie ACT,
         voici quelques ouvrages de référence :

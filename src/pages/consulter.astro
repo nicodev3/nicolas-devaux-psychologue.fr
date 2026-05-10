@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+import SectionHeading from "../components/SectionHeading.astro";
 import {
   NEARBY_CITIES,
   CABINET_ADDRESS_LINE,
@@ -22,7 +23,7 @@ import {
     </p>
 
     <div>
-      <h2>Premier rendez-vous</h2>
+      <SectionHeading class="mb-4" eyebrow="01 — Début" title="Premier rendez-vous" />
       <p>
         Les premières séances permettent de clarifier votre demande, de comprendre
         ce que vous traversez et de définir ensemble le cadre de travail le plus
@@ -34,7 +35,7 @@ import {
     </div>
 
     <div>
-      <h2>Déroulement de l'accompagnement</h2>
+      <SectionHeading class="mb-4" eyebrow="02 — Suivi" title="Déroulement de l'accompagnement" />
       <p>
         Le suivi est ajusté à vos besoins, à vos objectifs et à votre rythme. Il
         peut s'agir d'un travail bref et ciblé ou d'un accompagnement plus approfondi.
@@ -47,7 +48,7 @@ import {
     </div>
 
     <div>
-      <h2>Tarifs et remboursement</h2>
+      <SectionHeading class="mb-4" eyebrow="03 — Tarifs" title="Tarifs et remboursement" />
       <p>
         Pour le détail des tarifs et des horaires, consultez la page
         <a href="/tarifs/" class="text-link">Tarifs</a>.
@@ -64,7 +65,7 @@ import {
     </div>
 
     <div>
-      <h2>Adresse et accès au cabinet</h2>
+      <SectionHeading class="mb-4" eyebrow="04 — Accès" title="Adresse et accès au cabinet" />
       <p>
         <strong>{CABINET_ADDRESS_LINE}</strong> — à proximité de {NEARBY_CITIES}.
       </p>
@@ -74,7 +75,7 @@ import {
           class="text-link"
           target="_blank"
           rel="noopener noreferrer"
-          >Ouvrir l’adresse dans Google Maps</a
+          >Ouvrir l'adresse dans Google Maps</a
         >
         pour calculer un itinéraire.
       </p>
@@ -104,7 +105,7 @@ import {
       <h3 class="text-xl font-bold mt-8 mb-3">Stationnement et parkings</h3>
       <p>
         Le <strong>parking Penthièvre</strong> (76 rue Houdan) se trouve sur la même
-        rue que le cabinet, à très courte distance. D’autres parkings couverts sont
+        rue que le cabinet, à très courte distance. D'autres parkings couverts sont
         disponibles en centre-ville, notamment <strong>Charaire</strong> (avenue
         Camberwell), <strong>Robinson</strong> (près de la gare) et <strong>Amiral</strong>
         (rue Fontenay). Le <strong>stationnement en voirie</strong> est également
@@ -114,7 +115,7 @@ import {
     </div>
 
     <div>
-      <h2>Modalités pratiques</h2>
+      <SectionHeading class="mb-4" eyebrow="05 — Modalités" title="Modalités pratiques" />
       <ul>
         <li>Consultations sur rendez-vous uniquement.</li>
         <li>Cabinet à Sceaux et téléconsultation selon les situations.</li>
@@ -122,8 +123,8 @@ import {
       </ul>
     </div>
 
-    <div class="border border-gray-200 rounded-xl bg-secondary/40 p-5">
-      <h2 class="mb-4">Accès spécifiques</h2>
+    <div class="border-l-4 border-brand/35 bg-secondary/35 py-4 pl-5 pr-2 md:pr-4">
+      <SectionHeading class="mb-4" eyebrow="06 — Dispositif" title="Accès spécifiques" />
       <p class="mb-3">
         Si vous souhaitez vérifier votre éligibilité au dispositif remboursé,
         consultez la page dédiée :

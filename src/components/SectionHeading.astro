@@ -1,0 +1,22 @@
+---
+/**
+ * Titre de section H2 + libellé « eyebrow » (numéro — thème).
+ * Utiliser `title` OU le slot par défaut pour le contenu du h2 (ex. lien).
+ */
+interface Props {
+  eyebrow: string;
+  title?: string;
+  id?: string;
+  class?: string;
+}
+
+const { eyebrow, title, id, class: className } = Astro.props;
+const hasSlot = Astro.slots.has("default");
+---
+
+<header class:list={["section-heading-group", className]}>
+  <p class="typo-eyebrow">{eyebrow}</p>
+  <h2 id={id} class="font-display typo-display-lg text-pretty text-ink-primary">
+    {hasSlot ? <slot /> : title}
+  </h2>
+</header>

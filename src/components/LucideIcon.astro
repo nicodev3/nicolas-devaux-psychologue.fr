@@ -1,0 +1,60 @@
+---
+/**
+ * Icône Lucide : trait 1,5 px, tailles token (lg = 20px à côté des titres, sm = 16px inline).
+ * Aligné sur les `IconNode` du paquet `lucide`.
+ */
+export type LucideIconNode = readonly (readonly [
+  string,
+  Record<string, string | number | undefined>,
+])[];
+
+interface Props {
+  icon: LucideIconNode;
+  /** lg = 20px (w-5 h-5), sm = 16px (w-4 h-4) */
+  size?: "lg" | "sm";
+  class?: string;
+}
+
+const { icon, size = "lg", class: className = "" } = Astro.props;
+
+const sizeClass = size === "sm" ? "h-4 w-4" : "h-5 w-5";
+
+const svgClass = ["shrink-0", sizeClass, className].filter(Boolean).join(" ");
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={svgClass}
+  aria-hidden="true"
+>
+  {
+    icon.map(([tag, attrs]) => {
+      switch (tag) {
+        case "circle":
+          return <circle {...attrs} />;
+        case "ellipse":
+          return <ellipse {...attrs} />;
+        case "path":
+          return <path {...attrs} />;
+        case "rect":
+          return <rect {...attrs} />;
+        case "line":
+          return <line {...attrs} />;
+        case "polyline":
+          return <polyline {...attrs} />;
+        case "polygon":
+          return <polygon {...attrs} />;
+        default:
+          return null;
+      }
+    })
+  }
+</svg>

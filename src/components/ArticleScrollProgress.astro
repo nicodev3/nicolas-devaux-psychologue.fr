@@ -1,0 +1,27 @@
+---
+interface Props {
+  enabled?: boolean;
+}
+
+const { enabled = true } = Astro.props;
+---
+
+{
+  enabled && (
+    <>
+      <div
+        class="pointer-events-none fixed top-0 left-0 right-0 z-[200] h-0.5"
+        aria-hidden="true"
+      >
+        <div
+          class="bg-brand h-full w-full origin-left scale-x-0 will-change-transform"
+          data-article-scroll-progress-bar
+        />
+      </div>
+      <script>
+        import { initArticleScrollProgress } from '../scripts/article-scroll-progress.ts';
+        initArticleScrollProgress();
+      </script>
+    </>
+  )
+}

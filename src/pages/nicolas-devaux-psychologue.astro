@@ -1,8 +1,17 @@
 ---
+import fs from "node:fs";
+import path from "node:path";
 import Layout from "../layouts/BlogPost.astro";
-import { Image } from "astro:assets";
+import SectionHeading from "../components/SectionHeading.astro";
+import { getImage, Picture } from "astro:assets";
 import NicolasDevauxImage from "../assets/nicolas_devaux.jpg";
 import { NEARBY_CITIES } from "../consts";
+
+const introVideoPath = path.join(process.cwd(), "public", "media", "a-propos-intro.mp4");
+const hasIntroVideo = fs.existsSync(introVideoPath);
+const introPoster = hasIntroVideo
+  ? await getImage({ src: NicolasDevauxImage, width: 960, format: "jpg" })
+  : null;
 ---
 
 <Layout
@@ -14,9 +23,9 @@ import { NEARBY_CITIES } from "../consts";
 >
   <section class="flex flex-col gap-8 xl:gap-10">
     <section class="space-y-5">
-      <header class="flex flex-col md:flex-row gap-5 md:gap-12">
-        <div>
-          <h2 class="text-2xl font-bold mb-4">Nicolas Devaux</h2>
+      <header class="flex flex-col gap-5 md:flex-row md:gap-12">
+        <div class="min-w-0 flex-1">
+          <SectionHeading class="mb-4" eyebrow="01 — Présentation" title="Nicolas Devaux" />
           <p>
             Je suis <strong>psychologue clinicien</strong>, et <strong
               >psychothérapeute</strong
@@ -35,17 +44,49 @@ import { NEARBY_CITIES } from "../consts";
             voisines : {NEARBY_CITIES}.
           </p>
         </div>
-        <aside class="border-radius-md overflow-hidden w-full md:w-3/5">
-          <Image
+        <aside class="w-full shrink-0 overflow-hidden rounded-xl border border-border-subtle md:w-3/5">
+          <Picture
             src={NicolasDevauxImage}
             alt="Nicolas Devaux, psychologue à Sceaux"
-            class="object-contain w-full"
+            formats={["avif", "webp"]}
+            class="h-auto w-full object-contain"
           />
         </aside>
       </header>
 
+      {
+        hasIntroVideo && introPoster && (
+          <section class="space-y-4" aria-labelledby="intro-video-heading">
+            <SectionHeading
+              id="intro-video-heading"
+              class="mb-3"
+              eyebrow="02 — Vidéo"
+              title="Présentation en vidéo"
+            />
+            <p class="text-body-muted">
+              En une minute : cadre du cabinet, façon de travailler et premiers pas pour prendre rendez-vous.
+            </p>
+            <video
+              class="w-full overflow-hidden rounded-xl border border-primary/20 bg-black/5 shadow-sm"
+              controls
+              playsinline
+              preload="none"
+              poster={introPoster.src}
+              width={960}
+              height={540}
+            >
+              <source src="/media/a-propos-intro.mp4" type="video/mp4" />
+              <p>
+                Votre navigateur ne lit pas la vidéo. Utilisez une version récente ou contactez-moi par la messagerie
+                Doctolib.
+              </p>
+            </video>
+          </section>
+        )
+      }
+
       <article class="rounded-xl border border-primary/20 bg-secondary/30 p-5">
-          <h3 class="text-xl font-bold mb-3">Repères utiles pour vous</h3>
+          <h3 class="font-display typo-display-md mb-3 text-ink-primary">Repères utiles pour vous</h3>
           <ul class="list-disc pl-5 space-y-2">
             <li>
               Diplômé en psychologie clinique et pathologique depuis 2007.
@@ -69,9 +110,7 @@ import { NEARBY_CITIES } from "../consts";
       </article>
 
       <article>
-        <h2 class="text-2xl font-bold mb-4">
-          Ma formation et mon expérience
-        </h2>
+        <SectionHeading class="mb-4" eyebrow="03 — Formation" title="Ma formation et mon expérience" />
         <p>
           Je suis diplômé depuis 2007 en psychologie clinique et pathologique
           de l'<strong>Université Paris Cité</strong> (anciennement Paris 7 Denis-Diderot),
@@ -117,7 +156,7 @@ import { NEARBY_CITIES } from "../consts";
 
     <section class="space-y-6">
       <article>
-        <h2 class="text-2xl font-bold mb-4">Mon parcours personnel</h2>
+        <SectionHeading class="mb-4" eyebrow="04 — Parcours" title="Mon parcours personnel" />
         <p>
           Mon travail thérapeutique s'appuie aussi sur un cheminement personnel
           ancien et approfondi. J'ai une <strong
@@ -174,7 +213,7 @@ import { NEARBY_CITIES } from "../consts";
       </article>
 
       <article>
-        <h2 class="text-2xl font-bold mb-4">Comment je travaille</h2>
+        <SectionHeading class="mb-4" eyebrow="05 — Méthode" title="Comment je travaille" />
         <p>
           En début d'accompagnement, nous prenons le temps de clarifier votre
           demande : ce qui vous fait souffrir, ce que vous souhaitez comprendre,
@@ -202,10 +241,12 @@ import { NEARBY_CITIES } from "../consts";
         </p>
       </article>
 
-      <article class="rounded-xl border border-primary/20 bg-white p-5 shadow-sm">
-        <h2 class="text-2xl font-bold mb-4">
-          Ce que vous pouvez attendre d'un premier rendez-vous
-        </h2>
+      <article class="rounded-xl border border-primary/20 bg-surface-raised p-5 shadow-sm">
+        <SectionHeading
+          class="mb-4"
+          eyebrow="06 — Premier RDV"
+          title="Ce que vous pouvez attendre d'un premier rendez-vous"
+        />
         <p>
           Le premier entretien sert avant tout à faire connaissance, à poser
           votre situation et à voir si ma manière de travailler peut vous

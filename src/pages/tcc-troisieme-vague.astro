@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import { Image } from "astro:assets";
+import SectionHeading from "../components/SectionHeading.astro";
+import { Picture } from "astro:assets";
 import TccImage from "../assets/ACBS-logo.webp";
 ---
 
@@ -18,12 +19,8 @@ import TccImage from "../assets/ACBS-logo.webp";
       pleine conscience et à la compassion.
     </p>
 
-    <div class="my-2">
-      <Image src={TccImage} alt="TCC de 3e vague" />
-    </div>
-
     <div>
-      <h2>Quand ces approches peuvent-elles être utiles ?</h2>
+      <SectionHeading class="mb-4" eyebrow="01 — Indications" title="Quand ces approches peuvent-elles être utiles ?" />
       <p>
         Elles peuvent être indiquées lorsque la difficulté demande un travail
         concret, structuré et centré sur les processus qui entretiennent la
@@ -39,7 +36,7 @@ import TccImage from "../assets/ACBS-logo.webp";
     </div>
 
     <div>
-      <h2>Ce qu'ont en commun ACT, MBCT et CFT</h2>
+      <SectionHeading class="mb-4" eyebrow="02 — Principes" title="Ce qu'ont en commun ACT, MBCT et CFT" />
       <p>
         Ces approches ne cherchent pas seulement à faire disparaître un symptôme.
         Elles aident aussi à modifier la manière de vivre avec certaines pensées,
@@ -55,23 +52,23 @@ import TccImage from "../assets/ACBS-logo.webp";
     </div>
 
     <div>
-      <h2>Les approches proposées au cabinet</h2>
+      <SectionHeading class="mb-4" eyebrow="03 — Au cabinet" title="Les approches proposées au cabinet" />
 
-      <h3 class="mb-3">ACT</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">ACT</h3>
       <p>
         L'ACT travaille la flexibilité psychologique : apprendre à ne pas rester
         prisonnier de ses pensées ou de ses émotions, et se réengager dans des
         actions cohérentes avec ses valeurs.
       </p>
 
-      <h3 class="mb-3">MBCT</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">MBCT</h3>
       <p>
         La MBCT s'appuie sur la pleine conscience et sur des outils issus des TCC.
         Elle est particulièrement utile pour les ruminations, le stress et la
         prévention des rechutes dépressives.
       </p>
 
-      <h3 class="mb-3">Thérapie fondée sur la compassion</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Thérapie fondée sur la compassion</h3>
       <p>
         La CFT est indiquée lorsque la souffrance est entretenue par l'autocritique,
         la honte, la peur du jugement ou une relation à soi trop dure. Elle aide à
@@ -80,7 +77,7 @@ import TccImage from "../assets/ACBS-logo.webp";
     </div>
 
     <div>
-      <h2>Comment choisir entre ces approches ?</h2>
+      <SectionHeading class="mb-4" eyebrow="04 — Choix" title="Comment choisir entre ces approches ?" />
       <p>
         Le choix dépend moins d'une étiquette que de votre problématique actuelle.
         Certaines situations appellent surtout un travail sur l'évitement et
@@ -93,14 +90,33 @@ import TccImage from "../assets/ACBS-logo.webp";
       </p>
     </div>
 
-    <div class="border border-gray-200 rounded-xl bg-secondary/40 p-5">
-      <h2 class="mb-4">Pages dédiées</h2>
+    <div class="border border-border-strong rounded-xl bg-secondary/40 p-5">
+      <SectionHeading class="mb-4" eyebrow="05 — Approfondir" title="Pages dédiées" />
       <ul class="list-disc list-inside space-y-2">
         <li><a href="/therapie-cognitive-et-comportementale/" class="text-link">Thérapie cognitive et comportementale (cadre général)</a></li>
         <li><a href="/therapie-acceptation-et-engagement/" class="text-link">ACT</a></li>
         <li><a href="/therapie-pleine-conscience/" class="text-link">MBCT</a></li>
         <li><a href="/therapie-fondee-compassion/" class="text-link">Thérapie fondée sur la compassion</a></li>
       </ul>
+    </div>
+
+    <div class="border-t border-border-subtle mt-10 flex flex-col gap-4 pt-10 sm:flex-row sm:flex-wrap sm:items-center">
+      <p class="typo-meta text-ink-tertiary uppercase tracking-wider">Affiliations</p>
+      <a
+        href="https://contextualscience.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center"
+      >
+        <Picture
+          src={TccImage}
+          alt="Association for Contextual Behavioral Science (ACBS)"
+          formats={["avif", "webp"]}
+          class="h-6 w-auto opacity-90"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
     </div>
   </section>
 </Layout>

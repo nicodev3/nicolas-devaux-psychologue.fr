@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 import alpinejs from '@astrojs/alpinejs';
 
+import react from '@astrojs/react';
 
 import tailwindcss from '@tailwindcss/vite';
 import remarkAutolinkKeywords from './src/remark/remark-autolink-keywords.js';
@@ -16,7 +17,7 @@ import rehypeExternalLinks from './src/remark/rehype-external-links.js';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://nicolas-devaux-psychologue.fr',
-    integrations: [mdx(), sitemap(), alpinejs()],
+    integrations: [mdx(), sitemap(), alpinejs(), react()],
     markdown: {
         remarkPlugins: [
             [remarkFrenchPunctuationSpacing, {}],
