@@ -33,6 +33,7 @@ const shots = [
             <Picture
               src={src}
               formats={["avif", "webp"]}
+              fallbackFormat="webp"
               widths={[320, 480, 640]}
               sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 480px"
               alt={alt}

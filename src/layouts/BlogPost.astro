@@ -51,6 +51,7 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
                   width={heroImage.width}
                   height={heroImage.height}
                   formats={["avif", "webp"]}
+                  fallbackFormat="webp"
                   loading="lazy"
                   decoding="async"
                   class="h-auto w-full max-w-full"

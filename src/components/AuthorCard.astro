@@ -17,6 +17,7 @@ const { class: className } = Astro.props;
       width={48}
       height={48}
       formats={["avif", "webp"]}
+      fallbackFormat="webp"
       densities={[1, 2]}
       loading="eager"
       fetchpriority="high"

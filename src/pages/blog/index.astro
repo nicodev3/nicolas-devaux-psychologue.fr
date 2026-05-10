@@ -50,6 +50,7 @@ const posts = (await getCollection("blog")).sort(
                         width={720}
                         height={360}
                         formats={["avif", "webp"]}
+                        fallbackFormat="webp"
                         loading="lazy"
                         decoding="async"
                         class="h-full w-full object-cover"
