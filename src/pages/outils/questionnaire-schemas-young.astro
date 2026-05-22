@@ -3,8 +3,8 @@ import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
 
-const title = "Questionnaire des Schémas de Young (YSQ-L2)";
-const description = "Passez le Questionnaire des Schémas de Young en ligne — 205 affirmations explorant 16 schémas précoces inadaptés dans le cadre de la thérapie des schémas.";
+const title = "Questionnaire des Schémas de Young (YSQ-L3)";
+const description = "Passez le Questionnaire des Schémas de Young en ligne — 232 affirmations explorant 18 schémas précoces inadaptés dans le cadre de la thérapie des schémas.";
 ---
 
 <FormLayout title={title} description={description}>
@@ -15,7 +15,7 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
         <div class="flex items-center justify-between mb-1.5">
           <span class="text-xs font-medium text-ink-tertiary">Progression</span>
           <span class="font-ui text-xs font-medium text-ink-secondary">
-            <span x-text="answeredCount"></span>/205
+            <span x-text="answeredCount"></span>/232
           </span>
         </div>
         <div class="w-full bg-surface-muted rounded-full h-2">
@@ -29,7 +29,7 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
 
     <!-- En-tête et instructions -->
     <header class="mb-10 md:mb-12">
-      <p class="typo-eyebrow mb-3 md:mb-4">YSQ-L2</p>
+      <p class="typo-eyebrow mb-3 md:mb-4">YSQ-L3</p>
       <h1 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
         Questionnaire des Schémas de Young
       </h1>
@@ -73,7 +73,7 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
       <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
         <div>
           <SectionHeading class="mb-1" eyebrow="02 — Synthèse" title="Résultats" />
-          <p class="text-sm text-ink-tertiary">YSQ-L2 — Questionnaire des Schémas de Young</p>
+          <p class="text-sm text-ink-tertiary">YSQ-L3 — Questionnaire des Schémas de Young</p>
         </div>
         <div class="flex gap-2 shrink-0 no-print">
           <button
@@ -220,7 +220,7 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
         </span>
         <span>
           <strong>Questionnaire incomplet :</strong>
-          vous avez répondu à <span x-text="answeredCount"></span> question(s) sur 205.
+          vous avez répondu à <span x-text="answeredCount"></span> question(s) sur 232.
           Veuillez répondre à toutes les questions pour obtenir vos résultats.
         </span>
       </div>
@@ -253,341 +253,382 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
 document.addEventListener('alpine:init', () => {
   const SCHEMAS = [
     {
-      code: 'ed', startIdx: 1,
-      name: 'Manque Affectif',
-      domain: 'A. Séparation et rejet',
+      code: "ed", startIdx: 1,
+      name: "Carence affective",
+      domain: "A. Séparation et rejet",
       questions: [
-        "Les autres n'ont pas satisfait mes besoins émotionnels.",
-        "Je n'ai reçu ni amour, ni attention.",
-        "La plupart du temps, je n'ai eu personne dont je dépende pour donner des conseils et un soutien émotionnel.",
-        "La plupart du temps, je n'ai eu personne pour m'éduquer et avec qui je puisse partager une relation ou pour se soucier profondément de tout ce qui m'arrive.",
-        "Pour la plus grande part de ma vie, je n'ai eu personne qui voulait être près de moi et passer beaucoup de temps avec moi.",
-        "En général, les autres n'ont pas été présents pour me donner de la chaleur, du soutien et de l'affection.",
-        "Pour la plus grande part de ma vie, je n'ai jamais eu le sentiment que je représentais quelqu'un d'important pour quelqu'un d'autre.",
-        "En grande partie, je n'ai eu personne qui m'écoute réellement, me comprenne et soit en accord avec mes vrais besoins et mes vrais sentiments.",
-        "J'ai eu rarement une personne forte pour me donner des avis valables ou pour m'indiquer le chemin à suivre quand je n'étais par sûr(e) de ce qu'il fallait faire."
+        "Les autres n’ont pas satisfait mes besoins affectifs.",
+        "Je n'ai pas reçu suffisamment d’amour et d’attention.",
+        "Dans l’ensemble, je n’ai eu personne sur qui compter pour recevoir des conseils ou du soutien affectif.",
+        "La plupart du temps, je n'ai eu personne pour m'aider à grandir, pour partager son univers intérieur avec moi, ou qui se soucie profondément de tout ce qui m'arrive.",
+        "Pour la plus grande partie de ma vie, je n'ai eu personne qui veuille être près de moi et passer beaucoup de temps avec moi.",
+        "En général, les autres n'ont pas été présents pour me prendre dans leurs bras, pour me donner de la chaleur et de l'affection.",
+        "Pour la plus grande partie de ma vie, je n’ai jamais eu le sentiment que je représentais quelqu’un d’important pour quelqu’un d’autre.",
+        "En grande partie, je n'ai eu personne qui m'écoute réellement, me comprenne et soit sensible à mes besoins et mes sentiments véritables.",
+        "J’ai rarement eu une personne forte pour me donner de bons conseils ou pour me guider lorsque je ne savais pas quoi faire."
       ]
     },
     {
-      code: 'ab', startIdx: 10,
-      name: 'Abandon/Instabilité',
-      domain: 'A. Séparation et rejet',
+      code: "ab", startIdx: 10,
+      name: "Abandon/Instabilité",
+      domain: "A. Séparation et rejet",
       questions: [
-        "Je suis préoccupé(e) par le fait que les gens que j'aime vont mourir bientôt même s'il y a peu de raisons médicales pour valider ma préoccupation.",
-        "Je suis souvent en train de m'accrocher aux autres dont je suis proche car j'ai peur qu'ils ne me quittent.",
-        "Je crains que les gens dont je me sens proche ne me quittent ou ne m'abandonnent.",
-        "J'ai le sentiment de manquer d'une base stable qui me soutienne émotionnellement.",
-        "Je n'ai pas le sentiment que les relations importantes dureront ; je m'attends à ce qu'elles finissent.",
-        "Je me sens en dépendance des partenaires qui ne peuvent être là pour moi d'une façon constante.",
+        "Je suis préoccupé(e) par le fait que les gens que j'aime vont mourir bientôt même s'il y a peu de raisons médicales à ma préoccupation.",
+        "Je m’accroche aux gens dont je suis proche par peur qu’ils ne me quittent.",
+        "Je crains que les gens dont je me sens proche ne me quittent ou ne m’abandonnent.",
+        "J'ai le sentiment de manquer d'une base stable qui me soutienne affectivement.",
+        "Je n'ai pas l’impression que les relations importantes dureront : je m'attends à ce qu'elles finissent.",
+        "Je me sens \"accro\" aux partenaires qui ne peuvent pas s'engager avec moi de façon stable.",
         "Je finirai seul(e).",
-        "Quand je sens que quelqu'un à qui je tiens s'éloigne de moi, je deviens désespéré(e).",
-        "Parfois, je suis si préoccupé(e) que les autres ne me quittent que je les rejette.",
-        "Je deviens bouleversé(e) quand quelqu'un me laisse seul(e) même pour une courte période.",
+        "Quand je sens que quelqu’un à qui je tiens s’éloigne de moi, je deviens désespéré.",
+        "Quelquefois j’ai tellement peur que les gens m’abandonnent que je les repousse.",
+        "Je deviens bouleversé(e) quand quelqu’un me laisse seul(e) même pour une courte période.",
         "Je ne peux compter sur la présence régulière de ceux qui me soutiennent.",
-        "Je ne peux me permettre d'être vraiment proche des autres car je ne peux être sûr(e) qu'ils seront toujours là.",
+        "Je ne peux me permettre d’être vraiment proche des autres car je ne peux être sûr(e) qu’ils seront toujours là.",
         "Il me semble que les personnes importantes dans ma vie sont toujours en train de venir et de repartir.",
-        "Je m'inquiète beaucoup que les personnes que j'aime ne trouvent quelqu'un d'autre qu'ils préfèrent et qu'ils m'abandonnent.",
-        "Les gens qui sont proches de moi sont toujours tout à fait imprévisibles ; un moment ils sont disponibles et gentil(le)s puis ils sont en colère, bouleversés, préoccupés par eux-mêmes, agressif(ve)s...",
-        "J'ai tellement besoin des autres que je m'inquiète de les perdre.",
-        "Je me sens tellement sans défense si je n'ai personne pour me protéger que je crains beaucoup de perdre mes relations.",
-        "Je ne peux être moi-même ou exprimer ce que je sens véritablement ou les autres me quitteront."
+        "J’ai très peur que les personnes que j'aime ne trouvent quelqu'un d'autre qu'elles préfèrent et qu'elles m'abandonnent.",
+        "Les gens qui me sont proches ont toujours été très imprévisibles : un moment ils sont disponibles et gentils, puis, ils sont fâchés, contrariés, querelleurs, préoccupés par eux-mêmes…",
+        "J'ai tellement besoin des autres que j’ai peur de les perdre.",
+        "Je ne peux être moi-même ou exprimer ce que je ressens véritablement, sinon les autres vont me quitter."
       ]
     },
     {
-      code: 'ma', startIdx: 28,
-      name: 'Méfiance/Abus',
-      domain: 'A. Séparation et rejet',
+      code: "ma", startIdx: 27,
+      name: "Méfiance/Abus",
+      domain: "A. Séparation et rejet",
       questions: [
-        "J'ai l'impression que les autres abusent de moi.",
-        "Je me sens souvent dans la nécessité de me protéger vis-à-vis des autres.",
-        "Je sens que je ne peux pas baisser ma garde devant les autres sinon ils vont faire exprès de me blesser.",
-        "Si une personne agit de façon aimable à mon égard, je considère qu'elle cherche à obtenir quelque chose.",
-        "Être trahi(e) par quelqu'un est uniquement une question de temps.",
+        "J’ai l’impression que les autres vont profiter de moi.",
+        "J’ai souvent l’impression que je dois me protéger des autres.",
+        "J’ai l’impression que je dois être sur mes gardes en présence des autres sinon ils me blesseront intentionnellement.",
+        "Si une personne est aimable avec moi, je suppose qu’elle cherche à obtenir quelque chose.",
+        "Ce n’est qu’une question de temps avant que quelqu’un me trahisse.",
         "La plupart des gens pensent uniquement à eux.",
         "J'ai la plus grande difficulté à faire confiance aux autres.",
-        "Je trouve tout à fait suspectes les motivations des autres.",
+        "Je suis très méfiant quant aux motivations des autres.",
         "Les autres sont rarement honnêtes, ils ne sont pas en général ce qu'ils paraissent.",
-        "Habituellement, je cherche les motivations lointaines des autres.",
-        "Si je pense que quelqu'un cherche à me blesser, je cherche à le blesser en premier.",
-        "Les autres habituellement doivent faire leurs preuves avec moi avant que je leur accorde ma confiance.",
-        "Je teste les autres pour voir s'ils me disent la vérité ou sont bien attentionnés.",
-        "Je suis d'accord avec la croyance : « contrôle ou sois contrôlé(e) ».",
-        "Je me mets en colère quand je pense aux façons dont j'ai été maltraité(e) par les autres tout au long de ma vie.",
-        "Tout au long de ma vie, mes proches ont abusé de moi et m'ont utilisé pour leurs propres desseins.",
-        "J'ai été physiquement, émotionnellement ou sexuellement abusé(e) par des personnes importantes dans ma vie."
+        "Je m’interroge habituellement sur les véritables intentions des autres.",
+        "Si je pense que quelqu’un cherche à me blesser, je cherche à le blesser en premier.",
+        "Les autres habituellement doivent faire leurs preuves avant que je leur accorde ma confiance.",
+        "Je teste les autres pour voir s'ils me disent la vérité ou s’ils sont bien intentionnés.",
+        "Je souscris à la croyance : «Contrôle ou tu seras contrôlé(e).»",
+        "Je me mets en colère quand je pense aux façons dont j’ai été maltraité par les autres tout au long de ma vie.",
+        "Tout au long de ma vie, mes proches ont profité de moi et m’ont utilisé à leurs propres desseins.",
+        "J’ai été physiquement, émotionnellement, ou sexuellement abusé(e) par des personnes importantes de ma vie."
       ]
     },
     {
-      code: 'si', startIdx: 45,
-      name: 'Isolement Social',
-      domain: 'A. Séparation et rejet',
+      code: "si", startIdx: 44,
+      name: "Isolement social",
+      domain: "A. Séparation et rejet",
       questions: [
         "Je ne suis pas adapté(e).",
         "Je suis fondamentalement différent(e) des autres.",
-        "Je suis à part ; je suis un(e) solitaire.",
-        "Je me sens éloigné(e) des autres.",
+        "Je suis à part; je suis un(e) solitaire.",
+        "Je me sens étranger(ère) aux autres.",
         "Je me sens isolé(e) et seul(e).",
-        "Je me sens toujours à l'extérieur des groupes.",
+        "Je me sens toujours à l’extérieur des groupes.",
         "Personne ne me comprend vraiment.",
-        "Ma famille était toujours différente des familles aux alentours.",
-        "Je me sens souvent étranger(e).",
+        "Ma famille a toujours été différente des autres familles.",
+        "J’ai parfois le sentiment d’être un étranger.",
         "Si je disparaissais demain, personne ne le remarquerait."
       ]
     },
     {
-      code: 'ds', startIdx: 55,
-      name: 'Imperfection/Honte',
-      domain: 'A. Séparation et rejet',
+      code: "ds", startIdx: 54,
+      name: "Imperfection/Honte",
+      domain: "A. Séparation et rejet",
       questions: [
-        "Aucun homme ou femme que je désire ne pourrait m'aimer une fois qu'il(elle) aurait vu mes déficiences.",
-        "Aucune personne que je désire ne pourrait rester proche de moi si elle connaissait ce que je suis réellement.",
-        "Je suis fondamentalement marqué(e) par un défaut et déficient(e).",
-        "Même si je me donne le plus grand mal, je sens qu'il ne me sera pas possible d'avoir le respect d'un homme ou d'une femme importante et de sentir que je suis valable.",
-        "Je ne mérite pas l'amour, l'attention et le respect des autres.",
-        "Je sens que je suis quelqu'un que l'on ne peut pas aimer.",
+        "Aucun homme ou femme que je désire ne pourrait m'aimer une fois qu'il(elle) aurait vu mes défauts.",
+        "Aucune personne que je désire ne pourrait rester proche de moi si elle savait qui je suis réellement.",
+        "Je suis fondamentalement imparfait et marqué(e) par un défaut.",
+        "Même si je me donne le plus grand mal, je sens qu'il ne me sera pas possible d'obtenir le respect d'un homme ou d'une femme important(e) et de sentir que j'ai de la valeur.",
+        "Je ne mérite pas l’amour, l’attention et le respect des autres.",
+        "J’ai le sentiment d’être quelqu’un que l’on ne peut pas aimer.",
         "Je suis trop fondamentalement inacceptable pour me révéler aux autres.",
-        "Si les autres trouvaient mes déficiences fondamentales, je ne pourrais les rencontrer.",
-        "Lorsque les gens m'apprécient, je pense que je les trompe.",
-        "Souvent, je me sens attiré(e) par les gens qui sont vraiment critiques ou me rejettent.",
-        "J'ai des secrets intérieurs que je ne veux pas que mes proches connaissent.",
-        "C'est ma faute si mes parents n'ont pu m'aimer suffisamment.",
+        "Je ne pourrais pas affronter les gens, s’ils découvraient mes défauts fondamentaux.",
+        "Lorsque les gens m’apprécient, j’ai l’impression de les duper.",
+        "Je suis souvent attiré(e) par les gens qui sont très critiques envers moi ou qui me rejettent.",
+        "J’ai des secrets que je ne veux pas que mes proches découvrent.",
+        "C’est de ma faute si mes parents n’ont pas pu m’aimer suffisamment.",
         "Je ne laisse pas les gens connaître ce que je suis réellement.",
-        "Une de mes plus grandes peurs est que mes déficiences deviennent publiques.",
+        "Une de mes plus grandes peurs est que mes défauts deviennent publics.",
         "Je ne puis comprendre comment qui que ce soit pourrait m'aimer."
       ]
     },
     {
-      code: 'su', startIdx: 70,
-      name: 'Non-Désirabilité Sociale',
-      domain: 'A. Séparation et rejet',
-      questions: [
-        "Je ne suis pas attirant(e) sexuellement.",
-        "Je suis trop gros(se).",
-        "Je suis laid(e).",
-        "Je ne peux soutenir une conversation convenable.",
-        "Je suis banal(e) et ennuyeux(se) dans des situations sociales.",
-        "Les gens que j'estime ne voudraient pas s'associer avec moi à cause de mon statut social (revenu, niveau d'études, carrière...).",
-        "Je ne sais jamais que dire en société.",
-        "Les autres ne veulent pas m'accepter dans leur groupe.",
-        "Je m'observe vraiment beaucoup quand je suis en société."
-      ]
-    },
-    {
-      code: 'fa', startIdx: 79,
-      name: 'Échec',
+      code: "fa", startIdx: 69,
+      name: "Échec",
       domain: "B. Manque d'autonomie et de performance",
       questions: [
-        "Presque rien de ce que je fais au travail (ou à l'école) ne vaut autant que ce que les autres font.",
+        "Presque rien de ce que je fais au travail (ou à l'école) n'est aussi bon que ce que font les autres.",
         "Je suis incompétent(e) quand il s'agit de réussir.",
-        "La plupart des gens sont plus capables que moi en ce qui concerne le travail et la réussite.",
-        "Je suis un raté.",
-        "Je n'ai pas autant de talent que les autres au travail.",
+        "La plupart des gens sont plus doués que moi en ce qui concerne le travail (ou l'école) et la réussite.",
+        "Je suis un(e) raté(e).",
+        "Je n’ai pas autant de talent que les autres au travail (ou à l’école).",
         "Je ne suis pas aussi intelligent(e) que la plupart des gens quand il s'agit du travail (ou de l'école).",
-        "Je suis humilié(e) par mes fautes ou mes manques dans le monde du travail.",
-        "Je me sens souvent embarrassé(e) vis-à-vis des autres car je ne les vaux pas en termes de réalisations.",
-        "Je compare souvent mes réalisations avec les autres et je trouve qu'ils ont beaucoup plus de réussite."
+        "Je suis humilié(e) par mes échecs ou mes insuffisances dans le monde du travail(ou de l'école).",
+        "Je suis souvent mal à l'aise avec les autres, car je ne les vaux pas en termes de réussites.",
+        "Je compare souvent mes réalisations à celles des autres et je trouve qu’ils réussissent beaucoup mieux."
       ]
     },
     {
-      code: 'di', startIdx: 88,
-      name: 'Dépendance/Incompétence',
+      code: "di", startIdx: 78,
+      name: "Dépendance/Incompétence",
       domain: "B. Manque d'autonomie et de performance",
       questions: [
         "Je ne me sens pas capable de me débrouiller par moi-même dans la vie de tous les jours.",
-        "J'ai besoin des autres pour m'aider à m'en sortir.",
-        "Je n'ai pas le sentiment que je puisse bien m'adapter par moi-même.",
+        "J’ai besoin des autres pour m’aider à m’en sortir.",
+        "Je n’ai pas le sentiment que je puisse bien m’adapter par moi-même.",
         "Je crois que les autres peuvent prendre soin de moi mieux que je ne le peux moi-même.",
-        "J'ai des difficultés à prendre en charge de nouvelles tâches en dehors du travail à moins que quelqu'un ne me guide.",
-        "Je me considère comme une personne dépendante en ce qui concerne le fonctionnement quotidien.",
-        "Je gâche tout ce que j'entreprends même à l'extérieur du travail (ou à l'école).",
+        "J’ai des difficultés à prendre en charge de nouvelles tâches en dehors du travail à moins que quelqu'un ne me guide.",
+        "Je me considère comme une personne dépendante en ce qui concerne la vie de tous les jours.",
+        "Je bousille tout ce que j’entreprends, même à l’extérieur du travail (ou de l’école).",
         "Je suis stupide dans la plupart des domaines de la vie.",
-        "Si je fais confiance à mon propre jugement dans les situations quotidiennes, je prendrai la mauvaise décision.",
+        "Si je me fie à mon jugement dans la vie de tous les jours, je vais prendre la mauvaise décision.",
         "Je manque de bon sens.",
         "On ne peut se fier à mon jugement dans les situations quotidiennes.",
-        "Je n'ai pas confiance dans ma capacité de résoudre les problèmes qui se posent tous les jours.",
-        "Je pense que j'ai besoin de quelqu'un sur qui je puisse compter pour me donner des conseils en ce qui concerne les problèmes pratiques.",
+        "Je n'ai pas confiance dans ma capacité à résoudre les problèmes qui se posent tous les jours.",
+        "Je pense avoir besoin de quelqu’un sur qui je puisse compter pour me donner des conseils sur les questions pratiques.",
         "Je me sens plus un(e) enfant qu'un(e) adulte quand il s'agit de prendre en main les responsabilités quotidiennes.",
-        "Je trouve que les responsabilités quotidiennes sont accablantes."
+        "Je me sens dépassé par les responsabilités de tous les jours."
       ]
     },
     {
-      code: 'vh', startIdx: 103,
-      name: 'Vulnérabilité au Danger/Maladie',
+      code: "vu", startIdx: 93,
+      name: "Vulnérabilité au danger ou à la maladie",
       domain: "B. Manque d'autonomie et de performance",
       questions: [
-        "Il ne me semble pas possible d'échapper au sentiment que quelque chose de mauvais va bientôt se passer.",
-        "J'ai le sentiment qu'un désastre naturel, criminel, financier ou médical pourrait frapper à tout moment.",
-        "Je me soucie de devenir un(e) sans domicile fixe ou un(e) mendiant(e).",
-        "J'ai peur d'être attaqué(e).",
-        "Je sens que je dois être tout à fait prudent(e) en ce qui concerne l'argent ou autrement je finirai avec rien.",
-        "Je prends de grandes précautions pour éviter de tomber malade ou d'être blessé(e).",
-        "Je me soucie de perdre tout mon argent et de déchoir.",
-        "Je me soucie de développer une maladie sérieuse même si rien de sérieux n'a été diagnostiqué par un médecin.",
-        "Je suis quelqu'un de peureux.",
+        "Il ne me semble pas possible d’échapper au sentiment que quelque chose de mauvais va bientôt se passer.",
+        "J’ai l’impression qu’un désastre naturel, criminel, financier ou médical pourrait frapper à tout moment.",
+        "J'ai peur de devenir un(e) sans domicile fixe ou un(e) mendiant(e).",
+        "J’ai peur d’être attaqué(e).",
+        "Je prends de grandes précautions pour éviter de tomber malade ou d’être blessé(e).",
+        "J’ai peur d’avoir une maladie grave, même si rien de sérieux n’a été diagnostiqué par un médecin.",
+        "Je suis quelqu'un de peureux (se).",
         "Je me soucie beaucoup de ce qui va mal dans le monde : le crime, la pollution, etc.",
-        "J'ai souvent le sentiment que je pourrais devenir fou(folle).",
-        "J'ai souvent le sentiment que je suis sur le point d'avoir une attaque d'anxiété.",
-        "Je me soucie souvent que je pourrais avoir une attaque cardiaque, même s'il y a peu de raisons médicales de s'en soucier.",
+        "J’ai souvent le sentiment que je pourrais devenir fou(folle).",
+        "J’ai souvent l’impression que je vais avoir une crise d’angoisse.",
+        "J'ai souvent peur d’avoir une crise cardiaque ou un cancer, même s'il y a peu de raisons médicales de s'en soucier.",
         "Je pense que le monde est un endroit dangereux."
       ]
     },
     {
-      code: 'em', startIdx: 117,
-      name: 'Fusionnement/Personnalité Atrophiée',
+      code: "eu", startIdx: 105,
+      name: "Fusionnement/Personnalité atrophiée",
       domain: "B. Manque d'autonomie et de performance",
       questions: [
-        "Je n'ai pas été capable de me séparer de mes parents comme les autres personnes de mon âge ont l'air de le faire.",
-        "Mes parents et moi avons tendance à être surimpliqués dans les vies et les problèmes des uns et autres.",
-        "Il est vraiment difficile pour mes parents et moi de garder secrets des détails intimes sans se sentir trahis ou coupables.",
-        "Mes parents et moi devons nous parler presque tous les jours ou autrement l'un de nous se sent coupable, blessé(e), désappointé(e), ou seul(e)...",
-        "Je sens souvent que je n'ai pas une identité séparée de mes parents ou de mon partenaire.",
-        "J'ai souvent l'impression que mes parents vivent à travers moi – je n'ai pas une vie qui me soit propre.",
-        "Il est vraiment difficile de maintenir une distance vis-à-vis des gens dont je suis intime ; j'ai des difficultés à maintenir un sens séparé de moi-même, quel qu'il soit.",
-        "Je suis si impliqué(e) avec mon partenaire ou mes parents que je ne sais pas vraiment qui je suis et ce que je veux.",
-        "J'ai des difficultés à distinguer mon point de vue ou mon opinion de celle de mes parents ou de mon partenaire.",
-        "Je sens souvent que je n'ai pas d'intimité quand il s'agit de mes parents ou de mon partenaire.",
-        "Je sens que mes parents sont ou seraient véritablement blessés si je vivais seul(e) loin d'eux."
+        "Je n’ai pas pu me séparer de ma mère ou de mon père comme semblent le faire les gens de mon âge.",
+        "Mes parents et moi avons tendance à être sur-impliqués dans nos vies et nos problèmes réciproques.",
+        "Il est très difficile, pour mes parents et moi-même, de garder secrets, chacun pour soi, certains détails intimes, sans nous sentir trahis ou coupables.",
+        "Mes parents et moi devons nous parler presque tous les jours, sinon l’un de nous se sent coupable, blessé(e), déçu(e), ou seul(e).",
+        "J’ai souvent l’impression de ne pas avoir une identité distincte de celle de mes parents ou de mon partenaire.",
+        "J'ai souvent l'impression que mes parents vivent à travers moi -- je n'ai pas une vie qui me soit propre.",
+        "Il m’est vraiment ardu de maintenir une distance vis-à-vis des gens dont je suis intime ; il m’est difficile de me sentir une personne séparée.",
+        "Je suis tellement lié(e) à mon partenaire ou à mes parents que je ne sais pas vraiment qui je suis ou ce que je veux.",
+        "J’éprouve des difficultés à distinguer mon point de vue ou mon opinion de ceux de mes parents ou de mon partenaire.",
+        "J’ai souvent l’impression de ne pas avoir d’intimité par rapport à mes parents ou mon partenaire.",
+        "Je sens que mes parents seraient vraiment peinés si je vivais seul(e), loin d’eux."
       ]
     },
     {
-      code: 'sb', startIdx: 128,
-      name: 'Assujettissement',
-      domain: 'C. Orientation vers les autres',
+      code: "sb", startIdx: 116,
+      name: "Assujettissement",
+      domain: "C. Orientation vers les autres",
       questions: [
-        "Je laisse les autres faire ce qu'ils veulent car j'ai peur des conséquences.",
-        "Je pense que si je fais ce que je veux, je suis seulement en train de créer des problèmes.",
-        "Je sens que je n'ai pas d'autre choix que de me soumettre aux souhaits des autres, ou autrement ils exerceront des représailles ou me rejetteront d'une façon ou d'une autre.",
-        "Dans les relations, je laisse l'autre avoir la haute main sur moi.",
-        "Je laisse toujours les autres faire les choix pour moi, ainsi je ne sais pas vraiment ce que je veux pour moi-même.",
-        "Je sens que les décisions majeures de ma vie n'étaient pas vraiment les miennes.",
-        "Je me soucie beaucoup de plaire aux autres pour qu'ils ne me rejettent pas.",
+        "Je laisse les autres faire ce qu'ils veulent, car j'ai peur des conséquences.",
+        "Je pense que si je fais ce que je veux, je cours après les problèmes.",
+        "Je sens que je n'ai pas d'autre choix que de me soumettre aux souhaits des autres, sinon ils exerceront des représailles ou me rejetteront d'unefaçon ou d'une autre.",
+        "Dans mes relations, je laisse l'autre avoir le dessus sur moi.",
+        "Je laisse toujours les autres choisir à ma place, si bien que je ne sais pas vraiment ce que je veux moi-même.",
+        "J’ai le sentiment que les décisions importantes de ma vie n’étaient pas vraiment les miennes.",
+        "Je me soucie beaucoup de plaire aux autres, pour qu’ils ne me rejettent pas.",
         "J'ai beaucoup de difficultés à exiger que mes droits soient respectés et que mes sentiments soient pris en compte.",
-        "Je réponds aux autres d'une manière faible plutôt que de montrer ma colère.",
-        "Je laisse beaucoup plus traîner les choses en longueur que la plupart des gens pour éviter les confrontations."
+        "Plutôt que manifester ouvertement ma colère, je me venge dans des petites choses.",
+        "Je vais tolérer beaucoup plus de choses que la plupart des gens afin d’éviter une confrontation."
       ]
     },
     {
-      code: 'ss', startIdx: 138,
-      name: 'Abnégation',
-      domain: 'C. Orientation vers les autres',
+      code: "ss", startIdx: 126,
+      name: "Abnégation",
+      domain: "C. Orientation vers les autres",
       questions: [
-        "Je fais passer les besoins des autres avant les miens ou autrement je me sens coupable.",
-        "Je me sens coupable de laisser tomber les autres ou de les désappointer.",
-        "Je donne plus aux autres que je ne reçois en retour.",
-        "Je suis celui ou celle qui habituellement finit par prendre soin des gens dont je suis proche.",
-        "Il n'y a presque rien que je pourrais refuser si j'aimais quelqu'un.",
+        "Je fais passer les besoins des autres avant les miens, sinon je me sens coupable.",
+        "Je me sens coupable si je laisse tomber les autres ou si je les déçois.",
+        "Je donne davantage aux autres que je ne reçois en retour.",
+        "Je suis celui (celle) qui finit généralement par prendre soin des gens dont je suis proche.",
+        "Il n’y a presque rien que je ne puisse supporter lorsque j’aime quelqu’un.",
         "Je suis quelqu'un de bon car je pense aux autres plus qu'à moi-même.",
-        "Au travail, je suis habituellement celui ou celle qui est volontaire pour faire des tâches en plus ou des heures supplémentaires.",
-        "Peu importe à quel point je suis occupé(e), je trouverai toujours du temps pour les autres.",
-        "Je peux m'en sortir avec vraiment peu car mes besoins sont minimes.",
-        "Je suis heureux(se) seulement quand ceux qui sont autour de moi le sont.",
-        "Je suis si occupé(e) à faire des choses pour les gens dont je me soucie que j'ai peu de temps pour moi-même.",
-        "J'ai toujours été celui ou celle qui écoute les problèmes des autres.",
-        "Je me sens plus à l'aise en donnant un présent qu'en en recevant un.",
-        "On me voit comme quelqu'un qui en fait trop pour les autres mais pas assez pour moi-même.",
-        "Peu importe combien je donne, ce n'est jamais assez.",
-        "Si je fais ce que je veux, je me sens vraiment mal à l'aise.",
-        "Il m'est vraiment difficile de demander aux autres de se soucier de mes besoins."
+        "Au travail, je suis habituellement celui (celle) qui est volontaire pour faire des heures ou des tâches supplémentaires.",
+        "Même si je suis très occupé(e), je trouve toujours du temps pour les autres.",
+        "Je peux m'en sortir avec vraiment très peu car mes besoins sont minimes.",
+        "Je ne suis heureux que si les gens qui m’entourent le sont aussi.",
+        "Je suis tellement occupé(e) à me dévouer pour les gens qui m’importent que j’ai très peu de temps pour moi.",
+        "J’ai toujours été celui (celle) qui écoute les problèmes des autres.",
+        "Je me sens plus à l’aise pour donner un cadeau que pour en recevoir un.",
+        "On me voit comme quelqu'un qui en fait trop pour les autres et pas assez pour lui-même.",
+        "Peu importe combien je donne, ce n’est jamais assez.",
+        "Si je fais ce que je veux, je me sens vraiment mal à l’aise.",
+        "Il m’est vraiment difficile de demander aux autres de se soucier de mes besoins."
       ]
     },
     {
-      code: 'ei', startIdx: 155,
-      name: 'Surcontrôle Émotionnel',
-      domain: 'D. Survigilance et inhibition',
+      code: "ei", startIdx: 143,
+      name: "Inhibition émotionnelle",
+      domain: "D. Survigilance et inhibition",
       questions: [
-        "Je me soucie de perdre le contrôle de mes actions.",
-        "Je me soucie de ce que je pourrais faire du mal à quelqu'un physiquement ou émotionnellement si je perdais tout contrôle sur ma colère.",
-        "Je sens que je dois contrôler mes émotions et mes impulsions ou quelque chose de mauvais risque de m'arriver.",
-        "Beaucoup de colère et de ressentiment monte à l'intérieur de moi sans que je ne l'exprime.",
-        "Je suis trop préoccupé(e) de moi-même pour montrer les sentiments positifs (affection) aux autres ou pour montrer que je m'en préoccupe.",
-        "Je trouve embarrassant de montrer mes sentiments aux autres.",
-        "Il me semble difficile d'être chaud et spontané.",
-        "Je me contrôle tant que les autres pensent que je suis sans émotion.",
-        "Les gens me considèrent comme trop contrôlé(e) émotionnellement."
+        "J’ai peur de perdre le contrôle de mes actes.",
+        "J'ai peur de faire du mal à quelqu'un, physiquement ou affectivement, si je perds tout contrôle sur ma colère.",
+        "Je sens que je dois contrôler mes émotions et mes impulsions, sinon quelque chose de déplorable risque de se produire.",
+        "J’en arrive à accumuler en moi beaucoup de colère et de ressentiment que je n’exprime pas.",
+        "Je suis trop gêné(e) pour exprimer des sentiments positifs aux autres (par ex. de l’affection, de l’intérêt).",
+        "Je trouve embarrassant d’exprimer mes sentiments aux autres.",
+        "Il m’est difficile d’être chaleureux et spontané.",
+        "Je me contrôle tellement bien que les autres croient que je n’ai pas d’émotions.",
+        "Les gens me trouvent coincé(e) sur le plan émotionnel."
       ]
     },
     {
-      code: 'us', startIdx: 164,
-      name: 'Idéaux Exigeants/Critique Excessive',
-      domain: 'D. Survigilance et inhibition',
+      code: "us", startIdx: 152,
+      name: "Exigences élevées/Critique excessive",
+      domain: "D. Survigilance et inhibition",
       questions: [
-        "Je dois être le(a) meilleur(e) dans tout ce que je fais, je ne peux accepter d'être le(a) second(e).",
-        "Je m'efforce de maintenir presque toutes choses en ordre parfait.",
-        "Je dois apparaître sous mon meilleur jour la plupart du temps.",
-        "J'essaie de faire de mon mieux ; il ne suffit pas d'être assez bien.",
-        "J'ai tant de choses à réaliser qu'il ne me reste presque pas de temps pour véritablement me relaxer.",
-        "Presque rien de ce que je fais n'est assez bon, je pourrais toujours faire mieux.",
+        "Je dois être le(la) meilleur(e) dans presque tout ce que je fais, je ne peux pas accepter d’être le(la) deuxième.",
+        "Je m'efforce de tout maintenir parfaitement en ordre.",
+        "Je dois apparaître sous mon meilleur aspect la plupart du temps.",
+        "Je m’efforce de faire de mon mieux ; je ne peux pas me contenter d'être « assez bien ».",
+        "J'ai tant de choses à faire qu'il ne me reste presque pas de temps pour me détendre vraiment.",
+        "Presque rien de ce que je fais n’est assez bien, je pourrais toujours faire mieux.",
         "Je dois faire face à toutes mes responsabilités.",
-        "Je sens qu'il y a une pression constante pour que je réussisse et termine les choses.",
-        "Mes relations souffrent de ce que je m'impose trop de choses.",
-        "Ma santé souffre car je me mets moi-même sous une pression si importante pour bien faire.",
-        "Souvent, je sacrifie le plaisir et le bonheur pour atteindre mes idéaux.",
-        "Quand je fais une erreur, je mérite une forte critique.",
-        "Je ne peux me dégager facilement ou faire des excuses pour mes erreurs.",
-        "Je suis une personne tout à fait compétitive.",
-        "J'attache beaucoup de prix à l'argent et au statut social.",
-        "Je dois toujours être le numéro un en ce qui concerne mes activités."
+        "Je ressens une pression constante qui me force à faire les choses et à les réussir.",
+        "Mes relations souffrent de ce que je m’impose trop de choses.",
+        "Je m'impose une telle pression pour bien faire que ma santé en souffre.",
+        "Souvent je sacrifie plaisir et bonheur pour atteindre mes idéaux.",
+        "Lorsque je fais une erreur, je mérite une critique sévère.",
+        "Je ne peux pas accepter de me dégager aisément d'une situation difficile ou de présenter des excuses pour mes erreurs.",
+        "Je suis quelqu'un de très compétitif.",
+        "J’attache beaucoup d’importance à l’argent ou au statut social.",
+        "Je tiens toujours à être le meilleur dans ce que j’accomplis."
       ]
     },
     {
-      code: 'et', startIdx: 180,
-      name: 'Droits Personnels Exagérés/Grandeur',
-      domain: 'E. Manque de limites',
+      code: "et", startIdx: 168,
+      name: "Droits personnels exagérés/Grandeur",
+      domain: "E. Manque de limites",
       questions: [
-        "J'ai beaucoup de difficultés à accepter qu'on me réponde non quand je veux quelque chose des autres.",
-        "Je deviens souvent coléreux et irritable quand je ne peux pas avoir ce que je veux.",
-        "Je suis quelqu'un de particulier et je ne devrais pas accepter beaucoup des restrictions auxquelles les autres doivent se soumettre.",
-        "Je déteste être limité(e) ou empêché(e) de faire ce que je veux.",
-        "J'ai le sentiment que je n'ai pas à suivre les règles et les conventions comme les autres.",
-        "Je ressens que ce que j'ai à offrir est de plus grande valeur que les contributions des autres.",
+        "Lorsque j’attends quelque chose des autres, j’ai beaucoup de difficulté à accepter un refus.",
+        "Je me mets souvent en colère ou je m'irrite quand je ne peux pas avoir ce que je veux.",
+        "Je suis quelqu'un de spécial et je ne devrais pas avoir à accepter les restrictions auxquelles les autres doivent se soumettre.",
+        "Je déteste être contraint(e) ou qu’on m’empêche de faire ce que je veux.",
+        "Je crois que je n’ai pas à suivre les règles et les conventions comme les autres.",
+        "J’ai le sentiment que j’ai beaucoup plus à offrir que les autres.",
         "Habituellement, je fais passer mes besoins avant ceux des autres.",
-        "Souvent, je trouve que je suis si impliqué(e) dans mes propres priorités que je n'ai pas le temps à donner pour les autres et ma famille.",
-        "Souvent les gens me disent que je contrôle trop la façon dont les choses sont faites.",
-        "Je deviens vraiment irrité(e) contre les gens qui ne font pas ce que je leur demande.",
-        "Je ne peux tolérer que les autres me disent ce que je dois faire."
+        "Je remarque souvent que l’importance accordée à mes priorités personnelles ne me laisse plus de temps pour les amis ou la famille.",
+        "Les autres me disent souvent que je contrôle trop la façon dont les choses sont faites.",
+        "Je suis très irrité lorsque les autres ne font pas ce que je leur demande.",
+        "Je ne supporte pas que les autres me disent ce que je dois faire."
       ]
     },
     {
-      code: 'is', startIdx: 191,
-      name: 'Contrôle de Soi/Autodiscipline Insuffisants',
-      domain: 'E. Manque de limites',
+      code: "is", startIdx: 179,
+      name: "Contrôle de soi/Autodiscipline insuffisants",
+      domain: "E. Manque de limites",
       questions: [
-        "J'ai de grandes difficultés à m'arrêter de boire, de fumer, de trop manger et à arrêter d'autres comportements problèmes.",
-        "Il ne me semble pas possible de me discipliner pour terminer des tâches de routine ou ennuyeuses.",
-        "Souvent, je me permets de me laisser aller à des impulsions ou à exprimer des émotions qui me créent des difficultés ou blessent les autres.",
-        "Si je ne peux atteindre un but, je deviens aisément frustré(e) et abandonne.",
-        "J'ai un moment tout à fait difficile quand je sacrifie une gratification immédiate pour mener à bien un but à long terme.",
-        "Il m'arrive souvent, une fois que j'ai commencé à me sentir en colère, de ne vraiment pas pouvoir me contrôler.",
-        "J'ai tendance à en faire trop, même si je sais que les choses sont mauvaises pour moi.",
-        "Je suis très facilement ennuyé(e).",
-        "Quand les tâches deviennent difficiles, habituellement, je ne peux persévérer et les terminer.",
-        "Je ne peux me concentrer sur quelque chose pendant trop longtemps.",
-        "Je ne peux me forcer à faire les choses qui ne me plaisent pas, même quand je sais que c'est pour mon propre bien.",
-        "Je perds mon calme à la plus petite offense.",
-        "Il m'est arrivé(e) rarement d'être capable de me tenir à mes résolutions.",
-        "Je ne peux presque jamais me retenir de montrer aux gens mes véritables sentiments, même si cela doit me coûter beaucoup.",
-        "Souvent, je fais des choses impulsivement que je regrette plus tard."
+        "J'ai beaucoup de difficultés à m'arrêter de boire, de fumer, de trop manger ou à cesser d'autres comportements problématiques.",
+        "Il ne me semble pas possible de me discipliner pour terminer des tâches routinières ou ennuyeuses.",
+        "Souvent, je me laisse aller à mes impulsions ou à exprimer des émotions qui me créent des difficultés ou blessent les autres.",
+        "Si je ne peux pas atteindre un but, je suis facilement frustré(e) et j'abandonne.",
+        "Il m’est très difficile de sacrifier une gratification immédiate pour mener à bien un projet à long terme.",
+        "Quand je me mets en colère, il est fréquent que je ne puisse pas du tout me contrôler.",
+        "J'ai tendance à abuser de certaines choses, même si je sais que c’est mauvais pour moi.",
+        "Je m’ennuie très facilement.",
+        "Quand les tâches deviennent difficiles, je ne peux souvent pas persévérer pour les terminer.",
+        "Je ne peux pas me concentrer longtemps sur quoi que ce soit.",
+        "Je ne peux pas me forcer à faire des choses qui ne me plaisent pas même quand je sais que c’est pour mon bien.",
+        "Je me mets en colère à la moindre offense.",
+        "J'ai rarement été capable de tenir mes engagements.",
+        "Je ne peux presque jamais m’empêcher de montrer aux gens mes véritables sentiments, même si cela doit me coûter cher.",
+        "J'agis souvent impulsivement et je le regrette plus tard."
+      ]
+    },
+    {
+      code: "as", startIdx: 194,
+      name: "Recherche d'approbation/de reconnaissance",
+      domain: "C. Orientation vers les autres",
+      questions: [
+        "Il m’est important d’être aimé par presque tous ceux que je connais.",
+        "Je modifie mon comportement en fonction des gens avec qui je me trouve, afin qu'ils puissent m’aimer davantage.",
+        "Je fais tout mon possible pour m'adapter.",
+        "Mon estime personnelle est principalement fondée sur la façon dont les autres me voient.",
+        "Posséder de l'argent et connaître des gens importants sont des choses qui me donnent de la valeur.",
+        "Je consacre beaucoup de temps à soigner mon apparence afin de gagner l’estime des autres.",
+        "Mes réussites ont plus de valeur à mes yeux si les autres les remarquent.",
+        "Je suis à ce point soucieux de m’adapter aux autres qu’il m’arrive de ne plus savoir qui je suis.",
+        "Je trouve difficile de me fixer des objectifs propres, sans prendre en compte ce que les autres vont penser de mes choix.",
+        "Lorsque je considère les décisions que j'ai prises dans ma vie, je réalise que la plupart d’entre elles reposaient sur le désir d’obtenir l’approbation des autres.",
+        "Même si je n’aime pas une personne, je tiens malgré tout à ce qu’elle m’aime.",
+        "À moins d’obtenir beaucoup d’attention des autres, je me sens peu important.",
+        "Si j’interviens lors d'une réunion ou si on me présente dans un groupe, je cherche à être reconnu(e) et admiré(e).",
+        "Lorsqu'on me fait beaucoup de compliments et d’éloges, je me sens une personne de valeur."
+      ]
+    },
+    {
+      code: "np", startIdx: 208,
+      name: "Négativité/Pessimisme",
+      domain: "D. Survigilance et inhibition",
+      questions: [
+        "Même lorsque tout va bien, j'ai l'impression que ce ne sera que temporaire.",
+        "S'il se produit quelque chose de bien, j'ai peur qu'il n'arrive ensuite quelque chose de mauvais.",
+        "On n'est jamais assez prudent ; il peut toujours se produire quelque chose de mauvais.",
+        "Même si je travaille beaucoup, j'ai peur de me retrouver un jour sans le sou.",
+        "J’ai peur qu’une mauvaise décision ne puisse conduire à un désastre.",
+        "Je me tourmente souvent pour des décisions mineures, car les conséquences d’une erreur m’apparaissent tellement graves.",
+        "Je préfère considérer que les choses ne vont pas aller comme je le veux, car ainsi je ne serai pas déçu si ça se passe mal.",
+        "Je pense plutôt aux aspects négatifs de la vie et des évènements qu’aux côtés positifs.",
+        "J’ai tendance à être pessimiste.",
+        "Mes proches considèrent que je me fais trop de soucis.",
+        "Si les gens s’enthousiasment trop, je me sens mal et j’éprouve le besoin de les prévenir de ce qui pourrait mal se passer."
+      ]
+    },
+    {
+      code: "pu", startIdx: 219,
+      name: "Punition",
+      domain: "D. Survigilance et inhibition",
+      questions: [
+        "Si je fais une erreur, je mérite d’être puni(e).",
+        "Si je ne donne pas le meilleur de moi-même, je dois m’attendre à échouer.",
+        "Je n’ai aucune excuse si je fais une erreur.",
+        "Les gens qui ne font pas leur part de travail à fond devraient être punis d’une manière ou d’une autre.",
+        "La plupart du temps, je n’accepte pas les excuses des autres : ils n’ont pas pris leurs responsabilités et ils en paient les conséquences.",
+        "Si je ne fais pas mon travail, je devrai en subir les conséquences.",
+        "Je pense souvent à mes erreurs passées et je me mets en colère contre moi-même.",
+        "Lorsque les gens font quelque chose de mal, j’ai du mal à appliquer la phrase: «pardonnez et oubliez».",
+        "Je garde de la rancune envers les gens, même s’ils se sont excusés.",
+        "Je me sens énervé à l'idée que quelqu'un s'est tiré trop facilement d'un mauvais pas.",
+        "Je me mets en colère lorsque des gens se trouvent des excuses, ou lorsqu’ils accusent les autres pour des problèmes dont ils sont eux-mêmes responsables.",
+        "Peu importe les raisons, quand je fais une erreur, je devrais en payer le prix.",
+        "Je m’en veux énormément lorsque je bousille quelque chose.",
+        "Je suis quelqu’un de mauvais qui mérite d’être puni."
       ]
     }
   ];
 
   Alpine.data('ysqForm', () => ({
     schemas: SCHEMAS,
-    answers: new Array(206).fill(0),
+    answers: new Array(233).fill(0),
     submitted: false,
     showWarning: false,
     uniqueDomains: [],
 
     get answeredCount() {
       let count = 0;
-      for (let i = 1; i <= 205; i++) {
+      for (let i = 1; i <= 232; i++) {
         if (this.answers[i] > 0) count++;
       }
       return count;
     },
 
     get progress() {
-      return Math.round(this.answeredCount / 205 * 100);
+      return Math.round(this.answeredCount / 232 * 100);
     },
 
     schemaScore(schema) {
@@ -648,11 +689,11 @@ document.addEventListener('alpine:init', () => {
     },
 
     saveAnswers() {
-      try { localStorage.setItem('ysq-l2', JSON.stringify(this.answers)); } catch(e) {}
+      try { localStorage.setItem('ysq-l3', JSON.stringify(this.answers)); } catch(e) {}
     },
 
     submit() {
-      if (this.answeredCount < 205) {
+      if (this.answeredCount < 232) {
         this.showWarning = true;
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
@@ -667,10 +708,10 @@ document.addEventListener('alpine:init', () => {
 
     reset() {
       if (!confirm('Voulez-vous recommencer le questionnaire ? Toutes vos réponses seront perdues.')) return;
-      this.answers = new Array(206).fill(0);
+      this.answers = new Array(233).fill(0);
       this.submitted = false;
       this.showWarning = false;
-      try { localStorage.removeItem('ysq-l2'); } catch(e) {}
+      try { localStorage.removeItem('ysq-l3'); } catch(e) {}
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
 
@@ -685,10 +726,10 @@ document.addEventListener('alpine:init', () => {
 
       // Restore saved answers
       try {
-        const saved = localStorage.getItem('ysq-l2');
+        const saved = localStorage.getItem('ysq-l3');
         if (saved) {
           const data = JSON.parse(saved);
-          if (Array.isArray(data) && data.length === 206) this.answers = data;
+          if (Array.isArray(data) && data.length === 233) this.answers = data;
         }
       } catch(e) {}
     }
