@@ -44,12 +44,12 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
           {[
-            [1, "Cela ne m'a jamais correspondu tout au long de ma vie"],
-            [2, "Cela a été vrai pour une période de ma vie, mais pas la plupart du temps"],
-            [3, "Cela me concerne en ce moment, mais généralement pas au cours de ma vie"],
-            [4, "Assez vrai pour moi durant la majeure partie de ma vie"],
-            [5, "Tout à fait vrai pour moi la majeure partie de ma vie"],
-            [6, "Me décrit parfaitement tout au long de ma vie"],
+            [1, "Cela est complètement faux pour moi"],
+            [2, "Le plus souvent faux pour moi"],
+            [3, "Plutôt vrai que faux pour moi"],
+            [4, "Assez vrai pour moi"],
+            [5, "Le plus souvent vrai pour moi"],
+            [6, "Me décrit parfaitement"],
           ].map(([n, label]) => (
             <div class="flex items-start gap-2.5">
               <span class="font-ui shrink-0 w-6 h-6 rounded-full bg-surface-raised border border-border-strong flex items-center justify-center text-xs font-medium text-tertiary">{n}</span>
