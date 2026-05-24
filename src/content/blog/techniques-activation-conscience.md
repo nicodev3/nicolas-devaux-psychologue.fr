@@ -107,6 +107,77 @@ J'intègre les techniques d'activation de la conscience dans mon travail thérap
 - **Les difficultés émotionnelles** : Développement d'une relation plus harmonieuse avec ses émotions
 - **Le stress et l'épuisement** : Renforcement de la capacité à gérer les défis quotidiens
 
+## TAC, pleine conscience, ACT et TCC : quelles différences ?
+
+Les techniques d'activation de la conscience se situent au croisement de plusieurs approches thérapeutiques. Elles ne remplacent pas une psychothérapie globale, mais peuvent s'intégrer dans un cadre de travail plus large selon la difficulté rencontrée, l'histoire de la personne et les objectifs définis ensemble.
+
+La [thérapie d'acceptation et d'engagement](/therapie-acceptation-et-engagement/) (ACT) aide à repérer la lutte intérieure contre les pensées ou les émotions, puis à avancer vers des actions plus alignées avec ses valeurs. Les TAC rejoignent cette logique lorsqu'elles invitent à rester présent à ce qui se passe en soi, sans chercher à supprimer immédiatement l'expérience émotionnelle. La différence tient surtout à l'accent mis sur l'activation : il ne s'agit pas seulement d'observer, mais de mobiliser une émotion dans un cadre suffisamment sécurisé pour permettre une transformation.
+
+Les [thérapies cognitives et comportementales](/therapie-cognitive-et-comportementale/) (TCC) travaillent souvent sur les liens entre pensées, émotions, sensations corporelles et comportements. Les TAC peuvent compléter ce travail lorsque la compréhension intellectuelle ne suffit pas. Certaines personnes savent très bien expliquer leur anxiété, leur peur du jugement ou leur tristesse, mais restent prises dans les mêmes réactions automatiques. L'activation consciente permet alors de faire une expérience nouvelle, dans le corps et dans l'émotion, plutôt que de rester uniquement dans l'analyse.
+
+La [thérapie de pleine conscience](/therapie-pleine-conscience/) développe l'attention au moment présent et la capacité à observer les pensées sans s'y confondre. Les TAC reprennent cette qualité de présence, mais l'utilisent dans des moments où l'émotion devient plus vive. C'est un point important : l'objectif n'est pas de se calmer à tout prix, mais d'apprendre à rester en contact avec soi lorsque quelque chose s'active.
+
+Selon les situations, les TAC peuvent aussi dialoguer avec d'autres méthodes intégratives, comme la [thérapie MOSAIC](/therapie-mosaic/) ou une [psychothérapie intégrative](/psychotherapie/). En pratique, le choix de l'approche dépend rarement d'une étiquette unique. Il se construit à partir de votre demande : mieux réguler l'anxiété, traverser un vécu traumatique, sortir d'un évitement, retrouver une capacité d'action ou transformer une relation difficile à certaines émotions.
+
+## Questions fréquentes sur les TAC
+
+### Les TAC sont-elles une forme d'hypnose ?
+
+Les TAC peuvent utiliser un état d'attention focalisée, mais elles ne se réduisent pas à l'hypnose. Le travail porte surtout sur la conscience de l'expérience émotionnelle, l'ancrage dans le présent et la transformation progressive des réactions automatiques.
+
+### Les TAC conviennent-elles à l'anxiété ?
+
+Oui, elles peuvent être utiles dans l'anxiété lorsque la personne évite certaines sensations, pensées ou situations. L'objectif est d'approcher progressivement l'expérience anxieuse tout en restant suffisamment présent et sécurisé.
+
+### Quelle différence entre TAC et pleine conscience ?
+
+La pleine conscience développe l'observation du moment présent. Les TAC y ajoutent une activation émotionnelle guidée : une émotion est mobilisée pour permettre une expérience nouvelle, puis intégrée dans un cadre thérapeutique.
+
+### Faut-il choisir entre TAC, ACT et TCC ?
+
+Pas nécessairement. Ces approches peuvent être complémentaires. Lors du premier entretien, le cadre de travail est choisi selon votre demande, vos ressources et la difficulté que vous souhaitez travailler.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Les TAC sont-elles une forme d'hypnose ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les techniques d'activation de la conscience peuvent utiliser un état d'attention focalisée, mais elles ne se réduisent pas à l'hypnose. Le travail porte surtout sur la conscience de l'expérience émotionnelle, l'ancrage dans le présent et la transformation progressive des réactions automatiques."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les TAC conviennent-elles à l'anxiété ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Les TAC peuvent être utiles dans l'anxiété lorsque la personne évite certaines sensations, pensées ou situations. L'objectif est d'approcher progressivement l'expérience anxieuse tout en restant suffisamment présent et sécurisé."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle différence entre TAC et pleine conscience ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La pleine conscience développe l'observation du moment présent. Les TAC y ajoutent une activation émotionnelle guidée : une émotion est mobilisée pour permettre une expérience nouvelle, puis intégrée dans un cadre thérapeutique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il choisir entre TAC, ACT et TCC ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas nécessairement. Ces approches peuvent être complémentaires. Lors du premier entretien, le cadre de travail est choisi selon la demande, les ressources de la personne et la difficulté à travailler."
+      }
+    }
+  ]
+}
+</script>
+
 ## Conclusion
 
 Les techniques d'activation de la conscience, développées par Jean Becchio, offrent une approche structurée et scientifiquement fondée pour travailler avec les émotions difficiles tout en développant la présence et la conscience. En combinant activation émotionnelle et pleine conscience selon des protocoles validés, elles permettent un changement thérapeutique progressif et durable.

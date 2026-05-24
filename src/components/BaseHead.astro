@@ -15,7 +15,12 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, ogImageSlug } = Astro.props;
-const pageTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+const pageTitle =
+  title === "Psychologue à Sceaux"
+    ? "Psychologue à Sceaux | Nicolas Devaux"
+    : title.includes(SITE_NAME) || title.includes("Nicolas Devaux")
+      ? title
+      : `${title} | ${SITE_NAME}`;
 const siteBase = Astro.site ?? Astro.url.origin;
 const ogSlug = ogImageSlug ?? pathnameToOgSlug(Astro.url.pathname);
 const ogImagePath = `/og/${ogSlug}.png`;

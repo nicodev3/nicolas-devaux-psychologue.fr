@@ -14,13 +14,30 @@ import remarkFrenchPunctuationSpacing from './src/remark/remark-french-punctuati
 import keywordMap from './src/remark/keyword-map.js';
 import rehypeExternalLinks from './src/remark/rehype-external-links.js';
 
+const redirectedPaths = new Set([
+    '/blog/emdr-mosaic/',
+    '/blog/therapie-fondee-compassion/',
+    '/approches/',
+    '/psychotherapies/',
+    '/qui-suis-je/',
+    '/mosaic/',
+    '/act/',
+    '/mbct/',
+    '/cft/',
+    '/tcc-3e-vague/',
+    '/tarifs',
+]);
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://nicolas-devaux-psychologue.fr',
     integrations: [
         mdx(),
         sitemap({
-            filter: (page) => !page.includes('?s='),
+            filter: (page) => {
+                const url = new URL(page);
+                return !url.searchParams.has('s') && !redirectedPaths.has(url.pathname);
+            },
         }),
         alpinejs(),
         react(),

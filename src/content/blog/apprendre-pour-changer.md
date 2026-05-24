@@ -1,6 +1,6 @@
 ---
-title: 'Apprendre pour changer'
-description: "Apprendre pour changer : une approche innovante qui combine pleine conscience et engagement dans l'action pour développer la flexibilité psychologique."
+title: 'Comment changer vraiment ? 3 étapes pour agir autrement'
+description: "Changer ne consiste pas à supprimer ses émotions. Découvrez 3 étapes concrètes pour agir autrement avec l'ACT et la pleine conscience."
 pubDate: 'Dec 24 2024'
 heroImage: '../../assets/blog/trouver-psychologue.webp'
 ---
