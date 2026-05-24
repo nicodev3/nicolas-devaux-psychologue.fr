@@ -1,0 +1,176 @@
+---
+import Layout from "../layouts/BlogPost.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { Picture } from "astro:assets";
+import CoupleImage from "../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp";
+import { NEARBY_CITIES } from "../consts";
+---
+
+<Layout
+  title="Thérapie de couple à Sceaux"
+  description="Thérapie de couple à Sceaux : approche psychodynamique, ACT et IBCT pour améliorer la communication, traverser les crises et renouer avec ce qui compte vraiment dans la relation."
+  pubDate={new Date("August 30 2025")}
+  showDate={false}
+  blogPost={true}
+>
+  <section class="flex flex-col gap-8 xl:gap-10">
+    <div>
+      <p>
+        La thérapie de couple n'est pas un signe d'échec. C'est souvent une décision courageuse : celle de ne pas laisser les difficultés s'installer, et d'investir dans la relation plutôt que d'attendre qu'elle se détériore davantage. Au cabinet de psychologie de Sceaux, je reçois les couples en souffrance, en crise ou simplement désireux de travailler leur relation dans un cadre bienveillant et structuré.
+      </p>
+      <p>
+        L'approche thérapeutique que je propose s'appuie sur trois cadres complémentaires : l'<strong>approche psychodynamique</strong>, la <strong>thérapie d'acceptation et d'engagement (ACT)</strong> et la <strong>thérapie intégrative comportementale de couple (IBCT)</strong>. Ces trois piliers permettent d'explorer les racines des difficultés, de développer des outils concrets et de travailler à une relation plus authentique.
+      </p>
+      <div class="my-8">
+        <Picture
+          src={CoupleImage}
+          alt="Thérapie de couple"
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="01 — Indications" title="Quand consulter pour une thérapie de couple ?" />
+      <p>
+        Il n'y a pas de seuil minimal de souffrance pour consulter. Certains couples viennent en thérapie au bord de la rupture ; d'autres cherchent à traverser une transition difficile ou à enrichir une relation qui fonctionne mais qui s'est appauvrie. Voici les situations les plus fréquentes :
+      </p>
+      <ul class="list-disc ml-6 mt-2">
+        <li>Conflits récurrents qui tournent en rond sans jamais se résoudre</li>
+        <li>Rupture de confiance après une infidélité ou une trahison</li>
+        <li>Difficultés de communication : discussions qui dégénèrent, silences qui s'installent</li>
+        <li>Perte d'intimité émotionnelle ou sexuelle</li>
+        <li>Crise liée à une transition de vie : naissance, déménagement, perte d'emploi, deuil</li>
+        <li>Désaccords profonds sur des choix de vie importants</li>
+        <li>Sentiment de vivre côte à côte sans se rejoindre vraiment</li>
+        <li>Préparation à un engagement ou à une décision importante</li>
+      </ul>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="02 — Approche psychodynamique" title="Comprendre les dynamiques inconscientes du couple" />
+      <p>
+        Inspirée des travaux de Jean-G. Lemaire, pionnier de la thérapie de couple en France, l'approche psychodynamique permet d'explorer les dynamiques inconscientes qui influencent la relation. Chaque partenaire apporte dans le couple son histoire affective, ses attachements précoces et ses patterns relationnels hérités de l'enfance ou d'expériences passées.
+      </p>
+      <p>
+        Cette exploration aide à comprendre comment les projections, les transferts et les mécanismes de défense opèrent à l'insu des deux partenaires — et comment ils peuvent alimenter des conflits dont les enjeux réels restent souvent inaccessibles au couple. Mettre des mots sur ces dynamiques, c'est déjà les transformer.
+      </p>
+      <p>
+        Cette approche s'articule bien avec les outils de la <a href="/psychotherapie/" class="text-link">psychothérapie individuelle</a>, qui peut accompagner le suivi de couple en parallèle si nécessaire.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="03 — ACT pour les couples" title="Thérapie d'acceptation et d'engagement (ACT) appliquée au couple" />
+      <p>
+        La <a href="/therapie-acceptation-et-engagement/" class="text-link">thérapie ACT</a>, issue des TCC de 3e vague, offre des outils particulièrement adaptés aux difficultés relationnelles. Elle aide les partenaires à sortir des cercles vicieux de la lutte contre les émotions, pour se reconnecter à ce qui compte vraiment dans leur relation.
+      </p>
+      <p>En thérapie de couple, l'ACT travaille sur :</p>
+      <ul class="list-disc ml-6 mt-2 mb-4">
+        <li><strong>L'acceptation :</strong> accueillir les émotions difficiles — jalousie, peur de l'abandon, colère — plutôt que de les fuir ou de les amplifier</li>
+        <li><strong>La défusion cognitive :</strong> prendre de la distance avec les pensées rigides sur le partenaire (« il ne changera jamais », « elle ne me comprend pas »)</li>
+        <li><strong>La pleine conscience relationnelle :</strong> développer une présence attentive à l'autre, sans jugement automatique</li>
+        <li><strong>La clarification des valeurs communes :</strong> identifier ce qui compte vraiment pour chacun et pour le couple</li>
+        <li><strong>L'action engagée :</strong> se mettre en mouvement vers ces valeurs, même en présence de la peur ou de l'incertitude</li>
+      </ul>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="04 — IBCT" title="Thérapie intégrative comportementale de couple (IBCT)" />
+      <p>
+        Développée par Andrew Christensen et Neil Jacobson, l'IBCT combine des techniques de changement comportemental avec des interventions d'acceptation émotionnelle. Elle vise à réduire les cycles coercitifs — critiques, escalade, retrait défensif — en aidant les partenaires à voir leurs schémas interactionnels plutôt que de se blâmer mutuellement.
+      </p>
+      <p>Le travail thérapeutique IBCT s'articule autour de quatre leviers :</p>
+      <ul class="list-disc ml-6 mt-2 mb-4">
+        <li><strong>La réunion empathique autour du problème :</strong> reformuler les conflits non plus comme « toi contre moi » mais comme « nous face à un schéma difficile »</li>
+        <li><strong>Le détachement unifié :</strong> prendre du recul ensemble face au pattern, sans se fondre dedans ni s'accuser mutuellement</li>
+        <li><strong>La tolérance des différences :</strong> accepter que certaines différences stables ne se résoudront pas, et apprendre à les vivre sans lutte de contrôle</li>
+        <li><strong>Les changements ciblés :</strong> lorsqu'un changement comportemental est réaliste et soutenable, le travailler concrètement en séance et entre les séances</li>
+      </ul>
+      <p>
+        L'IBCT crée un contexte relationnel plus sûr dans lequel l'empathie et la compréhension des différences rendent le changement possible et durable.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="05 — Déroulement" title="Comment se déroule une thérapie de couple ?" />
+      <p>
+        Une séance de thérapie de couple dure généralement <strong>60 minutes</strong> et se déroule en présence des deux partenaires. Les premières séances permettent de comprendre la situation de chacun, d'identifier les cycles relationnels en jeu et de définir des objectifs thérapeutiques partagés.
+      </p>
+      <p>
+        Le déroulement d'une séance type intègre plusieurs dimensions :
+      </p>
+      <ol class="list-decimal ml-6 mt-2 mb-4">
+        <li><strong>Exploration psychodynamique :</strong> identification des patterns inconscients et des dynamiques de couple héritées des histoires individuelles</li>
+        <li><strong>Observation des interactions :</strong> analyse en temps réel des cycles relationnels qui se jouent dans la salle</li>
+        <li><strong>Outils ACT :</strong> exercices de pleine conscience, défusion cognitive, clarification des valeurs communes</li>
+        <li><strong>Travail IBCT :</strong> reformulation empathique des conflits, détachement face aux schémas</li>
+        <li><strong>Exercices entre les séances :</strong> des tâches simples pour expérimenter de nouvelles façons d'être ensemble au quotidien</li>
+      </ol>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="06 — Durée" title="Quelle est la durée d'une thérapie de couple ?" />
+      <p>La durée varie selon la nature et l'ancienneté des difficultés :</p>
+      <ul class="list-disc ml-6 mt-2 mb-4">
+        <li><strong>Thérapie brève (8–12 séances) :</strong> pour des difficultés ciblées et récentes, une crise ponctuelle ou une transition de vie</li>
+        <li><strong>Thérapie à moyen terme (6–12 mois) :</strong> pour des conflits plus enracinés ou un travail plus approfondi sur les dynamiques relationnelles</li>
+        <li><strong>Suivi plus long :</strong> lorsque les difficultés s'inscrivent dans une histoire complexe ou que l'un ou les deux partenaires souhaitent poursuivre un travail individuel en parallèle</li>
+      </ul>
+      <p>
+        Le rythme est discuté et réévalué régulièrement. Il n'y a pas de durée prédéfinie : le suivi s'adapte à votre situation et à vos objectifs.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="07 — FAQ" title="Questions fréquentes" />
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Faut-il que les deux partenaires soient d'accord pour commencer ?</h3>
+      <p class="mb-6">
+        Idéalement oui, car la thérapie de couple nécessite l'engagement des deux partenaires. Cependant, il arrive qu'un seul soit demandeur au départ. Dans ce cas, un entretien individuel préalable peut permettre de clarifier la demande et d'évaluer si une thérapie de couple est pertinente, ou si une thérapie individuelle est plus adaptée dans un premier temps.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">La thérapie de couple peut-elle aider même si la rupture est envisagée ?</h3>
+      <p class="mb-6">
+        Oui. La thérapie de couple n'a pas pour unique objectif de « sauver » la relation. Elle peut aussi aider un couple à prendre une décision éclairée, à traverser une séparation de façon moins destructrice, ou à comprendre ce qui s'est passé pour ne pas répéter les mêmes schémas dans une relation future.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Que se passe-t-il si l'un des partenaires a des secrets ?</h3>
+      <p class="mb-6">
+        La thérapie de couple travaille dans un cadre de confidentialité partagée : ce qui est dit en séance reste dans la salle. Des entretiens individuels ponctuels peuvent être proposés selon les situations. En revanche, la thérapie de couple ne peut pas fonctionner efficacement si l'un des partenaires maintient des secrets majeurs qui structurent les difficultés du couple. Ce point peut être travaillé en séance.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">La thérapie de couple est-elle remboursée ?</h3>
+      <p class="mb-6">
+        Les séances de psychologue ne sont pas remboursées par la Sécurité sociale dans le cadre général. Cependant, de nombreuses mutuelles prennent en charge une partie des frais. Renseignez-vous auprès de votre organisme complémentaire. Le dispositif <em>Mon Soutien Psy</em> ne couvre pas la thérapie de couple.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Comment la thérapie de couple s'articule-t-elle avec une thérapie individuelle ?</h3>
+      <p class="mb-6">
+        Les deux peuvent coexister. Si l'un ou les deux partenaires suivent une thérapie individuelle par ailleurs, il est préférable que les deux thérapeutes soient au courant de la démarche, sans que les contenus des séances soient partagés. La thérapie de couple et la thérapie individuelle travaillent à des niveaux différents et peuvent se renforcer mutuellement.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">La thérapie de couple est-elle proposée en visioconférence ?</h3>
+      <p>
+        Oui, dans certaines situations. Les séances en présentiel au cabinet sont préférables, car les interactions en temps réel sont plus riches à observer et à travailler. Mais des séances en visio peuvent être proposées pour des raisons pratiques ou géographiques. Le cabinet reçoit également les personnes habitant {NEARBY_CITIES} et les communes voisines.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="08 — Liens" title="Approches associées" />
+      <p>
+        La thérapie de couple s'appuie sur plusieurs approches disponibles au cabinet. Pour approfondir :
+      </p>
+      <ul class="list-disc ml-6 mt-2">
+        <li><a href="/therapie-acceptation-et-engagement/" class="text-link">Thérapie d'acceptation et d'engagement (ACT)</a></li>
+        <li><a href="/therapie-pleine-conscience/" class="text-link">MBCT et pleine conscience</a></li>
+        <li><a href="/psychotherapie/" class="text-link">Psychothérapie psychodynamique</a></li>
+        <li><a href="/tcc-troisieme-vague/" class="text-link">TCC de 3e vague</a></li>
+        <li><a href="/therapie-mosaic/" class="text-link">Thérapie MOSAIC</a> — pour les mémoires douloureuses qui pèsent sur la relation</li>
+      </ul>
+    </div>
+  </section>
+</Layout>

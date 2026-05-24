@@ -2,7 +2,7 @@
 title: 'Comment changer vraiment ? 3 étapes pour agir autrement'
 description: "Changer ne consiste pas à supprimer ses émotions. Découvrez 3 étapes concrètes pour agir autrement avec l'ACT et la pleine conscience."
 pubDate: 'Dec 24 2024'
-heroImage: '../../assets/blog/trouver-psychologue.webp'
+heroImage: '../../assets/blog/apprendre-pour-changer.webp'
 ---
 
 Apprendre à changer : l’art de se transformer avec bienveillance
