@@ -31,6 +31,12 @@ export const SITE_DESCRIPTION = `Psychologue à Sceaux | Thérapies ACT, TCC et 
 export const DOCTOLIB_BOOKING_URL =
   'https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux';
 
+/** Raison sociale (entreprise individuelle). */
+export const LEGAL_ENTITY_NAME = 'Nicolas Devaux — EI';
+
+/** Numéro SIRET de l'entreprise individuelle. */
+export const SIRET_NUMBER = '75103269900033';
+
 /** Identifiants professionnels (site & pied de page). */
 export const RPPS_NUMBER = '10008482910';
 

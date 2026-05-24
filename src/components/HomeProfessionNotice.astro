@@ -1,5 +1,6 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
+import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
 ---
 
 <section class="py-16 text-sm leading-relaxed text-ink-secondary md:py-24">
@@ -11,5 +12,9 @@ import SectionHeading from "./SectionHeading.astro";
   <p>
     Nicolas Devaux est diplômé de l'<strong class="text-ink-primary">Université Paris Cité</strong> (anciennement Paris 7
     Denis-Diderot) et exerce dans le respect du code de déontologie, garantissant confidentialité et cadre éthique.
+  </p>
+  <p class="mt-4">
+    Le cabinet est exploité sous la raison sociale <strong class="text-ink-primary">{LEGAL_ENTITY_NAME}</strong> (SIRET&nbsp;:
+    {SIRET_NUMBER}), avec inscription au répertoire partagé des professionnels de santé (RPPS&nbsp;: {RPPS_NUMBER}).
   </p>
 </section>

@@ -1,20 +1,26 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
 ---
 
 <Layout
   title="Mentions légales"
-  description="Mentions légales du site internet du cabinet de psychologie de Nicolas Devaux, psychologue clinicien, RPPS : 10008482910, Sceaux, Hauts-de-Seine"
+  description={`Mentions légales du site du cabinet de psychologie de Nicolas Devaux (${LEGAL_ENTITY_NAME}), psychologue clinicien, RPPS ${RPPS_NUMBER}, SIRET ${SIRET_NUMBER}, Sceaux`}
   pubDate={new Date("August 08 2024")}
   showDate={false}
   blogPost={false}
 >
   <div class="c-mentions-legales">
     <SectionHeading class="mb-3" eyebrow="01 — Éditeur" title="Éditeur du site" />
-    <p>Ce site est édité par <strong>Nicolas Devaux</strong>, psychologue clinicien.</p>
+    <p>
+      Ce site est édité par <strong>{LEGAL_ENTITY_NAME}</strong> (entreprise individuelle), représentée par
+      <strong>Nicolas Devaux</strong>, psychologue clinicien.
+    </p>
     <ul>
-      <li>Numéro RPPS : 10008482910</li>
+      <li>Raison sociale : {LEGAL_ENTITY_NAME}</li>
+      <li>SIRET : {SIRET_NUMBER}</li>
+      <li>Numéro RPPS : {RPPS_NUMBER}</li>
       <li>Adresse : 63 rue Houdan, 92330 Sceaux</li>
       <li>
         Téléphone :

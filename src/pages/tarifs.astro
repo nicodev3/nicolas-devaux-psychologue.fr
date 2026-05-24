@@ -2,6 +2,7 @@
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { buttonClasses } from "../components/ui/button";
+import { LEGAL_ENTITY_NAME, SIRET_NUMBER } from "../consts";
 
 type TariffRow = {
   label: string;
@@ -127,6 +128,11 @@ const tariffs: TariffRow[] = [
     <p>
       Pour plus d'informations sur le déroulement des consultations, consultez la
       page <a href="/consulter/" class="text-link">Consulter</a>.
+    </p>
+
+    <p class="typo-meta-caps border-t border-border-subtle pt-6 text-ink-tertiary">
+      {LEGAL_ENTITY_NAME} · SIRET&nbsp;: {SIRET_NUMBER} ·
+      <a href="/mentions-legales/" class="text-link underline hover:no-underline">Mentions légales</a>
     </p>
   </section>
 </Layout>

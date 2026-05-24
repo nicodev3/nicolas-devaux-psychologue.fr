@@ -5,7 +5,7 @@ import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { getImage, Picture } from "astro:assets";
 import NicolasDevauxImage from "../assets/nicolas_devaux.jpg";
-import { NEARBY_CITIES } from "../consts";
+import { LEGAL_ENTITY_NAME, NEARBY_CITIES, SIRET_NUMBER } from "../consts";
 
 const introVideoPath = path.join(process.cwd(), "public", "media", "a-propos-intro.mp4");
 const hasIntroVideo = fs.existsSync(introVideoPath);
@@ -42,6 +42,9 @@ const introPoster = hasIntroVideo
           <p>
             Le cabinet à Sceaux est facilement accessible depuis les villes
             voisines : {NEARBY_CITIES}.
+          </p>
+          <p class="text-sm text-ink-secondary">
+            Exercice en libéral sous la raison sociale {LEGAL_ENTITY_NAME} (SIRET&nbsp;: {SIRET_NUMBER}).
           </p>
         </div>
         <aside class="w-full shrink-0 overflow-hidden rounded-xl border border-border-subtle md:w-3/5">
