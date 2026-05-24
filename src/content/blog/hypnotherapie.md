@@ -1,5 +1,5 @@
 ---
-title: "L'hypnothérapie : principes et applications thérapeutiques"
+title: "L'hypnothérapie : principes et applications thérapeutiques"
 description: "Découvrez l'hypnothérapie, une approche thérapeutique naturelle qui utilise l'état hypnotique pour favoriser le changement et le bien-être psychologique."
 pubDate: "nov 23 2024"
 heroImage: '../../assets/blog/hypnotherapie_photorealiste.webp'

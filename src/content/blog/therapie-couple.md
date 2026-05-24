@@ -1,11 +1,13 @@
 ---
-title: 'Les thérapies de couple'
-description: 'Découvrez comment la thérapie de couple peut aider à renforcer votre relation, améliorer la communication et résoudre les conflits dans votre couple.'
+title: 'Thérapie de couple : quand consulter et comment se déroule l’accompagnement ?'
+description: 'Thérapie de couple à Sceaux : comprendre quand consulter, comment se passent les séances et quelles approches peuvent aider à sortir des conflits répétitifs.'
 pubDate: 'Aug 30 2025'
 heroImage: '../../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp'
 ---
 
-La thérapie de couple est une approche thérapeutique spécialisée qui vise à améliorer la qualité de la relation entre deux partenaires. Elle offre un espace sécurisé pour explorer les difficultés relationnelles et développer des outils de communication plus efficaces.
+La thérapie de couple est une approche thérapeutique spécialisée qui vise à améliorer la qualité de la relation entre deux partenaires. Elle offre un espace sécurisé pour explorer les difficultés relationnelles, comprendre les cycles qui se répètent et développer des outils de communication plus efficaces.
+
+Au cabinet, la [thérapie de couple](/therapie-couple/) s'adresse aux couples qui souhaitent sortir d'une impasse relationnelle, apaiser des conflits récurrents ou retrouver un dialogue plus vivant. Il ne s'agit pas de désigner un responsable, mais de regarder ensemble ce qui se passe entre les partenaires : les attentes, les blessures, les défenses, les malentendus et les tentatives de solution qui finissent parfois par aggraver le problème.
 
 ## Qu'est-ce que la thérapie de couple ?
 
@@ -118,3 +120,62 @@ Si vous ressentez des difficultés dans votre couple, n'hésitez pas à consulte
 ---
 
 *Nicolas Devaux, psychologue spécialisé en thérapies de couple avec approche psychodynamique et ACT, vous accompagne dans cette démarche avec bienveillance et professionnalisme.*
+
+## Questions fréquentes sur la thérapie de couple
+
+### Faut-il venir ensemble à la première séance ?
+
+Dans la plupart des cas, oui : la thérapie de couple commence avec les deux partenaires afin d'entendre les deux points de vue et d'observer la dynamique relationnelle. Des temps individuels peuvent parfois être proposés si cela aide l'évaluation clinique.
+
+### La thérapie de couple sert-elle seulement à éviter une séparation ?
+
+Non. Elle peut aider à reconstruire le lien, mais aussi à clarifier une décision importante lorsque le couple est dans une impasse. L'objectif est d'ouvrir un espace de parole plus lucide, pas de forcer un résultat.
+
+### Combien de séances sont nécessaires ?
+
+La durée dépend de la situation, de l'ancienneté des difficultés et de l'engagement de chacun. Certaines demandes se travaillent en quelques séances, d'autres nécessitent un accompagnement plus progressif.
+
+### Peut-on consulter même si l'un des deux partenaires hésite ?
+
+Oui, à condition que chacun accepte au moins d'explorer la situation. L'hésitation fait souvent partie du travail : elle peut être entendue sans être transformée en reproche.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Faut-il venir ensemble à la première séance de thérapie de couple ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dans la plupart des cas, la thérapie de couple commence avec les deux partenaires afin d'entendre les deux points de vue et d'observer la dynamique relationnelle. Des temps individuels peuvent parfois être proposés si cela aide l'évaluation clinique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La thérapie de couple sert-elle seulement à éviter une séparation ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Elle peut aider à reconstruire le lien, mais aussi à clarifier une décision importante lorsque le couple est dans une impasse. L'objectif est d'ouvrir un espace de parole plus lucide, pas de forcer un résultat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de séances de thérapie de couple sont nécessaires ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La durée dépend de la situation, de l'ancienneté des difficultés et de l'engagement de chacun. Certaines demandes se travaillent en quelques séances, d'autres nécessitent un accompagnement plus progressif."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on consulter en thérapie de couple si l'un des deux partenaires hésite ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, à condition que chacun accepte au moins d'explorer la situation. L'hésitation fait souvent partie du travail et peut être entendue sans être transformée en reproche."
+      }
+    }
+  ]
+}
+</script>

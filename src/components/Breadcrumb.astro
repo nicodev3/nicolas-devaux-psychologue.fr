@@ -47,7 +47,9 @@ segments.forEach((segment, index) => {
   const isLast = index === segments.length - 1;
 
   let label: string;
-  if (isLast && title && !LABEL_MAP[segment]) {
+  if (isLast && title && segments[0] === "blog") {
+    label = title;
+  } else if (isLast && title && !LABEL_MAP[segment]) {
     label = title;
   } else {
     label = LABEL_MAP[segment] ?? segment.replace(/-/g, " ");
