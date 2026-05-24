@@ -2,6 +2,7 @@
 import SectionHeading from "./SectionHeading.astro";
 import { getCollection } from "astro:content";
 import { formatFrenchDate, toDateTime } from "../utils/formatDate";
+import { applyFrenchTypography } from "../utils/frenchTypography.js";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -20,7 +21,7 @@ const latestPosts = posts.slice(0, 4);
             class="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
           >
             <h3 class="typo-body mb-1 font-semibold leading-snug text-ink-secondary transition-colors group-hover:text-brand">
-              {post.data.title}
+              {applyFrenchTypography(post.data.title)}
             </h3>
             <p class="font-ui text-xs font-medium text-ink-tertiary">
               <time datetime={toDateTime(post.data.pubDate)}>{formatFrenchDate(post.data.pubDate)}</time>

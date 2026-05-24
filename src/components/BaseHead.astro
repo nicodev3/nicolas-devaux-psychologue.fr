@@ -4,6 +4,7 @@
 import "../styles/global.css";
 import { SITE_NAME } from "../consts";
 import { pathnameToOgSlug } from "../utils/pathname-to-og-slug";
+import { applyFrenchTypography } from "../utils/frenchTypography.js";
 
 interface Props {
 	title: string;
@@ -15,12 +16,14 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, ogImageSlug } = Astro.props;
+const formattedTitle = applyFrenchTypography(title);
+const formattedDescription = applyFrenchTypography(description);
 const pageTitle =
-  title === "Psychologue à Sceaux"
+  formattedTitle === "Psychologue à Sceaux"
     ? "Psychologue à Sceaux | Nicolas Devaux"
-    : title.includes(SITE_NAME) || title.includes("Nicolas Devaux")
-      ? title
-      : `${title} | ${SITE_NAME}`;
+    : formattedTitle.includes(SITE_NAME) || formattedTitle.includes("Nicolas Devaux")
+      ? formattedTitle
+      : `${formattedTitle} | ${SITE_NAME}`;
 const siteBase = Astro.site ?? Astro.url.origin;
 const ogSlug = ogImageSlug ?? pathnameToOgSlug(Astro.url.pathname);
 const ogImagePath = `/og/${ogSlug}.png`;
@@ -44,13 +47,13 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 
 <!-- Primary Meta Tags -->
 <title>{pageTitle}</title>
-<meta name="description" content={description} />
+<meta name="description" content={formattedDescription} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL.href} />
 <meta property="og:title" content={pageTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={formattedDescription} />
 <meta property="og:image" content={ogImageAbsolute} />
 <meta property="og:image:width" content={String(OG_RW)} />
 <meta property="og:image:height" content={String(OG_RH)} />
@@ -60,7 +63,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={pageTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={formattedDescription} />
 <meta name="twitter:image" content={ogImageAbsolute} />
 
 <!-- Schema.org (prod). hasMap = GOOGLE_MAPS_CABINET_URL dans consts.ts (script is:inline). -->

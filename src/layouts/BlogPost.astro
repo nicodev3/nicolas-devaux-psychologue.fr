@@ -10,6 +10,7 @@ import ArticleScrollProgress from "../components/ArticleScrollProgress.astro";
 import "../styles/global.css";
 import "../styles/content.css";
 import { formatFrenchDate, toDateTime } from "../utils/formatDate";
+import { applyFrenchTypography } from "../utils/frenchTypography.js";
 
 type Props = CollectionEntry<"blog">["data"] & {
   blogPost?: boolean;
@@ -25,6 +26,8 @@ const {
   blogPost = false,
   showDate = true,
 } = Astro.props;
+
+const formattedTitle = applyFrenchTypography(title);
 
 const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
 ---
@@ -60,7 +63,7 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
             )
           }
           <h1 class="font-display typo-h1 mb-6 text-pretty text-ink-primary md:mb-8">
-            {title}
+            {formattedTitle}
           </h1>
           {
             showDate && (

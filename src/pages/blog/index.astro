@@ -6,8 +6,9 @@ import Footer from "../../components/Footer.astro";
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import { formatFrenchDate, toDateTime } from "../../utils/formatDate";
+import { applyFrenchTypography } from "../../utils/frenchTypography.js";
 
-const BLOG_INDEX_TITLE = "Blog — articles de psychologie";
+const BLOG_INDEX_TITLE = applyFrenchTypography("Blog — articles de psychologie");
 const BLOG_INDEX_DESCRIPTION =
   "Articles de psychologie, thérapies et bien-être mental par Nicolas Devaux, psychologue à Sceaux.";
 
@@ -60,7 +61,7 @@ const posts = (await getCollection("blog")).sort(
                 </div>
                 <div class="p-6">
                   <h3 class="typo-display-md mb-2 font-semibold text-ink-primary transition-colors group-hover:text-brand">
-                    {post.data.title}
+                    {applyFrenchTypography(post.data.title)}
                   </h3>
                   <p class="font-ui typo-meta text-body-muted">
                     <time datetime={toDateTime(post.data.pubDate)}>{formatFrenchDate(post.data.pubDate)}</time>

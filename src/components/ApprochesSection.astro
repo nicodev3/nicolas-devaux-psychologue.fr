@@ -1,6 +1,7 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
 import { buttonClasses } from "./ui/button";
+import { applyFrenchTypography } from "../utils/frenchTypography.js";
 
 const items = [
   {
@@ -56,7 +57,7 @@ const items = [
         items.map((item) => (
           <article class="flex flex-col">
             <h3 class="font-display typo-display-md text-balance text-ink-primary">
-              {item.title}
+              {applyFrenchTypography(item.title)}
             </h3>
             <div class="mt-4 h-px w-12 bg-brand" aria-hidden="true" />
             <p class="mt-5 text-ink-secondary leading-relaxed text-pretty">{item.content}</p>
