@@ -2,7 +2,7 @@
 title: "Thérapie pleine conscience : MBCT, MBSR et accompagnement psychologique"
 description: "La thérapie pleine conscience aide à changer la relation aux pensées, aux émotions et au stress. Découvrez les différences entre MBCT, MBSR et ACT."
 pubDate: "May 24 2026"
-heroImage: "../../assets/blog/apprendre-pour-changer.webp"
+heroImage: "../../assets/blog/mindfulness_meditation.webp"
 ---
 
 La **thérapie pleine conscience** ne consiste pas à faire le vide ou à devenir calme sur commande. Elle apprend plutôt à observer ce qui se passe en soi avec davantage de précision : pensées, émotions, sensations corporelles, impulsions d'évitement ou de contrôle. Cette capacité d'observation peut ensuite devenir un appui thérapeutique pour traverser le stress, l'anxiété, les ruminations ou les périodes de rechute dépressive.

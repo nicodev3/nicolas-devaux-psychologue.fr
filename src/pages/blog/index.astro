@@ -37,26 +37,26 @@ const posts = (await getCollection("blog")).sort(
         </p>
       </header>
 
-      <div class="grid gap-8 border-t border-border-subtle pt-10 md:grid-cols-2 md:pt-12 xl:grid-cols-4">
+      <div class="grid gap-8 border-t border-border-subtle pt-10 md:grid-cols-2 md:pt-12 xl:grid-cols-3">
         {
           posts.map((post) => (
-            <article class="overflow-hidden rounded-xl border border-border-subtle transition-colors hover:border-brand/35">
-              <a href={`/blog/${post.id}/`} class="group block">
-                <div class="aspect-video overflow-hidden bg-surface-muted">
+            <article class="flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle transition-colors hover:border-brand/35">
+              <a href={`/blog/${post.id}/`} class="group flex h-full flex-col">
+                <div class="relative aspect-video w-full shrink-0 overflow-hidden bg-surface-muted">
                   {
-                    post.data.heroImage && (
+                    post.data.heroImage ? (
                       <Picture
                         src={post.data.heroImage}
                         alt={post.data.title}
                         width={720}
-                        height={360}
+                        height={405}
                         formats={["avif", "webp"]}
                         fallbackFormat="webp"
                         loading="lazy"
                         decoding="async"
-                        class="h-full w-full object-cover"
+                        class="absolute inset-0 h-full w-full object-cover"
                       />
-                    )
+                    ) : null
                   }
                 </div>
                 <div class="p-6">
