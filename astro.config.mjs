@@ -17,7 +17,14 @@ import rehypeExternalLinks from './src/remark/rehype-external-links.js';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://nicolas-devaux-psychologue.fr',
-    integrations: [mdx(), sitemap(), alpinejs(), react()],
+    integrations: [
+        mdx(),
+        sitemap({
+            filter: (page) => !page.includes('?s='),
+        }),
+        alpinejs(),
+        react(),
+    ],
     markdown: {
         remarkPlugins: [
             [remarkFrenchPunctuationSpacing, {}],
