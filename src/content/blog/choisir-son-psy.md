@@ -11,33 +11,37 @@ Psy… Voilà un drôle de mot passé dans le langage courant ! Mais qui est vra
 
 ### Le psychologue
 
-Le **psychologue** est un expert du fonctionnement psychique. Le titre de psychologue, protégé par la loi depuis 1985, est accessible après une formation universitaire de haut niveau (3e cycle, bac +5).
+Le **psychologue** est un expert du fonctionnement psychique. Le titre de psychologue, protégé par la [loi du 25 juillet 1985](https://www.legifrance.gouv.fr/loda/id/LEGISCTA000006127022), est accessible après une formation universitaire de haut niveau (3e cycle, bac +5).
 
 Le psychologue peut évaluer, à l'aide de bilans et de tests, le fonctionnement affectif et cognitif du sujet. Le psychologue est à même de conduire des psychothérapies qui peuvent prendre plusieurs aspects suivant sa formation.
 
-À noter que seul un travail personnel de thérapie sur de longues années qualifie le psychologue en tant que thérapeute. Le numéro ADELI est une garantie offerte au patient.
+À noter que seul un travail personnel de thérapie sur de longues années qualifie le psychologue en tant que thérapeute. Un psychologue doit aussi être enregistré auprès des autorités compétentes : cet enregistrement permet son identification dans le répertoire national et l'attribution d'un numéro RPPS.
 
-La profession de psychologue est la seule profession réglementée, gérée par le ministère de l'Enseignement supérieur et de la Recherche.
+<aside class="alert-box" aria-label="Vérifier le numéro RPPS">
+  Avant de consulter, vous pouvez vérifier l'identité, la profession, les diplômes, le lieu d'exercice et le numéro RPPS d'un psychologue sur l'<a href="https://annuaire.sante.fr/">Annuaire Santé officiel</a>, publié à partir de données certifiées par les autorités compétentes.
+</aside>
 
-L'usurpation du titre de psychologue est un délit et expose à des sanctions.
+La profession de psychologue est une profession réglementée, encadrée par le ministère de l'Enseignement supérieur et de la Recherche.
+
+L'usurpation du titre de psychologue est un délit. La loi renvoie aux peines prévues pour l'usurpation de titre : l'[article 433-17 du Code pénal](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006165374/) prévoit jusqu'à un an d'emprisonnement et 15 000 euros d'amende pour l'usage, sans droit, d'un titre attaché à une profession réglementée.
 
 ### Le psychiatre
 
 Le **psychiatre** est un médecin spécialiste des maladies psychiatriques. Il peut à ce titre prescrire des médicaments qui soulagent la souffrance psychique.
 
-Il peut mener des psychothérapies - non remboursées la plupart du temps - mais, bien que la loi l'y autorise sans détour, il est préférable, comme pour le psychologue, qu'il ait effectué un travail personnel. Le numéro ADELI permet de s'assurer que le praticien exerce légalement.
+Il peut mener des psychothérapies - non remboursées la plupart du temps - mais, bien que la loi l'y autorise sans détour, il est préférable, comme pour le psychologue, qu'il ait effectué un travail personnel. Le numéro RPPS permet de s'assurer que le praticien exerce légalement.
 
 ### Le psychomotricien
 
 Le travail du **psychomotricien** vise à traiter, par et au travers du corps, les troubles psychologiques ou psychiatriques. Le cursus, d'une durée de trois ans, mêle un enseignement en anatomie fonctionnelle, physiologie, psychologie, psychiatrie. La fin des études est sanctionnée par l'obtention du diplôme d'État de psychomotricité.
 
-La relaxation, les techniques corporelles, font partie des outils du psychomotricien. Le psychomotricien, comme le psychologue, doit posséder un numéro ADELI
+La relaxation, les techniques corporelles, font partie des outils du psychomotricien. Le psychomotricien, comme le psychologue, doit posséder un identifiant professionnel consultable dans les répertoires nationaux.
 
 ### Le psychothérapeute
 
-Le titre de **psychothérapeute** est réglementé depuis un décret du 20 mai 2010. Ne peuvent faire usage de ce titre que les psychologues, psychiatres et psychanalystes dont les critères de formation correspondent à la loi.
+Le titre de **psychothérapeute** est réglementé depuis le [décret du 20 mai 2010](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000022244482/). Ne peuvent faire usage de ce titre que les professionnels dont les critères de formation correspondent à la loi et qui sont inscrits sur la liste prévue à cet effet ; cette inscription doit être réalisée avant toute utilisation du titre de psychothérapeute.
 
-Malheureusement, cette loi censée limiter les dérives sectaires est contournée par des praticiens peu scrupuleux qui s'autoproclament "praticiens en psychothérapie" ou encore tout simplement "thérapeutes".
+Malheureusement, cette loi censée limiter les dérives sectaires est parfois contournée par des praticiens peu scrupuleux qui s'autoproclament "praticiens en psychothérapie" ou encore tout simplement "thérapeutes".
 
 Tous ne sont pas dangereux, mais ces activités non encadrées prodiguées pas des thérapeutes le plus souvent peu formés peuvent facilement dériver vers des pratiques sectaires, voire franchement nocives.
 
