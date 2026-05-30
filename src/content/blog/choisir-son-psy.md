@@ -11,19 +11,23 @@ Psy… Voilà un drôle de mot passé dans le langage courant ! Mais qui est vra
 
 ### Le psychologue
 
-Le **psychologue** est un expert du fonctionnement psychique. Le titre de psychologue, protégé par la [loi du 25 juillet 1985](https://www.legifrance.gouv.fr/loda/id/LEGISCTA000006127022), est accessible après une formation universitaire de haut niveau (3e cycle, bac +5).
+Le **psychologue** est un expert du fonctionnement psychique. Le titre de psychologue, protégé par la [loi du 25 juillet 1985](https://www.enseignementsup-recherche.gouv.fr/fr/psychologue-une-profession-reglementee-en-france-46456), est accessible après une formation universitaire de haut niveau (3e cycle, bac +5).
 
 Le psychologue peut évaluer, à l'aide de bilans et de tests, le fonctionnement affectif et cognitif du sujet. Le psychologue est à même de conduire des psychothérapies qui peuvent prendre plusieurs aspects suivant sa formation.
 
 À noter que seul un travail personnel de thérapie sur de longues années qualifie le psychologue en tant que thérapeute. Un psychologue doit aussi être enregistré auprès des autorités compétentes : cet enregistrement permet son identification dans le répertoire national et l'attribution d'un numéro RPPS.
 
 <aside class="alert-box" aria-label="Vérifier le numéro RPPS">
-  Avant de consulter, vous pouvez vérifier l'identité, la profession, les diplômes, le lieu d'exercice et le numéro RPPS d'un psychologue sur l'<a href="https://annuaire.sante.fr/">Annuaire Santé officiel</a>, publié à partir de données certifiées par les autorités compétentes.
+  <svg class="alert-box__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+  <div>
+    <strong class="alert-box__title">Vérifiez avant de consulter</strong>
+    Vous pouvez vérifier l'identité, la profession, les diplômes, le lieu d'exercice et le numéro RPPS d'un psychologue sur l'<a href="https://annuaire.sante.fr/">Annuaire Santé officiel</a>, publié à partir de données certifiées par les autorités compétentes.
+  </div>
 </aside>
 
 La profession de psychologue est une profession réglementée, encadrée par le ministère de l'Enseignement supérieur et de la Recherche.
 
-L'usurpation du titre de psychologue est un délit. La loi renvoie aux peines prévues pour l'usurpation de titre : l'[article 433-17 du Code pénal](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006165374/) prévoit jusqu'à un an d'emprisonnement et 15 000 euros d'amende pour l'usage, sans droit, d'un titre attaché à une profession réglementée.
+L'usurpation du titre de psychologue est un délit. La loi renvoie aux peines prévues pour l'usurpation de titre : l'[article 433-17 du Code pénal](https://www.enseignementsup-recherche.gouv.fr/fr/psychologue-une-profession-reglementee-en-france-46456) prévoit jusqu'à un an d'emprisonnement et 15 000 euros d'amende pour l'usage, sans droit, d'un titre attaché à une profession réglementée.
 
 ### Le psychiatre
 
@@ -64,3 +68,11 @@ Attention toutefois aux autoproclamés et aux associations fantaisistes. Ici, se
 C'est dans cette catégorie que l'on retrouve les praticiens en psychothérapie, parfois sérieusement formés, et certains thérapeutes aux idées parfois originales. C'est également dans cette catégorie que l'on rencontre le plus de dérives sectaires. C'est un véritable fourre-tout.
 
 Sophrologie, sophro-analyse, bio-énergétique, PNL, EMDR et autres, si elles ne sont pas nocives la plupart du temps, ne sont pas des psychothérapies. Si le principe de ces méthodes est parfois reconnu, voire utile en accompagnement du travail psychothérapeutique réalisé par un professionnel, il faut être très vigilant et ne pas donner son âme au premier gourou charismatique venu.
+
+### Le coach, le coach de vie
+
+Le **coaching** — qu'il soit « de vie », « personnel », « professionnel » ou autre — n'est encadré par aucun texte légal en France. N'importe qui peut se proclamer coach du jour au lendemain, sans formation, sans diplôme, sans supervision. Certains coachs sont sérieusement formés et exercent dans un cadre éthique bien défini ; d'autres font peser des risques réels sur des personnes en difficulté.
+
+La différence fondamentale avec le psychologue tient à l'objet même de la démarche. Le coaching s'adresse à des personnes qui vont bien et cherchent à progresser — améliorer leurs performances, clarifier un projet, traverser une transition professionnelle. Il travaille sur le présent et l'avenir, sur des objectifs concrets. La psychothérapie, elle, s'adresse à la souffrance psychique : elle explore les conflits intérieurs, l'histoire du sujet, les mécanismes inconscients qui entravent son fonctionnement. Un coach n'est pas formé pour cela, et s'y aventurer sans compétence clinique peut aggraver une situation fragilisée.
+
+Si vous traversez une période de détresse, d'anxiété, de dépression ou de crise, consultez un psychologue ou un médecin ou bien encore rendez-vous aux urgences — pas un coach. Les certifications privées non reconnues par l'État et les tarifs élevés ne garantissent rien sur la qualité ni sur la sécurité de l'accompagnement.

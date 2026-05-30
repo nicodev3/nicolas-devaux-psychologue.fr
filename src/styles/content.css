@@ -10,7 +10,7 @@
 .c-prose h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-top: 1.25rem;
+  margin-top: 1.75rem;
   margin-bottom: 0.75rem;
 }
 
@@ -65,6 +65,10 @@
 
 .c-prose li::marker {
   color: var(--color-brand-hover);
+}
+
+.c-prose aside {
+  margin-block: 1.5rem;
 }
 
 .c-prose blockquote,
