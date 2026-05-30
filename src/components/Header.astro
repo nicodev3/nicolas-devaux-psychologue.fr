@@ -95,7 +95,7 @@ const sheetLink =
         x-transition:leave="transition-opacity duration-300 nav-sheet-ease"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
-        class="fixed inset-0 z-[80] bg-ink-primary/40"
+        class="fixed inset-0 z-80 bg-ink-primary/40"
         aria-hidden="true"
         x-on:click="open = false"
       >
@@ -114,7 +114,7 @@ const sheetLink =
         x-transition:leave="transition-transform duration-300 nav-sheet-ease"
         x-transition:leave-start="translate-x-0"
         x-transition:leave-end="translate-x-full"
-        class="nav-mobile-sheet fixed inset-y-0 right-0 z-[90] flex w-[min(20rem,calc(100vw-1rem))] max-w-full flex-col border-l border-border-subtle bg-surface-raised shadow-2xl outline-none"
+        class="nav-mobile-sheet fixed inset-y-0 right-0 z-90 flex w-[min(20rem,calc(100vw-1rem))] max-w-full flex-col border-l border-border-subtle bg-surface-raised shadow-2xl outline-none"
         x-on:click.stop
       >
         <div class="flex shrink-0 items-center justify-between border-b border-border-subtle px-4 py-3">
@@ -124,7 +124,7 @@ const sheetLink =
             class={buttonClasses({
               variant: "ghost",
               size: "sm",
-              className: "!min-h-9 text-ink-secondary hover:text-brand",
+              className: "min-h-9! text-ink-secondary hover:text-brand",
             })}
             x-on:click="open = false"
           >

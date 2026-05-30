@@ -45,7 +45,7 @@ const tariffs = [
             tariffs.map(({ label, duration, price }) => (
               <li class="border-b border-border-subtle py-4 last:border-b-0">
                 <div
-                  class="grid items-baseline gap-x-4 font-ui [grid-template-columns:minmax(0,1fr)_88px_112px] md:gap-x-5"
+                  class="grid items-baseline gap-x-4 font-ui grid-cols-[minmax(0,1fr)_88px_112px] md:gap-x-5"
                 >
                   <span class="min-w-0 text-pretty text-base leading-snug text-ink-secondary">{label}</span>
                   <span class="whitespace-nowrap text-base leading-snug tabular-nums text-ink-secondary">{duration}</span>

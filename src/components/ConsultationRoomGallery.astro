@@ -29,7 +29,7 @@ const shots = [
     <div class="mt-8 grid gap-3 sm:grid-cols-2">
       {
         shots.map(({ src, alt }) => (
-          <figure class="overflow-hidden rounded-xl border border-border-subtle bg-surface-muted shadow-[var(--shadow-soft)]">
+          <figure class="overflow-hidden rounded-xl border border-border-subtle bg-surface-muted shadow-(--shadow-soft)">
             <Picture
               src={src}
               formats={["avif", "webp"]}
@@ -39,7 +39,7 @@ const shots = [
               alt={alt}
               loading="lazy"
               decoding="async"
-              class="aspect-[4/3] h-auto w-full object-cover"
+              class="aspect-4/3 h-auto w-full object-cover"
             />
           </figure>
         ))
