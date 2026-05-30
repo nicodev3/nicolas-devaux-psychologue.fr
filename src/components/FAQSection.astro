@@ -3,7 +3,7 @@ import SectionHeading from "./SectionHeading.astro";
 import { accordionDisclosureClasses, buttonClasses } from "./ui/button";
 import { NEARBY_CITIES } from "../consts";
 
-const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
+const faqAccordionBtn = accordionDisclosureClasses("gap-3 !px-0 py-4");
 ---
 
 <section
@@ -61,7 +61,7 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-4 pb-4 pt-0 text-left">
+        <div class="pb-4 pt-0 text-left">
           <p class="text-ink-secondary leading-relaxed">
             Vous pouvez prendre rendez-vous facilement via <strong
               >Doctolib</strong
@@ -114,7 +114,7 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-4 pb-4 pt-0 text-left">
+        <div class="pb-4 pt-0 text-left">
           <p class="text-ink-secondary leading-relaxed">
             Les <strong>consultations individuelles</strong> et les <strong
               >consultations vidéo</strong
@@ -173,7 +173,7 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-4 pb-4 pt-0 text-left">
+        <div class="pb-4 pt-0 text-left">
           <p class="text-ink-secondary leading-relaxed">
             Les consultations de psychologie ne sont pas remboursées par
             la Sécurité Sociale, mais de nombreuses
@@ -226,7 +226,7 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-4 pb-4 pt-0 text-left">
+        <div class="pb-4 pt-0 text-left">
           <p class="text-ink-secondary leading-relaxed">
             Chaque approche a ses spécificités. Lors de notre premier
             entretien, nous déterminerons ensemble la méthode la plus
@@ -278,7 +278,7 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-4 pb-4 pt-0 text-left">
+        <div class="pb-4 pt-0 text-left">
           <p class="text-ink-secondary leading-relaxed">
             La durée varie selon vos besoins et objectifs. Certaines
             difficultés peuvent être résolues en quelques séances,
@@ -331,7 +331,7 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-4 pb-4 pt-0 text-left">
+        <div class="pb-4 pt-0 text-left">
           <p class="text-ink-secondary leading-relaxed">
             Oui, je propose des <strong>consultations vidéo</strong> pour
             les personnes qui ne peuvent pas se déplacer ou préfèrent ce format.
@@ -348,7 +348,7 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
       <button
         type="button"
         @click="openId = openId === 'faq-7' ? null : 'faq-7'"
-        class="w-full flex justify-between items-center gap-4 p-6 text-left"
+        class="w-full flex justify-between items-center gap-4 px-0 py-6 text-left"
         :aria-expanded="openId === 'faq-7'"
         aria-controls="faq-content-7"
         id="faq-toggle-7"
@@ -383,7 +383,7 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
       >
-        <div class="px-6 pb-6 pt-0">
+        <div class="pb-6 pt-0">
           <p class="text-gray-700 leading-relaxed">
             Oui. Le cabinet est à Sceaux, à proximité de {NEARBY_CITIES}. Des
             consultations en visioconférence sont également possibles si vous
