@@ -332,3 +332,12 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
     </script>
   </>
 )}
+
+{import.meta.env.PROD && (
+  <script
+    is:inline
+    async
+    src="https://analytics.ahrefs.com/analytics.js"
+    data-key="HjNHnvl6KtUSaCirHNzUFg"
+  ></script>
+)}
