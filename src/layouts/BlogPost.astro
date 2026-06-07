@@ -7,6 +7,7 @@ import Header from "../components/Header.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 import Footer from "../components/Footer.astro";
 import ArticleScrollProgress from "../components/ArticleScrollProgress.astro";
+import ArticleShareLinks from "../components/ArticleShareLinks.astro";
 import authorPortrait from "../assets/nicolas_devaux.jpg";
 import "../styles/global.css";
 import "../styles/content.css";
@@ -37,6 +38,7 @@ const formattedTitle = applyFrenchTypography(title);
 const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
 const isBlogArticle = blogPost && Astro.url.pathname.startsWith("/blog/");
 const readingTimeLabel = readingTimeMinutes ? `${readingTimeMinutes} min de lecture` : "Lecture";
+const articleUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
 
 function getArticleKicker(articleSlug: string, articleTitle: string): string {
   const normalized = `${articleSlug} ${articleTitle}`.toLowerCase();
@@ -85,14 +87,14 @@ const articleKicker = getArticleKicker(slug, title);
                   {description}
                 </p>
 
-                <div class="flex flex-col gap-4 border-y border-border-subtle py-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div class="flex min-w-0 items-center gap-3">
-                    <div class="size-11 shrink-0 overflow-hidden rounded-full bg-surface-muted ring-1 ring-border-subtle">
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border-subtle pt-4 font-ui text-sm text-ink-tertiary">
+                  <div class="flex min-w-0 items-center gap-2.5">
+                    <div class="size-8 shrink-0 overflow-hidden rounded-full bg-surface-muted ring-1 ring-border-subtle">
                       <Picture
                         src={authorPortrait}
                         alt=""
-                        width={88}
-                        height={88}
+                        width={64}
+                        height={64}
                         formats={["avif", "webp"]}
                         fallbackFormat="webp"
                         densities={[1, 2]}
@@ -101,24 +103,15 @@ const articleKicker = getArticleKicker(slug, title);
                         class="size-full object-cover object-center"
                       />
                     </div>
-                    <div class="min-w-0">
-                      <p class="font-ui text-sm font-semibold leading-tight text-ink-primary">
-                        Nicolas Devaux
-                      </p>
-                      <p class="font-ui text-sm leading-snug text-ink-tertiary">
-                        Psychologue à Sceaux · TCC et pleine conscience
-                      </p>
-                      <a
-                        href="/consulter/"
-                        class="mt-1 inline-flex font-ui text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
-                      >
-                        Consulter
-                      </a>
-                    </div>
+                    <p class="min-w-0 leading-snug">
+                      <span class="font-semibold text-ink-primary">Nicolas Devaux</span>
+                      <span class="text-border-strong" aria-hidden="true"> · </span>
+                      <span>Psychologue à Sceaux</span>
+                    </p>
                   </div>
 
                   {showDate && (
-                    <p class="font-ui text-sm leading-relaxed text-ink-tertiary sm:text-right">
+                    <p class="leading-snug">
                       <time datetime={toDateTime(pubDate)}>{formatFrenchDate(pubDate)}</time>
                       <span class="mx-2 text-border-strong" aria-hidden="true">
                         ·
@@ -134,6 +127,12 @@ const articleKicker = getArticleKicker(slug, title);
                       )}
                     </p>
                   )}
+                  <a
+                    href="/consulter/"
+                    class="font-semibold text-brand transition-colors hover:text-brand-hover"
+                  >
+                    Consulter
+                  </a>
                 </div>
 
                 {hasFaq && (
@@ -145,6 +144,8 @@ const articleKicker = getArticleKicker(slug, title);
                     <span aria-hidden="true">↓</span>
                   </a>
                 )}
+
+                <ArticleShareLinks title={title} url={articleUrl} />
               </div>
 
               {heroImage && (

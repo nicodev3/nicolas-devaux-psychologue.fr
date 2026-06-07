@@ -1,0 +1,94 @@
+---
+import { Link, Share2 } from "lucide";
+import LucideIcon from "./LucideIcon.astro";
+
+interface Props {
+  title: string;
+  url: string;
+}
+
+const { title, url } = Astro.props;
+
+const encodedTitle = encodeURIComponent(title);
+const encodedUrl = encodeURIComponent(url);
+const mailSubject = encodeURIComponent(title);
+const mailBody = encodeURIComponent(`${title}\n\n${url}`);
+
+const shareLinks = [
+  {
+    label: "LinkedIn",
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+    external: true,
+  },
+  {
+    label: "Facebook",
+    href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    external: true,
+  },
+  {
+    label: "X",
+    href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+    external: true,
+  },
+  {
+    label: "Email",
+    href: `mailto:?subject=${mailSubject}&body=${mailBody}`,
+    external: false,
+  },
+];
+---
+
+<nav class="article-share" aria-label="Partager cet article">
+  <p class="article-share__label">
+    <LucideIcon icon={Share2} size="sm" />
+    <span>Partager</span>
+  </p>
+  <ul class="article-share__list">
+    {
+      shareLinks.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="article-share__link"
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <button type="button" class="article-share__link article-share__copy" data-share-copy={url}>
+        <LucideIcon icon={Link} size="sm" />
+        <span>Copier le lien</span>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  const copyButtons = document.querySelectorAll<HTMLButtonElement>("[data-share-copy]");
+
+  copyButtons.forEach((button) => {
+    const defaultText = button.textContent?.trim() || "Copier le lien";
+
+    button.addEventListener("click", async () => {
+      const url = button.dataset.shareCopy;
+
+      if (!url || !navigator.clipboard) {
+        return;
+      }
+
+      await navigator.clipboard.writeText(url);
+      const label = button.querySelector("span");
+
+      if (label) {
+        label.textContent = "Lien copié";
+        window.setTimeout(() => {
+          label.textContent = defaultText;
+        }, 1800);
+      }
+    });
+  });
+</script>
