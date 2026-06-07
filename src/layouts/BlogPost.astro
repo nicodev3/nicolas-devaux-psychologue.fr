@@ -23,6 +23,7 @@ type Props = CollectionEntry<"blog">["data"] & {
 
 const {
   title,
+  seoTitle,
   description,
   pubDate,
   updatedDate,
@@ -63,8 +64,8 @@ const articleKicker = getArticleKicker(slug, title);
 
 <html lang="fr">
   <head>
-    <BaseHead title={title} description={description} />
-    {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} slug={slug} />}
+    <BaseHead title={seoTitle ?? title} description={description} />
+    {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} slug={slug} heroImage={heroImage} />}
   </head>
 
   <body class="bg-surface-page">

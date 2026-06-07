@@ -1,14 +1,25 @@
 ---
+import type { ImageMetadata } from "astro";
+
 interface Props {
   title: string;
   description: string;
   pubDate: Date;
   slug: string;
   author?: string;
+  heroImage?: ImageMetadata;
 }
 
-const { title, description, pubDate, slug, author = "Nicolas Devaux" } = Astro.props;
+const { title, description, pubDate, slug, author = "Nicolas Devaux", heroImage } = Astro.props;
 const url = new URL(`/blog/${slug}/`, Astro.site);
+const image = heroImage
+  ? {
+      "@type": "ImageObject",
+      "url": new URL(heroImage.src, Astro.site).toString(),
+      "width": heroImage.width,
+      "height": heroImage.height,
+    }
+  : undefined;
 
 const blogJsonLd = {
   "@context": "https://schema.org",
@@ -16,6 +27,7 @@ const blogJsonLd = {
   "headline": title,
   "description": description,
   "url": url.toString(),
+  ...(image ? { image } : {}),
   "datePublished": pubDate.toISOString(),
   "dateModified": pubDate.toISOString(),
   "author": {
