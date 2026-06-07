@@ -1,143 +1,97 @@
 ---
-title: 'Thérapie de couple : quand consulter et comment se déroule l’accompagnement ?'
+title: 'Thérapie de couple : quand consulter et comment se déroule l’accompagnement ?'
 description: 'Thérapie de couple à Sceaux : comprendre quand consulter, comment se passent les séances et quelles approches peuvent aider à sortir des conflits répétitifs.'
 pubDate: 'Aug 30 2025'
 heroImage: '../../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp'
 ---
 
-La thérapie de couple est une approche thérapeutique spécialisée qui vise à améliorer la qualité de la relation entre deux partenaires. Elle offre un espace sécurisé pour explorer les difficultés relationnelles, comprendre les cycles qui se répètent et développer des outils de communication plus efficaces.
+Il arrive qu’un couple ne sache plus très bien par quel bout prendre la difficulté. On parle, puis la discussion s’emballe. On se tait, mais le silence devient lourd. Chacun a parfois l’impression de faire des efforts, sans que l’autre les voie vraiment. C’est souvent dans ce type de moment qu’une [thérapie de couple](/therapie-couple/) peut devenir utile.
 
-Au cabinet, la [thérapie de couple](/therapie-couple/) s'adresse aux couples qui souhaitent sortir d'une impasse relationnelle, apaiser des conflits récurrents ou retrouver un dialogue plus vivant. Il ne s'agit pas de désigner un responsable, mais de regarder ensemble ce qui se passe entre les partenaires : les attentes, les blessures, les défenses, les malentendus et les tentatives de solution qui finissent parfois par aggraver le problème.
+Au cabinet, je ne cherche pas à désigner celui ou celle qui aurait tort. Le travail consiste plutôt à ralentir ce qui se passe entre les deux partenaires : les mots qui blessent, les attentes jamais dites, les protections qui ressemblent à du désintérêt, les tentatives de solution qui finissent par entretenir le problème. La séance devient un lieu tiers, suffisamment cadré pour que chacun puisse être entendu sans que l’échange reparte immédiatement dans le scénario habituel.
 
-## Qu'est-ce que la thérapie de couple ?
+## À quoi sert une thérapie de couple ?
 
-La thérapie de couple, également appelée thérapie conjugale ou thérapie relationnelle, est un processus thérapeutique qui implique les deux partenaires dans un travail commun. Contrairement à la thérapie individuelle, elle se concentre sur la dynamique du couple et les interactions entre les partenaires.
+Une thérapie de couple n’est pas simplement une “meilleure communication” à apprendre. Bien sûr, la façon de se parler compte. Mais, dans la plupart des situations, les disputes visibles reposent aussi sur autre chose : une peur de ne plus compter, un sentiment d’injustice, une fatigue accumulée, une histoire personnelle qui se réactive, une différence de rythme ou de besoin que le couple n’arrive plus à métaboliser.
 
-## Quand consulter un thérapeute de couple ?
+Le travail thérapeutique porte donc sur la relation elle-même. On observe comment chacun réagit, se défend, demande de l’attention, se retire ou tente de reprendre le contrôle. À partir de là, il devient possible de sortir d’une lecture trop simple, du type “tu es trop ceci” ou “tu ne fais jamais cela”, pour comprendre le mouvement qui enferme les deux partenaires.
 
-Il est recommandé de consulter un thérapeute de couple dans plusieurs situations :
+## Quand consulter ?
 
-- **Difficultés de communication** : Lorsque les discussions dégénèrent systématiquement en conflits
-- **Crises relationnelles** : Après une infidélité, une perte, ou un changement majeur dans la vie
-- **Conflits récurrents** : Quand les mêmes problèmes reviennent sans cesse
-- **Perte d'intimité** : Difficultés dans la vie sexuelle ou émotionnelle
-- **Préparation au mariage** : Pour renforcer les fondations avant l'engagement
-- **Décisions importantes** : Aide pour naviguer les choix de vie majeurs
+Il n’est pas nécessaire d’attendre que la rupture soit imminente. Beaucoup de couples consultent quand ils sentent que quelque chose se répète malgré leurs efforts. Les motifs les plus fréquents sont les conflits qui reviennent toujours au même endroit, la perte de complicité, les difficultés sexuelles, une infidélité, une décision importante, l’arrivée d’un enfant, une recomposition familiale, un deuil, une maladie, ou simplement l’impression de vivre côte à côte.
 
-## Mon approche thérapeutique
+La thérapie peut aussi aider lorsque les deux partenaires ne sont pas au même point. L’un veut avancer, l’autre doute. L’un pense qu’il faut “réparer”, l’autre se demande s’il reste assez de désir ou de confiance. Ces décalages ne sont pas des obstacles en soi ; ils font souvent partie de ce qu’il faut pouvoir mettre au travail.
 
-### Approche psychodynamique
-Inspirée des travaux de Jean-G. Lemaire, pionnier de la thérapie de couple en France, l'approche psychodynamique permet d'explorer les dynamiques inconscientes qui influencent la relation de couple. Elle aide à comprendre comment les expériences passées, les attachements précoces et les patterns relationnels hérités de l'enfance se rejouent dans la relation actuelle. Cette exploration permet aux partenaires de prendre conscience des projections, transferts et mécanismes de défense qui peuvent nuire à leur intimité.
+## Trois repères dans ma manière de travailler
 
-L'approche de Lemaire met l'accent sur l'analyse des interactions inconscientes du couple, considérant que chaque partenaire projette sur l'autre des aspects de sa propre histoire relationnelle. Cette compréhension permet de dépasser les conflits de surface pour toucher aux véritables enjeux relationnels.
+Je m’appuie sur plusieurs cadres, que j’utilise en fonction de la situation du couple plutôt que comme une méthode appliquée mécaniquement.
 
-### Thérapie d'Acceptation et d'Engagement (ACT) pour les couples
-L'ACT, thérapie de troisième vague, offre des outils puissants pour les couples en difficulté. Cette approche se concentre sur :
+### Comprendre ce qui se rejoue
 
-- **L'acceptation** des émotions difficiles plutôt que leur évitement
-- **La défusion cognitive** pour prendre de la distance avec les pensées limitantes
-- **L'engagement** vers des valeurs communes et des actions alignées
-- **La pleine conscience** pour développer une présence attentive à l'autre
-- **La flexibilité psychologique** pour s'adapter aux défis relationnels
+L’approche psychodynamique, dans la lignée de Jean-G. Lemaire et de la tradition française de la thérapie de couple, aide à repérer ce qui se répète à l’insu des partenaires. Un reproche actuel peut porter bien plus qu’un désaccord du jour. Il peut venir toucher une attente ancienne, une blessure narcissique, une crainte d’abandon, une honte, ou une façon apprise très tôt de se protéger.
 
-Cette approche permet aux couples de sortir des cercles vicieux de la lutte contre les émotions et de se reconnecter à ce qui compte vraiment dans leur relation.
+Cela ne signifie pas que tout viendrait de l’enfance, ni qu’il faudrait chercher une cause unique. L’idée est plus fine : comprendre comment deux histoires personnelles se rencontrent, s’accrochent, parfois se défendent l’une contre l’autre. Quand ce niveau devient visible, le conflit perd souvent un peu de sa fatalité.
 
-### Thérapie intégrative comportementale de couple (IBCT)
-Développée par Andrew Christensen et Neil Jacobson, l'IBCT combine des techniques de changement comportemental avec des interventions d'acceptation émotionnelle. Elle vise à réduire les cycles coercitifs (critiques, escalade, retrait défensif) en aidant les partenaires à voir leurs schémas interactionnels plutôt que de se blâmer mutuellement. L'accent est mis sur la création d'un contexte relationnel plus sûr, dans lequel l'empathie et la compréhension des différences – parfois peu accessibles au changement – permettent au changement comportemental de devenir possible et durable.
+### Retrouver de la souplesse avec l’ACT
 
-En pratique, le travail thérapeutique met l'accent sur :
+L’ACT, ou thérapie d’acceptation et d’engagement, est utile quand le couple se retrouve piégé dans la lutte contre les émotions. On voudrait ne plus être jaloux, ne plus être blessé, ne plus exploser, ne plus avoir besoin de demander. Plus on lutte, plus l’émotion prend de place.
 
-- **La réunion empathique autour du problème** pour augmenter l'empathie et diminuer les reproches
-- **Le détachement unifié** (prendre du recul ensemble face au schéma, plutôt que contre la personne)
-- **La tolérance** de certaines différences stables, afin d'apaiser les luttes de contrôle
-- **Des changements ciblés** lorsque ceux-ci sont réalistes et soutenables pour le couple
+Dans ce cadre, on travaille la capacité à faire de la place à ce qui est ressenti sans se laisser entièrement diriger par l’émotion du moment. Cela peut passer par la pleine conscience, la défusion face aux pensées très rigides, ou la clarification des valeurs : quel type de partenaire ai-je envie d’être, même quand je suis touché ? Qu’est-ce que nous voulons protéger dans cette relation, si nous choisissons de continuer à la construire ?
 
-Pour une présentation en français, voir la ressource de l'ACBS : [La thérapie intégrative comportementale de couple](https://contextualscience.org/la_therapie_integrative_comportementale_de_couple).
+### Sortir du face-à-face avec l’IBCT
 
-Pour en savoir plus, consultez aussi l’article dédié : [Thérapie intégrative comportementale de couple (IBCT)](/blog/therapie-integrative-comportementale-couple/).
+La thérapie intégrative comportementale de couple (IBCT), développée par Andrew Christensen et Neil Jacobson, apporte un autre point d’appui. Elle s’intéresse beaucoup aux cycles coercitifs : critique, justification, contre-attaque, retrait, retour de la critique. Dans ces moments-là, chacun peut avoir le sentiment de se défendre, alors que le couple, lui, s’abîme.
 
-## Les bénéfices de cette approche
+L’IBCT invite à regarder le problème comme quelque chose qui arrive au couple, et pas seulement comme le défaut d’un partenaire. On peut travailler la “réunion empathique” autour d’une difficulté, le recul commun face au schéma, la tolérance de certaines différences stables, puis des changements concrets quand ils sont réalistes.
 
-### Compréhension profonde des dynamiques
-- Prise de conscience des patterns relationnels inconscients
-- Exploration des attachements et des blessures passées
-- Identification des projections et transferts dans la relation
+Pour approfondir cette approche, vous pouvez lire la ressource de l’ACBS : [La thérapie intégrative comportementale de couple](https://contextualscience.org/la_therapie_integrative_comportementale_de_couple), ainsi que l’article dédié sur ce site : [Thérapie intégrative comportementale de couple (IBCT)](/blog/therapie-integrative-comportementale-couple/).
 
-### Développement de la flexibilité psychologique
-- Apprentissage de l'acceptation des émotions difficiles
-- Développement de la pleine conscience relationnelle
-- Renforcement de la capacité à rester présent dans les moments difficiles
+## Comment se passe une séance ?
 
-### Alignement sur les valeurs communes
-- Clarification des valeurs individuelles et du couple
-- Engagement vers des actions alignées avec ces valeurs
-- Création d'une vision commune pour l'avenir
+Une séance de couple dure généralement 50 minutes. Les deux partenaires sont reçus ensemble, sauf indication particulière au moment de l’évaluation. Les premières rencontres servent à comprendre ce qui amène le couple, l’histoire de la relation, les moments de crise, les ressources encore présentes et les objectifs possibles.
 
-### Amélioration de la communication
-- Expression authentique des besoins et émotions
-- Écoute empathique et non-jugeante
-- Résolution des conflits par la compréhension mutuelle
+Concrètement, je peux vous interrompre pour ralentir un échange, reformuler ce que j’entends, demander à chacun ce qui se passe intérieurement à un moment précis, ou attirer l’attention sur une séquence répétitive. Le but n’est pas de produire une discussion parfaite. Il s’agit plutôt de créer, séance après séance, une façon différente de se comprendre et de se répondre.
 
-### Réduction des cycles coercitifs (apports IBCT)
-- Diminution des escalades conflictuelles et du blâme réciproque
-- Meilleure tolérance des différences et validation émotionnelle
-- Contexte plus sûr pour des changements comportementaux qui tiennent dans le temps
+Entre les séances, certains couples repartent avec un point d’attention ou une expérience à tenter : observer un déclencheur, différer une discussion trop inflammable, formuler une demande plus directement, ou repérer les moments où l’ancien scénario commence à se remettre en route.
 
-## Comment se déroule une séance ?
+## Faut-il que les deux partenaires soient engagés ?
 
-Une séance de thérapie de couple dure généralement 50 minutes et se déroule en présence des deux partenaires. Mon approche intègre :
+La thérapie de couple demande au minimum que chacun accepte de venir regarder la situation. Il n’est pas nécessaire d’arriver avec le même niveau d’espoir, ni avec la même demande. En revanche, le travail devient difficile si l’un des deux vient uniquement pour faire valider que l’autre est le problème.
 
-1. **Exploration psychodynamique** : Identification des patterns inconscients et des dynamiques transgénérationnelles
-2. **Techniques ACT** : Exercices de pleine conscience, défusion cognitive et clarification des valeurs
-3. **Observation des interactions** : Analyse en temps réel des dynamiques relationnelles
-4. **Exercices pratiques** : Mise en situation et expérimentation de nouvelles façons d'être ensemble
-5. **Intégration** : Consolidation des acquis et planification des actions entre les séances
-
-## L'engagement des deux partenaires
-
-Le succès de cette approche thérapeutique dépend de l'engagement mutuel des deux partenaires. Il est essentiel que chacun :
-
-- Soit ouvert à l'exploration de son histoire personnelle et de ses patterns inconscients
-- Accepte de pratiquer la pleine conscience et l'acceptation des émotions difficiles
-- Soit prêt à clarifier ses valeurs et à s'engager vers des actions alignées
-- Maintienne la confidentialité des séances et l'ouverture au processus thérapeutique
+L’engagement demandé n’est pas de “sauver le couple” à tout prix. Il s’agit plutôt d’accepter un cadre : parler en son nom, écouter ce qui est difficile à entendre, reconnaître sa part dans la dynamique, et prendre au sérieux ce que la relation produit chez l’autre.
 
 ## Combien de temps dure une thérapie de couple ?
 
-La durée varie selon les besoins du couple :
-- **Thérapie brève** : 8-12 séances pour des problèmes spécifiques
-- **Thérapie à moyen terme** : 6-12 mois pour des difficultés plus complexes
-- **Thérapie à long terme** : Plusieurs mois à un an pour des problèmes profonds
+La durée varie beaucoup. Quelques séances peuvent suffire lorsqu’il s’agit de traverser une crise circonscrite, de clarifier une décision ou de remettre du dialogue. Quand les blessures sont anciennes, que la confiance a été fortement atteinte, ou que les conflits sont installés depuis plusieurs années, le travail demande souvent davantage de temps.
 
-## Conclusion
+Je préfère éviter de promettre un nombre de séances standard. Après les premières rencontres, il devient généralement plus facile d’estimer le rythme utile et les objectifs réalistes. Certains couples viennent de manière rapprochée au début, puis espacent lorsque le climat relationnel se stabilise.
 
-La thérapie de couple n'est pas un signe d'échec, mais plutôt une démarche courageuse pour investir dans votre relation. L'approche psychodynamique combinée à l'ACT offre un cadre unique pour explorer les profondeurs de votre relation tout en développant des compétences concrètes pour naviguer les défis du quotidien.
+## Ce que la thérapie peut permettre
 
-Cette approche vous permet de comprendre les racines de vos difficultés relationnelles tout en vous donnant des outils pratiques pour créer une relation plus authentique, flexible et alignée sur vos valeurs communes.
+Une thérapie de couple ne garantit pas une issue unique. Elle peut soutenir une reprise du lien, une manière plus juste de vivre ensemble, ou parfois une séparation moins destructrice. Dans tous les cas, elle vise à redonner de la lisibilité là où le couple ne voyait plus qu’un bloc de reproches, de déceptions ou d’épuisement.
 
-Si vous ressentez des difficultés dans votre couple, n'hésitez pas à consulter un professionnel qualifié. L'objectif est de vous aider à construire une relation plus épanouissante et durable, en vous connectant à ce qui compte vraiment pour vous deux.
+Quand le travail avance, les partenaires peuvent mieux reconnaître leurs mouvements défensifs, nommer leurs besoins sans accusation immédiate, tolérer certaines différences, et choisir des actions plus cohérentes avec ce qu’ils veulent préserver. C’est souvent moins spectaculaire qu’un grand “nouveau départ”, mais plus solide : une série de petits déplacements qui changent la qualité du quotidien.
 
 ---
 
-*Nicolas Devaux, psychologue spécialisé en thérapies de couple avec approche psychodynamique et ACT, vous accompagne dans cette démarche avec bienveillance et professionnalisme.*
+*Nicolas Devaux, psychologue à Sceaux, accompagne les couples à partir d’une approche intégrative associant lecture psychodynamique, ACT et IBCT.*
 
 ## Questions fréquentes sur la thérapie de couple
 
 ### Faut-il venir ensemble à la première séance ?
 
-Dans la plupart des cas, oui : la thérapie de couple commence avec les deux partenaires afin d'entendre les deux points de vue et d'observer la dynamique relationnelle. Des temps individuels peuvent parfois être proposés si cela aide l'évaluation clinique.
+Dans la plupart des cas, oui : la thérapie de couple commence avec les deux partenaires afin d’entendre les deux points de vue et d’observer la dynamique relationnelle. Des temps individuels peuvent parfois être proposés si cela aide l’évaluation clinique.
 
 ### La thérapie de couple sert-elle seulement à éviter une séparation ?
 
-Non. Elle peut aider à reconstruire le lien, mais aussi à clarifier une décision importante lorsque le couple est dans une impasse. L'objectif est d'ouvrir un espace de parole plus lucide, pas de forcer un résultat.
+Non. Elle peut aider à reconstruire le lien, mais aussi à clarifier une décision importante lorsque le couple est dans une impasse. L’objectif est d’ouvrir un espace de parole plus lucide, pas de forcer un résultat.
 
 ### Combien de séances sont nécessaires ?
 
-La durée dépend de la situation, de l'ancienneté des difficultés et de l'engagement de chacun. Certaines demandes se travaillent en quelques séances, d'autres nécessitent un accompagnement plus progressif.
+La durée dépend de la situation, de l’ancienneté des difficultés et de l’engagement de chacun. Certaines demandes se travaillent en quelques séances, d’autres nécessitent un accompagnement plus progressif.
 
-### Peut-on consulter même si l'un des deux partenaires hésite ?
+### Peut-on consulter même si l’un des deux partenaires hésite ?
 
-Oui, à condition que chacun accepte au moins d'explorer la situation. L'hésitation fait souvent partie du travail : elle peut être entendue sans être transformée en reproche.
+Oui, à condition que chacun accepte au moins d’explorer la situation. L’hésitation fait souvent partie du travail : elle peut être entendue sans être transformée en reproche.
 
 <script type="application/ld+json">
 {
