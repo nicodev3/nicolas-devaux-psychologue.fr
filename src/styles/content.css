@@ -1,17 +1,117 @@
-.c-wysiwig h2,
-.c-prose h2 {
+.article-prose {
+  margin-inline: auto;
+  max-width: min(56ch, 680px);
+  width: 100%;
+}
+
+.c-wysiwig h2 {
   font-size: clamp(1.5rem, 1vw + 1.2rem, 2.25rem);
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-.c-wysiwig h3,
-.c-prose h3 {
+.c-prose h2 {
+  border-left: 2px solid #8b3a2a;
+  color: var(--color-ink-primary);
+  font-family: var(--font-family-display);
+  font-size: clamp(1.6rem, 0.5vw + 1.45rem, 1.8rem);
+  font-weight: 600;
+  hyphens: none;
+  letter-spacing: 0;
+  line-height: 1.18;
+  margin-top: 3.5rem;
+  margin-bottom: 1.2rem;
+  padding-left: 1rem;
+  text-wrap: balance;
+}
+
+.c-prose h2:first-child {
+  margin-top: 0;
+}
+
+.c-prose h2#faq {
+  align-items: center;
+  border-left: 0;
+  color: var(--color-brand);
+  display: flex;
+  font-family: var(--font-family-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.9rem;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.c-prose h2#faq::before,
+.c-prose h2#faq::after {
+  background: var(--color-border-strong);
+  content: "";
+  flex: 1 1 4rem;
+  height: 1px;
+  max-width: 8rem;
+}
+
+.c-wysiwig h3 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
+}
+
+.c-prose h3 {
+  color: var(--color-ink-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  hyphens: none;
+  line-height: 1.35;
+  margin-top: 1.75rem;
+  margin-bottom: 0.65rem;
+  text-wrap: balance;
+}
+
+.c-prose h2#faq ~ h3 {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-subtle);
+  border-bottom: 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-family: var(--font-family-ui);
+  font-size: 1.15rem;
+  line-height: 1.35;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding: 1rem 1.1rem 0.4rem;
+}
+
+.c-prose h2#faq ~ h3 + p {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-subtle);
+  border-top: 0;
+  border-radius: 0 0 0.5rem 0.5rem;
+  color: var(--color-ink-secondary);
+  line-height: 1.72;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0.15rem 1.1rem 1.05rem 1.35rem;
+}
+
+.c-prose h2#faq ~ h3:nth-of-type(even),
+.c-prose h2#faq ~ h3:nth-of-type(even) + p {
+  background: var(--color-surface-muted);
+}
+
+.c-wysiwig h2,
+.c-wysiwig h3,
+.c-prose h2,
+.c-prose h3 {
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .c-wysiwig p a,
@@ -19,17 +119,22 @@
 .c-wysiwig td a,
 .c-prose a {
   color: var(--color-brand);
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.16em;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 
 .c-prose a:hover,
 .c-prose a:focus-visible {
   color: var(--color-brand-hover);
+  text-decoration-color: currentColor;
 }
 
 .c-prose p {
   color: var(--color-body);
-  line-height: 2rem;
+  line-height: 1.78;
   margin-bottom: 1.25rem;
 }
 
@@ -61,6 +166,7 @@
 .c-prose li {
   margin: 0.25rem 0;
   color: var(--color-body);
+  line-height: 1.75;
 }
 
 .c-prose li::marker {

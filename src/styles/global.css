@@ -536,3 +536,7 @@ abbr {
 .page-shell--wide {
     max-width: 1120px;
 }
+
+.page-shell--article {
+    max-width: 1120px;
+}

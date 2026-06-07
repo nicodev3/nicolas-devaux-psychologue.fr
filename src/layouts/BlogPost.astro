@@ -7,6 +7,7 @@ import Header from "../components/Header.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 import Footer from "../components/Footer.astro";
 import ArticleScrollProgress from "../components/ArticleScrollProgress.astro";
+import authorPortrait from "../assets/nicolas_devaux.jpg";
 import "../styles/global.css";
 import "../styles/content.css";
 import { formatFrenchDate, toDateTime } from "../utils/formatDate";
@@ -15,6 +16,8 @@ import { applyFrenchTypography } from "../utils/frenchTypography.js";
 type Props = CollectionEntry<"blog">["data"] & {
   blogPost?: boolean;
   showDate?: boolean;
+  readingTimeMinutes?: number;
+  hasFaq?: boolean;
 };
 
 const {
@@ -25,11 +28,35 @@ const {
   heroImage,
   blogPost = false,
   showDate = true,
+  readingTimeMinutes,
+  hasFaq = false,
 } = Astro.props;
 
 const formattedTitle = applyFrenchTypography(title);
 
 const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
+const isBlogArticle = blogPost && Astro.url.pathname.startsWith("/blog/");
+const readingTimeLabel = readingTimeMinutes ? `${readingTimeMinutes} min de lecture` : "Lecture";
+
+function getArticleKicker(articleSlug: string, articleTitle: string): string {
+  const normalized = `${articleSlug} ${articleTitle}`.toLowerCase();
+
+  if (normalized.includes("coherence") || normalized.includes("outil")) {
+    return "Santé mentale · Outils";
+  }
+
+  if (normalized.includes("therapie") || normalized.includes("psychotherapie") || normalized.includes("hypno")) {
+    return "Psychothérapie · Approches";
+  }
+
+  if (normalized.includes("choisir") || normalized.includes("consulter")) {
+    return "Psychologie · Repères";
+  }
+
+  return "Santé mentale · Article";
+}
+
+const articleKicker = getArticleKicker(slug, title);
 ---
 
 <html lang="fr">
@@ -41,10 +68,110 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
   <body class="bg-surface-page">
     <ArticleScrollProgress enabled={blogPost} />
     <Header />
-    <main class="page-shell">
-      <Breadcrumb title={title} />
+    <main class:list={["page-shell", isBlogArticle && "page-shell--article"]}>
+      <div class:list={[isBlogArticle && "mx-auto max-w-[980px]"]}>
+        <Breadcrumb title={title} />
+      </div>
       <article class="w-full">
-        <header class="mb-10 md:mb-12">
+        {
+          isBlogArticle ? (
+            <header class="mx-auto mb-12 grid max-w-[980px] items-start gap-8 border-b border-border-subtle pb-10 md:mb-14 md:pb-12 lg:grid-cols-[minmax(0,560px)_minmax(280px,360px)] lg:gap-12">
+              <div class="min-w-0 pt-1 lg:pt-4">
+                <p class="typo-meta-caps mb-5 text-brand">{articleKicker}</p>
+                <h1 class="font-display mb-5 max-w-[14em] text-pretty text-[clamp(2.1rem,4.2vw,2.8rem)] font-semibold leading-[1.06] tracking-normal text-ink-primary md:mb-6">
+                  {formattedTitle}
+                </h1>
+                <p class="typo-body-lg mb-7 max-w-[58ch] text-pretty text-ink-secondary">
+                  {description}
+                </p>
+
+                <div class="flex flex-col gap-4 border-y border-border-subtle py-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div class="flex min-w-0 items-center gap-3">
+                    <div class="size-11 shrink-0 overflow-hidden rounded-full bg-surface-muted ring-1 ring-border-subtle">
+                      <Picture
+                        src={authorPortrait}
+                        alt=""
+                        width={88}
+                        height={88}
+                        formats={["avif", "webp"]}
+                        fallbackFormat="webp"
+                        densities={[1, 2]}
+                        loading="eager"
+                        fetchpriority="high"
+                        class="size-full object-cover object-center"
+                      />
+                    </div>
+                    <div class="min-w-0">
+                      <p class="font-ui text-sm font-semibold leading-tight text-ink-primary">
+                        Nicolas Devaux
+                      </p>
+                      <p class="font-ui text-sm leading-snug text-ink-tertiary">
+                        Psychologue à Sceaux · TCC et pleine conscience
+                      </p>
+                      <a
+                        href="/consulter/"
+                        class="mt-1 inline-flex font-ui text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
+                      >
+                        Consulter
+                      </a>
+                    </div>
+                  </div>
+
+                  {showDate && (
+                    <p class="font-ui text-sm leading-relaxed text-ink-tertiary sm:text-right">
+                      <time datetime={toDateTime(pubDate)}>{formatFrenchDate(pubDate)}</time>
+                      <span class="mx-2 text-border-strong" aria-hidden="true">
+                        ·
+                      </span>
+                      <span>{readingTimeLabel}</span>
+                      {updatedDate && (
+                        <span class="block font-medium">
+                          Mis à jour le{" "}
+                          <time datetime={toDateTime(updatedDate)}>
+                            {formatFrenchDate(updatedDate)}
+                          </time>
+                        </span>
+                      )}
+                    </p>
+                  )}
+                </div>
+
+                {hasFaq && (
+                  <a
+                    href="#faq"
+                    class="mt-5 inline-flex items-center gap-2 font-ui text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
+                  >
+                    Aller aux questions fréquentes
+                    <span aria-hidden="true">↓</span>
+                  </a>
+                )}
+              </div>
+
+              {heroImage && (
+                <figure class="lg:sticky lg:top-24">
+                  <div class="relative overflow-hidden rounded-lg border border-border-subtle bg-surface-muted">
+                    <Picture
+                      src={heroImage}
+                      alt={title}
+                      width={heroImage.width}
+                      height={heroImage.height}
+                      formats={["avif", "webp"]}
+                      fallbackFormat="webp"
+                      loading="eager"
+                      decoding="async"
+                      fetchpriority="high"
+                      class="aspect-[4/3] w-full object-cover"
+                    />
+                    <div
+                      class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface-page/95 to-transparent"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </figure>
+              )}
+            </header>
+          ) : (
+            <header class="mb-10 md:mb-12">
           {
             heroImage && (
               <div class="mb-8 w-full overflow-hidden rounded-xl border border-border-subtle">
@@ -80,10 +207,15 @@ const slug = Astro.url.pathname.replace(/^\/blog\//, "").replace(/\/$/, "");
               </p>
             )
           }
-        </header>
+            </header>
+          )
+        }
 
         <div
-          class:list={[blogPost ? "c-prose" : "c-wysiwig", "border-t border-border-subtle pt-10 md:pt-12"]}
+          class:list={[
+            blogPost ? "c-prose" : "c-wysiwig",
+            isBlogArticle ? "article-prose" : "border-t border-border-subtle pt-10 md:pt-12",
+          ]}
         >
           <slot />
         </div>

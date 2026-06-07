@@ -42,14 +42,14 @@ const posts = (await getCollection("blog")).sort(
           posts.map((post) => (
             <article class="flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle transition-colors hover:border-brand/35">
               <a href={`/blog/${post.id}/`} class="group flex h-full flex-col">
-                <div class="relative aspect-video w-full shrink-0 overflow-hidden bg-surface-muted">
+                <div class="relative aspect-square w-full shrink-0 overflow-hidden bg-surface-muted">
                   {
                     post.data.heroImage ? (
                       <Picture
                         src={post.data.heroImage}
                         alt={post.data.title}
-                        width={720}
-                        height={405}
+                        width={post.data.heroImage.width}
+                        height={post.data.heroImage.height}
                         formats={["avif", "webp"]}
                         fallbackFormat="webp"
                         loading="lazy"

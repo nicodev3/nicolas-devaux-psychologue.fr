@@ -10,6 +10,7 @@ import react from '@astrojs/react';
 
 import tailwindcss from '@tailwindcss/vite';
 import remarkAutolinkKeywords from './src/remark/remark-autolink-keywords.js';
+import remarkFaqHeadingId from './src/remark/remark-faq-heading-id.js';
 import remarkFrenchPunctuationSpacing from './src/remark/remark-french-punctuation-spacing.js';
 import keywordMap from './src/remark/keyword-map.js';
 import rehypeExternalLinks from './src/remark/rehype-external-links.js';
@@ -45,6 +46,7 @@ export default defineConfig({
     markdown: {
         remarkPlugins: [
             [remarkFrenchPunctuationSpacing, {}],
+            [remarkFaqHeadingId, {}],
             [remarkAutolinkKeywords, { keywordMap, perPageLimit: 6 }],
         ],
         rehypePlugins: [

@@ -2,7 +2,7 @@
 title: "Cohérence cardiaque 365 : 3 fois par jour, 6 respirations par minute, 5 minutes"
 description: "La cohérence cardiaque 365 est un exercice de respiration simple pour réguler le stress. Découvrez la méthode 3-6-5, ses effets et comment la pratiquer."
 pubDate: "Jun 7 2026"
-heroImage: "../../assets/blog/mindfulness_meditation.webp"
+heroImage: "../../assets/blog/coherence-cardiaque-365.webp"
 ---
 
 La **cohérence cardiaque 365** est une méthode de respiration simple à retenir : **3 fois par jour, 6 respirations par minute, pendant 5 minutes**. Elle ne demande aucun matériel particulier et peut devenir un repère concret pour faire redescendre la tension, retrouver un rythme plus stable et mieux traverser les moments de stress.

@@ -13,8 +13,19 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+
+const postBody = post.body ?? "";
+const plainBody = postBody
+	.replace(/<script[\s\S]*?<\/script>/gi, "")
+	.replace(/```[\s\S]*?```/g, "")
+	.replace(/[#>*_`[\]()-]/g, " ")
+	.replace(/\s+/g, " ")
+	.trim();
+const wordCount = plainBody ? plainBody.split(" ").length : 0;
+const readingTimeMinutes = Math.max(1, Math.ceil(wordCount / 220));
+const hasFaq = /^##\s+Questions fréquentes\b/mi.test(postBody);
 ---
 
-<BlogPost {...post.data} blogPost={true}>
+<BlogPost {...post.data} blogPost={true} readingTimeMinutes={readingTimeMinutes} hasFaq={hasFaq}>
 	<Content />
 </BlogPost>
