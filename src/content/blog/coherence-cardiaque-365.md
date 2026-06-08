@@ -43,6 +43,16 @@ Installez-vous assis, les pieds posés au sol si possible, le dos soutenu ou red
 
 Commencez par observer votre respiration sans chercher à la modifier immédiatement. Puis installez progressivement un rythme simple :
 
+<div class="breathing-bubble" aria-label="Guide visuel de respiration : inspirez quand la bulle monte, expirez quand elle descend">
+  <div class="breathing-bubble__track" aria-hidden="true">
+    <div class="breathing-bubble__orb"></div>
+  </div>
+  <div class="breathing-bubble__labels" aria-hidden="true">
+    <span>Inspirez</span>
+    <span>Expirez</span>
+  </div>
+</div>
+
 1. Inspirez pendant 5 secondes.
 2. Expirez pendant 5 secondes.
 3. Recommencez pendant 5 minutes.

@@ -235,6 +235,95 @@
   color: var(--color-brand-hover);
 }
 
+.breathing-bubble {
+  background: color-mix(in srgb, var(--color-surface-muted) 72%, white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.5rem;
+  margin: 1.75rem 0 1.5rem;
+  padding: 1.4rem clamp(1rem, 4vw, 1.5rem) 1.15rem;
+}
+
+.breathing-bubble__track {
+  align-items: center;
+  background:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.72), rgb(255 255 255 / 0.18)),
+    linear-gradient(to bottom, rgb(139 58 42 / 0.08), rgb(80 112 102 / 0.12));
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 999px;
+  display: flex;
+  height: 12rem;
+  justify-content: center;
+  margin-inline: auto;
+  max-width: 8.5rem;
+  padding: 0.9rem;
+  position: relative;
+}
+
+.breathing-bubble__track::before {
+  background: linear-gradient(to bottom, transparent 50%, var(--color-border-subtle) 50%);
+  content: "";
+  height: calc(100% - 1.8rem);
+  left: 50%;
+  position: absolute;
+  top: 0.9rem;
+  transform: translateX(-50%);
+  width: 1px;
+}
+
+.breathing-bubble__orb {
+  animation: cardiac-breathing-bubble 10s ease-in-out infinite;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.9), transparent 34%),
+    radial-gradient(circle at 50% 52%, rgb(118 162 148 / 0.95), rgb(139 58 42 / 0.9));
+  border-radius: 999px;
+  box-shadow:
+    0 1rem 2rem rgb(39 48 43 / 0.18),
+    inset 0 -0.45rem 1rem rgb(39 48 43 / 0.16);
+  width: 4.25rem;
+  will-change: transform;
+  z-index: 1;
+}
+
+.breathing-bubble__labels {
+  align-items: center;
+  color: var(--color-ink-secondary);
+  display: flex;
+  font-family: var(--font-family-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.2;
+  margin-top: 0.95rem;
+}
+
+.breathing-bubble__labels span {
+  flex: 0 0 6rem;
+  text-align: center;
+}
+
+.breathing-bubble__labels span + span {
+  border-left: 1px solid var(--color-border-subtle);
+}
+
+@keyframes cardiac-breathing-bubble {
+  0%,
+  100% {
+    transform: translateY(3.35rem) scale(0.84);
+  }
+
+  50% {
+    transform: translateY(-3.35rem) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathing-bubble__orb {
+    animation: none;
+    transform: translateY(0);
+  }
+}
+
 .c-prose aside {
   margin-block: 1.5rem;
 }
