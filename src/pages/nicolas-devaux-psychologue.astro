@@ -47,13 +47,15 @@ const introPoster = hasIntroVideo
             Exercice en libéral sous la raison sociale {LEGAL_ENTITY_NAME} (SIRET&nbsp;: {SIRET_NUMBER}).
           </p>
         </div>
-        <aside class="w-full shrink-0 overflow-hidden rounded-xl border border-border-subtle md:w-3/5">
+        <aside class="mx-auto w-[150px] shrink-0 overflow-hidden rounded-lg border border-border-subtle md:mx-0 md:w-[150px]">
           <Picture
             src={NicolasDevauxImage}
             alt="Nicolas Devaux, psychologue à Sceaux"
+            width={150}
+            height={173}
             formats={["avif", "webp"]}
             fallbackFormat="webp"
-            class="h-auto w-full object-contain"
+            class="block h-auto w-[150px]"
           />
         </aside>
       </header>
