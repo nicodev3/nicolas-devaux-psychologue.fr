@@ -67,5 +67,5 @@ Et pour commencer, pourquoi ne pas simplement sourire… et observer ce que cela
 <span class="journal">Le Journal des psychologues</span>,
 <span class="volume">N° Hors-série(HS2)</span>,
 <span class="pages">43-47</span>.
-https://doi.org/10.3917/jdp.hs2.0043
+<a href="https://doi.org/10.3917/jdp.hs2.0043">https://doi.org/10.3917/jdp.hs2.0043</a>
 </cite>

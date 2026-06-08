@@ -378,3 +378,107 @@ blockquote {
   line-height: 1.7;
   margin: 0.2rem 0;
 }
+
+/* Bibliographic citations (blog articles, service pages) */
+.c-prose cite,
+.c-wysiwig cite,
+.references cite {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.5rem;
+  color: var(--color-ink-secondary);
+  display: block;
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: 1.65;
+  margin: 0.65rem 0 0;
+  padding: 0.85rem 1rem;
+}
+
+.c-prose h2[id*="référence"] + cite,
+.c-prose h2[id*="reference"] + cite,
+.c-wysiwig h2[id*="référence"] + cite,
+.c-wysiwig h2[id*="reference"] + cite {
+  margin-top: 1rem;
+}
+
+.c-prose cite + cite,
+.c-wysiwig cite + cite {
+  margin-top: 0.65rem;
+}
+
+.c-prose cite .authors,
+.c-wysiwig cite .authors,
+.references cite .authors {
+  color: var(--color-ink-primary);
+  font-weight: 600;
+}
+
+.c-prose cite .year,
+.c-wysiwig cite .year,
+.references cite .year {
+  color: var(--color-ink-tertiary);
+}
+
+.c-prose cite .title,
+.c-wysiwig cite .title,
+.references cite .title {
+  color: var(--color-ink-primary);
+  font-style: italic;
+}
+
+.c-prose cite .journal,
+.c-prose cite .publisher,
+.c-prose cite .volume,
+.c-prose cite .pages,
+.c-wysiwig cite .journal,
+.c-wysiwig cite .publisher,
+.c-wysiwig cite .volume,
+.c-wysiwig cite .pages,
+.references cite .journal,
+.references cite .publisher,
+.references cite .volume,
+.references cite .pages {
+  color: var(--color-ink-secondary);
+}
+
+.c-prose cite a,
+.c-wysiwig cite a,
+.references cite a {
+  display: inline-block;
+  font-size: 0.8125rem;
+  margin-top: 0.35rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.references ol {
+  counter-reset: bibliography;
+  list-style: none;
+  margin: 0.75rem 0 1.5rem;
+  padding: 0;
+}
+
+.references ol > li {
+  counter-increment: bibliography;
+  margin: 0.65rem 0 0;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.references ol > li::before {
+  color: var(--color-brand-hover);
+  content: counter(bibliography) ".";
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 700;
+  left: 0;
+  line-height: 1.65;
+  position: absolute;
+  top: 0.85rem;
+}
+
+.references ol > li > cite {
+  margin-top: 0;
+}

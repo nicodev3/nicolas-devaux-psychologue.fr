@@ -14,6 +14,7 @@ import remarkFaqHeadingId from './src/remark/remark-faq-heading-id.js';
 import remarkFrenchPunctuationSpacing from './src/remark/remark-french-punctuation-spacing.js';
 import keywordMap from './src/remark/keyword-map.js';
 import rehypeExternalLinks from './src/remark/rehype-external-links.js';
+import rehypeCiteUrls from './src/remark/rehype-cite-urls.js';
 
 const redirectedPaths = new Set([
     '/blog/emdr-mosaic/',
@@ -50,6 +51,7 @@ export default defineConfig({
             [remarkAutolinkKeywords, { keywordMap, perPageLimit: 6 }],
         ],
         rehypePlugins: [
+            [rehypeCiteUrls, {}],
             [rehypeExternalLinks, {}],
         ],
     },
