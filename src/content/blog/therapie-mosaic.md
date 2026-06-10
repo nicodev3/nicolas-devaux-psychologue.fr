@@ -1,6 +1,6 @@
 ---
 title: "Thérapie MOSAIC : définition, déroulement et différences avec l’EMDR"
-seoTitle: "Thérapie MOSAIC : définition et EMDR | Nicolas Devaux"
+seoTitle: "Thérapie MOSAIC : EMDR | Nicolas Devaux"
 description: "La thérapie MOSAIC utilise les stimulations bilatérales alternées dans une approche orientée ressources. Indications, séance, EMDR : repères clairs."
 pubDate: "May 24 2026"
 heroImage: "../../assets/blog/emdr-mosaic.webp"

@@ -1,5 +1,6 @@
 ---
 title: "Thérapie intégrative comportementale de couple (IBCT)"
+seoTitle: "Thérapie de couple IBCT | Nicolas Devaux"
 description: "Comprendre l’IBCT : une approche qui combine acceptation émotionnelle et changement comportemental pour apaiser les cycles de conflit et renforcer l’intimité."
 pubDate: "Oct 7 2025"
 heroImage: '../../assets/blog/icbt.webp'

@@ -1,5 +1,6 @@
 ---
 title: 'Thérapie de couple : quand consulter et comment se déroule l’accompagnement ?'
+seoTitle: 'Thérapie de couple : consulter | Nicolas Devaux'
 description: 'Thérapie de couple à Sceaux : comprendre quand consulter, comment se passent les séances et quelles approches peuvent aider à sortir des conflits répétitifs.'
 pubDate: 'Aug 30 2025'
 heroImage: '../../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp'

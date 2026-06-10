@@ -1,5 +1,6 @@
 ---
 title: "Thérapie pleine conscience : MBCT, MBSR et accompagnement psychologique"
+seoTitle: "Thérapie pleine conscience | Nicolas Devaux"
 description: "La thérapie pleine conscience aide à changer la relation aux pensées, aux émotions et au stress. Découvrez les différences entre MBCT, MBSR et ACT."
 pubDate: "May 24 2026"
 heroImage: "../../assets/blog/mindfulness_meditation.webp"

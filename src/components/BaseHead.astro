@@ -18,12 +18,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, ogImageSlug } = Astro.props;
 const formattedTitle = applyFrenchTypography(title);
 const formattedDescription = applyFrenchTypography(description);
+const TITLE_BRAND = "Nicolas Devaux";
 const pageTitle =
   formattedTitle === "Psychologue à Sceaux"
     ? "Psychologue à Sceaux | Nicolas Devaux"
-    : formattedTitle.includes(SITE_NAME) || formattedTitle.includes("Nicolas Devaux")
+    : formattedTitle.includes(SITE_NAME) || formattedTitle.includes(TITLE_BRAND)
       ? formattedTitle
-      : `${formattedTitle} | ${SITE_NAME}`;
+      : `${formattedTitle} | ${TITLE_BRAND}`;
 const siteBase = Astro.site ?? Astro.url.origin;
 const ogSlug = ogImageSlug ?? pathnameToOgSlug(Astro.url.pathname);
 const ogImagePath = `/og/${ogSlug}.png`;

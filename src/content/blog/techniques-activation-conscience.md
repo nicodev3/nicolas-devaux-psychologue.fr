@@ -1,5 +1,6 @@
 ---
 title: 'Les techniques d''activation de la conscience (TAC)'
+seoTitle: 'Techniques TAC | Nicolas Devaux'
 description: 'Les techniques d''activation de la conscience : une approche alliant pleine conscience et activation émotionnelle.'
 pubDate: 'Aug 30 2025'
 heroImage: '../../assets/blog/tac.webp'
