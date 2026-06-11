@@ -1,0 +1,260 @@
+---
+import Layout from "../layouts/BlogPost.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { buttonClasses } from "../components/ui/button";
+import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
+
+const title = "Psychologue en ligne : consultations en visioconférence";
+const seoTitle = "Psychologue en ligne | Consultations en visio | Nicolas Devaux";
+const description =
+  "Consultations en ligne avec Nicolas Devaux, psychologue clinicien : thérapie individuelle, accompagnement émotionnel, difficultés relationnelles et consultations de couple en visio.";
+
+const isProd = import.meta.env.PROD;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Une consultation en ligne est-elle aussi confidentielle ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. Les consultations en visioconférence sont soumises au même secret professionnel que les séances au cabinet. De votre côté, il est recommandé de vous installer dans un endroit calme où vous ne serez pas entendu ni interrompu.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Pour quelles difficultés consulter en visio ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La visio convient à la plupart des demandes : anxiété, stress, période de vie difficile, difficultés relationnelles, suivi de psychothérapie déjà engagé. Selon les situations, des séances EMDR-MOSAIC ou des consultations de couple peuvent aussi être proposées en ligne.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Dans quels cas la visio n'est-elle pas adaptée ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La visio n'est pas toujours le cadre le plus adapté, notamment dans certaines situations de crise ou lorsque le travail nécessite une présence en cabinet. Cette question est évaluée ensemble lors du premier échange, et une orientation peut être proposée si nécessaire.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Comment se déroule une première séance en ligne ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La prise de rendez-vous se fait via Doctolib. La première séance, comme au cabinet, sert à comprendre votre demande, à évaluer ce qui vous met en difficulté et à décider ensemble du cadre de travail le plus adapté. Une consultation vidéo dure 45 minutes.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Peut-on faire une thérapie de couple en ligne ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, dans certaines situations. Les séances de couple en présentiel restent préférables, car les interactions sont plus riches à observer, mais des séances en visio peuvent être proposées pour des raisons pratiques ou géographiques.",
+      },
+    },
+  ],
+};
+
+const primaryCtaClasses = buttonClasses({
+  variant: "primary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
+const secondaryCtaClasses = buttonClasses({
+  variant: "secondary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
+---
+
+<Layout
+  title={title}
+  seoTitle={seoTitle}
+  description={description}
+  pubDate={new Date("June 11 2026")}
+  showDate={false}
+>
+  {isProd && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  )}
+
+  <section class="flex flex-col gap-8 xl:gap-10">
+    <header class="space-y-5">
+      <p class="typo-eyebrow">Consultations en visioconférence</p>
+      <p class="typo-body-lg text-ink-secondary">
+        Je propose des consultations psychologiques en ligne pour les personnes qui
+        ne peuvent pas se déplacer au cabinet de Sceaux, qui vivent loin, ou qui
+        préfèrent simplement ce format. Le cadre est le même qu'au cabinet :
+        un travail clinique structuré, confidentiel et adapté à votre demande.
+      </p>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href={DOCTOLIB_BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={primaryCtaClasses}
+          data-track-doctolib
+          data-track-location="Psychologue en ligne intro"
+        >
+          Prendre rendez-vous en visio
+        </a>
+        <a href="/tarifs/" class={secondaryCtaClasses}>Voir les tarifs</a>
+      </div>
+    </header>
+
+    <div>
+      <SectionHeading class="mb-4" eyebrow="01 — Pour qui" title="À qui s'adressent les consultations en ligne ?" />
+      <p>
+        Les consultations en visioconférence s'adressent aux adultes et aux
+        adolescents, que vous habitiez près de Sceaux ({NEARBY_CITIES}) ou
+        beaucoup plus loin. Elles peuvent être un choix par défaut — emploi du
+        temps chargé, mobilité réduite, éloignement géographique, expatriation —
+        ou une préférence en tant que telle.
+      </p>
+      <ul>
+        <li>Vous vivez loin du cabinet ou à l'étranger.</li>
+        <li>Vos horaires rendent les déplacements difficiles.</li>
+        <li>Vous poursuivez un suivi déjà engagé malgré un déménagement.</li>
+        <li>Vous vous sentez plus à l'aise pour commencer depuis chez vous.</li>
+      </ul>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-4" eyebrow="02 — Indications" title="Pour quelles difficultés consulter en ligne ?" />
+      <p>
+        La visioconférence convient à la plupart des demandes rencontrées au
+        cabinet : anxiété, stress, épuisement, période de vie difficile,
+        difficultés relationnelles, questionnements personnels. Plusieurs cadres
+        de travail sont possibles en ligne :
+      </p>
+      <ul>
+        <li>
+          <a href="/psychotherapie/" class="text-link">Thérapie individuelle</a> —
+          séances de 45 minutes en visio.
+        </li>
+        <li>
+          <a href="/therapie-mosaic/" class="text-link">Thérapie EMDR-MOSAIC</a> —
+          possible en ligne selon la situation, après évaluation.
+        </li>
+        <li>
+          <a href="/therapie-couple/" class="text-link">Thérapie de couple</a> —
+          en visio dans certaines situations, lorsque le présentiel n'est pas possible.
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-4" eyebrow="03 — Confidentialité" title="Un cadre confidentiel, comme au cabinet" />
+      <p>
+        Les consultations en ligne sont soumises au même <strong>secret
+        professionnel</strong> que les séances en cabinet. La prise de rendez-vous et
+        les échanges passent par la messagerie sécurisée de Doctolib.
+      </p>
+      <p>
+        De votre côté, quelques conditions simples aident à préserver ce cadre :
+        un endroit calme où vous ne serez ni entendu ni interrompu, une connexion
+        stable, et un créneau où vous êtes réellement disponible.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-4" eyebrow="04 — Limites" title="Les limites de la visio" />
+      <p>
+        La consultation en ligne est un format utile, mais elle n'est pas toujours
+        le cadre le plus adapté. Certaines situations de crise, certaines
+        problématiques ou certains moments d'un suivi peuvent nécessiter une
+        présence au cabinet, ou une orientation vers un dispositif plus approprié.
+      </p>
+      <p>
+        Cette question est évaluée ensemble dès le premier échange, et réévaluée
+        au fil du suivi si nécessaire. Il est aussi possible d'alterner séances au
+        cabinet à <a href="/psychologue-sceaux/" class="text-link">Sceaux</a> et
+        séances en visio.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-4" eyebrow="05 — Pratique" title="Déroulement et tarifs" />
+      <p>
+        Une consultation vidéo individuelle dure <strong>45 minutes</strong> (80 €).
+        Les consultations de couple en visio durent 1 heure (110 €). Le détail des
+        tarifs est disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
+      </p>
+      <p>
+        La première séance sert à comprendre votre demande et à décider ensemble
+        du cadre de travail le plus adapté — en ligne, au cabinet, ou en
+        alternance.
+      </p>
+      <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={DOCTOLIB_BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={primaryCtaClasses}
+          data-track-doctolib
+          data-track-location="Psychologue en ligne pratique"
+        >
+          Commencer une consultation en ligne
+        </a>
+        <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
+      </div>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-4" eyebrow="06 — FAQ" title="Questions fréquentes" />
+
+      <h3 class="font-display typo-display-md text-ink-primary">Une consultation en ligne est-elle aussi confidentielle ?</h3>
+      <p>
+        Oui. Les consultations en visioconférence sont soumises au même secret
+        professionnel que les séances au cabinet. De votre côté, il est recommandé
+        de vous installer dans un endroit calme où vous ne serez pas entendu ni
+        interrompu.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Pour quelles difficultés consulter en visio ?</h3>
+      <p>
+        La visio convient à la plupart des demandes : anxiété, stress, période de
+        vie difficile, difficultés relationnelles, suivi déjà engagé. Selon les
+        situations, des séances <a href="/therapie-mosaic/" class="text-link">EMDR-MOSAIC</a>
+        ou des <a href="/therapie-couple/" class="text-link">consultations de couple</a>
+        peuvent aussi être proposées en ligne.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Dans quels cas la visio n'est-elle pas adaptée ?</h3>
+      <p>
+        La visio n'est pas toujours le cadre le plus adapté, notamment dans
+        certaines situations de crise ou lorsque le travail nécessite une présence
+        en cabinet. Cette question est évaluée ensemble lors du premier échange,
+        et une orientation peut être proposée si nécessaire.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Comment se déroule une première séance en ligne ?</h3>
+      <p>
+        La prise de rendez-vous se fait via Doctolib. La première séance, comme au
+        cabinet, sert à comprendre votre demande, à évaluer ce qui vous met en
+        difficulté et à décider ensemble du cadre de travail le plus adapté. Une
+        consultation vidéo dure 45 minutes.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Peut-on faire une thérapie de couple en ligne ?</h3>
+      <p>
+        Oui, dans certaines situations. Les séances de couple en présentiel
+        restent préférables, car les interactions sont plus riches à observer,
+        mais des séances en visio peuvent être proposées pour des raisons
+        pratiques ou géographiques.
+      </p>
+    </div>
+
+    <div class="border border-border-strong rounded-xl bg-secondary/40 p-5">
+      <SectionHeading class="mb-4" eyebrow="07 — Liens" title="Pour aller plus loin" />
+      <ul class="list-disc list-inside space-y-2">
+        <li><a href="/therapie-mosaic/" class="text-link">Thérapie EMDR-MOSAIC à Sceaux et en ligne</a></li>
+        <li><a href="/therapie-couple/" class="text-link">Thérapie de couple à Sceaux</a></li>
+        <li><a href="/meditation-pleine-conscience-sceaux/" class="text-link">Groupes de pleine conscience et gestion du stress</a></li>
+        <li><a href="/psychologue-sceaux/" class="text-link">Psychologue à Sceaux — le cabinet</a></li>
+      </ul>
+    </div>
+  </section>
+</Layout>

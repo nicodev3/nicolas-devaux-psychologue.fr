@@ -19,6 +19,9 @@ export const STATIC_OG_SLUGS = [
   "outils",
   "outils-questionnaire-schemas-young",
   "meditation-pleine-conscience-sceaux",
+  "psychologue-sceaux",
+  "therapie-couple",
+  "psychologue-en-ligne",
 ] as const;
 
 /** Titres affichés sur la carte OG (serif sur fond crème). */
@@ -40,6 +43,9 @@ export const OG_TITLES: Record<(typeof STATIC_OG_SLUGS)[number], string> = {
   outils: "Outils psychologiques",
   "outils-questionnaire-schemas-young": "Questionnaire des schémas de Young",
   "meditation-pleine-conscience-sceaux": "Méditation de pleine conscience — groupes à Sceaux",
+  "psychologue-sceaux": "Psychologue à Sceaux\nNicolas Devaux",
+  "therapie-couple": "Thérapie de couple à Sceaux",
+  "psychologue-en-ligne": "Psychologue en ligne\nConsultations en visio",
 };
 
 export const STATIC_OG_SLUG_SET = new Set<string>(STATIC_OG_SLUGS);

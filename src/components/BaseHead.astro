@@ -127,6 +127,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
         { "@type": "AdministrativeArea", "name": "Île-de-France" }
       ],
       "knowsAbout": [
+        "Thérapie EMDR-MOSAIC (Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale)",
         "Thérapie cognitive et comportementale (TCC)",
         "Thérapie d'acceptation et d'engagement (ACT)",
         "Pleine conscience (MBCT, MBSR)",
@@ -205,6 +206,21 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
             "name": "Psychothérapie individuelle",
             "serviceType": "Psychothérapie",
             "audience": [{ "@type": "PeopleAudience", "suggestedMinAge": 12, "suggestedMaxAge": 99 }],
+            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Séance EMDR-MOSAIC",
+          "price": 90,
+          "priceCurrency": "EUR",
+          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Thérapie EMDR-MOSAIC",
+            "serviceType": "Psychothérapie",
+            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 18 },
             "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
           }
         },

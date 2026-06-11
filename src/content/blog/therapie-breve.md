@@ -6,8 +6,6 @@ pubDate: "Jun 8 2026"
 heroImage: "../../assets/blog/therapie-breve.webp"
 ---
 
-# Thérapie brève : une approche centrée sur le changement
-
 Dans le paysage de la santé mentale, la thérapie brève s'est imposée comme une alternative pragmatique aux cures longues. Elle n'est pas pour autant une thérapie "express" ou simplifiée. Derrière le mot, il y a une véritable philosophie clinique : faire en sorte que chaque séance compte, et accompagner un changement réel dans un temps mesuré. Ce qui suit est un panorama de cette approche — ce qu'elle est vraiment, ce que la recherche en dit, ses grands courants, son déroulement concret et son cadre.
 
 ## Qu'est-ce qu'une thérapie brève ?

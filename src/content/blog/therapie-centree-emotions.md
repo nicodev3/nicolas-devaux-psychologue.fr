@@ -97,4 +97,4 @@ Si vous ressentez des difficultés émotionnelles ou relationnelles, la TCE peut
 
 ---
 
-*Nicolas Devaux, psychologue clinicien, vous accompagne dans cette démarche avec bienveillance et professionnalisme.*
+*Nicolas Devaux, psychologue clinicien, vous accompagne dans cette démarche avec bienveillance et professionnalisme. Lorsque les émotions difficiles restent liées à des souvenirs douloureux, la [thérapie EMDR-MOSAIC à Sceaux](/therapie-mosaic/) peut constituer un complément pertinent.*
