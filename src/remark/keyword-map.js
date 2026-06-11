@@ -26,7 +26,9 @@ export default {
     // Ajouts méthodes/approches complémentaires
     "méditation": "/therapie-pleine-conscience/",
     "thérapie centrée sur les émotions": "/blog/therapie-centree-emotions/",
-    "thérapie de couple": "/blog/therapie-couple/",
+    "thérapie de couple": "/therapie-couple/",
+    "thérapie EMDR-MOSAIC": "/therapie-mosaic/",
+    "EMDR-MOSAIC": "/therapie-mosaic/",
     "thérapie intégrative comportementale de couple": "/blog/therapie-integrative-comportementale-couple/",
     "IBCT": "/blog/therapie-integrative-comportementale-couple/",
     "thérapie fondée sur la compassion": "/therapie-fondee-compassion/",
@@ -35,6 +37,15 @@ export default {
     // Parcours patient / informations pratiques
     "prendre rendez-vous": "/consulter/",
     consultation: "/consulter/",
+    "psychologue en ligne": "/psychologue-en-ligne/",
+    "consultation en ligne": "/psychologue-en-ligne/",
+    "consultations en ligne": "/psychologue-en-ligne/",
+    "téléconsultation": "/psychologue-en-ligne/",
+    "visioconférence": "/psychologue-en-ligne/",
+    "psychologue à Sceaux": "/psychologue-sceaux/",
+    "groupes de pleine conscience": "/meditation-pleine-conscience-sceaux/",
+    "groupe de pleine conscience": "/meditation-pleine-conscience-sceaux/",
+    "gestion du stress": "/meditation-pleine-conscience-sceaux/",
     "psychologue à boulogne-billancourt": "/nicolas-devaux-psychologue/",
     "psychologue boulogne-billancourt": "/nicolas-devaux-psychologue/",
 

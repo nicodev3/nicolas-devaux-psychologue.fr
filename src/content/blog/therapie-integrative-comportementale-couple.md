@@ -50,6 +50,6 @@ Pour une présentation accessible en français, voir la ressource de l’ACBS :
 
 ---
 
-*Nicolas Devaux, psychologue, accompagne les couples avec l’IBCT et des approches complémentaires pour apaiser les conflits et renforcer le lien.*
+*Nicolas Devaux, psychologue, accompagne les couples avec l’IBCT et des approches complémentaires pour apaiser les conflits et renforcer le lien. Pour le cadre proposé au cabinet, consultez la page [thérapie de couple à Sceaux](/therapie-couple/).*
 
 

@@ -13,9 +13,57 @@ import {
   SIRET_NUMBER,
 } from "../consts";
 
-const title = "Psychologue à Sceaux au cabinet rue Houdan";
+const title = "Psychologue à Sceaux";
 const description =
-  "Psychologue à Sceaux pour adultes, adolescents et couples. Cabinet au 63 rue Houdan, proche RER B Robinson et Sceaux. Prenez rendez-vous en ligne.";
+  "Nicolas Devaux, psychologue clinicien à Sceaux, reçoit adultes, adolescents et couples en cabinet ou en ligne. Thérapie individuelle, EMDR-MOSAIC, thérapie de couple et groupes.";
+
+const isProd = import.meta.env.PROD;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Où se trouve le cabinet de psychologie à Sceaux ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Le cabinet est situé au 63 rue Houdan, 92330 Sceaux, dans le centre-ville, à quelques minutes à pied des gares RER B Robinson et Sceaux. Le parking Penthièvre se trouve sur la même rue.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quelles consultations sont proposées au cabinet de Sceaux ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Le cabinet propose des consultations individuelles pour adultes et adolescents, des séances EMDR-MOSAIC, des thérapies de couple, des consultations en visioconférence et des groupes de pleine conscience et de gestion du stress.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Comment prendre rendez-vous avec un psychologue à Sceaux ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La prise de rendez-vous se fait en ligne via Doctolib. Les consultations ont lieu uniquement sur rendez-vous, le lundi, le mardi et le vendredi de 8h à 20h.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Recevez-vous des patients des villes voisines de Sceaux ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. Le cabinet reçoit des personnes habitant Sceaux et les communes voisines : Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses ou Le Plessis-Robinson. Des consultations en ligne sont également possibles si vous préférez ne pas vous déplacer.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quels sont les tarifs des consultations ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La consultation individuelle est à 80 €, la séance EMDR-MOSAIC à 90 € et la consultation de couple à 110 €. Le détail des tarifs et des durées est disponible sur la page Tarifs.",
+      },
+    },
+  ],
+};
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -80,8 +128,22 @@ const localBusinessSchema = {
     },
     {
       "@type": "Offer",
+      name: "Séance EMDR-MOSAIC",
+      price: 90,
+      priceCurrency: "EUR",
+      url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+    },
+    {
+      "@type": "Offer",
       name: "Consultation de couple",
       price: 110,
+      priceCurrency: "EUR",
+      url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+    },
+    {
+      "@type": "Offer",
+      name: "Participation aux groupes de pleine conscience",
+      price: 30,
       priceCurrency: "EUR",
       url: "https://nicolas-devaux-psychologue.fr/tarifs/",
     },
@@ -107,6 +169,9 @@ const secondaryCtaClasses = buttonClasses({
 
 <Layout title={title} description={description} pubDate={new Date("May 24 2026")} showDate={false}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  {isProd && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  )}
 
   <section class="space-y-10">
     <header class="space-y-5">
@@ -165,7 +230,38 @@ const secondaryCtaClasses = buttonClasses({
     </section>
 
     <section class="space-y-4">
-      <SectionHeading eyebrow="03 — Accès" title="Accès au cabinet" />
+      <SectionHeading eyebrow="03 — Consultations" title="Les consultations proposées au cabinet" />
+      <p>
+        Selon votre demande, plusieurs cadres de travail sont possibles. Chaque
+        consultation est présentée en détail sur une page dédiée :
+      </p>
+      <ul>
+        <li>
+          <a href="/therapie-mosaic/" class="text-link">Thérapie EMDR-MOSAIC à Sceaux</a> —
+          pour les mémoires douloureuses, les vécus traumatiques et les réactions
+          émotionnelles qui restent trop intenses.
+        </li>
+        <li>
+          <a href="/therapie-couple/" class="text-link">Thérapie de couple à Sceaux</a> —
+          pour les conflits répétés, les crises et les difficultés de communication.
+        </li>
+        <li>
+          <a href="/psychologue-en-ligne/" class="text-link">Consultation avec un psychologue en ligne</a> —
+          en visioconférence, si vous êtes éloigné de Sceaux ou que vous préférez ce format.
+        </li>
+        <li>
+          <a href="/meditation-pleine-conscience-sceaux/" class="text-link">Groupes de pleine conscience et gestion du stress</a> —
+          des ateliers en petit groupe, en cycles de 8 séances.
+        </li>
+        <li>
+          <a href="/psychotherapie/" class="text-link">Psychothérapie individuelle</a> —
+          un accompagnement adapté à votre situation, à votre rythme et à vos objectifs.
+        </li>
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <SectionHeading eyebrow="04 — Accès" title="Accès au cabinet" />
       <p>
         Le cabinet se trouve au <strong>{CABINET_ADDRESS_LINE}</strong>. Les gares
         <strong> Robinson</strong> et <strong> Sceaux</strong>, sur la ligne RER B,
@@ -184,7 +280,7 @@ const secondaryCtaClasses = buttonClasses({
     </section>
 
     <section class="space-y-4">
-      <SectionHeading eyebrow="04 — Pratique" title="Horaires, tarifs et rendez-vous" />
+      <SectionHeading eyebrow="05 — Pratique" title="Horaires, tarifs et rendez-vous" />
       <p>
         Les consultations ont lieu le lundi, le mardi et le vendredi, sur rendez-vous.
         Les séances individuelles durent 45 minutes ; les séances de couple et les
@@ -204,10 +300,51 @@ const secondaryCtaClasses = buttonClasses({
           data-track-doctolib
           data-track-location="Psychologue Sceaux pratique"
         >
-          Prendre rendez-vous
+          Prendre rendez-vous au cabinet
         </a>
         <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
       </div>
+    </section>
+
+    <section class="space-y-4">
+      <SectionHeading eyebrow="06 — FAQ" title="Questions fréquentes" />
+
+      <h3 class="font-display typo-display-md text-ink-primary">Où se trouve le cabinet de psychologie à Sceaux ?</h3>
+      <p>
+        Le cabinet est situé au {CABINET_ADDRESS_LINE}, dans le centre-ville, à
+        quelques minutes à pied des gares RER B Robinson et Sceaux. Le parking
+        Penthièvre se trouve sur la même rue.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Quelles consultations sont proposées au cabinet de Sceaux ?</h3>
+      <p>
+        Le cabinet propose des consultations individuelles pour adultes et adolescents,
+        des séances <a href="/therapie-mosaic/" class="text-link">EMDR-MOSAIC</a>,
+        des <a href="/therapie-couple/" class="text-link">thérapies de couple</a>,
+        des <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a>
+        et des <a href="/meditation-pleine-conscience-sceaux/" class="text-link">groupes de pleine conscience et de gestion du stress</a>.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Comment prendre rendez-vous avec un psychologue à Sceaux ?</h3>
+      <p>
+        La prise de rendez-vous se fait en ligne via Doctolib. Les consultations
+        ont lieu uniquement sur rendez-vous, le lundi, le mardi et le vendredi de
+        8h à 20h.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Recevez-vous des patients des villes voisines de Sceaux ?</h3>
+      <p>
+        Oui. Le cabinet reçoit des personnes habitant Sceaux et les communes
+        voisines : {NEARBY_CITIES} ou Le Plessis-Robinson. Des consultations en
+        ligne sont également possibles si vous préférez ne pas vous déplacer.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Quels sont les tarifs des consultations ?</h3>
+      <p>
+        La consultation individuelle est à 80 €, la séance EMDR-MOSAIC à 90 € et
+        la consultation de couple à 110 €. Le détail des tarifs et des durées est
+        disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
+      </p>
     </section>
   </section>
 </Layout>

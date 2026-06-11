@@ -8,7 +8,7 @@ heroImage: "../../assets/blog/emdr-mosaic.webp"
 
 La **thérapie MOSAIC** est une approche psychothérapeutique qui utilise les stimulations bilatérales alternées, comme les mouvements oculaires ou les stimulations tactiles, dans une logique orientée vers les ressources. Elle peut être proposée lorsque certains souvenirs, événements ou réactions émotionnelles restent trop actifs malgré le temps écoulé.
 
-MOSAIC signifie **Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale**. Cette méthode s'inscrit dans le champ des approches expérientielles : elle ne cherche pas seulement à parler du problème, mais à mobiliser en séance une expérience corporelle différente, plus apaisée ou plus solide. Pour une présentation du cadre proposé au cabinet, vous pouvez consulter la page dédiée à la [thérapie MOSAIC à Sceaux](/therapie-mosaic/).
+MOSAIC signifie **Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale**. Cette méthode s'inscrit dans le champ des approches expérientielles : elle ne cherche pas seulement à parler du problème, mais à mobiliser en séance une expérience corporelle différente, plus apaisée ou plus solide. Pour une présentation du cadre proposé au cabinet, vous pouvez consulter la page dédiée à la [thérapie EMDR-MOSAIC à Sceaux](/therapie-mosaic/).
 
 ## Qu'est-ce que la thérapie MOSAIC ?
 

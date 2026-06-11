@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_NAME = 'Nicolas Devaux, psychologue à Sceaux';
-export const SITE_TITLE = 'Psychologue à Sceaux | Nicolas Devaux';
+export const SITE_TITLE = 'Nicolas Devaux | Psychologue à Sceaux et en ligne';
 
 /** Adresse complète du cabinet (une ligne). */
 export const CABINET_ADDRESS_LINE = '63 rue Houdan, 92330 Sceaux';
@@ -25,7 +25,7 @@ export const GOOGLE_MAPS_EMBED_URL =
 export const NEARBY_CITIES =
   'Antony, Bourg-la-Reine, Châtenay-Malabry et Fontenay-aux-Roses';
 
-export const SITE_DESCRIPTION = `Psychologue à Sceaux pour adultes, adolescents et couples. Thérapies TCC, ACT et pleine conscience. Prenez rendez-vous en ligne.`;
+export const SITE_DESCRIPTION = `Psychologue clinicien à Sceaux, Nicolas Devaux accompagne adultes, adolescents et couples en cabinet ou en ligne : thérapie individuelle, EMDR-MOSAIC, thérapie de couple et groupes.`;
 
 /** URL unique « Prendre rendez-vous » Doctolib (tracking campaign conservée). */
 export const DOCTOLIB_BOOKING_URL =

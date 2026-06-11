@@ -3,16 +3,87 @@ import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { Picture } from "astro:assets";
 import CoupleImage from "../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp";
-import { NEARBY_CITIES } from "../consts";
+import { buttonClasses } from "../components/ui/button";
+import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
+
+const isProd = import.meta.env.PROD;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Combien coûte une consultation de couple ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Une consultation de couple dure 1 heure et coûte 110 €. Le détail des tarifs et des modalités de paiement est disponible sur la page Tarifs du site.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Faut-il que les deux partenaires soient d'accord pour commencer ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Idéalement oui, car la thérapie de couple nécessite l'engagement des deux partenaires. Si un seul est demandeur au départ, un entretien individuel préalable peut permettre de clarifier la demande et d'évaluer si une thérapie de couple est pertinente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "La thérapie de couple peut-elle aider même si la rupture est envisagée ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. La thérapie de couple peut aussi aider à prendre une décision éclairée, à traverser une séparation de façon moins destructrice, ou à comprendre ce qui s'est passé pour ne pas répéter les mêmes schémas.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "La thérapie de couple est-elle remboursée ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Les séances de psychologue ne sont pas remboursées par la Sécurité sociale dans le cadre général, mais de nombreuses mutuelles prennent en charge une partie des frais. Le dispositif Mon Soutien Psy ne couvre pas la thérapie de couple.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "La thérapie de couple est-elle proposée en visioconférence ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, dans certaines situations. Les séances en présentiel au cabinet de Sceaux sont préférables, mais des séances en visio peuvent être proposées pour des raisons pratiques ou géographiques.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quelle est la durée d'une consultation de couple ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Une séance de thérapie de couple dure généralement 60 minutes et se déroule en présence des deux partenaires.",
+      },
+    },
+  ],
+};
+
+const coupleCtaPrimary = buttonClasses({
+  variant: "primary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
+const coupleCtaSecondary = buttonClasses({
+  variant: "secondary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
 ---
 
 <Layout
   title="Thérapie de couple à Sceaux"
-  description="Thérapie de couple à Sceaux : améliorer la communication, traverser les crises et travailler les conflits avec les approches ACT et IBCT."
+  description="Consultations de couple à Sceaux ou en ligne avec Nicolas Devaux, psychologue clinicien. Accompagnement des conflits, crises relationnelles et difficultés de communication."
   pubDate={new Date("August 30 2025")}
   showDate={false}
   blogPost={true}
 >
+  {isProd && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  )}
   <section class="flex flex-col gap-8 xl:gap-10">
     <div>
       <p>
@@ -98,7 +169,7 @@ import { NEARBY_CITIES } from "../consts";
     <div>
       <SectionHeading class="mb-5" eyebrow="05 — Déroulement" title="Comment se déroule une thérapie de couple ?" />
       <p>
-        Une séance de thérapie de couple dure généralement <strong>60 minutes</strong> et se déroule en présence des deux partenaires. Les premières séances permettent de comprendre la situation de chacun, d'identifier les cycles relationnels en jeu et de définir des objectifs thérapeutiques partagés.
+        Une séance de thérapie de couple dure généralement <strong>60 minutes</strong> et se déroule en présence des deux partenaires. Le tarif d'une consultation de couple est de <strong>110 €</strong> (voir la page <a href="/tarifs/" class="text-link">Tarifs</a>). Les premières séances permettent de comprendre la situation de chacun, d'identifier les cycles relationnels en jeu et de définir des objectifs thérapeutiques partagés.
       </p>
       <p>
         Le déroulement d'une séance type intègre plusieurs dimensions :
@@ -128,6 +199,12 @@ import { NEARBY_CITIES } from "../consts";
     <div>
       <SectionHeading class="mb-5" eyebrow="07 — FAQ" title="Questions fréquentes" />
 
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Combien coûte une consultation de couple ?</h3>
+      <p class="mb-6">
+        Une consultation de couple dure 1 heure et coûte 110 €. Le détail des tarifs et
+        des modalités de paiement est disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
+      </p>
+
       <h3 class="font-display typo-display-md mb-3 text-ink-primary">Faut-il que les deux partenaires soient d'accord pour commencer ?</h3>
       <p class="mb-6">
         Idéalement oui, car la thérapie de couple nécessite l'engagement des deux partenaires. Cependant, il arrive qu'un seul soit demandeur au départ. Dans ce cas, un entretien individuel préalable peut permettre de clarifier la demande et d'évaluer si une thérapie de couple est pertinente, ou si une thérapie individuelle est plus adaptée dans un premier temps.
@@ -155,12 +232,36 @@ import { NEARBY_CITIES } from "../consts";
 
       <h3 class="font-display typo-display-md mb-3 text-ink-primary">La thérapie de couple est-elle proposée en visioconférence ?</h3>
       <p>
-        Oui, dans certaines situations. Les séances en présentiel au cabinet sont préférables, car les interactions en temps réel sont plus riches à observer et à travailler. Mais des séances en visio peuvent être proposées pour des raisons pratiques ou géographiques. Le cabinet reçoit également les personnes habitant {NEARBY_CITIES} et les communes voisines.
+        Oui, dans certaines situations. Les séances en présentiel au cabinet sont préférables, car les interactions en temps réel sont plus riches à observer et à travailler. Mais des séances en visio peuvent être proposées pour des raisons pratiques ou géographiques — voir la page <a href="/psychologue-en-ligne/" class="text-link">consultation avec un psychologue en ligne</a>. Le cabinet reçoit également les personnes habitant {NEARBY_CITIES} et les communes voisines.
       </p>
     </div>
 
+    <div class="rounded-xl border border-border-strong bg-surface-muted p-6">
+      <SectionHeading class="mb-4" eyebrow="08 — Rendez-vous" title="Consulter en couple à Sceaux ou en ligne" />
+      <p class="mb-4">
+        Si vous souhaitez engager une démarche à deux, la prise de rendez-vous se fait
+        en ligne via Doctolib. En cas de doute sur la pertinence d'une thérapie de couple
+        dans votre situation, la première séance sert précisément à clarifier la demande.
+      </p>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href={DOCTOLIB_BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={coupleCtaPrimary}
+          data-track-doctolib
+          data-track-location="Therapie couple CTA"
+        >
+          Prendre rendez-vous pour une consultation de couple
+        </a>
+        <a href="/psychologue-en-ligne/" class={coupleCtaSecondary}>
+          Consulter en couple en ligne
+        </a>
+      </div>
+    </div>
+
     <div>
-      <SectionHeading class="mb-5" eyebrow="08 — Liens" title="Approches associées" />
+      <SectionHeading class="mb-5" eyebrow="09 — Liens" title="Approches associées" />
       <p>
         La thérapie de couple s'appuie sur plusieurs approches disponibles au cabinet. Pour approfondir :
       </p>
@@ -169,7 +270,8 @@ import { NEARBY_CITIES } from "../consts";
         <li><a href="/therapie-pleine-conscience/" class="text-link">MBCT et pleine conscience</a></li>
         <li><a href="/psychotherapie/" class="text-link">Psychothérapie psychodynamique</a></li>
         <li><a href="/tcc-troisieme-vague/" class="text-link">TCC de 3e vague</a></li>
-        <li><a href="/therapie-mosaic/" class="text-link">Thérapie MOSAIC</a> — pour les mémoires douloureuses qui pèsent sur la relation</li>
+        <li><a href="/therapie-mosaic/" class="text-link">Thérapie EMDR-MOSAIC à Sceaux</a> — pour les mémoires douloureuses qui pèsent sur la relation</li>
+        <li><a href="/psychologue-sceaux/" class="text-link">Psychologue à Sceaux</a> — informations pratiques sur le cabinet et son accès</li>
       </ul>
     </div>
   </section>

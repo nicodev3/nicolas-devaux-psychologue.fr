@@ -7,15 +7,86 @@ import MosaicSchemaImage from "../assets/blog/mosaic-therapie-schema.svg";
 import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp";
 import MosaicFormationImage from "../assets/logo-mosaic.svg";
 import MosaicPractitionerPdf from "../assets/Ici-votre-praticien-MOSAIC.pdf?url";
-import { NEARBY_CITIES } from "../consts";
+import { buttonClasses } from "../components/ui/button";
+import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
+
+const isProd = import.meta.env.PROD;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qu'est-ce que la thérapie EMDR-MOSAIC ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "MOSAIC signifie Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale. Comme l'EMDR, cette approche utilise les stimulations bilatérales alternées, avec une logique orientée vers les solutions et l'apaisement plutôt que vers l'exposition prolongée au souvenir douloureux.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Combien coûte une séance EMDR-MOSAIC ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Une séance EMDR-MOSAIC dure 1 heure et coûte 90 €. Le détail des tarifs est disponible sur la page Tarifs du site.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Peut-on faire une séance EMDR-MOSAIC en ligne ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, selon la situation. Les séances ont lieu au cabinet à Sceaux, et des consultations en visioconférence peuvent être proposées après évaluation, notamment si vous êtes éloigné du cabinet.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Combien de séances faut-il ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cela dépend de la nature de la difficulté, de son ancienneté, de vos ressources actuelles et de votre situation globale. L'évaluation initiale permet d'estimer un cadre de travail, sans promesse de résultat en un nombre de séances donné.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Faut-il revivre le traumatisme pendant les séances ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Non, pas au sens d'une exposition prolongée et détaillée. Le travail porte d'abord sur la situation limitante telle qu'elle est vécue aujourd'hui, puis sur l'état interne désiré, sans nécessiter un récit exhaustif de l'événement.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quelle différence entre l'EMDR et MOSAIC ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Les deux approches partagent l'usage des stimulations bilatérales alternées. L'EMDR travaille classiquement avec le souvenir traumatique cible, tandis que MOSAIC met davantage l'accent sur l'expérience corporelle de la solution et les ressources de la personne.",
+      },
+    },
+  ],
+};
+
+const mosaicCtaPrimary = buttonClasses({
+  variant: "primary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
+const mosaicCtaSecondary = buttonClasses({
+  variant: "secondary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
 ---
 
 <Layout
-  title="Thérapie MOSAIC à Sceaux"
-  description="Psychologue à Sceaux, Nicolas Devaux propose la thérapie MOSAIC pour les mémoires douloureuses, vécus traumatiques et difficultés émotionnelles persistantes."
+  title="Thérapie EMDR-MOSAIC à Sceaux"
+  description="Psychologue clinicien à Sceaux, Nicolas Devaux propose des séances EMDR-MOSAIC pour accompagner certains vécus traumatiques, blocages émotionnels ou difficultés psychologiques."
   pubDate={new Date("March 07 2026")}
   showDate={false}
 >
+  {isProd && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  )}
   <section class="flex flex-col gap-8 xl:gap-10">
     <p>
       La thérapie <strong>
@@ -25,7 +96,8 @@ import { NEARBY_CITIES } from "../consts";
           rel="noopener noreferrer"
           class="text-link">MOSAIC</a
         ></strong
-      > fait partie des approches spécifiques que je peux proposer au cabinet lorsque
+      >, parfois appelée <strong>EMDR-MOSAIC</strong> en raison de sa proximité avec
+      l'EMDR, fait partie des approches spécifiques que je peux proposer au cabinet lorsque
       la difficulté est liée à une mémoire douloureuse, à un vécu traumatique ou à
       une réaction émotionnelle qui reste trop intense malgré le temps écoulé. Je
       suis formé à la thérapie MOSAIC de référence auprès du Dr Stéphanie Khalfa.
@@ -266,16 +338,37 @@ import { NEARBY_CITIES } from "../consts";
     </div>
 
     <div>
-      <SectionHeading class="mb-4" eyebrow="10 — Consultations" title="Consultation MOSAIC à Sceaux et en visio" />
+      <SectionHeading class="mb-4" eyebrow="10 — Consultations" title="Consultation EMDR-MOSAIC à Sceaux et en ligne : tarif et rendez-vous" />
       <p>
-        Je vous reçois au cabinet à <strong>Sceaux</strong> et propose aussi des consultations
-        en visioconsultation selon la situation.
+        Je vous reçois au cabinet à <strong>Sceaux</strong> et propose aussi, selon
+        la situation, des séances en
+        <a href="/psychologue-en-ligne/" class="text-link">consultation en ligne</a>.
+      </p>
+      <p>
+        Une séance EMDR-MOSAIC dure <strong>1 heure</strong> et coûte
+        <strong>90 €</strong>. Le détail des tarifs est disponible sur la page
+        <a href="/tarifs/" class="text-link">Tarifs</a>.
       </p>
       <p>
         Le cabinet est accessible pour les personnes habitant Sceaux et les
         villes voisines comme {NEARBY_CITIES.replace(" et ", ", ")} ou Le
         Plessis-Robinson.
       </p>
+      <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={DOCTOLIB_BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={mosaicCtaPrimary}
+          data-track-doctolib
+          data-track-location="Therapie MOSAIC consultations"
+        >
+          Prendre rendez-vous pour une séance EMDR-MOSAIC
+        </a>
+        <a href="/consulter/" class={mosaicCtaSecondary}>
+          Savoir si cette approche est adaptée
+        </a>
+      </div>
     </div>
 
     <div>
@@ -288,7 +381,20 @@ import { NEARBY_CITIES } from "../consts";
         émotionnelles persistantes.
       </p>
 
-      <h3 class="font-display typo-display-md text-ink-primary">Combien de séances faut-il ?</h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Combien coûte une séance EMDR-MOSAIC ?</h3>
+      <p>
+        Une séance dure 1 heure et coûte 90 €. Le détail des tarifs et des modalités
+        de paiement est disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Peut-on faire une séance EMDR-MOSAIC en ligne ?</h3>
+      <p>
+        Oui, selon la situation. Les séances ont lieu au cabinet à Sceaux, et des
+        séances en <a href="/psychologue-en-ligne/" class="text-link">visioconférence</a>
+        peuvent être proposées après évaluation, notamment si vous êtes éloigné du cabinet.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Combien de séances faut-il ?</h3>
       <p>
         Cela dépend de la nature du trauma, de son ancienneté, de vos ressources
         actuelles et de votre situation globale. L'évaluation initiale permet
