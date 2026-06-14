@@ -52,6 +52,8 @@ Une séance de couple dure généralement 50 minutes. Les deux partenaires sont 
 
 Concrètement, je peux vous interrompre pour ralentir un échange, reformuler ce que j’entends, demander à chacun ce qui se passe intérieurement à un moment précis, ou attirer l’attention sur une séquence répétitive. Le but n’est pas de produire une discussion parfaite. Il s’agit plutôt de créer, séance après séance, une façon différente de se comprendre et de se répondre.
 
+Prenons un exemple fréquent : l’un dit « tu ne m’écoutes jamais », l’autre se ferme ou contre-attaque. En séance, je ralentis le moment juste avant le reproche — la montée de tension, le soupir, le regard qui se détourne — pour que chacun puisse dire ce qui se passe en lui à cet instant précis. Souvent, le reproche recouvre une peur ou un besoin plus direct qu’il devient possible de formuler autrement.
+
 Entre les séances, certains couples repartent avec un point d’attention ou une expérience à tenter : observer un déclencheur, différer une discussion trop inflammable, formuler une demande plus directement, ou repérer les moments où l’ancien scénario commence à se remettre en route.
 
 ## Faut-il que les deux partenaires soient engagés ?
@@ -72,27 +74,17 @@ Une thérapie de couple ne garantit pas une issue unique. Elle peut soutenir une
 
 Quand le travail avance, les partenaires peuvent mieux reconnaître leurs mouvements défensifs, nommer leurs besoins sans accusation immédiate, tolérer certaines différences, et choisir des actions plus cohérentes avec ce qu’ils veulent préserver. C’est souvent moins spectaculaire qu’un grand “nouveau départ”, mais plus solide : une série de petits déplacements qui changent la qualité du quotidien.
 
----
+Pour prendre rendez-vous au cabinet à Sceaux, consultez la page [thérapie de couple](/therapie-couple/) ou le [premier entretien](/consulter/).
 
-*Nicolas Devaux, psychologue à Sceaux, accompagne les couples à partir d’une approche intégrative associant lecture psychodynamique, ACT et IBCT.*
-
-## Questions fréquentes sur la thérapie de couple
+## Questions fréquentes
 
 ### Faut-il venir ensemble à la première séance ?
 
-Dans la plupart des cas, oui : la thérapie de couple commence avec les deux partenaires afin d’entendre les deux points de vue et d’observer la dynamique relationnelle. Des temps individuels peuvent parfois être proposés si cela aide l’évaluation clinique.
+Oui, dans la plupart des cas. Des temps individuels peuvent être proposés ensuite si l’évaluation clinique le justifie.
 
-### La thérapie de couple sert-elle seulement à éviter une séparation ?
+### Peut-on consulter si l’un des deux hésite encore ?
 
-Non. Elle peut aider à reconstruire le lien, mais aussi à clarifier une décision importante lorsque le couple est dans une impasse. L’objectif est d’ouvrir un espace de parole plus lucide, pas de forcer un résultat.
-
-### Combien de séances sont nécessaires ?
-
-La durée dépend de la situation, de l’ancienneté des difficultés et de l’engagement de chacun. Certaines demandes se travaillent en quelques séances, d’autres nécessitent un accompagnement plus progressif.
-
-### Peut-on consulter même si l’un des deux partenaires hésite ?
-
-Oui, à condition que chacun accepte au moins d’explorer la situation. L’hésitation fait souvent partie du travail : elle peut être entendue sans être transformée en reproche.
+Oui, à condition que chacun accepte au moins d’explorer la situation. L’hésitation fait souvent partie du travail — elle peut être entendue sans devenir un reproche.
 
 <script type="application/ld+json">
 {
