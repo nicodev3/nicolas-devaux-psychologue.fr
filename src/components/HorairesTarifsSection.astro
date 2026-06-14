@@ -3,7 +3,13 @@ import { Clock, Euro } from "lucide";
 import SectionHeading from "./SectionHeading.astro";
 import LucideIcon from "./LucideIcon.astro";
 import { buttonClasses } from "./ui/button";
-import { DOCTOLIB_BOOKING_URL } from "../consts";
+import {
+  DOCTOLIB_BOOKING_URL,
+  OPENING_SATURDAY_HOURS,
+  OPENING_SATURDAY_LABEL,
+  OPENING_WEEKDAYS_HOURS,
+  OPENING_WEEKDAYS_LABEL,
+} from "../consts";
 
 const tariffs = [
   { label: "Consultation individuelle", duration: "45 min", price: "80€" },
@@ -76,8 +82,12 @@ const tariffs = [
 
         <div class="space-y-3">
           <div class="flex items-center justify-between gap-4 border-b border-border-subtle py-2">
-            <span class="min-w-0 text-pretty text-ink-secondary">Lundi, mardi et vendredi</span>
-            <span class="shrink-0 font-medium tabular-nums text-ink-primary">8h00 - 20h00</span>
+            <span class="min-w-0 text-pretty text-ink-secondary">{OPENING_WEEKDAYS_LABEL}</span>
+            <span class="shrink-0 font-medium tabular-nums text-ink-primary">{OPENING_WEEKDAYS_HOURS}</span>
+          </div>
+          <div class="flex items-center justify-between gap-4 border-b border-border-subtle py-2">
+            <span class="min-w-0 text-pretty text-ink-secondary">{OPENING_SATURDAY_LABEL}</span>
+            <span class="shrink-0 font-medium text-ink-primary">{OPENING_SATURDAY_HOURS}</span>
           </div>
           <div class="flex items-center justify-between gap-4 py-2">
             <span class="min-w-0 text-ink-secondary">Autres jours</span>

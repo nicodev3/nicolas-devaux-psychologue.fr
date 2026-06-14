@@ -49,3 +49,36 @@ export const ADELI_NUMBER: string | null = null;
 
 /** Email de contact du cabinet (schema.org, mentions légales). */
 export const CONTACT_EMAIL = 'contact@nicolas-devaux-psychologue.fr';
+
+/** Jours d'ouverture en semaine (affichage). */
+export const OPENING_WEEKDAYS_LABEL = 'Lundi, mardi et vendredi';
+
+/** Plage horaire en semaine (affichage). */
+export const OPENING_WEEKDAYS_HOURS = '8h00 - 19h00';
+
+/** Samedi alterné (affichage). */
+export const OPENING_SATURDAY_LABEL = 'Samedi (un matin sur deux)';
+
+/** Plage horaire samedi (affichage). */
+export const OPENING_SATURDAY_HOURS = 'Matin';
+
+/** Texte récapitulatif pour FAQ et contenus. */
+export const OPENING_HOURS_TEXT =
+  'le lundi, le mardi et le vendredi de 8h à 19h, et un samedi matin sur deux';
+
+/** Schema.org — horaires d'ouverture du cabinet. */
+export const OPENING_HOURS_SCHEMA = [
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Friday'],
+    opens: '08:00',
+    closes: '19:00',
+  },
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Saturday'],
+    opens: '08:00',
+    closes: '13:00',
+    description: 'Un samedi matin sur deux',
+  },
+] as const;

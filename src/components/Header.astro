@@ -16,7 +16,7 @@ const burgerBtn = buttonClasses({
   variant: "ghost",
   size: "md",
   className:
-    "lg:hidden !h-10 !min-h-[40px] !w-10 !min-w-[40px] !rounded-lg !p-0 hover:bg-surface-muted",
+    "shrink-0 xl:hidden !h-10 !min-h-[40px] !w-10 !min-w-[40px] !rounded-lg !p-0 hover:bg-surface-muted",
 });
 
 const desktopNavLink =
@@ -31,7 +31,7 @@ const sheetLink =
     class="container relative py-3 md:py-4"
     aria-label="Navigation principale"
     x-data="{ open: false }"
-    x-init="matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) open = false })"
+    x-init="matchMedia('(min-width: 1280px)').addEventListener('change', (e) => { if (e.matches) open = false })"
     x-effect="document.documentElement.classList.toggle('overflow-hidden', open)"
     @keydown.escape.window="open = false"
   >
@@ -45,7 +45,7 @@ const sheetLink =
         </div>
       </a>
 
-      <div class="hidden min-w-0 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-1 lg:pl-6">
+      <div class="hidden min-w-0 xl:flex xl:flex-1 xl:items-center xl:justify-end xl:gap-1 xl:pl-6">
         <ApproachesDropdown client:load />
         <HeaderLink class={desktopNavLink} href="/psychologue-sceaux/">Sceaux</HeaderLink>
         <HeaderLink class={desktopNavLink} href="/consulter/">Consulter</HeaderLink>
@@ -87,7 +87,7 @@ const sheetLink =
     </div>
 
     <!-- Panneau mobile : même easing que le menu « Approches » (Prompt 7). -->
-    <div class="lg:hidden">
+    <div class="xl:hidden">
       <div
         x-show="open"
         x-transition:enter="transition-opacity duration-300 nav-sheet-ease"
@@ -115,7 +115,7 @@ const sheetLink =
         x-transition:leave="transition-transform duration-300 nav-sheet-ease"
         x-transition:leave-start="translate-x-0"
         x-transition:leave-end="translate-x-full"
-        class="nav-mobile-sheet fixed inset-y-0 right-0 z-90 flex w-[min(20rem,calc(100vw-1rem))] max-w-full flex-col border-l border-border-subtle bg-surface-raised shadow-2xl outline-none"
+        class="nav-mobile-sheet fixed inset-y-0 right-0 z-90 flex h-dvh w-[min(20rem,calc(100vw-1rem))] max-w-full flex-col border-l border-border-subtle bg-surface-raised shadow-2xl outline-none"
         x-on:click.stop
       >
         <div class="flex shrink-0 items-center justify-between border-b border-border-subtle px-4 py-3">
@@ -179,7 +179,7 @@ const sheetLink =
         variant: "primary",
         size: "md",
         fullWidth: true,
-        className: "lg:hidden",
+        className: "xl:hidden",
       })}
       aria-label="Prendre rendez-vous Doctolib"
       data-track-doctolib

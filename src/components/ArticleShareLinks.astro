@@ -11,8 +11,6 @@ const { title, url } = Astro.props;
 
 const encodedTitle = encodeURIComponent(title);
 const encodedUrl = encodeURIComponent(url);
-const mailSubject = encodeURIComponent(title);
-const mailBody = encodeURIComponent(`${title}\n\n${url}`);
 
 const shareLinks = [
   {
@@ -30,12 +28,7 @@ const shareLinks = [
     href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
     external: true,
   },
-  {
-    label: "Email",
-    href: `mailto:?subject=${mailSubject}&body=${mailBody}`,
-    external: false,
-  },
-];
+] as const;
 ---
 
 <nav class="article-share" aria-label="Partager cet article">
@@ -50,14 +43,25 @@ const shareLinks = [
           <a
             href={item.href}
             class="article-share__link"
-            target={item.external ? "_blank" : undefined}
-            rel={item.external ? "noopener noreferrer" : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {item.label}
           </a>
         </li>
       ))
     }
+    <li>
+      <button
+        type="button"
+        class="article-share__link"
+        data-share-email
+        data-share-subject={title}
+        data-share-body={`${title}\n\n${url}`}
+      >
+        Email
+      </button>
+    </li>
     <li>
       <button type="button" class="article-share__link article-share__copy" data-share-copy={url}>
         <LucideIcon icon={Link} size="sm" />
@@ -67,28 +71,36 @@ const shareLinks = [
   </ul>
 </nav>
 
-<script>
-  const copyButtons = document.querySelectorAll<HTMLButtonElement>("[data-share-copy]");
+<script is:inline>
+  document.querySelectorAll("[data-share-copy]").forEach(function (button) {
+    if (!(button instanceof HTMLButtonElement)) return;
+    var defaultText = (button.textContent || "").trim() || "Copier le lien";
 
-  copyButtons.forEach((button) => {
-    const defaultText = button.textContent?.trim() || "Copier le lien";
+    button.addEventListener("click", function () {
+      var url = button.getAttribute("data-share-copy");
+      if (!url || !navigator.clipboard) return;
 
-    button.addEventListener("click", async () => {
-      const url = button.dataset.shareCopy;
-
-      if (!url || !navigator.clipboard) {
-        return;
-      }
-
-      await navigator.clipboard.writeText(url);
-      const label = button.querySelector("span");
-
-      if (label) {
+      navigator.clipboard.writeText(url).then(function () {
+        var label = button.querySelector("span");
+        if (!label) return;
         label.textContent = "Lien copié";
-        window.setTimeout(() => {
+        window.setTimeout(function () {
           label.textContent = defaultText;
         }, 1800);
-      }
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-share-email]").forEach(function (button) {
+    if (!(button instanceof HTMLButtonElement)) return;
+
+    button.addEventListener("click", function () {
+      var subject = button.getAttribute("data-share-subject");
+      var body = button.getAttribute("data-share-body");
+      if (!subject || !body) return;
+
+      window.location.href =
+        "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });
   });
 </script>

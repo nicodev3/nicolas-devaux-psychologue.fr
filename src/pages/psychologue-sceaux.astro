@@ -13,6 +13,8 @@ import {
   SERVED_CITIES_LABEL,
   SIRET_NUMBER,
   CONTACT_EMAIL,
+  OPENING_HOURS_SCHEMA,
+  OPENING_HOURS_TEXT,
 } from "../consts";
 
 const title = "Psychologue à Sceaux";
@@ -46,7 +48,7 @@ const faqSchema = {
       name: "Comment prendre rendez-vous avec un psychologue à Sceaux ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "La prise de rendez-vous se fait en ligne via Doctolib. Les consultations ont lieu uniquement sur rendez-vous, le lundi, le mardi et le vendredi de 8h à 20h.",
+        text: `La prise de rendez-vous se fait en ligne via Doctolib. Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
       },
     },
     {
@@ -116,14 +118,7 @@ const localBusinessSchema = {
     { "@type": "City", name: "L'Haÿ-les-Roses" },
     { "@type": "AdministrativeArea", name: "Hauts-de-Seine" },
   ],
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Friday"],
-      opens: "08:00",
-      closes: "20:00",
-    },
-  ],
+  openingHoursSpecification: OPENING_HOURS_SCHEMA,
   priceRange: "€€",
   makesOffer: [
     {
@@ -302,7 +297,7 @@ const secondaryCtaClasses = buttonClasses({
     <section class="space-y-4">
       <SectionHeading eyebrow="05 — Pratique" title="Horaires, tarifs et rendez-vous" />
       <p>
-        Les consultations ont lieu le lundi, le mardi et le vendredi, sur rendez-vous. Les séances
+        Les consultations ont lieu le lundi, le mardi et le vendredi de 8h à 19h, et un samedi matin sur deux, sur rendez-vous. Les séances
         individuelles durent 45 minutes ; les séances de couple et les séances MOSAIC durent 1 heure.
       </p>
       <p>
@@ -351,7 +346,7 @@ const secondaryCtaClasses = buttonClasses({
       </h3>
       <p>
         La prise de rendez-vous se fait en ligne via Doctolib. Les consultations ont lieu uniquement sur
-        rendez-vous, le lundi, le mardi et le vendredi de 8h à 20h.
+        rendez-vous, {OPENING_HOURS_TEXT}.
       </p>
 
       <h3 class="font-display typo-display-md mt-5 text-ink-primary">

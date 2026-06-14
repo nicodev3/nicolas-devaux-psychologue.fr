@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import { SITE_NAME, CONTACT_EMAIL } from "../consts";
+import { SITE_NAME, CONTACT_EMAIL, OPENING_HOURS_SCHEMA } from "../consts";
 import { pathnameToOgSlug } from "../utils/pathname-to-og-slug";
 import { applyFrenchTypography } from "../utils/frenchTypography.js";
 
@@ -70,7 +70,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 <!-- Schema.org (prod). hasMap = GOOGLE_MAPS_CABINET_URL dans consts.ts (script is:inline). -->
 {import.meta.env.PROD && (
 <!--email_off-->
-<script type="application/ld+json" is:inline define:vars={{ contactEmail: CONTACT_EMAIL }}>
+<script type="application/ld+json" is:inline define:vars={{ contactEmail: CONTACT_EMAIL, openingHoursSpecification: OPENING_HOURS_SCHEMA }}>
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -102,14 +102,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
       },
       "geo": { "@type": "GeoCoordinates", "latitude": 48.7764, "longitude": 2.2903 },
       "hasMap": "https://www.google.com/maps/search/?api=1&query=63%20rue%20Houdan%2C%2092330%20Sceaux",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Friday"],
-          "opens": "08:00",
-          "closes": "20:00"
-        }
-      ],
+      "openingHoursSpecification": openingHoursSpecification,
       "priceRange": "€€",
       "areaServed": [
         { "@type": "City", "name": "Sceaux" },
@@ -161,12 +154,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
           "contactType": "Prise de rendez-vous en ligne",
           "url": "https://www.doctolib.fr/psychologue/nicolas-devaux",
           "availableLanguage": ["fr-FR","en-GB"],
-          "hoursAvailable": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Friday"],
-            "opens": "08:00",
-            "closes": "20:00"
-          }
+          "hoursAvailable": openingHoursSpecification[0],
         },
         {
           "@type": "ContactPoint",

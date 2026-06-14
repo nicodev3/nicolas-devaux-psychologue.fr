@@ -2,7 +2,14 @@
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { buttonClasses } from "../components/ui/button";
-import { LEGAL_ENTITY_NAME, SIRET_NUMBER } from "../consts";
+import {
+  LEGAL_ENTITY_NAME,
+  OPENING_SATURDAY_HOURS,
+  OPENING_SATURDAY_LABEL,
+  OPENING_WEEKDAYS_HOURS,
+  OPENING_WEEKDAYS_LABEL,
+  SIRET_NUMBER,
+} from "../consts";
 
 type TariffRow = {
   label: string;
@@ -66,8 +73,12 @@ const tariffs: TariffRow[] = [
       <SectionHeading class="mb-4" eyebrow="02 — Horaires" title="Horaires d'ouverture" />
       <div class="rounded-xl border border-border-strong bg-secondary/30 p-6 max-w-md">
         <div class="flex justify-between items-center py-2 border-b border-border-strong">
-          <span class="text-ink-secondary">Lundi, mardi et vendredi</span>
-          <span class="font-medium text-tertiary">8h00 - 20h00</span>
+          <span class="text-ink-secondary">{OPENING_WEEKDAYS_LABEL}</span>
+          <span class="font-medium text-tertiary">{OPENING_WEEKDAYS_HOURS}</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-border-strong">
+          <span class="text-ink-secondary">{OPENING_SATURDAY_LABEL}</span>
+          <span class="font-medium text-tertiary">{OPENING_SATURDAY_HOURS}</span>
         </div>
         <div class="flex justify-between items-center py-2">
           <span class="text-ink-secondary">Autres jours</span>

@@ -10,7 +10,7 @@ import HorairesTarifsSection from "../components/HorairesTarifsSection.astro";
 import HomeLatestArticles from "../components/HomeLatestArticles.astro";
 import HomeProfessionNotice from "../components/HomeProfessionNotice.astro";
 import BookingFab from "../components/BookingFab.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, NEARBY_CITIES } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, NEARBY_CITIES, OPENING_HOURS_TEXT } from "../consts";
 
 const isProd = import.meta.env.PROD;
 const faqSchema = {
@@ -22,7 +22,7 @@ const faqSchema = {
       name: "Comment prendre rendez-vous ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Vous pouvez prendre rendez-vous via Doctolib depuis la page d'accueil (bloc d'introduction, section Horaires et tarifs ou lien en pied de page). Les consultations se déroulent uniquement sur rendez-vous, le lundi, le mardi et le vendredi de 8h à 20h.",
+        text: `Vous pouvez prendre rendez-vous via Doctolib depuis la page d'accueil (bloc d'introduction, section Horaires et tarifs ou lien en pied de page). Les consultations se déroulent uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
       },
     },
     {
@@ -30,7 +30,7 @@ const faqSchema = {
       name: "Quelle est la durée d'une séance ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: 'Les consultations individuelles et vidéo durent 45 minutes. Les consultations de couple et les séances MOSAIC durent 1 heure. Dans le cadre du dispositif "Mon Soutien Psy", les séances durent 30 minutes.',
+        text: "Les consultations individuelles et vidéo durent 45 minutes. Les consultations de couple et les séances MOSAIC durent 1 heure.",
       },
     },
     {
@@ -38,7 +38,7 @@ const faqSchema = {
       name: "Les séances sont-elles remboursées ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: 'Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses mutuelles proposent une prise en charge partielle ou totale. Le dispositif "Mon Soutien Psy" permet également un remboursement sous certaines conditions.',
+        text: "Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses mutuelles proposent une prise en charge partielle ou totale. Le dispositif Mon Soutien Psy n'accepte plus de nouveaux patients au cabinet.",
       },
     },
     {

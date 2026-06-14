@@ -1,5 +1,3 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-
 function cn(...parts: Array<string | undefined | false>): string {
   return parts.filter(Boolean).join(' ');
 }
@@ -83,34 +81,4 @@ export function accordionDisclosureClasses(extraClassName?: string): string {
       extraClassName,
     ),
   });
-}
-
-export type ButtonProps = {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  fullWidth?: boolean;
-  className?: string;
-  href?: string;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'>;
-
-export function Button({
-  variant = 'primary',
-  size = 'md',
-  fullWidth,
-  className,
-  href,
-  type = 'button',
-  ...rest
-}: ButtonProps) {
-  const cls = buttonClasses({ variant, size, fullWidth, className });
-
-  if (href !== undefined) {
-    return (
-      <a href={href} className={cls} {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)} />
-    );
-  }
-
-  return (
-    <button type={type} className={cls} {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)} />
-  );
 }
