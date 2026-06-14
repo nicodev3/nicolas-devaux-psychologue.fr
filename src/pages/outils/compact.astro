@@ -1,0 +1,517 @@
+---
+import FormLayout from "../../layouts/FormLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { buttonClasses } from "../../components/ui/button";
+
+const title = "CompACT — Évaluation des processus ACT";
+const description =
+  "Passez en ligne le CompACT-FR, questionnaire validé en 23 items pour évaluer votre flexibilité psychologique selon les trois processus de l'ACT.";
+
+const SCALE = [
+  [0, "Pas du tout d'accord"],
+  [1, "Très peu d'accord"],
+  [2, "Peu d'accord"],
+  [3, "Plutôt pas d'accord"],
+  [4, "Plutôt d'accord"],
+  [5, "Assez d'accord"],
+  [6, "Tout à fait d'accord"],
+] as const;
+---
+
+<FormLayout title={title} description={description}>
+  <div x-data="compactForm" class="w-full">
+    <div class="sticky top-14 z-20 mb-6 md:top-18" x-show="!submitted">
+      <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
+        <div class="mb-1.5 flex items-center justify-between">
+          <span class="text-xs font-medium text-ink-tertiary">Progression</span>
+          <span class="font-ui text-xs font-medium text-ink-secondary">
+            <span x-text="answeredCount"></span>/23
+          </span>
+        </div>
+        <div class="h-2 w-full rounded-full bg-surface-muted">
+          <div class="h-2 rounded-full bg-brand transition-all duration-300" :style="`width: ${progress}%`"></div>
+        </div>
+      </div>
+    </div>
+
+    <header class="mb-10 md:mb-12">
+      <p class="typo-eyebrow mb-3 md:mb-4">CompACT-FR</p>
+      <h1 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
+        Évaluation des processus ACT
+      </h1>
+      <p class="mb-6 text-sm text-ink-tertiary">
+        Comprehensive Assessment of Acceptance and Commitment Therapy processes
+      </p>
+
+      <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
+        <SectionHeading class="mb-4" eyebrow="01 — Consignes" title="Instructions" />
+        <p class="mb-4 text-sm leading-relaxed text-ink-secondary">
+          Pour chaque affirmation, indiquez dans quelle mesure elle vous correspond. Plus le chiffre est élevé, plus vous
+          signalez une <strong>flexibilité psychologique</strong> favorable — capacité à accueillir vos expériences
+          intérieures tout en agissant selon vos valeurs.
+        </p>
+        <div class="grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
+          {
+            SCALE.map(([n, label]) => (
+              <div class="flex items-start gap-2.5">
+                <span class="font-ui flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-strong bg-surface-raised text-xs font-medium text-tertiary">
+                  {n}
+                </span>
+                <span class="leading-snug text-ink-secondary">{label}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <p class="mt-4 flex items-center gap-1.5 text-xs text-ink-tertiary">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 shrink-0"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4M12 8h.01"></path>
+        </svg>
+        Vos réponses sont sauvegardées automatiquement dans votre navigateur. Vous pouvez reprendre le questionnaire
+        plus tard.
+      </p>
+    </header>
+
+    <div id="results" x-show="submitted" class="print-results mb-8 rounded-xl border border-border-subtle p-8">
+      <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
+        <div>
+          <SectionHeading class="mb-1" eyebrow="02 — Synthèse" title="Résultats" />
+          <p class="text-sm text-ink-tertiary">CompACT-FR — Flexibilité psychologique</p>
+        </div>
+        <div class="no-print flex shrink-0 gap-2">
+          <button
+            onclick="window.print()"
+            type="button"
+            class={buttonClasses({
+              variant: "secondary",
+              size: "sm",
+              className: "gap-1.5 font-normal normal-case text-ink-secondary",
+            })}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2m2 4h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm8-12V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4h10Z"
+              ></path>
+            </svg>
+            Imprimer
+          </button>
+          <button
+            type="button"
+            @click="reset()"
+            class={buttonClasses({
+              variant: "secondary",
+              size: "sm",
+              className:
+                "gap-1.5 border-danger bg-danger-surface font-normal normal-case text-danger hover:bg-border-subtle",
+            })}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"
+              ></path>
+            </svg>
+            Recommencer
+          </button>
+        </div>
+      </div>
+
+      <p class="mb-6 rounded-lg bg-secondary/40 p-4 text-sm text-ink-secondary">
+        Ces résultats sont destinés à être partagés avec votre psychologue. Ils explorent trois dimensions de la
+        flexibilité psychologique : ouverture à l'expérience, conscience comportementale et action guidée par les
+        valeurs.
+        <strong>Ils ne constituent pas un diagnostic.</strong>
+      </p>
+
+      <div class="mb-8 rounded-xl border border-border-subtle p-5">
+        <h3 class="typo-display-md mb-1 text-ink-primary">Score global</h3>
+        <p class="mb-4 text-xs text-ink-tertiary">Score total sur 138 · Pourcentage sur 100</p>
+        <div class="mb-4 flex flex-wrap items-end gap-4">
+          <div>
+            <span class="font-display text-4xl text-ink-primary" x-text="totalScore"></span>
+            <span class="text-lg text-ink-tertiary">/138</span>
+          </div>
+          <div>
+            <span class="font-display text-4xl text-ink-primary" x-text="percentageScore"></span>
+            <span class="text-lg text-ink-tertiary">%</span>
+          </div>
+          <span
+            class="rounded-full px-2.5 py-1 text-xs font-medium"
+            :class="flexibilityBadgeClass"
+            x-text="flexibilityLabel"
+          ></span>
+        </div>
+        <div class="h-3 overflow-hidden rounded-full bg-surface-muted">
+          <div
+            class="h-3 rounded-full transition-all duration-700"
+            :class="flexibilityBarClass"
+            :style="`width: ${percentageScore}%`"
+          ></div>
+        </div>
+      </div>
+
+      <div class="mb-8 grid gap-4 sm:grid-cols-3">
+        <div class="rounded-xl border border-border-subtle p-4">
+          <p class="mb-1 text-xs font-medium uppercase tracking-wider text-ink-tertiary">Ouverture à l'expérience</p>
+          <p class="mb-2 text-sm text-ink-secondary">Acceptation et défusion</p>
+          <p class="font-display text-2xl text-ink-primary">
+            <span x-text="oeScore"></span><span class="text-base text-ink-tertiary">/60</span>
+          </p>
+        </div>
+        <div class="rounded-xl border border-border-subtle p-4">
+          <p class="mb-1 text-xs font-medium uppercase tracking-wider text-ink-tertiary">Conscience comportementale</p>
+          <p class="mb-2 text-sm text-ink-secondary">Présence et perspective</p>
+          <p class="font-display text-2xl text-ink-primary">
+            <span x-text="baScore"></span><span class="text-base text-ink-tertiary">/30</span>
+          </p>
+        </div>
+        <div class="rounded-xl border border-border-subtle p-4">
+          <p class="mb-1 text-xs font-medium uppercase tracking-wider text-ink-tertiary">Action guidée par les valeurs</p>
+          <p class="mb-2 text-sm text-ink-secondary">Valeurs et engagement</p>
+          <p class="font-display text-2xl text-ink-primary">
+            <span x-text="vaScore"></span><span class="text-base text-ink-tertiary">/48</span>
+          </p>
+        </div>
+      </div>
+
+      <p class="mb-4 text-sm text-ink-secondary">
+        Pour une mesure plus courte de l'inflexibilité, vous pouvez aussi compléter l'
+        <a href="/outils/aaq-ii/" class="text-link font-medium">AAQ-II</a>. En savoir plus sur l'
+        <a href="/therapie-acceptation-et-engagement/" class="text-link font-medium">thérapie d'acceptation et d'engagement (ACT)</a>.
+      </p>
+
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="rounded-full bg-red-100 px-2.5 py-1 font-medium text-red-700">0–33 % : Faible</span>
+        <span class="rounded-full bg-orange-100 px-2.5 py-1 font-medium text-orange-700">34–50 % : Modérée</span>
+        <span class="rounded-full bg-yellow-100 px-2.5 py-1 font-medium text-yellow-700">51–66 % : Bonne</span>
+        <span class="rounded-full bg-lime-100 px-2.5 py-1 font-medium text-lime-700">67–83 % : Très bonne</span>
+        <span class="rounded-full bg-green-100 px-2.5 py-1 font-medium text-green-700">84–100 % : Excellente</span>
+      </div>
+    </div>
+
+    <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
+      <div class="mb-6 overflow-hidden rounded-xl border border-border-subtle">
+        <div class="border-b border-border-subtle bg-secondary/50 px-6 py-4">
+          <h3 class="typo-display-md m-0 text-ink-primary">23 affirmations</h3>
+        </div>
+        <div class="divide-y divide-border-subtle">
+          <template x-for="(question, qi) in questions" :key="qi">
+            <div
+              class="px-4 py-4 transition-colors duration-150 sm:px-6"
+              :class="answers[qi + 1] >= 0 ? 'bg-green-50/40' : ''"
+            >
+              <div class="flex flex-col gap-3 lg:flex-row lg:items-center">
+                <p class="m-0 flex-1 text-sm leading-relaxed text-ink-secondary">
+                  <span class="mr-1.5 font-medium text-ink-tertiary" x-text="(qi + 1) + '.'"></span>
+                  <span x-text="question"></span>
+                </p>
+                <div class="flex shrink-0 flex-wrap gap-1">
+                  <template x-for="scale in [0, 1, 2, 3, 4, 5, 6]" :key="scale">
+                    <label class="cursor-pointer select-none">
+                      <input
+                        type="radio"
+                        :name="'q' + (qi + 1)"
+                        :value="scale"
+                        x-model.number="answers[qi + 1]"
+                        @change="saveAnswers()"
+                        class="sr-only"
+                      />
+                      <span
+                        class="font-ui flex h-8 w-8 items-center justify-center rounded-full border-2 text-xs font-medium transition-all duration-150 sm:h-9 sm:w-9 sm:text-sm"
+                        :class="scaleClass(answers[qi + 1], scale)"
+                        x-text="scale"
+                      ></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <div
+        x-show="showWarning"
+        x-transition
+        class="mb-6 flex items-start gap-2 rounded-xl border border-info-border bg-info-surface p-4 text-sm text-info-ink"
+      >
+        <span
+          class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-info-border bg-surface-raised text-info-ink"
+          aria-hidden="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4M12 8h.01"></path>
+          </svg>
+        </span>
+        <span>
+          <strong>Questionnaire incomplet :</strong>
+          vous avez répondu à <span x-text="answeredCount"></span> question(s) sur 23. Veuillez répondre à toutes les
+          questions pour obtenir vos résultats.
+        </span>
+      </div>
+
+      <div class="mb-8 text-center">
+        <button
+          type="submit"
+          class={buttonClasses({ variant: "primary", size: "lg", className: "gap-2 normal-case" })}
+        >
+          Calculer mes résultats
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m9 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </form>
+
+    <footer class="mt-4 border-t border-border-subtle pt-6 text-xs leading-relaxed text-ink-tertiary">
+      <p>
+        CompACT : Francis, A.W., Dawson, D.L., &amp; Golijani-Moghaddam, N. (2016). The development and validation of
+        the Comprehensive assessment of Acceptance and Commitment Therapy processes (CompACT).
+        <em>Journal of Contextual Behavioral Science</em>, 5(3), 134–145.
+      </p>
+      <p class="mt-2">
+        Version française : Spencer, J., Gustin, M., Royce Anders, R., et al. (2025). Psychometric properties of the
+        Comprehensive Assessment of Acceptance and Commitment Therapy processes (CompACT) scale: Extending validity
+        research to a French population. <em>Journal of Behavioral and Cognitive Therapy</em>, 35(3), 100532.
+      </p>
+      <p class="mt-2">
+        Usage clinique et recherche autorisé sans demande préalable, sous réserve de citation des auteurs (ACBS).
+      </p>
+    </footer>
+  </div>
+</FormLayout>
+
+<style>
+  @media print {
+    header,
+    footer,
+    nav,
+    .no-print,
+    #form-container {
+      display: none !important;
+    }
+    .print-results {
+      display: block !important;
+    }
+    body {
+      background: white !important;
+    }
+  }
+</style>
+
+<script is:inline>
+document.addEventListener('alpine:init', () => {
+  const QUESTIONS = [
+    "Je sais reconnaître les choses qui comptent vraiment pour moi et persévérer à les faire.",
+    "L'un de mes plus grands objectifs est d'être libéré(e) de mes émotions douloureuses.",
+    "Je me plonge dans des activités importantes sans vraiment y prêter attention.",
+    "J'essaie de rester occupé(e) pour empêcher que des pensées ou des ressentis ne surviennent.",
+    "J'agis de manière cohérente avec la façon dont je souhaite vivre ma vie.",
+    "Je me laisse tellement emporter par mes pensées que je ne suis pas en mesure de faire les choses qui comptent le plus pour moi.",
+    "Je fais des choix en fonction de ce qui est important pour moi, même si c'est stressant.",
+    "Je me dis que je ne devrais pas avoir certaines pensées.",
+    "Je trouve difficile de rester concentré(e) sur ce qui se passe dans le moment présent.",
+    "Je me comporte en phase avec mes valeurs personnelles.",
+    "Je fais tout mon possible pour éviter les situations qui pourraient provoquer des pensées, des sentiments ou des sensations difficiles.",
+    "Même lorsque je fais les choses qui comptent pour moi, je me retrouve à les faire sans y prêter attention.",
+    "J'accepte d'éprouver pleinement toutes les pensées, les émotions et les sensations qui se présentent à moi, sans essayer de les changer ou de les repousser.",
+    "J'entreprends des choses qui ont un sens pour moi, même lorsque j'ai du mal à les faire.",
+    "Je m'efforce d'éloigner les ressentis dérangeants.",
+    "J'accomplis mon travail ou des tâches automatiquement, sans être conscient(e) de ce que je fais.",
+    "Je suis capable de suivre mes plans à long terme, y compris lorsque les progrès sont lents.",
+    "Même lorsque quelque chose est important pour moi, je le fais rarement s'il y a un risque que cela me perturbe.",
+    "On dirait que je fonctionne « en mode automatique » sans trop être conscient(e) de ce que je fais.",
+    "Les pensées sont juste des pensées, elles ne contrôlent pas ce que je fais.",
+    "Mes valeurs se reflètent réellement dans mon comportement.",
+    "Je peux prendre les pensées et les sentiments comme ils viennent, sans tenter de les contrôler ou de les éviter.",
+    "Je peux persister à faire quelque chose quand c'est important pour moi.",
+  ];
+
+  const REVERSED = new Set([2, 3, 4, 6, 8, 9, 11, 12, 15, 16, 18, 19]);
+  const OE_ITEMS = [2, 4, 6, 8, 11, 13, 15, 18, 20, 22];
+  const BA_ITEMS = [3, 9, 12, 16, 19];
+  const VA_ITEMS = [1, 5, 7, 10, 14, 17, 21, 23];
+
+  Alpine.data('compactForm', () => ({
+    questions: QUESTIONS,
+    answers: new Array(24).fill(-1),
+    submitted: false,
+    showWarning: false,
+
+    scoredValue(itemIdx) {
+      const raw = this.answers[itemIdx];
+      return REVERSED.has(itemIdx) ? 6 - raw : raw;
+    },
+
+    sumItems(items) {
+      let total = 0;
+      for (const idx of items) total += this.scoredValue(idx);
+      return total;
+    },
+
+    get answeredCount() {
+      let count = 0;
+      for (let i = 1; i <= 23; i++) {
+        if (this.answers[i] >= 0) count++;
+      }
+      return count;
+    },
+
+    get progress() {
+      return Math.round((this.answeredCount / 23) * 100);
+    },
+
+    get totalScore() {
+      return this.sumItems([...OE_ITEMS, ...BA_ITEMS, ...VA_ITEMS]);
+    },
+
+    get oeScore() {
+      return this.sumItems(OE_ITEMS);
+    },
+
+    get baScore() {
+      return this.sumItems(BA_ITEMS);
+    },
+
+    get vaScore() {
+      return this.sumItems(VA_ITEMS);
+    },
+
+    get percentageScore() {
+      return Math.round((this.totalScore / 138) * 100);
+    },
+
+    get flexibilityLevel() {
+      const pct = this.percentageScore;
+      if (pct <= 33) return 'low';
+      if (pct <= 50) return 'moderate';
+      if (pct <= 66) return 'good';
+      if (pct <= 83) return 'very-good';
+      return 'excellent';
+    },
+
+    get flexibilityLabel() {
+      const labels = {
+        low: 'Faible flexibilité',
+        moderate: 'Flexibilité modérée',
+        good: 'Bonne flexibilité',
+        'very-good': 'Très bonne flexibilité',
+        excellent: 'Excellente flexibilité',
+      };
+      return labels[this.flexibilityLevel];
+    },
+
+    get flexibilityBadgeClass() {
+      const level = this.flexibilityLevel;
+      if (level === 'low') return 'bg-red-100 text-red-700';
+      if (level === 'moderate') return 'bg-orange-100 text-orange-700';
+      if (level === 'good') return 'bg-yellow-100 text-yellow-700';
+      if (level === 'very-good') return 'bg-lime-100 text-lime-700';
+      return 'bg-green-100 text-green-700';
+    },
+
+    get flexibilityBarClass() {
+      const level = this.flexibilityLevel;
+      if (level === 'low') return 'bg-red-500';
+      if (level === 'moderate') return 'bg-orange-500';
+      if (level === 'good') return 'bg-yellow-400';
+      if (level === 'very-good') return 'bg-lime-400';
+      return 'bg-green-400';
+    },
+
+    scaleClass(answer, scale) {
+      return answer === scale
+        ? 'border-brand bg-brand text-brand-ink-on shadow-sm'
+        : 'border-border-strong text-ink-tertiary hover:border-brand hover:text-brand cursor-pointer';
+    },
+
+    saveAnswers() {
+      try { localStorage.setItem('compact-fr', JSON.stringify(this.answers)); } catch (e) {}
+    },
+
+    submit() {
+      if (this.answeredCount < 23) {
+        this.showWarning = true;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      this.submitted = true;
+      this.saveAnswers();
+      this.$nextTick(() => {
+        const el = document.getElementById('results');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    },
+
+    reset() {
+      if (!confirm('Voulez-vous recommencer le questionnaire ? Toutes vos réponses seront perdues.')) return;
+      this.answers = new Array(24).fill(-1);
+      this.submitted = false;
+      this.showWarning = false;
+      try { localStorage.removeItem('compact-fr'); } catch (e) {}
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+
+    init() {
+      try {
+        const saved = localStorage.getItem('compact-fr');
+        if (saved) {
+          const data = JSON.parse(saved);
+          if (Array.isArray(data) && data.length === 24) this.answers = data;
+        }
+      } catch (e) {}
+    },
+  }));
+});
+</script>

@@ -1,0 +1,458 @@
+---
+import FormLayout from "../../layouts/FormLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { buttonClasses } from "../../components/ui/button";
+
+const title = "AAQ-II — Questionnaire d'acceptation et d'action";
+const description =
+  "Passez en ligne l'AAQ-II, questionnaire validé pour évaluer votre flexibilité psychologique et votre tendance à l'évitement expérientiel.";
+
+const SCALE = [
+  [1, "Jamais vrai"],
+  [2, "Très rarement vrai"],
+  [3, "Rarement vrai"],
+  [4, "Parfois vrai"],
+  [5, "Fréquemment vrai"],
+  [6, "Presque toujours vrai"],
+  [7, "Toujours vrai"],
+] as const;
+---
+
+<FormLayout title={title} description={description}>
+  <div x-data="aaq2Form" class="w-full">
+    <div class="sticky top-14 z-20 mb-6 md:top-18" x-show="!submitted">
+      <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
+        <div class="mb-1.5 flex items-center justify-between">
+          <span class="text-xs font-medium text-ink-tertiary">Progression</span>
+          <span class="font-ui text-xs font-medium text-ink-secondary">
+            <span x-text="answeredCount"></span>/7
+          </span>
+        </div>
+        <div class="h-2 w-full rounded-full bg-surface-muted">
+          <div class="h-2 rounded-full bg-brand transition-all duration-300" :style="`width: ${progress}%`"></div>
+        </div>
+      </div>
+    </div>
+
+    <header class="mb-10 md:mb-12">
+      <p class="typo-eyebrow mb-3 md:mb-4">AAQ-II</p>
+      <h1 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
+        Questionnaire d'acceptation et d'action
+      </h1>
+      <p class="mb-6 text-sm text-ink-tertiary">
+        Acceptance and Action Questionnaire — version II
+      </p>
+
+      <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
+        <SectionHeading class="mb-4" eyebrow="01 — Consignes" title="Instructions" />
+        <p class="mb-4 text-sm leading-relaxed text-ink-secondary">
+          Vous trouverez ci-dessous une liste d'affirmations. Pour chacune, indiquez dans quelle mesure elle vous
+          correspond. Plus le chiffre est élevé, plus vous signalez une <strong>inflexibilité psychologique</strong>
+          (difficulté à accepter vos pensées et émotions tout en agissant selon vos valeurs).
+        </p>
+        <div class="grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
+          {
+            SCALE.map(([n, label]) => (
+              <div class="flex items-start gap-2.5">
+                <span class="font-ui flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-strong bg-surface-raised text-xs font-medium text-tertiary">
+                  {n}
+                </span>
+                <span class="leading-snug text-ink-secondary">{label}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <p class="mt-4 flex items-center gap-1.5 text-xs text-ink-tertiary">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 shrink-0"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4M12 8h.01"></path>
+        </svg>
+        Vos réponses sont sauvegardées automatiquement dans votre navigateur. Vous pouvez reprendre le questionnaire
+        plus tard.
+      </p>
+    </header>
+
+    <div id="results" x-show="submitted" class="print-results mb-8 rounded-xl border border-border-subtle p-8">
+      <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
+        <div>
+          <SectionHeading class="mb-1" eyebrow="02 — Synthèse" title="Résultats" />
+          <p class="text-sm text-ink-tertiary">AAQ-II — Questionnaire d'acceptation et d'action</p>
+        </div>
+        <div class="no-print flex shrink-0 gap-2">
+          <button
+            onclick="window.print()"
+            type="button"
+            class={buttonClasses({
+              variant: "secondary",
+              size: "sm",
+              className: "gap-1.5 font-normal normal-case text-ink-secondary",
+            })}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2m2 4h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm8-12V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4h10Z"
+              ></path>
+            </svg>
+            Imprimer
+          </button>
+          <button
+            type="button"
+            @click="reset()"
+            class={buttonClasses({
+              variant: "secondary",
+              size: "sm",
+              className:
+                "gap-1.5 border-danger bg-danger-surface font-normal normal-case text-danger hover:bg-border-subtle",
+            })}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"
+              ></path>
+            </svg>
+            Recommencer
+          </button>
+        </div>
+      </div>
+
+      <p class="mb-6 rounded-lg bg-secondary/40 p-4 text-sm text-ink-secondary">
+        Ces résultats sont destinés à être partagés avec votre psychologue. Un score élevé peut indiquer une
+        inflexibilité psychologique accrue et une tendance à l'évitement expérientiel.
+        <strong>Ils ne constituent pas un diagnostic.</strong>
+      </p>
+
+      <div
+        x-show="totalScore >= 25"
+        x-cloak
+        class="mb-6 rounded-xl border border-orange-200 bg-orange-50 p-4 text-sm text-orange-800"
+        role="status"
+      >
+        Un score total de 25 ou plus peut indiquer une inflexibilité psychologique significative. La
+        <a href="/therapie-acceptation-et-engagement/" class="text-link font-medium">thérapie d'acceptation et d'engagement (ACT)</a>
+        vise précisément à développer la flexibilité psychologique.
+      </div>
+
+      <div class="mb-8 rounded-xl border border-border-subtle p-5">
+        <h3 class="typo-display-md mb-1 text-ink-primary">Inflexibilité psychologique</h3>
+        <p class="mb-4 text-xs text-ink-tertiary">Score total sur 49 · Score moyen sur 7</p>
+        <div class="mb-4 flex flex-wrap items-end gap-4">
+          <div>
+            <span class="font-display text-4xl text-ink-primary" x-text="totalScore"></span>
+            <span class="text-lg text-ink-tertiary">/49</span>
+          </div>
+          <div>
+            <span class="font-display text-4xl text-ink-primary" x-text="meanScore"></span>
+            <span class="text-lg text-ink-tertiary">/7</span>
+          </div>
+          <span
+            class="rounded-full px-2.5 py-1 text-xs font-medium"
+            :class="inflexibilityBadgeClass"
+            x-text="inflexibilityLabel"
+          ></span>
+        </div>
+        <div class="h-3 overflow-hidden rounded-full bg-surface-muted">
+          <div
+            class="h-3 rounded-full transition-all duration-700"
+            :class="inflexibilityBarClass"
+            :style="`width: ${inflexibilityPercent}%`"
+          ></div>
+        </div>
+        <p class="mt-3 text-xs text-ink-tertiary">
+          Plus la barre est courte, plus votre flexibilité psychologique est favorable.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="rounded-full bg-green-100 px-2.5 py-1 font-medium text-green-700">7–17 : Faible inflexibilité</span>
+        <span class="rounded-full bg-lime-100 px-2.5 py-1 font-medium text-lime-700">18–24 : Modérée</span>
+        <span class="rounded-full bg-yellow-100 px-2.5 py-1 font-medium text-yellow-700">25–35 : Élevée</span>
+        <span class="rounded-full bg-orange-100 px-2.5 py-1 font-medium text-orange-700">36–49 : Très élevée</span>
+      </div>
+    </div>
+
+    <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
+      <div class="mb-6 overflow-hidden rounded-xl border border-border-subtle">
+        <div class="border-b border-border-subtle bg-secondary/50 px-6 py-4">
+          <h3 class="typo-display-md m-0 text-ink-primary">Sept affirmations</h3>
+        </div>
+        <div class="divide-y divide-border-subtle">
+          <template x-for="(question, qi) in questions" :key="qi">
+            <div
+              class="px-4 py-4 transition-colors duration-150 sm:px-6"
+              :class="answers[qi + 1] >= 1 ? 'bg-green-50/40' : ''"
+            >
+              <div class="flex flex-col gap-3 lg:flex-row lg:items-center">
+                <p class="m-0 flex-1 text-sm leading-relaxed text-ink-secondary">
+                  <span class="mr-1.5 font-medium text-ink-tertiary" x-text="(qi + 1) + '.'"></span>
+                  <span x-text="question"></span>
+                </p>
+                <div class="flex shrink-0 flex-wrap gap-1">
+                  <template x-for="scale in [1, 2, 3, 4, 5, 6, 7]" :key="scale">
+                    <label class="cursor-pointer select-none">
+                      <input
+                        type="radio"
+                        :name="'q' + (qi + 1)"
+                        :value="scale"
+                        x-model.number="answers[qi + 1]"
+                        @change="saveAnswers()"
+                        class="sr-only"
+                      />
+                      <span
+                        class="font-ui flex h-8 w-8 items-center justify-center rounded-full border-2 text-xs font-medium transition-all duration-150 sm:h-9 sm:w-9 sm:text-sm"
+                        :class="scaleClass(answers[qi + 1], scale)"
+                        x-text="scale"
+                      ></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <div
+        x-show="showWarning"
+        x-transition
+        class="mb-6 flex items-start gap-2 rounded-xl border border-info-border bg-info-surface p-4 text-sm text-info-ink"
+      >
+        <span
+          class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-info-border bg-surface-raised text-info-ink"
+          aria-hidden="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4M12 8h.01"></path>
+          </svg>
+        </span>
+        <span>
+          <strong>Questionnaire incomplet :</strong>
+          vous avez répondu à <span x-text="answeredCount"></span> question(s) sur 7. Veuillez répondre à toutes les
+          questions pour obtenir vos résultats.
+        </span>
+      </div>
+
+      <div class="mb-8 text-center">
+        <button
+          type="submit"
+          class={buttonClasses({ variant: "primary", size: "lg", className: "gap-2 normal-case" })}
+        >
+          Calculer mes résultats
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m9 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </form>
+
+    <footer class="mt-4 border-t border-border-subtle pt-6 text-xs leading-relaxed text-ink-tertiary">
+      <p>
+        AAQ-II : Bond, F.W., Hayes, S.C., Baer, R.A., Carpenter, K.M., Guenole, N., Orcutt, H.K., Waltz, T., &amp;
+        Zettle, R.D. (2011). Preliminary psychometric properties of the Acceptance and Action Questionnaire–II: A
+        revised measure of psychological inflexibility and experiential avoidance. <em>Behavior Therapy</em>, 42(4),
+        676–688.
+      </p>
+      <p class="mt-2">
+        Version française : Monestès, J.L., Villatte, M., Mouras, H., Loas, G., &amp; Bond, F.W. (2009). Traduction et
+        validation française du questionnaire d'acceptation et d'action (AAQ-II). <em>European Review of Applied
+        Psychology</em>, 59, 301–308.
+      </p>
+      <p class="mt-2">
+        Usage clinique autorisé sans demande préalable, sous réserve de citation des auteurs (Frank Bond / ACBS).
+      </p>
+    </footer>
+  </div>
+</FormLayout>
+
+<style>
+  @media print {
+    header,
+    footer,
+    nav,
+    .no-print,
+    #form-container {
+      display: none !important;
+    }
+    .print-results {
+      display: block !important;
+    }
+    body {
+      background: white !important;
+    }
+  }
+</style>
+
+<script is:inline>
+document.addEventListener('alpine:init', () => {
+  const QUESTIONS = [
+    "Mes expériences et mes souvenirs douloureux me gênent pour conduire ma vie comme il me tiendrait à cœur de le faire.",
+    "J'ai peur de mes émotions.",
+    "J'ai peur de ne pas être capable de contrôler mes inquiétudes et mes émotions.",
+    "Mes souvenirs douloureux m'empêchent de m'épanouir dans la vie.",
+    "Les émotions créent des problèmes dans ma vie.",
+    "J'ai l'impression que la plupart des gens gèrent leur vie mieux que moi.",
+    "Les inquiétudes font obstacle à ma réussite.",
+  ];
+
+  Alpine.data('aaq2Form', () => ({
+    questions: QUESTIONS,
+    answers: new Array(8).fill(-1),
+    submitted: false,
+    showWarning: false,
+
+    get answeredCount() {
+      let count = 0;
+      for (let i = 1; i <= 7; i++) {
+        if (this.answers[i] >= 1) count++;
+      }
+      return count;
+    },
+
+    get progress() {
+      return Math.round((this.answeredCount / 7) * 100);
+    },
+
+    get totalScore() {
+      let total = 0;
+      for (let i = 1; i <= 7; i++) total += this.answers[i];
+      return total;
+    },
+
+    get meanScore() {
+      return (this.totalScore / 7).toFixed(1);
+    },
+
+    get inflexibilityPercent() {
+      return Math.round(((this.totalScore - 7) / 42) * 100);
+    },
+
+    get inflexibilityLevel() {
+      const score = this.totalScore;
+      if (score <= 17) return 'low';
+      if (score <= 24) return 'moderate';
+      if (score <= 35) return 'high';
+      return 'very-high';
+    },
+
+    get inflexibilityLabel() {
+      const labels = {
+        low: 'Faible inflexibilité',
+        moderate: 'Inflexibilité modérée',
+        high: 'Inflexibilité élevée',
+        'very-high': 'Inflexibilité très élevée',
+      };
+      return labels[this.inflexibilityLevel];
+    },
+
+    get inflexibilityBadgeClass() {
+      const level = this.inflexibilityLevel;
+      if (level === 'low') return 'bg-green-100 text-green-700';
+      if (level === 'moderate') return 'bg-lime-100 text-lime-700';
+      if (level === 'high') return 'bg-yellow-100 text-yellow-700';
+      return 'bg-orange-100 text-orange-700';
+    },
+
+    get inflexibilityBarClass() {
+      const level = this.inflexibilityLevel;
+      if (level === 'low') return 'bg-green-400';
+      if (level === 'moderate') return 'bg-lime-400';
+      if (level === 'high') return 'bg-yellow-400';
+      return 'bg-orange-500';
+    },
+
+    scaleClass(answer, scale) {
+      return answer === scale
+        ? 'border-brand bg-brand text-brand-ink-on shadow-sm'
+        : 'border-border-strong text-ink-tertiary hover:border-brand hover:text-brand cursor-pointer';
+    },
+
+    saveAnswers() {
+      try { localStorage.setItem('aaq-ii', JSON.stringify(this.answers)); } catch (e) {}
+    },
+
+    submit() {
+      if (this.answeredCount < 7) {
+        this.showWarning = true;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      this.submitted = true;
+      this.saveAnswers();
+      this.$nextTick(() => {
+        const el = document.getElementById('results');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    },
+
+    reset() {
+      if (!confirm('Voulez-vous recommencer le questionnaire ? Toutes vos réponses seront perdues.')) return;
+      this.answers = new Array(8).fill(-1);
+      this.submitted = false;
+      this.showWarning = false;
+      try { localStorage.removeItem('aaq-ii'); } catch (e) {}
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+
+    init() {
+      try {
+        const saved = localStorage.getItem('aaq-ii');
+        if (saved) {
+          const data = JSON.parse(saved);
+          if (Array.isArray(data) && data.length === 8) this.answers = data;
+        }
+      } catch (e) {}
+    },
+  }));
+});
+</script>
