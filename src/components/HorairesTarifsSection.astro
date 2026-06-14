@@ -9,7 +9,6 @@ const tariffs = [
   { label: "Consultation individuelle", duration: "45 min", price: "80€" },
   { label: "Consultation MOSAIC", duration: "1 h", price: "90€" },
   { label: "Consultation de couple", duration: "1 h", price: "110€" },
-  { label: "Mon Soutien Psy*", duration: "30 min", price: "50€" },
   { label: "Participation aux groupes", duration: "8 séances", price: "30€ / séance" },
 ] as const;
 ---
@@ -55,16 +54,6 @@ const tariffs = [
             ))
           }
         </ul>
-
-        <div class="mt-6 border-l-2 border-info-border bg-info-surface/80 py-3 pl-4 pr-3">
-          <p class="text-sm text-info-ink">
-            <strong>*Mon Soutien Psy :</strong> Ces séances remboursées ne peuvent être prises qu'avec mon accord
-            préalable.
-            <a href="/mon-soutien-psy/" class="text-link underline hover:no-underline">
-              Voir les conditions d'accès
-            </a>.
-          </p>
-        </div>
 
         <div class="mt-4 border-l-2 border-border-strong py-2 pl-4">
           <p class="text-sm text-ink-secondary">

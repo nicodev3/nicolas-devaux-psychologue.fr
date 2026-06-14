@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import ObfuscatedEmailLink from "../components/ObfuscatedEmailLink.astro";
 import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
 ---
 
 <Layout
   title="Mentions légales"
-  description={`Mentions légales du site du cabinet de psychologie de Nicolas Devaux (${LEGAL_ENTITY_NAME}), psychologue clinicien, RPPS ${RPPS_NUMBER}, SIRET ${SIRET_NUMBER}, Sceaux`}
+  description="Mentions légales du cabinet de Nicolas Devaux, psychologue à Sceaux : éditeur, hébergement, propriété intellectuelle et RGPD."
   pubDate={new Date("August 08 2024")}
   showDate={false}
   blogPost={false}
@@ -53,9 +54,7 @@ import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
           >
             Cliquez pour afficher
           </button>
-          <a href="mailto:ndevaux@gmail.com" class="text-link" x-show="revealed" x-cloak>
-            ndevaux@gmail.com
-          </a>
+          <ObfuscatedEmailLink x-show="revealed" x-cloak />
         </span>
       </li>
     </ul>

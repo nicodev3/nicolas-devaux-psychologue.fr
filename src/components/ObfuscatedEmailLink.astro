@@ -1,0 +1,33 @@
+---
+import { CONTACT_EMAIL } from "../consts";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const [localPart, domain] = CONTACT_EMAIL.split("@");
+---
+
+<a
+  href="#"
+  class:list={["text-link", className]}
+  data-email-local={localPart}
+  data-email-domain={domain}
+  data-obfuscated-email
+  aria-label="Envoyer un email"
+></a>
+
+<script is:inline>
+  document.querySelectorAll("[data-obfuscated-email]").forEach(function (el) {
+    if (!(el instanceof HTMLAnchorElement)) return;
+    var local = el.getAttribute("data-email-local");
+    var domain = el.getAttribute("data-email-domain");
+    if (!local || !domain) return;
+    var email = local + "@" + domain;
+    el.textContent = email;
+    el.href = "mailto:" + email;
+    el.removeAttribute("data-email-local");
+    el.removeAttribute("data-email-domain");
+  });
+</script>

@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import { SITE_NAME } from "../consts";
+import { SITE_NAME, CONTACT_EMAIL } from "../consts";
 import { pathnameToOgSlug } from "../utils/pathname-to-og-slug";
 import { applyFrenchTypography } from "../utils/frenchTypography.js";
 
@@ -70,7 +70,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 <!-- Schema.org (prod). hasMap = GOOGLE_MAPS_CABINET_URL dans consts.ts (script is:inline). -->
 {import.meta.env.PROD && (
 <!--email_off-->
-<script type="application/ld+json" is:inline>
+<script type="application/ld+json" is:inline define:vars={{ contactEmail: CONTACT_EMAIL }}>
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -82,7 +82,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
       "taxID": "75103269900033",
       "url": "https://nicolas-devaux-psychologue.fr",
       "telephone": "+33629341367",
-      "email": "ndevaux@gmail.com",
+      "email": contactEmail,
       "logo": {
         "@type": "ImageObject",
         "url": "https://nicolas-devaux-psychologue.fr/logo.png"
@@ -186,6 +186,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
           "priceCurrency": "EUR",
           "lowPrice": 30,
           "highPrice": 110,
+          "offerCount": 4,
           "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
           "itemOffered": {
             "@type": "Service",
@@ -205,7 +206,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
             "@type": "Service",
             "name": "Psychothérapie individuelle",
             "serviceType": "Psychothérapie",
-            "audience": [{ "@type": "PeopleAudience", "suggestedMinAge": 12, "suggestedMaxAge": 99 }],
+            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 12, "suggestedMaxAge": 99 },
             "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
           }
         },

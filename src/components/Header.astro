@@ -47,6 +47,7 @@ const sheetLink =
 
       <div class="hidden min-w-0 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-1 lg:pl-6">
         <ApproachesDropdown client:load />
+        <HeaderLink class={desktopNavLink} href="/psychologue-sceaux/">Sceaux</HeaderLink>
         <HeaderLink class={desktopNavLink} href="/consulter/">Consulter</HeaderLink>
         <HeaderLink class={desktopNavLink} href="/tarifs/">Tarifs</HeaderLink>
         <HeaderLink class={desktopNavLink} href="/nicolas-devaux-psychologue/">À propos</HeaderLink>
@@ -154,6 +155,9 @@ const sheetLink =
             x-on:click="open = false">Méditation (groupes)</HeaderLink
           >
           <div class="my-2 h-px bg-border-subtle" aria-hidden="true"></div>
+          <HeaderLink class={sheetLink} href="/psychologue-sceaux/" x-on:click="open = false"
+            >Psychologue à Sceaux</HeaderLink
+          >
           <HeaderLink class={sheetLink} href="/consulter/" x-on:click="open = false">Consulter</HeaderLink>
           <HeaderLink class={sheetLink} href="/tarifs/" x-on:click="open = false">Tarifs</HeaderLink>
           <HeaderLink class={sheetLink} href="/nicolas-devaux-psychologue/" x-on:click="open = false"

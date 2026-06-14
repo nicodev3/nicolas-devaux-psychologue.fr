@@ -16,12 +16,10 @@ const approachTeaserLink = buttonClasses({
     <header class="max-w-none">
       <div class="flex flex-col gap-8 lg:flex-row lg:flex-wrap lg:items-start lg:justify-between lg:gap-6">
         <div class="min-w-0 flex-1">
-          <h1
-            id="hero-heading"
-            class="font-display hero-heading-display mb-3 text-balance text-ink-primary md:mb-4"
-          >
-            Nicolas Devaux, psychologue à Sceaux et en ligne
+          <h1 id="hero-heading" class="font-display hero-heading-display mb-2 text-ink-primary md:mb-3">
+            Nicolas Devaux
           </h1>
+          <p class="typo-eyebrow mb-0 text-ink-secondary">Psychologue clinicien à Sceaux et en ligne</p>
           <AuthorCard class="mt-5" />
         </div>
         <div class="shrink-0 pt-1 md:pt-2">
@@ -36,12 +34,14 @@ const approachTeaserLink = buttonClasses({
     </header>
 
     <p class="typo-body max-w-none">
-      Psychologue diplômé de l'Université Paris Cité, je vous accueille à
-      <a href="/psychologue-sceaux/" class="text-link">Sceaux</a> dans un cadre bienveillant et confidentiel. Mon
-      approche est intégrative et s'adapte à votre situation, à votre rythme et à vos objectifs.
+      Psychologue diplômé de l'Université Paris Cité, j'exerce comme
+      <a href="/psychologue-sceaux/" class="text-link">psychologue à Sceaux</a>
+      dans un cadre bienveillant et confidentiel, et en visioconférence. Mon approche est intégrative
+      et s'adapte à votre situation, à votre rythme et à vos objectifs.
     </p>
 
-    <nav class="flex max-w-none flex-wrap gap-x-6 gap-y-2" aria-label="Liens vers les consultations proposées">
+    <nav class="flex max-w-none flex-wrap gap-x-6 gap-y-2" aria-label="Liens utiles">
+      <a href="/psychologue-sceaux/" class={approachTeaserLink}>Cabinet à Sceaux →</a>
       <a href="/therapie-mosaic/" class={approachTeaserLink}>Thérapie EMDR-MOSAIC →</a>
       <a href="/therapie-couple/" class={approachTeaserLink}>Thérapie de couple →</a>
       <a href="/psychologue-en-ligne/" class={approachTeaserLink}>Consultations en ligne →</a>
@@ -63,18 +63,9 @@ const approachTeaserLink = buttonClasses({
       <p class="font-ui typo-meta max-w-measure text-pretty text-ink-tertiary">
         Vos données restent confidentielles. Messagerie sécurisée via Doctolib.
       </p>
-      <p class="text-sm leading-snug">
-        <strong class="font-semibold text-ink-primary">
-          Je ne prends plus de nouveaux patients dans le dispositif Mon Soutien Psy.
-        </strong>
-        <span class="text-ink-tertiary">
-          {' '}
-          Pour le cadre du dispositif (séances à tarif conventionné sous conditions, critères d'éligibilité), voir la
-          page{' '}
-          <a href="/mon-soutien-psy/" class={buttonClasses({ variant: "link", className: "font-medium" })}
-            >Mon Soutien Psy</a
-          >.
-        </span>
+      <p class="text-sm leading-snug text-ink-tertiary">
+        Je ne prends plus de nouveaux patients dans le dispositif
+        <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>.
       </p>
     </div>
 

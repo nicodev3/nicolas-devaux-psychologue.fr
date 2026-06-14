@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_NAME = 'Nicolas Devaux, psychologue à Sceaux';
-export const SITE_TITLE = 'Nicolas Devaux | Psychologue à Sceaux et en ligne';
+export const SITE_TITLE = 'Nicolas Devaux | Psychologue clinicien à Sceaux';
 
 /** Adresse complète du cabinet (une ligne). */
 export const CABINET_ADDRESS_LINE = '63 rue Houdan, 92330 Sceaux';
@@ -21,9 +21,13 @@ export const GOOGLE_MAPS_EMBED_URL =
   encodeURIComponent(`${CABINET_ADDRESS_LINE}, France`) +
   '&hl=fr&z=17&output=embed';
 
-/** Villes voisines du cabinet (SEO local, formulations sur le site). */
+/** Villes voisines du cabinet (formulations courtes sur le site). */
 export const NEARBY_CITIES =
   'Antony, Bourg-la-Reine, Châtenay-Malabry et Fontenay-aux-Roses';
+
+/** Communes desservies — page locale et maillage SEO (psychologue Sceaux et alentours). */
+export const SERVED_CITIES_LABEL =
+  'Sceaux, Le Plessis-Robinson, Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses, Bagneux, Cachan et L\'Haÿ-les-Roses';
 
 export const SITE_DESCRIPTION = `Psychologue clinicien à Sceaux, Nicolas Devaux accompagne adultes, adolescents et couples en cabinet ou en ligne : thérapie individuelle, EMDR-MOSAIC, thérapie de couple et groupes.`;
 
@@ -42,3 +46,6 @@ export const RPPS_NUMBER = '10008482910';
 
 /** Numéro ADELI — renseigner une fois connu pour affichage automatique au pied de page. */
 export const ADELI_NUMBER: string | null = null;
+
+/** Email de contact du cabinet (schema.org, mentions légales). */
+export const CONTACT_EMAIL = 'contact@nicolas-devaux-psychologue.fr';

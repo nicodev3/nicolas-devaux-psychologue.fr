@@ -11,15 +11,15 @@ import {
 
 <Layout
   title="Consulter un psychologue à Sceaux"
-  description="Infos pratiques pour consulter au cabinet à Sceaux : premier rendez-vous, accès RER B, stationnement, tarifs et Mon Soutien Psy."
+  description="Consulter au cabinet à Sceaux (63 rue Houdan) : accès RER B, premier rendez-vous et tarifs des consultations."
   pubDate={new Date("March 07 2026")}
   showDate={false}
 >
   <section class="flex flex-col gap-8 xl:gap-10">
     <p>
-      Cette page rassemble les informations utiles pour consulter au cabinet :
-      déroulement du premier rendez-vous, rythme des séances, tarifs et accès au
-      dispositif <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>.
+      Cette page rassemble les informations utiles pour consulter au
+      <a href="/psychologue-sceaux/" class="text-link">cabinet de psychologie à Sceaux</a> :
+      déroulement du premier rendez-vous, rythme des séances, tarifs et accès.
     </p>
 
     <div>
@@ -44,7 +44,6 @@ import {
       <ul>
         <li>Séances individuelles et vidéo : 45 minutes.</li>
         <li>Séances de couple et séances MOSAIC : 1 heure.</li>
-        <li>Dans le cadre de Mon Soutien Psy : 30 minutes.</li>
       </ul>
     </div>
 
@@ -59,16 +58,20 @@ import {
         sociale hors dispositifs spécifiques, mais certaines mutuelles proposent une
         prise en charge partielle ou totale.
       </p>
-      <p>
-        Le dispositif <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>
-        permet, dans certaines situations, de bénéficier de séances remboursées.
+      <p class="text-sm text-ink-secondary">
+        Le dispositif
+        <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>
+        n'accepte plus de nouveaux patients au cabinet. Des informations sur les suivis déjà engagés restent
+        disponibles sur la page dédiée.
       </p>
     </div>
 
     <div>
       <SectionHeading class="mb-4" eyebrow="04 — Accès" title="Adresse et accès au cabinet" />
       <p>
-        <strong>{CABINET_ADDRESS_LINE}</strong> — à proximité de {NEARBY_CITIES}.
+        <strong>{CABINET_ADDRESS_LINE}</strong> — à proximité de {NEARBY_CITIES}. Voir aussi la page
+        <a href="/psychologue-sceaux/" class="text-link">Psychologue à Sceaux</a> pour l'accès détaillé et la zone
+        desservie.
       </p>
       <p>
         <a
@@ -124,14 +127,12 @@ import {
       </ul>
     </div>
 
-    <div class="border-l-4 border-brand/35 bg-secondary/35 py-4 pl-5 pr-2 md:pr-4">
-      <SectionHeading class="mb-4" eyebrow="06 — Dispositif" title="Accès spécifiques" />
-      <p class="mb-3">
-        Si vous souhaitez vérifier votre éligibilité au dispositif remboursé,
-        consultez la page dédiée :
-      </p>
-      <p>
-        <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>
+    <div class="border-l-4 border-border-strong bg-surface-muted py-4 pl-5 pr-2 md:pr-4">
+      <SectionHeading class="mb-4" eyebrow="06 — Archive" title="Mon Soutien Psy" />
+      <p class="mb-0 text-sm text-ink-secondary">
+        Je ne prends plus de nouveaux patients dans ce dispositif. Les informations utiles pour les personnes déjà
+        suivies sont sur la page
+        <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>.
       </p>
     </div>
   </section>

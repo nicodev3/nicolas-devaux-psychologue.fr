@@ -5,48 +5,75 @@ import { RPPS_NUMBER } from "../consts";
 
 interface Props {
   class?: string;
+  /** Lien vers la page à propos (défaut : oui). */
+  linked?: boolean;
 }
 
-const { class: className } = Astro.props;
+const { class: className, linked = true } = Astro.props;
+
+const cardClasses = [
+  "flex max-w-md items-start gap-4 rounded-xl border border-border-subtle bg-surface-raised px-4 py-3.5 shadow-sm transition-colors",
+  linked ? "group no-underline hover:text-brand" : "",
+  className,
+];
 ---
 
-<aside
-  class:list={[
-    "flex max-w-md items-start gap-4 rounded-xl border border-border-subtle bg-surface-raised px-4 py-3.5 shadow-sm",
-    className,
-  ]}
-  aria-label="Présentation du praticien"
->
-  <div
-    class="relative size-19 shrink-0 overflow-hidden rounded-full bg-surface-muted ring-2 ring-surface-page shadow-sm md:size-20"
-  >
-    <Picture
-      src={portrait}
-      alt="Nicolas Devaux"
-      width={160}
-      height={160}
-      formats={["avif", "webp"]}
-      fallbackFormat="webp"
-      densities={[1, 2]}
-      loading="eager"
-      fetchpriority="high"
-      class="size-full object-contain object-center"
-    />
-  </div>
-
-  <div class="min-w-0 flex flex-col gap-1 pt-0.5">
-    <p class="font-display text-lg font-semibold leading-tight tracking-tight text-ink-primary md:text-xl">
-      Nicolas Devaux
-    </p>
-    <p class="typo-meta-caps text-ink-secondary">Psychologue · Psychothérapeute</p>
-    <p class="font-ui text-sm leading-snug text-ink-secondary">
-      Diplômé de l'Université Paris Cité
-    </p>
-    <p
-      class="typo-meta mt-1.5 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 border-t border-border-subtle/80 pt-2 tabular-nums text-ink-tertiary"
-    >
-      <span class="typo-meta-caps text-xs tracking-[0.08em] text-ink-tertiary/90">numéro RPPS : </span>
-      <span class=" text-ink-secondary">{RPPS_NUMBER}</span>
-    </p>
-  </div>
-</aside>
+{
+  linked ? (
+    <a href="/nicolas-devaux-psychologue/" class:list={cardClasses} aria-label="Nicolas Devaux — à propos">
+      <div class="relative size-19 shrink-0 overflow-hidden rounded-full bg-surface-muted ring-2 ring-surface-page shadow-sm md:size-20">
+        <Picture
+          src={portrait}
+          alt="Nicolas Devaux"
+          width={160}
+          height={160}
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          densities={[1, 2]}
+          loading="eager"
+          fetchpriority="high"
+          class="size-full object-contain object-center"
+        />
+      </div>
+      <div class="min-w-0 flex flex-col gap-1 pt-0.5">
+        <p class="font-display text-lg font-semibold leading-tight tracking-tight text-ink-primary group-hover:text-brand md:text-xl">
+          Nicolas Devaux
+        </p>
+        <p class="typo-meta-caps text-ink-secondary">Psychologue · Psychothérapeute</p>
+        <p class="font-ui text-sm leading-snug text-ink-secondary">Diplômé de l'Université Paris Cité</p>
+        <p class="typo-meta mt-1.5 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 border-t border-border-subtle/80 pt-2 tabular-nums text-ink-tertiary">
+          <span class="typo-meta-caps text-xs tracking-[0.08em] text-ink-tertiary/90">numéro RPPS : </span>
+          <span class="text-ink-secondary">{RPPS_NUMBER}</span>
+        </p>
+      </div>
+    </a>
+  ) : (
+    <aside class:list={cardClasses} aria-label="Présentation du praticien">
+      <div class="relative size-19 shrink-0 overflow-hidden rounded-full bg-surface-muted ring-2 ring-surface-page shadow-sm md:size-20">
+        <Picture
+          src={portrait}
+          alt="Nicolas Devaux"
+          width={160}
+          height={160}
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          densities={[1, 2]}
+          loading="eager"
+          fetchpriority="high"
+          class="size-full object-contain object-center"
+        />
+      </div>
+      <div class="min-w-0 flex flex-col gap-1 pt-0.5">
+        <p class="font-display text-lg font-semibold leading-tight tracking-tight text-ink-primary md:text-xl">
+          Nicolas Devaux
+        </p>
+        <p class="typo-meta-caps text-ink-secondary">Psychologue · Psychothérapeute</p>
+        <p class="font-ui text-sm leading-snug text-ink-secondary">Diplômé de l'Université Paris Cité</p>
+        <p class="typo-meta mt-1.5 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 border-t border-border-subtle/80 pt-2 tabular-nums text-ink-tertiary">
+          <span class="typo-meta-caps text-xs tracking-[0.08em] text-ink-tertiary/90">numéro RPPS : </span>
+          <span class="text-ink-secondary">{RPPS_NUMBER}</span>
+        </p>
+      </div>
+    </aside>
+  )
+}

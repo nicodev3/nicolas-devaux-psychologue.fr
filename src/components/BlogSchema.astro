@@ -32,60 +32,21 @@ const blogJsonLd = {
   "dateModified": pubDate.toISOString(),
   "author": {
     "@type": "Person",
-    "name": author,
-    "jobTitle": "Psychologue clinicien",
-    "worksFor": {
-      "@type": "MedicalBusiness",
-      "name": "Nicolas Devaux - Psychologue"
-    }
+    "@id": "https://nicolas-devaux-psychologue.fr/#nicolas",
+    name: author,
   },
-  "publisher": {
-    "@type": "MedicalBusiness",
-    "name": "Nicolas Devaux - Psychologue",
-    "url": "https://nicolas-devaux-psychologue.fr",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://nicolas-devaux-psychologue.fr/logo-300.jpg"
-    }
+  publisher: {
+    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
   },
-  "mainEntityOfPage": {
+  mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": url.toString()
+    "@id": url.toString(),
   },
-  "keywords": [
-    "psychologie",
-    "psychothérapie",
-    "thérapie cognitive et comportementale",
-    "TCC",
-    "thérapie d'acceptation et d'engagement",
-    "ACT",
-    "pleine conscience",
-    "MBCT",
-    "anxiété",
-    "dépression",
-    "santé mentale"
-  ],
-  "about": [
-    {
-      "@type": "MedicalCondition",
-      "name": "Troubles anxieux"
-    },
-    {
-      "@type": "MedicalCondition",
-      "name": "Dépression"
-    },
-    {
-      "@type": "MedicalCondition",
-      "name": "Troubles de l'humeur"
-    }
-  ],
-  "mentions": [
-    {
-      "@type": "MedicalBusiness",
-      "name": "Nicolas Devaux - Psychologue",
-      "url": "https://nicolas-devaux-psychologue.fr"
-    }
-  ]
+  image: {
+    "@type": "ImageObject",
+    url: "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg",
+  },
+  inLanguage: "fr-FR",
 };
 ---
 
