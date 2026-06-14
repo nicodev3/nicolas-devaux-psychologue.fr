@@ -45,12 +45,12 @@ const tariffs: TariffRow[] = [
     <SectionHeading class="mb-4" eyebrow="01 — Tarifs" title="Tarifs des consultations" />
 
     <div class="min-w-0 rounded-xl border border-border-subtle bg-surface-raised px-4 py-6 shadow-md md:px-5 md:py-8">
-      <ul class="!m-0 list-none border-t border-border-strong !ps-0" role="list">
+      <ul class="m-0! list-none border-t border-border-strong ps-0!" role="list">
         {
           tariffs.map(({ label, duration, price }) => (
-            <li class="!my-0 border-b border-border-subtle py-4 last:border-b-0">
+            <li class="my-0! border-b border-border-subtle py-4 last:border-b-0">
               <div
-                class="grid items-baseline gap-x-4 font-ui [grid-template-columns:minmax(0,1fr)_minmax(80px,11rem)_96px] md:gap-x-5 md:[grid-template-columns:minmax(0,1fr)_minmax(88px,11rem)_112px]"
+                class="grid items-baseline gap-x-4 font-ui grid-cols-[minmax(0,1fr)_minmax(80px,11rem)_96px] md:gap-x-5 md:grid-cols-[minmax(0,1fr)_minmax(88px,11rem)_112px]"
               >
                 <span class="min-w-0 text-pretty text-base leading-snug text-ink-secondary">{label}</span>
                 <span class="text-base leading-snug tabular-nums text-ink-secondary">{duration}</span>
