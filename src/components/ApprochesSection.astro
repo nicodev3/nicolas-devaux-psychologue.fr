@@ -76,8 +76,9 @@ const items = [
             <a
               href={item.url}
               class={buttonClasses({ variant: "link", className: "mt-5 w-fit font-medium normal-case" })}
+              aria-label={`En savoir plus sur ${item.title.toLowerCase()}`}
             >
-              Découvrir →
+              En savoir plus →
             </a>
           </article>
         ))
