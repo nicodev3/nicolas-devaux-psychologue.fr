@@ -1,0 +1,220 @@
+---
+import FormLayout from "../../layouts/FormLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import SleepEfficiencyCalculator from "../../components/SleepEfficiencyCalculator";
+import { buttonClasses } from "../../components/ui/button";
+
+const title = "Calculateur d'efficacité du sommeil — TCC-I";
+const description =
+  "Calculez votre efficacité de sommeil selon les principes de la TCC-I. Entrez vos heures de coucher, de lever et vos éveils nocturnes pour obtenir une estimation instantanée.";
+
+const faqItems = [
+  {
+    question: "Qu'est-ce qu'une bonne efficacité du sommeil ?",
+    answer:
+      "Une efficacité du sommeil supérieure ou égale à 85 % est généralement considérée comme satisfaisante. Au-delà de 90 %, on parle d'une très bonne efficacité. En dessous de 80 %, l'insomnie est souvent présente et une prise en charge peut être utile.",
+  },
+  {
+    question: "Comment calculer son efficacité du sommeil ?",
+    answer:
+      "L'efficacité du sommeil se calcule en divisant le temps de sommeil effectif par le temps total passé au lit, puis en multipliant par 100. Par exemple, si vous dormez 6 heures sur 8 heures passées au lit, votre efficacité est de 75 %.",
+  },
+  {
+    question: "Pourquoi suis-je fatigué(e) malgré beaucoup d'heures au lit ?",
+    answer:
+      "Passer beaucoup de temps au lit sans dormir peut paradoxalement aggraver l'insomnie. Le lit devient alors associé à l'éveil et à l'anxiété, ce qui fragmente davantage le sommeil. C'est un mécanisme central que la TCC-I cherche à corriger par la restriction de sommeil et le contrôle du stimulus.",
+  },
+  {
+    question: "La TCC-I peut-elle aider en cas d'insomnie ?",
+    answer:
+      "Oui. La thérapie cognitivo-comportementale de l'insomnie (TCC-I) est le traitement de première intention recommandé pour l'insomnie chronique. Elle est plus efficace à long terme que les somnifères et ne présente pas d'effets secondaires. Elle comprend notamment la restriction de sommeil, le contrôle du stimulus et la restructuration des pensées dysfonctionnelles sur le sommeil.",
+  },
+];
+---
+
+<FormLayout title={title} description={description}>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    })}
+  />
+
+  <header class="mb-10 md:mb-12">
+    <p class="typo-eyebrow mb-3 md:mb-4">Outil interactif</p>
+    <h1 class="font-display typo-h1 mb-4 text-pretty text-ink-primary">
+      Calculateur d'efficacité du sommeil
+    </h1>
+    <p class="text-base leading-relaxed text-ink-secondary">
+      Estimez votre efficacité de sommeil selon les principes de la <strong>TCC-I</strong> (Thérapie
+      Cognitivo-Comportementale de l'Insomnie). Renseignez vos habitudes de sommeil pour obtenir une
+      estimation immédiate et gratuite.
+    </p>
+    <p class="mt-3 flex items-center gap-1.5 text-xs text-ink-tertiary">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 shrink-0"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+      Aucune donnée n'est transmise. Tout reste dans votre navigateur.
+    </p>
+  </header>
+
+  <SleepEfficiencyCalculator client:load />
+
+  <!-- Pédagogie -->
+  <section
+    class="mt-12 border-t border-border-subtle pt-10 md:mt-16 md:pt-12"
+    aria-labelledby="heading-pedagogie"
+  >
+    <SectionHeading
+      id="heading-pedagogie"
+      eyebrow="Pour aller plus loin"
+      title="Qu'est-ce que l'efficacité du sommeil ?"
+    />
+
+    <div class="mt-6 space-y-4 text-sm leading-relaxed text-ink-secondary">
+      <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
+        <h3 class="typo-display-md mb-3 text-ink-primary">Temps au lit et temps de sommeil</h3>
+        <p>
+          Le <strong>temps au lit</strong> correspond à la durée passée entre le moment où vous vous couchez
+          et le moment où vous vous levez. Le <strong>temps de sommeil effectif</strong> est le temps réellement
+          dormi : le temps au lit moins la latence d'endormissement, les éveils nocturnes et le réveil
+          matinal précoce.
+        </p>
+        <p class="mt-3">
+          Ces deux durées peuvent être très différentes. Une personne qui reste 9 heures au lit mais ne
+          dort que 5 heures a une efficacité d'environ 55 %, ce qui est très faible.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
+        <h3 class="typo-display-md mb-3 text-ink-primary">
+          Pourquoi rester longtemps au lit peut entretenir l'insomnie
+        </h3>
+        <p>
+          Face à l'insomnie, il est tentant de rester plus longtemps au lit pour « rattraper » le sommeil
+          perdu. Cette stratégie est malheureusement contre-productive : en étant éveillé au lit de façon
+          répétée, le cerveau associe progressivement le lit à l'éveil et à l'anxiété plutôt qu'au sommeil.
+        </p>
+        <p class="mt-3">
+          Ce phénomène s'appelle le <strong>conditionnement négatif</strong>. Le lit, qui devrait déclencher
+          le sommeil, devient au contraire un déclencheur d'éveil et de ruminations. L'insomnie s'entretient
+          alors d'elle-même.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
+        <h3 class="typo-display-md mb-3 text-ink-primary">L'objectif de la TCC-I</h3>
+        <p>
+          La <strong>TCC-I</strong> (Thérapie Cognitivo-Comportementale de l'Insomnie) est le traitement de
+          référence recommandé en première intention pour l'insomnie chronique. Elle agit sur trois
+          composantes :
+        </p>
+        <ul class="mt-3 space-y-2 pl-1">
+          <li class="flex items-start gap-2.5">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true"></span>
+            <span>
+              <strong>Comportementale</strong> : restriction de sommeil (réduire le temps au lit pour
+              consolider le sommeil), contrôle du stimulus (réassocier le lit au sommeil).
+            </span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true"></span>
+            <span>
+              <strong>Cognitive</strong> : identification et modification des pensées dysfonctionnelles sur
+              le sommeil (« je dois absolument dormir 8 heures », « je ne fonctionnerai pas demain »).
+            </span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true"></span>
+            <span>
+              <strong>Physiologique</strong> : techniques de relaxation et hygiène du sommeil pour réduire
+              l'hyperactivation nocturne.
+            </span>
+          </li>
+        </ul>
+        <p class="mt-3">
+          L'objectif n'est pas nécessairement de dormir plus longtemps, mais de dormir mieux en augmentant
+          l'efficacité du sommeil — c'est précisément ce que mesure cet outil.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section
+    class="mt-12 border-t border-border-subtle pt-10 md:mt-16 md:pt-12"
+    aria-labelledby="heading-faq"
+  >
+    <SectionHeading
+      id="heading-faq"
+      eyebrow="Questions fréquentes"
+      title="FAQ — Efficacité du sommeil et TCC-I"
+    />
+
+    <dl class="mt-6 space-y-4">
+      {
+        faqItems.map((item) => (
+          <div class="rounded-xl border border-border-subtle p-5 md:p-6">
+            <dt class="typo-display-md mb-3 text-ink-primary">{item.question}</dt>
+            <dd class="text-sm leading-relaxed text-ink-secondary">{item.answer}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <!-- CTA -->
+  <section class="mt-12 border-t border-border-subtle pt-10 md:mt-16 md:pt-12">
+    <div class="rounded-xl border border-brand/20 bg-brand/5 p-6 md:p-8">
+      <p class="typo-eyebrow mb-3">Accompagnement</p>
+      <h2 class="font-display typo-display-lg mb-3 text-ink-primary">
+        Vous souffrez d'insomnie depuis plusieurs mois ?
+      </h2>
+      <p class="mb-6 max-w-2xl text-sm leading-relaxed text-ink-secondary">
+        L'insomnie chronique est une souffrance réelle, mais elle se traite efficacement. En tant que
+        psychologue spécialisé en TCC et ACT, j'accompagne les personnes souffrant d'insomnie avec des
+        outils validés scientifiquement. Chaque suivi est personnalisé, centré sur vos besoins et votre
+        rythme.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux"
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonClasses({ variant: "primary", size: "lg", className: "normal-case" })}
+          data-track-doctolib
+          data-track-location="sleep-calculator-cta"
+          aria-label="Prendre rendez-vous sur Doctolib"
+        >
+          Prendre rendez-vous
+        </a>
+        <a
+          href="/consulter/"
+          class={buttonClasses({ variant: "secondary", size: "lg", className: "normal-case" })}
+        >
+          En savoir plus
+        </a>
+      </div>
+    </div>
+  </section>
+</FormLayout>
