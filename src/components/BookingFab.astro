@@ -5,9 +5,9 @@ import { buttonClasses } from "./ui/button";
 import { DOCTOLIB_BOOKING_URL } from "../consts";
 ---
 
-<script>
+<script is:inline>
   document.addEventListener("alpine:init", () => {
-    window["Alpine"].data("bookingFabHome", () => ({
+    Alpine.data("bookingFabHome", () => ({
       expanded: false,
       md: false,
       heroOut: false,
