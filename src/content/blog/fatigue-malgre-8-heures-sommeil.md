@@ -3,6 +3,8 @@ title: "Pourquoi suis-je fatigué malgré 8 heures au lit ?"
 seoTitle: "Fatigué malgré 8 heures de sommeil : comprendre pourquoi"
 description: "Vous êtes fatigué malgré 8 heures au lit ? Découvrez le rôle des réveils nocturnes, des ruminations, de l'hyperéveil et de l'efficacité du sommeil."
 pubDate: "Jun 15 2026"
+heroImage: "../../assets/blog/fatigue-matinale.webp"
+tags: ["sommeil"]
 ---
 
 Être **fatigué malgré 8 heures de sommeil** est une plainte très fréquente. En réalité, il s'agit parfois de 8 heures passées au lit, mais pas de 8 heures réellement dormies. Pour clarifier cette différence, vous pouvez utiliser le [calculateur d'efficacité du sommeil](/outils/calculateur-efficacite-sommeil/) dès maintenant, puis revenir à l'article pour interpréter ce que cela signifie.
@@ -75,7 +77,7 @@ Ensuite, repérez ce qui se passe pendant les moments d'éveil : rumination, anx
 
 Enfin, demandez de l'aide si la fatigue s'installe. Une consultation psychologique peut aider à travailler les ruminations, l'hyperéveil, les comportements de compensation et les inquiétudes liées au sommeil. Une évaluation médicale peut aussi être nécessaire si vous présentez des ronflements importants, des pauses respiratoires, une somnolence dangereuse ou des symptômes physiques inhabituels.
 
-## Maillage interne conseillé
+## Pour aller plus loin
 
 Pour comprendre le calcul précis, lisez [comment calculer son efficacité du sommeil](/blog/comment-calculer-efficacite-sommeil/). Pour interpréter votre résultat, consultez l'article sur la [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/).
 

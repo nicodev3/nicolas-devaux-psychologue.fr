@@ -3,6 +3,7 @@ title: 'Les différentes psychothérapies ?'
 description: 'Découvrez les principales approches thérapeutiques : psychothérapie psychodynamique, TCC, hypnose et autres méthodes.'
 pubDate: 'Oct 29 2024'
 heroImage: '../../assets/blog/les-differentes-psychotherapies.webp'
+tags: ["therapies"]
 ---
 
 ## Hypnose, TCC, relaxation, psychothérapie psychodynamique... quelles différences ?

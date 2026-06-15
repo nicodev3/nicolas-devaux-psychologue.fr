@@ -4,6 +4,7 @@ seoTitle: 'Techniques TAC | Nicolas Devaux'
 description: 'Les techniques d''activation de la conscience : une approche alliant pleine conscience et activation émotionnelle.'
 pubDate: 'Aug 30 2025'
 heroImage: '../../assets/blog/tac.webp'
+tags: ["pleine-conscience", "outils"]
 ---
 
 Jean Becchio a développé les techniques d'activation de la conscience (TAC) à partir d'une constatation simple : certaines personnes comprennent très bien leur difficulté, mais restent coincées dans les mêmes réactions. Le changement demande alors autre chose qu'une explication — une expérience émotionnelle vécue en conscience, dans un cadre suffisamment sécurisé.

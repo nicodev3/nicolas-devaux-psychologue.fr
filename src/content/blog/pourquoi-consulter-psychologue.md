@@ -7,6 +7,7 @@ description: 'Découvrez les principales raisons de consulter un psychologue : a
 pubDate: 'Jun 19 2024'
 
 heroImage: '../../assets/blog/consulter.webp'
+tags: ["consulter"]
 
 ---
 

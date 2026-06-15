@@ -4,6 +4,7 @@ seoTitle: "Thérapie MOSAIC : EMDR | Nicolas Devaux"
 description: "La thérapie MOSAIC utilise les stimulations bilatérales alternées dans une approche orientée ressources. Indications, séance, EMDR : repères clairs."
 pubDate: "May 24 2026"
 heroImage: "../../assets/blog/emdr-mosaic.webp"
+tags: ["therapies"]
 ---
 
 La **thérapie MOSAIC** est une approche psychothérapeutique qui utilise les stimulations bilatérales alternées, comme les mouvements oculaires ou les stimulations tactiles, dans une logique orientée vers les ressources. Elle peut être proposée lorsque certains souvenirs, événements ou réactions émotionnelles restent trop actifs malgré le temps écoulé.

@@ -3,6 +3,8 @@ title: "Comment calculer son efficacité du sommeil ?"
 seoTitle: "Comment calculer son efficacité du sommeil ? | Psychologue"
 description: "Découvrez la formule de l’efficacité du sommeil, des exemples concrets et l’intérêt de cet indicateur en TCC-I pour mieux comprendre l’insomnie."
 pubDate: "Jun 15 2026"
+heroImage: "../../assets/blog/calcul-sommeil.webp"
+tags: ["sommeil", "outils"]
 ---
 
 L'**efficacité du sommeil** est un indicateur simple pour mieux comprendre ce qui se passe réellement entre le moment où l'on se met au lit et le moment où l'on se lève. Vous pouvez déjà l'estimer avec le [calculateur d'efficacité du sommeil](/outils/calculateur-efficacite-sommeil/), puis lire cet article pour comprendre le résultat.
@@ -98,9 +100,9 @@ Pour éviter les calculs manuels, vous pouvez utiliser le [calculateur d'efficac
 
 Cet outil est gratuit et informatif. Il ne pose pas de diagnostic, mais il peut servir de point de départ : comprendre votre sommeil, préparer une consultation, ou suivre l'évolution de vos nuits sur une période courte.
 
-## Maillage interne conseillé
+## Pour aller plus loin
 
-Pour approfondir, vous pouvez lire l'article sur les personnes [fatiguées malgré 8 heures au lit](/blog/fatigue-malgre-8-heures-sommeil/) et celui sur ce qu'est une [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/). Ensemble, ces contenus forment une base pour mieux comprendre l'insomnie, le temps passé au lit et le sommeil réellement réparateur.
+Pour approfondir, vous pouvez lire l'article sur les personnes [fatiguées malgré 8 heures au lit](/blog/fatigue-malgre-8-heures-sommeil/) et celui sur ce qu'est une [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/). Ensemble, ces articles vous donnent des repères pour mieux comprendre l'insomnie, le temps passé au lit et ce qui rend le sommeil réellement réparateur.
 
 ## Questions fréquentes sur l'efficacité du sommeil
 

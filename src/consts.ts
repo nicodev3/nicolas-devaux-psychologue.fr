@@ -67,6 +67,27 @@ export const OPENING_SATURDAY_HOURS = "Matin";
 export const OPENING_HOURS_TEXT =
   "le lundi, le mardi et le vendredi de 8h à 19h, et un samedi matin sur deux";
 
+/** Tags du blog — valeurs autorisées et libellés français. */
+export const BLOG_TAGS = [
+  "sommeil",
+  "therapies",
+  "pleine-conscience",
+  "couple",
+  "consulter",
+  "outils",
+] as const;
+
+export type BlogTag = (typeof BLOG_TAGS)[number];
+
+export const BLOG_TAG_LABELS: Record<BlogTag, string> = {
+  sommeil: "Sommeil",
+  therapies: "Thérapies",
+  "pleine-conscience": "Pleine conscience",
+  couple: "Thérapie de couple",
+  consulter: "Consulter un psy",
+  outils: "Outils pratiques",
+};
+
 /** Schema.org — horaires d'ouverture du cabinet. */
 export const OPENING_HOURS_SCHEMA = [
   {

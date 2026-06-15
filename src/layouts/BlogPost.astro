@@ -13,8 +13,11 @@ import "../styles/global.css";
 import "../styles/content.css";
 import { formatFrenchDate, toDateTime } from "../utils/formatDate";
 import { applyFrenchTypography } from "../utils/frenchTypography.js";
+import type { BlogTag } from "../consts";
+import { BLOG_TAG_LABELS } from "../consts";
 
-type Props = CollectionEntry<"blog">["data"] & {
+type Props = Omit<CollectionEntry<"blog">["data"], "tags"> & {
+  tags?: BlogTag[];
   blogPost?: boolean;
   showDate?: boolean;
   readingTimeMinutes?: number;
@@ -28,6 +31,7 @@ const {
   pubDate,
   updatedDate,
   heroImage,
+  tags = [],
   blogPost = false,
   showDate = true,
   readingTimeMinutes,
@@ -41,25 +45,17 @@ const isBlogArticle = blogPost && Astro.url.pathname.startsWith("/blog/");
 const readingTimeLabel = readingTimeMinutes ? `${readingTimeMinutes} min de lecture` : "Lecture";
 const articleUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
 
-function getArticleKicker(articleSlug: string, articleTitle: string): string {
-  const normalized = `${articleSlug} ${articleTitle}`.toLowerCase();
-
-  if (normalized.includes("coherence") || normalized.includes("outil")) {
-    return "Santé mentale · Outils";
-  }
-
-  if (normalized.includes("therapie") || normalized.includes("psychotherapie") || normalized.includes("hypno")) {
-    return "Psychothérapie · Approches";
-  }
-
-  if (normalized.includes("choisir") || normalized.includes("consulter")) {
-    return "Psychologie · Repères";
-  }
-
-  return "Santé mentale · Article";
-}
-
-const articleKicker = getArticleKicker(slug, title);
+// Génère le kicker à partir du premier tag, ou valeur par défaut
+const TAG_KICKERS: Record<string, string> = {
+  sommeil: "Sommeil · Bien-être",
+  therapies: "Psychothérapie · Approches",
+  "pleine-conscience": "Pleine conscience · Pratiques",
+  couple: "Thérapie de couple",
+  consulter: "Psychologie · Repères",
+  outils: "Santé mentale · Outils",
+};
+const articleKicker =
+  tags.length > 0 ? (TAG_KICKERS[tags[0]] ?? "Santé mentale · Article") : "Santé mentale · Article";
 ---
 
 <html lang="fr">
@@ -80,7 +76,21 @@ const articleKicker = getArticleKicker(slug, title);
           isBlogArticle ? (
             <header class="mx-auto mb-12 grid max-w-[980px] items-start gap-8 border-b border-border-subtle pb-10 md:mb-14 md:pb-12 lg:grid-cols-[minmax(0,560px)_minmax(280px,360px)] lg:gap-12">
               <div class="min-w-0 pt-1 lg:pt-4">
-                <p class="typo-meta-caps mb-5 text-brand">{articleKicker}</p>
+                {tags.length > 0 ? (
+                  <div class="mb-5 flex flex-wrap gap-2">
+                    {tags.map((tag) => (
+                      <a
+                        href={`/blog/?tag=${tag}`}
+                        class="font-ui text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-brand/10 text-brand border border-brand/20 transition-colors hover:bg-brand/20"
+                        data-tag-link={tag}
+                      >
+                        {BLOG_TAG_LABELS[tag]}
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <p class="typo-meta-caps mb-5 text-brand">{articleKicker}</p>
+                )}
                 <h1 class="font-display mb-5 max-w-[14em] text-pretty text-[clamp(2.1rem,4.2vw,2.8rem)] font-semibold leading-[1.06] tracking-normal text-ink-primary md:mb-6">
                   {formattedTitle}
                 </h1>

@@ -4,6 +4,7 @@ seoTitle: 'Changer vraiment : 3 étapes | Nicolas Devaux'
 description: "Changer ne consiste pas à supprimer ses émotions. Découvrez 3 étapes concrètes pour agir autrement avec l'ACT et la pleine conscience."
 pubDate: 'Dec 24 2024'
 heroImage: '../../assets/blog/apprendre-pour-changer.webp'
+tags: ["therapies", "pleine-conscience"]
 ---
 
 Apprendre à changer : l’art de se transformer avec bienveillance

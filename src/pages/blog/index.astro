@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import { formatFrenchDate, toDateTime } from "../../utils/formatDate";
 import { applyFrenchTypography } from "../../utils/frenchTypography.js";
+import { BLOG_TAGS, BLOG_TAG_LABELS } from "../../consts";
 
 const BLOG_INDEX_TITLE = applyFrenchTypography("Blog — articles de psychologie");
 const BLOG_INDEX_DESCRIPTION =
@@ -37,33 +38,72 @@ const posts = (await getCollection("blog")).sort(
         </p>
       </header>
 
-      <div class="grid gap-8 border-t border-border-subtle pt-10 md:grid-cols-2 md:pt-12 xl:grid-cols-3">
+      <!-- Filtre par tag -->
+      <div
+        class="mb-8 flex flex-wrap gap-2 border-t border-border-subtle pt-8 md:pt-10"
+        role="group"
+        aria-label="Filtrer les articles par thème"
+      >
+        <button
+          type="button"
+          data-filter="tous"
+          aria-pressed="true"
+          class="blog-filter font-ui text-sm font-medium px-4 py-1.5 rounded-full border border-brand bg-brand text-white transition-colors"
+        >
+          Tous les articles
+        </button>
+        {
+          BLOG_TAGS.map((tag) => (
+            <button
+              type="button"
+              data-filter={tag}
+              aria-pressed="false"
+              class="blog-filter font-ui text-sm font-medium px-4 py-1.5 rounded-full border border-border-strong text-ink-secondary bg-surface-raised transition-colors hover:border-brand/60 hover:text-brand"
+            >
+              {BLOG_TAG_LABELS[tag]}
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Grille d'articles -->
+      <div id="blog-grid" class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {
           posts.map((post) => (
-            <article class="flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle transition-colors hover:border-brand/35">
+            <article
+              data-post-tags={post.data.tags.join(",")}
+              class="flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle transition-colors hover:border-brand/35"
+            >
               <a href={`/blog/${post.id}/`} class="group flex h-full flex-col">
                 <div class="relative aspect-square w-full shrink-0 overflow-hidden bg-surface-muted">
-                  {
-                    post.data.heroImage ? (
-                      <Picture
-                        src={post.data.heroImage}
-                        alt={post.data.title}
-                        width={post.data.heroImage.width}
-                        height={post.data.heroImage.height}
-                        formats={["avif", "webp"]}
-                        fallbackFormat="webp"
-                        loading="lazy"
-                        decoding="async"
-                        class="absolute inset-0 h-full w-full object-cover"
-                      />
-                    ) : null
-                  }
+                  {post.data.heroImage ? (
+                    <Picture
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      width={post.data.heroImage.width}
+                      height={post.data.heroImage.height}
+                      formats={["avif", "webp"]}
+                      fallbackFormat="webp"
+                      loading="lazy"
+                      decoding="async"
+                      class="absolute inset-0 h-full w-full object-cover"
+                    />
+                  ) : null}
                 </div>
-                <div class="p-6">
+                <div class="flex flex-1 flex-col p-6">
+                  {post.data.tags.length > 0 && (
+                    <div class="mb-3 flex flex-wrap gap-1.5">
+                      {post.data.tags.map((tag) => (
+                        <span class="font-ui text-xs font-medium px-2.5 py-0.5 rounded-full bg-brand/8 text-brand border border-brand/20">
+                          {BLOG_TAG_LABELS[tag]}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <h3 class="typo-display-md mb-2 font-semibold text-ink-primary transition-colors group-hover:text-brand">
                     {applyFrenchTypography(post.data.title)}
                   </h3>
-                  <p class="font-ui typo-meta text-body-muted">
+                  <p class="font-ui typo-meta text-body-muted mt-auto pt-3">
                     <time datetime={toDateTime(post.data.pubDate)}>{formatFrenchDate(post.data.pubDate)}</time>
                   </p>
                 </div>
@@ -72,7 +112,77 @@ const posts = (await getCollection("blog")).sort(
           ))
         }
       </div>
+
+      <!-- Message si aucun résultat -->
+      <p
+        id="no-results"
+        hidden
+        class="py-16 text-center font-ui text-ink-tertiary"
+        aria-live="polite"
+      >
+        Aucun article pour ce thème pour le moment.
+      </p>
     </main>
     <Footer />
+
+    <script is:inline>
+      (function () {
+        var btns = document.querySelectorAll("[data-filter]");
+        var posts = document.querySelectorAll("[data-post-tags]");
+        var noResults = document.getElementById("no-results");
+
+        function applyFilter(tag) {
+          btns.forEach(function (b) {
+            var active = b.getAttribute("data-filter") === tag;
+            b.setAttribute("aria-pressed", active ? "true" : "false");
+            if (active) {
+              b.classList.remove(
+                "border-border-strong",
+                "text-ink-secondary",
+                "bg-surface-raised",
+                "hover:border-brand/60",
+                "hover:text-brand"
+              );
+              b.classList.add("border-brand", "bg-brand", "text-white");
+            } else {
+              b.classList.remove("border-brand", "bg-brand", "text-white");
+              b.classList.add(
+                "border-border-strong",
+                "text-ink-secondary",
+                "bg-surface-raised",
+                "hover:border-brand/60",
+                "hover:text-brand"
+              );
+            }
+          });
+
+          var visible = 0;
+          posts.forEach(function (post) {
+            var postTags = (post.getAttribute("data-post-tags") || "").split(",");
+            var show = tag === "tous" || postTags.indexOf(tag) !== -1;
+            post.hidden = !show;
+            if (show) visible++;
+          });
+
+          if (noResults) noResults.hidden = visible > 0;
+        }
+
+        btns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var tag = btn.getAttribute("data-filter");
+            applyFilter(tag);
+          });
+        });
+
+        // Présélectionner le filtre depuis l'URL (?tag=sommeil)
+        var urlTag = new URLSearchParams(window.location.search).get("tag");
+        if (urlTag) {
+          var validTags = ["sommeil", "therapies", "pleine-conscience", "couple", "consulter", "outils"];
+          if (validTags.indexOf(urlTag) !== -1) {
+            applyFilter(urlTag);
+          }
+        }
+      })();
+    </script>
   </body>
 </html>

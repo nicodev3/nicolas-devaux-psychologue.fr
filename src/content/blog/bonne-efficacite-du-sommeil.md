@@ -3,6 +3,8 @@ title: "Qu’est-ce qu’une bonne efficacité du sommeil ?"
 seoTitle: "Bonne efficacité du sommeil : seuils, interprétation et insomnie"
 description: "Qu'est-ce qu'une bonne efficacité du sommeil ? Découvrez les seuils utiles, les erreurs d'interprétation et quand consulter en cas d'insomnie."
 pubDate: "Jun 15 2026"
+heroImage: "../../assets/blog/sleeping-child.webp"
+tags: ["sommeil"]
 ---
 
 Une **bonne efficacité du sommeil** signifie que la majeure partie du temps passé au lit est réellement consacrée au sommeil. Avant d'interpréter vos nuits, vous pouvez obtenir une estimation avec le [calculateur d'efficacité du sommeil](/outils/calculateur-efficacite-sommeil/), puis utiliser les repères de cet article.
@@ -93,7 +95,7 @@ Vous pouvez l'utiliser ponctuellement après une nuit représentative, ou sur pl
 
 Si vous préparez une consultation, ces informations peuvent être utiles. Elles permettent de parler de faits concrets : horaires, réveils, durée estimée, fatigue, stratégies déjà essayées.
 
-## Construire un silo de compréhension autour du sommeil
+## Pour aller plus loin
 
 Si vous découvrez ce sujet, commencez par [comment calculer son efficacité du sommeil](/blog/comment-calculer-efficacite-sommeil/). Si votre difficulté principale est la fatigue au réveil, l'article [pourquoi suis-je fatigué malgré 8 heures au lit ?](/blog/fatigue-malgre-8-heures-sommeil/) vous aidera à comprendre le rôle du temps éveillé, des réveils et de l'hyperéveil.
 
@@ -125,4 +127,4 @@ Non. Viser un score parfait peut augmenter la pression. L'objectif est un sommei
 
 Une bonne efficacité du sommeil est un repère utile pour comprendre la relation entre **temps passé au lit** et sommeil réel. Autour de 85 % ou plus, le lit est généralement bien associé au sommeil, mais l'interprétation doit rester nuancée : durée totale, fatigue, contexte et répétition comptent aussi.
 
-Pour obtenir votre estimation, utilisez le [calculateur d'efficacité du sommeil](/outils/calculateur-efficacite-sommeil/). Si votre sommeil reste source de fatigue, d'anxiété ou de perte de confiance, vous pouvez prendre rendez-vous via la page [consulter](/consulter/) pour construire une compréhension personnalisée et un accompagnement adapté.
+Pour obtenir votre estimation, utilisez le [calculateur d'efficacité du sommeil](/outils/calculateur-efficacite-sommeil/). Si votre sommeil reste source de fatigue, d'anxiété ou de perte de confiance, vous pouvez prendre rendez-vous via la page [consulter](/consulter/) pour mieux comprendre votre situation et bénéficier d'un accompagnement adapté.

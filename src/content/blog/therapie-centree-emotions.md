@@ -3,6 +3,7 @@ title: 'La thérapie centrée sur les émotions (TCE)'
 description: 'La thérapie centrée sur les émotions (Greenberg) : comprendre ce que l''on ressent, transformer ce qui bloque, et retrouver une relation plus juste à ses émotions.'
 pubDate: 'Sept 1 2025'
 heroImage: '../../assets/blog/tce.webp'
+tags: ["therapies"]
 ---
 
 Greenberg a formalisé ce que beaucoup de thérapeutes font intuitivement : quand on évite une émotion depuis longtemps, on finit par éviter aussi ce qu'elle nous dit sur nos besoins. La thérapie centrée sur les émotions (TCE) m'aide à accompagner ce basculement — de l'évitement à l'exploration — dans un cadre où la personne ne se sent pas submergée.
