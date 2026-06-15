@@ -27,47 +27,76 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1440px;
+
+  /* Fallbacks sRGB pour les palettes Tailwind utilisées par les pages/outils. */
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-700: #374151;
+  --color-red-100: #fee2e2;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-700: #b91c1c;
+  --color-orange-50: #fff7ed;
+  --color-orange-100: #ffedd5;
+  --color-orange-200: #fed7aa;
+  --color-orange-500: #f97316;
+  --color-orange-700: #c2410c;
+  --color-orange-800: #9a3412;
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-400: #fbbf24;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-yellow-100: #fef9c3;
+  --color-yellow-400: #facc15;
+  --color-yellow-700: #a16207;
+  --color-lime-50: #f7fee7;
+  --color-lime-100: #ecfccb;
+  --color-lime-200: #d9f99d;
+  --color-lime-400: #a3e635;
+  --color-lime-500: #84cc16;
+  --color-lime-700: #4d7c0f;
+  --color-lime-800: #3f6212;
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-200: #bbf7d0;
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+  --color-green-700: #15803d;
+  --color-green-800: #166534;
+
   /*
    * Thème crème / sable — terracotta comme unique accent marque.
-   * Hiérarchie : titres = gris neutre foncé ; corps = brun chaud (ink-secondary) ;
-   * méta / dates / notes = gris moyen désaturé (meilleur contraste sur crème) ;
-   * bordures = gris intermédiaire peu chromatique (distinct du beige surface).
-   * Contraste (culori wcagContrast sur les OKLCH ci-dessous, fond page ≈ surface-page / muted) :
-   * - ink-primary / surface-page | raised : titres neutres >> 7:1
-   * - ink-secondary / surface-page : corps brun ~ 8:1
-   * - ink-tertiary / surface-page | muted : méta & UI secondaire ≥ ~8 / ~7.8 (AAA efficace, hors italique)
-   * - brand / surface-page | muted : liens & accent ≥ ~6 / ~5.8 ; hover plus soutenu
-   * - border-* / surface-page : séparation lisible sans fusion avec le fond crème
-   * - brand-ink-on / brand & brand-hover : > 4.5:1 (CTA)
-   * - info-ink / info-surface : >> 7:1
-   * - danger / danger-surface : viser ≥ 4.5:1 pour boutons ou liens « réinitialiser »
+   * Les valeurs sRGB ci-dessous sont les fallbacks Safari/iOS plus anciens.
+   * Les valeurs OKLCH, plus précises, sont activées plus bas uniquement si le navigateur les supporte.
    */
-  --color-surface-page: oklch(0.985 0.012 60);
-  --color-surface-raised: oklch(1 0 0);
-  --color-surface-muted: oklch(0.965 0.012 60);
+  --color-surface-page: #fcfaf4;
+  --color-surface-raised: #ffffff;
+  --color-surface-muted: #f5f2ea;
   /* Fond pied de page : noir chaud désaturé (extension palette marque / encres). */
-  --color-surface-footer: oklch(0.28 0.02 50);
+  --color-surface-footer: #403830;
   /* Libellés de section footer : lisibles sur surface-footer (titres héritent sinon de ink-primary). */
-  --color-footer-label: oklch(0.82 0.018 52);
+  --color-footer-label: #cbc4bc;
   /* Titres / hiérarchie forte : neutre foncé (pas le brun du corps). */
-  --color-ink-primary: oklch(0.22 0.004 58);
+  --color-ink-primary: #302f2d;
   /* Corps de texte : brun chaud réservé au paragraphe. */
-  --color-ink-secondary: oklch(0.42 0.02 50);
+  --color-ink-secondary: #655c55;
   /* Méta, dates, notes UI : neutre un peu plus soutenu que le corps pour ≥7:1 sur crème/muted (sans italique). */
-  --color-ink-tertiary: oklch(0.4 0.008 58);
-  --color-border-subtle: oklch(0.91 0.004 60);
-  --color-border-strong: oklch(0.85 0.005 60);
+  --color-ink-tertiary: #5d5a56;
+  --color-border-subtle: #e6e3dc;
+  --color-border-strong: #d3d0ca;
   /* Terracotta marque : lisibilité renforcée sur fond crème / muted (~6:1 liens, hover plus foncé). */
-  --color-brand: oklch(0.5 0.135 35);
-  --color-brand-hover: oklch(0.43 0.125 35);
-  --color-brand-ink-on: oklch(0.99 0 0);
-  --color-info-surface: oklch(0.97 0.03 85);
-  --color-info-border: oklch(0.86 0.07 85);
-  --color-info-ink: oklch(0.35 0.05 70);
+  --color-brand: #974631;
+  --color-brand-hover: #783529;
+  --color-brand-ink-on: #ffffff;
+  --color-info-surface: #fbf4df;
+  --color-info-border: #dcc37d;
+  --color-info-ink: #64502b;
 
   /* États ponctuels (hors marque) */
-  --color-danger: oklch(0.45 0.14 28);
-  --color-danger-surface: oklch(0.97 0.02 28);
+  --color-danger: #7e3029;
+  --color-danger-surface: #faefec;
 
   --color-body: var(--color-ink-secondary);
   --color-body-muted: var(--color-ink-tertiary);
@@ -77,160 +106,206 @@
   --color-secondary: var(--color-surface-muted);
   --color-primary: var(--color-surface-muted);
 
-  --color-black: oklch(0 0 0);
-  --color-white: oklch(1 0 0);
+  --color-black: #000000;
+  --color-white: #ffffff;
 
   --width-container: 100%;
   --max-width-container: 1200px;
 
-  --font-family-display: "Source Serif 4 Variable", ui-serif, Georgia, "Times New Roman",
-    serif;
+  --font-family-display:
+    "Source Serif 4 Variable", ui-serif, Georgia, "Times New Roman", serif;
   --font-family-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-family-ui: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
   /* Ombres réutilisables (évite rgba(#000) dans les composants). */
-  --shadow-menu-panel: 0 1px 0 oklch(0 0 0 / 0.03), 0 20px 40px -20px oklch(0 0 0 / 0.08);
+  --shadow-menu-panel:
+    0 1px 0 rgb(0 0 0 / 0.03), 0 20px 40px -20px rgb(0 0 0 / 0.08);
   /* CTA : relief minimal (évite le look « gros drop shadow »). */
   --shadow-button-primary: 0 1px 2px rgb(0 0 0 / 0.06);
 }
 
-:root {
-    --accent: var(--color-brand);
-    --accent-dark: var(--color-brand-hover);
-    --black: var(--color-ink-primary);
-    --gray: 96, 115, 159;
-    --gray-light: 229, 233, 240;
-    --gray-dark: 69, 64, 56;
-
+@supports (color: oklch(0 0 0)) {
+  :root {
     /*
+     * Contraste (culori wcagContrast sur les OKLCH ci-dessous, fond page ≈ surface-page / muted) :
+     * - ink-primary / surface-page | raised : titres neutres >> 7:1
+     * - ink-secondary / surface-page : corps brun ~ 8:1
+     * - ink-tertiary / surface-page | muted : méta & UI secondaire ≥ ~8 / ~7.8 (AAA efficace, hors italique)
+     * - brand / surface-page | muted : liens & accent ≥ ~6 / ~5.8 ; hover plus soutenu
+     * - border-* / surface-page : séparation lisible sans fusion avec le fond crème
+     * - brand-ink-on / brand & brand-hover : > 4.5:1 (CTA)
+     * - info-ink / info-surface : >> 7:1
+     * - danger / danger-surface : viser ≥ 4.5:1 pour boutons ou liens « réinitialiser »
+     */
+    --color-surface-page: oklch(0.985 0.012 60);
+    --color-surface-raised: oklch(1 0 0);
+    --color-surface-muted: oklch(0.965 0.012 60);
+    --color-surface-footer: oklch(0.28 0.02 50);
+    --color-footer-label: oklch(0.82 0.018 52);
+    --color-ink-primary: oklch(0.22 0.004 58);
+    --color-ink-secondary: oklch(0.42 0.02 50);
+    --color-ink-tertiary: oklch(0.4 0.008 58);
+    --color-border-subtle: oklch(0.91 0.004 60);
+    --color-border-strong: oklch(0.85 0.005 60);
+    --color-brand: oklch(0.5 0.135 35);
+    --color-brand-hover: oklch(0.43 0.125 35);
+    --color-brand-ink-on: oklch(0.99 0 0);
+    --color-info-surface: oklch(0.97 0.03 85);
+    --color-info-border: oklch(0.86 0.07 85);
+    --color-info-ink: oklch(0.35 0.05 70);
+    --color-danger: oklch(0.45 0.14 28);
+    --color-danger-surface: oklch(0.97 0.02 28);
+    --color-black: oklch(0 0 0);
+    --color-white: oklch(1 0 0);
+    --shadow-menu-panel:
+      0 1px 0 oklch(0 0 0 / 0.03), 0 20px 40px -20px oklch(0 0 0 / 0.08);
+  }
+}
+
+:root {
+  --accent: var(--color-brand);
+  --accent-dark: var(--color-brand-hover);
+  --black: var(--color-ink-primary);
+  --gray: 96, 115, 159;
+  --gray-light: 229, 233, 240;
+  --gray-dark: 69, 64, 56;
+
+  /*
      * Échelle modulaire : 56 / 36 / 24 / 18 / 16 / 14 (px),
      * avec equivalents rem pour le clamp où utile.
      */
-    --text-h1: clamp(2.125rem, 1.75vw + 1.25rem, 3.5rem); /* → 56px desktop */
-    --text-h2-section: clamp(1.75rem, 1vw + 1.35rem, 2.25rem); /* → 36px desktop */
-    --text-h3: 1.5rem; /* 24px */
-    --text-body-lg: 1.125rem; /* 18px */
-    --text-body: 1rem; /* 16px */
-    --text-meta-sm: 0.875rem; /* 14px — eyebrow, méta */
-    /* Alias rétrocompat */
-    --text-display-xl: var(--text-h1);
-    --text-display-lg: var(--text-h2-section);
-    --text-display-md: var(--text-h3);
-    --text-meta: var(--text-meta-sm);
-    --gray-gradient: rgba(var(--gray-light), 50%), var(--color-white);
-    --box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
-    --tertiary: var(--color-ink-primary);
-    --secondary: var(--color-surface-muted);
-    --primary: var(--color-border-subtle);
+  --text-h1: clamp(2.125rem, 1.75vw + 1.25rem, 3.5rem); /* → 56px desktop */
+  --text-h2-section: clamp(
+    1.75rem,
+    1vw + 1.35rem,
+    2.25rem
+  ); /* → 36px desktop */
+  --text-h3: 1.5rem; /* 24px */
+  --text-body-lg: 1.125rem; /* 18px */
+  --text-body: 1rem; /* 16px */
+  --text-meta-sm: 0.875rem; /* 14px — eyebrow, méta */
+  /* Alias rétrocompat */
+  --text-display-xl: var(--text-h1);
+  --text-display-lg: var(--text-h2-section);
+  --text-display-md: var(--text-h3);
+  --text-meta: var(--text-meta-sm);
+  --gray-gradient: rgba(var(--gray-light), 50%), var(--color-white);
+  --box-shadow:
+    0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+    0 16px 32px rgba(var(--gray), 33%);
+  --tertiary: var(--color-ink-primary);
+  --secondary: var(--color-surface-muted);
+  --primary: var(--color-border-subtle);
 }
 
 html {
-    scroll-behavior: smooth;
-    background-color: var(--color-surface-page);
-    overflow-x: hidden;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  background-color: var(--color-surface-page);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /*
  * Thème sombre : jetons réservés uniquement (pas d’activation visuelle — site reste clair).
  */
 @media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: light dark;
-        --color-dark-surface-page: oklch(0.2 0.015 55);
-        --color-dark-surface-raised: oklch(0.24 0.015 55);
-        --color-dark-surface-muted: oklch(0.28 0.018 54);
-        --color-dark-ink-primary: oklch(0.94 0.01 60);
-        --color-dark-ink-secondary: oklch(0.82 0.012 58);
-        --color-dark-ink-tertiary: oklch(0.68 0.014 55);
-        --color-dark-border-subtle: oklch(0.34 0.02 52);
-        --color-dark-brand: oklch(0.62 0.14 35);
-        --color-dark-brand-hover: oklch(0.58 0.15 35);
-    }
+  :root {
+    color-scheme: light dark;
+    --color-dark-surface-page: oklch(0.2 0.015 55);
+    --color-dark-surface-raised: oklch(0.24 0.015 55);
+    --color-dark-surface-muted: oklch(0.28 0.018 54);
+    --color-dark-ink-primary: oklch(0.94 0.01 60);
+    --color-dark-ink-secondary: oklch(0.82 0.012 58);
+    --color-dark-ink-tertiary: oklch(0.68 0.014 55);
+    --color-dark-border-subtle: oklch(0.34 0.02 52);
+    --color-dark-brand: oklch(0.62 0.14 35);
+    --color-dark-brand-hover: oklch(0.58 0.15 35);
+  }
 }
 
 :target {
-    scroll-margin-top: 1.5rem;
+  scroll-margin-top: 1.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+  html {
+    scroll-behavior: auto;
+  }
 
-    *,
-    *::before,
-    *::after {
-        transition-property: opacity, background-color, border-color, color, fill, stroke,
-            outline-color, outline-offset, box-shadow, filter, visibility, max-height !important;
-    }
+  *,
+  *::before,
+  *::after {
+    transition-property:
+      opacity, background-color, border-color, color, fill, stroke,
+      outline-color, outline-offset, box-shadow, filter, visibility, max-height !important;
+  }
 }
 
 /* Révélations d’accueil : une fois déclenchées, classe .home-reveal-done (sessionStorage côté script). */
 body[data-home-reveal-page] [data-home-reveal] {
-    opacity: 0;
-    transform: translateY(12px);
-    transition:
-        opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
-        transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body[data-home-reveal-page] [data-home-reveal].home-reveal-done {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    body[data-home-reveal-page] [data-home-reveal] {
-        transform: none;
-        transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
+  body[data-home-reveal-page] [data-home-reveal] {
+    transform: none;
+    transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-    body[data-home-reveal-page] [data-home-reveal].home-reveal-done {
-        transform: none;
-    }
+  body[data-home-reveal-page] [data-home-reveal].home-reveal-done {
+    transform: none;
+  }
 }
 
 @utility font-ui {
-    font-family: var(--font-family-ui);
-    font-variation-settings: "opsz" 22;
+  font-family: var(--font-family-ui);
+  font-variation-settings: "opsz" 22;
 }
 
 /* Libellés de colonnes pied de page : alignés sur les eyebrows (~13px UI), sans serif display. */
 @utility footer-section-label {
-    font-family: var(--font-family-ui);
-    font-variation-settings: "opsz" 14;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    line-height: 1.35;
-    text-transform: uppercase;
-    color: var(--color-footer-label);
-    text-wrap: nowrap;
+  font-family: var(--font-family-ui);
+  font-variation-settings: "opsz" 14;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--color-footer-label);
+  text-wrap: nowrap;
 }
 
 @layer base {
-    :where(
-            a[href],
-            button:not(:disabled),
-            summary,
-            input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]),
-            textarea,
-            select
-        ):focus-visible {
-        outline: 2px solid var(--color-brand);
-        outline-offset: 3px;
-        border-radius: inherit;
-    }
+  :where(
+    a[href],
+    button:not(:disabled),
+    summary,
+    input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]),
+    textarea,
+    select
+  ):focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: inherit;
+  }
 }
 
 body {
-    font-family: var(--font-family-sans);
-    font-variation-settings: "opsz" 14;
-    font-feature-settings: "ss01", "cv11", "kern";
-    color: var(--color-body);
+  font-family: var(--font-family-sans);
+  font-variation-settings: "opsz" 14;
+  font-feature-settings: "ss01", "cv11", "kern";
+  color: var(--color-body);
 }
 
 h1,
@@ -239,25 +314,25 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--color-ink-primary);
-    font-family: var(--font-family-display);
-    font-optical-sizing: auto;
-    text-wrap: balance;
+  color: var(--color-ink-primary);
+  font-family: var(--font-family-display);
+  font-optical-sizing: auto;
+  text-wrap: balance;
 }
 
 h1,
 h2 {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 h3 {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 h4,
 h5,
 h6 {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 /*
@@ -265,96 +340,96 @@ h6 {
  * Spécificité > seule la classe utilitaire, pour gagner sur la règle h3/h4 du @layer base.
  */
 footer .footer-section-label {
-    color: var(--color-footer-label);
-    font-family: var(--font-family-ui);
-    font-variation-settings: "opsz" 14;
-    /* Évite l’héritage display/balance des h* du @layer base. */
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    line-height: 1.35;
-    text-transform: uppercase;
-    text-wrap: nowrap;
+  color: var(--color-footer-label);
+  font-family: var(--font-family-ui);
+  font-variation-settings: "opsz" 14;
+  /* Évite l’héritage display/balance des h* du @layer base. */
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  text-wrap: nowrap;
 }
 
 .typo-display-xl {
-    font-size: var(--text-h1);
-    line-height: 1.06;
-    letter-spacing: -0.022em;
-    font-weight: 600;
-    text-wrap: balance;
+  font-size: var(--text-h1);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  font-weight: 600;
+  text-wrap: balance;
 }
 
 /* Titres principaux (hero + pages) : plafonnés à ~56px desktop, plus d’air */
 .hero-heading-display,
 .typo-h1 {
-    font-size: var(--text-h1);
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    font-weight: 600;
-    text-wrap: balance;
+  font-size: var(--text-h1);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  text-wrap: balance;
 }
 
 .typo-display-lg {
-    font-size: var(--text-h2-section);
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-    font-weight: 600;
-    text-wrap: balance;
+  font-size: var(--text-h2-section);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  text-wrap: balance;
 }
 
 .typo-display-md {
-    font-size: var(--text-h3);
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    font-weight: 600;
-    text-wrap: balance;
+  font-size: var(--text-h3);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  text-wrap: balance;
 }
 
 /* Libellé de section au-dessus du H2 : sans serif, uppercase, tracking +6 % */
 .typo-eyebrow {
-    font-family: var(--font-family-ui);
-    font-variation-settings: "opsz" 14;
-    font-size: var(--text-meta-sm);
-    font-weight: 500;
-    line-height: 1.35;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-ink-tertiary);
+  font-family: var(--font-family-ui);
+  font-variation-settings: "opsz" 14;
+  font-size: var(--text-meta-sm);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-tertiary);
 }
 
 .section-heading-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
 }
 
 @media (min-width: 768px) {
-    .section-heading-group {
-        gap: 0.5rem;
-    }
+  .section-heading-group {
+    gap: 0.5rem;
+  }
 }
 
 .typo-body-lg {
-    font-size: var(--text-body-lg);
-    line-height: 1.65;
-    letter-spacing: -0.005em;
-    font-weight: 400;
+  font-size: var(--text-body-lg);
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  font-weight: 400;
 }
 
 .typo-body {
-    font-size: var(--text-body);
-    line-height: 1.6;
-    letter-spacing: 0;
-    font-weight: 400;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  letter-spacing: 0;
+  font-weight: 400;
 }
 
 .typo-meta {
-    font-size: var(--text-meta-sm);
-    line-height: 1.45;
-    letter-spacing: 0.01em;
-    font-weight: 500;
-    font-style: normal;
+  font-size: var(--text-meta-sm);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  font-style: normal;
 }
 
 /*
@@ -362,157 +437,157 @@ footer .footer-section-label {
  * Préféré aux petites capitales CSS seules (rendu Inter peu homogène).
  */
 .typo-meta-caps {
-    font-family: var(--font-family-ui);
-    font-variation-settings: "opsz" 14;
-    font-size: var(--text-meta-sm);
-    line-height: 1.45;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-style: normal;
+  font-family: var(--font-family-ui);
+  font-variation-settings: "opsz" 14;
+  font-size: var(--text-meta-sm);
+  line-height: 1.45;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-style: normal;
 }
 
 /* Hiérarchie hors classes utilitaires : H2 document ~24px, H3 ~24px (échelle interne) */
 h2 {
-    font-size: var(--text-h3);
-    font-weight: 600;
+  font-size: var(--text-h3);
+  font-weight: 600;
 }
 
 h3 {
-    font-size: var(--text-h3);
-    font-weight: 600;
+  font-size: var(--text-h3);
+  font-weight: 600;
 }
 
 h4 {
-    font-size: 1.563em;
+  font-size: 1.563em;
 }
 
 h5 {
-    font-size: 1.25em;
+  font-size: 1.25em;
 }
 
 strong,
 b {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 p,
 li {
-    text-wrap: pretty;
+  text-wrap: pretty;
 }
 
 p {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 textarea {
-    width: 100%;
-    font-size: 16px;
+  width: 100%;
+  font-size: 16px;
 }
 
 input {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .alert-box {
-    background-color: var(--color-info-surface);
-    border: 1px solid var(--color-info-border);
-    border-left: 4px solid var(--color-brand);
-    padding: 1.25rem 1.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    gap: 0.875rem;
-    align-items: flex-start;
+  background-color: var(--color-info-surface);
+  border: 1px solid var(--color-info-border);
+  border-left: 4px solid var(--color-brand);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
 }
 
 .alert-box__icon {
-    flex-shrink: 0;
-    color: var(--color-brand);
-    margin-top: 0.125rem;
+  flex-shrink: 0;
+  color: var(--color-brand);
+  margin-top: 0.125rem;
 }
 
 .alert-box__title {
-    display: block;
-    color: var(--color-ink-primary);
-    font-weight: 600;
-    margin-bottom: 0.375rem;
-    font-size: 0.9375rem;
+  display: block;
+  color: var(--color-ink-primary);
+  font-weight: 600;
+  margin-bottom: 0.375rem;
+  font-size: 0.9375rem;
 }
 
 .btn {
-    color: var(--color-brand-ink-on);
-    background-color: var(--accent);
-    font-size: 1.125rem;
-    margin-right: auto;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.3s ease-out;
+  color: var(--color-brand-ink-on);
+  background-color: var(--accent);
+  font-size: 1.125rem;
+  margin-right: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease-out;
 }
 
 .btn:hover {
-    background-color: var(--accent-dark);
-    color: var(--color-brand-ink-on);
+  background-color: var(--accent-dark);
+  color: var(--color-brand-ink-on);
 }
 
 .text-link {
-    color: var(--color-brand);
-    transition: color 0.3s ease-out;
-    text-decoration: underline;
-    text-decoration-thickness: 0.08em;
-    text-underline-offset: 0.12em;
+  color: var(--color-brand);
+  transition: color 0.3s ease-out;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
 }
 
 .text-link:hover {
-    color: var(--color-brand-hover);
+  color: var(--color-brand-hover);
 }
 
 .text-link:focus-visible {
-    color: var(--color-brand-hover);
+  color: var(--color-brand-hover);
 }
 
 /* Liens dans le corps : soulignement un peu plus visible pour repérage hors couleur seule (WCAG 1.4.1). */
 main .text-link {
-    text-decoration-thickness: max(0.08em, 1px);
+  text-decoration-thickness: max(0.08em, 1px);
 }
 
 abbr {
-    text-decoration: none;
-    border-bottom: none;
-    color: inherit;
-    cursor: inherit;
+  text-decoration: none;
+  border-bottom: none;
+  color: inherit;
+  cursor: inherit;
 }
 
 /* Container personnalisÃ© pour Tailwind v4 */
 .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 @media (min-width: 640px) {
-    .container {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @media (min-width: 1024px) {
-    .container {
-        padding-left: 5rem;
-        padding-right: 5rem;
-    }
+  .container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
 }
 
 /*
@@ -520,23 +595,23 @@ abbr {
  * variante `--wide` pour grilles (ex. index blog), max 1120px.
  */
 .page-shell {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 720px;
-    padding: 1rem 1rem 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 720px;
+  padding: 1rem 1rem 5rem;
 }
 
 @media (min-width: 768px) {
-    .page-shell {
-        padding: 1.5rem 1.25rem 6rem;
-    }
+  .page-shell {
+    padding: 1.5rem 1.25rem 6rem;
+  }
 }
 
 .page-shell--wide {
-    max-width: 1120px;
+  max-width: 1120px;
 }
 
 .page-shell--article {
-    max-width: 1120px;
+  max-width: 1120px;
 }
