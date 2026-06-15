@@ -90,6 +90,7 @@ const sheetLink =
     <div class="xl:hidden">
       <div
         x-show="open"
+        x-cloak
         x-transition:enter="transition-opacity duration-300 nav-sheet-ease"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -109,6 +110,7 @@ const sheetLink =
         aria-label="Menu du site"
         tabindex="-1"
         x-show="open"
+        x-cloak
         x-transition:enter="transition-transform duration-300 nav-sheet-ease"
         x-transition:enter-start="translate-x-full"
         x-transition:enter-end="translate-x-0"
@@ -254,4 +256,3 @@ const sheetLink =
     }
   }
 </style>
-

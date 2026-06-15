@@ -17,6 +17,10 @@
 @import "@fontsource-variable/inter/opsz-italic.css";
 @import "@fontsource-variable/source-serif-4/index.css";
 
+[x-cloak] {
+  display: none !important;
+}
+
 /*
  * Breakpoints alignés produit : sm 640 · md 768 · lg 1024 · xl 1280 · 2xl 1440.
  * (Doublon explicite avec tailwind.config.ts pour la doc et la cohérence des builds.)
