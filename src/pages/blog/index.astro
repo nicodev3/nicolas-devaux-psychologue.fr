@@ -13,9 +13,9 @@ const BLOG_INDEX_TITLE = applyFrenchTypography("Blog — articles de psychologie
 const BLOG_INDEX_DESCRIPTION =
   "Articles de psychologie, thérapies et bien-être mental par Nicolas Devaux, psychologue à Sceaux.";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (await getCollection("blog"))
+  .filter((post) => post.data.published !== false)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>

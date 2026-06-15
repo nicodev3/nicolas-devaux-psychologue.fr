@@ -16,7 +16,7 @@ import { applyFrenchTypography } from "../utils/frenchTypography.js";
 import type { BlogTag } from "../consts";
 import { BLOG_TAG_LABELS } from "../consts";
 
-type Props = Omit<CollectionEntry<"blog">["data"], "tags"> & {
+type Props = Omit<CollectionEntry<"blog">["data"], "tags" | "published"> & {
   tags?: BlogTag[];
   blogPost?: boolean;
   showDate?: boolean;
