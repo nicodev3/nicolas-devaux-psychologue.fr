@@ -185,7 +185,9 @@
   text-decoration-color: transparent;
   text-decoration-thickness: 0.06em;
   text-underline-offset: 0.16em;
-  transition: color 160ms ease, text-decoration-color 160ms ease;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
 }
 
 .c-prose a:hover,
@@ -236,6 +238,7 @@
 }
 
 .breathing-bubble {
+  background: var(--color-surface-muted);
   background: color-mix(in srgb, var(--color-surface-muted) 72%, white);
   border: 1px solid var(--color-border-subtle);
   border-radius: 0.5rem;
@@ -246,7 +249,11 @@
 .breathing-bubble__track {
   align-items: center;
   background:
-    linear-gradient(to bottom, rgb(255 255 255 / 0.72), rgb(255 255 255 / 0.18)),
+    linear-gradient(
+      to bottom,
+      rgb(255 255 255 / 0.72),
+      rgb(255 255 255 / 0.18)
+    ),
     linear-gradient(to bottom, rgb(139 58 42 / 0.08), rgb(80 112 102 / 0.12));
   border: 1px solid var(--color-border-subtle);
   border-radius: 999px;
@@ -260,7 +267,11 @@
 }
 
 .breathing-bubble__track::before {
-  background: linear-gradient(to bottom, transparent 50%, var(--color-border-subtle) 50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--color-border-subtle) 50%
+  );
   content: "";
   height: calc(100% - 1.8rem);
   left: 50%;
@@ -275,7 +286,11 @@
   aspect-ratio: 1;
   background:
     radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.9), transparent 34%),
-    radial-gradient(circle at 50% 52%, rgb(118 162 148 / 0.95), rgb(139 58 42 / 0.9));
+    radial-gradient(
+      circle at 50% 52%,
+      rgb(118 162 148 / 0.95),
+      rgb(139 58 42 / 0.9)
+    );
   border-radius: 999px;
   box-shadow:
     0 1rem 2rem rgb(39 48 43 / 0.18),
@@ -339,7 +354,9 @@ blockquote {
 
 .c-prose img {
   border-radius: 0.75rem;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
   margin-bottom: 1rem;
 }
 
