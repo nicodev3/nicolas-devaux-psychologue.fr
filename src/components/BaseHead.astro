@@ -20,8 +20,8 @@ const formattedTitle = applyFrenchTypography(title);
 const formattedDescription = applyFrenchTypography(description);
 const TITLE_BRAND = "Nicolas Devaux";
 const pageTitle =
-  formattedTitle === "Psychologue à Sceaux"
-    ? "Psychologue à Sceaux | Nicolas Devaux"
+  formattedTitle === "Psychologue Ã  Sceaux"
+    ? "Psychologue Ã  Sceaux | Nicolas Devaux"
     : formattedTitle.includes(SITE_NAME) || formattedTitle.includes(TITLE_BRAND)
       ? formattedTitle
       : `${formattedTitle} | ${TITLE_BRAND}`;
@@ -33,6 +33,206 @@ const OG_RW = 1200;
 const OG_RH = 630;
 const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+      name: "Cabinet de psychologie â€” Nicolas Devaux",
+      legalName: "Nicolas Devaux â€” EI",
+      taxID: "75103269900033",
+      url: "https://nicolas-devaux-psychologue.fr",
+      telephone: "+33629341367",
+      email: CONTACT_EMAIL,
+      logo: {
+        "@type": "ImageObject",
+        url: "https://nicolas-devaux-psychologue.fr/logo-300.jpg",
+      },
+      image: {
+        "@type": "ImageObject",
+        url: "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg",
+        caption: "Cabinet de psychologie â€” Nicolas Devaux",
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "63 rue Houdan",
+        addressLocality: "Sceaux",
+        postalCode: "92330",
+        addressRegion: "ÃŽle-de-France",
+        addressCountry: "FR",
+      },
+      geo: { "@type": "GeoCoordinates", latitude: 48.7764, longitude: 2.2903 },
+      hasMap: "https://www.google.com/maps/search/?api=1&query=63%20rue%20Houdan%2C%2092330%20Sceaux",
+      openingHoursSpecification: OPENING_HOURS_SCHEMA,
+      priceRange: "â‚¬â‚¬",
+      areaServed: [
+        { "@type": "City", name: "Sceaux" },
+        { "@type": "City", name: "Bourg-la-Reine" },
+        { "@type": "City", name: "Fontenay-aux-Roses" },
+        { "@type": "City", name: "ChÃ¢tenay-Malabry" },
+        { "@type": "City", name: "Le Plessis-Robinson" },
+        { "@type": "City", name: "Antony" },
+        { "@type": "City", name: "Bagneux" },
+        { "@type": "City", name: "Cachan" },
+        { "@type": "City", name: "Fresnes" },
+        { "@type": "City", name: "L'HaÃ¿-les-Roses" },
+        { "@type": "AdministrativeArea", name: "Hauts-de-Seine" },
+        { "@type": "AdministrativeArea", name: "Val-de-Marne" },
+        { "@type": "AdministrativeArea", name: "ÃŽle-de-France" },
+      ],
+      knowsAbout: [
+        "ThÃ©rapie EMDR-MOSAIC (Mouvements Oculaires et Stimulations AlternÃ©es pour l'IntÃ©gration CÃ©rÃ©brale)",
+        "ThÃ©rapie cognitive et comportementale (TCC)",
+        "ThÃ©rapie d'acceptation et d'engagement (ACT)",
+        "Pleine conscience (MBCT, MBSR)",
+        "Psychologie clinique",
+        "ThÃ©rapie de couple",
+        "Psychologie de l'adolescent",
+        "Gestion de l'anxiÃ©tÃ©",
+        "DÃ©pression",
+        "Stress post-traumatique",
+        "Troubles du comportement",
+        "DifficultÃ©s relationnelles",
+      ],
+      employee: {
+        "@type": "Person",
+        "@id": "https://nicolas-devaux-psychologue.fr/#nicolas",
+        name: "Nicolas Devaux",
+        jobTitle: "Psychologue clinicien",
+        identifier: {
+          "@type": "PropertyValue",
+          propertyID: "RPPS",
+          value: "10008482910",
+        },
+        knowsLanguage: [
+          { "@type": "Language", name: "FranÃ§ais", alternateName: "fr-FR" },
+          { "@type": "Language", name: "Anglais", alternateName: "en-GB" },
+        ],
+      },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "Prise de rendez-vous en ligne",
+          url: "https://www.doctolib.fr/psychologue/nicolas-devaux",
+          availableLanguage: ["fr-FR", "en-GB"],
+          hoursAvailable: OPENING_HOURS_SCHEMA[0],
+        },
+        {
+          "@type": "ContactPoint",
+          contactType: "Renseignements",
+          telephone: "+33629341367",
+          availableLanguage: ["fr-FR", "en-GB"],
+        },
+      ],
+      sameAs: [
+        "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
+        "https://www.linkedin.com/in/nicodev3/",
+      ],
+      makesOffer: [
+        {
+          "@type": "AggregateOffer",
+          name: "Consultations de psychothÃ©rapie (fourchette tarifaire)",
+          priceCurrency: "EUR",
+          lowPrice: 30,
+          highPrice: 110,
+          offerCount: 4,
+          url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+          itemOffered: {
+            "@type": "Service",
+            name: "Consultations de psychothÃ©rapie",
+            serviceType: "Psychologie clinique et psychothÃ©rapie",
+            provider: { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "Consultation individuelle en cabinet",
+          price: 80,
+          priceCurrency: "EUR",
+          url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+          availability: "https://schema.org/InStock",
+          itemOffered: {
+            "@type": "Service",
+            name: "PsychothÃ©rapie individuelle",
+            serviceType: "PsychothÃ©rapie",
+            audience: { "@type": "PeopleAudience", suggestedMinAge: 12, suggestedMaxAge: 99 },
+            provider: { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "SÃ©ance EMDR-MOSAIC",
+          price: 90,
+          priceCurrency: "EUR",
+          url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+          availability: "https://schema.org/InStock",
+          itemOffered: {
+            "@type": "Service",
+            name: "ThÃ©rapie EMDR-MOSAIC",
+            serviceType: "PsychothÃ©rapie",
+            audience: { "@type": "PeopleAudience", suggestedMinAge: 18 },
+            provider: { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "ThÃ©rapie de couple",
+          price: 110,
+          priceCurrency: "EUR",
+          url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+          availability: "https://schema.org/InStock",
+          itemOffered: {
+            "@type": "Service",
+            name: "ThÃ©rapie de couple",
+            serviceType: "Counseling",
+            audience: { "@type": "PeopleAudience", audienceType: "Couples" },
+            provider: { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "Consultation en visioconfÃ©rence",
+          price: 80,
+          priceCurrency: "EUR",
+          url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+          availability: "https://schema.org/InStock",
+          itemOffered: {
+            "@type": "Service",
+            name: "TÃ©lÃ©consultation psychologique",
+            serviceType: "TÃ©lÃ©consultation",
+            audience: { "@type": "PeopleAudience", suggestedMinAge: 12 },
+            provider: { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "Participation aux groupes (8 sessions)",
+          price: 30,
+          priceCurrency: "EUR",
+          url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+          availability: "https://schema.org/InStock",
+          itemOffered: {
+            "@type": "Service",
+            name: "Participation aux groupes",
+            serviceType: "PsychothÃ©rapie de groupe",
+            audience: { "@type": "PeopleAudience", suggestedMinAge: 18 },
+            provider: { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
+          },
+        },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nicolas-devaux-psychologue.fr/#website",
+      url: "https://nicolas-devaux-psychologue.fr",
+      name: "Nicolas Devaux - Psychologue Ã  Sceaux",
+      description: "Site officiel du cabinet de psychologie de Nicolas Devaux (TCC, ACT, pleine conscience).",
+      publisher: { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
+      inLanguage: ["fr-FR", "en-GB"],
+    },
+  ],
+};
 ---
 
 <!-- Global Metadata -->
@@ -41,7 +241,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Polices : Inter Variable (axe opsz) et Source Serif 4 Variable via CSS bundlé -->
+<!-- Polices : Inter Variable (axe opsz) et Source Serif 4 Variable via CSS bundlÃ© -->
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -70,209 +270,7 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 <!-- Schema.org (prod). hasMap = GOOGLE_MAPS_CABINET_URL dans consts.ts (script is:inline). -->
 {import.meta.env.PROD && (
 <!--email_off-->
-<script type="application/ld+json" is:inline define:vars={{ contactEmail: CONTACT_EMAIL, openingHoursSpecification: OPENING_HOURS_SCHEMA }}>
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["LocalBusiness","ProfessionalService"],
-      "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
-      "name": "Cabinet de psychologie — Nicolas Devaux",
-      "legalName": "Nicolas Devaux — EI",
-      "taxID": "75103269900033",
-      "url": "https://nicolas-devaux-psychologue.fr",
-      "telephone": "+33629341367",
-      "email": contactEmail,
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://nicolas-devaux-psychologue.fr/logo-300.jpg"
-      },
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg",
-        "caption": "Cabinet de psychologie — Nicolas Devaux"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "63 rue Houdan",
-        "addressLocality": "Sceaux",
-        "postalCode": "92330",
-        "addressRegion": "Île-de-France",
-        "addressCountry": "FR"
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": 48.7764, "longitude": 2.2903 },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=63%20rue%20Houdan%2C%2092330%20Sceaux",
-      "openingHoursSpecification": openingHoursSpecification,
-      "priceRange": "€€",
-      "areaServed": [
-        { "@type": "City", "name": "Sceaux" },
-        { "@type": "City", "name": "Bourg-la-Reine" },
-        { "@type": "City", "name": "Fontenay-aux-Roses" },
-        { "@type": "City", "name": "Châtenay-Malabry" },
-        { "@type": "City", "name": "Le Plessis-Robinson" },
-        { "@type": "City", "name": "Antony" },
-        { "@type": "City", "name": "Bagneux" },
-        { "@type": "City", "name": "Cachan" },
-        { "@type": "City", "name": "Fresnes" },
-        { "@type": "City", "name": "L'Haÿ-les-Roses" },
-        { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" },
-        { "@type": "AdministrativeArea", "name": "Val-de-Marne" },
-        { "@type": "AdministrativeArea", "name": "Île-de-France" }
-      ],
-      "knowsAbout": [
-        "Thérapie EMDR-MOSAIC (Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale)",
-        "Thérapie cognitive et comportementale (TCC)",
-        "Thérapie d'acceptation et d'engagement (ACT)",
-        "Pleine conscience (MBCT, MBSR)",
-        "Psychologie clinique",
-        "Thérapie de couple",
-        "Psychologie de l'adolescent",
-        "Gestion de l'anxiété",
-        "Dépression",
-        "Stress post-traumatique",
-        "Troubles du comportement",
-        "Difficultés relationnelles"
-      ],
-      "employee": {
-        "@type": "Person",
-        "@id": "https://nicolas-devaux-psychologue.fr/#nicolas",
-        "name": "Nicolas Devaux",
-        "jobTitle": "Psychologue clinicien",
-        "identifier": {
-          "@type": "PropertyValue",
-          "propertyID": "RPPS",
-          "value": "10008482910"
-        },
-        "knowsLanguage": [
-          { "@type": "Language", "name": "Français", "alternateName": "fr-FR" },
-          { "@type": "Language", "name": "Anglais", "alternateName": "en-GB" }
-        ]
-      },
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "Prise de rendez-vous en ligne",
-          "url": "https://www.doctolib.fr/psychologue/nicolas-devaux",
-          "availableLanguage": ["fr-FR","en-GB"],
-          "hoursAvailable": openingHoursSpecification[0],
-        },
-        {
-          "@type": "ContactPoint",
-          "contactType": "Renseignements",
-          "telephone": "+33629341367",
-          "availableLanguage": ["fr-FR","en-GB"]
-        }
-      ],
-      "sameAs": [
-        "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
-        "https://www.linkedin.com/in/nicodev3/"
-      ],
-      "makesOffer": [
-        {
-          "@type": "AggregateOffer",
-          "name": "Consultations de psychothérapie (fourchette tarifaire)",
-          "priceCurrency": "EUR",
-          "lowPrice": 30,
-          "highPrice": 110,
-          "offerCount": 4,
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Consultations de psychothérapie",
-            "serviceType": "Psychologie clinique et psychothérapie",
-            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "Consultation individuelle en cabinet",
-          "price": 80,
-          "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
-          "availability": "https://schema.org/InStock",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Psychothérapie individuelle",
-            "serviceType": "Psychothérapie",
-            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 12, "suggestedMaxAge": 99 },
-            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "Séance EMDR-MOSAIC",
-          "price": 90,
-          "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
-          "availability": "https://schema.org/InStock",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Thérapie EMDR-MOSAIC",
-            "serviceType": "Psychothérapie",
-            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 18 },
-            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "Thérapie de couple",
-          "price": 110,
-          "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
-          "availability": "https://schema.org/InStock",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Thérapie de couple",
-            "serviceType": "Counseling",
-            "audience": { "@type": "PeopleAudience", "audienceType": "Couples" },
-            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "Consultation en visioconférence",
-          "price": 80,
-          "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
-          "availability": "https://schema.org/InStock",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Téléconsultation psychologique",
-            "serviceType": "Téléconsultation",
-            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 12 },
-            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "Participation aux groupes (8 sessions)",
-          "price": 30,
-          "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
-          "availability": "https://schema.org/InStock",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Participation aux groupes",
-            "serviceType": "Psychothérapie de groupe",
-            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 18 },
-            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
-          }
-        }
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://nicolas-devaux-psychologue.fr/#website",
-      "url": "https://nicolas-devaux-psychologue.fr",
-      "name": "Nicolas Devaux - Psychologue à Sceaux",
-      "description": "Site officiel du cabinet de psychologie de Nicolas Devaux (TCC, ACT, pleine conscience).",
-      "publisher": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" },
-      "inLanguage": ["fr-FR","en-GB"]
-    }
-  ]
-}
-
-</script>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 <!--/email_off-->
 )}
 
