@@ -1,6 +1,6 @@
 ---
 title: "Pourquoi suis-je fatigué malgré 8 heures au lit ?"
-seoTitle: "Fatigue au réveil malgré 8 heures au lit : pourquoi et que faire ?"
+seoTitle: "Fatigue au réveil : pourquoi malgré 8 heures au lit ?"
 description: "Fatigue au réveil malgré 8 heures passées au lit ? Découvrez les vraies causes : réveils nocturnes, ruminations, hyperéveil et efficacité du sommeil."
 pubDate: "Jun 15 2026"
 heroImage: "../../assets/blog/fatigue-matinale.webp"

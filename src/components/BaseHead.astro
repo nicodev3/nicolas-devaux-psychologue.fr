@@ -20,8 +20,8 @@ const formattedTitle = applyFrenchTypography(title);
 const formattedDescription = applyFrenchTypography(description);
 const TITLE_BRAND = "Nicolas Devaux";
 const pageTitle =
-  formattedTitle === "Psychologue Ã  Sceaux"
-    ? "Psychologue Ã  Sceaux | Nicolas Devaux"
+  formattedTitle === "Psychologue à Sceaux"
+    ? "Psychologue à Sceaux | Nicolas Devaux"
     : formattedTitle.includes(SITE_NAME) || formattedTitle.includes(TITLE_BRAND)
       ? formattedTitle
       : `${formattedTitle} | ${TITLE_BRAND}`;

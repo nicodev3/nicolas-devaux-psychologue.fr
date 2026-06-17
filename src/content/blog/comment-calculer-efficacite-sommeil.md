@@ -1,6 +1,6 @@
 ---
 title: "Comment calculer son efficacité du sommeil ?"
-seoTitle: "Comment calculer son efficacité du sommeil ? | Psychologue"
+seoTitle: "Comment calculer son efficacité du sommeil ?"
 description: "Découvrez la formule de l’efficacité du sommeil, des exemples concrets et l’intérêt de cet indicateur en TCC-I pour mieux comprendre l’insomnie."
 pubDate: "Jun 15 2026"
 heroImage: "../../assets/blog/calcul-sommeil.webp"

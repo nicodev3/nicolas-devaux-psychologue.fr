@@ -1,7 +1,7 @@
 ---
 title: "Thérapie brève : une approche centrée sur le changement"
 seoTitle: "Thérapie brève : changer | Nicolas Devaux"
-description: "La thérapie brève n'est pas une thérapie au rabais. Définition, courants, déroulement, tarifs et cadre légal d'une approche pragmatique et validée par la recherche."
+description: "La thérapie brève : définition, courants, déroulement et cadre d'une approche pragmatique appuyée sur la recherche."
 pubDate: "Jun 8 2026"
 heroImage: "../../assets/blog/therapie-breve.webp"
 tags: ["therapies"]

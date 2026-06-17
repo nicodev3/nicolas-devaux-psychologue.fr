@@ -1,41 +1,36 @@
-/** Espace fine insécable (typographie française). */
-export const FINE_NBSP = '\u202F';
+export const FINE_NBSP = "\u202F";
+const EM_DASH = "\u2014";
+const ELLIPSIS = "\u2026";
+const OPEN_GUILLEMET = "\u00AB";
+const CLOSE_GUILLEMET = "\u00BB";
 
-/**
- * Applique les règles typographiques françaises usuelles au texte courant.
- * @param {string | null | undefined} input
- * @returns {string}
- */
 export function applyFrenchTypography(input) {
-  if (!input) return '';
+  if (!input) return "";
 
-  let s = input;
+  let s = String(input);
 
-  // Apostrophes : pas d'espace avant ni après (l', d', n'…).
-  s = s.replace(/([A-Za-zÀ-ÖØ-öø-ÿ]) '/g, "$1'");
-  s = s.replace(/' (?=[a-zàâäéèêëïîôùûüç])/gi, "'");
+  s = s.replace(/([\p{L}]) '/gu, "$1'");
+  s = s.replace(/' (?=[\p{L}])/gu, "'");
 
-  // Tiret cadratin : blancs de part et d'autre.
-  s = s.replace(/\s*—\s*/g, ' — ');
+  const emDashPattern = new RegExp(`\\s*${EM_DASH}\\s*`, "g");
+  s = s.replace(emDashPattern, ` ${EM_DASH} `);
 
-  // : ; ? ! — espace fine insécable avant, blanc normal après.
-  s = s.replace(/[\s\u00A0]+([:;?!])/g, `${FINE_NBSP}$1`);
-  s = s.replace(/([A-Za-zÀ-ÖØ-öø-ÿ0-9])([:;?!])/g, `$1${FINE_NBSP}$2`);
-  s = s.replace(/([:;?!])(?![\s\u202F\u00A0])(?=\S)/g, '$1 ');
+  s = s.replace(/[\s\u00A0]+([:;?!])/gu, `${FINE_NBSP}$1`);
+  s = s.replace(/([\p{L}0-9])([:;?!])/gu, `$1${FINE_NBSP}$2`);
+  s = s.replace(/([:;?!])(?![\s\u202F\u00A0])(?=\S)/gu, "$1 ");
 
-  // Point et virgule : blanc après (nouvelle proposition).
-  s = s.replace(/([.,])(?![\s\u202F\u00A0])(?=[A-Za-zÀ-ÖØ-öø-ÿ])/g, '$1 ');
+  s = s.replace(/([.,])(?![\s\u202F\u00A0])(?=[\p{L}])/gu, "$1 ");
 
-  // Guillemets français.
-  s = s.replace(/(\S)(«)/g, '$1 $2');
-  s = s.replace(/(»)(?![\s\u202F\u00A0:;,.)?!])(?=\S)/g, '$1 ');
+  const openGuillemetPattern = new RegExp(`(\\S)(${OPEN_GUILLEMET})`, "g");
+  const closeGuillemetPattern = new RegExp(`(${CLOSE_GUILLEMET})(?![\\s\\u202F\\u00A0:;,.?!])(?=\\S)`, "g");
+  s = s.replace(openGuillemetPattern, "$1 $2");
+  s = s.replace(closeGuillemetPattern, "$1 ");
 
-  // Parenthèses et crochets.
-  s = s.replace(/(\S)([([])/g, '$1 $2');
-  s = s.replace(/([)\]])(?![\s\u202F\u00A0:;,.)?!])(?=\S)/g, '$1 ');
+  s = s.replace(/(\S)([([])/g, "$1 $2");
+  s = s.replace(/([)\]])(?![\s\u202F\u00A0:;,.?!])(?=\S)/g, "$1 ");
 
-  // Points de suspension.
-  s = s.replace(/(\.{3}|…)(?![\s\u202F\u00A0])(?=\S)/g, '$1 ');
+  const ellipsisPattern = new RegExp(`(\\.{3}|${ELLIPSIS})(?![\\s\\u202F\\u00A0])(?=\\S)`, "g");
+  s = s.replace(ellipsisPattern, "$1 ");
 
   return s;
 }

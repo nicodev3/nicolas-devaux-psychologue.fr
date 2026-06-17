@@ -1,6 +1,6 @@
 ---
 title: 'La thérapie centrée sur les émotions (TCE)'
-description: 'La thérapie centrée sur les émotions (Greenberg) : comprendre ce que l''on ressent, transformer ce qui bloque, et retrouver une relation plus juste à ses émotions.'
+description: 'La thérapie centrée sur les émotions (Greenberg) : comprendre, transformer et mieux vivre ses émotions.'
 pubDate: 'Sept 1 2025'
 heroImage: '../../assets/blog/tce.webp'
 tags: ["therapies"]
