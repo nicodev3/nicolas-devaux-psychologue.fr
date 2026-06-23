@@ -5,12 +5,21 @@ interface Props {
   title: string;
   description: string;
   pubDate: Date;
+  updatedDate?: Date;
   slug: string;
   author?: string;
   heroImage?: ImageMetadata;
 }
 
-const { title, description, pubDate, slug, author = "Nicolas Devaux", heroImage } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  slug,
+  author = "Nicolas Devaux",
+  heroImage,
+} = Astro.props;
 const url = new URL(`/blog/${slug}/`, Astro.site);
 const image = heroImage
   ? {
@@ -27,9 +36,12 @@ const blogJsonLd = {
   "headline": title,
   "description": description,
   "url": url.toString(),
-  ...(image ? { image } : {}),
+  "image": image ?? {
+    "@type": "ImageObject",
+    "url": "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg",
+  },
   "datePublished": pubDate.toISOString(),
-  "dateModified": pubDate.toISOString(),
+  "dateModified": (updatedDate ?? pubDate).toISOString(),
   "author": {
     "@type": "Person",
     "@id": "https://nicolas-devaux-psychologue.fr/#nicolas",
@@ -41,10 +53,6 @@ const blogJsonLd = {
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": url.toString(),
-  },
-  image: {
-    "@type": "ImageObject",
-    url: "https://nicolas-devaux-psychologue.fr/nicolas_devaux.jpg",
   },
   inLanguage: "fr-FR",
 };

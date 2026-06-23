@@ -61,7 +61,16 @@ const articleKicker =
 <html lang="fr">
   <head>
     <BaseHead title={seoTitle ?? title} description={description} />
-    {blogPost && <BlogSchema title={title} description={description} pubDate={pubDate} slug={slug} heroImage={heroImage} />}
+    {blogPost && (
+      <BlogSchema
+        title={title}
+        description={description}
+        pubDate={pubDate}
+        updatedDate={updatedDate}
+        slug={slug}
+        heroImage={heroImage}
+      />
+    )}
   </head>
 
   <body class="bg-surface-page">
