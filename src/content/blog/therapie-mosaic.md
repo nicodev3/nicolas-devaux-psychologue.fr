@@ -89,4 +89,4 @@ Le nom d'une technique ne remplace ni l'évaluation clinique, ni l'alliance thé
 
 MOSAIC et EMDR partagent l'usage des stimulations bilatérales, mais elles se différencient surtout par la cible du travail. L'EMDR s'organise habituellement autour du retraitement d'un souvenir traumatique. MOSAIC met en avant l'expérience corporelle désirée et les ressources que la personne cherche à retrouver.
 
-Pour connaître concrètement le cadre, les indications et les modalités proposées au cabinet, consultez la page [thérapie EMDR-MOSAIC à Sceaux](/therapie-mosaic/). Le choix d'une approche se décide ensuite à partir de votre situation, et non à partir d'un comparatif général lu en ligne.
+Pour connaître concrètement le cadre, les indications et les modalités proposées au cabinet, consultez la page [thérapie MOSAIC à Sceaux](/therapie-mosaic/). Le choix d'une approche se décide ensuite à partir de votre situation, et non à partir d'un comparatif général lu en ligne.
