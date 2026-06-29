@@ -4,7 +4,7 @@ import { buttonClasses } from './ui/button';
 
 const LINKS = [
   { href: '/psychotherapie/', label: "Vue d'ensemble" },
-  { href: '/therapie-mosaic/', label: 'Thérapie EMDR-MOSAIC' },
+  { href: '/therapie-mosaic/', label: 'Thérapie MOSAIC' },
   { href: '/therapie-couple/', label: 'Thérapie de couple' },
   { href: '/psychologue-en-ligne/', label: 'Consultations en ligne' },
   { href: '/tcc-troisieme-vague/', label: 'TCC de 3e vague' },

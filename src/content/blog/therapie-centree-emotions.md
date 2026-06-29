@@ -37,6 +37,6 @@ Ce n'est pas une méthode à appliquer mécaniquement. Je l'intègre dans un cad
 
 En cabinet à Sceaux, j'ai recours à la TCE surtout quand la personne sait *intellectuellement* ce qui ne va pas, mais reste prise dans la même réaction émotionnelle. Le travail consiste alors à faire une expérience nouvelle — dans le corps, dans l'émotion — plutôt qu'à ajouter une couche d'analyse.
 
-Si les émotions difficiles restent fortement liées à des souvenirs douloureux non intégrés, la [thérapie EMDR-MOSAIC](/therapie-mosaic/) peut constituer un complément pertinent. Lors du premier entretien, nous clarifions ensemble ce qui semble le plus adapté à votre situation.
+Si les émotions difficiles restent fortement liées à des souvenirs douloureux non intégrés, la [thérapie MOSAIC](/therapie-mosaic/) peut constituer un complément pertinent. Lors du premier entretien, nous clarifions ensemble ce qui semble le plus adapté à votre situation.
 
 Pour en savoir plus sur le cadre des consultations, consultez la page [Consulter](/consulter/) ou la [thérapie de couple](/therapie-couple/) si votre demande concerne la relation.

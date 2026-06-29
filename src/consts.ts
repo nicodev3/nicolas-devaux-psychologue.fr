@@ -3,7 +3,7 @@
 
 export const SITE_NAME = "Nicolas Devaux, psychologue à Sceaux";
 export const SITE_TITLE =
-  "Psychologue TCC et EMDR-MOSAIC à Sceaux | Nicolas Devaux";
+  "Psychologue TCC et thérapie MOSAIC à Sceaux | Nicolas Devaux";
 
 /** Adresse complète du cabinet (une ligne). */
 export const CABINET_ADDRESS_LINE = "63 rue Houdan, 92330 Sceaux";
@@ -30,7 +30,7 @@ export const NEARBY_CITIES =
 export const SERVED_CITIES_LABEL =
   "Sceaux, Le Plessis-Robinson, Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses, Bagneux, Cachan et L'Haÿ-les-Roses";
 
-export const SITE_DESCRIPTION = `Psychologue clinicien à Sceaux : TCC, EMDR-MOSAIC et thérapie de couple, au cabinet ou en ligne. Rendez-vous sur Doctolib.`;
+export const SITE_DESCRIPTION = `Psychologue clinicien à Sceaux : TCC, thérapie MOSAIC et thérapie de couple, au cabinet ou en ligne. Rendez-vous sur Doctolib.`;
 
 /** URL unique « Prendre rendez-vous » Doctolib (tracking campaign conservée). */
 export const DOCTOLIB_BOOKING_URL =
