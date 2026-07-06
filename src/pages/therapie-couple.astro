@@ -13,10 +13,10 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Combien coûte une consultation de couple ?",
+      name: "Quel est le prix moyen d'une thérapie de couple ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Une consultation de couple dure 1 heure et coûte 110 €. Le détail des tarifs et des modalités de paiement est disponible sur la page Tarifs du site.",
+        text: "Au cabinet, une consultation de couple dure 1 heure et coûte 110 €. Les tarifs varient selon les praticiens, la durée des séances et le cadre proposé. Le détail des tarifs et des modalités de paiement est disponible sur la page Tarifs du site.",
       },
     },
     {
@@ -29,10 +29,18 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "La thérapie de couple peut-elle aider même si la rupture est envisagée ?",
+      name: "Est-ce qu'une thérapie de couple peut sauver un couple ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Oui. La thérapie de couple peut aussi aider à prendre une décision éclairée, à traverser une séparation de façon moins destructrice, ou à comprendre ce qui s'est passé pour ne pas répéter les mêmes schémas.",
+        text: "Une thérapie de couple peut aider à restaurer le dialogue, à comprendre les cycles de conflit et à prendre des décisions plus claires. Elle ne garantit pas une issue unique : elle peut soutenir une reprise du lien ou accompagner une séparation moins destructrice.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quels sont les piliers d'une thérapie de couple ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Le travail repose notamment sur la sécurité du cadre, l'écoute des deux partenaires, l'identification des cycles relationnels, la mise en mots des émotions et des besoins, puis des changements concrets dans la manière de se répondre.",
       },
     },
     {
@@ -62,6 +70,48 @@ const faqSchema = {
   ],
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://nicolas-devaux-psychologue.fr/therapie-couple/#service",
+  name: "Thérapie de couple à Sceaux",
+  serviceType: "Thérapie de couple",
+  description:
+    "Consultations de thérapie de couple à Sceaux ou en visioconférence : conflits, crise relationnelle, perte de dialogue, séparation envisagée et difficultés de communication.",
+  url: "https://nicolas-devaux-psychologue.fr/therapie-couple/",
+  provider: {
+    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+  },
+  areaServed: [
+    { "@type": "City", name: "Sceaux" },
+    { "@type": "City", name: "Antony" },
+    { "@type": "City", name: "Bourg-la-Reine" },
+    { "@type": "City", name: "Châtenay-Malabry" },
+    { "@type": "City", name: "Fontenay-aux-Roses" },
+    { "@type": "AdministrativeArea", name: "Hauts-de-Seine" },
+  ],
+  offers: {
+    "@type": "Offer",
+    name: "Consultation de couple",
+    price: 110,
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+  },
+  availableChannel: [
+    {
+      "@type": "ServiceChannel",
+      serviceUrl: "https://nicolas-devaux-psychologue.fr/psychologue-sceaux/",
+      name: "Consultation au cabinet de Sceaux",
+    },
+    {
+      "@type": "ServiceChannel",
+      serviceUrl: "https://nicolas-devaux-psychologue.fr/psychologue-en-ligne/",
+      name: "Consultation de couple en visioconférence",
+    },
+  ],
+};
+
 const coupleCtaPrimary = buttonClasses({
   variant: "primary",
   size: "lg",
@@ -82,7 +132,10 @@ const coupleCtaSecondary = buttonClasses({
   blogPost={false}
 >
   {isProd && (
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <>
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    </>
   )}
   <section class="flex flex-col gap-8 xl:gap-10">
     <div>
@@ -91,6 +144,11 @@ const coupleCtaSecondary = buttonClasses({
       </p>
       <p>
         L'approche thérapeutique que je propose s'appuie sur trois cadres complémentaires : l'<strong>approche psychodynamique</strong>, la <strong>thérapie d'acceptation et d'engagement (ACT)</strong> et la <strong>thérapie intégrative comportementale de couple (IBCT)</strong>. Ces trois piliers permettent d'explorer les racines des difficultés, de développer des outils concrets et de travailler à une relation plus authentique.
+      </p>
+      <p>
+        Si vous cherchez une <strong>thérapie de couple à Sceaux</strong>, cette page présente le cadre
+        proposé au cabinet : motifs de consultation, durée des séances, tarif, déroulement et possibilité de
+        visioconférence lorsque le contexte s'y prête.
       </p>
       <div class="my-8">
         <Picture
@@ -199,10 +257,11 @@ const coupleCtaSecondary = buttonClasses({
     <div>
       <SectionHeading class="mb-5" eyebrow="07 — FAQ" title="Questions fréquentes" />
 
-      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Combien coûte une consultation de couple ?</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Quel est le prix moyen d'une thérapie de couple ?</h3>
       <p class="mb-6">
-        Une consultation de couple dure 1 heure et coûte 110 €. Le détail des tarifs et
-        des modalités de paiement est disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
+        Au cabinet, une consultation de couple dure 1 heure et coûte 110 €. Les tarifs varient selon les
+        praticiens, la durée des séances et le cadre proposé. Le détail des tarifs et des modalités de
+        paiement est disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
       </p>
 
       <h3 class="font-display typo-display-md mb-3 text-ink-primary">Faut-il que les deux partenaires soient d'accord pour commencer ?</h3>
@@ -210,9 +269,27 @@ const coupleCtaSecondary = buttonClasses({
         Idéalement oui, car la thérapie de couple nécessite l'engagement des deux partenaires. Cependant, il arrive qu'un seul soit demandeur au départ. Dans ce cas, un entretien individuel préalable peut permettre de clarifier la demande et d'évaluer si une thérapie de couple est pertinente, ou si une thérapie individuelle est plus adaptée dans un premier temps.
       </p>
 
-      <h3 class="font-display typo-display-md mb-3 text-ink-primary">La thérapie de couple peut-elle aider même si la rupture est envisagée ?</h3>
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Est-ce qu'une thérapie de couple peut sauver un couple ?</h3>
       <p class="mb-6">
-        Oui. La thérapie de couple n'a pas pour unique objectif de « sauver » la relation. Elle peut aussi aider un couple à prendre une décision éclairée, à traverser une séparation de façon moins destructrice, ou à comprendre ce qui s'est passé pour ne pas répéter les mêmes schémas dans une relation future.
+        Elle peut aider à restaurer le dialogue, à comprendre les cycles de conflit et à reprendre des
+        décisions plus claires. En revanche, elle ne garantit pas une issue unique. Le travail peut soutenir
+        une reprise du lien, mais aussi accompagner une séparation moins destructrice lorsque c'est la
+        direction qui se dessine.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Quels sont les piliers d'une thérapie de couple ?</h3>
+      <p class="mb-6">
+        Le travail repose d'abord sur un cadre suffisamment sûr pour que chacun puisse parler sans que la
+        séance reproduise simplement les disputes habituelles. On repère ensuite les cycles relationnels,
+        les émotions et les besoins qui les alimentent, puis les réponses concrètes qui peuvent être
+        expérimentées entre les séances.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Que penser de la règle des 3-6-9 en couple ?</h3>
+      <p class="mb-6">
+        Les règles générales peuvent donner des repères, mais elles ne remplacent pas l'analyse de la
+        situation du couple. En séance, le travail part de votre dynamique réelle : ce qui déclenche les
+        conflits, ce qui ferme le dialogue, ce qui reste vivant dans la relation et ce qui doit être clarifié.
       </p>
 
       <h3 class="font-display typo-display-md mb-3 text-ink-primary">Que se passe-t-il si l'un des partenaires a des secrets ?</h3>

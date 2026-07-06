@@ -1,8 +1,9 @@
 ---
 title: 'Thérapie de couple : quand consulter et comment se déroule l’accompagnement ?'
-seoTitle: 'Thérapie de couple : consulter | Nicolas Devaux'
+seoTitle: 'Thérapie de couple : quand consulter, prix et déroulement'
 description: 'Thérapie de couple à Sceaux : comprendre quand consulter, comment se passent les séances et quelles approches peuvent aider à sortir des conflits répétitifs.'
 pubDate: 'Aug 30 2025'
+updatedDate: 'Jul 06 2026'
 heroImage: '../../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp'
 tags: ["couple"]
 ---
@@ -10,6 +11,8 @@ tags: ["couple"]
 Il arrive qu’un couple ne sache plus très bien par quel bout prendre la difficulté. On parle, puis la discussion s’emballe. On se tait, mais le silence devient lourd. Chacun a parfois l’impression de faire des efforts, sans que l’autre les voie vraiment. C’est souvent dans ce type de moment qu’une [thérapie de couple](/therapie-couple/) peut devenir utile.
 
 Au cabinet, je ne cherche pas à désigner celui ou celle qui aurait tort. Le travail consiste plutôt à ralentir ce qui se passe entre les deux partenaires : les mots qui blessent, les attentes jamais dites, les protections qui ressemblent à du désintérêt, les tentatives de solution qui finissent par entretenir le problème. La séance devient un lieu tiers, suffisamment cadré pour que chacun puisse être entendu sans que l’échange reparte immédiatement dans le scénario habituel.
+
+Si votre recherche concerne une consultation concrète, la page [thérapie de couple à Sceaux](/therapie-couple/) détaille le cadre proposé au cabinet : durée des séances, tarif, déroulement, indications et prise de rendez-vous.
 
 ## À quoi sert une thérapie de couple ?
 
@@ -87,6 +90,14 @@ Oui, dans la plupart des cas. Des temps individuels peuvent être proposés ensu
 
 Oui, à condition que chacun accepte au moins d’explorer la situation. L’hésitation fait souvent partie du travail — elle peut être entendue sans devenir un reproche.
 
+### Combien coûte une thérapie de couple ?
+
+Au cabinet, une consultation de couple dure 1 heure et coûte 110 €. Les tarifs varient selon les praticiens, la durée des séances et le cadre proposé. Le détail est disponible sur la page [thérapie de couple à Sceaux](/therapie-couple/).
+
+### Est-ce qu’une thérapie de couple peut sauver un couple ?
+
+Elle peut aider à restaurer le dialogue, à comprendre les cycles de conflit et à prendre une décision plus claire. Elle ne garantit pas une issue unique : elle peut soutenir une reprise du lien ou accompagner une séparation moins destructrice.
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -122,6 +133,22 @@ Oui, à condition que chacun accepte au moins d’explorer la situation. L’hé
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Oui, à condition que chacun accepte au moins d'explorer la situation. L'hésitation fait souvent partie du travail et peut être entendue sans être transformée en reproche."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien coûte une thérapie de couple ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Au cabinet, une consultation de couple dure 1 heure et coûte 110 €. Les tarifs varient selon les praticiens, la durée des séances et le cadre proposé."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce qu'une thérapie de couple peut sauver un couple ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une thérapie de couple peut aider à restaurer le dialogue, à comprendre les cycles de conflit et à prendre une décision plus claire. Elle ne garantit pas une issue unique : elle peut soutenir une reprise du lien ou accompagner une séparation moins destructrice."
       }
     }
   ]
