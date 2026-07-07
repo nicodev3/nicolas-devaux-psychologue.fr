@@ -3,19 +3,92 @@ import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { Picture } from "astro:assets";
 import ActImage from "../assets/act-therapy.webp";
+import { buttonClasses } from "../components/ui/button";
+import { DOCTOLIB_BOOKING_URL } from "../consts";
+
+const isProd = import.meta.env.PROD;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qu'est-ce que la thérapie ACT ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La thérapie d'acceptation et d'engagement (ACT) est une approche des TCC de 3e vague qui vise à développer la flexibilité psychologique : accepter les émotions difficiles tout en agissant selon ses valeurs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Pour quelles difficultés la thérapie ACT est-elle indiquée ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "L'ACT est indiquée pour l'anxiété, la dépression, les TOC, les douleurs chroniques, le burn-out, les difficultés relationnelles et les comportements d'évitement.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Combien de séances dure une thérapie ACT ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Pour des difficultés ciblées, un travail de 8 à 15 séances est souvent suffisant. Pour des problématiques plus ancrées, le suivi peut s'étaler sur plusieurs mois.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "La thérapie ACT se fait-elle en visioconférence ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. Les séances individuelles en ACT peuvent être proposées en visioconférence au cabinet de Sceaux ou en ligne, selon votre situation.",
+      },
+    },
+  ],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://nicolas-devaux-psychologue.fr/therapie-acceptation-et-engagement/#service",
+  name: "Thérapie d'acceptation et d'engagement (ACT)",
+  serviceType: "Thérapie ACT",
+  description:
+    "Thérapie d'acceptation et d'engagement (ACT) à Sceaux ou en visio : anxiété, stress, évitement, burn-out et difficultés relationnelles.",
+  url: "https://nicolas-devaux-psychologue.fr/therapie-acceptation-et-engagement/",
+  provider: {
+    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+  },
+  areaServed: [
+    { "@type": "City", name: "Sceaux" },
+    { "@type": "AdministrativeArea", name: "Île-de-France" },
+  ],
+};
+
+const actCtaClasses = buttonClasses({
+  variant: "primary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
 ---
 
 <Layout
   title="Thérapie ACT à Sceaux"
-  description="La thérapie ACT aide à développer la flexibilité psychologique face à l'anxiété, au stress et à l'évitement. Approche proposée au cabinet à Sceaux."
+  seoTitle="Thérapie ACT à Sceaux | Acceptation et engagement | Nicolas Devaux"
+  description="Thérapie ACT (acceptation et engagement) à Sceaux ou en visio : anxiété, stress, évitement et burn-out. Approche validée scientifiquement. RDV sur Doctolib."
   pubDate={new Date("November 01 2024")}
   showDate={false}
   blogPost={false}
 >
+  {isProd && (
+    <>
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    </>
+  )}
   <section class="flex flex-col gap-8 xl:gap-10">
     <div>
       <p>
-        Vous avez parfois l'impression de lutter contre vous-même — tentant de faire taire une pensée anxieuse, de chasser une émotion douloureuse, de garder le contrôle à tout prix ? La thérapie d'acceptation et d'engagement (ACT) part d'un constat simple : cette lutte épuise, et elle entretient souvent les difficultés qu'on cherche à résoudre.
+        Vous avez parfois l'impression de lutter contre vous-même — tentant de faire taire une pensée anxieuse, de chasser une émotion douloureuse, de garder le contrôle à tout prix ? La <strong>thérapie d'acceptation et d'engagement (ACT)</strong>, souvent recherchée sous le nom de <strong>thérapie ACT</strong>, part d'un constat simple : cette lutte épuise, et elle entretient souvent les difficultés qu'on cherche à résoudre.
       </p>
       <p>
         Validée scientifiquement, l'ACT fait partie des <a href="/tcc-troisieme-vague/" class="text-link">TCC de 3e vague</a>, aux côtés de la <a href="/therapie-pleine-conscience/" class="text-link">MBCT</a> et de la <a href="/therapie-fondee-compassion/" class="text-link">thérapie fondée sur la compassion</a>. Elle est proposée au cabinet de psychologie de Sceaux dans le cadre de suivis individuels et, selon les situations, de <a href="/therapie-couple/" class="text-link">thérapies de couple</a>.
@@ -179,9 +252,29 @@ import ActImage from "../assets/act-therapy.webp";
       </p>
 
       <h3 class="font-display typo-display-md mb-3 text-ink-primary">Les séances peuvent-elles se faire en visioconférence ?</h3>
-      <p>
-        Oui. Les séances individuelles en ACT peuvent être proposées en visioconférence selon les situations. N'hésitez pas à aborder ce point lors du premier contact.
+      <p class="mb-6">
+        Oui. Les séances individuelles en ACT peuvent être proposées en visioconférence selon les situations.
+        Consultez la page <a href="/psychologue-en-ligne/" class="text-link">psychologue en ligne</a> pour le
+        cadre des consultations à distance.
       </p>
+    </div>
+
+    <div class="rounded-xl border border-border-strong bg-surface-muted p-6">
+      <SectionHeading class="mb-4" eyebrow="09 — Rendez-vous" title="Commencer une thérapie ACT à Sceaux" />
+      <p class="mb-4">
+        Si vous souhaitez explorer si la thérapie ACT correspond à votre situation, la prise de rendez-vous
+        se fait en ligne via Doctolib — au cabinet de Sceaux ou en visioconférence.
+      </p>
+      <a
+        href={DOCTOLIB_BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={actCtaClasses}
+        data-track-doctolib
+        data-track-location="Therapie ACT CTA"
+      >
+        Prendre rendez-vous
+      </a>
     </div>
 
     <div>

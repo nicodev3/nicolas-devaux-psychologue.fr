@@ -18,8 +18,9 @@ import {
 } from "../consts";
 
 const title = "Psychologue à Sceaux";
+const seoTitle = "Psychologue à Sceaux (92330) | Cabinet rue Houdan | Nicolas Devaux";
 const description =
-  "Psychologue à Sceaux : cabinet rue Houdan, proche RER Robinson. Adultes, adolescents et couples.";
+  "Psychologue à Sceaux et alentours (Plessis-Robinson, Antony, Bourg-la-Reine) : cabinet rue Houdan, RER Robinson. Adultes, couples, visio. RDV sur Doctolib.";
 
 const isProd = import.meta.env.PROD;
 
@@ -27,6 +28,22 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
+    {
+      "@type": "Question",
+      name: "Comment trouver un psychologue à Sceaux près du RER ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `Le cabinet de Nicolas Devaux est au ${CABINET_ADDRESS_LINE}, à quelques minutes à pied des gares RER B Robinson et Sceaux. La prise de rendez-vous se fait en ligne sur Doctolib.`,
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Y a-t-il un psychologue à Sceaux pour le Plessis-Robinson et les communes voisines ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `Oui. Le cabinet accueille des patients de Sceaux, du Plessis-Robinson, d'Antony, de Bourg-la-Reine et des Hauts-de-Seine voisins. Des consultations en visioconférence sont aussi proposées.`,
+      },
+    },
     {
       "@type": "Question",
       name: "Où se trouve le cabinet de psychologie à Sceaux ?",
@@ -169,7 +186,7 @@ const secondaryCtaClasses = buttonClasses({
 });
 ---
 
-<Layout title={title} description={description} pubDate={new Date("May 24 2026")} showDate={false}>
+<Layout title={title} seoTitle={seoTitle} description={description} pubDate={new Date("May 24 2026")} showDate={false}>
   <!--email_off-->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   <!--/email_off-->
@@ -322,7 +339,21 @@ const secondaryCtaClasses = buttonClasses({
     <section class="space-y-4">
       <SectionHeading eyebrow="06 — FAQ" title="Questions fréquentes" />
 
-      <h3 class="font-display typo-display-md text-ink-primary">Où se trouve le cabinet de psychologie à Sceaux ?</h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Comment trouver un psychologue à Sceaux près du RER ?</h3>
+      <p>
+        Le cabinet est au {CABINET_ADDRESS_LINE}, à quelques minutes à pied des gares RER B Robinson et
+        Sceaux. La prise de rendez-vous se fait en ligne sur Doctolib.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
+        Y a-t-il un psychologue à Sceaux pour le Plessis-Robinson et les communes voisines ?
+      </h3>
+      <p>
+        Oui. Le cabinet accueille des patients de Sceaux, du Plessis-Robinson, d'Antony, de Bourg-la-Reine
+        et des Hauts-de-Seine voisins. Des <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a> sont aussi proposées.
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Où se trouve le cabinet de psychologie à Sceaux ?</h3>
       <p>
         Le cabinet est situé au {CABINET_ADDRESS_LINE}, dans le centre-ville, à quelques minutes à pied des
         gares RER B Robinson et Sceaux. Le parking Penthièvre se trouve sur la même rue.

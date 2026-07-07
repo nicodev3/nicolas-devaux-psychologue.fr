@@ -7,7 +7,7 @@ import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
 const title = "Psychologue en ligne : consultations en visioconférence";
 const seoTitle = "Psychologue en ligne | Consultations en visio | Nicolas Devaux";
 const description =
-  "Consultations en ligne avec Nicolas Devaux : thérapie individuelle, difficultés relationnelles et couple en visioconférence.";
+  "Psychologue en ligne et à distance : consultations en visioconférence pour adultes et couples. Anxiété, stress, burn-out. Psychologue clinicien à Sceaux. RDV sur Doctolib.";
 
 const isProd = import.meta.env.PROD;
 const faqSchema = {
@@ -57,6 +57,37 @@ const faqSchema = {
   ],
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://nicolas-devaux-psychologue.fr/psychologue-en-ligne/#service",
+  name: "Consultation avec un psychologue en ligne",
+  serviceType: "Psychologue en visioconférence",
+  description:
+    "Consultations psychologiques en ligne par visioconférence : thérapie individuelle, couple, anxiété, stress et burn-out.",
+  url: "https://nicolas-devaux-psychologue.fr/psychologue-en-ligne/",
+  provider: {
+    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "France",
+  },
+  offers: {
+    "@type": "Offer",
+    name: "Consultation individuelle en visio",
+    price: 80,
+    priceCurrency: "EUR",
+    url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+    availability: "https://schema.org/InStock",
+  },
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceType: "Visioconférence sécurisée via Doctolib",
+    serviceUrl: "https://nicolas-devaux-psychologue.fr/psychologue-en-ligne/",
+  },
+};
+
 const primaryCtaClasses = buttonClasses({
   variant: "primary",
   size: "lg",
@@ -77,17 +108,21 @@ const secondaryCtaClasses = buttonClasses({
   showDate={false}
 >
   {isProd && (
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <>
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    </>
   )}
 
   <section class="flex flex-col gap-8 xl:gap-10">
     <header class="space-y-5">
       <p class="typo-eyebrow">Consultations en visioconférence</p>
       <p class="typo-body-lg text-ink-secondary">
-        Je propose des consultations psychologiques en ligne pour les personnes qui
+        Je propose des <strong>consultations avec un psychologue en ligne</strong> pour les personnes qui
         ne peuvent pas se déplacer au cabinet de Sceaux, qui vivent loin, ou qui
-        préfèrent simplement ce format. Le cadre est le même qu'au cabinet :
-        un travail clinique structuré, confidentiel et adapté à votre demande.
+        préfèrent simplement la <strong>visioconférence</strong>. Le cadre est le même qu'au cabinet :
+        un travail clinique structuré, confidentiel et adapté à votre demande — anxiété, stress,
+        burn-out, difficultés relationnelles ou <a href="/therapie-couple/" class="text-link">thérapie de couple en ligne</a>.
       </p>
       <div class="flex flex-col gap-3 sm:flex-row">
         <a

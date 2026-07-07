@@ -1,7 +1,7 @@
 ---
 title: "L'hypnothérapie : principes et applications thérapeutiques"
-seoTitle: "Hypnothérapie : principes | Nicolas Devaux"
-description: "Découvrez l'hypnothérapie, une approche thérapeutique naturelle qui utilise l'état hypnotique pour favoriser le changement et le bien-être psychologique."
+seoTitle: "Hypnothérapie : définition, indications et cadre thérapeutique"
+description: "Hypnothérapie : comprendre l'état hypnotique, les indications (anxiété, stress, douleurs) et le cadre thérapeutique. Article par Nicolas Devaux, psychologue à Sceaux."
 pubDate: "nov 23 2024"
 heroImage: '../../assets/blog/hypnotherapie_photorealiste.webp'
 tags: ["therapies"]
@@ -36,5 +36,7 @@ L’hypnose a des applications variées, allant du traitement des troubles psych
 L’hypnothérapie ne prétend pas « guérir » au sens classique du terme, mais elle aide les patients à modifier leur relation avec leurs symptômes, leur permettant de retrouver une certaine flexibilité psychologique. Cette capacité à « réécrire son existence » est souvent citée comme l’un des principaux atouts de cette pratique.
 
 En résumé, l’hypnothérapie est une méthode puissante et multidimensionnelle qui allie science, humanité et créativité pour aider les individus à explorer et transformer leur vécu. En plaçant la relation, la perception et le corps au centre de l’expérience, elle offre une approche unique et efficace pour de nombreuses problématiques.
+
+Si vous vous interrogez sur un accompagnement psychologique — en cabinet à Sceaux ou en [visioconférence](/psychologue-en-ligne/) —, vous pouvez consulter la page [Consulter](/consulter/) ou [prendre rendez-vous sur Doctolib](https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux).
 
 > Bass, H. et Bioy, A. (2021). Visibilité de l’hypnothérapie. Quelle place parmi les psychothérapies actuelles ? *Le Journal des psychologues*, n° 390(8), 40-45. [https://doi.org/10.3917/jdp.390.0040](https://doi.org/10.3917/jdp.390.0040).

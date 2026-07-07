@@ -269,9 +269,7 @@ const organizationSchema = {
 
 <!-- Schema.org (prod). hasMap = GOOGLE_MAPS_CABINET_URL dans consts.ts (script is:inline). -->
 {import.meta.env.PROD && (
-<!--email_off-->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-<!--/email_off-->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 )}
 
 {umamiId && umamiUrl && (

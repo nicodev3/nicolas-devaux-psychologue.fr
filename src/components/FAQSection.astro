@@ -380,9 +380,61 @@ const faqAccordionBtn = accordionDisclosureClasses("gap-3 !px-0 py-4");
       >
         <div class="pb-6 pt-0">
           <p class="text-gray-700 leading-relaxed">
-            Oui. Le cabinet est à Sceaux, à proximité de {NEARBY_CITIES}. Des
-            consultations en visioconférence sont également possibles si vous
-            préférez ne pas vous déplacer.
+            Oui. Le cabinet est à <a href="/psychologue-sceaux/" class="text-link">Sceaux (92330)</a>, à
+            proximité de {NEARBY_CITIES} et du Plessis-Robinson. Des consultations en visioconférence sont
+            également possibles si vous préférez ne pas vous déplacer — voir la page
+            <a href="/psychologue-en-ligne/" class="text-link">psychologue en ligne</a>.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="overflow-hidden">
+      <button
+        type="button"
+        @click="openId = openId === 'faq-8' ? null : 'faq-8'"
+        class={faqAccordionBtn}
+        :aria-expanded="openId === 'faq-8'"
+        aria-controls="faq-content-8"
+        id="faq-toggle-8"
+      >
+        <span class="min-w-0 flex-1 pr-3 text-left">
+          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
+            Où consulter un psychologue à Sceaux ?
+          </h3>
+        </span>
+        <svg
+          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
+          :class="openId === 'faq-8' && 'rotate-180'"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div
+        id="faq-content-8"
+        role="region"
+        aria-labelledby="faq-toggle-8"
+        x-show="openId === 'faq-8'"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+      >
+        <div class="pb-6 pt-0">
+          <p class="text-gray-700 leading-relaxed">
+            Le cabinet est au <strong>63 rue Houdan, 92330 Sceaux</strong>, proche des gares RER B
+            Robinson et Sceaux. Toutes les informations pratiques et la prise de rendez-vous sont sur la
+            page <a href="/psychologue-sceaux/" class="text-link">psychologue à Sceaux</a>.
           </p>
         </div>
       </div>

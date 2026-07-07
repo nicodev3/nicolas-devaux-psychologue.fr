@@ -1,7 +1,7 @@
 ---
 title: 'Thérapie de couple : quand consulter et comment se déroule l’accompagnement ?'
-seoTitle: 'Thérapie de couple : quand consulter, prix et déroulement'
-description: 'Thérapie de couple à Sceaux : comprendre quand consulter, comment se passent les séances et quelles approches peuvent aider à sortir des conflits répétitifs.'
+seoTitle: 'Quand consulter en thérapie de couple ?'
+description: 'Quand consulter en thérapie de couple ? Signes d’alerte, déroulement des séances et approches. Pour prendre RDV à Sceaux, voir la page thérapie de couple.'
 pubDate: 'Aug 30 2025'
 updatedDate: 'Jul 06 2026'
 heroImage: '../../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp'
