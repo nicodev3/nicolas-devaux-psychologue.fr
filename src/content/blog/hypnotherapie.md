@@ -35,7 +35,7 @@ L’hypnose a des applications variées, allant du traitement des troubles psych
 
 L’hypnothérapie ne prétend pas « guérir » au sens classique du terme, mais elle aide les patients à modifier leur relation avec leurs symptômes, leur permettant de retrouver une certaine flexibilité psychologique. Cette capacité à « réécrire son existence » est souvent citée comme l’un des principaux atouts de cette pratique.
 
-En résumé, l’hypnothérapie est une méthode puissante et multidimensionnelle qui allie science, humanité et créativité pour aider les individus à explorer et transformer leur vécu. En plaçant la relation, la perception et le corps au centre de l’expérience, elle offre une approche unique et efficace pour de nombreuses problématiques.
+En résumé, l’hypnothérapie est une méthode puissante et multidimensionnelle qui allie science, humanité et créativité pour aider les individus à explorer et transformer leur vécu. En plaçant la relation, la perception et le corps au centre de l’expérience, elle offre une approche unique et efficace pour de nombreuses problématiques. Elle se distingue des [techniques d'activation de la conscience (TAC)](/techniques-activation-conscience/) : l'hypnose repose sur un état modifié de conscience et des suggestions, tandis que les TAC mobilisent une activation émotionnelle consciente sans induction hypnotique. Pour approfondir, lisez l'article [TAC et hypnose : similitudes et différences](/blog/tac-et-hypnose-differences/).
 
 Si vous vous interrogez sur un accompagnement psychologique — en cabinet à Sceaux ou en [visioconférence](/psychologue-en-ligne/) —, vous pouvez consulter la page [Consulter](/consulter/) ou [prendre rendez-vous sur Doctolib](https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux).
 

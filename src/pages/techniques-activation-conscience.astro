@@ -1,0 +1,331 @@
+---
+import Layout from "../layouts/BlogPost.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { Picture } from "astro:assets";
+import TacImage from "../assets/blog/mindfulness_meditation.webp";
+import { buttonClasses } from "../components/ui/button";
+import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
+
+const isProd = import.meta.env.PROD;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qu'est-ce que les TAC ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Les techniques d'activation de la conscience (TAC) combinent une activation émotionnelle guidée et une conscience présente au moment vécu. Développées par Jean Becchio, elles s'inscrivent à la croisée de la pleine conscience, de l'ACT et de la thérapie centrée sur les émotions.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Les TAC sont-elles une forme d'hypnose ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Non. Les TAC peuvent mobiliser un état d'attention focalisée, mais le travail porte sur la conscience de l'expérience émotionnelle et la transformation progressive des réactions automatiques — pas sur une modification de conscience induite de l'extérieur par des suggestions.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Les TAC conviennent-elles à l'anxiété ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, lorsque la personne évite certaines sensations, pensées ou situations. L'objectif est d'approcher progressivement l'expérience anxieuse tout en restant suffisamment présent et sécurisé.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quelle différence entre TAC et pleine conscience ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La pleine conscience développe l'observation du moment présent. Les TAC y ajoutent une activation émotionnelle guidée : une émotion est mobilisée pour permettre une expérience nouvelle, puis intégrée dans un cadre thérapeutique.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Faut-il choisir entre TAC, ACT et TCC ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Pas nécessairement. Lors du premier entretien, le cadre de travail est choisi selon la demande, les ressources de la personne et la difficulté rencontrée — parfois une approche, parfois un croisement de plusieurs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Combien de séances TAC sont nécessaires ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cela dépend de la nature de la difficulté, de son ancienneté et de vos ressources actuelles. Les TAC s'intègrent souvent dans un suivi plus large ; le premier entretien permet d'estimer un cadre de travail adapté.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Les TAC se pratiquent-elles en visioconférence ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, selon la situation. Les séances TAC peuvent être proposées au cabinet de Sceaux ou en visioconférence, après évaluation de votre situation et de vos besoins.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Peut-on pratiquer les TAC seul chez soi ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Certains exercices d'ancrage et d'observation peuvent être transposés en autonomie. L'activation émotionnelle sur des difficultés profondes ou traumatiques nécessite en revanche un cadre thérapeutique. Des exercices guidés seront prochainement proposés sur ce site.",
+      },
+    },
+  ],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://nicolas-devaux-psychologue.fr/techniques-activation-conscience/#service",
+  name: "Techniques d'activation de la conscience (TAC)",
+  serviceType: "Thérapie TAC",
+  description:
+    "Techniques d'activation de la conscience (TAC) à Sceaux ou en visio : anxiété, stress, évitement émotionnel et difficultés relationnelles à l'émotion.",
+  url: "https://nicolas-devaux-psychologue.fr/techniques-activation-conscience/",
+  provider: {
+    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+  },
+  areaServed: [
+    { "@type": "City", name: "Sceaux" },
+    { "@type": "AdministrativeArea", name: "Île-de-France" },
+  ],
+};
+
+const tacCtaClasses = buttonClasses({
+  variant: "primary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
+---
+
+<Layout
+  title="Techniques d'activation de la conscience (TAC)"
+  seoTitle="TAC — Techniques d'activation de la conscience à Sceaux | Nicolas Devaux"
+  description="Techniques d'activation de la conscience (TAC) à Sceaux : anxiété, stress, évitement émotionnel. Approche de Jean Becchio. Cabinet ou visio. RDV sur Doctolib."
+  pubDate={new Date("July 07 2026")}
+  showDate={false}
+  blogPost={false}
+>
+  {isProd && (
+    <>
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    </>
+  )}
+  <section class="flex flex-col gap-8 xl:gap-10">
+    <div>
+      <p>
+        Certaines personnes comprennent très bien leur difficulté, mais restent coincées dans les mêmes réactions. Les <strong>techniques d'activation de la conscience (TAC)</strong> — parfois recherchées sous le nom de <strong>méthode TAC</strong> — partent de ce constat : le changement demande parfois autre chose qu'une explication. Il faut une <strong>expérience émotionnelle vécue en conscience</strong>, dans un cadre suffisamment sécurisé.
+      </p>
+      <p>
+        Au <a href="/nicolas-devaux-psychologue/" class="text-link">cabinet de psychologie de Sceaux</a>, j'intègre les TAC dans une <a href="/psychotherapie/" class="text-link">psychothérapie intégrative</a>, aux côtés de la <a href="/therapie-pleine-conscience/" class="text-link">pleine conscience</a>, de l'<a href="/therapie-acceptation-et-engagement/" class="text-link">ACT</a> et des <a href="/therapie-cognitive-et-comportementale/" class="text-link">TCC</a>. Les séances ont lieu au cabinet ou en <a href="/psychologue-en-ligne/" class="text-link">visioconférence</a>.
+      </p>
+      <div class="my-8">
+        <Picture
+          src={TacImage}
+          alt="Techniques d'activation de la conscience — méditation et présence au moment présent"
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+
+    <div>
+      <SectionHeading
+        class="mb-5"
+        eyebrow="01 — Principe"
+        title="Qu'est-ce que les techniques d'activation de la conscience ?"
+      />
+      <p>
+        Jean Becchio a développé les TAC à partir d'une observation clinique récurrente : la compréhension intellectuelle ne suffit pas toujours à modifier les réactions automatiques. Les TAC combinent deux mouvements complémentaires.
+      </p>
+      <p>
+        D'un côté, une <strong>activation émotionnelle</strong> : faire monter ce qui est évité, juste assez pour qu'une transformation devienne possible. De l'autre, une <strong>conscience présente</strong> : rester ancré dans le moment, observer ce qui se passe sans se laisser submerger ni fuir.
+      </p>
+      <p>
+        Greenberg et Paivio ont montré l'importance de l'activation émotionnelle dans le changement thérapeutique ; la pleine conscience et l'ACT apportent le cadre d'accueil. Les TAC s'inscrivent à la croisée de ces approches, avec un protocole plus guidé que la méditation seule.
+      </p>
+      <p>Les TAC ne sont pas :</p>
+      <ul class="list-disc ml-6 mt-2 mb-4">
+        <li>Une forme d'hypnose ou d'auto-hypnose</li>
+        <li>Une méditation passive ou une relaxation de confort</li>
+        <li>Un protocole à appliquer seul sur un vécu traumatique non stabilisé</li>
+      </ul>
+    </div>
+
+    <div>
+      <SectionHeading
+        class="mb-5"
+        eyebrow="02 — Déroulement"
+        title="Comment se déroule une séance TAC au cabinet ?"
+      />
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">1. Ancrage</h3>
+      <p>
+        Nous commençons par un temps d'ancrage : respiration, sensations corporelles, contact au présent. L'objectif est de créer un socle suffisamment stable pour accueillir ce qui va s'activer.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">2. Activation</h3>
+      <p>
+        L'attention s'oriente vers une émotion ou une situation repérée comme significative. L'activation est toujours dosée : il ne s'agit pas de « tout ressentir d'un coup », mais d'approcher progressivement ce qui compte.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">3. Présence</h3>
+      <p>
+        Vous restez en contact avec ce qui s'active, en observant les pensées, les tensions corporelles et les envies de fuir. Le double mouvement — sentir et rester présent — est au cœur du travail.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">4. Intégration</h3>
+      <p>
+        En fin de séance, nous reprenons ce qui a bougé et ce qui peut être utile au quotidien. Les séances individuelles durent <strong>45 minutes</strong>, au <a href="/psychologue-sceaux/" class="text-link">cabinet de Sceaux</a> ou en visioconférence.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="03 — Indications" title="Pour quelles difficultés les TAC sont-elles indiquées ?" />
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">Situations où les TAC sont particulièrement utiles</h3>
+      <ul class="list-disc ml-6 mt-2 mb-4">
+        <li><strong>Anxiété et phobies</strong>, lorsque l'évitement des sensations ou des situations bloque le progrès — <a href="/blog/tac-anxiete-evitement-emotionnel/" class="text-link">en savoir plus sur les TAC et l'anxiété</a></li>
+        <li><strong>Difficultés émotionnelles</strong> : ne pas savoir ce que l'on ressent, réagir de façon disproportionnée, s'épuiser à « tenir »</li>
+        <li><strong>Stress et épuisement</strong>, quand le corps reste en alerte malgré la volonté de lâcher prise — <a href="/blog/tac-stress-sommeil/" class="text-link">TAC, stress et sommeil</a></li>
+        <li><strong>Traumatismes</strong>, pour une réintégration émotionnelle progressive — toujours adaptée au rythme de la personne et au cadre thérapeutique</li>
+      </ul>
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">Situations nécessitant un cadre renforcé</h3>
+      <p>
+        Les TAC ne conviennent pas à toutes les situations en l'état. Un trauma récent non stabilisé, une dissociation importante ou une crise aiguë appellent d'abord un travail de sécurisation — parfois avec d'autres outils, comme la <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>. Lors du <a href="/consulter/" class="text-link">premier entretien</a>, nous évaluons ensemble si les TAC sont adaptées à votre situation.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading
+        class="mb-5"
+        eyebrow="04 — Approches"
+        title="TAC, pleine conscience, ACT, TCC et hypnose : quelles différences ?"
+      />
+      <p>
+        Les TAC ne remplacent pas une psychothérapie globale. Elles s'intègrent dans un cadre plus large selon la difficulté rencontrée, l'histoire de la personne et les objectifs définis ensemble.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">TAC et pleine conscience</h3>
+      <p>
+        La <a href="/therapie-pleine-conscience/" class="text-link">thérapie de pleine conscience</a> développe l'attention au moment présent et la capacité à observer les pensées sans s'y confondre. Les TAC reprennent cette qualité de présence, mais l'utilisent lorsque l'émotion devient plus vive. L'objectif n'est pas de se calmer à tout prix, mais d'apprendre à rester en contact avec soi lorsque quelque chose s'active.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">TAC et ACT</h3>
+      <p>
+        L'<a href="/therapie-acceptation-et-engagement/" class="text-link">ACT</a> aide à repérer la lutte intérieure contre les pensées ou les émotions, puis à avancer vers des actions alignées avec ses valeurs. Les TAC rejoignent cette logique lorsqu'elles invitent à rester présent à ce qui se passe en soi. La différence tient surtout à l'accent mis sur l'activation : il ne s'agit pas seulement d'observer, mais de mobiliser une émotion dans un cadre suffisamment sécurisé.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">TAC et TCC</h3>
+      <p>
+        Les <a href="/therapie-cognitive-et-comportementale/" class="text-link">TCC</a> travaillent sur les liens entre pensées, émotions, sensations corporelles et comportements. Les TAC peuvent compléter ce travail lorsque la compréhension intellectuelle ne suffit pas — lorsque la personne sait très bien expliquer son anxiété, mais reste prise dans les mêmes réactions automatiques.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 mt-4 text-ink-primary">TAC et hypnose</h3>
+      <p>
+        <strong>Les TAC ne sont pas une forme d'hypnose.</strong> Elles peuvent mobiliser un état d'attention focalisée, mais le travail porte sur la conscience de l'expérience émotionnelle et la transformation progressive des réactions automatiques — pas sur une modification de conscience induite de l'extérieur par des suggestions. Pour approfondir cette distinction, consultez l'article <a href="/blog/tac-et-hypnose-differences/" class="text-link">TAC et hypnose : similitudes et différences</a> ; pour l'hypnothérapie en tant qu'approche distincte, voir l'<a href="/blog/hypnotherapie/" class="text-link">article sur l'hypnothérapie</a>.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="05 — Praticien" title="Ma pratique des TAC à Sceaux" />
+      <p>
+        Je pratique les TAC au cabinet de Sceaux, en les intégrant dans une <a href="/psychotherapie/" class="text-link">approche psychothérapeutique intégrative</a>. Mon parcours en <a href="/therapie-pleine-conscience/" class="text-link">pleine conscience</a> et en <a href="/therapie-acceptation-et-engagement/" class="text-link">ACT</a> constitue le socle à partir duquel j'utilise les TAC lorsque l'activation émotionnelle guidée devient pertinente — notamment face à l'évitement émotionnel.
+      </p>
+      <p>
+        Le cabinet est accessible depuis {NEARBY_CITIES}. Pour en savoir plus sur mon parcours, consultez la page <a href="/nicolas-devaux-psychologue/" class="text-link">Nicolas Devaux, psychologue clinicien</a>.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="06 — Autonomie" title="Peut-on pratiquer les TAC seul ?" />
+      <p>
+        Certains éléments des TAC peuvent être transposés en pratique autonome : exercices d'ancrage, respiration consciente, observation d'une émotion légère à modérée. Ces outils peuvent compléter le travail en séance, à condition de rester dans une zone où vous vous sentez suffisamment en sécurité.
+      </p>
+      <p>
+        En revanche, l'activation émotionnelle sur des difficultés profondes, un vécu traumatique ou des émotions que l'on ne parvient pas à contenir seul nécessite un cadre thérapeutique. Ce n'est pas une faiblesse : c'est une question de dosage et de sécurité clinique.
+      </p>
+      <p>
+        Des <strong>exercices guidés d'activation de conscience</strong>, inspirés des TAC et adaptés à la pratique autonome, seront prochainement proposés sur ce site. En attendant, l'article <a href="/blog/tac-pratique-autonome/" class="text-link">Peut-on pratiquer les TAC seul ?</a> détaille ce qui est transposable en autonomie et ce qui nécessite un cadre thérapeutique.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="07 — FAQ" title="Questions fréquentes sur les TAC" />
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Qu'est-ce que les TAC ?</h3>
+      <p class="mb-6">
+        Les techniques d'activation de la conscience (TAC) combinent une activation émotionnelle guidée et une conscience présente au moment vécu. Développées par Jean Becchio, elles s'inscrivent à la croisée de la pleine conscience, de l'ACT et de la thérapie centrée sur les émotions.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Les TAC sont-elles une forme d'hypnose ?</h3>
+      <p class="mb-6">
+        Non. Les TAC peuvent mobiliser un état d'attention focalisée, mais le travail porte sur la conscience de l'expérience émotionnelle — pas sur une modification de conscience induite de l'extérieur. Si vous cherchez de l'hypnose thérapeutique, c'est une approche distincte.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Les TAC conviennent-elles à l'anxiété ?</h3>
+      <p class="mb-6">
+        Oui, lorsque la personne évite certaines sensations, pensées ou situations. L'objectif est d'approcher progressivement l'expérience anxieuse tout en restant suffisamment présent et sécurisé.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Quelle différence entre TAC et pleine conscience ?</h3>
+      <p class="mb-6">
+        La pleine conscience développe l'observation du moment présent. Les TAC y ajoutent une activation émotionnelle guidée : une émotion est mobilisée pour permettre une expérience nouvelle, puis intégrée dans un cadre thérapeutique.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Faut-il choisir entre TAC, ACT et TCC ?</h3>
+      <p class="mb-6">
+        Pas nécessairement. Lors du <a href="/consulter/" class="text-link">premier entretien</a>, le cadre se choisit selon votre demande, vos ressources et ce qui bloque réellement — parfois une approche, parfois un croisement de plusieurs.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Combien de séances sont nécessaires ?</h3>
+      <p class="mb-6">
+        Cela dépend de la nature de la difficulté, de son ancienneté et de vos ressources actuelles. Les TAC s'intègrent souvent dans un suivi plus large ; le premier entretien permet d'estimer un cadre adapté, sans promesse de résultat en un nombre de séances donné.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Les TAC se pratiquent-elles en visioconférence ?</h3>
+      <p class="mb-6">
+        Oui, selon la situation. Consultez la page <a href="/psychologue-en-ligne/" class="text-link">psychologue en ligne</a> pour le cadre des consultations à distance.
+      </p>
+
+      <h3 class="font-display typo-display-md mb-3 text-ink-primary">Peut-on faire des TAC seul chez soi ?</h3>
+      <p class="mb-6">
+        Certains exercices d'ancrage et d'observation peuvent être pratiqués en autonomie. L'activation émotionnelle sur des difficultés profondes nécessite un cadre thérapeutique. Voir le guide <a href="/blog/tac-pratique-autonome/" class="text-link">Peut-on pratiquer les TAC seul ?</a> ; des exercices guidés seront prochainement proposés sur ce site.
+      </p>
+    </div>
+
+    <div class="rounded-xl border border-border-strong bg-surface-muted p-6">
+      <SectionHeading class="mb-4" eyebrow="08 — Rendez-vous" title="Consulter pour des séances TAC à Sceaux" />
+      <p class="mb-4">
+        Si vous vous reconnaissez dans l'évitement émotionnel — savoir intellectuellement ce qui ne va pas, mais réagir toujours pareil —, les TAC peuvent constituer une piste pertinente. La prise de rendez-vous se fait en ligne via Doctolib, au cabinet de Sceaux ou en visioconférence.
+      </p>
+      <a
+        href={DOCTOLIB_BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={tacCtaClasses}
+        data-track-doctolib
+        data-track-location="TAC CTA"
+      >
+        Prendre rendez-vous
+      </a>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-5" eyebrow="09 — Pistes" title="Approches complémentaires" />
+      <p>
+        Selon votre situation, le travail peut aussi s'appuyer sur l'<a href="/therapie-acceptation-et-engagement/" class="text-link">ACT</a>, la <a href="/therapie-pleine-conscience/" class="text-link">pleine conscience</a>, la <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a> ou une <a href="/psychotherapie/" class="text-link">psychothérapie intégrative</a>. Pour les vécus traumatiques, la thérapie MOSAIC et les TAC peuvent parfois se compléter dans un même suivi.
+      </p>
+    </div>
+  </section>
+</Layout>
