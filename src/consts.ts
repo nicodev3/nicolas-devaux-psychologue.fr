@@ -49,7 +49,7 @@ export const RPPS_NUMBER = "10008482910";
 export const ADELI_NUMBER: string | null = null;
 
 /** Email de contact du cabinet (schema.org, mentions légales). */
-export const CONTACT_EMAIL = "contact@nicolas-devaux-psychologue.fr";
+export const CONTACT_EMAIL = "ndevaux@gmail.com";
 
 /** Jours d'ouverture en semaine (affichage). */
 export const OPENING_WEEKDAYS_LABEL = "Lundi, mardi et vendredi";
