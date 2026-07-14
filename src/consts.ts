@@ -3,7 +3,7 @@
 
 export const SITE_NAME = "Nicolas Devaux, psychologue à Sceaux";
 export const SITE_TITLE =
-  "Psychologue à Sceaux | TCC, MOSAIC et thérapie de couple | Nicolas Devaux";
+  "Nicolas Devaux | Psychologue clinicien, TCC et thérapies";
 
 /** Adresse complète du cabinet (une ligne). */
 export const CABINET_ADDRESS_LINE = "63 rue Houdan, 92330 Sceaux";
@@ -30,7 +30,7 @@ export const NEARBY_CITIES =
 export const SERVED_CITIES_LABEL =
   "Sceaux, Le Plessis-Robinson, Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses, Bagneux, Cachan et L'Haÿ-les-Roses";
 
-export const SITE_DESCRIPTION = `Psychologue à Sceaux (92330) : consultations adultes, adolescents et couples. TCC, MOSAIC, thérapie de couple au cabinet rue Houdan ou en visio. RDV sur Doctolib.`;
+export const SITE_DESCRIPTION = `Nicolas Devaux, psychologue clinicien : consultations pour adultes, adolescents et couples, au cabinet de Sceaux ou en visio. TCC, MOSAIC et thérapie de couple.`;
 
 /** URL unique « Prendre rendez-vous » Doctolib (tracking campaign conservée). */
 export const DOCTOLIB_BOOKING_URL =
