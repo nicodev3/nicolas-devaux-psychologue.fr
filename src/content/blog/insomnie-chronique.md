@@ -1,10 +1,11 @@
 ---
-title: "L'insomnie chronique : comprendre ce qui se passe vraiment"
-seoTitle: "Insomnie chronique : causes, symptômes et traitement par TCC-I"
+title: "Insomnie chronique : symptômes, mécanismes et traitement"
+seoTitle: "Insomnie chronique : symptômes et TCC-I"
 description: "L'insomnie chronique dépasse les simples mauvaises nuits. Découvrez ses mécanismes, les cercles vicieux qui l'entretiennent et ce que la TCC-I change."
-pubDate: "Jun 15 2026"
+pubDate: "Jul 15 2026"
+heroImage: "../../assets/blog/insomnie-chronique.webp"
 tags: ["sommeil"]
-published: false
+published: true
 ---
 
 L'**insomnie chronique** n'est pas seulement une succession de mauvaises nuits. Elle correspond à un trouble du sommeil qui s'installe dans le temps, avec des répercussions sur la journée : fatigue, irritabilité, difficultés de concentration, baisse de motivation, inquiétude autour du sommeil. Beaucoup de personnes finissent par avoir l'impression que leur sommeil est devenu imprévisible, fragile ou « cassé ».
@@ -13,11 +14,13 @@ Cette situation peut être très décourageante. Pourtant, l'insomnie chronique 
 
 ## Quand parle-t-on d'insomnie chronique ?
 
-On parle généralement d'insomnie chronique lorsque les difficultés de sommeil surviennent plusieurs nuits par semaine, depuis au moins trois mois, avec un retentissement dans la journée. Il peut s'agir de difficultés à s'endormir, de **réveils nocturnes** prolongés, d'un réveil trop précoce ou d'un sommeil perçu comme non réparateur.
+On parle généralement d'insomnie chronique lorsque les difficultés de sommeil surviennent au moins trois nuits par semaine, depuis au moins trois mois, malgré des conditions et un temps suffisants pour dormir, avec un retentissement dans la journée. Il peut s'agir de difficultés à s'endormir, de **réveils nocturnes** prolongés ou d'un réveil trop précoce.
 
 La durée passée au lit ne suffit pas à évaluer la situation. Certaines personnes restent huit ou neuf heures au lit, mais ne dorment réellement qu'une partie de ce temps. D'autres dorment une durée correcte, mais avec un sommeil très fragmenté, ce qui explique une fatigue persistante au réveil.
 
 Pour clarifier cette différence, vous pouvez utiliser le [calculateur d'efficacité du sommeil](/outils/calculateur-efficacite-sommeil/). Il aide à distinguer le temps passé au lit du temps réellement dormi, un point central dans l'évaluation de l'insomnie.
+
+Ces critères donnent des repères, mais ne permettent pas de poser seul un diagnostic. Un entretien clinique et un agenda du sommeil sont généralement plus informatifs qu'une nuit isolée. Une polysomnographie n'est pas systématique pour diagnostiquer l'insomnie ; elle peut être indiquée lorsqu'un autre trouble du sommeil est suspecté.
 
 ## Les différentes formes d'insomnie
 
@@ -51,17 +54,25 @@ Cette anticipation peut devenir aussi pesante que la fatigue elle-même. La peur
 
 Si votre difficulté principale est de vous réveiller épuisé malgré une durée apparemment suffisante, l'article sur la [fatigue au réveil malgré 8 heures au lit](/blog/fatigue-malgre-8-heures-sommeil/) peut apporter un éclairage complémentaire.
 
+## Rechercher ce qui peut ressembler à une insomnie
+
+Toutes les difficultés nocturnes ne relèvent pas d'une insomnie isolée. Des ronflements importants avec pauses respiratoires, des sensations irrépressibles dans les jambes, des douleurs, un reflux, un trouble du rythme veille-sommeil, une dépression, un épisode d'excitation inhabituelle ou certains médicaments peuvent modifier le sommeil et nécessiter une évaluation spécifique.
+
+La **somnolence** n'est pas exactement la fatigue. La fatigue correspond plutôt à un manque d'énergie ; la somnolence à une tendance à s'endormir involontairement. Des endormissements incontrôlables dans la journée, en particulier au volant ou au travail, justifient un avis médical rapide. Il ne faut pas conduire lorsque l'on lutte pour rester éveillé.
+
 ## La TCC-I : le traitement de référence
 
-La **TCC-I**, ou thérapie cognitive et comportementale de l'insomnie, est aujourd'hui considérée comme une approche de référence pour l'insomnie chronique. Elle vise à modifier les mécanismes qui maintiennent le trouble, plutôt qu'à simplement masquer les symptômes.
+La **TCC-I**, ou thérapie cognitive et comportementale de l'insomnie, est le traitement de première intention recommandé chez l'adulte souffrant d'insomnie chronique, y compris lorsqu'il existe des troubles associés. Elle vise à modifier les mécanismes qui maintiennent le trouble, plutôt qu'à agir uniquement sur les symptômes.
 
 Elle peut inclure plusieurs composantes : agenda du sommeil, contrôle du stimulus, restriction du temps au lit, travail sur les pensées liées au sommeil, régulation des rythmes et stratégies de gestion de l'éveil. L'objectif n'est pas de dormir parfaitement dès la première semaine, mais de reconstruire progressivement un sommeil plus stable et plus fiable.
 
-La TCC-I se distingue des conseils généraux d'hygiène du sommeil. Ces conseils peuvent être utiles, mais ils sont rarement suffisants lorsque l'insomnie est installée depuis longtemps. Une personne peut déjà éviter le café le soir, éteindre les écrans et avoir une chambre calme, tout en restant prisonnière d'un conditionnement lit-éveil.
+La TCC-I se distingue des conseils généraux d'hygiène du sommeil. Ces conseils peuvent être utiles, mais ne constituent pas à eux seuls un traitement de l'insomnie chronique. Une personne peut déjà éviter le café le soir, réduire les écrans et avoir une chambre calme, tout en restant prisonnière d'un conditionnement lit-éveil.
+
+L'article consacré à la [TCC-I](/blog/tcc-insomnie/) présente ses composantes, son déroulement et les précautions nécessaires. Vous pouvez aussi retrouver l'ensemble des [ressources sur l'insomnie et la TCC-I](/ressources/sommeil-insomnie/).
 
 ## Et les somnifères ?
 
-Les médicaments peuvent avoir une place dans certaines situations, en lien avec un médecin. Mais ils ne traitent pas toujours les mécanismes psychologiques et comportementaux qui entretiennent l'insomnie chronique. Lorsqu'une personne a appris à craindre son lit, à surveiller son sommeil ou à augmenter excessivement son temps au lit, ces apprentissages doivent être retravaillés.
+Les médicaments peuvent avoir une place dans certaines situations, sur prescription et avec un suivi médical. Leur indication, leur durée et leur arrêt doivent être discutés avec le prescripteur ; un traitement ne doit pas être interrompu brutalement de sa propre initiative. Ils ne remplacent pas nécessairement le travail sur les mécanismes psychologiques et comportementaux qui entretiennent l'insomnie chronique.
 
 La TCC-I offre justement un cadre pour cela. Elle aide à retrouver une relation moins anxieuse au sommeil et à construire des repères adaptés. Cela demande parfois de modifier des habitudes installées depuis longtemps, ce qui peut être inconfortable au début, mais c'est souvent ce qui permet une amélioration durable.
 
@@ -72,3 +83,11 @@ Avant de vouloir corriger votre sommeil, il est utile de comprendre votre profil
 L'article sur une [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/) peut vous aider à interpréter certains repères. Celui sur le [sommeil réparateur](/blog/sommeil-reparateur/) permet de mieux comprendre pourquoi la durée seule ne dit pas tout.
 
 Consulter pour une insomnie chronique ne signifie pas « parler vaguement de ses nuits ». Un accompagnement structuré permet d'observer, de formuler des hypothèses, de tester des changements et d'ajuster progressivement. C'est souvent cette précision qui permet de sortir d'une impression d'impuissance face au sommeil.
+
+## Sources et repères
+
+- [Réseau Morphée - Qu'est-ce que l'insomnie ?](https://reseau-morphee.fr/le-sommeil-et-ses-troubles-informations/insomnies-apnees/insomnie)
+- [Réseau Morphée - L'insomnie chronique](https://reseau-morphee.fr/le-sommeil-et-ses-troubles-informations/insomnies-apnees/pourquoi-linsomnie)
+- [Recommandation européenne 2023 sur le diagnostic et le traitement de l'insomnie](https://pubmed.ncbi.nlm.nih.gov/38016484/)
+
+_Cet article apporte des repères de psychoéducation. Il ne remplace pas une évaluation médicale ou psychologique individualisée._

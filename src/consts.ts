@@ -70,6 +70,9 @@ export const OPENING_HOURS_TEXT =
 /** Tags du blog — valeurs autorisées et libellés français. */
 export const BLOG_TAGS = [
   "sommeil",
+  "act",
+  "compassion",
+  "etudiants",
   "therapies",
   "pleine-conscience",
   "couple",
@@ -81,6 +84,9 @@ export type BlogTag = (typeof BLOG_TAGS)[number];
 
 export const BLOG_TAG_LABELS: Record<BlogTag, string> = {
   sommeil: "Sommeil",
+  act: "ACT et ruminations",
+  compassion: "Compassion",
+  etudiants: "Étudiants et attention",
   therapies: "Thérapies",
   "pleine-conscience": "Pleine conscience",
   couple: "Thérapie de couple",

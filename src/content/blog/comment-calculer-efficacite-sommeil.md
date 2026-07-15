@@ -102,7 +102,7 @@ Cet outil est gratuit et informatif. Il ne pose pas de diagnostic, mais il peut 
 
 ## Pour aller plus loin
 
-Pour approfondir, vous pouvez lire l'article sur les personnes [fatiguées malgré 8 heures au lit](/blog/fatigue-malgre-8-heures-sommeil/) et celui sur ce qu'est une [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/). Ensemble, ces articles vous donnent des repères pour mieux comprendre l'insomnie, le temps passé au lit et ce qui rend le sommeil réellement réparateur.
+Pour approfondir, vous pouvez lire l'article sur les personnes [fatiguées malgré 8 heures au lit](/blog/fatigue-malgre-8-heures-sommeil/) et celui sur ce qu'est une [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/). Le parcours [sommeil et insomnie](/ressources/sommeil-insomnie/) regroupe ces contenus et les outils associés.
 
 ## Questions fréquentes sur l'efficacité du sommeil
 

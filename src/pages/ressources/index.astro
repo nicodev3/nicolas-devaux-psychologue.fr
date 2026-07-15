@@ -1,0 +1,61 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { RESOURCE_TOPICS } from "../../data/resource-topics";
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <BaseHead
+      title="Ressources de psychologie par thème"
+      description="Articles, outils et repères de psychoéducation sur le sommeil, l'ACT, les ruminations, l'autocompassion et les difficultés attentionnelles."
+    />
+  </head>
+  <body class="bg-surface-page">
+    <Header />
+    <main class="page-shell page-shell--wide">
+      <Breadcrumb title="Ressources" />
+      <header class="mb-12 max-w-3xl border-b border-border-subtle pb-10 md:mb-16 md:pb-12">
+        <p class="typo-eyebrow mb-3">Psychoéducation</p>
+        <h1 class="font-display typo-h1 mb-5 text-pretty text-ink-primary">Ressources par thème</h1>
+        <p class="typo-body-lg mb-0 text-pretty text-body-muted">
+          Des parcours de lecture structurés pour comprendre une difficulté, découvrir les approches qui peuvent être
+          utiles et accéder aux outils associés.
+        </p>
+      </header>
+
+      <div class="divide-y divide-border-subtle border-y border-border-subtle">
+        {
+          RESOURCE_TOPICS.map((topic, index) => (
+            <article class="grid gap-5 py-8 md:grid-cols-[140px_minmax(0,1fr)_auto] md:items-start md:gap-8 md:py-10">
+              <p class="typo-meta-caps text-brand">{String(index + 1).padStart(2, "0")}</p>
+              <div class="min-w-0">
+                <h2 class="font-display typo-display-lg mb-3 text-pretty text-ink-primary">
+                  <a href={`/ressources/${topic.slug}/`} class="transition-colors hover:text-brand">
+                    {topic.title}
+                  </a>
+                </h2>
+                <p class="mb-0 max-w-2xl text-pretty text-ink-secondary">{topic.description}</p>
+              </div>
+              <a
+                href={`/ressources/${topic.slug}/`}
+                class="font-ui inline-flex min-h-11 items-center text-sm font-semibold text-brand underline decoration-1 underline-offset-4 hover:decoration-2"
+              >
+                Explorer le thème
+              </a>
+            </article>
+          ))
+        }
+      </div>
+
+      <aside class="mt-12 border-l-2 border-border-strong py-2 pl-5 text-sm text-ink-secondary md:mt-16">
+        Ces contenus ont une visée informative. Ils ne permettent pas d'établir un diagnostic et ne remplacent pas un
+        avis médical ou psychologique adapté à votre situation.
+      </aside>
+    </main>
+    <Footer />
+  </body>
+</html>

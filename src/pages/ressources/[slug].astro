@@ -1,0 +1,97 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { RESOURCE_TOPICS, type ResourceTopic } from "../../data/resource-topics";
+import { formatFrenchDate, toDateTime } from "../../utils/formatDate";
+
+export const getStaticPaths = (() =>
+  RESOURCE_TOPICS.map((topic) => ({ params: { slug: topic.slug }, props: { topic } }))) satisfies GetStaticPaths;
+
+interface Props {
+  topic: ResourceTopic;
+}
+
+const { topic } = Astro.props;
+const posts = (await getCollection("blog"))
+  .filter((post) => post.data.published !== false && topic.blogTags.some((tag) => post.data.tags.includes(tag)))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <BaseHead title={topic.seoTitle} description={topic.description} />
+  </head>
+  <body class="bg-surface-page">
+    <Header />
+    <main class="page-shell page-shell--wide">
+      <Breadcrumb title={topic.title} />
+      <header class="mb-12 max-w-3xl border-b border-border-subtle pb-10 md:mb-16 md:pb-12">
+        <p class="typo-eyebrow mb-3">{topic.eyebrow}</p>
+        <h1 class="font-display typo-h1 mb-5 text-pretty text-ink-primary">{topic.title}</h1>
+        <p class="typo-body-lg mb-5 text-pretty text-body-muted">{topic.intro}</p>
+        <p class="mb-0 max-w-2xl text-pretty text-ink-secondary">{topic.perspective}</p>
+      </header>
+
+      <section class="mb-14 md:mb-18" aria-labelledby="questions-heading">
+        <p class="typo-eyebrow mb-3">Repères</p>
+        <h2 id="questions-heading" class="font-display typo-display-lg mb-7 text-ink-primary">
+          Questions abordées
+        </h2>
+        <ul class="grid list-none gap-5 p-0 md:grid-cols-3">
+          {topic.questions.map((question, index) => (
+            <li class="border-t border-border-strong pt-4">
+              <span class="font-ui mb-2 block text-xs font-semibold text-brand">{String(index + 1).padStart(2, "0")}</span>
+              <span class="text-pretty text-ink-secondary">{question}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="mb-14 md:mb-18" aria-labelledby="articles-heading">
+        <p class="typo-eyebrow mb-3">Lecture</p>
+        <h2 id="articles-heading" class="font-display typo-display-lg mb-7 text-ink-primary">Articles du parcours</h2>
+        <div class="divide-y divide-border-subtle border-y border-border-subtle">
+          {posts.map((post) => (
+            <article class="grid gap-3 py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-8">
+              <div>
+                <h3 class="font-display typo-display-md mb-2 text-pretty text-ink-primary">
+                  <a href={`/blog/${post.id}/`} class="transition-colors hover:text-brand">{post.data.title}</a>
+                </h3>
+                <p class="mb-0 max-w-2xl text-sm text-pretty text-ink-secondary">{post.data.description}</p>
+              </div>
+              <time class="font-ui text-xs text-ink-tertiary" datetime={toDateTime(post.data.pubDate)}>
+                {formatFrenchDate(post.data.pubDate)}
+              </time>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14 md:mb-18" aria-labelledby="links-heading">
+        <p class="typo-eyebrow mb-3">Approches et outils</p>
+        <h2 id="links-heading" class="font-display typo-display-lg mb-7 text-ink-primary">Pour approfondir</h2>
+        <div class="grid gap-x-10 gap-y-7 md:grid-cols-2">
+          {topic.links.map((link) => (
+            <article class="border-t border-border-strong pt-4">
+              <p class="typo-meta-caps mb-2 text-brand">{link.label}</p>
+              <h3 class="font-display typo-display-md mb-2 text-ink-primary">
+                <a href={link.href} class="transition-colors hover:text-brand">{link.title}</a>
+              </h3>
+              <p class="mb-0 text-sm text-pretty text-ink-secondary">{link.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <aside class="border-l-2 border-border-strong py-2 pl-5 text-sm text-pretty text-ink-secondary">
+        {topic.scopeNote}
+      </aside>
+    </main>
+    <Footer />
+  </body>
+</html>

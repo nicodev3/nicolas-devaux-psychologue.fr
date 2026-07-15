@@ -1,11 +1,11 @@
 ---
 title: "Qu'est-ce que le sommeil réparateur ?"
-seoTitle: "Sommeil réparateur : définition, cycles et comment l'améliorer"
+seoTitle: "Sommeil réparateur : définition et repères"
 description: "Qu'est-ce qui rend un sommeil vraiment réparateur ? Durée, cycles, profondeur du sommeil lent : tout ce qui détermine si vous vous réveillez reposé."
-pubDate: "Jun 15 2026"
+pubDate: "Jul 15 2026"
 heroImage: "../../assets/blog/calcul-sommeil.webp"
 tags: ["sommeil"]
-published: false
+published: true
 ---
 
 On peut avoir dormi plusieurs heures et se réveiller avec l'impression de ne pas avoir vraiment récupéré. À l'inverse, certaines nuits plus courtes peuvent laisser une sensation de clarté et d'énergie. C'est ce qui rend la notion de **sommeil réparateur** si importante : la durée compte, mais elle ne suffit pas à décrire la qualité d'une nuit.
@@ -22,15 +22,15 @@ C'est pour cela que l'**efficacité du sommeil** peut être un indicateur intér
 
 ## Le rôle des cycles de sommeil
 
-Le sommeil se déroule par cycles. Chaque cycle alterne des phases de **sommeil lent**, plus ou moins profond, et des phases de **sommeil paradoxal**, souvent associé aux rêves et à certains processus de régulation émotionnelle. Sur une nuit complète, plusieurs cycles se succèdent.
+Le sommeil se déroule par cycles dont la durée varie d'une personne à l'autre et au cours de la nuit ; les « 90 minutes » souvent citées ne sont qu'un ordre de grandeur. Chaque cycle alterne des phases de **sommeil lent**, plus ou moins profond, et des phases de **sommeil paradoxal**. Sur une nuit complète, plusieurs cycles se succèdent, avec davantage de sommeil lent profond en première partie de nuit et davantage de sommeil paradoxal en fin de nuit.
 
 Le sommeil lent profond est particulièrement impliqué dans la récupération physique. Il participe à la restauration de l'organisme, à certains processus hormonaux et à la sensation de repos. Le sommeil paradoxal, lui, joue un rôle important dans la mémoire, l'intégration émotionnelle et l'équilibre psychique.
 
-Un sommeil réparateur n'est donc pas seulement un sommeil « sans réveil ». C'est un sommeil suffisamment continu pour permettre aux cycles de se dérouler, avec une architecture qui laisse la place aux différentes phases nécessaires à la récupération.
+Un sommeil réparateur n'est donc pas nécessairement un sommeil « sans réveil ». Des éveils brefs peuvent survenir entre les cycles sans être mémorisés. Il n'est pas utile de calculer une heure de coucher à partir de cycles supposés fixes : les besoins, les rythmes et la continuité du sommeil sont plus importants qu'un minutage théorique.
 
 ## Pourquoi peut-on se réveiller fatigué ?
 
-La **fatigue au réveil** peut avoir de nombreuses causes. Elle peut être liée à une durée insuffisante, à des réveils nocturnes, à un sommeil trop léger, à une dette de sommeil accumulée, à un stress important ou à des horaires irréguliers. Elle peut aussi être associée à des troubles médicaux comme l'apnée du sommeil, qui nécessite un avis médical lorsqu'elle est suspectée.
+La **fatigue au réveil** peut avoir de nombreuses causes. Elle peut être liée à une durée insuffisante, à des réveils nocturnes, à une dette de sommeil accumulée, à un stress important ou à des horaires irréguliers. Elle peut aussi être associée à une dépression, une maladie, un traitement ou un autre trouble du sommeil, comme l'apnée du sommeil.
 
 Sur le plan psychologique, les ruminations jouent souvent un rôle majeur. Certaines personnes se couchent physiquement, mais leur esprit continue de travailler : anticiper le lendemain, refaire la journée, vérifier si le sommeil arrive, surveiller les sensations corporelles. Le lit devient alors un espace d'activité mentale plutôt qu'un espace de relâchement.
 
@@ -46,14 +46,30 @@ Les réveils nocturnes sont un exemple fréquent. Un bref réveil n'est pas anor
 
 ## Comment savoir si votre sommeil récupère vraiment ?
 
-Aucun indicateur unique ne suffit. Le ressenti du matin compte, mais il peut être influencé par l'humeur, le stress ou les attentes. La durée compte, mais elle peut surestimer le sommeil réel. Les montres connectées donnent parfois des repères, mais elles ne remplacent pas une évaluation clinique.
+Aucun indicateur unique ne suffit. Le ressenti du matin compte, mais il peut être influencé par l'humeur, le stress ou les attentes. La durée compte, mais elle peut surestimer le sommeil réel. Les montres connectées donnent parfois des tendances sur les horaires, mais leur estimation des stades de sommeil ne permet pas de diagnostiquer la cause d'un sommeil non réparateur. Une surveillance détaillée peut aussi renforcer l'inquiétude chez certaines personnes.
 
 Un bon point de départ consiste à observer plusieurs éléments sur une ou deux semaines : heure de coucher, temps estimé pour s'endormir, réveils nocturnes, heure de lever, fatigue dans la journée, siestes éventuelles. Cette observation permet souvent de repérer des régularités invisibles nuit par nuit.
 
 L'efficacité du sommeil peut compléter cette observation. Si vous dormez peu par rapport au temps passé au lit, cela peut orienter vers un travail sur la consolidation du sommeil. L'article sur une [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/) explique comment interpréter ce pourcentage avec prudence.
 
+## Fatigue ou somnolence : une distinction importante
+
+La fatigue correspond surtout à un manque d'énergie ou à une sensation d'épuisement. La somnolence correspond à une difficulté à rester éveillé, avec un risque d'endormissement involontaire. Cette différence oriente l'évaluation.
+
+Des ronflements sonores, des pauses respiratoires observées, des réveils avec suffocation, des maux de tête matinaux, des sensations désagréables dans les jambes ou une somnolence marquée dans la journée doivent être signalés à un médecin. Il ne faut pas conduire ni utiliser une machine lorsque l'on lutte pour rester éveillé.
+
 ## Restaurer un sommeil plus réparateur
 
 La **TCC-I** aide à restaurer un sommeil plus stable lorsque l'insomnie ou la fragmentation nocturne s'installent. Elle ne consiste pas simplement à donner des conseils généraux comme « évitez les écrans » ou « détendez-vous ». Elle travaille sur les mécanismes qui maintiennent le problème : temps excessif passé au lit, peur de ne pas dormir, surveillance du sommeil, associations entre lit et éveil.
 
-Retrouver un sommeil réparateur ne signifie pas obtenir des nuits parfaites. Personne ne dort toujours de manière idéale. L'objectif est plutôt de retrouver une confiance suffisante dans le sommeil, de réduire l'effort autour de la nuit et de permettre au corps de reprendre un rythme plus naturel. C'est souvent dans cette direction qu'un accompagnement psychologique spécialisé peut être utile.
+Retrouver un sommeil réparateur ne signifie pas obtenir des nuits parfaites. Personne ne dort toujours de manière idéale. L'objectif est plutôt de retrouver une confiance suffisante dans le sommeil, de réduire l'effort autour de la nuit et de stabiliser les rythmes. L'article sur la [TCC-I](/blog/tcc-insomnie/) présente le traitement recommandé lorsque l'insomnie devient chronique.
+
+Vous pouvez aussi consulter l'ensemble des [ressources sur le sommeil et l'insomnie](/ressources/sommeil-insomnie/).
+
+## Sources et repères
+
+- [Réseau Morphée - Organisation du sommeil](https://reseau-morphee.fr/le-sommeil-et-ses-troubles-informations/lorganisation-du-sommeil/les-cycles-du-sommeil)
+- [Réseau Morphée - Retrouver le sommeil](https://reseau-morphee.fr/le-sommeil-et-ses-troubles-informations/insomnies-apnees/insomnie/retrouver-sommeil)
+- [Recommandation européenne 2023 sur l'insomnie](https://pubmed.ncbi.nlm.nih.gov/38016484/)
+
+_Un sommeil perçu comme non réparateur peut avoir plusieurs causes. Cet article ne remplace pas une évaluation clinique._
