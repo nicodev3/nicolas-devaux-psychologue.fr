@@ -1,15 +1,18 @@
 ---
-title: "Cohérence cardiaque 365 : 3 fois par jour, 6 respirations par minute, 5 minutes"
+title: "Cohérence cardiaque 365 : méthode, effets et pratique"
 seoTitle: "Cohérence cardiaque 365 | Nicolas Devaux"
-description: "La cohérence cardiaque 365 est un exercice de respiration simple pour réguler le stress. Découvrez la méthode 3-6-5, ses effets et comment la pratiquer."
+description: "Cohérence cardiaque 365 : protocole 3×/jour, 6 respirations/min, 5 min. Effets sur le stress, mode d'emploi et limites en thérapie."
 pubDate: "Jun 7 2026"
+updatedDate: "Jul 18 2026"
 heroImage: "../../assets/blog/coherence-cardiaque-365.webp"
 tags: ["outils", "pleine-conscience"]
 ---
 
 La **cohérence cardiaque 365** est une méthode de respiration simple à retenir : **3 fois par jour, 6 respirations par minute, pendant 5 minutes**. Elle ne demande aucun matériel particulier et peut devenir un repère concret pour faire redescendre la tension, retrouver un rythme plus stable et mieux traverser les moments de stress.
 
-Dans un accompagnement psychologique, la cohérence cardiaque peut être proposée comme un outil de régulation parmi d'autres. Elle ne remplace pas une [psychothérapie](/psychotherapie/) lorsque la souffrance est persistante, mais elle peut soutenir le travail thérapeutique, notamment lorsque l'anxiété, les ruminations ou l'hypervigilance prennent beaucoup de place.
+Dans un accompagnement psychologique, la cohérence cardiaque peut être proposée comme un outil de régulation parmi d'autres. Elle ne remplace pas une [psychothérapie](/psychotherapie/) lorsque la souffrance est persistante, mais elle peut soutenir le travail thérapeutique, notamment lorsque l'anxiété, les [ruminations](/blog/rumination-mentale/) ou l'hypervigilance prennent beaucoup de place.
+
+**Dans cet article :** [méthode 365](#que-signifie-la-méthode-365) · [comment ça fonctionne](#comment-fonctionne-la-cohérence-cardiaque) · [pratiquer](#comment-pratiquer-concrètement) · [FAQ](#faq)
 
 ## Que signifie la méthode 365 ?
 

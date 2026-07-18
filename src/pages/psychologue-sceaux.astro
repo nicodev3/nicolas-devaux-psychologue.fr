@@ -7,20 +7,22 @@ import {
   DOCTOLIB_BOOKING_URL,
   GOOGLE_MAPS_CABINET_URL,
   GOOGLE_MAPS_EMBED_URL,
-  LEGAL_ENTITY_NAME,
   NEARBY_CITIES,
-  RPPS_NUMBER,
   SERVED_CITIES_LABEL,
-  SIRET_NUMBER,
-  CONTACT_EMAIL,
-  OPENING_HOURS_SCHEMA,
   OPENING_HOURS_TEXT,
+  OPENING_WEEKDAYS_HOURS,
+  OPENING_WEEKDAYS_LABEL,
+  OPENING_SATURDAY_LABEL,
+  OPENING_SATURDAY_HOURS,
+  PHONE_DISPLAY,
+  PHONE_E164,
 } from "../consts";
 
 const title = "Psychologue à Sceaux";
-const seoTitle = "Psychologue à Sceaux (92330) | Nicolas Devaux";
+/** Title ≤ 60 car. — requête principale « psychologue sceaux ». */
+const seoTitle = "Psychologue Sceaux (92330) | Nicolas Devaux";
 const description =
-  "Psychologue à Sceaux et alentours (Plessis-Robinson, Antony, Bourg-la-Reine) : cabinet rue Houdan, RER Robinson. Adultes, couples, visio. RDV sur Doctolib.";
+  "Psychologue à Sceaux (92330) : cabinet 63 rue Houdan, proche RER Robinson. Adultes, couples, communes du 92. Prise de RDV sur Doctolib.";
 
 const isProd = import.meta.env.PROD;
 
@@ -87,92 +89,6 @@ const faqSchema = {
   ],
 };
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService", "MedicalBusiness"],
-  "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
-  name: "Nicolas Devaux, psychologue à Sceaux",
-  legalName: LEGAL_ENTITY_NAME,
-  url: "https://nicolas-devaux-psychologue.fr/psychologue-sceaux/",
-  telephone: "+33629341367",
-  email: CONTACT_EMAIL,
-  taxID: SIRET_NUMBER,
-  identifier: [
-    {
-      "@type": "PropertyValue",
-      propertyID: "RPPS",
-      value: RPPS_NUMBER,
-    },
-    {
-      "@type": "PropertyValue",
-      propertyID: "SIRET",
-      value: SIRET_NUMBER,
-    },
-  ],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "63 rue Houdan",
-    addressLocality: "Sceaux",
-    postalCode: "92330",
-    addressRegion: "Île-de-France",
-    addressCountry: "FR",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 48.7764,
-    longitude: 2.2903,
-  },
-  hasMap: GOOGLE_MAPS_CABINET_URL,
-  areaServed: [
-    { "@type": "City", name: "Sceaux" },
-    { "@type": "City", name: "Le Plessis-Robinson" },
-    { "@type": "City", name: "Antony" },
-    { "@type": "City", name: "Bourg-la-Reine" },
-    { "@type": "City", name: "Châtenay-Malabry" },
-    { "@type": "City", name: "Fontenay-aux-Roses" },
-    { "@type": "City", name: "Bagneux" },
-    { "@type": "City", name: "Cachan" },
-    { "@type": "City", name: "L'Haÿ-les-Roses" },
-    { "@type": "AdministrativeArea", name: "Hauts-de-Seine" },
-  ],
-  openingHoursSpecification: OPENING_HOURS_SCHEMA,
-  priceRange: "€€",
-  makesOffer: [
-    {
-      "@type": "Offer",
-      name: "Consultation individuelle",
-      price: 80,
-      priceCurrency: "EUR",
-      url: "https://nicolas-devaux-psychologue.fr/tarifs/",
-    },
-    {
-      "@type": "Offer",
-      name: "Séance MOSAIC",
-      price: 90,
-      priceCurrency: "EUR",
-      url: "https://nicolas-devaux-psychologue.fr/tarifs/",
-    },
-    {
-      "@type": "Offer",
-      name: "Consultation de couple",
-      price: 110,
-      priceCurrency: "EUR",
-      url: "https://nicolas-devaux-psychologue.fr/tarifs/",
-    },
-    {
-      "@type": "Offer",
-      name: "Participation aux groupes de pleine conscience",
-      price: 30,
-      priceCurrency: "EUR",
-      url: "https://nicolas-devaux-psychologue.fr/tarifs/",
-    },
-  ],
-  sameAs: [
-    "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
-    "https://www.linkedin.com/in/nicodev3/",
-  ],
-};
-
 const primaryCtaClasses = buttonClasses({
   variant: "primary",
   size: "lg",
@@ -187,14 +103,11 @@ const secondaryCtaClasses = buttonClasses({
 ---
 
 <Layout title={title} seoTitle={seoTitle} description={description} pubDate={new Date("May 24 2026")} showDate={false}>
-  <!--email_off-->
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-  <!--/email_off-->
   {isProd && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
   <section class="space-y-10">
     <header class="space-y-5">
-      <p class="typo-eyebrow">Cabinet de psychologie à Sceaux (92330)</p>
+      <p class="typo-eyebrow">Cabinet · 92330 Sceaux · Hauts-de-Seine</p>
       <p class="typo-body-lg text-ink-secondary">
         Je suis <a href="/nicolas-devaux-psychologue/" class="text-link">Nicolas Devaux</a>, psychologue
         clinicien. Je reçois au cabinet, au <strong class="text-ink-primary">{CABINET_ADDRESS_LINE}</strong>,
@@ -224,6 +137,40 @@ const secondaryCtaClasses = buttonClasses({
       </div>
     </header>
 
+    <aside
+      class="rounded-xl border border-border-subtle bg-surface-muted/60 px-5 py-5 sm:px-6"
+      aria-label="Coordonnées du cabinet"
+    >
+      <h2 class="font-display typo-display-md mb-4 text-ink-primary">Coordonnées du cabinet</h2>
+      <dl class="grid gap-3 font-ui text-sm text-ink-secondary sm:grid-cols-2">
+        <div>
+          <dt class="font-semibold text-ink-primary">Adresse</dt>
+          <dd class="mt-1">
+            <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class="text-link">
+              {CABINET_ADDRESS_LINE}
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ink-primary">Téléphone</dt>
+          <dd class="mt-1">
+            <a href={`tel:${PHONE_E164}`} class="text-link">{PHONE_DISPLAY}</a>
+          </dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ink-primary">Horaires</dt>
+          <dd class="mt-1">
+            {OPENING_WEEKDAYS_LABEL} : {OPENING_WEEKDAYS_HOURS}<br />
+            {OPENING_SATURDAY_LABEL} : {OPENING_SATURDAY_HOURS}
+          </dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-ink-primary">Accès</dt>
+          <dd class="mt-1">RER B Robinson ou Sceaux · Parking Penthièvre (rue Houdan)</dd>
+        </div>
+      </dl>
+    </aside>
+
     <section class="space-y-4">
       <SectionHeading eyebrow="01 — Localisation" title="Un psychologue dans le centre de Sceaux" />
       <p>
@@ -247,9 +194,16 @@ const secondaryCtaClasses = buttonClasses({
         De nombreuses personnes consultent depuis Sceaux et les villes voisines des Hauts-de-Seine. Le
         cabinet accueille notamment des patients venant de : {SERVED_CITIES_LABEL}.
       </p>
+      <ul>
+        <li><strong>Sceaux</strong> — centre-ville, RER B Robinson / Sceaux</li>
+        <li><strong>Le Plessis-Robinson</strong> — à quelques minutes en transports ou en voiture</li>
+        <li><strong>Antony</strong>, <strong>Bourg-la-Reine</strong>, <strong>Châtenay-Malabry</strong></li>
+        <li><strong>Fontenay-aux-Roses</strong>, Bagneux, Cachan, L'Haÿ-les-Roses</li>
+      </ul>
       <p>
-        Si vous recherchez un psychologue près de Sceaux, du Plessis-Robinson ou d'Antony, cette page
-        détaille l'accès au cabinet, les modalités de consultation et les approches proposées.
+        Si vous préférez ne pas vous déplacer, les
+        <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a> sont
+        également possibles.
       </p>
     </section>
 
@@ -267,8 +221,9 @@ const secondaryCtaClasses = buttonClasses({
         </li>
         <li>
           <a href="/therapie-mosaic/" class="text-link">Thérapie MOSAIC à Sceaux</a> — pour les
-          mémoires douloureuses, les vécus traumatiques et les réactions émotionnelles qui restent trop
-          intenses.
+          mémoires douloureuses et les vécus traumatiques ; également possible
+          <a href="/therapie-mosaic/#mosaic-en-ligne" class="text-link">en visioconférence</a> selon
+          la situation.
         </li>
         <li>
           <a href="/therapie-couple/" class="text-link">Thérapie de couple à Sceaux</a> — pour les conflits

@@ -1,8 +1,9 @@
 ---
-title: "Insomnie chronique : symptômes, mécanismes et traitement"
+title: "Insomnie chronique : symptômes, mécanismes et TCC-I"
 seoTitle: "Insomnie chronique : symptômes et TCC-I"
-description: "L'insomnie chronique dépasse les simples mauvaises nuits. Découvrez ses mécanismes, les cercles vicieux qui l'entretiennent et ce que la TCC-I change."
+description: "Insomnie chronique : critères, hyperéveil, stratégies qui entretiennent le trouble et rôle de la TCC-I, traitement de première intention."
 pubDate: "Jul 15 2026"
+updatedDate: "Jul 18 2026"
 heroImage: "../../assets/blog/insomnie-chronique.webp"
 tags: ["sommeil"]
 published: true
@@ -11,6 +12,8 @@ published: true
 L'**insomnie chronique** n'est pas seulement une succession de mauvaises nuits. Elle correspond à un trouble du sommeil qui s'installe dans le temps, avec des répercussions sur la journée : fatigue, irritabilité, difficultés de concentration, baisse de motivation, inquiétude autour du sommeil. Beaucoup de personnes finissent par avoir l'impression que leur sommeil est devenu imprévisible, fragile ou « cassé ».
 
 Cette situation peut être très décourageante. Pourtant, l'insomnie chronique n'est pas une faiblesse, ni un manque de volonté. Elle repose souvent sur des mécanismes bien identifiés : hyperéveil, conditionnement, comportements de compensation et pensées anxieuses autour du sommeil. Les comprendre est une première étape importante pour sortir du cercle vicieux.
+
+**Dans cet article :** [critères](#quand-parle-t-on-dinsomnie-chronique) · [formes d'insomnie](#les-différentes-formes-dinsomnie) · [hyperéveil](#le-cercle-vicieux-de-lhyperéveil) · [TCC-I](#la-tcc-i--le-traitement-de-référence) · [FAQ](#faq)
 
 ## Quand parle-t-on d'insomnie chronique ?
 
@@ -83,6 +86,77 @@ Avant de vouloir corriger votre sommeil, il est utile de comprendre votre profil
 L'article sur une [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/) peut vous aider à interpréter certains repères. Celui sur le [sommeil réparateur](/blog/sommeil-reparateur/) permet de mieux comprendre pourquoi la durée seule ne dit pas tout.
 
 Consulter pour une insomnie chronique ne signifie pas « parler vaguement de ses nuits ». Un accompagnement structuré permet d'observer, de formuler des hypothèses, de tester des changements et d'ajuster progressivement. C'est souvent cette précision qui permet de sortir d'une impression d'impuissance face au sommeil.
+
+## Questions fréquentes sur l'insomnie chronique
+
+### Qu'est-ce que l'insomnie chronique ?
+
+On parle généralement d'insomnie chronique lorsque les difficultés de sommeil surviennent au moins trois nuits par semaine depuis au moins trois mois, avec un retentissement dans la journée, malgré un temps suffisant pour dormir.
+
+### Quelle est la différence avec de simples mauvaises nuits ?
+
+Les mauvaises nuits ponctuelles sont fréquentes. L'insomnie chronique s'installe dans la durée et s'accompagne souvent d'hyperéveil, de peur de ne pas dormir et de stratégies de compensation qui entretiennent le problème.
+
+### La TCC-I est-elle le traitement de référence ?
+
+Oui, chez l'adulte. La [TCC-I](/blog/tcc-insomnie/) est recommandée en première intention, y compris lorsqu'il existe des troubles associés. Elle cible les mécanismes qui maintiennent l'insomnie.
+
+### Faut-il un examen du sommeil ?
+
+Pas systématiquement. Un agenda du sommeil et un entretien clinique suffisent souvent. Une polysomnographie peut être indiquée si un autre trouble (apnées, mouvements des jambes, etc.) est suspecté.
+
+### Quand consulter un psychologue pour une insomnie ?
+
+Lorsque les difficultés durent, organisent la journée autour du sommeil, ou s'accompagnent d'anxiété, de fatigue importante ou de perte de confiance dans sa capacité à dormir. Vous pouvez [prendre rendez-vous](/consulter/).
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que l'insomnie chronique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On parle généralement d'insomnie chronique lorsque les difficultés de sommeil surviennent au moins trois nuits par semaine depuis au moins trois mois, avec un retentissement dans la journée, malgré un temps suffisant pour dormir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la différence avec de simples mauvaises nuits ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les mauvaises nuits ponctuelles sont fréquentes. L'insomnie chronique s'installe dans la durée et s'accompagne souvent d'hyperéveil, de peur de ne pas dormir et de stratégies de compensation qui entretiennent le problème."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La TCC-I est-elle le traitement de référence ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, chez l'adulte. La TCC-I est recommandée en première intention, y compris lorsqu'il existe des troubles associés. Elle cible les mécanismes qui maintiennent l'insomnie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il un examen du sommeil ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas systématiquement. Un agenda du sommeil et un entretien clinique suffisent souvent. Une polysomnographie peut être indiquée si un autre trouble (apnées, mouvements des jambes, etc.) est suspecté."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand consulter un psychologue pour une insomnie ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lorsque les difficultés durent, organisent la journée autour du sommeil, ou s'accompagnent d'anxiété, de fatigue importante ou de perte de confiance dans sa capacité à dormir."
+      }
+    }
+  ]
+}
+</script>
 
 ## Sources et repères
 

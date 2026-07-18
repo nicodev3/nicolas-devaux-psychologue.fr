@@ -1,8 +1,9 @@
 ---
-title: "Qu'est-ce que le sommeil réparateur ?"
+title: "Sommeil réparateur : définition, cycles et repères"
 seoTitle: "Sommeil réparateur : définition et repères"
-description: "Qu'est-ce qui rend un sommeil vraiment réparateur ? Durée, cycles, profondeur du sommeil lent : tout ce qui détermine si vous vous réveillez reposé."
+description: "Sommeil réparateur : ce qui le distingue d'un simple long sommeil, rôle des cycles, causes de fatigue au réveil et pistes (efficacité du sommeil, TCC-I)."
 pubDate: "Jul 15 2026"
+updatedDate: "Jul 18 2026"
 heroImage: "../../assets/blog/calcul-sommeil.webp"
 tags: ["sommeil"]
 published: true
@@ -11,6 +12,8 @@ published: true
 On peut avoir dormi plusieurs heures et se réveiller avec l'impression de ne pas avoir vraiment récupéré. À l'inverse, certaines nuits plus courtes peuvent laisser une sensation de clarté et d'énergie. C'est ce qui rend la notion de **sommeil réparateur** si importante : la durée compte, mais elle ne suffit pas à décrire la qualité d'une nuit.
 
 Un sommeil réparateur est un sommeil qui permet au corps et au cerveau de récupérer. Il soutient l'équilibre émotionnel, la concentration, la mémoire, l'immunité et la régulation de l'énergie. Quand il manque, la journée peut commencer avec une fatigue au réveil, une irritabilité inhabituelle ou une impression de brouillard mental.
+
+**Dans cet article :** [durée vs qualité](#un-sommeil-réparateur-nest-pas-seulement-un-sommeil-long) · [cycles de sommeil](#le-rôle-des-cycles-de-sommeil) · [fatigue au réveil](#pourquoi-peut-on-se-réveiller-fatigué) · [TCC-I](#restaurer-un-sommeil-plus-réparateur) · [FAQ](#faq)
 
 ## Un sommeil réparateur n'est pas seulement un sommeil long
 
@@ -64,7 +67,78 @@ La **TCC-I** aide à restaurer un sommeil plus stable lorsque l'insomnie ou la f
 
 Retrouver un sommeil réparateur ne signifie pas obtenir des nuits parfaites. Personne ne dort toujours de manière idéale. L'objectif est plutôt de retrouver une confiance suffisante dans le sommeil, de réduire l'effort autour de la nuit et de stabiliser les rythmes. L'article sur la [TCC-I](/blog/tcc-insomnie/) présente le traitement recommandé lorsque l'insomnie devient chronique.
 
-Vous pouvez aussi consulter l'ensemble des [ressources sur le sommeil et l'insomnie](/ressources/sommeil-insomnie/).
+Vous pouvez aussi consulter l'ensemble des [ressources sur le sommeil et l'insomnie](/ressources/sommeil-insomnie/) ou [prendre rendez-vous](/consulter/) si le manque de récupération s'installe.
+
+## Questions fréquentes sur le sommeil réparateur
+
+### Qu'est-ce qu'un sommeil réparateur ?
+
+Un sommeil réparateur permet au corps et au cerveau de récupérer : vous vous réveillez plus clair, avec une meilleure régulation émotionnelle et de l'énergie dans la journée. La durée compte, mais la continuité et la profondeur du sommeil aussi.
+
+### Combien d'heures faut-il pour un sommeil réparateur ?
+
+Il n'existe pas de durée unique. Beaucoup d'adultes se situent autour de 7 à 9 heures, mais une nuit plus courte et continue peut être plus réparatrice qu'une longue nuit fragmentée.
+
+### Pourquoi suis-je fatigué malgré 8 heures de sommeil ?
+
+Souvent parce qu'une partie du temps au lit n'est pas du sommeil réel : endormissement long, réveils nocturnes, hyperéveil ou ruminations. Voir l'article sur la [fatigue malgré 8 heures au lit](/blog/fatigue-malgre-8-heures-sommeil/).
+
+### Comment améliorer un sommeil non réparateur ?
+
+Observer ses rythmes, estimer l'[efficacité du sommeil](/outils/calculateur-efficacite-sommeil/), réduire le temps éveillé au lit et, si l'insomnie s'installe, envisager une [TCC-I](/blog/tcc-insomnie/).
+
+### Quand consulter pour un sommeil non réparateur ?
+
+Lorsque la fatigue dure, retentit sur le travail ou l'humeur, ou s'accompagne de somnolence, de ronflements avec pauses respiratoires, ou d'une forte anxiété autour du sommeil.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qu'un sommeil réparateur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un sommeil réparateur permet au corps et au cerveau de récupérer : vous vous réveillez plus clair, avec une meilleure régulation émotionnelle et de l'énergie dans la journée. La durée compte, mais la continuité et la profondeur du sommeil aussi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien d'heures faut-il pour un sommeil réparateur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il n'existe pas de durée unique. Beaucoup d'adultes se situent autour de 7 à 9 heures, mais une nuit plus courte et continue peut être plus réparatrice qu'une longue nuit fragmentée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi suis-je fatigué malgré 8 heures de sommeil ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Souvent parce qu'une partie du temps au lit n'est pas du sommeil réel : endormissement long, réveils nocturnes, hyperéveil ou ruminations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment améliorer un sommeil non réparateur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Observer ses rythmes, estimer l'efficacité du sommeil, réduire le temps éveillé au lit et, si l'insomnie s'installe, envisager une TCC-I."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand consulter pour un sommeil non réparateur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lorsque la fatigue dure, retentit sur le travail ou l'humeur, ou s'accompagne de somnolence, de ronflements avec pauses respiratoires, ou d'une forte anxiété autour du sommeil."
+      }
+    }
+  ]
+}
+</script>
 
 ## Sources et repères
 

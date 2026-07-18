@@ -41,6 +41,27 @@ export const RESOURCE_TOPICS: ResourceTopic[] = [
     blogTags: ["sommeil"],
     links: [
       {
+        href: "/blog/insomnie-chronique/",
+        title: "Insomnie chronique : symptômes et mécanismes",
+        description:
+          "Critères, hyperéveil et cercles vicieux qui entretiennent le trouble.",
+        label: "Article clé",
+      },
+      {
+        href: "/blog/tcc-insomnie/",
+        title: "TCC-I : traitement de l'insomnie chronique",
+        description:
+          "Composantes, déroulement et précautions du traitement de référence.",
+        label: "Article clé",
+      },
+      {
+        href: "/blog/sommeil-reparateur/",
+        title: "Sommeil réparateur",
+        description:
+          "Ce qui distingue récupération et simple durée de sommeil.",
+        label: "Article",
+      },
+      {
         href: "/outils/calculateur-efficacite-sommeil/",
         title: "Calculateur d'efficacité du sommeil",
         description:
@@ -76,6 +97,13 @@ export const RESOURCE_TOPICS: ResourceTopic[] = [
     ],
     blogTags: ["act"],
     links: [
+      {
+        href: "/blog/rumination-mentale/",
+        title: "Rumination mentale : comprendre et agir",
+        description:
+          "Différencier réflexion utile et rumination, exercice de désengagement.",
+        label: "Article clé",
+      },
       {
         href: "/therapie-acceptation-et-engagement/",
         title: "Thérapie d'acceptation et d'engagement",

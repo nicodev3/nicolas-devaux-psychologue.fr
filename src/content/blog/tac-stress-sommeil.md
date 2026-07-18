@@ -1,6 +1,6 @@
 ---
 title: 'TAC, stress et sommeil : le corps en alerte'
-seoTitle: 'TAC pour le stress et le sommeil | Activation consciente | Nicolas Devaux'
+seoTitle: 'TAC, stress et sommeil | Nicolas Devaux'
 description: 'Stress chronique et sommeil : comment les TAC aident à accueillir l''activation plutôt que de la combattre. Exercice d''ancrage du soir. Par Nicolas Devaux.'
 pubDate: 'July 07 2026'
 heroImage: '../../assets/blog/sleeping-child.webp'

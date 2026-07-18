@@ -19,7 +19,9 @@ import rehypeCiteUrls from "./src/remark/rehype-cite-urls.js";
 
 const redirectedPaths = new Set([
   "/blog/emdr-mosaic/",
+  "/blog/therapie-couple/",
   "/blog/therapie-fondee-compassion/",
+  "/blog/techniques-activation-conscience/",
   "/approches/",
   "/psychotherapies/",
   "/qui-suis-je/",
@@ -28,6 +30,7 @@ const redirectedPaths = new Set([
   "/mbct/",
   "/cft/",
   "/tcc-3e-vague/",
+  "/tac/",
   "/tarifs",
 ]);
 

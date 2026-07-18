@@ -39,7 +39,7 @@ export const OG_TITLES: Record<(typeof STATIC_OG_SLUGS)[number], string> = {
   "nicolas-devaux-psychologue": "À propos — Nicolas Devaux",
   "psychologue-sceaux": "Psychologue à Sceaux\nNicolas Devaux",
   psychotherapie: "Approches thérapeutiques au cabinet",
-  "therapie-mosaic": "Thérapie MOSAIC à Sceaux",
+  "therapie-mosaic": "Thérapie MOSAIC\nSceaux et visio",
   "tcc-troisieme-vague": "TCC de 3e vague à Sceaux",
   "therapie-acceptation-et-engagement": "Thérapie ACT à Sceaux",
   "therapie-cognitive-et-comportementale": "Thérapie cognitive et comportementale",

@@ -1,7 +1,7 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_NAME = "Nicolas Devaux, psychologue à Sceaux";
+export const SITE_NAME = "Nicolas Devaux, psychologue clinicien";
 export const SITE_TITLE =
   "Nicolas Devaux | Psychologue clinicien, TCC et thérapies";
 
@@ -30,7 +30,13 @@ export const NEARBY_CITIES =
 export const SERVED_CITIES_LABEL =
   "Sceaux, Le Plessis-Robinson, Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses, Bagneux, Cachan et L'Haÿ-les-Roses";
 
-export const SITE_DESCRIPTION = `Nicolas Devaux, psychologue clinicien : consultations pour adultes, adolescents et couples, au cabinet de Sceaux ou en visio. TCC, MOSAIC et thérapie de couple.`;
+/** Meta homepage — marque + approches (le local SEO est sur /psychologue-sceaux/). */
+export const SITE_DESCRIPTION =
+  "Nicolas Devaux, psychologue clinicien : consultations pour adultes, adolescents et couples, en cabinet ou en visio. TCC, MOSAIC et thérapie de couple.";
+
+/** Téléphone cabinet (affichage NAP). */
+export const PHONE_DISPLAY = "06 29 34 13 67";
+export const PHONE_E164 = "+33629341367";
 
 /** URL unique « Prendre rendez-vous » Doctolib (tracking campaign conservée). */
 export const DOCTOLIB_BOOKING_URL =
@@ -94,7 +100,11 @@ export const BLOG_TAG_LABELS: Record<BlogTag, string> = {
   outils: "Outils pratiques",
 };
 
-/** Schema.org — horaires d'ouverture du cabinet. */
+/**
+ * Schema.org — horaires d'ouverture du cabinet.
+ * Pas de propriété non standard (`description`) : invalide pour OpeningHoursSpecification.
+ * Le samedi alterné est précisé dans le contenu HTML / FAQ.
+ */
 export const OPENING_HOURS_SCHEMA = [
   {
     "@type": "OpeningHoursSpecification",
@@ -107,6 +117,5 @@ export const OPENING_HOURS_SCHEMA = [
     dayOfWeek: ["Saturday"],
     opens: "08:00",
     closes: "13:00",
-    description: "Un samedi matin sur deux",
   },
 ] as const;

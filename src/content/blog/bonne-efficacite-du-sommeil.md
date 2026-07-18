@@ -1,6 +1,6 @@
 ---
 title: "Qu’est-ce qu’une bonne efficacité du sommeil ?"
-seoTitle: "Bonne efficacité du sommeil : seuils et repères"
+seoTitle: "Bonne efficacité du sommeil : seuils"
 description: "Qu'est-ce qu'une bonne efficacité du sommeil ? Découvrez les seuils utiles, les erreurs d'interprétation et quand consulter en cas d'insomnie."
 pubDate: "Jun 15 2026"
 heroImage: "../../assets/blog/sleeping-child.webp"
@@ -122,6 +122,55 @@ Oui, souvent en travaillant la régularité, le temps éveillé au lit, les rumi
 ### Faut-il viser 100 % d'efficacité ?
 
 Non. Viser un score parfait peut augmenter la pression. L'objectif est un sommeil suffisamment efficace et réparateur, pas une performance.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qu'une bonne efficacité du sommeil ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une efficacité autour de 85 % ou plus est souvent considérée comme un repère satisfaisant, à condition que la durée totale et le ressenti soient également pris en compte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Une efficacité du sommeil de 85 % est-elle suffisante ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elle peut être satisfaisante, mais tout dépend de la durée totale de sommeil, de la fatigue dans la journée et de la répétition des difficultés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Une efficacité basse signifie-t-elle que j'ai une insomnie chronique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas forcément. Une efficacité basse sur quelques nuits peut être liée au stress ou à un contexte particulier. Si cela dure et retentit sur la journée, il est préférable de demander un avis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on améliorer son efficacité du sommeil ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, souvent en travaillant la régularité, le temps éveillé au lit, les ruminations, l'hyperéveil et les habitudes qui maintiennent l'insomnie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il viser 100 % d'efficacité du sommeil ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Viser un score parfait peut augmenter la pression. L'objectif est un sommeil suffisamment efficace et réparateur, pas une performance."
+      }
+    }
+  ]
+}
+</script>
 
 ## Conclusion
 

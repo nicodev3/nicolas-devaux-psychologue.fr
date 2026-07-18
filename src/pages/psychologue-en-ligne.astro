@@ -5,9 +5,9 @@ import { buttonClasses } from "../components/ui/button";
 import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
 
 const title = "Psychologue en ligne : consultations en visioconférence";
-const seoTitle = "Psychologue en ligne | Consultations en visio | Nicolas Devaux";
+const seoTitle = "Psychologue en ligne | Visio | Nicolas Devaux";
 const description =
-  "Psychologue en ligne et à distance : consultations en visioconférence pour adultes et couples. Anxiété, stress, burn-out. Psychologue clinicien à Sceaux. RDV sur Doctolib.";
+  "Psychologue en ligne : consultations en visioconférence (individuelle, MOSAIC, couple). Anxiété, stress, burn-out. RDV Doctolib.";
 
 const isProd = import.meta.env.PROD;
 const faqSchema = {
@@ -64,7 +64,7 @@ const serviceSchema = {
   name: "Consultation avec un psychologue en ligne",
   serviceType: "Psychologue en visioconférence",
   description:
-    "Consultations psychologiques en ligne par visioconférence : thérapie individuelle, couple, anxiété, stress et burn-out.",
+    "Consultations psychologiques en ligne par visioconférence : thérapie individuelle, thérapie MOSAIC, couple, anxiété, stress et burn-out.",
   url: "https://nicolas-devaux-psychologue.fr/psychologue-en-ligne/",
   provider: {
     "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
@@ -170,8 +170,8 @@ const secondaryCtaClasses = buttonClasses({
           séances de 45 minutes en visio.
         </li>
         <li>
-          <a href="/therapie-mosaic/" class="text-link">Thérapie MOSAIC</a> —
-          possible en ligne selon la situation, après évaluation.
+          <a href="/therapie-mosaic/" class="text-link">Thérapie MOSAIC en ligne</a> —
+          pour les mémoires douloureuses et les vécus traumatiques, après évaluation.
         </li>
         <li>
           <a href="/therapie-couple/" class="text-link">Thérapie de couple</a> —
@@ -181,7 +181,29 @@ const secondaryCtaClasses = buttonClasses({
     </div>
 
     <div>
-      <SectionHeading class="mb-4" eyebrow="03 — Confidentialité" title="Un cadre confidentiel, comme au cabinet" />
+      <SectionHeading
+        class="mb-4"
+        eyebrow="03 — MOSAIC"
+        title="Thérapie MOSAIC en visioconférence"
+      />
+      <p>
+        La <strong>thérapie MOSAIC en ligne</strong> permet de travailler sur des
+        souvenirs douloureux, des vécus traumatiques ou des réactions émotionnelles
+        envahissantes sans vous déplacer au cabinet. Les séances durent
+        <strong>1 heure</strong> (90 €), comme en présentiel à Sceaux.
+      </p>
+      <p>
+        Le protocole s'adapte à la visio : stimulations bilatérales guidées à
+        l'écran, espace calme de votre côté, même secret professionnel. L'indication
+        se décide après évaluation — certaines situations restent mieux adaptées au
+        cabinet. Le détail des indications, du déroulement et des limites figure sur
+        la page dédiée
+        <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>.
+      </p>
+    </div>
+
+    <div>
+      <SectionHeading class="mb-4" eyebrow="04 — Confidentialité" title="Un cadre confidentiel, comme au cabinet" />
       <p>
         Les consultations en ligne sont soumises au même <strong>secret
         professionnel</strong> que les séances en cabinet. La prise de rendez-vous et
@@ -195,7 +217,7 @@ const secondaryCtaClasses = buttonClasses({
     </div>
 
     <div>
-      <SectionHeading class="mb-4" eyebrow="04 — Limites" title="Les limites de la visio" />
+      <SectionHeading class="mb-4" eyebrow="05 — Limites" title="Les limites de la visio" />
       <p>
         La consultation en ligne est un format utile, mais elle n'est pas toujours
         le cadre le plus adapté. Certaines situations de crise, certaines
@@ -211,11 +233,13 @@ const secondaryCtaClasses = buttonClasses({
     </div>
 
     <div>
-      <SectionHeading class="mb-4" eyebrow="05 — Pratique" title="Déroulement et tarifs" />
+      <SectionHeading class="mb-4" eyebrow="06 — Pratique" title="Déroulement et tarifs" />
       <p>
         Une consultation vidéo individuelle dure <strong>45 minutes</strong> (80 €).
-        Les consultations de couple en visio durent 1 heure (110 €). Le détail des
-        tarifs est disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
+        Une séance de <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a> en
+        visio dure 1 heure (90 €). Les consultations de couple en visio durent 1 heure
+        (110 €). Le détail des tarifs est disponible sur la page
+        <a href="/tarifs/" class="text-link">Tarifs</a>.
       </p>
       <p>
         La première séance sert à comprendre votre demande et à décider ensemble
@@ -238,7 +262,7 @@ const secondaryCtaClasses = buttonClasses({
     </div>
 
     <div>
-      <SectionHeading class="mb-4" eyebrow="06 — FAQ" title="Questions fréquentes" />
+      <SectionHeading class="mb-4" eyebrow="07 — FAQ" title="Questions fréquentes" />
 
       <h3 class="font-display typo-display-md text-ink-primary">Une consultation en ligne est-elle aussi confidentielle ?</h3>
       <p>

@@ -1,8 +1,9 @@
 ---
-title: "TCC-I : comment traite-t-elle l'insomnie chronique ?"
+title: "TCC-I : traitement de l'insomnie chronique"
 seoTitle: "TCC-I : traitement de l'insomnie chronique"
-description: "Découvrez les composantes de la TCC-I, traitement de première intention de l'insomnie chronique, son déroulement et ses précautions."
+description: "TCC-I : composantes (restriction du temps au lit, contrôle du stimulus, pensées), déroulement et précautions pour traiter l'insomnie chronique."
 pubDate: "Jul 15 2026"
+updatedDate: "Jul 18 2026"
 heroImage: "../../assets/blog/tcc-insomnie.webp"
 tags: ["sommeil"]
 published: true
@@ -11,6 +12,8 @@ published: true
 La **TCC-I**, ou thérapie cognitive et comportementale de l'insomnie, est une approche structurée du traitement de l'**insomnie chronique**. Elle ne consiste pas seulement à donner des conseils pour mieux dormir. Elle cherche à comprendre les mécanismes qui entretiennent l'insomnie, puis à les modifier progressivement.
 
 Quand le sommeil devient fragile, beaucoup de personnes essaient déjà tout ce qu'elles connaissent : se coucher plus tôt, supprimer les écrans, boire une tisane, écouter une relaxation, rester au lit en espérant se rendormir. Ces efforts sont compréhensibles. Mais lorsque l'insomnie est installée, ils ne suffisent pas toujours, et peuvent parfois renforcer le problème.
+
+**Dans cet article :** [définition](#quest-ce-que-la-tcc-i) · [restriction du temps au lit](#la-restriction-du-temps-au-lit) · [contrôle du stimulus](#le-contrôle-du-stimulus) · [déroulement](#comment-se-déroule-une-tcc-i) · [FAQ](#faq)
 
 ## Qu'est-ce que la TCC-I ?
 
@@ -84,7 +87,78 @@ La TCC-I peut être utile lorsque les difficultés de sommeil sont installées, 
 
 Elle n'a pas pour objectif de promettre des nuits parfaites. Elle aide plutôt à retrouver un sommeil plus stable, moins surveillé, moins chargé d'anxiété. Si vous pensez souffrir d'[insomnie chronique](/blog/insomnie-chronique/), un accompagnement structuré peut permettre de passer d'une lutte solitaire contre la nuit à une démarche d'observation, de compréhension et de changement progressif.
 
-Retrouvez également les [articles et outils consacrés à l'insomnie](/ressources/sommeil-insomnie/).
+Retrouvez également les [articles et outils consacrés à l'insomnie](/ressources/sommeil-insomnie/), la page [TCC](/therapie-cognitive-et-comportementale/) et la possibilité de [consulter](/consulter/) au cabinet ou en visio.
+
+## Questions fréquentes sur la TCC-I
+
+### Que signifie TCC-I ?
+
+TCC-I signifie thérapie cognitive et comportementale de l'insomnie. C'est l'application des TCC au traitement de l'[insomnie chronique](/blog/insomnie-chronique/).
+
+### Combien de séances dure une TCC-I ?
+
+Les formats varient. Beaucoup de programmes structurés s'étalent sur plusieurs semaines, avec un travail actif entre les séances (agenda du sommeil, essais comportementaux).
+
+### Peut-on faire la restriction du temps au lit seul ?
+
+Non, pas dans toutes les situations. Cette composante doit être individualisée et comporte des précautions (somnolence, métiers à vigilance, certains troubles). Le [calculateur d'efficacité du sommeil](/outils/calculateur-efficacite-sommeil/) donne un repère, pas une prescription.
+
+### La TCC-I remplace-t-elle les somnifères ?
+
+Pas automatiquement. Les médicaments peuvent avoir une place sur avis médical. La TCC-I vise surtout un effet durable sur les mécanismes qui entretiennent l'insomnie.
+
+### La TCC-I fonctionne-t-elle en visioconférence ?
+
+Oui, dans de nombreux cas, dès lors que le cadre reste structuré (évaluation, agenda, ajustements). Voir aussi la page [psychologue en ligne](/psychologue-en-ligne/).
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Que signifie TCC-I ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TCC-I signifie thérapie cognitive et comportementale de l'insomnie. C'est l'application des TCC au traitement de l'insomnie chronique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de séances dure une TCC-I ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les formats varient. Beaucoup de programmes structurés s'étalent sur plusieurs semaines, avec un travail actif entre les séances (agenda du sommeil, essais comportementaux)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on faire la restriction du temps au lit seul ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, pas dans toutes les situations. Cette composante doit être individualisée et comporte des précautions (somnolence, métiers à vigilance, certains troubles)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La TCC-I remplace-t-elle les somnifères ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas automatiquement. Les médicaments peuvent avoir une place sur avis médical. La TCC-I vise surtout un effet durable sur les mécanismes qui entretiennent l'insomnie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La TCC-I fonctionne-t-elle en visioconférence ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, dans de nombreux cas, dès lors que le cadre reste structuré (évaluation, agenda, ajustements)."
+      }
+    }
+  ]
+}
+</script>
 
 ## Sources et repères
 

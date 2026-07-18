@@ -10,6 +10,11 @@ import MosaicPractitionerPdf from "../assets/Ici-votre-praticien-MOSAIC.pdf?url"
 import { buttonClasses } from "../components/ui/button";
 import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
 
+const title = "Thérapie MOSAIC";
+const seoTitle = "Thérapie MOSAIC | Sceaux et visio | Nicolas Devaux";
+const description =
+  "Thérapie MOSAIC à Sceaux et en visioconférence : traumatismes, blocages émotionnels. Praticien certifié Stéphanie Khalfa. RDV Doctolib.";
+
 const isProd = import.meta.env.PROD;
 const faqSchema = {
   "@context": "https://schema.org",
@@ -25,18 +30,26 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Combien coûte une séance MOSAIC ?",
+      name: "Où consulter pour une thérapie MOSAIC près de Sceaux ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Une séance MOSAIC dure 1 heure et coûte 90 €. Le détail des tarifs est disponible sur la page Tarifs du site.",
+        text: "Je propose la thérapie MOSAIC au cabinet à Sceaux (92330), accessible depuis Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses et les communes voisines. Les séances durent 1 heure.",
       },
     },
     {
       "@type": "Question",
-      name: "Peut-on faire une séance MOSAIC en ligne ?",
+      name: "Peut-on faire une thérapie MOSAIC en ligne (visioconférence) ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Oui, selon la situation. Les séances ont lieu au cabinet à Sceaux, et des consultations en visioconférence peuvent être proposées après évaluation, notamment si vous êtes éloigné du cabinet.",
+        text: "Oui, selon la situation. Après évaluation, des séances MOSAIC en visioconférence peuvent être proposées via Doctolib, notamment si vous êtes éloigné du cabinet ou si le déplacement est difficile. Le protocole s'adapte au cadre visio (stimulations oculaires guidées à l'écran).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Combien coûte une séance MOSAIC ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Une séance MOSAIC dure 1 heure et coûte 90 €, en cabinet comme en visioconférence. Le détail des tarifs est disponible sur la page Tarifs du site.",
       },
     },
     {
@@ -66,6 +79,53 @@ const faqSchema = {
   ],
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://nicolas-devaux-psychologue.fr/therapie-mosaic/#service",
+  name: "Thérapie MOSAIC",
+  serviceType: "Thérapie MOSAIC",
+  description:
+    "Thérapie MOSAIC pour traumatismes et blocages émotionnels : séances au cabinet à Sceaux ou en visioconférence, par un psychologue certifié MOSAIC de référence.",
+  url: "https://nicolas-devaux-psychologue.fr/therapie-mosaic/",
+  provider: {
+    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+  },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Sceaux",
+    },
+    {
+      "@type": "Country",
+      name: "France",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    name: "Séance MOSAIC",
+    price: 90,
+    priceCurrency: "EUR",
+    url: "https://nicolas-devaux-psychologue.fr/tarifs/",
+    availability: "https://schema.org/InStock",
+  },
+  availableChannel: [
+    {
+      "@type": "ServiceChannel",
+      serviceType: "Consultation en cabinet",
+      serviceUrl: "https://nicolas-devaux-psychologue.fr/psychologue-sceaux/",
+      serviceLocation: {
+        "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+      },
+    },
+    {
+      "@type": "ServiceChannel",
+      serviceType: "Visioconférence sécurisée via Doctolib",
+      serviceUrl: "https://nicolas-devaux-psychologue.fr/psychologue-en-ligne/",
+    },
+  ],
+};
+
 const mosaicCtaPrimary = buttonClasses({
   variant: "primary",
   size: "lg",
@@ -79,28 +139,38 @@ const mosaicCtaSecondary = buttonClasses({
 ---
 
 <Layout
-  title="Thérapie MOSAIC à Sceaux"
-  description="Séances de thérapie MOSAIC à Sceaux pour les vécus traumatiques, blocages émotionnels et difficultés psychologiques. Formation de référence certifiée par Stéphanie Khalfa."
+  title={title}
+  seoTitle={seoTitle}
+  description={description}
   pubDate={new Date("March 07 2026")}
+  updatedDate={new Date("July 18 2026")}
   showDate={false}
 >
   {isProd && (
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <>
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    </>
   )}
   <section class="flex flex-col gap-8 xl:gap-10">
     <p>
-      La thérapie <strong>
-        <a
+      La <strong>thérapie MOSAIC</strong> (
+      <a
           href="https://www.therapiemosaic.com/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-link">MOSAIC</a
-        ></strong
-      > est une approche dérivée de l'EMDR, distincte de la pratique EMDR certifiée par EMDR France.
-      Elle fait partie des approches spécifiques que je peux proposer au cabinet lorsque
+        >) est une approche dérivée de l'EMDR, distincte de la pratique EMDR certifiée par EMDR France.
+      Elle fait partie des approches spécifiques que je propose lorsque
       la difficulté est liée à une mémoire douloureuse, à un vécu traumatique ou à
       une réaction émotionnelle qui reste trop intense malgré le temps écoulé. Je
       suis certifié à la thérapie MOSAIC de référence par Stéphanie Khalfa, fondatrice de la méthode.
+    </p>
+    <p>
+      Les séances ont lieu au <a href="/psychologue-sceaux/" class="text-link">cabinet à Sceaux</a>
+      (Hauts-de-Seine) ou, selon la situation, en
+      <a href="/psychologue-en-ligne/" class="text-link">thérapie MOSAIC en ligne</a>
+      (visioconférence).
     </p>
     <p>
       MOSAIC signifie <strong
@@ -345,21 +415,23 @@ const mosaicCtaSecondary = buttonClasses({
     </div>
 
     <div>
-      <SectionHeading class="mb-4" eyebrow="10 — Consultations" title="Consultation MOSAIC à Sceaux et en ligne : tarif et rendez-vous" />
+      <SectionHeading
+        class="mb-4"
+        eyebrow="10 — Cabinet"
+        title="Thérapie MOSAIC à Sceaux : cabinet et communes proches"
+      />
       <p>
-        Je vous reçois au cabinet à <strong>Sceaux</strong> et propose aussi, selon
-        la situation, des séances en
-        <a href="/psychologue-en-ligne/" class="text-link">consultation en ligne</a>.
+        Je propose la <strong>thérapie MOSAIC à Sceaux</strong> (92330), en
+        Hauts-de-Seine. Le cabinet accueille les personnes habitant Sceaux et les
+        villes voisines comme {NEARBY_CITIES.replace(" et ", ", ")} ou Le
+        Plessis-Robinson.
       </p>
       <p>
         Une séance MOSAIC dure <strong>1 heure</strong> et coûte
         <strong>90 €</strong>. Le détail des tarifs est disponible sur la page
-        <a href="/tarifs/" class="text-link">Tarifs</a>.
-      </p>
-      <p>
-        Le cabinet est accessible pour les personnes habitant Sceaux et les
-        villes voisines comme {NEARBY_CITIES.replace(" et ", ", ")} ou Le
-        Plessis-Robinson.
+        <a href="/tarifs/" class="text-link">Tarifs</a>. Pour le cadre local du
+        cabinet (adresse, accès, autres consultations), voir aussi la page
+        <a href="/psychologue-sceaux/" class="text-link">psychologue à Sceaux</a>.
       </p>
       <div class="mt-2 flex flex-col gap-3 sm:flex-row">
         <a
@@ -368,9 +440,9 @@ const mosaicCtaSecondary = buttonClasses({
           rel="noopener noreferrer"
           class={mosaicCtaPrimary}
           data-track-doctolib
-          data-track-location="Therapie MOSAIC consultations"
+          data-track-location="Therapie MOSAIC cabinet"
         >
-          Prendre rendez-vous pour une séance MOSAIC
+          Prendre rendez-vous au cabinet
         </a>
         <a href="/consulter/" class={mosaicCtaSecondary}>
           Savoir si cette approche est adaptée
@@ -378,8 +450,50 @@ const mosaicCtaSecondary = buttonClasses({
       </div>
     </div>
 
-    <div>
-      <SectionHeading class="mb-4" eyebrow="11 — FAQ" title="Questions fréquentes" />
+    <div id="mosaic-en-ligne">
+      <SectionHeading
+        class="mb-4"
+        eyebrow="11 — Visio"
+        title="Thérapie MOSAIC en ligne : séances en visioconférence"
+      />
+      <p>
+        La <strong>thérapie MOSAIC en ligne</strong> est possible après évaluation,
+        lorsque le présentiel n'est pas accessible ou pas souhaité. Les séances se
+        déroulent en <a href="/psychologue-en-ligne/" class="text-link"
+          >visioconférence sécurisée</a
+        > via Doctolib, dans le même cadre confidentiel qu'au cabinet.
+      </p>
+      <p>
+        En visio, les stimulations bilatérales s'adaptent au cadre à distance
+        (mouvements oculaires guidés à l'écran, consignes précises pour rester
+        dans un espace calme et stable). L'indication reste clinique : certaines
+        situations (crise aiguë, dissociation marquée, besoin de sécurisation
+        corporelle forte) se travaillent mieux en présentiel.
+      </p>
+      <ul>
+        <li>Même durée (1 h) et même tarif (90 €) qu'au cabinet.</li>
+        <li>Adaptée si vous vivez loin de Sceaux, à l'étranger, ou avec des contraintes de déplacement.</li>
+        <li>Première rencontre possible en visio pour évaluer si MOSAIC convient à votre situation.</li>
+      </ul>
+      <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={DOCTOLIB_BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={mosaicCtaPrimary}
+          data-track-doctolib
+          data-track-location="Therapie MOSAIC visio"
+        >
+          Prendre rendez-vous en visio
+        </a>
+        <a href="/psychologue-en-ligne/" class={mosaicCtaSecondary}>
+          Cadre des consultations en ligne
+        </a>
+      </div>
+    </div>
+
+    <div id="faq">
+      <SectionHeading class="mb-4" eyebrow="12 — FAQ" title="Questions fréquentes" />
       <h3 class="font-display typo-display-md text-ink-primary">La thérapie MOSAIC est-elle reconnue ?</h3>
       <p>
         MOSAIC est enseignée et pratiquée par des professionnels formés, mais
@@ -388,17 +502,32 @@ const mosaicCtaSecondary = buttonClasses({
         bénéficiant aujourd'hui du même niveau de validation scientifique.
       </p>
 
-      <h3 class="font-display typo-display-md text-ink-primary">Combien coûte une séance MOSAIC ?</h3>
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
+        Où consulter pour une thérapie MOSAIC près de Sceaux ?
+      </h3>
       <p>
-        Une séance dure 1 heure et coûte 90 €. Le détail des tarifs et des modalités
-        de paiement est disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
+        Je propose la thérapie MOSAIC au <a href="/psychologue-sceaux/" class="text-link"
+          >cabinet à Sceaux</a
+        > (92330), accessible depuis Antony, Bourg-la-Reine, Châtenay-Malabry,
+        Fontenay-aux-Roses et les communes voisines. Les séances durent 1 heure.
       </p>
 
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Peut-on faire une séance MOSAIC en ligne ?</h3>
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
+        Peut-on faire une thérapie MOSAIC en ligne (visioconférence) ?
+      </h3>
       <p>
-        Oui, selon la situation. Les séances ont lieu au cabinet à Sceaux, et des
-        séances en <a href="/psychologue-en-ligne/" class="text-link">visioconférence</a>
-        peuvent être proposées après évaluation, notamment si vous êtes éloigné du cabinet.
+        Oui, selon la situation. Après évaluation, des séances MOSAIC en
+        <a href="/psychologue-en-ligne/" class="text-link">visioconférence</a> peuvent
+        être proposées via Doctolib, notamment si vous êtes éloigné du cabinet.
+        Le protocole s'adapte au cadre visio (stimulations oculaires guidées à
+        l'écran).
+      </p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Combien coûte une séance MOSAIC ?</h3>
+      <p>
+        Une séance dure 1 heure et coûte 90 €, en cabinet comme en visioconférence.
+        Le détail des tarifs et des modalités de paiement est disponible sur la page
+        <a href="/tarifs/" class="text-link">Tarifs</a>.
       </p>
 
       <h3 class="font-display typo-display-md mt-5 text-ink-primary">Combien de séances faut-il ?</h3>
@@ -408,7 +537,7 @@ const mosaicCtaSecondary = buttonClasses({
         d'estimer un cadre de travail.
       </p>
 
-      <h3 class="font-display typo-display-md text-ink-primary">
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
         Peut-on faire MOSAIC si on a déjà suivi une thérapie EMDR ?
       </h3>
       <p>

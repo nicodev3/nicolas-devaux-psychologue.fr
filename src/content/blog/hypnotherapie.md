@@ -1,6 +1,6 @@
 ---
 title: "L'hypnothérapie : principes et applications thérapeutiques"
-seoTitle: "Hypnothérapie : définition, indications et cadre thérapeutique"
+seoTitle: "Hypnothérapie : définition et indications"
 description: "Hypnothérapie : comprendre l'état hypnotique, les indications (anxiété, stress, douleurs) et le cadre thérapeutique. Article par Nicolas Devaux, psychologue à Sceaux."
 pubDate: "nov 23 2024"
 heroImage: '../../assets/blog/hypnotherapie_photorealiste.webp'
