@@ -1,0 +1,30 @@
+---
+/**
+ * Glyphe « D » du logotype Doctolib (marque déposée).
+ * Source : logo officiel Doctolib (doctolib.fr / Wikimedia).
+ * Utiliser currentColor pour s’adapter au contraste du bouton.
+ */
+interface Props {
+  class?: string;
+  /** Taille Tailwind (défaut w-4 h-4). */
+  size?: "sm" | "md" | "lg";
+}
+
+const { class: className = "", size = "md" } = Astro.props;
+
+const sizeClass =
+  size === "sm" ? "h-3.5 w-3.5" : size === "lg" ? "h-5 w-5" : "h-4 w-4";
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="68 393 190 215"
+  fill="currentColor"
+  class:list={["shrink-0", sizeClass, className]}
+  aria-hidden="true"
+  focusable="false"
+>
+  <path
+    d="M123.9 604.4C81 604.4 74.5 599.4 76.7 589.8C78.3 583 113.4 452.2 114.2 449.2C117.7 435.2 132.4 438.6 133 438.7C133.4 438.8 133.7 439.2 133.6 439.6C132.3 450.8 111.7 561.3 111.5 562.7C109.8 573.6 111.5 574.7 125 574.7C191.7 574.7 215.9 528.6 222.5 491.8C233.9 428 171.3 408.9 84 416.7C83.2 416.8 77.4 417.1 74.9 415.9C71.6 414.3 68.8 410.3 68.1 408.1C67.8 407.3 67.8 406.5 68.1 406C68.3 405.7 68.5 405.4 68.8 405.3C97 400.3 136.2 393.6 161.5 396.3C257.3 406.4 257.3 466.7 251.7 497.2C248.6 514.9 232.4 604.4 123.9 604.4Z"
+  ></path>
+</svg>

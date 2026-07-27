@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Picture } from "astro:assets";
+import { applyFrenchTypography } from "../utils/frenchTypography.js";
+import type { BlogTag } from "../consts";
+import { BLOG_TAG_LABELS } from "../consts";
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+
+const TAG_KICKERS: Partial<Record<BlogTag, string>> = {
+  sommeil: "Sommeil",
+  act: "ACT",
+  compassion: "Compassion",
+  etudiants: "Études",
+  therapies: "Thérapies",
+  "pleine-conscience": "Pleine conscience",
+  couple: "Couple",
+  consulter: "Consulter",
+  outils: "Outils",
+};
+---
+
+{
+  posts.length > 0 && (
+    <section
+      class="relative left-1/2 w-screen -translate-x-1/2 bg-surface-muted py-16 md:py-[7.5rem]"
+      aria-labelledby="related-articles-heading"
+    >
+      <div class="mx-auto w-full max-w-[1140px] px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 flex flex-col items-start justify-between gap-6 md:mb-12 md:flex-row md:items-end">
+          <div>
+            <h2
+              id="related-articles-heading"
+              class="font-display typo-display-lg mb-2 text-ink-primary"
+            >
+              Lectures complémentaires
+            </h2>
+            <p class="typo-body mb-0 text-ink-secondary">
+              Explorer d'autres sujets sur la psychologie et le bien-être.
+            </p>
+          </div>
+          <a
+            href="/blog/"
+            class="font-ui text-sm font-medium tracking-wide text-ink-primary underline underline-offset-8 transition-opacity hover:opacity-70"
+          >
+            Voir tout le blog
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8">
+          {posts.map((post) => {
+            const tag = post.data.tags?.[0] as BlogTag | undefined;
+            const kicker = tag
+              ? (TAG_KICKERS[tag] ?? BLOG_TAG_LABELS[tag] ?? "Article")
+              : "Article";
+            return (
+              <article class="group">
+                <a href={`/blog/${post.id}/`} class="block no-underline">
+                  {post.data.heroImage && (
+                    <div class="mb-6 aspect-4/3 overflow-hidden rounded-sm bg-surface-muted">
+                      <Picture
+                        src={post.data.heroImage}
+                        alt=""
+                        formats={["avif", "webp"]}
+                        fallbackFormat="webp"
+                        widths={[400, 640]}
+                        sizes="(max-width: 767px) 100vw, 33vw"
+                        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  )}
+                  <p class="typo-eyebrow mb-3 tracking-wider text-ink-tertiary">{kicker}</p>
+                  <h3 class="font-display typo-display-md mb-3 text-pretty text-ink-primary transition-colors group-hover:text-ink-secondary">
+                    {applyFrenchTypography(post.data.title)}
+                  </h3>
+                  <p class="typo-body mb-0 line-clamp-2 text-ink-secondary">
+                    {post.data.description}
+                  </p>
+                </a>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}

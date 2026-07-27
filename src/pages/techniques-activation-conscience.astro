@@ -3,8 +3,8 @@ import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { Picture } from "astro:assets";
 import TacImage from "../assets/blog/mindfulness_meditation.webp";
-import { buttonClasses } from "../components/ui/button";
-import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
+import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
+import { NEARBY_CITIES } from "../consts";
 
 const isProd = import.meta.env.PROD;
 
@@ -97,11 +97,6 @@ const serviceSchema = {
   ],
 };
 
-const tacCtaClasses = buttonClasses({
-  variant: "primary",
-  size: "lg",
-  className: "w-full justify-center sm:w-auto",
-});
 ---
 
 <Layout
@@ -111,6 +106,7 @@ const tacCtaClasses = buttonClasses({
   pubDate={new Date("July 07 2026")}
   showDate={false}
   blogPost={false}
+  eyebrow="Approches thérapeutiques"
 >
   {isProd && (
     <>
@@ -309,16 +305,13 @@ const tacCtaClasses = buttonClasses({
       <p class="mb-4">
         Si vous vous reconnaissez dans l'évitement émotionnel — savoir intellectuellement ce qui ne va pas, mais réagir toujours pareil —, les TAC peuvent constituer une piste pertinente. La prise de rendez-vous se fait en ligne via Doctolib, au cabinet de Sceaux ou en visioconférence.
       </p>
-      <a
-        href={DOCTOLIB_BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class={tacCtaClasses}
-        data-track-doctolib
-        data-track-location="TAC CTA"
+      <DoctolibBookingLink
+        location="TAC CTA"
+        size="lg"
+        class="w-full justify-center sm:w-auto"
       >
         Prendre rendez-vous
-      </a>
+      </DoctolibBookingLink>
     </div>
 
     <div>

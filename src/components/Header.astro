@@ -1,9 +1,8 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import BrandSpiralMark from "./BrandSpiralMark.astro";
 import ApproachesDropdown from "./ApproachesDropdown.tsx";
+import DoctolibBookingLink from "./DoctolibBookingLink.astro";
 import { buttonClasses } from "./ui/button";
-import { DOCTOLIB_BOOKING_URL } from "../consts";
 
 interface Props {
   /** Masque la barre pleine largeur « Prendre rendez-vous » sous le menu (ex. accueil avec FAB). */
@@ -20,73 +19,62 @@ const burgerBtn = buttonClasses({
 });
 
 const desktopNavLink =
-  "font-ui rounded-md px-3 py-2.5 text-sm font-medium text-body-muted transition-colors duration-200 hover:bg-surface-muted hover:text-brand md:hover:bg-transparent";
+  "font-ui shrink-0 whitespace-nowrap rounded-md px-1.5 py-2 text-sm font-medium tracking-wide text-ink-secondary transition-colors duration-300 hover:text-ink-primary 2xl:px-2";
 
 const sheetLink =
-  "font-ui block rounded-lg px-4 py-3 text-sm font-medium text-body-muted transition-colors hover:bg-surface-muted hover:text-brand";
+  "font-ui block rounded-lg px-4 py-3 text-sm font-medium text-ink-secondary transition-colors hover:bg-surface-muted hover:text-ink-primary";
 ---
 
-<header class="sticky top-0 z-30 border-b border-border-subtle bg-surface-raised shadow-sm">
+<header
+  class="sticky top-0 z-30 border-none bg-surface-page/95 backdrop-blur-sm transition-shadow duration-300"
+  data-site-header
+>
   <nav
-    class="container relative py-3 md:py-4"
+    class="mx-auto flex h-20 max-w-[1140px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
     aria-label="Navigation principale"
     x-data="{ open: false }"
     x-init="matchMedia('(min-width: 1280px)').addEventListener('change', (e) => { if (e.matches) open = false })"
     x-effect="document.documentElement.classList.toggle('overflow-hidden', open)"
     @keydown.escape.window="open = false"
   >
-    <div class="flex items-center justify-between gap-4">
-      <a href="/" class="group flex shrink-0 items-center gap-2 md:gap-2.5">
-        <BrandSpiralMark class="h-8 w-8 shrink-0 text-brand/75 md:h-9 md:w-9" />
-        <div class="text-logo font-ui">
-          <span class="text-lg font-medium tracking-tight text-ink-primary">Nicolas</span>
-          <span class="ml-1 text-lg font-medium text-brand">Devaux</span>
-          <div class="-mt-1 text-xs font-medium tracking-wide text-body-muted">Psychologue</div>
-        </div>
-      </a>
+    <a
+      href="/"
+      class="font-display shrink-0 text-xl leading-none tracking-tight text-ink-primary 2xl:text-[1.75rem]"
+    >
+      Nicolas Devaux
+    </a>
 
-      <div class="hidden min-w-0 xl:flex xl:flex-1 xl:items-center xl:justify-end xl:gap-1 xl:pl-6">
-        <ApproachesDropdown client:load />
-        <HeaderLink class={desktopNavLink} href="/psychologue-sceaux/">Cabinet à Sceaux</HeaderLink>
-        <HeaderLink class={desktopNavLink} href="/consulter/">Consulter</HeaderLink>
-        <HeaderLink class={desktopNavLink} href="/tarifs/">Tarifs</HeaderLink>
-        <HeaderLink class={desktopNavLink} href="/nicolas-devaux-psychologue/">À propos</HeaderLink>
-        <HeaderLink class={desktopNavLink} href="/ressources/">Ressources</HeaderLink>
-        <HeaderLink class={desktopNavLink} href="/outils/">Outils</HeaderLink>
-        <a
-          href={DOCTOLIB_BOOKING_URL}
-          target="_blank"
-          class={buttonClasses({
-            variant: "primary",
-            size: "sm",
-            className: "ml-2 shrink-0 whitespace-nowrap",
-          })}
-          aria-label="Prendre rendez-vous sur Doctolib"
-          data-track-doctolib
-          data-track-location="Header Desktop"
-          rel="noopener noreferrer"
-        >
-          Prendre rendez-vous
-        </a>
-      </div>
-
-      <button
-        type="button"
-        class={burgerBtn}
-        x-on:click="open = !open"
-        :aria-label="open ? 'Fermer le menu' : 'Ouvrir le menu'"
-        :aria-expanded="open"
-        aria-controls="site-navigation"
+    <div class="hidden min-w-0 xl:flex xl:flex-1 xl:items-center xl:justify-end xl:gap-1 xl:pl-4 2xl:gap-2 2xl:pl-6">
+      <ApproachesDropdown client:load />
+      <HeaderLink class={desktopNavLink} href="/psychologue-sceaux/">Cabinet à Sceaux</HeaderLink>
+      <HeaderLink class={desktopNavLink} href="/consulter/">Consulter</HeaderLink>
+      <HeaderLink class={desktopNavLink} href="/tarifs/">Tarifs</HeaderLink>
+      <HeaderLink class={desktopNavLink} href="/blog/">Blog</HeaderLink>
+      <HeaderLink class={desktopNavLink} href="/nicolas-devaux-psychologue/">À propos</HeaderLink>
+      <DoctolibBookingLink
+        location="Header Desktop"
+        size="sm"
+        class="ml-1 shrink-0 whitespace-nowrap 2xl:ml-2"
       >
-        <span class="nav-burger" :class="open ? 'nav-burger--open' : ''" aria-hidden="true">
-          <span class="nav-burger__bar"></span>
-          <span class="nav-burger__bar"></span>
-          <span class="nav-burger__bar"></span>
-        </span>
-      </button>
+        Prendre rendez-vous
+      </DoctolibBookingLink>
     </div>
 
-    <!-- Panneau mobile : même easing que le menu « Approches » (Prompt 7). -->
+    <button
+      type="button"
+      class={burgerBtn}
+      x-on:click="open = !open"
+      :aria-label="open ? 'Fermer le menu' : 'Ouvrir le menu'"
+      :aria-expanded="open"
+      aria-controls="site-navigation"
+    >
+      <span class="nav-burger" :class="open ? 'nav-burger--open' : ''" aria-hidden="true">
+        <span class="nav-burger__bar"></span>
+        <span class="nav-burger__bar"></span>
+        <span class="nav-burger__bar"></span>
+      </span>
+    </button>
+
     <div class="xl:hidden">
       <div
         x-show="open"
@@ -127,7 +115,7 @@ const sheetLink =
             class={buttonClasses({
               variant: "ghost",
               size: "sm",
-              className: "min-h-9! text-ink-secondary hover:text-brand",
+              className: "min-h-9! text-ink-secondary hover:text-ink-primary",
             })}
             x-on:click="open = false"
           >
@@ -158,15 +146,15 @@ const sheetLink =
           >
           <div class="my-2 h-px bg-border-subtle" aria-hidden="true"></div>
           <HeaderLink class={sheetLink} href="/psychologue-sceaux/" x-on:click="open = false"
-            >Psychologue à Sceaux</HeaderLink
+            >Cabinet à Sceaux</HeaderLink
           >
           <HeaderLink class={sheetLink} href="/consulter/" x-on:click="open = false">Consulter</HeaderLink>
           <HeaderLink class={sheetLink} href="/tarifs/" x-on:click="open = false">Tarifs</HeaderLink>
+          <HeaderLink class={sheetLink} href="/blog/" x-on:click="open = false">Blog</HeaderLink>
           <HeaderLink class={sheetLink} href="/nicolas-devaux-psychologue/" x-on:click="open = false"
             >À propos</HeaderLink
           >
           <HeaderLink class={sheetLink} href="/ressources/" x-on:click="open = false">Ressources</HeaderLink>
-          <HeaderLink class={sheetLink} href="/blog/" x-on:click="open = false">Articles</HeaderLink>
           <HeaderLink class={sheetLink} href="/outils/" x-on:click="open = false">Outils</HeaderLink>
         </div>
       </div>
@@ -175,31 +163,24 @@ const sheetLink =
 </header>
 {
   !suppressMobileBookingCta && (
-    <a
-      href={DOCTOLIB_BOOKING_URL}
-      target="_blank"
-      class={buttonClasses({
-        variant: "primary",
-        size: "md",
-        fullWidth: true,
-        className: "xl:hidden",
-      })}
-      aria-label="Prendre rendez-vous Doctolib"
-      data-track-doctolib
-      data-track-location="Header Mobile"
-      rel="noopener noreferrer"
-    >
+    <DoctolibBookingLink location="Header Mobile" size="md" fullWidth class="xl:hidden">
       Prendre rendez-vous
-    </a>
+    </DoctolibBookingLink>
   )
 }
 
-<style>
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
+<script>
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle("shadow-md", window.scrollY > 50);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
   }
+</script>
 
+<style>
   .nav-burger {
     position: relative;
     display: block;
@@ -246,7 +227,6 @@ const sheetLink =
     transform: rotate(-45deg);
   }
 
-  /* cubic-bezier(0.16, 1, 0.3, 1) — aligné sur ApproachesDropdown / Framer easeMenu */
   :global(.nav-sheet-ease) {
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }

@@ -45,6 +45,7 @@ const shareLinks = [
             class="article-share__link"
             target="_blank"
             rel="noopener noreferrer"
+            data-track-share={item.label}
           >
             {item.label}
           </a>
@@ -56,6 +57,7 @@ const shareLinks = [
         type="button"
         class="article-share__link"
         data-share-email
+        data-track-share="Email"
         data-share-subject={title}
         data-share-body={`${title}\n\n${url}`}
       >
@@ -63,7 +65,12 @@ const shareLinks = [
       </button>
     </li>
     <li>
-      <button type="button" class="article-share__link article-share__copy" data-share-copy={url}>
+      <button
+        type="button"
+        class="article-share__link article-share__copy"
+        data-share-copy={url}
+        data-track-share="Copy"
+      >
         <LucideIcon icon={Link} size="sm" />
         <span>Copier le lien</span>
       </button>
@@ -72,6 +79,18 @@ const shareLinks = [
 </nav>
 
 <script is:inline>
+  function trackShare(channel) {
+    try {
+      window.umami &&
+        window.umami.track("Share Click", {
+          channel: channel || "unknown",
+          location: window.location.pathname || "/",
+        });
+    } catch (err) {
+      // Ignore tracking errors.
+    }
+  }
+
   document.querySelectorAll("[data-share-copy]").forEach(function (button) {
     if (!(button instanceof HTMLButtonElement)) return;
     var defaultText = (button.textContent || "").trim() || "Copier le lien";
@@ -80,6 +99,7 @@ const shareLinks = [
       var url = button.getAttribute("data-share-copy");
       if (!url || !navigator.clipboard) return;
 
+      trackShare(button.getAttribute("data-track-share") || "Copy");
       navigator.clipboard.writeText(url).then(function () {
         var label = button.querySelector("span");
         if (!label) return;
@@ -99,8 +119,16 @@ const shareLinks = [
       var body = button.getAttribute("data-share-body");
       if (!subject || !body) return;
 
+      trackShare(button.getAttribute("data-track-share") || "Email");
       window.location.href =
         "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+  });
+
+  document.querySelectorAll("a[data-track-share]").forEach(function (link) {
+    if (!(link instanceof HTMLAnchorElement)) return;
+    link.addEventListener("click", function () {
+      trackShare(link.getAttribute("data-track-share"));
     });
   });
 </script>

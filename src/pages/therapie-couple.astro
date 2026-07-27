@@ -3,8 +3,9 @@ import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { Picture } from "astro:assets";
 import CoupleImage from "../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp";
+import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
 import { buttonClasses } from "../components/ui/button";
-import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
+import { NEARBY_CITIES } from "../consts";
 
 const isProd = import.meta.env.PROD;
 const faqSchema = {
@@ -112,11 +113,6 @@ const serviceSchema = {
   ],
 };
 
-const coupleCtaPrimary = buttonClasses({
-  variant: "primary",
-  size: "lg",
-  className: "w-full justify-center sm:w-auto",
-});
 const coupleCtaSecondary = buttonClasses({
   variant: "secondary",
   size: "lg",
@@ -131,6 +127,7 @@ const coupleCtaSecondary = buttonClasses({
   pubDate={new Date("August 30 2025")}
   showDate={false}
   blogPost={false}
+  eyebrow="Approches thérapeutiques"
 >
   {isProd && (
     <>
@@ -322,16 +319,13 @@ const coupleCtaSecondary = buttonClasses({
         dans votre situation, la première séance sert précisément à clarifier la demande.
       </p>
       <div class="flex flex-col gap-3 sm:flex-row">
-        <a
-          href={DOCTOLIB_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={coupleCtaPrimary}
-          data-track-doctolib
-          data-track-location="Therapie couple CTA"
+        <DoctolibBookingLink
+          location="Therapie couple CTA"
+          size="lg"
+          class="w-full justify-center sm:w-auto"
         >
           Prendre rendez-vous pour une consultation de couple
-        </a>
+        </DoctolibBookingLink>
         <a href="/psychologue-en-ligne/" class={coupleCtaSecondary}>
           Consulter en couple en ligne
         </a>

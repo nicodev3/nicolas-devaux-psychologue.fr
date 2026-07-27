@@ -1,19 +1,18 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import SectionHeading from "../components/SectionHeading.astro";
 import { Image, Picture } from "astro:assets";
 import MosaicImage from "../assets/emdr-therapie-mosaic.webp";
 import MosaicSchemaImage from "../assets/blog/infographie-mosaic.webp";
 import EmotionRegionsImage from "../assets/blog/cerveau-regions-emotion-fr.webp";
 import MosaicFormationImage from "../assets/logo-mosaic.svg";
 import MosaicPractitionerPdf from "../assets/Ici-votre-praticien-MOSAIC.pdf?url";
+import modalitiesImage from "../assets/interior-modalities-stones.jpg";
+import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
+import InteriorQuote from "../components/InteriorQuote.astro";
+import LucideIcon from "../components/LucideIcon.astro";
 import { buttonClasses } from "../components/ui/button";
-import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
-
-const title = "Thérapie MOSAIC";
-const seoTitle = "Thérapie MOSAIC | Sceaux et visio | Nicolas Devaux";
-const description =
-  "Thérapie MOSAIC à Sceaux et en visioconférence : traumatismes, blocages émotionnels. Praticien certifié Stéphanie Khalfa. RDV Doctolib.";
+import { NEARBY_CITIES } from "../consts";
+import { Brain, Leaf, MapPin, Video } from "lucide";
 
 const isProd = import.meta.env.PROD;
 const faqSchema = {
@@ -30,26 +29,18 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Où consulter pour une thérapie MOSAIC près de Sceaux ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Je propose la thérapie MOSAIC au cabinet à Sceaux (92330), accessible depuis Antony, Bourg-la-Reine, Châtenay-Malabry, Fontenay-aux-Roses et les communes voisines. Les séances durent 1 heure.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Peut-on faire une thérapie MOSAIC en ligne (visioconférence) ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui, selon la situation. Après évaluation, des séances MOSAIC en visioconférence peuvent être proposées via Doctolib, notamment si vous êtes éloigné du cabinet ou si le déplacement est difficile. Le protocole s'adapte au cadre visio (stimulations oculaires guidées à l'écran).",
-      },
-    },
-    {
-      "@type": "Question",
       name: "Combien coûte une séance MOSAIC ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Une séance MOSAIC dure 1 heure et coûte 90 €, en cabinet comme en visioconférence. Le détail des tarifs est disponible sur la page Tarifs du site.",
+        text: "Une séance MOSAIC dure 1 heure et coûte 90 €. Le détail des tarifs est disponible sur la page Tarifs du site.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Peut-on faire une séance MOSAIC en ligne ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, selon la situation. Les séances ont lieu au cabinet à Sceaux, et des consultations en visioconférence peuvent être proposées après évaluation, notamment si vous êtes éloigné du cabinet.",
       },
     },
     {
@@ -79,58 +70,6 @@ const faqSchema = {
   ],
 };
 
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://nicolas-devaux-psychologue.fr/therapie-mosaic/#service",
-  name: "Thérapie MOSAIC",
-  serviceType: "Thérapie MOSAIC",
-  description:
-    "Thérapie MOSAIC pour traumatismes et blocages émotionnels : séances au cabinet à Sceaux ou en visioconférence, par un psychologue certifié MOSAIC de référence.",
-  url: "https://nicolas-devaux-psychologue.fr/therapie-mosaic/",
-  provider: {
-    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
-  },
-  areaServed: [
-    {
-      "@type": "City",
-      name: "Sceaux",
-    },
-    {
-      "@type": "Country",
-      name: "France",
-    },
-  ],
-  offers: {
-    "@type": "Offer",
-    name: "Séance MOSAIC",
-    price: 90,
-    priceCurrency: "EUR",
-    url: "https://nicolas-devaux-psychologue.fr/tarifs/",
-    availability: "https://schema.org/InStock",
-  },
-  availableChannel: [
-    {
-      "@type": "ServiceChannel",
-      serviceType: "Consultation en cabinet",
-      serviceUrl: "https://nicolas-devaux-psychologue.fr/psychologue-sceaux/",
-      serviceLocation: {
-        "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
-      },
-    },
-    {
-      "@type": "ServiceChannel",
-      serviceType: "Visioconférence sécurisée via Doctolib",
-      serviceUrl: "https://nicolas-devaux-psychologue.fr/psychologue-en-ligne/",
-    },
-  ],
-};
-
-const mosaicCtaPrimary = buttonClasses({
-  variant: "primary",
-  size: "lg",
-  className: "w-full justify-center sm:w-auto",
-});
 const mosaicCtaSecondary = buttonClasses({
   variant: "secondary",
   size: "lg",
@@ -139,58 +78,187 @@ const mosaicCtaSecondary = buttonClasses({
 ---
 
 <Layout
-  title={title}
-  seoTitle={seoTitle}
-  description={description}
+  title="Thérapie MOSAIC"
+  seoTitle="Thérapie MOSAIC à Sceaux"
+  description="Une approche neuroscientifique pour libérer les traumatismes par le mouvement et la reconnexion aux ressources internes."
   pubDate={new Date("March 07 2026")}
-  updatedDate={new Date("July 18 2026")}
   showDate={false}
+  eyebrow="Approches thérapeutiques"
+  wideContent
+  heroAlt="Espace de consultation calme — thérapie MOSAIC à Sceaux"
 >
   {isProd && (
-    <>
-      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-      <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
-    </>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   )}
-  <section class="flex flex-col gap-8 xl:gap-10">
-    <p>
-      La <strong>thérapie MOSAIC</strong> (
-      <a
-          href="https://www.therapiemosaic.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-link">MOSAIC</a
-        >) est une approche dérivée de l'EMDR, distincte de la pratique EMDR certifiée par EMDR France.
-      Elle fait partie des approches spécifiques que je propose lorsque
-      la difficulté est liée à une mémoire douloureuse, à un vécu traumatique ou à
-      une réaction émotionnelle qui reste trop intense malgré le temps écoulé. Je
-      suis certifié à la thérapie MOSAIC de référence par Stéphanie Khalfa, fondatrice de la méthode.
-    </p>
-    <p>
-      Les séances ont lieu au <a href="/psychologue-sceaux/" class="text-link">cabinet à Sceaux</a>
-      (Hauts-de-Seine) ou, selon la situation, en
-      <a href="/psychologue-en-ligne/" class="text-link">thérapie MOSAIC en ligne</a>
-      (visioconférence).
-    </p>
-    <p>
-      MOSAIC signifie <strong
-        >Mouvements Oculaires et Stimulations Alternées pour l'Intégration
-        Cérébrale</strong
-      >. Cette approche récente utilise les stimulations bilatérales alternées,
-      comme dans l'EMDR, avec une logique orientée vers les solutions et
-      l'apaisement. Cette méthode, développée en 2019 par Guillaume Poupard
-      (psychologue clinicien, docteur en psychopathologie) et Stéphanie Khalfa
-      (chercheuse en neurosciences et psychologue), s'appuie sur des connaissances actuelles en
-      psychologie et neurosciences pour faciliter la transformation des
-      souvenirs difficiles.
-    </p>
-    <p>
-      Si vous cherchez une aide pour un traumatisme ou pour un souvenir qui
-      reste envahissant, l'objectif est clair : <strong
-        >apaiser la détresse sans vous replonger longuement dans la douleur du
-        souvenir</strong
-      >.
-    </p>
+
+  <!-- Approche détaillée — grille Stitch 5 / 7 -->
+  <section class="py-4 md:py-8" aria-labelledby="mosaic-method-heading">
+    <div class="grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-5">
+        <div class="md:sticky md:top-28">
+          <h2 id="mosaic-method-heading" class="font-display typo-display-lg mb-6 text-ink-primary">
+            Qu'est-ce que la méthode MOSAIC ?
+          </h2>
+          <div class="mb-8 h-px w-16 bg-brand/30" aria-hidden="true"></div>
+          <p class="typo-body italic text-ink-secondary">
+            « La thérapie MOSAIC, une approche dérivée de l'EMDR, aide à retraiter les souvenirs
+            douloureux et les vécus traumatiques. »
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-14 md:col-span-7 md:space-y-16">
+        <div class="space-y-5">
+          <h3 class="font-display typo-display-md text-ink-primary">Une évolution de l'EMDR</h3>
+          <p>
+            La thérapie{" "}
+            <strong>
+              <a
+                href="https://www.therapiemosaic.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-link">MOSAIC</a
+              >
+            </strong>{" "}
+            (Mouvements Oculaires et Stimulations Alternées pour l'Intégration Cérébrale) se
+            distingue par une approche centrée sur les solutions et les ressources déjà présentes
+            en vous. Contrairement aux approches classiques qui peuvent raviver la douleur, MOSAIC
+            privilégie la création de nouveaux réseaux neuronaux liés au bien-être et à la sécurité.
+          </p>
+          <p>
+            Elle fait partie des approches spécifiques que je peux proposer au cabinet lorsque la
+            difficulté est liée à une mémoire douloureuse, à un vécu traumatique ou à une réaction
+            émotionnelle qui reste trop intense malgré le temps écoulé. Je suis certifié à la
+            thérapie MOSAIC de référence par Stéphanie Khalfa, fondatrice de la méthode.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+          <div class="bg-surface-footer p-8 md:p-10">
+            <LucideIcon icon={Brain} class="mb-4 !h-8 !w-8 text-ink-primary" />
+            <h4 class="typo-eyebrow mb-4 tracking-widest text-ink-primary">Neuroplasticité</h4>
+            <p class="m-0 text-sm leading-relaxed text-ink-secondary">
+              Utilisation des stimulations bilatérales pour favoriser le retraitement cérébral des
+              informations bloquées.
+            </p>
+          </div>
+          <div class="border border-border-strong/40 bg-surface-muted p-8 md:p-10">
+            <LucideIcon icon={Leaf} class="mb-4 !h-8 !w-8 text-ink-primary" />
+            <h4 class="typo-eyebrow mb-4 tracking-widest text-ink-primary">Ressources</h4>
+            <p class="m-0 text-sm leading-relaxed text-ink-secondary">
+              Focus sur le développement de vos capacités d'auto-apaisement et de résilience
+              immédiate.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-5">
+          <h3 class="font-display typo-display-md text-ink-primary">Accompagnement flexible</h3>
+          <p>
+            La thérapie s'adapte à votre rythme et à vos contraintes de vie. Que vous soyez en
+            recherche d'une résolution ponctuelle ou d'un travail de fond, le cadre reste sécurisant
+            et professionnel — au cabinet à Sceaux ou en visioconférence selon la situation.
+          </p>
+          <div class="flex flex-col gap-4 pt-2 sm:flex-row sm:gap-8">
+            <div class="flex items-center gap-3">
+              <LucideIcon icon={MapPin} class="text-ink-primary" />
+              <span class="font-ui text-sm font-medium text-ink-secondary">Cabinet à Sceaux</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <LucideIcon icon={Video} class="text-ink-primary" />
+              <span class="font-ui text-sm font-medium text-ink-secondary">Visioconférence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <InteriorQuote quote="Libérer le corps pour apaiser l'esprit." />
+
+  <!-- Modalités -->
+  <section class="py-16 md:py-[7.5rem]" aria-labelledby="mosaic-modalities-heading">
+    <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
+      <div class="order-2 md:order-1">
+        <div class="aspect-4/5 overflow-hidden bg-surface-muted">
+          <Picture
+            src={modalitiesImage}
+            alt="Équilibre et apaisement — image symbolique des séances MOSAIC"
+            formats={["avif", "webp"]}
+            fallbackFormat="jpg"
+            widths={[480, 720, 960]}
+            sizes="(max-width: 767px) 100vw, 50vw"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+          />
+        </div>
+      </div>
+
+      <div class="order-1 space-y-8 md:order-2 md:space-y-10">
+        <div>
+          <h2 id="mosaic-modalities-heading" class="font-display typo-display-lg mb-6 text-ink-primary">
+            Modalités des séances
+          </h2>
+          <p class="text-ink-secondary">
+            Séances au cabinet à Sceaux ou en visioconférence, selon la situation. Chaque rencontre
+            est un espace neutre, confidentiel et bienveillant dédié à votre cheminement personnel.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="flex items-end justify-between border-b border-border-strong/30 pb-4">
+            <div>
+              <h3 class="typo-eyebrow mb-1 text-ink-primary">Séance MOSAIC</h3>
+              <p class="m-0 text-xs uppercase tracking-widest text-ink-tertiary">Durée : 60 minutes</p>
+            </div>
+            <span class="font-display typo-display-md text-ink-primary">90&nbsp;€</span>
+          </div>
+          <div class="flex items-end justify-between border-b border-border-strong/30 pb-4">
+            <div>
+              <h3 class="typo-eyebrow mb-1 text-ink-primary">Consultation individuelle</h3>
+              <p class="m-0 text-xs uppercase tracking-widest text-ink-tertiary">Durée : 45 minutes</p>
+            </div>
+            <span class="font-display typo-display-md text-ink-primary">80&nbsp;€</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+          <DoctolibBookingLink
+            location="Therapie MOSAIC consultations"
+            size="lg"
+            class="w-full justify-center uppercase tracking-[0.15em] sm:w-auto"
+          >
+            Prendre rendez-vous
+          </DoctolibBookingLink>
+          <a href="/consulter/" class={mosaicCtaSecondary}>
+            Savoir si cette approche est adaptée
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenu approfondi -->
+  <section class="space-y-12 border-t border-border-subtle pt-16 md:space-y-14 md:pt-20" aria-label="En savoir plus">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-4">
+        <h2 class="font-display typo-display-md text-ink-primary">Dans quels cas cette approche peut être utile ?</h2>
+      </div>
+      <div class="md:col-span-8 space-y-4">
+        <p>
+          La thérapie MOSAIC peut être indiquée lorsqu'un événement ou un souvenir reste associé à
+          une détresse importante, à un sentiment de blocage ou à une hyperréactivité émotionnelle.
+        </p>
+        <ul>
+          <li>Souvenirs douloureux ou traumatiques.</li>
+          <li>Stress persistant après un événement difficile.</li>
+          <li>Réactions émotionnelles envahissantes ou disproportionnées.</li>
+          <li>Blocages qui se répètent malgré un travail de compréhension déjà engagé.</li>
+        </ul>
+        <p>L'indication se décide toujours au cas par cas, après évaluation clinique.</p>
+      </div>
+    </div>
 
     <div class="my-2">
       <Picture
@@ -200,386 +268,223 @@ const mosaicCtaSecondary = buttonClasses({
         fallbackFormat="webp"
         loading="lazy"
         decoding="async"
-        class="mx-auto"
+        class="mx-auto w-full max-w-3xl"
       />
     </div>
 
-    <div>
-      <SectionHeading class="mb-4" eyebrow="01 — Indications" title="Dans quels cas cette approche peut être utile ?" />
-      <p>
-        La thérapie MOSAIC peut être indiquée lorsqu'un événement ou un souvenir
-        reste associé à une détresse importante, à un sentiment de blocage ou à
-        une hyperréactivité émotionnelle.
-      </p>
-      <ul>
-        <li>Souvenirs douloureux ou traumatiques.</li>
-        <li>Stress persistant après un événement difficile.</li>
-        <li>Réactions émotionnelles envahissantes ou disproportionnées.</li>
-        <li>
-          Blocages qui se répètent malgré un travail de compréhension déjà
-          engagé.
-        </li>
-      </ul>
-      <p>
-        L'indication se décide toujours au cas par cas, après évaluation
-        clinique.
-      </p>
-    </div>
-
-    <div>
-      <SectionHeading class="mb-4" eyebrow="02 — Définition" title="MOSAIC : définition simple" />
-      <p>
-        La thérapie MOSAIC vise à activer des ressources déjà présentes chez la
-        personne, notamment à travers des sensations corporelles de sécurité,
-        d'apaisement ou de solidité.
-      </p>
-      <p>
-        Au lieu de rester centrée sur le problème et sur son historique, la
-        méthode travaille aussi sur ce qui aide déjà, sur ce que vous souhaitez
-        ressentir à la place, et sur la manière de stabiliser ce nouvel état
-        dans votre vie quotidienne.
-      </p>
-    </div>
-
-    <div>
-      <SectionHeading class="mb-4" eyebrow="03 — EMDR" title="Différence entre l'EMDR et MOSAIC" />
-      <p>
-        L'EMDR et MOSAIC partagent l'usage des stimulations bilatérales
-        alternées. La différence principale tient au point d'entrée
-        thérapeutique.
-      </p>
-      <ul>
-        <li>
-          L'EMDR travaille classiquement avec le souvenir traumatique cible.
-        </li>
-        <li>
-          MOSAIC met davantage l'accent sur l'expérience corporelle de la
-          solution.
-        </li>
-      </ul>
-      <p>
-        En pratique, de nombreuses personnes décrivent MOSAIC comme une approche
-        plus douce, tout en restant active et structurée.
-      </p>
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-4">
+        <h2 class="font-display typo-display-md text-ink-primary">Différence entre l'EMDR et MOSAIC</h2>
+      </div>
+      <div class="md:col-span-8 space-y-4">
+        <p>
+          L'EMDR et MOSAIC partagent l'usage des stimulations bilatérales alternées. La différence
+          principale tient au point d'entrée thérapeutique.
+        </p>
+        <ul>
+          <li>L'EMDR travaille classiquement avec le souvenir traumatique cible.</li>
+          <li>MOSAIC met davantage l'accent sur l'expérience corporelle de la solution.</li>
+        </ul>
+        <p>
+          En pratique, de nombreuses personnes décrivent MOSAIC comme une approche plus douce, tout
+          en restant active et structurée. Voir aussi le comparatif{" "}
+          <a href="/blog/therapie-mosaic/" class="text-link">MOSAIC ou EMDR</a>.
+        </p>
+      </div>
     </div>
 
     <div class="my-2">
-      <Image
-        src={MosaicSchemaImage}
-        alt="Schéma simplifié de la thérapie MOSAIC"
-      />
+      <Image src={MosaicSchemaImage} alt="Schéma simplifié de la thérapie MOSAIC" class="w-full max-w-3xl" />
       <p class="mt-2 text-sm text-ink-tertiary">
         Illustration : modèle simplifié du fonctionnement de la thérapie MOSAIC.
       </p>
     </div>
 
-    <div>
-      <SectionHeading class="mb-4" eyebrow="04 — Déroulement" title="Comment se déroule l'accompagnement ?" />
-      <p>
-        Les premières séances permettent de comprendre votre demande, de
-        vérifier si cette approche est adaptée et de définir un cadre clair. Le
-        travail thérapeutique se fait ensuite de manière progressive et
-        structurée.
-      </p>
-      <ol>
-        <li>
-          <strong>Entretien MOSAIC :</strong> définition de la situation limitante,
-          des objectifs et de l'état interne désiré.
-        </li>
-        <li>
-          <strong>Boucle de reconnexion :</strong> renforcement progressif de l'état
-          recherché avec stimulations bilatérales alternées.
-        </li>
-        <li>
-          <strong>Projection des bénéfices :</strong> travail sur les changements
-          concrets attendus dans le quotidien.
-        </li>
-        <li>
-          <strong>Intégration :</strong> débriefing et exercice simple entre les séances
-          pour stabiliser le travail.
-        </li>
-      </ol>
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-4">
+        <h2 class="font-display typo-display-md text-ink-primary">Comment se déroule l'accompagnement ?</h2>
+      </div>
+      <div class="md:col-span-8 space-y-4">
+        <p>
+          Les premières séances permettent de comprendre votre demande, de vérifier si cette
+          approche est adaptée et de définir un cadre clair. Le travail thérapeutique se fait ensuite
+          de manière progressive et structurée.
+        </p>
+        <ol>
+          <li>
+            <strong>Entretien MOSAIC :</strong> définition de la situation limitante, des objectifs
+            et de l'état interne désiré.
+          </li>
+          <li>
+            <strong>Boucle de reconnexion :</strong> renforcement progressif de l'état recherché avec
+            stimulations bilatérales alternées.
+          </li>
+          <li>
+            <strong>Projection des bénéfices :</strong> travail sur les changements concrets attendus
+            dans le quotidien.
+          </li>
+          <li>
+            <strong>Intégration :</strong> débriefing et exercice simple entre les séances pour
+            stabiliser le travail.
+          </li>
+        </ol>
+      </div>
     </div>
 
-    <div>
-      <SectionHeading class="mb-4" eyebrow="05 — Neurosciences" title="Ce que disent les neurosciences" />
-      <p>
-        Les recherches sur le psychotraumatisme et l'EMDR montrent l'implication
-        de réseaux cérébraux liés à la peur, à la mémoire contextuelle, à la
-        régulation émotionnelle et à la conscience de soi.
-      </p>
-      <ul>
-        <li>Amygdale : détection de la menace.</li>
-        <li>Hippocampe : mémoire contextuelle.</li>
-        <li>Cortex préfrontal : régulation émotionnelle.</li>
-        <li>
-          Insula, précuneus, cingulaire : intégration multisensorielle et
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-4">
+        <h2 class="font-display typo-display-md text-ink-primary">Ce que disent les neurosciences</h2>
+      </div>
+      <div class="md:col-span-8 space-y-4">
+        <p>
+          Les recherches sur le psychotraumatisme et l'EMDR montrent l'implication de réseaux
+          cérébraux liés à la peur, à la mémoire contextuelle, à la régulation émotionnelle et à la
           conscience de soi.
-        </li>
-      </ul>
-      <p>
-        Les stimulations bilatérales alternées semblent moduler ces réseaux et
-        favoriser une reconsolidation de la mémoire traumatique avec moins de
-        charge émotionnelle.
-      </p>
-    </div>
-
-    <div class="my-2">
-      <Picture
-        src={EmotionRegionsImage}
-        alt="Régions cérébrales impliquées dans la régulation émotionnelle"
-        formats={["avif", "webp"]}
-        fallbackFormat="webp"
-        loading="lazy"
-        decoding="async"
-      />
-      <p class="mt-2 text-sm text-ink-tertiary">
-        Illustration : principales régions cérébrales impliquées dans la
-        régulation émotionnelle.
-      </p>
-    </div>
-
-    <div>
-      <SectionHeading
-        class="mb-4"
-        eyebrow="06 — Efficacité"
-        title="Efficacité : ce qu'on peut dire avec rigueur"
-      />
-      <ul>
-        <li>
-          L'EMDR est une thérapie validée scientifiquement pour le trouble de
-          stress post-traumatique.
-        </li>
-        <li>
-          MOSAIC est une approche plus récente. Son corpus de recherche propre
-          reste moins développé que celui de l'EMDR et ne permet pas de leur
-          attribuer aujourd'hui le même niveau de validation.
-        </li>
-      </ul>
-      <p>
-        Pour comprendre précisément leurs points communs et leurs différences,
-        consultez le comparatif <a href="/blog/therapie-mosaic/" class="text-link"
-          >MOSAIC ou EMDR</a
-        >.
-      </p>
-    </div>
-
-    <div>
-      <SectionHeading class="mb-4" eyebrow="07 — Patients" title="Pourquoi des patients choisissent MOSAIC" />
-      <ul>
-        <li>
-          Vouloir une approche active sans exposition prolongée à la douleur.
-        </li>
-        <li>Retrouver un sentiment de sécurité intérieure.</li>
-        <li>
-          Avancer à un rythme respectueux, avec des outils concrets entre les
-          séances.
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <SectionHeading
-        class="mb-4"
-        eyebrow="08 — Intégration"
-        title="Quelle place parmi les autres approches du cabinet ?"
-      />
-      <p>
-        La thérapie MOSAIC n'est pas systématiquement la bonne porte d'entrée.
-        Selon votre situation, il peut être plus pertinent de commencer par une
-        <a href="/psychotherapie/" class="text-link">psychothérapie</a> ou par une
-        approche de <a href="/tcc-troisieme-vague/" class="text-link"
-          >TCC de 3e vague</a
-        >.
-      </p>
-      <p>
-        Elle s'inscrit donc dans une logique d'accompagnement intégratif :
-        l'approche retenue dépend de votre demande, de votre histoire et de vos
-        objectifs.
-      </p>
-    </div>
-
-    <div>
-      <SectionHeading
-        class="mb-4"
-        eyebrow="09 — Cadre"
-        title="Mon cadre actuel d'accompagnement en thérapie MOSAIC"
-      />
-      <p>
-        Je suis certifié à la <strong>thérapie MOSAIC de référence</strong> par Stéphanie Khalfa,
-        chercheuse en neurosciences et co-fondatrice de la méthode. Cette certification est délivrée
-        directement par l'organisme MOSAIC, indépendamment d'EMDR France : MOSAIC est une approche
-        dérivée de l'EMDR mais dispose de sa propre formation et de son propre cadre de certification.
-        Des spécialisations MOSAIC sont actuellement en cours.
-      </p>
-    </div>
-
-    <div>
-      <SectionHeading
-        class="mb-4"
-        eyebrow="10 — Cabinet"
-        title="Thérapie MOSAIC à Sceaux : cabinet et communes proches"
-      />
-      <p>
-        Je propose la <strong>thérapie MOSAIC à Sceaux</strong> (92330), en
-        Hauts-de-Seine. Le cabinet accueille les personnes habitant Sceaux et les
-        villes voisines comme {NEARBY_CITIES.replace(" et ", ", ")} ou Le
-        Plessis-Robinson.
-      </p>
-      <p>
-        Une séance MOSAIC dure <strong>1 heure</strong> et coûte
-        <strong>90 €</strong>. Le détail des tarifs est disponible sur la page
-        <a href="/tarifs/" class="text-link">Tarifs</a>. Pour le cadre local du
-        cabinet (adresse, accès, autres consultations), voir aussi la page
-        <a href="/psychologue-sceaux/" class="text-link">psychologue à Sceaux</a>.
-      </p>
-      <div class="mt-2 flex flex-col gap-3 sm:flex-row">
-        <a
-          href={DOCTOLIB_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={mosaicCtaPrimary}
-          data-track-doctolib
-          data-track-location="Therapie MOSAIC cabinet"
-        >
-          Prendre rendez-vous au cabinet
-        </a>
-        <a href="/consulter/" class={mosaicCtaSecondary}>
-          Savoir si cette approche est adaptée
-        </a>
+        </p>
+        <ul>
+          <li>Amygdale : détection de la menace.</li>
+          <li>Hippocampe : mémoire contextuelle.</li>
+          <li>Cortex préfrontal : régulation émotionnelle.</li>
+          <li>Insula, précuneus, cingulaire : intégration multisensorielle et conscience de soi.</li>
+        </ul>
+        <p>
+          Les stimulations bilatérales alternées semblent moduler ces réseaux et favoriser une
+          reconsolidation de la mémoire traumatique avec moins de charge émotionnelle.
+        </p>
+        <Picture
+          src={EmotionRegionsImage}
+          alt="Régions cérébrales impliquées dans la régulation émotionnelle"
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          loading="lazy"
+          decoding="async"
+          class="mt-4"
+        />
+        <p class="mt-2 text-sm text-ink-tertiary">
+          Illustration : principales régions cérébrales impliquées dans la régulation émotionnelle.
+        </p>
       </div>
     </div>
 
-    <div id="mosaic-en-ligne">
-      <SectionHeading
-        class="mb-4"
-        eyebrow="11 — Visio"
-        title="Thérapie MOSAIC en ligne : séances en visioconférence"
-      />
-      <p>
-        La <strong>thérapie MOSAIC en ligne</strong> est possible après évaluation,
-        lorsque le présentiel n'est pas accessible ou pas souhaité. Les séances se
-        déroulent en <a href="/psychologue-en-ligne/" class="text-link"
-          >visioconférence sécurisée</a
-        > via Doctolib, dans le même cadre confidentiel qu'au cabinet.
-      </p>
-      <p>
-        En visio, les stimulations bilatérales s'adaptent au cadre à distance
-        (mouvements oculaires guidés à l'écran, consignes précises pour rester
-        dans un espace calme et stable). L'indication reste clinique : certaines
-        situations (crise aiguë, dissociation marquée, besoin de sécurisation
-        corporelle forte) se travaillent mieux en présentiel.
-      </p>
-      <ul>
-        <li>Même durée (1 h) et même tarif (90 €) qu'au cabinet.</li>
-        <li>Adaptée si vous vivez loin de Sceaux, à l'étranger, ou avec des contraintes de déplacement.</li>
-        <li>Première rencontre possible en visio pour évaluer si MOSAIC convient à votre situation.</li>
-      </ul>
-      <div class="mt-2 flex flex-col gap-3 sm:flex-row">
-        <a
-          href={DOCTOLIB_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={mosaicCtaPrimary}
-          data-track-doctolib
-          data-track-location="Therapie MOSAIC visio"
-        >
-          Prendre rendez-vous en visio
-        </a>
-        <a href="/psychologue-en-ligne/" class={mosaicCtaSecondary}>
-          Cadre des consultations en ligne
-        </a>
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-4">
+        <h2 class="font-display typo-display-md text-ink-primary">Cadre et efficacité</h2>
+      </div>
+      <div class="md:col-span-8 space-y-4">
+        <ul>
+          <li>
+            L'EMDR est une thérapie validée scientifiquement pour le trouble de stress
+            post-traumatique.
+          </li>
+          <li>
+            MOSAIC est une approche plus récente. Son corpus de recherche propre reste moins
+            développé que celui de l'EMDR et ne permet pas de leur attribuer aujourd'hui le même
+            niveau de validation.
+          </li>
+        </ul>
+        <p>
+          Je suis certifié à la <strong>thérapie MOSAIC de référence</strong> par Stéphanie Khalfa,
+          chercheuse en neurosciences et co-fondatrice de la méthode. Cette certification est
+          délivrée directement par l'organisme MOSAIC, indépendamment d'EMDR France.
+        </p>
+        <p>
+          Selon votre situation, il peut être plus pertinent de commencer par une{" "}
+          <a href="/psychotherapie/" class="text-link">psychothérapie</a> ou par une approche de{" "}
+          <a href="/tcc-troisieme-vague/" class="text-link">TCC de 3e vague</a>.
+        </p>
+        <p>
+          Le cabinet est accessible pour les personnes habitant Sceaux et les villes voisines comme{" "}
+          {NEARBY_CITIES.replace(" et ", ", ")} ou Le Plessis-Robinson.
+        </p>
       </div>
     </div>
 
-    <div id="faq">
-      <SectionHeading class="mb-4" eyebrow="12 — FAQ" title="Questions fréquentes" />
+    <div id="faq" class="space-y-6 border-t border-border-subtle pt-12 md:pt-16">
+      <h2 class="font-display typo-display-lg text-ink-primary">Questions fréquentes</h2>
+
       <h3 class="font-display typo-display-md text-ink-primary">La thérapie MOSAIC est-elle reconnue ?</h3>
       <p>
-        MOSAIC est enseignée et pratiquée par des professionnels formés, mais
-        elle est plus récente que l'EMDR et dispose d'un corpus de recherche
-        propre moins développé. Elle ne doit donc pas être présentée comme
-        bénéficiant aujourd'hui du même niveau de validation scientifique.
+        MOSAIC est enseignée et pratiquée par des professionnels formés, mais elle est plus récente
+        que l'EMDR et dispose d'un corpus de recherche propre moins développé. Elle ne doit donc pas
+        être présentée comme bénéficiant aujourd'hui du même niveau de validation scientifique.
       </p>
 
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
-        Où consulter pour une thérapie MOSAIC près de Sceaux ?
-      </h3>
+      <h3 class="font-display typo-display-md text-ink-primary">Combien coûte une séance MOSAIC ?</h3>
       <p>
-        Je propose la thérapie MOSAIC au <a href="/psychologue-sceaux/" class="text-link"
-          >cabinet à Sceaux</a
-        > (92330), accessible depuis Antony, Bourg-la-Reine, Châtenay-Malabry,
-        Fontenay-aux-Roses et les communes voisines. Les séances durent 1 heure.
+        Une séance dure 1 heure et coûte 90 €. Le détail des tarifs et des modalités de paiement est
+        disponible sur la page <a href="/tarifs/" class="text-link">Tarifs</a>.
       </p>
 
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
-        Peut-on faire une thérapie MOSAIC en ligne (visioconférence) ?
-      </h3>
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Peut-on faire une séance MOSAIC en ligne ?</h3>
       <p>
-        Oui, selon la situation. Après évaluation, des séances MOSAIC en
-        <a href="/psychologue-en-ligne/" class="text-link">visioconférence</a> peuvent
-        être proposées via Doctolib, notamment si vous êtes éloigné du cabinet.
-        Le protocole s'adapte au cadre visio (stimulations oculaires guidées à
-        l'écran).
-      </p>
-
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Combien coûte une séance MOSAIC ?</h3>
-      <p>
-        Une séance dure 1 heure et coûte 90 €, en cabinet comme en visioconférence.
-        Le détail des tarifs et des modalités de paiement est disponible sur la page
-        <a href="/tarifs/" class="text-link">Tarifs</a>.
+        Oui, selon la situation. Les séances ont lieu au cabinet à Sceaux, et des séances en{" "}
+        <a href="/psychologue-en-ligne/" class="text-link">visioconférence</a> peuvent être proposées
+        après évaluation, notamment si vous êtes éloigné du cabinet.
       </p>
 
       <h3 class="font-display typo-display-md mt-5 text-ink-primary">Combien de séances faut-il ?</h3>
       <p>
-        Cela dépend de la nature du trauma, de son ancienneté, de vos ressources
-        actuelles et de votre situation globale. L'évaluation initiale permet
-        d'estimer un cadre de travail.
+        Cela dépend de la nature du trauma, de son ancienneté, de vos ressources actuelles et de
+        votre situation globale. L'évaluation initiale permet d'estimer un cadre de travail.
+      </p>
+
+      <h3 class="font-display typo-display-md text-ink-primary">
+        Peut-on faire MOSAIC si on a déjà suivi une thérapie EMDR ?
+      </h3>
+      <p>Oui. Les deux approches peuvent être complémentaires selon vos besoins.</p>
+
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
+        La thérapie MOSAIC est-elle douloureuse ou éprouvante ?
+      </h3>
+      <p>
+        MOSAIC est conçue pour éviter l'exposition prolongée à la douleur du souvenir. L'approche
+        travaille davantage sur l'état interne recherché et les ressources que sur le récit détaillé
+        du traumatisme. La plupart des personnes décrivent les séances comme exigeantes mais
+        soutenables, et souvent apaisantes en fin de session. Si une séance est trop intense, le
+        rythme peut être ajusté.
       </p>
 
       <h3 class="font-display typo-display-md mt-5 text-ink-primary">
-        Peut-on faire MOSAIC si on a déjà suivi une thérapie EMDR ?
+        Faut-il revivre le traumatisme pendant les séances ?
       </h3>
       <p>
-        Oui. Les deux approches peuvent être complémentaires selon vos besoins.
+        Non, pas au sens d'une exposition prolongée et détaillée. MOSAIC n'oblige pas à raconter
+        l'intégralité de l'événement traumatique. Le travail porte d'abord sur la
+        <em> situation limitante</em> telle qu'elle est vécue aujourd'hui, puis sur l'état interne
+        désiré.
       </p>
 
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">La thérapie MOSAIC est-elle douloureuse ou éprouvante ?</h3>
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
+        MOSAIC convient-elle en cas d'anxiété sans traumatisme clairement identifié ?
+      </h3>
       <p>
-        MOSAIC est conçue pour éviter l'exposition prolongée à la douleur du souvenir. L'approche travaille davantage sur l'état interne recherché et les ressources que sur le récit détaillé du traumatisme. La plupart des personnes décrivent les séances comme exigeantes mais soutenables, et souvent apaisantes en fin de session. Si une séance est trop intense, le rythme peut être ajusté.
+        Oui. MOSAIC ne se limite pas aux traumatismes au sens strict. Elle peut être utile lorsque
+        des réactions émotionnelles restent disproportionnées ou envahissantes, même sans événement
+        traumatique identifié. L'évaluation clinique préalable permet de déterminer si l'approche
+        est indiquée.
       </p>
 
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Faut-il revivre le traumatisme pendant les séances ?</h3>
+      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
+        La thérapie MOSAIC peut-elle être combinée avec d'autres approches ?
+      </h3>
       <p>
-        Non, pas au sens d'une exposition prolongée et détaillée. MOSAIC n'oblige pas à raconter l'intégralité de l'événement traumatique. Le travail porte d'abord sur la <em>situation limitante</em> telle qu'elle est vécue aujourd'hui, puis sur l'état interne désiré. Cette logique orientée vers la solution permet de traiter la charge émotionnelle sans nécessiter un récit exhaustif.
-      </p>
-
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">MOSAIC convient-elle en cas d'anxiété sans traumatisme clairement identifié ?</h3>
-      <p>
-        Oui. MOSAIC ne se limite pas aux traumatismes au sens strict. Elle peut être utile lorsque des réactions émotionnelles restent disproportionnées ou envahissantes, même sans événement traumatique identifié — anxiété persistante, blocages récurrents, hyperréactivité relationnelle. L'évaluation clinique préalable permet de déterminer si l'approche est indiquée dans votre situation spécifique.
-      </p>
-
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">La thérapie MOSAIC peut-elle être combinée avec d'autres approches ?</h3>
-      <p>
-        Oui. MOSAIC s'intègre dans une logique d'accompagnement intégratif. Selon votre situation, elle peut être proposée en complément d'une <a href="/psychotherapie/" class="text-link">psychothérapie</a>, d'un suivi en <a href="/therapie-acceptation-et-engagement/" class="text-link">ACT</a>, ou d'une <a href="/therapie-couple/" class="text-link">thérapie de couple</a> lorsque les mémoires douloureuses ont une dimension relationnelle.
+        Oui. MOSAIC s'intègre dans une logique d'accompagnement intégratif. Selon votre situation,
+        elle peut être proposée en complément d'une{" "}
+        <a href="/psychotherapie/" class="text-link">psychothérapie</a>, d'un suivi en{" "}
+        <a href="/therapie-acceptation-et-engagement/" class="text-link">ACT</a>, ou d'une{" "}
+        <a href="/therapie-couple/" class="text-link">thérapie de couple</a>.
       </p>
     </div>
 
-    <div class="border border-border-strong rounded-xl bg-secondary/40 p-5">
-      <SectionHeading class="mb-4" eyebrow="12 — Ressources" title="Pour aller plus loin" />
-      <p class="mb-3">
-        Pour préparer votre démarche, vous pouvez aussi consulter :
-      </p>
-      <ul class="list-disc list-inside space-y-2 mb-4">
+    <div class="border border-border-strong bg-surface-footer/60 p-6 md:p-8">
+      <h2 class="font-display typo-display-md mb-4 text-ink-primary">Pour aller plus loin</h2>
+      <p class="mb-3">Pour préparer votre démarche, vous pouvez aussi consulter :</p>
+      <ul class="mb-4 list-inside list-disc space-y-2">
         <li>
-          <a href="/psychotherapie/" class="text-link"
-            >Approches thérapeutiques au cabinet</a
-          >
+          <a href="/psychotherapie/" class="text-link">Approches thérapeutiques au cabinet</a>
         </li>
         <li>
-          <a href="/consulter/" class="text-link"
-            >Consulter un psychologue à Sceaux</a
-          >
+          <a href="/consulter/" class="text-link">Consulter un psychologue à Sceaux</a>
         </li>
         <li>
           <a href="/blog/pourquoi-consulter-psychologue/" class="text-link"
@@ -593,7 +498,7 @@ const mosaicCtaSecondary = buttonClasses({
         </li>
       </ul>
       <p class="mb-3">Ressources complémentaires :</p>
-      <ul class="list-disc list-inside space-y-2 mb-4">
+      <ul class="mb-4 list-inside list-disc space-y-2">
         <li>
           <a
             href="https://www.therapiemosaic.com"
@@ -616,10 +521,12 @@ const mosaicCtaSecondary = buttonClasses({
         href={MosaicPractitionerPdf}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block bg-surface-raised border border-border-strong rounded-lg p-4 hover:shadow-lg transition-shadow"
+        class="inline-block border border-border-strong bg-surface-raised p-4 transition-shadow hover:shadow-lg"
       >
         <div class="flex flex-col items-center gap-2">
-          <div class="flex h-28 w-20 items-center justify-center rounded border border-border-strong bg-linear-to-br from-surface-muted to-border-subtle">
+          <div
+            class="flex h-28 w-20 items-center justify-center border border-border-strong bg-linear-to-br from-surface-muted to-border-subtle"
+          >
             <svg
               class="h-6 w-6 text-ink-secondary"
               fill="none"
@@ -630,19 +537,20 @@ const mosaicCtaSecondary = buttonClasses({
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2Z"></path>
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2Z"
+              ></path>
               <path d="M14 2v6h6"></path>
             </svg>
           </div>
-          <span class="text-sm font-medium text-ink-secondary text-center"
+          <span class="text-center text-sm font-medium text-ink-secondary"
             >Ici votre praticien MOSAIC</span
           >
         </div>
       </a>
     </div>
 
-    <div class="border-t border-border-subtle pt-10 mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-      <p class="typo-meta text-ink-tertiary uppercase tracking-wider">Affiliations &amp; méthodes</p>
+    <div class="mt-6 flex flex-col gap-4 border-t border-border-subtle pt-10 sm:flex-row sm:flex-wrap sm:items-center">
+      <p class="typo-meta uppercase tracking-wider text-ink-tertiary">Affiliations &amp; méthodes</p>
       <Image
         src={MosaicFormationImage}
         alt="Thérapie MOSAIC — référence de formation"

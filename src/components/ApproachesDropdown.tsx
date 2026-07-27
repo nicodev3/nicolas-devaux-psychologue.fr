@@ -58,11 +58,12 @@ function ApproachesDropdown() {
   const triggerClasses = buttonClasses({
     variant: 'ghost',
     size: 'md',
-    className: '!font-normal normal-case rounded-md !px-3 gap-1 text-body-muted hover:text-brand',
+    className:
+      '!h-auto !min-h-0 !font-medium normal-case rounded-md !px-1.5 !py-2 gap-1 tracking-wide text-ink-secondary hover:text-ink-primary whitespace-nowrap shrink-0 2xl:!px-2',
   });
 
   const linkClasses =
-    'font-ui mx-1 block rounded-lg px-3 py-2.5 text-sm text-body-muted outline-none transition-colors duration-150 hover:bg-surface-muted hover:text-brand focus-visible:z-10 focus-visible:relative';
+    'font-ui mx-1 block rounded-lg px-3 py-2.5 text-sm text-ink-secondary outline-none transition-colors duration-150 hover:bg-surface-muted hover:text-ink-primary focus-visible:z-10 focus-visible:relative';
 
   const variants = reduced
     ? {
@@ -86,7 +87,7 @@ function ApproachesDropdown() {
     >
       <button
         type="button"
-        className={`${triggerClasses} ${open ? 'text-brand' : ''}`}
+        className={`${triggerClasses} ${open ? 'text-ink-primary' : ''}`}
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}

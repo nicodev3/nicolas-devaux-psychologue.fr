@@ -3,8 +3,7 @@ import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { Picture } from "astro:assets";
 import ActImage from "../assets/act-therapy.webp";
-import { buttonClasses } from "../components/ui/button";
-import { DOCTOLIB_BOOKING_URL } from "../consts";
+import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
 
 const isProd = import.meta.env.PROD;
 const faqSchema = {
@@ -64,11 +63,6 @@ const serviceSchema = {
   ],
 };
 
-const actCtaClasses = buttonClasses({
-  variant: "primary",
-  size: "lg",
-  className: "w-full justify-center sm:w-auto",
-});
 ---
 
 <Layout
@@ -78,6 +72,7 @@ const actCtaClasses = buttonClasses({
   pubDate={new Date("November 01 2024")}
   showDate={false}
   blogPost={false}
+  eyebrow="Approches thérapeutiques"
 >
   {isProd && (
     <>
@@ -277,16 +272,13 @@ const actCtaClasses = buttonClasses({
         Si vous souhaitez explorer si la thérapie ACT correspond à votre situation, la prise de rendez-vous
         se fait en ligne via Doctolib — au cabinet de Sceaux ou en visioconférence.
       </p>
-      <a
-        href={DOCTOLIB_BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class={actCtaClasses}
-        data-track-doctolib
-        data-track-location="Therapie ACT CTA"
+      <DoctolibBookingLink
+        location="Therapie ACT CTA"
+        size="lg"
+        class="w-full justify-center sm:w-auto"
       >
         Prendre rendez-vous
-      </a>
+      </DoctolibBookingLink>
     </div>
 
     <div>

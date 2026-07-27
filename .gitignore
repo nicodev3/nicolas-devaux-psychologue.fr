@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# favicon QA renders
+.tmp-favicon/
+
+# Stitch design export (local reference)
+stitch-export/

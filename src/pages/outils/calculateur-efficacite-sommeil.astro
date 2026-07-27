@@ -2,6 +2,7 @@
 import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import SleepEfficiencyCalculator from "../../components/SleepEfficiencyCalculator";
+import DoctolibBookingLink from "../../components/DoctolibBookingLink.astro";
 import { buttonClasses } from "../../components/ui/button";
 
 const title = "Calculateur d'efficacité du sommeil — TCC-I";
@@ -197,17 +198,13 @@ const faqItems = [
         rythme.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a
-          href="https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux"
-          target="_blank"
-          rel="noopener noreferrer"
-          class={buttonClasses({ variant: "primary", size: "lg", className: "normal-case" })}
-          data-track-doctolib
-          data-track-location="sleep-calculator-cta"
-          aria-label="Prendre rendez-vous sur Doctolib"
+        <DoctolibBookingLink
+          location="sleep-calculator-cta"
+          size="lg"
+          class="normal-case"
         >
           Prendre rendez-vous
-        </a>
+        </DoctolibBookingLink>
         <a
           href="/consulter/"
           class={buttonClasses({ variant: "secondary", size: "lg", className: "normal-case" })}

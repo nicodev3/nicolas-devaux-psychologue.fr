@@ -5,6 +5,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
+import InteriorHero from "../../components/InteriorHero.astro";
 import { RESOURCE_TOPICS, type ResourceTopic } from "../../data/resource-topics";
 import { formatFrenchDate, toDateTime } from "../../utils/formatDate";
 
@@ -28,14 +29,14 @@ const posts = (await getCollection("blog"))
   </head>
   <body class="bg-surface-page">
     <Header />
-    <main class="page-shell page-shell--wide">
+    <InteriorHero
+      title={topic.title}
+      description={topic.intro}
+      eyebrow={topic.eyebrow}
+    />
+    <main class="page-shell page-shell--flush-top">
       <Breadcrumb title={topic.title} />
-      <header class="mb-12 max-w-3xl border-b border-border-subtle pb-10 md:mb-16 md:pb-12">
-        <p class="typo-eyebrow mb-3">{topic.eyebrow}</p>
-        <h1 class="font-display typo-h1 mb-5 text-pretty text-ink-primary">{topic.title}</h1>
-        <p class="typo-body-lg mb-5 text-pretty text-body-muted">{topic.intro}</p>
-        <p class="mb-0 max-w-2xl text-pretty text-ink-secondary">{topic.perspective}</p>
-      </header>
+      <p class="mb-12 max-w-2xl text-pretty text-ink-secondary md:mb-16">{topic.perspective}</p>
 
       <section class="mb-14 md:mb-18" aria-labelledby="questions-heading">
         <p class="typo-eyebrow mb-3">Repères</p>

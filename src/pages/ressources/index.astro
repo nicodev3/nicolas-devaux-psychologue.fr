@@ -3,6 +3,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
+import InteriorHero from "../../components/InteriorHero.astro";
 import { RESOURCE_TOPICS } from "../../data/resource-topics";
 ---
 
@@ -16,16 +17,13 @@ import { RESOURCE_TOPICS } from "../../data/resource-topics";
   </head>
   <body class="bg-surface-page">
     <Header />
-    <main class="page-shell page-shell--wide">
+    <InteriorHero
+      title="Ressources par thème"
+      description="Des parcours de lecture structurés pour comprendre une difficulté, découvrir les approches qui peuvent être utiles et accéder aux outils associés."
+      eyebrow="Psychoéducation"
+    />
+    <main class="page-shell page-shell--flush-top">
       <Breadcrumb title="Ressources" />
-      <header class="mb-12 max-w-3xl border-b border-border-subtle pb-10 md:mb-16 md:pb-12">
-        <p class="typo-eyebrow mb-3">Psychoéducation</p>
-        <h1 class="font-display typo-h1 mb-5 text-pretty text-ink-primary">Ressources par thème</h1>
-        <p class="typo-body-lg mb-0 text-pretty text-body-muted">
-          Des parcours de lecture structurés pour comprendre une difficulté, découvrir les approches qui peuvent être
-          utiles et accéder aux outils associés.
-        </p>
-      </header>
 
       <div class="divide-y divide-border-subtle border-y border-border-subtle">
         {

@@ -102,12 +102,11 @@ const secondaryCtaClasses = buttonClasses({
 });
 ---
 
-<Layout title={title} seoTitle={seoTitle} description={description} pubDate={new Date("May 24 2026")} showDate={false}>
+<Layout title={title} seoTitle={seoTitle} description={description} pubDate={new Date("May 24 2026")} showDate={false} eyebrow="Cabinet">
   {isProd && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
   <section class="space-y-10">
     <header class="space-y-5">
-      <p class="typo-eyebrow">Cabinet · 92330 Sceaux · Hauts-de-Seine</p>
       <p class="typo-body-lg text-ink-secondary">
         Je suis <a href="/nicolas-devaux-psychologue/" class="text-link">Nicolas Devaux</a>, psychologue
         clinicien. Je reçois au cabinet, au <strong class="text-ink-primary">{CABINET_ADDRESS_LINE}</strong>,

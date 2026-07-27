@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import { buttonClasses } from "../components/ui/button";
+import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
 import {
   LEGAL_ENTITY_NAME,
   OPENING_SATURDAY_HOURS,
@@ -30,10 +30,12 @@ const tariffs: TariffRow[] = [
 ---
 
 <Layout
-  title="Tarifs et horaires - Psychologue à Sceaux"
+  title="Tarifs et horaires"
   description="Tarifs des consultations de Nicolas Devaux, psychologue à Sceaux : séances individuelles, couple et MOSAIC. Horaires et modalités de paiement."
+  seoTitle="Tarifs et horaires - Psychologue à Sceaux"
   pubDate={new Date("March 14 2026")}
   showDate={false}
+  eyebrow="Pratique"
 >
   <section class="flex flex-col gap-8 xl:gap-10">
     <p>
@@ -100,8 +102,7 @@ const tariffs: TariffRow[] = [
         psychologie. N'hésitez pas à vous renseigner auprès de la vôtre.
       </p>
       <p class="mt-3 text-sm text-ink-secondary">
-        Le dispositif
-        <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>
+        Le dispositif{" "}<a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>
         n'accepte plus de nouveaux patients au cabinet. Des informations sur les suivis déjà engagés restent
         disponibles sur la page dédiée.
       </p>
@@ -113,17 +114,9 @@ const tariffs: TariffRow[] = [
         La prise de rendez-vous se fait via Doctolib. Vous pouvez consulter les
         créneaux disponibles et réserver en ligne.
       </p>
-      <a
-        href="https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux"
-        target="_blank"
-        rel="noopener noreferrer"
-        class={buttonClasses({ variant: "primary", size: "lg", className: "shrink-0" })}
-        aria-label="Prendre rendez-vous sur Doctolib"
-        data-track-doctolib
-        data-track-location="Page Tarifs"
-      >
+      <DoctolibBookingLink location="Page Tarifs" size="lg" class="shrink-0">
         Prendre rendez-vous
-      </a>
+      </DoctolibBookingLink>
     </div>
 
     <p>
@@ -132,8 +125,7 @@ const tariffs: TariffRow[] = [
       est présentée en détail sur sa page dédiée :
       <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>,
       <a href="/therapie-couple/" class="text-link">thérapie de couple à Sceaux</a>,
-      <a href="/psychologue-en-ligne/" class="text-link">consultations en ligne</a> et
-      <a href="/meditation-pleine-conscience-sceaux/" class="text-link">groupes de pleine conscience</a>.
+      <a href="/psychologue-en-ligne/" class="text-link">consultations en ligne</a> et{" "}<a href="/meditation-pleine-conscience-sceaux/" class="text-link">groupes de pleine conscience</a>.
     </p>
 
     <p class="typo-meta-caps border-t border-border-subtle pt-6 text-ink-tertiary">

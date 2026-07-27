@@ -1,0 +1,40 @@
+---
+import { applyFrenchTypography } from "../utils/frenchTypography.js";
+
+interface Props {
+  quote: string;
+  attribution?: string;
+  class?: string;
+}
+
+const {
+  quote,
+  attribution = "Approche holistique & scientifique",
+  class: className,
+} = Astro.props;
+
+const formattedQuote = applyFrenchTypography(quote);
+const formattedAttribution = applyFrenchTypography(attribution);
+---
+
+<section
+  class:list={[
+    "relative left-1/2 w-screen -translate-x-1/2 bg-surface-footer py-16 md:py-[7.5rem]",
+    className,
+  ]}
+  aria-label="Citation"
+>
+  <div class="mx-auto max-w-[1140px] px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl space-y-6 md:space-y-8">
+      <span class="font-display block text-5xl leading-none text-ink-primary/40" aria-hidden="true"
+        >“</span
+      >
+      <blockquote class="font-display typo-display-lg text-pretty text-ink-primary md:text-[2.75rem] md:leading-tight">
+        {formattedQuote}
+      </blockquote>
+      <p class="typo-meta-caps text-ink-secondary">
+        {formattedAttribution}
+      </p>
+    </div>
+  </div>
+</section>

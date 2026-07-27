@@ -24,8 +24,27 @@ const plainBody = postBody
 const wordCount = plainBody ? plainBody.split(" ").length : 0;
 const readingTimeMinutes = Math.max(1, Math.ceil(wordCount / 220));
 const hasFaq = /^##\s+Questions fréquentes\b/mi.test(postBody);
+
+const allPosts = (await getCollection("blog")).filter((p) => p.data.published !== false);
+const postTags = new Set(post.data.tags ?? []);
+
+const relatedPosts = allPosts
+	.filter((p) => p.id !== post.id)
+	.map((p) => {
+		const shared = (p.data.tags ?? []).filter((tag) => postTags.has(tag)).length;
+		return { post: p, shared, date: p.data.pubDate.valueOf() };
+	})
+	.sort((a, b) => b.shared - a.shared || b.date - a.date)
+	.slice(0, 3)
+	.map(({ post: related }) => related);
 ---
 
-<BlogPost {...post.data} blogPost={true} readingTimeMinutes={readingTimeMinutes} hasFaq={hasFaq}>
+<BlogPost
+	{...post.data}
+	blogPost={true}
+	readingTimeMinutes={readingTimeMinutes}
+	hasFaq={hasFaq}
+	relatedPosts={relatedPosts}
+>
 	<Content />
 </BlogPost>

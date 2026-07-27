@@ -1,8 +1,9 @@
 ---
-import { ArrowRight, X } from "lucide";
+import { X } from "lucide";
 import LucideIcon from "./LucideIcon.astro";
+import DoctolibMark from "./DoctolibMark.astro";
+import DoctolibBookingLink from "./DoctolibBookingLink.astro";
 import { buttonClasses } from "./ui/button";
-import { DOCTOLIB_BOOKING_URL } from "../consts";
 ---
 
 <script is:inline>
@@ -102,34 +103,21 @@ import { DOCTOLIB_BOOKING_URL } from "../consts";
     <div
       class="mb-2 w-[min(calc(100vw-3rem),18rem)] rounded-xl border border-border-subtle bg-surface-raised/90 p-3 shadow-lg backdrop-blur-md"
     >
-      <a
-        href={DOCTOLIB_BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class={buttonClasses({ variant: "primary", size: "lg", fullWidth: true })}
-        data-track-doctolib
-        data-track-location="FAB mobile expanded"
-      >
+      <DoctolibBookingLink location="FAB mobile expanded" size="lg" fullWidth>
         Prendre RDV →
-      </a>
+      </DoctolibBookingLink>
     </div>
   </div>
 
-  <a
-    href={DOCTOLIB_BOOKING_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    class={buttonClasses({
-      variant: "primary",
-      size: "lg",
-      className: "hidden md:inline-flex",
-    })}
-    data-track-doctolib
-    data-track-location="FAB desktop"
-    x-show="md"
-  >
-    Prendre RDV →
-  </a>
+  <div class="hidden md:block" x-show="md">
+    <DoctolibBookingLink
+      location="FAB desktop"
+      size="lg"
+      ariaLabel="Prendre rendez-vous sur Doctolib"
+    >
+      Prendre RDV →
+    </DoctolibBookingLink>
+  </div>
 
   <button
     type="button"
@@ -137,7 +125,7 @@ import { DOCTOLIB_BOOKING_URL } from "../consts";
       variant: "primary",
       size: "lg",
       className:
-        "size-11! min-h-[44px]! min-w-[44px]! max-h-[44px]! max-w-[44px]! rounded-[10px]! px-0! md:hidden",
+        "size-11! min-h-[44px]! min-w-[44px]! max-h-[44px]! max-w-[44px]! rounded-lg! px-0! md:hidden",
     })}
     x-show="!md"
     x-bind:aria-expanded="expanded"
@@ -146,7 +134,7 @@ import { DOCTOLIB_BOOKING_URL } from "../consts";
   >
     <span class="sr-only" x-text="expanded ? 'Fermer le menu rendez-vous' : 'Ouvrir la réservation'"></span>
     <span class="inline-flex items-center justify-center" aria-hidden="true" x-show="!expanded">
-      <LucideIcon icon={ArrowRight} size="lg" class="text-brand-ink-on" />
+      <DoctolibMark size="lg" class="text-brand-ink-on" />
     </span>
     <span class="inline-flex items-center justify-center" aria-hidden="true" x-show="expanded">
       <LucideIcon icon={X} size="lg" class="text-brand-ink-on" />

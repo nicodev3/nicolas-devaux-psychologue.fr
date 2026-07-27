@@ -3,14 +3,16 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 import Footer from "../components/Footer.astro";
+import InteriorHero from "../components/InteriorHero.astro";
 import "../styles/global.css";
 
 interface Props {
   title: string;
   description: string;
+  eyebrow?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, eyebrow = "Outils" } = Astro.props;
 ---
 
 <html lang="fr">
@@ -19,7 +21,8 @@ const { title, description } = Astro.props;
   </head>
   <body class="bg-surface-page">
     <Header />
-    <main class="page-shell">
+    <InteriorHero title={title} description={description} eyebrow={eyebrow} />
+    <main class="page-shell page-shell--flush-top">
       <Breadcrumb title={title} />
       <slot />
     </main>

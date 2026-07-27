@@ -1,76 +1,61 @@
 ---
-import AuthorCard from "./AuthorCard.astro";
-import BrandSpiralMark from "./BrandSpiralMark.astro";
-import HomeTrustStrip from "./HomeTrustStrip.astro";
+import { Picture } from "astro:assets";
+import portrait from "../assets/nicolas_devaux.jpg";
+import DoctolibBookingLink from "./DoctolibBookingLink.astro";
 import { buttonClasses } from "./ui/button";
-import { DOCTOLIB_BOOKING_URL } from "../consts";
-
-const approachTeaserLink = buttonClasses({
-  variant: "link",
-  className: "font-medium normal-case",
-});
 ---
 
-<section id="hero" class="w-full pb-16 pt-2 md:pb-24 md:pt-6" aria-labelledby="hero-heading">
-  <div class="flex w-full flex-col gap-6 md:gap-8">
-    <header class="max-w-none">
-      <div class="flex flex-col gap-8 lg:flex-row lg:flex-wrap lg:items-start lg:justify-between lg:gap-6">
-        <div class="min-w-0 flex-1">
-          <h1 id="hero-heading" class="font-display hero-heading-display mb-2 text-ink-primary md:mb-3">
-            Nicolas Devaux
-          </h1>
-          <p class="typo-eyebrow mb-0 text-ink-secondary">Psychologue clinicien · cabinet et visio</p>
-          <AuthorCard class="mt-5" />
-        </div>
-        <div class="shrink-0 pt-1 md:pt-2">
-          <BrandSpiralMark class="h-24 w-24 text-brand/65 md:h-30 md:w-30" />
-        </div>
+<section
+  id="hero"
+  class="w-full py-16 md:py-[7.5rem]"
+  aria-labelledby="hero-heading"
+>
+  <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-16">
+    <div class="order-2 md:order-1 md:col-span-7">
+      <h1 id="hero-heading" class="font-display hero-heading-display mb-6 text-ink-primary md:mb-8">
+        Nicolas Devaux
+      </h1>
+      <p class="font-display mb-6 text-xl text-ink-primary md:text-[1.75rem] md:leading-snug">
+        Psychologue clinicien · cabinet et visio
+      </p>
+      <p class="typo-body-lg mb-10 max-w-xl text-ink-secondary md:mb-12">
+        Psychologue diplômé de l'Université Paris Cité, j'accompagne les adultes, adolescents et couples
+        dans un cadre bienveillant et confidentiel — en présentiel au cabinet ou en visioconférence. Je
+        propose des thérapies cognitives et comportementales (TCC), de la thérapie MOSAIC pour les
+        traumatismes, et de la thérapie de couple. Mon approche intégrative s'adapte à votre situation, à
+        votre rythme et à vos objectifs.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <DoctolibBookingLink
+          location="Hero"
+          size="lg"
+          class="shadow-(--shadow-button-primary)"
+        >
+          Prendre rendez-vous
+        </DoctolibBookingLink>
+        <a
+          href="/psychologue-sceaux/"
+          class={buttonClasses({ variant: "secondary", size: "lg" })}
+        >
+          Accès au cabinet →
+        </a>
       </div>
-
-      <p class="typo-body-lg text-body-muted mb-0 mt-6 md:mt-7">
-        <strong class="font-medium text-ink-primary">Consultations pour adultes, adolescents et couples</strong>, au
-        cabinet ou en visioconférence.
-      </p>
-    </header>
-
-    <p class="typo-body max-w-none">
-      Psychologue diplômé de l'Université Paris Cité, j'accompagne les adultes, adolescents et couples
-      dans un cadre bienveillant et confidentiel — en présentiel au
-      <a href="/psychologue-sceaux/" class="text-link">cabinet</a> ou en visioconférence. Je propose des
-      <strong>thérapies cognitives et comportementales (TCC)</strong>, de la
-      <strong>thérapie MOSAIC</strong> pour les traumatismes, et de la <strong>thérapie de couple</strong>.
-      Mon approche intégrative s'adapte à votre situation, à votre rythme et à vos objectifs.
-    </p>
-
-    <nav class="flex max-w-none flex-wrap gap-x-6 gap-y-2" aria-label="Liens utiles">
-      <a href="/psychologue-sceaux/" class={approachTeaserLink}>Accès au cabinet →</a>
-      <a href="/therapie-mosaic/" class={approachTeaserLink}>Thérapie MOSAIC pour les traumatismes →</a>
-      <a href="/therapie-couple/" class={approachTeaserLink}>Thérapie de couple et relation →</a>
-      <a href="/psychologue-en-ligne/" class={approachTeaserLink}>Consultations en ligne par visio →</a>
-      <a href="/meditation-pleine-conscience-sceaux/" class={approachTeaserLink}>Groupes de méditation pleine conscience →</a>
-    </nav>
-
-    <div class="flex flex-col items-start gap-2">
-      <a
-        href={DOCTOLIB_BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class={buttonClasses({ variant: "primary", size: "lg", className: "shrink-0" })}
-        aria-label="Prendre rendez-vous sur Doctolib"
-        data-track-doctolib
-        data-track-location="Hero"
-      >
-        Prendre rendez-vous
-      </a>
-      <p class="font-ui typo-meta max-w-measure text-pretty text-ink-tertiary">
-        Vos données restent confidentielles. Messagerie sécurisée via Doctolib.
-      </p>
-      <p class="text-sm leading-snug text-ink-tertiary">
-        Je ne prends plus de nouveaux patients dans le dispositif
-        <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>.
-      </p>
     </div>
 
-    <HomeTrustStrip />
+    <div class="relative order-1 md:order-2 md:col-span-5">
+      <div class="aspect-4/5 overflow-hidden rounded-xl shadow-2xl">
+        <Picture
+          src={portrait}
+          alt="Nicolas Devaux - Psychologue clinicien à Sceaux"
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          widths={[400, 560, 720]}
+          sizes="(max-width: 767px) 100vw, 40vw"
+          loading="eager"
+          fetchpriority="high"
+          class="h-full w-full object-cover grayscale-[20%] transition-all duration-700 hover:grayscale-0"
+        />
+      </div>
+    </div>
   </div>
 </section>

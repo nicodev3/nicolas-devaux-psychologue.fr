@@ -2,13 +2,15 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import InteriorHero from "../../components/InteriorHero.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { accordionDisclosureClasses, buttonClasses } from "../../components/ui/button";
 
 const seoTitle = "Méditation pleine conscience à Sceaux | Nicolas Devaux";
 
 const meditationAccordionBtn = accordionDisclosureClasses("gap-3 px-4 py-4");
-const pageTitle = "Groupes de pleine conscience et gestion du stress à Sceaux";
+const pageTitle = "Groupes de pleine conscience et gestion du stress";
 const description =
   "Méditation et pleine conscience à Sceaux : cycles de 8 séances en petit groupe, respiration et gestion du stress. RDV Doctolib.";
 
@@ -97,24 +99,26 @@ const serviceSchema = {
   </head>
   <body class="bg-surface-page">
     <Header />
-    <main class="page-shell">
+    <InteriorHero
+      title={pageTitle}
+      description={description}
+      eyebrow="Groupes"
+    />
+    <main class="page-shell page-shell--flush-top">
+      <Breadcrumb title={pageTitle} />
       <article class="w-full">
-        <section class="pb-12 md:pb-14">
-          <p class="typo-eyebrow mb-3 md:mb-4">Groupes</p>
-          <h1 class="font-display typo-h1 mb-6 text-pretty text-ink-primary md:mb-8">
-            {pageTitle}
-          </h1>
-          <p class="text-ink-secondary leading-relaxed max-w-3xl">
+        <section class="interior-prose pb-12 md:pb-14">
+          <p class="text-ink-secondary leading-relaxed">
             Ces ateliers collectifs vous proposent un espace guidé pour apprendre à vous poser,
             observer vos pensées et réguler le stress. Le cadre est simple, sobre et adapté à une
             pratique progressive de la pleine conscience.
           </p>
-          <p class="text-ink-secondary leading-relaxed max-w-3xl mt-4">
+          <p class="text-ink-secondary leading-relaxed mt-4">
             Les pratiques s'inspirent de la MBCT (thérapie cognitive basée sur la pleine
             conscience), de la MBSR (réduction du stress par la pleine conscience) et de l'ACT
             (thérapie d'acceptation et d'engagement).
           </p>
-          <p class="text-ink-secondary leading-relaxed max-w-3xl mt-4">
+          <p class="text-ink-secondary leading-relaxed mt-4">
             Je les anime en tant que <strong>psychologue clinicien et psychomotricien</strong>,
             avec une attention particulière à l'articulation entre vécu psychique, respiration et
             conscience corporelle.
@@ -166,8 +170,7 @@ const serviceSchema = {
             <p>
               Le travail repose sur la pratique guidée et l'expérience directe. Les groupes ne
               remplacent pas une <a href="/psychotherapie/" class="text-link">psychothérapie individuelle</a>
-              quand celle-ci est nécessaire. Si vous traversez une période difficile, une
-              <a href="/psychologue-sceaux/" class="text-link">consultation avec un psychologue à Sceaux</a>
+              quand celle-ci est nécessaire. Si vous traversez une période difficile, une{" "}<a href="/psychologue-sceaux/" class="text-link">consultation avec un psychologue à Sceaux</a>
               ou une <a href="/psychologue-en-ligne/" class="text-link">consultation en ligne</a> peut
               être plus adaptée dans un premier temps.
             </p>

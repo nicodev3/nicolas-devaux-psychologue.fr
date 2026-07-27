@@ -13,11 +13,11 @@ const motionPrimaryInteractive = 'motion-safe:active:scale-[0.99]';
 /** Ombre discrète — jeton `--shadow-button-primary` (@theme). */
 const primaryShadow = 'shadow-[var(--shadow-button-primary)]';
 
-/** Primaire : 44px min height, rayon 10px, libellé ~14px medium (voir tailles ci-dessous). */
+/** Primaire : 44px min height, rayon 8px (Stitch), libellé ~14px medium. */
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'min-h-[44px] h-11 px-3.5 text-sm leading-snug',
-  md: 'min-h-[44px] h-11 px-4 text-sm leading-snug',
-  lg: 'min-h-[44px] h-11 px-5 text-sm leading-snug',
+  sm: 'min-h-[44px] h-11 px-4 text-sm leading-snug tracking-wide',
+  md: 'min-h-[44px] h-11 px-5 text-sm leading-snug tracking-wide',
+  lg: 'min-h-[48px] h-12 px-8 text-sm leading-snug tracking-wide',
 };
 
 export interface ButtonClassesOptions {
@@ -32,7 +32,7 @@ export function buttonClasses(options: ButtonClassesOptions = {}): string {
 
   const base = cn(
     'inline-flex items-center justify-center gap-2 font-ui font-medium select-none whitespace-nowrap',
-    variant === 'link' ? 'rounded-[inherit]' : 'rounded-[10px]',
+    variant === 'link' ? 'rounded-[inherit]' : 'rounded-lg',
     variant === 'link' ? 'no-underline [text-decoration-skip-ink:none]' : 'no-underline',
   );
 

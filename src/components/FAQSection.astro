@@ -1,402 +1,113 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
-import { accordionDisclosureClasses, buttonClasses } from "./ui/button";
-import { NEARBY_CITIES, OPENING_HOURS_TEXT } from "../consts";
+import { OPENING_HOURS_TEXT } from "../consts";
 
-const faqAccordionBtn = accordionDisclosureClasses("gap-3 !px-0 py-4");
+const faqs = [
+  {
+    id: "faq-1",
+    question: "Comment prendre rendez-vous ?",
+    answerHtml: `Vous pouvez prendre rendez-vous facilement via <strong>Doctolib</strong> en cliquant sur le bouton «&nbsp;Prendre rendez-vous&nbsp;». Les consultations se déroulent uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
+  },
+  {
+    id: "faq-2",
+    question: "Quelle est la durée d'une séance ?",
+    answerHtml:
+      "Les consultations individuelles et les consultations vidéo durent <strong>45 minutes</strong>. Les consultations de couple et les séances MOSAIC durent <strong>1 heure</strong>.",
+  },
+  {
+    id: "faq-3",
+    question: "Les séances sont-elles remboursées ?",
+    answerHtml:
+      'Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses mutuelles proposent une prise en charge partielle ou totale. Renseignez-vous auprès de la vôtre. Le dispositif <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a> n\'accepte plus de nouveaux patients au cabinet.',
+  },
+  {
+    id: "faq-4",
+    question: "Combien de séances sont nécessaires ?",
+    answerHtml:
+      "La durée varie selon vos besoins et objectifs. Certaines difficultés peuvent être résolues en quelques séances, tandis que d'autres nécessitent un accompagnement plus long. Nous évaluons régulièrement l'évolution et ajustons ensemble le rythme des consultations.",
+  },
+  {
+    id: "faq-5",
+    question: "Proposez-vous des consultations en ligne ?",
+    answerHtml:
+      'Oui, je propose des consultations vidéo pour les personnes qui ne peuvent pas se déplacer ou préfèrent ce format. Les séances en ligne respectent la même confidentialité qu\'au cabinet. Voir la page <a href="/psychologue-en-ligne/" class="text-link">psychologue en ligne</a>.',
+  },
+] as const;
 ---
 
 <section
   id="faq"
-  class="py-16 text-left md:py-24"
+  class="relative left-1/2 w-screen -translate-x-1/2 bg-surface-accent py-16 md:py-[7.5rem]"
   aria-labelledby="faq-heading"
   x-data="{ openId: 'faq-1' }"
 >
-  <SectionHeading
-    class="mb-8 md:mb-10"
-    eyebrow="03 — FAQ"
-    title="Questions fréquentes"
-    id="faq-heading"
-  />
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 text-center md:mb-16">
+      <SectionHeading
+        class="mb-0 [&_.section-heading-group]:items-center"
+        eyebrow="03 — FAQ"
+        title="Questions fréquentes"
+        id="faq-heading"
+      />
+    </div>
 
-  <div class="w-full divide-y divide-border-subtle">
-    <article class="overflow-hidden">
-      <button
-        type="button"
-        @click="openId = openId === 'faq-1' ? null : 'faq-1'"
-        class={faqAccordionBtn}
-        :aria-expanded="openId === 'faq-1'"
-        aria-controls="faq-content-1"
-        id="faq-toggle-1"
-      >
-        <span class="min-w-0 flex-1 pr-3 text-left">
-          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
-            Comment prendre rendez-vous ?
-          </h3>
-        </span>
-        <svg
-          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
-          :class="openId === 'faq-1' && 'rotate-180'"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div
-        id="faq-content-1"
-        role="region"
-        aria-labelledby="faq-toggle-1"
-        x-show="openId === 'faq-1'"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-      >
-        <div class="pb-4 pt-0 text-left">
-          <p class="text-ink-secondary leading-relaxed">
-            Vous pouvez prendre rendez-vous facilement via <strong
-              >Doctolib</strong
-            > en cliquant sur le bouton "Prendre rendez-vous" ci-dessus. Les
-            consultations se déroulent uniquement sur rendez-vous, {OPENING_HOURS_TEXT}.
-          </p>
-        </div>
-      </div>
-    </article>
+    <div class="space-y-4">
+      {
+        faqs.map((faq) => (
+          <article
+            class="overflow-hidden rounded-lg bg-surface-raised p-6 shadow-sm transition-all duration-300"
+          >
+            <button
+              type="button"
+              class="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
+              @click={`openId = openId === '${faq.id}' ? null : '${faq.id}'`}
+              :aria-expanded={`openId === '${faq.id}'`}
+              aria-controls={`${faq.id}-content`}
+              id={`${faq.id}-toggle`}
+            >
+              <h3 class="font-display text-lg text-ink-primary">{faq.question}</h3>
+              <svg
+                class="h-5 w-5 shrink-0 text-ink-tertiary transition-transform duration-300"
+                :class={`openId === '${faq.id}' && 'rotate-180'`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id={`${faq.id}-content`}
+              role="region"
+              aria-labelledby={`${faq.id}-toggle`}
+              x-show={`openId === '${faq.id}'`}
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <div class="pt-4">
+                <p class="typo-body mb-0 text-ink-secondary" set:html={faq.answerHtml} />
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
 
-    <article class="overflow-hidden">
-      <button
-        type="button"
-        @click="openId = openId === 'faq-2' ? null : 'faq-2'"
-        class={faqAccordionBtn}
-        :aria-expanded="openId === 'faq-2'"
-        aria-controls="faq-content-2"
-        id="faq-toggle-2"
+    <div class="mt-8 text-center">
+      <a
+        href="/consulter/"
+        class="border-b border-ink-primary font-ui text-sm font-medium tracking-wide text-ink-primary transition-opacity hover:opacity-70"
       >
-        <span class="min-w-0 flex-1 pr-3 text-left">
-          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
-            Quelle est la durée d'une séance ?
-          </h3>
-        </span>
-        <svg
-          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
-          :class="openId === 'faq-2' && 'rotate-180'"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div
-        id="faq-content-2"
-        role="region"
-        aria-labelledby="faq-toggle-2"
-        x-show="openId === 'faq-2'"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-      >
-        <div class="pb-4 pt-0 text-left">
-          <p class="mb-0 text-ink-secondary leading-relaxed">
-            Les <strong>consultations individuelles</strong> et les <strong>consultations vidéo</strong> durent
-            <strong>45 minutes</strong>. Les <strong>consultations de couple</strong> et les séances
-            <strong>MOSAIC</strong> durent <strong>1 heure</strong>.
-          </p>
-        </div>
-      </div>
-    </article>
-
-    <article class="overflow-hidden">
-      <button
-        type="button"
-        @click="openId = openId === 'faq-3' ? null : 'faq-3'"
-        class={faqAccordionBtn}
-        :aria-expanded="openId === 'faq-3'"
-        aria-controls="faq-content-3"
-        id="faq-toggle-3"
-      >
-        <span class="min-w-0 flex-1 pr-3 text-left">
-          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
-            Les séances sont-elles remboursées ?
-          </h3>
-        </span>
-        <svg
-          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
-          :class="openId === 'faq-3' && 'rotate-180'"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div
-        id="faq-content-3"
-        role="region"
-        aria-labelledby="faq-toggle-3"
-        x-show="openId === 'faq-3'"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-      >
-        <div class="pb-4 pt-0 text-left">
-          <p class="mb-0 text-ink-secondary leading-relaxed">
-            Les consultations de psychologie ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses
-            <strong>mutuelles proposent une prise en charge</strong> partielle ou totale. Renseignez-vous auprès de la
-            vôtre.
-          </p>
-          <p class="mt-4 text-sm text-ink-tertiary">
-            Le dispositif
-            <a href="/mon-soutien-psy/" class="text-link">Mon Soutien Psy</a>
-            n'accepte plus de nouveaux patients au cabinet.
-          </p>
-        </div>
-      </div>
-    </article>
-
-    <article class="overflow-hidden">
-      <button
-        type="button"
-        @click="openId = openId === 'faq-4' ? null : 'faq-4'"
-        class={faqAccordionBtn}
-        :aria-expanded="openId === 'faq-4'"
-        aria-controls="faq-content-4"
-        id="faq-toggle-4"
-      >
-        <span class="min-w-0 flex-1 pr-3 text-left">
-          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
-            Comment choisir entre les différentes approches ?
-          </h3>
-        </span>
-        <svg
-          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
-          :class="openId === 'faq-4' && 'rotate-180'"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div
-        id="faq-content-4"
-        role="region"
-        aria-labelledby="faq-toggle-4"
-        x-show="openId === 'faq-4'"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-      >
-        <div class="pb-4 pt-0 text-left">
-          <p class="text-ink-secondary leading-relaxed">
-            Chaque approche a ses spécificités. Lors de notre premier
-            entretien, nous déterminerons ensemble la méthode la plus
-            adaptée à vos besoins. Mon approche intégrative me permet
-            d'adapter le traitement à votre situation unique.
-          </p>
-        </div>
-      </div>
-    </article>
-
-    <article class="overflow-hidden">
-      <button
-        type="button"
-        @click="openId = openId === 'faq-5' ? null : 'faq-5'"
-        class={faqAccordionBtn}
-        :aria-expanded="openId === 'faq-5'"
-        aria-controls="faq-content-5"
-        id="faq-toggle-5"
-      >
-        <span class="min-w-0 flex-1 pr-3 text-left">
-          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
-            Combien de séances sont nécessaires ?
-          </h3>
-        </span>
-        <svg
-          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
-          :class="openId === 'faq-5' && 'rotate-180'"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div
-        id="faq-content-5"
-        role="region"
-        aria-labelledby="faq-toggle-5"
-        x-show="openId === 'faq-5'"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-      >
-        <div class="pb-4 pt-0 text-left">
-          <p class="text-ink-secondary leading-relaxed">
-            La durée varie selon vos besoins et objectifs. Certaines
-            difficultés peuvent être résolues en quelques séances,
-            tandis que d'autres nécessitent un accompagnement plus long.
-            Nous évaluons régulièrement l'évolution et ajustons ensemble
-            le rythme des consultations.
-          </p>
-        </div>
-      </div>
-    </article>
-
-    <article class="overflow-hidden">
-      <button
-        type="button"
-        @click="openId = openId === 'faq-6' ? null : 'faq-6'"
-        class={faqAccordionBtn}
-        :aria-expanded="openId === 'faq-6'"
-        aria-controls="faq-content-6"
-        id="faq-toggle-6"
-      >
-        <span class="min-w-0 flex-1 pr-3 text-left">
-          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
-            Proposez-vous des consultations en ligne ?
-          </h3>
-        </span>
-        <svg
-          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
-          :class="openId === 'faq-6' && 'rotate-180'"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div
-        id="faq-content-6"
-        role="region"
-        aria-labelledby="faq-toggle-6"
-        x-show="openId === 'faq-6'"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-      >
-        <div class="pb-4 pt-0 text-left">
-          <p class="text-ink-secondary leading-relaxed">
-            Oui, je propose des <strong>consultations vidéo</strong> pour
-            les personnes qui ne peuvent pas se déplacer ou préfèrent ce format.
-            Les séances en ligne respectent la même confidentialité qu'au cabinet.
-            Pour en savoir plus, consultez la page
-            <a href="/psychologue-en-ligne/" class="text-link">consultation avec un psychologue en ligne</a>.
-          </p>
-        </div>
-      </div>
-    </article>
-
-    <article class="overflow-hidden">
-      <button
-        type="button"
-        @click="openId = openId === 'faq-7' ? null : 'faq-7'"
-        class={faqAccordionBtn}
-        :aria-expanded="openId === 'faq-7'"
-        aria-controls="faq-content-7"
-        id="faq-toggle-7"
-      >
-        <span class="min-w-0 flex-1 pr-3 text-left">
-          <h3 class="text-left text-lg font-medium leading-snug text-ink-primary">
-            Comment accéder au cabinet ?
-          </h3>
-        </span>
-        <svg
-          class="mt-0.5 h-5 w-5 shrink-0 self-start text-ink-tertiary transition-transform duration-200"
-          :class="openId === 'faq-7' && 'rotate-180'"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      <div
-        id="faq-content-7"
-        role="region"
-        aria-labelledby="faq-toggle-7"
-        x-show="openId === 'faq-7'"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-      >
-        <div class="pb-4 pt-0 text-left">
-          <p class="text-ink-secondary leading-relaxed">
-            Adresse, accès RER, parking et communes desservies ({NEARBY_CITIES}) sont détaillés sur la
-            page <a href="/psychologue-sceaux/" class="text-link">accès au cabinet</a>. Des
-            <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a> sont
-            aussi possibles.
-          </p>
-        </div>
-      </div>
-    </article>
-  </div>
-
-  <div class="mt-10 border-t border-border-subtle pt-8 text-left">
-    <p class="text-sm text-ink-secondary md:text-base">
-      Les informations pratiques avant une première séance sont résumées dans la page Consulter et dans la section
-      Horaires et tarifs ci-dessous.
-    </p>
-    <div class="mt-4">
-      <a href="/consulter/" class={buttonClasses({ variant: "link", className: "font-medium" })}>
         Voir modalités →
       </a>
     </div>

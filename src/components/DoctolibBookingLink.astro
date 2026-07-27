@@ -1,0 +1,44 @@
+---
+import DoctolibMark from "./DoctolibMark.astro";
+import { buttonClasses, type ButtonSize } from "./ui/button";
+import { DOCTOLIB_BOOKING_URL } from "../consts";
+
+interface Props {
+  /** Emplacement pour le tracking Umami. */
+  location: string;
+  size?: ButtonSize;
+  fullWidth?: boolean;
+  class?: string;
+  /** Libellé accessible si le texte visible diffère. */
+  ariaLabel?: string;
+  /** Taille du glyphe D. */
+  markSize?: "sm" | "md" | "lg";
+}
+
+const {
+  location,
+  size = "md",
+  fullWidth = false,
+  class: className,
+  ariaLabel = "Prendre rendez-vous sur Doctolib",
+  markSize = size === "sm" ? "sm" : size === "lg" ? "lg" : "md",
+} = Astro.props;
+---
+
+<a
+  href={DOCTOLIB_BOOKING_URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={buttonClasses({
+    variant: "primary",
+    size,
+    fullWidth,
+    className,
+  })}
+  aria-label={ariaLabel}
+  data-track-doctolib
+  data-track-location={location}
+>
+  <DoctolibMark size={markSize} />
+  <slot>Prendre rendez-vous</slot>
+</a>

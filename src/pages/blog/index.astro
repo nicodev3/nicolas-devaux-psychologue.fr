@@ -3,13 +3,14 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import Footer from "../../components/Footer.astro";
+import InteriorHero from "../../components/InteriorHero.astro";
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import { formatFrenchDate, toDateTime } from "../../utils/formatDate";
 import { applyFrenchTypography } from "../../utils/frenchTypography.js";
 import { BLOG_TAGS, BLOG_TAG_LABELS } from "../../consts";
 
-const BLOG_INDEX_TITLE = applyFrenchTypography("Blog — articles de psychologie");
+const BLOG_INDEX_TITLE = applyFrenchTypography("Articles de psychologie");
 const BLOG_INDEX_DESCRIPTION =
   "Articles de psychologie, thérapies et bien-être mental par Nicolas Devaux, psychologue à Sceaux.";
 
@@ -21,22 +22,17 @@ const posts = (await getCollection("blog"))
 <!doctype html>
 <html lang="fr">
   <head>
-    <BaseHead title={BLOG_INDEX_TITLE} description={BLOG_INDEX_DESCRIPTION} />
+    <BaseHead title="Blog — articles de psychologie" description={BLOG_INDEX_DESCRIPTION} />
   </head>
   <body class="bg-surface-page">
     <Header />
-    <main class="page-shell page-shell--wide">
+    <InteriorHero
+      title={BLOG_INDEX_TITLE}
+      description={BLOG_INDEX_DESCRIPTION}
+      eyebrow="Blog"
+    />
+    <main class="page-shell page-shell--flush-top">
       <Breadcrumb title={BLOG_INDEX_TITLE} />
-      <header class="mb-10 md:mb-14">
-        <p class="typo-eyebrow mb-3 md:mb-4">Blog</p>
-        <h1 class="font-display typo-h1 mb-5 text-pretty text-ink-primary md:mb-6">
-          Articles de psychologie
-        </h1>
-        <p class="typo-body-lg text-body-muted mb-0 max-w-2xl text-pretty">
-          Découvrez mes articles sur la psychologie, les thérapies et le bien-être mental. Des conseils pratiques et des
-          éclairages professionnels pour mieux comprendre l'accompagnement psychologique.
-        </p>
-      </header>
 
       <!-- Filtre par tag -->
       <div

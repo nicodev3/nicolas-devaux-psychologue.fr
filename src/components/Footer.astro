@@ -1,21 +1,11 @@
 ---
-import { LayoutList } from "lucide";
-import LucideIcon from "./LucideIcon.astro";
-import { buttonClasses } from "./ui/button";
+import DoctolibBookingLink from "./DoctolibBookingLink.astro";
 import {
   ADELI_NUMBER,
-  DOCTOLIB_BOOKING_URL,
   LEGAL_ENTITY_NAME,
   RPPS_NUMBER,
   SIRET_NUMBER,
 } from "../consts";
-
-const footerBookingClasses = buttonClasses({
-  variant: "primary",
-  size: "lg",
-  className:
-    "inline-flex w-full max-w-sm items-center justify-center normal-case md:w-auto md:min-w-[240px]",
-});
 
 const siteMap = [
   {
@@ -56,30 +46,34 @@ const siteMap = [
     ],
   },
 ];
-
-const rgpdHref = "/mentions-legales/#protection-des-donnees-personnelles";
 ---
 
-<footer class="bg-surface-footer text-brand-ink-on">
-  <div class="container py-12 md:py-16">
-    <div class="min-w-0">
-      <h3 class="footer-section-label mb-8 flex items-center gap-2 sm:mb-10">
-        <LucideIcon icon={LayoutList} size="lg" class="text-brand-ink-on/85" />
-        Plan du site
-      </h3>
-      <div
-        class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-10"
-      >
+<footer class="border-none bg-surface-footer text-ink-secondary">
+  <div class="mx-auto max-w-[1140px] px-4 py-16 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-start justify-between gap-12 md:flex-row">
+      <div class="max-w-sm shrink-0">
+        <h2 class="font-display mb-4 text-[1.75rem] leading-snug text-ink-primary">Nicolas Devaux</h2>
+        <p class="typo-body mb-6 opacity-80">
+          Psychologue clinicien diplômé de l'Université Paris Cité. Accompagnement psychothérapeutique
+          pour adultes, adolescents et couples.
+        </p>
+        <p class="text-sm italic opacity-80">
+          Les informations échangées dans le cadre des consultations sont protégées par le secret
+          professionnel.
+        </p>
+      </div>
+
+      <div class="grid min-w-0 flex-1 grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
         {
           siteMap.map((group) => (
             <div class="min-w-0">
-              <h4 class="footer-section-label mb-4">{group.title}</h4>
-              <ul class="space-y-1.5 font-ui">
+              <h3 class="footer-section-label mb-4">{group.title}</h3>
+              <ul class="space-y-2 font-ui text-xs tracking-wide">
                 {group.links.map((link) => (
                   <li>
                     <a
                       href={link.href}
-                      class="text-sm font-medium text-brand-ink-on underline decoration-brand-ink-on/35 underline-offset-2 transition-colors hover:text-brand-ink-on hover:decoration-brand-ink-on"
+                      class="opacity-80 transition-all hover:opacity-100 hover:text-ink-primary"
                     >
                       {link.label}
                     </a>
@@ -92,61 +86,24 @@ const rgpdHref = "/mentions-legales/#protection-des-donnees-personnelles";
       </div>
     </div>
 
-    <div class="mt-12 flex justify-center border-t border-brand-ink-on/15 px-4 pt-10">
-      <a
-        href={DOCTOLIB_BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class={footerBookingClasses}
-        aria-label="Prendre rendez-vous sur Doctolib"
-        data-track-doctolib
-        data-track-location="Footer"
+    <div class="mt-12 flex justify-center border-t border-ink-primary/10 pt-10">
+      <DoctolibBookingLink
+        location="Footer"
+        size="lg"
+        class="inline-flex w-full max-w-sm items-center justify-center normal-case md:w-auto md:min-w-[240px]"
       >
         Prendre rendez-vous
-      </a>
+      </DoctolibBookingLink>
     </div>
+  </div>
 
-    <div class="mt-12 border-t border-brand-ink-on/15 pt-8">
-      <p class="mx-auto mb-6 max-w-3xl text-center text-sm font-ui leading-relaxed text-brand-ink-on/90">
-        Les informations échangées dans le cadre des consultations sont protégées par le secret professionnel ; les
-        traitements de données liés au site sont décrits dans les mentions légales (RGPD).
-      </p>
-      <div class="flex flex-col items-center gap-4 md:flex-row md:justify-between md:gap-6">
-        <p class="text-center text-sm text-brand-ink-on/90 md:text-left">
-          © {new Date().getFullYear()} {LEGAL_ENTITY_NAME} · Psychologue à Sceaux. Tous droits réservés.
-        </p>
-        <div
-          class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-ui md:justify-end"
-        >
-          <a
-            href="/mentions-legales/"
-            class="font-semibold text-brand-ink-on underline decoration-brand-ink-on/45 underline-offset-2 transition-colors hover:decoration-brand-ink-on"
-          >
-            Mentions légales
-          </a>
-          <span class="text-brand-ink-on/35" aria-hidden="true">·</span>
-          <a
-            href={rgpdHref}
-            class="font-semibold text-brand-ink-on underline decoration-brand-ink-on/45 underline-offset-2 transition-colors hover:decoration-brand-ink-on"
-          >
-            Secret professionnel & RGPD
-          </a>
-          <span class="text-brand-ink-on/35" aria-hidden="true">·</span>
-          <span class="tabular-nums text-brand-ink-on/90">SIRET : {SIRET_NUMBER}</span>
-          <span class="text-brand-ink-on/35" aria-hidden="true">·</span>
-          <span class="tabular-nums text-brand-ink-on/90">RPPS : {RPPS_NUMBER}</span>
-          {
-            ADELI_NUMBER ? (
-              <span class="inline-flex items-center gap-x-4">
-                <span class="text-brand-ink-on/35" aria-hidden="true">
-                  ·
-                </span>
-                <span class="tabular-nums text-brand-ink-on/90">ADELI : {ADELI_NUMBER}</span>
-              </span>
-            ) : null
-          }
-        </div>
-      </div>
-    </div>
+  <div
+    class="mx-auto max-w-[1140px] border-t border-ink-primary/10 px-4 py-8 text-center sm:px-6 md:text-left lg:px-8"
+  >
+    <p class="font-ui text-xs tracking-wide opacity-60">
+      © {new Date().getFullYear()} {LEGAL_ENTITY_NAME} · Psychologue à Sceaux. Tous droits réservés.
+      SIRET : {SIRET_NUMBER} · RPPS : {RPPS_NUMBER}
+      {ADELI_NUMBER ? ` · ADELI : ${ADELI_NUMBER}` : ""}
+    </p>
   </div>
 </footer>

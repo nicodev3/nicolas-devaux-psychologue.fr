@@ -1,50 +1,54 @@
 ---
-import SectionHeading from "./SectionHeading.astro";
+import { MapPin } from "lucide";
 import { Picture } from "astro:assets";
+import SectionHeading from "./SectionHeading.astro";
+import LucideIcon from "./LucideIcon.astro";
 import cabinet1 from "../assets/cabinet-1.webp";
-import cabinet2 from "../assets/cabinet-2.webp";
-
-const shots = [
-  {
-    src: cabinet1,
-    alt: "Cabinet de psychologie Nicolas Devaux à Sceaux - Vue du bureau de consultation pour thérapie individuelle et de couple",
-  },
-  {
-    src: cabinet2,
-    alt: "Salle d'attente du cabinet de psychologie à Sceaux - Espace d'accueil calme et confidentiel",
-  },
-] as const;
 ---
 
 <section
-  class="py-16 md:py-24"
+  id="cabinet"
+  class="overflow-hidden py-16 md:py-[7.5rem]"
   aria-labelledby="cabinet-gallery-heading"
 >
-  <div class="w-full px-0">
-    <SectionHeading class="mb-3 md:mb-4" eyebrow="02 — Cabinet" title="Le cabinet" id="cabinet-gallery-heading" />
-    <p class="font-body typo-body max-w-measure text-pretty text-ink-secondary">
-      Un espace simple et calme, pensé pour échanger en toute confidentialité. Adresse, accès RER et
-      communes desservies sont détaillés sur la page
-      <a href="/psychologue-sceaux/" class="text-link">psychologue à Sceaux</a>.
-    </p>
-    <div class="mt-8 grid gap-3 sm:grid-cols-2">
-      {
-        shots.map(({ src, alt }) => (
-          <figure class="overflow-hidden rounded-xl border border-border-subtle bg-surface-muted shadow-(--shadow-soft)">
-            <Picture
-              src={src}
-              formats={["avif", "webp"]}
-              fallbackFormat="webp"
-              widths={[320, 480, 640]}
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 480px"
-              alt={alt}
-              loading="lazy"
-              decoding="async"
-              class="aspect-4/3 h-auto w-full object-cover"
-            />
-          </figure>
-        ))
-      }
+  <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
+    <div class="relative">
+      <div class="aspect-video w-full overflow-hidden rounded-xl shadow-xl">
+        <Picture
+          src={cabinet1}
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          widths={[480, 720, 960]}
+          sizes="(max-width: 767px) 100vw, 50vw"
+          alt="Cabinet Nicolas Devaux à Sceaux — espace de consultation"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <div>
+      <SectionHeading
+        class="mb-6 md:mb-8"
+        eyebrow="02 — Cabinet"
+        title="Le cabinet"
+        id="cabinet-gallery-heading"
+      />
+      <p class="typo-body-lg mb-6 text-ink-secondary">
+        Un espace simple et calme, pensé pour échanger en toute confidentialité. Adresse, accès RER et
+        communes desservies sont détaillés sur la page psychologue à Sceaux.
+      </p>
+      <div class="mb-8 flex items-center gap-4 text-ink-primary">
+        <LucideIcon icon={MapPin} size="lg" class="text-ink-primary" />
+        <span>Sceaux — Accès RER B</span>
+      </div>
+      <a
+        href="/psychologue-sceaux/"
+        class="border-b border-ink-primary pb-1 font-bold text-ink-primary transition-opacity hover:opacity-70"
+      >
+        Accès au cabinet →
+      </a>
     </div>
   </div>
 </section>

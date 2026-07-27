@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
 import { buttonClasses } from "../components/ui/button";
-import { DOCTOLIB_BOOKING_URL, NEARBY_CITIES } from "../consts";
+import { NEARBY_CITIES } from "../consts";
 
 const title = "Psychologue en ligne : consultations en visioconférence";
 const seoTitle = "Psychologue en ligne | Visio | Nicolas Devaux";
@@ -88,11 +89,6 @@ const serviceSchema = {
   },
 };
 
-const primaryCtaClasses = buttonClasses({
-  variant: "primary",
-  size: "lg",
-  className: "w-full justify-center sm:w-auto",
-});
 const secondaryCtaClasses = buttonClasses({
   variant: "secondary",
   size: "lg",
@@ -106,6 +102,7 @@ const secondaryCtaClasses = buttonClasses({
   description={description}
   pubDate={new Date("June 11 2026")}
   showDate={false}
+  eyebrow="Consultations"
 >
   {isProd && (
     <>
@@ -116,7 +113,6 @@ const secondaryCtaClasses = buttonClasses({
 
   <section class="flex flex-col gap-8 xl:gap-10">
     <header class="space-y-5">
-      <p class="typo-eyebrow">Consultations en visioconférence</p>
       <p class="typo-body-lg text-ink-secondary">
         Je propose des <strong>consultations avec un psychologue en ligne</strong> pour les personnes qui
         ne peuvent pas se déplacer au cabinet de Sceaux, qui vivent loin, ou qui
@@ -125,16 +121,13 @@ const secondaryCtaClasses = buttonClasses({
         burn-out, difficultés relationnelles ou <a href="/therapie-couple/" class="text-link">thérapie de couple en ligne</a>.
       </p>
       <div class="flex flex-col gap-3 sm:flex-row">
-        <a
-          href={DOCTOLIB_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={primaryCtaClasses}
-          data-track-doctolib
-          data-track-location="Psychologue en ligne intro"
+        <DoctolibBookingLink
+          location="Psychologue en ligne intro"
+          size="lg"
+          class="w-full justify-center sm:w-auto"
         >
           Prendre rendez-vous en visio
-        </a>
+        </DoctolibBookingLink>
         <a href="/tarifs/" class={secondaryCtaClasses}>Voir les tarifs</a>
       </div>
     </header>
@@ -247,16 +240,13 @@ const secondaryCtaClasses = buttonClasses({
         alternance.
       </p>
       <div class="mt-2 flex flex-col gap-3 sm:flex-row">
-        <a
-          href={DOCTOLIB_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={primaryCtaClasses}
-          data-track-doctolib
-          data-track-location="Psychologue en ligne pratique"
+        <DoctolibBookingLink
+          location="Psychologue en ligne pratique"
+          size="lg"
+          class="w-full justify-center sm:w-auto"
         >
           Commencer une consultation en ligne
-        </a>
+        </DoctolibBookingLink>
         <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
       </div>
     </div>

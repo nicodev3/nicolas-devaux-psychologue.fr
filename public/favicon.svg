@@ -1,23 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-    <!-- Cercle principal — palette marque (terracotta / crème) -->
-    <circle cx="64" cy="64" r="56" fill="#b75740" stroke="#8a422f" stroke-width="4"/>
-
-    <path d="M50 64c0-7.7 6.3-14 14-14s14 6.3 14 14c0 7.7-6.3 14-14 14s-14-6.3-14-14z" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.95"/>
-    <path d="M78 64c0-7.7 6.3-14 14-14s14 6.3 14 14c0 7.7-6.3 14-14 14s-14-6.3-14-14z" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.95"/>
-
-    <circle cx="64" cy="50" r="4" fill="#FFFFFF" opacity="0.9"/>
-    <circle cx="64" cy="78" r="4" fill="#FFFFFF" opacity="0.9"/>
-
-    <path d="M40 40 L58 58" stroke="#FFFFFF" stroke-width="2" opacity="0.45"/>
-    <path d="M88 40 L70 58" stroke="#FFFFFF" stroke-width="2" opacity="0.45"/>
-    <path d="M40 88 L58 70" stroke="#FFFFFF" stroke-width="2" opacity="0.45"/>
-    <path d="M88 88 L70 70" stroke="#FFFFFF" stroke-width="2" opacity="0.45"/>
-
-    <style>
-        @media (prefers-color-scheme: dark) {
-            circle:first-child { fill: #8a422f; stroke: #d4a090; }
-            path { stroke: #fdf8f5; }
-            circle:not(:first-child) { fill: #fdf8f5; }
-        }
-    </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Nicolas Devaux">
+  <!--
+    Adaptation favicon du BrandSpiralMark : même geste (spirale ouverte),
+    pas élargi pour un trait gras sans auto-chevauchement à 16×16.
+  -->
+  <circle cx="16" cy="16" r="16" fill="#974631"/>
+  <path
+    d="M16.2 5.8c6.8 0 12.2 5.4 12.2 12.2 0 5.6-3.8 10.4-9.2 11.8-4.6 1.2-9.6.1-12.8-3.2-3-3.2-3.8-8-1.8-12 2-4 6.4-6.2 10.8-5.4 3.8.6 6.6 4 6.4 8-.2 3.6-3.2 6.4-6.8 6.6-2.8.2-5.4-1.8-5.8-4.6"
+    fill="none"
+    stroke="#fcfaf4"
+    stroke-width="2.65"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
 </svg>

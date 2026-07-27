@@ -13,9 +13,18 @@
  * Exclus : glyphes de marque (ex. Doctolib), logos partenaires, illustrations SVG éditoriales / schémas.
  */
 
-@import "@fontsource-variable/inter/opsz.css";
-@import "@fontsource-variable/inter/opsz-italic.css";
-@import "@fontsource-variable/source-serif-4/index.css";
+@import "@fontsource/playfair-display/latin-400.css";
+@import "@fontsource/playfair-display/latin-700.css";
+@import "@fontsource/playfair-display/latin-ext-400.css";
+@import "@fontsource/playfair-display/latin-ext-700.css";
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/manrope/latin-700.css";
+@import "@fontsource/manrope/latin-ext-400.css";
+@import "@fontsource/manrope/latin-ext-500.css";
+@import "@fontsource/manrope/latin-ext-600.css";
+@import "@fontsource/manrope/latin-ext-700.css";
 
 [x-cloak] {
   display: none !important;
@@ -71,36 +80,37 @@
   --color-green-800: #166534;
 
   /*
-   * Thème crème / sable — terracotta comme unique accent marque.
+   * Thème Zen (Stitch V1) — gris-vert primaire, surfaces froides, beige secondaire.
    * Les valeurs sRGB ci-dessous sont les fallbacks Safari/iOS plus anciens.
    * Les valeurs OKLCH, plus précises, sont activées plus bas uniquement si le navigateur les supporte.
    */
-  --color-surface-page: #fcfaf4;
+  --color-surface-page: #f9f9f9;
   --color-surface-raised: #ffffff;
-  --color-surface-muted: #f5f2ea;
-  /* Fond pied de page : noir chaud désaturé (extension palette marque / encres). */
-  --color-surface-footer: #403830;
-  /* Libellés de section footer : lisibles sur surface-footer (titres héritent sinon de ink-primary). */
-  --color-footer-label: #cbc4bc;
-  /* Titres / hiérarchie forte : neutre foncé (pas le brun du corps). */
-  --color-ink-primary: #302f2d;
-  /* Corps de texte : brun chaud réservé au paragraphe. */
-  --color-ink-secondary: #655c55;
-  /* Méta, dates, notes UI : neutre un peu plus soutenu que le corps pour ≥7:1 sur crème/muted (sans italique). */
-  --color-ink-tertiary: #5d5a56;
-  --color-border-subtle: #e6e3dc;
-  --color-border-strong: #d3d0ca;
-  /* Terracotta marque : lisibilité renforcée sur fond crème / muted (~6:1 liens, hover plus foncé). */
-  --color-brand: #974631;
-  --color-brand-hover: #783529;
-  --color-brand-ink-on: #ffffff;
-  --color-info-surface: #fbf4df;
-  --color-info-border: #dcc37d;
-  --color-info-ink: #64502b;
+  --color-surface-muted: #f4f3f3;
+  /* Fond pied de page : beige secondaire (secondary-fixed Stitch). */
+  --color-surface-footer: #e9e2d3;
+  --color-surface-accent: #e9e2d3;
+  /* Libellés de section footer : lisibles sur beige. */
+  --color-footer-label: #4a463c;
+  /* Titres : gris-vert primaire Stitch. */
+  --color-ink-primary: #424f4e;
+  /* Corps de texte. */
+  --color-ink-secondary: #424847;
+  /* Méta, dates, notes UI. */
+  --color-ink-tertiary: #737877;
+  --color-border-subtle: #e2e2e2;
+  --color-border-strong: #c2c7c6;
+  /* Marque : gris-vert (primary Stitch). */
+  --color-brand: #424f4e;
+  --color-brand-hover: #3d4948;
+  --color-brand-ink-on: #e5e2de;
+  --color-info-surface: #d7e5e4;
+  --color-info-border: #bcc9c8;
+  --color-info-ink: #121e1d;
 
   /* États ponctuels (hors marque) */
-  --color-danger: #7e3029;
-  --color-danger-surface: #faefec;
+  --color-danger: #93000a;
+  --color-danger-surface: #ffdad6;
 
   --color-body: var(--color-ink-secondary);
   --color-body-muted: var(--color-ink-tertiary);
@@ -114,12 +124,12 @@
   --color-white: #ffffff;
 
   --width-container: 100%;
-  --max-width-container: 1200px;
+  --max-width-container: 1140px;
 
   --font-family-display:
-    "Source Serif 4 Variable", ui-serif, Georgia, "Times New Roman", serif;
-  --font-family-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-family-ui: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+    "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+  --font-family-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-family-ui: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
   /* Ombres réutilisables (évite rgba(#000) dans les composants). */
   --shadow-menu-panel:
@@ -131,34 +141,30 @@
 @supports (color: oklch(0 0 0)) {
   :root {
     /*
-     * Contraste (culori wcagContrast sur les OKLCH ci-dessous, fond page ≈ surface-page / muted) :
-     * - ink-primary / surface-page | raised : titres neutres >> 7:1
-     * - ink-secondary / surface-page : corps brun ~ 8:1
-     * - ink-tertiary / surface-page | muted : méta & UI secondaire ≥ ~8 / ~7.8 (AAA efficace, hors italique)
-     * - brand / surface-page | muted : liens & accent ≥ ~6 / ~5.8 ; hover plus soutenu
-     * - border-* / surface-page : séparation lisible sans fusion avec le fond crème
-     * - brand-ink-on / brand & brand-hover : > 4.5:1 (CTA)
-     * - info-ink / info-surface : >> 7:1
-     * - danger / danger-surface : viser ≥ 4.5:1 pour boutons ou liens « réinitialiser »
+     * Palette Zen Stitch — contraste sur surface-page #f9f9f9 :
+     * - ink-primary / brand (#424f4e) ≥ 7:1
+     * - ink-secondary (#424847) ≥ 7:1
+     * - brand-ink-on (#e5e2de) sur brand ≥ 4.5:1
      */
-    --color-surface-page: oklch(0.985 0.012 60);
+    --color-surface-page: oklch(0.975 0.002 100);
     --color-surface-raised: oklch(1 0 0);
-    --color-surface-muted: oklch(0.965 0.012 60);
-    --color-surface-footer: oklch(0.28 0.02 50);
-    --color-footer-label: oklch(0.82 0.018 52);
-    --color-ink-primary: oklch(0.22 0.004 58);
-    --color-ink-secondary: oklch(0.42 0.02 50);
-    --color-ink-tertiary: oklch(0.4 0.008 58);
-    --color-border-subtle: oklch(0.91 0.004 60);
-    --color-border-strong: oklch(0.85 0.005 60);
-    --color-brand: oklch(0.5 0.135 35);
-    --color-brand-hover: oklch(0.43 0.125 35);
-    --color-brand-ink-on: oklch(0.99 0 0);
-    --color-info-surface: oklch(0.97 0.03 85);
-    --color-info-border: oklch(0.86 0.07 85);
-    --color-info-ink: oklch(0.35 0.05 70);
-    --color-danger: oklch(0.45 0.14 28);
-    --color-danger-surface: oklch(0.97 0.02 28);
+    --color-surface-muted: oklch(0.96 0.002 100);
+    --color-surface-footer: oklch(0.91 0.02 95);
+    --color-surface-accent: oklch(0.91 0.02 95);
+    --color-footer-label: oklch(0.38 0.02 90);
+    --color-ink-primary: oklch(0.38 0.015 195);
+    --color-ink-secondary: oklch(0.36 0.01 180);
+    --color-ink-tertiary: oklch(0.54 0.008 180);
+    --color-border-subtle: oklch(0.91 0.002 100);
+    --color-border-strong: oklch(0.82 0.005 180);
+    --color-brand: oklch(0.38 0.015 195);
+    --color-brand-hover: oklch(0.35 0.014 195);
+    --color-brand-ink-on: oklch(0.92 0.006 90);
+    --color-info-surface: oklch(0.92 0.015 195);
+    --color-info-border: oklch(0.82 0.015 195);
+    --color-info-ink: oklch(0.2 0.015 195);
+    --color-danger: oklch(0.42 0.16 25);
+    --color-danger-surface: oklch(0.94 0.03 25);
     --color-black: oklch(0 0 0);
     --color-white: oklch(1 0 0);
     --shadow-menu-panel:
@@ -274,14 +280,12 @@ body[data-home-reveal-page] [data-home-reveal].home-reveal-done {
 
 @utility font-ui {
   font-family: var(--font-family-ui);
-  font-variation-settings: "opsz" 22;
 }
 
-/* Libellés de colonnes pied de page : alignés sur les eyebrows (~13px UI), sans serif display. */
+/* Libellés de colonnes pied de page : alignés sur les eyebrows (~12px UI), sans serif display. */
 @utility footer-section-label {
   font-family: var(--font-family-ui);
-  font-variation-settings: "opsz" 14;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1.35;
@@ -307,8 +311,7 @@ body[data-home-reveal-page] [data-home-reveal].home-reveal-done {
 
 body {
   font-family: var(--font-family-sans);
-  font-variation-settings: "opsz" 14;
-  font-feature-settings: "ss01", "cv11", "kern";
+  font-feature-settings: "kern";
   color: var(--color-body);
 }
 
@@ -326,29 +329,26 @@ h6 {
 
 h1,
 h2 {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 h3 {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /*
- * Pied de page foncé : les titres h* reprennent ink-primary par défaut → quasi invisible sur surface-footer.
- * Spécificité > seule la classe utilitaire, pour gagner sur la règle h3/h4 du @layer base.
+ * Pied de page beige : libellés en encre foncée (pas de contraste inversé).
  */
 footer .footer-section-label {
   color: var(--color-footer-label);
   font-family: var(--font-family-ui);
-  font-variation-settings: "opsz" 14;
-  /* Évite l’héritage display/balance des h* du @layer base. */
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1.35;
@@ -358,48 +358,47 @@ footer .footer-section-label {
 
 .typo-display-xl {
   font-size: var(--text-h1);
-  line-height: 1.06;
-  letter-spacing: -0.022em;
-  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 400;
   text-wrap: balance;
 }
 
-/* Titres principaux (hero + pages) : plafonnés à ~56px desktop, plus d’air */
+/* Titres principaux (hero + pages) : Playfair display Stitch (~64px) */
 .hero-heading-display,
 .typo-h1 {
-  font-size: var(--text-h1);
-  line-height: 1.08;
+  font-size: clamp(2rem, 4vw + 1rem, 4rem);
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  font-weight: 600;
+  font-weight: 400;
   text-wrap: balance;
 }
 
 .typo-display-lg {
   font-size: var(--text-h2-section);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 400;
   text-wrap: balance;
 }
 
 .typo-display-md {
   font-size: var(--text-h3);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 400;
   text-wrap: balance;
 }
 
 /* Libellé de section au-dessus du H2 : sans serif, uppercase, tracking +6 % */
 .typo-eyebrow {
   font-family: var(--font-family-ui);
-  font-variation-settings: "opsz" 14;
-  font-size: var(--text-meta-sm);
-  font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-primary);
 }
 
 .section-heading-group {
@@ -442,7 +441,6 @@ footer .footer-section-label {
  */
 .typo-meta-caps {
   font-family: var(--font-family-ui);
-  font-variation-settings: "opsz" 14;
   font-size: var(--text-meta-sm);
   line-height: 1.45;
   font-weight: 600;
@@ -454,12 +452,12 @@ footer .footer-section-label {
 /* Hiérarchie hors classes utilitaires : H2 document ~24px, H3 ~24px (échelle interne) */
 h2 {
   font-size: var(--text-h3);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 h3 {
   font-size: var(--text-h3);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 h4 {
@@ -595,27 +593,52 @@ abbr {
 }
 
 /*
- * Coquille de page alignée sur l’accueil : colonne de lecture 720px ;
- * variante `--wide` pour grilles (ex. index blog), max 1120px.
+ * Coquille de page alignée sur l’accueil : max 1140px + mêmes gutters.
+ * Articles de blog : variante `--article` (1120px) pour le header 2 colonnes.
  */
 .page-shell {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 720px;
-  padding: 1rem 1rem 5rem;
+  max-width: 1140px;
+  padding: 2rem 1rem 5rem;
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
   .page-shell {
-    padding: 1.5rem 1.25rem 6rem;
+    padding-top: 2.5rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-shell {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 .page-shell--wide {
-  max-width: 1120px;
+  max-width: 1140px;
 }
 
 .page-shell--article {
   max-width: 1120px;
+}
+
+.page-shell--flush-top {
+  padding-top: 0;
+}
+
+/* Mesure de lecture pour le corps des pages intérieures (hors grilles full-bleed). */
+.interior-prose {
+  max-width: 42rem;
+  width: 100%;
 }

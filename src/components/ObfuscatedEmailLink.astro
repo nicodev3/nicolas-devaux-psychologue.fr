@@ -3,9 +3,11 @@ import { CONTACT_EMAIL } from "../consts";
 
 interface Props {
   class?: string;
+  /** Emplacement Umami (Phone/Email Click). */
+  trackLocation?: string;
 }
 
-const { class: className } = Astro.props;
+const { class: className, trackLocation } = Astro.props;
 const [localPart, domain] = CONTACT_EMAIL.split("@");
 ---
 
@@ -15,6 +17,7 @@ const [localPart, domain] = CONTACT_EMAIL.split("@");
   data-email-local={localPart}
   data-email-domain={domain}
   data-obfuscated-email
+  data-track-location={trackLocation}
   aria-label="Envoyer un email"
 ></a>
 

@@ -1,0 +1,42 @@
+---
+import DoctolibBookingLink from "./DoctolibBookingLink.astro";
+import { buttonClasses } from "./ui/button";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Prêt à en parler ?",
+  description = "Si cet article résonne avec ce que vous traversez, une première séance peut aider à clarifier la suite. Cadre confidentiel, au cabinet à Sceaux ou en visioconférence.",
+} = Astro.props;
+
+const secondaryCta = buttonClasses({
+  variant: "secondary",
+  size: "lg",
+  className: "w-full justify-center uppercase tracking-[0.15em] sm:w-auto",
+});
+---
+
+<section
+  class="mx-auto max-w-[1140px] px-4 py-16 text-center sm:px-6 md:py-[7.5rem] lg:px-8"
+  aria-labelledby="article-cta-heading"
+>
+  <div class="mx-auto max-w-xl">
+    <h2 id="article-cta-heading" class="font-display typo-display-lg mb-6 text-ink-primary">
+      {title}
+    </h2>
+    <p class="typo-body-lg mb-10 text-ink-secondary">{description}</p>
+    <div class="flex flex-col justify-center gap-4 sm:flex-row">
+      <DoctolibBookingLink
+        location="Article CTA"
+        size="lg"
+        class="w-full justify-center uppercase tracking-[0.15em] sm:w-auto"
+      >
+        Prendre rendez-vous
+      </DoctolibBookingLink>
+      <a href="/consulter/" class={secondaryCta}>En savoir plus</a>
+    </div>
+  </div>
+</section>

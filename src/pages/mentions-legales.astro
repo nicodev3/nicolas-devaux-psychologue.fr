@@ -11,6 +11,8 @@ import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
   pubDate={new Date("August 08 2024")}
   showDate={false}
   blogPost={false}
+  compactHero
+  eyebrow="Informations légales"
 >
   <div class="c-mentions-legales">
     <SectionHeading class="mb-3" eyebrow="01 — Éditeur" title="Éditeur du site" />
@@ -37,7 +39,13 @@ import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
           >
             Cliquez pour afficher
           </button>
-          <a href="tel:+33629341367" class="text-link" x-show="revealed" x-cloak>06 29 34 13 67</a>
+          <a
+            href="tel:+33629341367"
+            class="text-link"
+            data-track-location="Mentions légales"
+            x-show="revealed"
+            x-cloak>06 29 34 13 67</a
+          >
         </span>
       </li>
       <li>
@@ -54,7 +62,7 @@ import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
           >
             Cliquez pour afficher
           </button>
-          <ObfuscatedEmailLink x-show="revealed" x-cloak />
+          <ObfuscatedEmailLink trackLocation="Mentions légales" x-show="revealed" x-cloak />
         </span>
       </li>
     </ul>

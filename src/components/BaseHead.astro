@@ -57,6 +57,8 @@ const organizationSchema = {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#fcfaf4" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Polices : Inter Variable (axe opsz) et Source Serif 4 Variable via CSS bundlé -->
@@ -99,17 +101,94 @@ const organizationSchema = {
       data-website-id={umamiId}
     ></script>
     <script is:inline defer>
+      function umamiTrack(name, data) {
+        try {
+          return window.umami && window.umami.track(name, data || {});
+        } catch (err) {
+          return undefined;
+        }
+      }
+
+      function pageLocation(el) {
+        var explicit = el && el.getAttribute && el.getAttribute("data-track-location");
+        if (explicit) return explicit;
+        return window.location.pathname || "/";
+      }
+
+      function isDoctolibLink(link) {
+        if (!link || !link.href) return false;
+        if (link.hasAttribute("data-track-doctolib")) return true;
+        try {
+          return new URL(link.href, window.location.origin).hostname.indexOf("doctolib.fr") !== -1;
+        } catch (err) {
+          return false;
+        }
+      }
+
+      function isMapsLink(link) {
+        if (!link || !link.href) return false;
+        try {
+          var host = new URL(link.href, window.location.origin).hostname;
+          return host === "maps.google.com" || host === "www.google.com" || host === "goo.gl";
+        } catch (err) {
+          return false;
+        }
+      }
+
+      function isConsulterLink(link) {
+        if (!link || !link.getAttribute) return false;
+        if (link.hasAttribute("data-track-consulter")) return true;
+        try {
+          var path = new URL(link.href, window.location.origin).pathname;
+          return path === "/consulter" || path === "/consulter/";
+        } catch (err) {
+          return false;
+        }
+      }
+
       document.addEventListener(
         "click",
         function (e) {
           if (e.defaultPrevented) return;
           if (e.button !== 0) return;
-          if (e.ctrlKey || e.metaKey || e.shiftKey) return;
-          var link = e.target.closest("a[data-track-doctolib]");
+
+          var link = e.target.closest("a");
           if (!link || !link.href) return;
+
+          var loc = pageLocation(link);
+          var hrefAttr = link.getAttribute("href") || "";
+
+          // Phone / email : fire-and-forget (pas de preventDefault)
+          if (hrefAttr.indexOf("tel:") === 0) {
+            umamiTrack("Phone Click", { location: loc });
+            return;
+          }
+          if (hrefAttr.indexOf("mailto:") === 0) {
+            umamiTrack("Email Click", { location: loc });
+            return;
+          }
+
+          // Google Maps
+          if (isMapsLink(link) && link.href.indexOf("/maps") !== -1) {
+            umamiTrack("Maps Click", { location: loc });
+            return;
+          }
+
+          // Funnel soft : clics vers /consulter/
+          if (isConsulterLink(link) && !isDoctolibLink(link)) {
+            umamiTrack("Consulter Click", { location: loc });
+            return;
+          }
+
+          // Conversion Doctolib (tous les liens, y compris articles markdown)
+          if (!isDoctolibLink(link)) return;
+          if (e.ctrlKey || e.metaKey || e.shiftKey) {
+            umamiTrack("Doctolib Click", { location: loc });
+            return;
+          }
+
           e.preventDefault();
           e.stopImmediatePropagation();
-          var loc = link.getAttribute("data-track-location") || "";
           var href = link.href;
           var opened = false;
           function go() {
@@ -117,14 +196,10 @@ const organizationSchema = {
             opened = true;
             window.open(href, "_blank", "noopener,noreferrer");
           }
-          try {
-            var p = window.umami && window.umami.track("Doctolib Click", loc ? { location: loc } : {});
-            if (p && typeof p.then === "function") {
-              p.then(go, go);
-            } else {
-              go();
-            }
-          } catch (err) {
+          var p = umamiTrack("Doctolib Click", { location: loc });
+          if (p && typeof p.then === "function") {
+            p.then(go, go);
+          } else {
             go();
           }
           setTimeout(go, 500);
@@ -139,13 +214,8 @@ const organizationSchema = {
           if (!(form instanceof HTMLFormElement)) return;
           if (!form.matches("form[data-track-contact]")) return;
           var eventName = form.getAttribute("data-track-event") || "Contact Form Submit";
-          var location = form.getAttribute("data-track-location") || "";
-          try {
-            window.umami &&
-              window.umami.track(eventName, location ? { location: location } : {});
-          } catch (err) {
-            // Do not block form submission if tracking fails.
-          }
+          var location = form.getAttribute("data-track-location") || pageLocation(form);
+          umamiTrack(eventName, { location: location });
         },
         true
       );
