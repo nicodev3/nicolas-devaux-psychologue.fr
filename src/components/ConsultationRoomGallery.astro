@@ -13,19 +13,18 @@ import cabinet1 from "../assets/cabinet-1.webp";
 >
   <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
     <div class="relative">
-      <div class="aspect-video w-full overflow-hidden rounded-xl shadow-xl">
-        <Picture
-          src={cabinet1}
-          formats={["avif", "webp"]}
-          fallbackFormat="webp"
-          widths={[480, 720, 960]}
-          sizes="(max-width: 767px) 100vw, 50vw"
-          alt="Cabinet Nicolas Devaux à Sceaux — espace de consultation"
-          loading="lazy"
-          decoding="async"
-          class="h-full w-full object-cover"
-        />
-      </div>
+      <Picture
+        src={cabinet1}
+        formats={["avif", "webp"]}
+        fallbackFormat="webp"
+        widths={[480, 720, 960]}
+        sizes="(max-width: 767px) 100vw, 50vw"
+        alt="Cabinet Nicolas Devaux à Sceaux — espace de consultation"
+        loading="lazy"
+        decoding="async"
+        pictureAttributes={{ class: "block overflow-hidden rounded-xl shadow-xl" }}
+        class="block h-auto w-full"
+      />
     </div>
 
     <div>
