@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import rueHoudanSceaux from "../assets/locations/rue-houdan-sceaux.jpg";
 import { buttonClasses } from "../components/ui/button";
 import {
   CABINET_ADDRESS_LINE,
@@ -102,7 +103,18 @@ const secondaryCtaClasses = buttonClasses({
 });
 ---
 
-<Layout title={title} seoTitle={seoTitle} description={description} pubDate={new Date("May 24 2026")} showDate={false} eyebrow="Cabinet">
+<Layout
+  title={title}
+  seoTitle={seoTitle}
+  description={description}
+  pubDate={new Date("May 24 2026")}
+  showDate={false}
+  eyebrow="Cabinet"
+  heroImage={rueHoudanSceaux}
+  heroAlt="Rue Houdan, rue piétonne du centre-ville de Sceaux"
+  heroCredit="Photo : Chabe01 — Wikimedia Commons"
+  heroCreditUrl="https://commons.wikimedia.org/wiki/File:Rue_Houdan_-_Sceaux_(FR92)_-_2023-03-19_-_6.jpg"
+>
   {isProd && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
   <section class="space-y-10">

@@ -3,6 +3,7 @@ import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { Picture } from "astro:assets";
 import CoupleImage from "../assets/blog/magnific_therapie-de-couple-couple_2910666064.webp";
+import CoupleHeroImage from "../assets/locations/therapie-couple.png";
 import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
 import { buttonClasses } from "../components/ui/button";
 import { NEARBY_CITIES } from "../consts";
@@ -128,6 +129,8 @@ const coupleCtaSecondary = buttonClasses({
   showDate={false}
   blogPost={false}
   eyebrow="Approches thérapeutiques"
+  heroImage={CoupleHeroImage}
+  heroAlt="Composition figurative évoquant le dialogue et le lien dans le couple"
 >
   {isProd && (
     <>

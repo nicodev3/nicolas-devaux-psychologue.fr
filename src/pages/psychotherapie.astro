@@ -3,6 +3,7 @@ import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { Picture } from "astro:assets";
 import PsychotherapieImage from "../assets/psychotherapies.jpg";
+import PsychotherapieHeroImage from "../assets/locations/psychotherapie.png";
 ---
 
 <Layout
@@ -11,6 +12,8 @@ import PsychotherapieImage from "../assets/psychotherapies.jpg";
   pubDate={new Date("November 15 2024")}
   showDate={false}
   eyebrow="Approches thérapeutiques"
+  heroImage={PsychotherapieHeroImage}
+  heroAlt="Composition figurative évoquant le cheminement en psychothérapie"
 >
   <section class="flex flex-col gap-8 xl:gap-10">
     <p>

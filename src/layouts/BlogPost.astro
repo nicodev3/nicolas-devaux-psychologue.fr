@@ -29,6 +29,8 @@ type Props = Omit<CollectionEntry<"blog">["data"], "tags" | "published"> & {
   wideContent?: boolean;
   compactHero?: boolean;
   heroAlt?: string;
+  heroCredit?: string;
+  heroCreditUrl?: string;
   relatedPosts?: CollectionEntry<"blog">[];
 };
 
@@ -48,6 +50,8 @@ const {
   wideContent = false,
   compactHero = false,
   heroAlt,
+  heroCredit,
+  heroCreditUrl,
   relatedPosts = [],
 } = Astro.props;
 
@@ -220,6 +224,8 @@ const resolvedHeroImage = heroImage as ImageMetadata | undefined;
               eyebrow={interiorEyebrow}
               heroImage={resolvedHeroImage ?? undefined}
               heroAlt={heroAlt}
+              heroCredit={heroCredit}
+              heroCreditUrl={heroCreditUrl}
             />
           )}
           <main class:list={["page-shell", !compactHero && "page-shell--flush-top"]}>
