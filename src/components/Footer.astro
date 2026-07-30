@@ -53,11 +53,11 @@ const siteMap = [
     <div class="flex flex-col items-start justify-between gap-12 md:flex-row">
       <div class="max-w-sm shrink-0">
         <h2 class="font-display mb-4 text-[1.75rem] leading-snug text-ink-primary">Nicolas Devaux</h2>
-        <p class="typo-body mb-6 opacity-80">
+        <p class="typo-body mb-6 text-ink-secondary">
           Psychologue clinicien diplômé de l'Université Paris Cité. Accompagnement psychothérapeutique
           pour adultes, adolescents et couples.
         </p>
-        <p class="text-sm italic opacity-80">
+        <p class="text-sm italic text-ink-secondary">
           Les informations échangées dans le cadre des consultations sont protégées par le secret
           professionnel.
         </p>
@@ -73,7 +73,7 @@ const siteMap = [
                   <li>
                     <a
                       href={link.href}
-                      class="opacity-80 transition-all hover:opacity-100 hover:text-ink-primary"
+                      class="text-ink-secondary transition-colors hover:text-ink-primary"
                     >
                       {link.label}
                     </a>
@@ -100,7 +100,7 @@ const siteMap = [
   <div
     class="mx-auto max-w-[1140px] border-t border-ink-primary/10 px-4 py-8 text-center sm:px-6 md:text-left lg:px-8"
   >
-    <p class="font-ui text-xs tracking-wide opacity-60">
+    <p class="font-ui text-xs tracking-wide text-ink-secondary">
       © {new Date().getFullYear()} {LEGAL_ENTITY_NAME} · Psychologue à Sceaux. Tous droits réservés.
       SIRET : {SIRET_NUMBER} · RPPS : {RPPS_NUMBER}
       {ADELI_NUMBER ? ` · ADELI : ${ADELI_NUMBER}` : ""}

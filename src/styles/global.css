@@ -13,18 +13,8 @@
  * Exclus : glyphes de marque (ex. Doctolib), logos partenaires, illustrations SVG éditoriales / schémas.
  */
 
-@import "@fontsource/playfair-display/latin-400.css";
-@import "@fontsource/playfair-display/latin-700.css";
-@import "@fontsource/playfair-display/latin-ext-400.css";
-@import "@fontsource/playfair-display/latin-ext-700.css";
-@import "@fontsource/manrope/latin-400.css";
-@import "@fontsource/manrope/latin-500.css";
-@import "@fontsource/manrope/latin-600.css";
-@import "@fontsource/manrope/latin-700.css";
-@import "@fontsource/manrope/latin-ext-400.css";
-@import "@fontsource/manrope/latin-ext-500.css";
-@import "@fontsource/manrope/latin-ext-600.css";
-@import "@fontsource/manrope/latin-ext-700.css";
+@import "@fontsource-variable/playfair-display/wght.css";
+@import "@fontsource-variable/manrope/wght.css";
 
 [x-cloak] {
   display: none !important;
@@ -127,9 +117,9 @@
   --max-width-container: 1140px;
 
   --font-family-display:
-    "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-  --font-family-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-family-ui: "Manrope", ui-sans-serif, system-ui, sans-serif;
+    "Playfair Display Variable", ui-serif, Georgia, "Times New Roman", serif;
+  --font-family-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-family-ui: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
 
   /* Ombres réutilisables (évite rgba(#000) dans les composants). */
   --shadow-menu-panel:
