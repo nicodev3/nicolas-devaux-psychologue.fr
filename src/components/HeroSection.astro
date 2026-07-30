@@ -1,6 +1,6 @@
 ---
 import { Picture } from "astro:assets";
-import portrait from "../assets/nicolas_devaux.jpg";
+import portrait from "../assets/nicolas-devaux.webp";
 import DoctolibBookingLink from "./DoctolibBookingLink.astro";
 import { buttonClasses } from "./ui/button";
 ---
@@ -42,20 +42,19 @@ import { buttonClasses } from "./ui/button";
       </div>
     </div>
 
-    <div class="relative order-1 md:order-2 md:col-span-5">
-      <div class="aspect-4/5 overflow-hidden rounded-xl shadow-2xl">
-        <Picture
-          src={portrait}
-          alt="Nicolas Devaux - Psychologue clinicien à Sceaux"
-          formats={["avif", "webp"]}
-          fallbackFormat="webp"
-          widths={[400, 560, 720]}
-          sizes="(max-width: 767px) 100vw, 40vw"
-          loading="eager"
-          fetchpriority="high"
-          class="h-full w-full object-cover grayscale-[20%] transition-all duration-700 hover:grayscale-0"
-        />
-      </div>
+    <div class="order-1 md:order-2 md:col-span-5">
+      <Picture
+        src={portrait}
+        alt="Nicolas Devaux - Psychologue clinicien à Sceaux"
+        formats={["avif", "webp"]}
+        fallbackFormat="webp"
+        widths={[400, 560, 720]}
+        sizes="(max-width: 767px) 100vw, 40vw"
+        loading="eager"
+        fetchpriority="high"
+        pictureAttributes={{ class: "block overflow-hidden rounded-xl shadow-2xl" }}
+        class="block h-auto w-full grayscale-[20%] transition-all duration-700 hover:grayscale-0"
+      />
     </div>
   </div>
 </section>
