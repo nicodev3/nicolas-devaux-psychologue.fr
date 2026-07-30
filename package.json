@@ -27,7 +27,7 @@
     "@tailwindcss/vite": "^4.1.12",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.3",
-    "astro": "^7.1.5",
+    "astro": "^7.1.6",
     "astro-robots-txt": "^1.0.0",
     "framer-motion": "^12.38.0",
     "lucide": "^1.14.0",
