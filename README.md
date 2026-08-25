@@ -59,6 +59,38 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## Suivi Umami
+
+Le script de suivi n'est chargé qu'en production, et seulement si
+`PUBLIC_UMAMI_WEBSITE_ID` et `PUBLIC_UMAMI_URL` sont définies.
+
+Événements de conversion (`src/components/BaseHead.astro`) :
+`Doctolib Click`, `Consulter Click`, `Phone Click`, `Email Click`,
+`Maps Click`, `Contact Form Submit` — chacun avec la propriété `location`
+(chemin de la page, ou `data-track-location` si présent).
+
+Événements des outils (`src/components/ToolAnalytics.astro`) :
+
+| Événement | Propriétés | Déclencheur |
+| --- | --- | --- |
+| `Outil démarré` | `outil`, `reprise` | première réponse cochée |
+| `Outil terminé` | `outil`, `reprise`, `duree` | formulaire validé (masquage de `#form-container`) |
+| `Outil abandonné` | `outil`, `progression` | départ de la page sans validation |
+| `Outil ouvert` | `depuis`, `vers` | clic sur un lien `data-tool-link` |
+| `Outil suite` | `outil`, `vers` | clic sur la page de fond proposée en fin de test |
+
+La page de fond proposée en fin de test est déclarée par outil dans
+`src/data/tools.ts` (`nextStep`) et rendue par `ToolNextStep.astro`.
+Un outil sans `nextStep` n'affiche rien : aucune page ne traite encore
+le sujet qu'il mesure.
+
+`reprise` vaut `oui` lorsque des réponses ont été restaurées depuis
+`localStorage` au chargement. `duree` et `progression` sont des paliers
+(`<1min`, `1-3min`… / `1-25%`, `26-50%`…).
+
+Aucune réponse ni aucun score n'est transmis : la mention « vos réponses ne
+sont transmises à personne » affichée sur les pages reste exacte.
+
 ## 👀 Want to learn more?
 
 Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

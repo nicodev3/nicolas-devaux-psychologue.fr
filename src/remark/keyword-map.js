@@ -13,11 +13,15 @@ export default {
     "Doctolib": "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
 
     // Ajouts conditionnels (symptômes / besoins)
-    "anxiété": "/psychotherapie/",
+    "anxiété": "/blog/troubles-anxieux/",
+    "troubles anxieux": "/blog/troubles-anxieux/",
+    "trouble anxieux": "/blog/troubles-anxieux/",
+    "anxiété sociale": "/blog/troubles-anxieux/",
+    "crise d'angoisse": "/blog/troubles-anxieux/",
     "dépression": "/psychotherapie/",
-    "phobie": "/psychotherapie/",
-    "attaques de panique": "/psychotherapie/",
-    "attaque de panique": "/psychotherapie/",
+    "phobie": "/blog/troubles-anxieux/",
+    "attaques de panique": "/blog/troubles-anxieux/",
+    "attaque de panique": "/blog/troubles-anxieux/",
     "burn-out": "/psychotherapie/",
     "ruminations": "/blog/rumination-mentale/",
     "rumination": "/blog/rumination-mentale/",
@@ -49,6 +53,18 @@ export default {
     "IBCT": "/blog/therapie-integrative-comportementale-couple/",
     "thérapie fondée sur la compassion": "/therapie-fondee-compassion/",
     CFT: "/therapie-fondee-compassion/",
+
+    // Auto-évaluations (/outils/) — maillage vers les questionnaires en ligne
+    "FSCRS": "/outils/fscrs/",
+    "CompACT": "/outils/compact/",
+    "AAQ-II": "/outils/aaq-ii/",
+    "PCL-5": "/outils/pcl-5/",
+    "stress post-traumatique": "/outils/pcl-5/",
+    "PHQ-9": "/outils/phq-9-gad-7/",
+    "GAD-7": "/outils/phq-9-gad-7/",
+    "WHO-5": "/outils/who-5/",
+    "schémas précoces inadaptés": "/outils/questionnaire-schemas-young/",
+    "schémas de Young": "/outils/questionnaire-schemas-young/",
 
     // Parcours patient / informations pratiques
     "prendre rendez-vous": "/consulter/",

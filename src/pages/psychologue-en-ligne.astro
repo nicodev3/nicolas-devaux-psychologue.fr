@@ -4,6 +4,7 @@ import SectionHeading from "../components/SectionHeading.astro";
 import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
 import { buttonClasses } from "../components/ui/button";
 import { NEARBY_CITIES } from "../consts";
+import { CABINET_SCHEMA_ID } from "../data/local-business-schema";
 
 const title = "Psychologue en ligne : consultations en visioconférence";
 const seoTitle = "Psychologue en ligne | Visio | Nicolas Devaux";
@@ -68,7 +69,9 @@ const serviceSchema = {
     "Consultations psychologiques en ligne par visioconférence : thérapie individuelle, thérapie MOSAIC, couple, anxiété, stress et burn-out.",
   url: "https://nicolas-devaux-psychologue.fr/psychologue-en-ligne/",
   provider: {
-    "@id": "https://nicolas-devaux-psychologue.fr/#cabinet",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": CABINET_SCHEMA_ID,
+    name: "Nicolas Devaux, psychologue à Sceaux",
   },
   areaServed: {
     "@type": "Country",
@@ -77,7 +80,7 @@ const serviceSchema = {
   offers: {
     "@type": "Offer",
     name: "Consultation individuelle en visio",
-    price: 80,
+    price: "80",
     priceCurrency: "EUR",
     url: "https://nicolas-devaux-psychologue.fr/tarifs/",
     availability: "https://schema.org/InStock",

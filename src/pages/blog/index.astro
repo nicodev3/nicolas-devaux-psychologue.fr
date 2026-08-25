@@ -13,6 +13,9 @@ import { BLOG_TAGS, BLOG_TAG_LABELS } from "../../consts";
 const BLOG_INDEX_TITLE = applyFrenchTypography("Articles de psychologie");
 const BLOG_INDEX_DESCRIPTION =
   "Articles de psychologie, thérapies et bien-être mental par Nicolas Devaux, psychologue à Sceaux.";
+/** Description SEO dédiée : plus longue et plus spécifique que le chapô affiché dans le hero. */
+const BLOG_INDEX_META_DESCRIPTION =
+  "Articles de psychologie clinique : TCC, ACT, pleine conscience, sommeil et thérapie de couple. Repères pratiques par Nicolas Devaux, psychologue à Sceaux.";
 
 const posts = (await getCollection("blog"))
   .filter((post) => post.data.published !== false)
@@ -22,7 +25,7 @@ const posts = (await getCollection("blog"))
 <!doctype html>
 <html lang="fr">
   <head>
-    <BaseHead title="Blog — articles de psychologie" description={BLOG_INDEX_DESCRIPTION} />
+    <BaseHead title="Blog — articles de psychologie" description={BLOG_INDEX_META_DESCRIPTION} />
   </head>
   <body class="bg-surface-page">
     <Header />

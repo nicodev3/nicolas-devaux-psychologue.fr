@@ -3,11 +3,13 @@ import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
 
-const title = "Questionnaire des Schémas de Young (YSQ-L3)";
-const description = "Passez le Questionnaire des Schémas de Young en ligne — 232 affirmations explorant 18 schémas précoces inadaptés dans le cadre de la thérapie des schémas.";
+const title = "Test des schémas précoces inadaptés";
+const seoTitle = "Test des schémas de Young (YSQ-L3)";
+const description =
+  "Explorez les 18 schémas précoces inadaptés décrits par Jeffrey Young à travers les 232 affirmations du YSQ-L3. Réponses conservées sur votre appareil.";
 ---
 
-<FormLayout title={title} description={description}>
+<FormLayout title={title} seoTitle={seoTitle} description={description}>
   <div x-data="ysqForm" class="w-full">
     <!-- Barre de progression sticky (sous l’en-tête fixe du site) -->
     <div class="sticky top-14 z-20 mb-6 md:top-[4.5rem]" x-show="!submitted">
@@ -30,9 +32,9 @@ const description = "Passez le Questionnaire des Schémas de Young en ligne — 
     <!-- En-tête et instructions -->
     <header class="mb-10 md:mb-12">
       <p class="typo-eyebrow mb-3 md:mb-4">YSQ-L3</p>
-      <h1 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
-        Questionnaire des Schémas de Young
-      </h1>
+      <h2 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
+        YSQ-L3
+      </h2>
       <p class="mb-6 text-sm text-ink-tertiary">Version YSQ-L3, traduction par Pierre Cousineau et Bernard Pascal</p>
 
       <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
