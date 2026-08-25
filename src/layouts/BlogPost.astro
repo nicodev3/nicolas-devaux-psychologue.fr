@@ -169,6 +169,7 @@ const resolvedHeroImage = heroImage as ImageMetadata | undefined;
                   alt={title}
                   width={heroImage.width}
                   height={heroImage.height}
+                  pictureAttributes={{ class: "block h-full w-full" }}
                   formats={["avif", "webp"]}
                   fallbackFormat="webp"
                   widths={[720, 1080, 1440]}
@@ -176,7 +177,8 @@ const resolvedHeroImage = heroImage as ImageMetadata | undefined;
                   loading="eager"
                   decoding="async"
                   fetchpriority="high"
-                  class="h-full w-full object-cover"
+                  class="block h-full w-full object-cover"
+                  style="height: 100%; width: 100%; object-fit: cover; object-position: center;"
                 />
               </figure>
             </div>
