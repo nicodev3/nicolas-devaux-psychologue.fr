@@ -5,6 +5,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 import Footer from "../components/Footer.astro";
 import InteriorHero from "../components/InteriorHero.astro";
 import RelatedTools from "../components/RelatedTools.astro";
+import ToolAnalytics from "../components/ToolAnalytics.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -34,5 +35,6 @@ const { title, seoTitle, description, eyebrow = "Outils", showRelatedTools = tru
       {showRelatedTools && <RelatedTools />}
     </main>
     <Footer />
+    <ToolAnalytics />
   </body>
 </html>

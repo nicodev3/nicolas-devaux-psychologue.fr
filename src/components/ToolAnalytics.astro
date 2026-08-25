@@ -1,0 +1,156 @@
+---
+/**
+ * Suivi comportemental des pages `/outils/` via Umami.
+ *
+ * Générique : rien à câbler dans les composants Alpine. Le script s'appuie sur
+ * la structure commune aux sept questionnaires — un `<form id="form-container">`
+ * masqué par `x-show="!submitted"` une fois le formulaire validé.
+ *
+ * Confidentialité — les réponses et les scores ne sortent JAMAIS du navigateur.
+ * Seuls sont transmis : le nom de l'outil, la complétion, un palier de
+ * progression et un palier de durée. La promesse affichée sur les pages
+ * (« vos réponses ne sont transmises à personne ») reste donc exacte.
+ */
+---
+
+<script is:inline>
+  (function () {
+    function track(name, data) {
+      try {
+        return window.umami && window.umami.track(name, data || {});
+      } catch (err) {
+        return undefined;
+      }
+    }
+
+    /** `/outils/who-5/` → `who-5` */
+    function toolSlug(pathname) {
+      var m = (pathname || "").match(/^\/outils\/([^/]+)\/?$/);
+      return m ? m[1] : null;
+    }
+
+    function bucketProgress(pct) {
+      if (pct <= 25) return "1-25%";
+      if (pct <= 50) return "26-50%";
+      if (pct <= 75) return "51-75%";
+      return "76-99%";
+    }
+
+    function bucketDuration(ms) {
+      var s = ms / 1000;
+      if (s < 60) return "<1min";
+      if (s < 180) return "1-3min";
+      if (s < 600) return "3-10min";
+      return ">10min";
+    }
+
+    // — Navigation entre outils (index et bloc « Autres outils ») —
+    document.addEventListener(
+      "click",
+      function (e) {
+        var link = e.target && e.target.closest && e.target.closest("a[data-tool-link]");
+        if (!link) return;
+        var vers = toolSlug(new URL(link.href, window.location.origin).pathname);
+        if (!vers) return;
+        track("Outil ouvert", {
+          depuis: toolSlug(window.location.pathname) || "index",
+          vers: vers,
+        });
+      },
+      true
+    );
+
+    var outil = toolSlug(window.location.pathname);
+    if (!outil) return;
+
+    var form = document.getElementById("form-container");
+    if (!form) return;
+
+    var started = false;
+    var completed = false;
+    var startedAt = 0;
+
+    /** Progression = groupes de réponses renseignés / groupes affichés. */
+    function progressPct() {
+      var radios = form.querySelectorAll('input[type="radio"]');
+      var groups = {};
+      for (var i = 0; i < radios.length; i++) {
+        var name = radios[i].name;
+        if (!name) continue;
+        if (!(name in groups)) groups[name] = false;
+        if (radios[i].checked) groups[name] = true;
+      }
+      var total = 0;
+      var done = 0;
+      for (var k in groups) {
+        if (!Object.prototype.hasOwnProperty.call(groups, k)) continue;
+        total++;
+        if (groups[k]) done++;
+      }
+      return total === 0 ? 0 : Math.round((done / total) * 100);
+    }
+
+    // Les outils restaurent les réponses depuis localStorage dans leur `init()` :
+    // une visite peut donc démarrer avec un formulaire déjà rempli. On mémorise
+    // ce point de départ pour distinguer une reprise d'une première passe.
+    //
+    // La mesure doit attendre Alpine : les questions naissent d'un `x-for`, et
+    // le HTML servi ne contient que le gabarit. Mesurer trop tôt donnerait 0.
+    var initialPct = 0;
+    var reprise = "non";
+
+    function measureInitial() {
+      initialPct = progressPct();
+      reprise = initialPct > 0 ? "oui" : "non";
+    }
+
+    if (window.Alpine) {
+      measureInitial();
+    } else {
+      document.addEventListener(
+        "alpine:initialized",
+        function () {
+          requestAnimationFrame(measureInitial);
+        },
+        { once: true }
+      );
+    }
+
+    form.addEventListener("change", function (e) {
+      if (started) return;
+      var t = e.target;
+      if (!t || t.type !== "radio") return;
+      started = true;
+      startedAt = Date.now();
+      track("Outil démarré", { outil: outil, reprise: reprise });
+    });
+
+    // `x-show="!submitted"` masque le formulaire à la validation : c'est le
+    // signal de complétion le plus fiable, `submit` se déclenchant aussi
+    // lorsqu'il manque des réponses.
+    var observer = new MutationObserver(function () {
+      if (completed) return;
+      if (form.style.display !== "none") return;
+      completed = true;
+      observer.disconnect();
+      track("Outil terminé", {
+        outil: outil,
+        reprise: reprise,
+        duree: startedAt ? bucketDuration(Date.now() - startedAt) : "inconnue",
+      });
+    });
+    observer.observe(form, { attributes: true, attributeFilter: ["style"] });
+
+    // `pagehide` plutôt que `visibilitychange` : un simple changement d'onglet
+    // ne doit pas être compté comme un abandon.
+    window.addEventListener("pagehide", function () {
+      if (!started || completed) return;
+      // Un formulaire déjà complet au chargement est une session restaurée :
+      // repartir sans revalider n'est pas un abandon.
+      if (initialPct >= 100) return;
+      var pct = progressPct();
+      if (pct <= 0) return;
+      track("Outil abandonné", { outil: outil, progression: bucketProgress(pct) });
+    });
+  })();
+</script>

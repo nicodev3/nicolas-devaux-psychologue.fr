@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 
 type SleepInputs = {
   bedtime: string;
@@ -128,7 +128,23 @@ export default function SleepEfficiencyCalculator() {
     earlyMorning: "",
   });
 
+  const started = useRef(false);
+  const completed = useRef(false);
+
+  /** Suivi Umami — aucune valeur saisie ni résultat n'est transmis. */
+  function track(name: string) {
+    try {
+      (window as any).umami?.track(name, { outil: "calculateur-efficacite-sommeil" });
+    } catch {
+      /* Umami absent (dev, bloqueur) : sans effet. */
+    }
+  }
+
   function handleChange(key: keyof SleepInputs, value: string) {
+    if (!started.current) {
+      started.current = true;
+      track("Outil démarré");
+    }
     setInputs((prev) => ({ ...prev, [key]: value }));
   }
 
@@ -152,6 +168,14 @@ export default function SleepEfficiencyCalculator() {
 
     return { timeInBed, estimatedSleep, efficiency };
   }, [inputs]);
+
+  // Pas de bouton de validation : le résultat s'affiche dès que la saisie est
+  // exploitable. C'est ce basculement qui marque la complétion.
+  useEffect(() => {
+    if (!results || completed.current) return;
+    completed.current = true;
+    track("Outil terminé");
+  }, [results]);
 
   const levelConfig = results ? LEVEL_CONFIG[getEfficiencyLevel(results.efficiency)] : null;
 
