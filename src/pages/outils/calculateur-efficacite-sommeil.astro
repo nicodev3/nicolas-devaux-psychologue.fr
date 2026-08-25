@@ -2,9 +2,7 @@
 import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import SleepEfficiencyCalculator from "../../components/SleepEfficiencyCalculator";
-import DoctolibBookingLink from "../../components/DoctolibBookingLink.astro";
 import { buttonClasses } from "../../components/ui/button";
-import ToolNextStep from "../../components/ToolNextStep.astro";
 
 const title = "Calculateur d'efficacité du sommeil — TCC-I";
 const description =
@@ -185,34 +183,31 @@ const faqItems = [
     </dl>
   </section>
 
-  <ToolNextStep gated={false} />
-
   <!-- CTA -->
   <section class="mt-12 border-t border-border-subtle pt-10 md:mt-16 md:pt-12">
     <div class="rounded-xl border border-brand/20 bg-brand/5 p-6 md:p-8">
-      <p class="typo-eyebrow mb-3">Accompagnement</p>
+      <p class="typo-eyebrow mb-3">Pour aller plus loin</p>
       <h2 class="font-display typo-display-lg mb-3 text-ink-primary">
         Vous souffrez d'insomnie depuis plusieurs mois ?
       </h2>
       <p class="mb-6 max-w-2xl text-sm leading-relaxed text-ink-secondary">
-        L'insomnie chronique est une souffrance réelle, mais elle se traite efficacement. En tant que
-        psychologue spécialisé en TCC et ACT, j'accompagne les personnes souffrant d'insomnie avec des
-        outils validés scientifiquement. Chaque suivi est personnalisé, centré sur vos besoins et votre
-        rythme.
+        L'efficacité du sommeil est l'un des indicateurs suivis en TCC-I, le traitement de référence de
+        l'insomnie chronique. Elle ne prend son sens qu'avec le reste du tableau : ce qui entretient les
+        nuits difficiles, et ce sur quoi il est possible d'agir.
       </p>
       <div class="flex flex-wrap gap-3">
-        <DoctolibBookingLink
-          location="sleep-calculator-cta"
-          size="lg"
-          class="normal-case"
-        >
-          Prendre rendez-vous
-        </DoctolibBookingLink>
         <a
-          href="/consulter/"
+          href="/ressources/sommeil-insomnie/"
+          data-tool-next
+          class={buttonClasses({ variant: "primary", size: "lg", className: "normal-case" })}
+        >
+          Ouvrir le dossier Sommeil et insomnie
+        </a>
+        <a
+          href="/blog/tcc-insomnie/"
           class={buttonClasses({ variant: "secondary", size: "lg", className: "normal-case" })}
         >
-          En savoir plus
+          La TCC-I en pratique
         </a>
       </div>
     </div>

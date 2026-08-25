@@ -40,6 +40,11 @@ export const TOOL_SECTIONS: ToolSection[] = [
         description:
           "Deux questionnaires validés pour évaluer les symptômes dépressifs et anxieux au cours des deux dernières semaines. Utiles en début de suivi ou pour faire le point sur votre état actuel.",
         badges: ["16 questions", "Dépression + anxiété", "~5 minutes", "Sauvegarde automatique"],
+        nextStep: {
+          href: "/blog/troubles-anxieux/",
+          label: "Comprendre les troubles anxieux",
+          note: "Le GAD-7 situe une intensité, il ne dit pas ce qui entretient l'anxiété. L'article détaille les principales formes de troubles anxieux, les mécanismes qui les maintiennent et les approches qui ont fait leurs preuves.",
+        },
       },
     ],
   },
@@ -132,11 +137,6 @@ export const TOOL_SECTIONS: ToolSection[] = [
         description:
           "Estimez votre efficacité de sommeil selon les principes de la TCC-I. Renseignez vos heures de coucher, de lever et vos éveils nocturnes pour obtenir un résultat instantané avec interprétation pédagogique.",
         badges: ["Calcul instantané", "Insomnie · TCC-I", "~2 minutes", "Aucune donnée transmise"],
-        nextStep: {
-          href: "/ressources/sommeil-insomnie/",
-          label: "Sommeil et insomnie",
-          note: "L'efficacité du sommeil est l'indicateur central de la TCC-I. Le dossier réunit les articles sur l'insomnie chronique, la TCC-I et l'interprétation de vos résultats.",
-        },
       },
     ],
   },

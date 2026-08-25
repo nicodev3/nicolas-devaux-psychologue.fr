@@ -2,6 +2,7 @@
 import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
+import ToolNextStep from "../../components/ToolNextStep.astro";
 
 const title = "Test de dépression et d'anxiété";
 const seoTitle = "Test dépression et anxiété gratuit";
@@ -211,6 +212,8 @@ const SCALE = [
         <span class="rounded-full bg-red-100 px-2.5 py-1 font-medium text-red-700">20+ : Sévère</span>
       </div>
     </div>
+
+    <ToolNextStep />
 
     <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
       <template x-for="(section, si) in sections" :key="section.code">
