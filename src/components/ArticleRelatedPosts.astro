@@ -64,7 +64,7 @@ const TAG_KICKERS: Partial<Record<BlogTag, string>> = {
                     <div class="mb-6 aspect-4/3 overflow-hidden rounded-sm bg-surface-muted">
                       <Picture
                         src={post.data.heroImage}
-                        alt=""
+                        alt={post.data.title}
                         formats={["avif", "webp"]}
                         fallbackFormat="webp"
                         widths={[400, 640]}

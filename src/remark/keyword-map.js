@@ -50,6 +50,18 @@ export default {
     "thérapie fondée sur la compassion": "/therapie-fondee-compassion/",
     CFT: "/therapie-fondee-compassion/",
 
+    // Auto-évaluations (/outils/) — maillage vers les questionnaires en ligne
+    "FSCRS": "/outils/fscrs/",
+    "CompACT": "/outils/compact/",
+    "AAQ-II": "/outils/aaq-ii/",
+    "PCL-5": "/outils/pcl-5/",
+    "stress post-traumatique": "/outils/pcl-5/",
+    "PHQ-9": "/outils/phq-9-gad-7/",
+    "GAD-7": "/outils/phq-9-gad-7/",
+    "WHO-5": "/outils/who-5/",
+    "schémas précoces inadaptés": "/outils/questionnaire-schemas-young/",
+    "schémas de Young": "/outils/questionnaire-schemas-young/",
+
     // Parcours patient / informations pratiques
     "prendre rendez-vous": "/consulter/",
     consultation: "/consulter/",

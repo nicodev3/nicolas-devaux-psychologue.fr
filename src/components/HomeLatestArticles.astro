@@ -35,7 +35,7 @@ const latestPosts = posts.slice(0, 3);
                 <div class="mb-6 aspect-video overflow-hidden rounded-lg">
                   <Image
                     src={post.data.heroImage}
-                    alt=""
+                    alt={post.data.title}
                     width={640}
                     height={360}
                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
