@@ -3,6 +3,7 @@ title: "Troubles anxieux : se repérer, comprendre, agir"
 seoTitle: "Troubles anxieux : symptômes et traitements"
 description: "Troubles anxieux : anxiété normale ou trouble, principales formes, mécanismes qui les entretiennent et approches efficaces. Repères par un psychologue."
 pubDate: "Aug 25 2026"
+heroImage: "../../assets/blog/troubles-anxieux.png"
 tags: ["therapies"]
 ---
 
