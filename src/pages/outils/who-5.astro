@@ -3,9 +3,10 @@ import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
 
-const title = "WHO-5 — Indice de bien-être de l'OMS";
+const title = "Test de bien-être mental";
+const seoTitle = "Test de bien-être mental (WHO-5, OMS)";
 const description =
-  "Passez en ligne le WHO-5, questionnaire validé de l'OMS pour évaluer votre bien-être mental au cours des deux dernières semaines.";
+  "Cinq questions de l'OMS pour situer votre bien-être mental sur les deux dernières semaines. Questionnaire validé, gratuit, résultat immédiat.";
 
 const SCALE = [
   [0, "À aucun moment"],
@@ -17,7 +18,7 @@ const SCALE = [
 ] as const;
 ---
 
-<FormLayout title={title} description={description}>
+<FormLayout title={title} seoTitle={seoTitle} description={description}>
   <div x-data="who5Form" class="w-full">
     <div class="sticky top-14 z-20 mb-6 md:top-18" x-show="!submitted">
       <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
@@ -36,7 +37,7 @@ const SCALE = [
     <header class="mb-10 md:mb-12">
       <p class="typo-eyebrow mb-3 md:mb-4">WHO-5</p>
       <h2 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
-        Indice de bien-être de l'OMS
+        WHO-5
       </h2>
       <p class="mb-6 text-sm text-ink-tertiary">
         World Health Organization Five Well-Being Index

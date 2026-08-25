@@ -8,19 +8,22 @@ import RelatedTools from "../components/RelatedTools.astro";
 import "../styles/global.css";
 
 interface Props {
+  /** Titre affiché — sert de H1 dans le hero. */
   title: string;
+  /** Titre SEO (balise <title>) quand il doit différer du H1. */
+  seoTitle?: string;
   description: string;
   eyebrow?: string;
   /** Masque le maillage inter-outils (inutile sur l'index, qui les liste déjà tous). */
   showRelatedTools?: boolean;
 }
 
-const { title, description, eyebrow = "Outils", showRelatedTools = true } = Astro.props;
+const { title, seoTitle, description, eyebrow = "Outils", showRelatedTools = true } = Astro.props;
 ---
 
 <html lang="fr">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={seoTitle ?? title} description={description} />
   </head>
   <body class="bg-surface-page">
     <Header />

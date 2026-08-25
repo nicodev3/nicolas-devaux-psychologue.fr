@@ -3,9 +3,10 @@ import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
 
-const title = "AAQ-II — Questionnaire d'acceptation et d'action";
+const title = "Test de flexibilité psychologique";
+const seoTitle = "Test de flexibilité psychologique (AAQ-II)";
 const description =
-  "Passez en ligne l'AAQ-II, questionnaire validé pour évaluer votre flexibilité psychologique et votre tendance à l'évitement expérientiel.";
+  "Sept affirmations pour évaluer votre flexibilité psychologique et votre tendance à l'évitement expérientiel. Questionnaire de référence en thérapie ACT.";
 
 const SCALE = [
   [1, "Jamais vrai"],
@@ -18,7 +19,7 @@ const SCALE = [
 ] as const;
 ---
 
-<FormLayout title={title} description={description}>
+<FormLayout title={title} seoTitle={seoTitle} description={description}>
   <div x-data="aaq2Form" class="w-full">
     <div class="sticky top-14 z-20 mb-6 md:top-18" x-show="!submitted">
       <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
@@ -37,7 +38,7 @@ const SCALE = [
     <header class="mb-10 md:mb-12">
       <p class="typo-eyebrow mb-3 md:mb-4">AAQ-II</p>
       <h2 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
-        Questionnaire d'acceptation et d'action
+        AAQ-II
       </h2>
       <p class="mb-6 text-sm text-ink-tertiary">
         Acceptance and Action Questionnaire — version II

@@ -3,9 +3,10 @@ import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
 
-const title = "CompACT — Évaluation des processus ACT";
+const title = "Test des processus ACT";
+const seoTitle = "Test des processus ACT (CompACT-FR)";
 const description =
-  "Passez en ligne le CompACT-FR, questionnaire validé en 23 items pour évaluer votre flexibilité psychologique selon les trois processus de l'ACT.";
+  "Vingt-trois affirmations pour situer les trois processus de l'ACT : ouverture à l'expérience, conscience de soi et action guidée par les valeurs.";
 
 const SCALE = [
   [0, "Pas du tout d'accord"],
@@ -18,7 +19,7 @@ const SCALE = [
 ] as const;
 ---
 
-<FormLayout title={title} description={description}>
+<FormLayout title={title} seoTitle={seoTitle} description={description}>
   <div x-data="compactForm" class="w-full">
     <div class="sticky top-14 z-20 mb-6 md:top-18" x-show="!submitted">
       <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
@@ -37,7 +38,7 @@ const SCALE = [
     <header class="mb-10 md:mb-12">
       <p class="typo-eyebrow mb-3 md:mb-4">CompACT-FR</p>
       <h2 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
-        Évaluation des processus ACT
+        CompACT-FR
       </h2>
       <p class="mb-6 text-sm text-ink-tertiary">
         Comprehensive Assessment of Acceptance and Commitment Therapy processes

@@ -3,9 +3,10 @@ import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
 
-const title = "PHQ-9 et GAD-7 — Dépistage dépression et anxiété";
+const title = "Test de dépression et d'anxiété";
+const seoTitle = "Test dépression et anxiété gratuit";
 const description =
-  "Passez en ligne le PHQ-9 et le GAD-7, questionnaires validés pour évaluer les symptômes dépressifs et anxieux au cours des deux dernières semaines.";
+  "Évaluez vos symptômes dépressifs et anxieux avec le PHQ-9 et le GAD-7, deux questionnaires validés. Gratuit, sans inscription, résultat immédiat.";
 
 const SCALE = [
   [0, "Pas du tout"],
@@ -15,7 +16,7 @@ const SCALE = [
 ] as const;
 ---
 
-<FormLayout title={title} description={description}>
+<FormLayout title={title} seoTitle={seoTitle} description={description}>
   <div x-data="phqGadForm" class="w-full">
     <div class="sticky top-14 z-20 mb-6 md:top-[4.5rem]" x-show="!submitted">
       <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
@@ -34,7 +35,7 @@ const SCALE = [
     <header class="mb-10 md:mb-12">
       <p class="typo-eyebrow mb-3 md:mb-4">PHQ-9 · GAD-7</p>
       <h2 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
-        Dépistage dépression et anxiété
+        PHQ-9 et GAD-7
       </h2>
       <p class="mb-6 text-sm text-ink-tertiary">
         Questionnaire sur la santé du patient (PHQ-9) et échelle d'anxiété généralisée (GAD-7)
