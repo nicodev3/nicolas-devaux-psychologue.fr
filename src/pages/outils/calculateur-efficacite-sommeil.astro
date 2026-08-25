@@ -4,6 +4,7 @@ import SectionHeading from "../../components/SectionHeading.astro";
 import SleepEfficiencyCalculator from "../../components/SleepEfficiencyCalculator";
 import DoctolibBookingLink from "../../components/DoctolibBookingLink.astro";
 import { buttonClasses } from "../../components/ui/button";
+import ToolNextStep from "../../components/ToolNextStep.astro";
 
 const title = "Calculateur d'efficacité du sommeil — TCC-I";
 const description =
@@ -183,6 +184,8 @@ const faqItems = [
       }
     </dl>
   </section>
+
+  <ToolNextStep gated={false} />
 
   <!-- CTA -->
   <section class="mt-12 border-t border-border-subtle pt-10 md:mt-16 md:pt-12">

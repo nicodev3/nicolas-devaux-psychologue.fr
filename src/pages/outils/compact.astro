@@ -2,6 +2,7 @@
 import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
+import ToolNextStep from "../../components/ToolNextStep.astro";
 
 const title = "Test des processus ACT";
 const seoTitle = "Test des processus ACT (CompACT-FR)";
@@ -220,6 +221,8 @@ const SCALE = [
         <span class="rounded-full bg-green-100 px-2.5 py-1 font-medium text-green-700">84–100 % : Excellente</span>
       </div>
     </div>
+
+    <ToolNextStep />
 
     <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
       <div class="mb-6 overflow-hidden rounded-xl border border-border-subtle">

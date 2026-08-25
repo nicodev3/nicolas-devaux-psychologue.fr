@@ -77,6 +77,12 @@ Le script de suivi n'est chargé qu'en production, et seulement si
 | `Outil terminé` | `outil`, `reprise`, `duree` | formulaire validé (masquage de `#form-container`) |
 | `Outil abandonné` | `outil`, `progression` | départ de la page sans validation |
 | `Outil ouvert` | `depuis`, `vers` | clic sur un lien `data-tool-link` |
+| `Outil suite` | `outil`, `vers` | clic sur la page de fond proposée en fin de test |
+
+La page de fond proposée en fin de test est déclarée par outil dans
+`src/data/tools.ts` (`nextStep`) et rendue par `ToolNextStep.astro`.
+Un outil sans `nextStep` n'affiche rien : aucune page ne traite encore
+le sujet qu'il mesure.
 
 `reprise` vaut `oui` lorsque des réponses ont été restaurées depuis
 `localStorage` au chargement. `duree` et `progression` sont des paliers

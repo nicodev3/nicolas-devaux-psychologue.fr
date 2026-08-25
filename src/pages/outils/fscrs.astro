@@ -2,6 +2,7 @@
 import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
+import ToolNextStep from "../../components/ToolNextStep.astro";
 
 const title = "Test d'autocritique et d'auto-apaisement";
 const seoTitle = "Test d'autocritique et d'auto-apaisement";
@@ -241,6 +242,8 @@ const SCALE = [
         Les seuils affichés sont indicatifs. Il n'existe pas de coupure diagnostique officielle pour le FSCRS.
       </p>
     </div>
+
+    <ToolNextStep />
 
     <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
       <div class="mb-6 overflow-hidden rounded-xl border border-border-subtle">

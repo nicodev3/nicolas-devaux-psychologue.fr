@@ -2,6 +2,7 @@
 import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { buttonClasses } from "../../components/ui/button";
+import ToolNextStep from "../../components/ToolNextStep.astro";
 
 const title = "Test de flexibilité psychologique";
 const seoTitle = "Test de flexibilité psychologique (AAQ-II)";
@@ -201,6 +202,8 @@ const SCALE = [
         <span class="rounded-full bg-orange-100 px-2.5 py-1 font-medium text-orange-700">36–49 : Très élevée</span>
       </div>
     </div>
+
+    <ToolNextStep />
 
     <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
       <div class="mb-6 overflow-hidden rounded-xl border border-border-subtle">

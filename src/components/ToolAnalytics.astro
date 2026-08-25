@@ -63,6 +63,16 @@
     var outil = toolSlug(window.location.pathname);
     if (!outil) return;
 
+    // — Passage vers la page de fond proposée en fin de test —
+    document.addEventListener("click", function (e) {
+      var link = e.target && e.target.closest && e.target.closest("a[data-tool-next]");
+      if (!link) return;
+      track("Outil suite", {
+        outil: outil,
+        vers: new URL(link.href, window.location.origin).pathname,
+      });
+    });
+
     var form = document.getElementById("form-container");
     if (!form) return;
 

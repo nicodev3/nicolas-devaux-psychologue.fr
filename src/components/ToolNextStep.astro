@@ -1,0 +1,39 @@
+---
+import { buttonClasses } from "./ui/button";
+import { TOOLS } from "../data/tools";
+
+interface Props {
+  /**
+   * `false` sur les outils sans état Alpine (le calculateur de sommeil, qui
+   * calcule au fil de la saisie). Ailleurs le bloc n'apparaît qu'une fois le
+   * questionnaire validé, via le `submitted` du composant parent.
+   */
+  gated?: boolean;
+}
+
+const { gated = true } = Astro.props;
+
+const currentPath = Astro.url.pathname.replace(/\/?$/, "/");
+const nextStep = TOOLS.find((tool) => tool.href === currentPath)?.nextStep;
+---
+
+{
+  nextStep && (
+    <aside
+      class="no-print mb-8 rounded-xl border border-brand/20 bg-brand/5 p-6 md:p-8"
+      x-show={gated ? "submitted" : undefined}
+      x-cloak={gated ? true : undefined}
+    >
+      <p class="typo-eyebrow mb-3">Pour aller plus loin</p>
+      <h3 class="font-display typo-display-md mb-2 text-ink-primary">{nextStep.label}</h3>
+      <p class="mb-6 max-w-2xl text-sm leading-relaxed text-ink-secondary">{nextStep.note}</p>
+      <a
+        href={nextStep.href}
+        data-tool-next
+        class={buttonClasses({ variant: "secondary", size: "lg", className: "normal-case" })}
+      >
+        Ouvrir le dossier
+      </a>
+    </aside>
+  )
+}

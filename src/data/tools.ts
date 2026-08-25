@@ -1,10 +1,19 @@
 /** Registre unique des outils `/outils/*` — alimente l'index et le maillage interne. */
 
+/** Page de fond proposée à la fin du test, quand elle existe. */
+export interface ToolNextStep {
+  href: string;
+  label: string;
+  note: string;
+}
+
 export interface Tool {
   href: string;
   title: string;
   description: string;
   badges: string[];
+  /** Absent tant qu'aucune page ne traite vraiment le sujet mesuré. */
+  nextStep?: ToolNextStep;
 }
 
 export interface ToolSection {
@@ -57,6 +66,11 @@ export const TOOL_SECTIONS: ToolSection[] = [
         description:
           "Sept affirmations pour évaluer votre flexibilité psychologique et votre tendance à l'évitement expérientiel. Outil de référence en thérapie d'acceptation et d'engagement (ACT).",
         badges: ["7 questions", "Flexibilité psychologique", "~3 minutes", "Sauvegarde automatique"],
+        nextStep: {
+          href: "/ressources/act-ruminations/",
+          label: "ACT et ruminations",
+          note: "L'évitement expérientiel que mesure l'AAQ-II est l'un des processus centraux de la thérapie d'acceptation et d'engagement. Le dossier regroupe les repères et les exercices correspondants.",
+        },
       },
       {
         href: "/outils/compact/",
@@ -64,6 +78,11 @@ export const TOOL_SECTIONS: ToolSection[] = [
         description:
           "Vingt-trois affirmations couvrant les trois processus de l'ACT : ouverture à l'expérience, conscience comportementale et action guidée par les valeurs. Mesure plus complète que l'AAQ-II.",
         badges: ["23 questions", "3 sous-échelles", "~8 minutes", "Sauvegarde automatique"],
+        nextStep: {
+          href: "/ressources/act-ruminations/",
+          label: "ACT et ruminations",
+          note: "Les trois processus évalués par le CompACT — ouverture à l'expérience, conscience de soi, action guidée par les valeurs — structurent la thérapie d'acceptation et d'engagement.",
+        },
       },
     ],
   },
@@ -77,6 +96,11 @@ export const TOOL_SECTIONS: ToolSection[] = [
         description:
           "Vingt questions pour évaluer les symptômes de stress post-traumatique au cours du dernier mois, selon les critères du DSM-5. À compléter en pensant à une expérience vraiment stressante.",
         badges: ["20 questions", "TSPT", "~8 minutes", "Sauvegarde automatique"],
+        nextStep: {
+          href: "/therapie-mosaic/",
+          label: "La thérapie MOSAIC",
+          note: "MOSAIC est l'approche de retraitement que j'utilise pour le psychotraumatisme. La page en décrit le déroulé et les indications.",
+        },
       },
     ],
   },
@@ -90,6 +114,11 @@ export const TOOL_SECTIONS: ToolSection[] = [
         description:
           "Vingt-deux affirmations pour explorer comment vous vous parlez à vous-même lorsque les choses tournent mal : sentiment d'inadéquation, hostilité envers soi et capacité à se rassurer. Outil central en thérapie fondée sur la compassion.",
         badges: ["22 questions", "3 sous-échelles", "~10 minutes", "Sauvegarde automatique"],
+        nextStep: {
+          href: "/ressources/autocompassion-perfectionnisme/",
+          label: "Autocompassion et perfectionnisme",
+          note: "L'autocritique que mesure le FSCRS est au cœur de la thérapie fondée sur la compassion. Le dossier réunit les repères sur l'autocompassion et le perfectionnisme.",
+        },
       },
     ],
   },
@@ -103,6 +132,11 @@ export const TOOL_SECTIONS: ToolSection[] = [
         description:
           "Estimez votre efficacité de sommeil selon les principes de la TCC-I. Renseignez vos heures de coucher, de lever et vos éveils nocturnes pour obtenir un résultat instantané avec interprétation pédagogique.",
         badges: ["Calcul instantané", "Insomnie · TCC-I", "~2 minutes", "Aucune donnée transmise"],
+        nextStep: {
+          href: "/ressources/sommeil-insomnie/",
+          label: "Sommeil et insomnie",
+          note: "L'efficacité du sommeil est l'indicateur central de la TCC-I. Le dossier réunit les articles sur l'insomnie chronique, la TCC-I et l'interprétation de vos résultats.",
+        },
       },
     ],
   },
