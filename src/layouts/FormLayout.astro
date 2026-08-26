@@ -7,6 +7,7 @@ import InteriorHero from "../components/InteriorHero.astro";
 import RelatedTools from "../components/RelatedTools.astro";
 import ToolAnalytics from "../components/ToolAnalytics.astro";
 import "../styles/global.css";
+import type { ImageMetadata } from "astro";
 
 interface Props {
   /** Titre affiché — sert de H1 dans le hero. */
@@ -15,11 +16,21 @@ interface Props {
   seoTitle?: string;
   description: string;
   eyebrow?: string;
+  heroImage?: ImageMetadata;
+  heroAlt?: string;
   /** Masque le maillage inter-outils (inutile sur l'index, qui les liste déjà tous). */
   showRelatedTools?: boolean;
 }
 
-const { title, seoTitle, description, eyebrow = "Outils", showRelatedTools = true } = Astro.props;
+const {
+  title,
+  seoTitle,
+  description,
+  eyebrow = "Outils",
+  heroImage,
+  heroAlt,
+  showRelatedTools = true,
+} = Astro.props;
 ---
 
 <html lang="fr">
@@ -28,7 +39,13 @@ const { title, seoTitle, description, eyebrow = "Outils", showRelatedTools = tru
   </head>
   <body class="bg-surface-page">
     <Header />
-    <InteriorHero title={title} description={description} eyebrow={eyebrow} />
+    <InteriorHero
+      title={title}
+      description={description}
+      eyebrow={eyebrow}
+      heroImage={heroImage}
+      heroAlt={heroAlt}
+    />
     <main class="page-shell page-shell--flush-top">
       <Breadcrumb title={title} />
       <slot />

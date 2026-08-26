@@ -10,9 +10,16 @@ const OG_H = 630;
 
 /** Satori attend du WOFF/TTF (pas WOFF2). Fichiers : package @fontsource/source-serif-4. */
 function loadSerifFonts() {
-  const dir = path.join(process.cwd(), "node_modules/@fontsource/source-serif-4/files");
-  const w400 = fs.readFileSync(path.join(dir, "source-serif-4-latin-400-normal.woff"));
-  const w600 = fs.readFileSync(path.join(dir, "source-serif-4-latin-600-normal.woff"));
+  const dir = path.join(
+    process.cwd(),
+    "node_modules/@fontsource/source-serif-4/files",
+  );
+  const w400 = fs.readFileSync(
+    path.join(dir, "source-serif-4-latin-400-normal.woff"),
+  );
+  const w600 = fs.readFileSync(
+    path.join(dir, "source-serif-4-latin-600-normal.woff"),
+  );
   return [
     { name: "Source Serif 4", data: w400, style: "normal", weight: 400 },
     { name: "Source Serif 4", data: w600, style: "normal", weight: 600 },
@@ -25,16 +32,31 @@ export function truncateOgTitle(title: string, max = 190): string {
   return `${t.slice(0, max - 1)}…`;
 }
 
-export async function renderOpenGraphPng(title: string): Promise<Uint8Array> {
+interface RenderOpenGraphOptions {
+  photoPath?: string;
+}
+
+export async function renderOpenGraphPng(
+  title: string,
+  options: RenderOpenGraphOptions = {},
+): Promise<Uint8Array> {
   const fonts = loadSerifFonts();
   const safeTitle = truncateOgTitle(title);
+  const photoDataUrl = options.photoPath
+    ? `data:image/jpeg;base64,${fs.readFileSync(options.photoPath).toString("base64")}`
+    : undefined;
 
-  const svg = await satori(React.createElement(OpenGraphImage, { title: safeTitle }), {
-    width: OG_W,
-    height: OG_H,
-    // Précision du union Weight dans les typings Satori / Buffer vs ArrayBuffer.
-    fonts: fonts as Parameters<typeof satori>[1] extends { fonts?: infer F } ? F : never,
-  });
+  const svg = await satori(
+    React.createElement(OpenGraphImage, { title: safeTitle, photoDataUrl }),
+    {
+      width: OG_W,
+      height: OG_H,
+      // Précision du union Weight dans les typings Satori / Buffer vs ArrayBuffer.
+      fonts: fonts as Parameters<typeof satori>[1] extends { fonts?: infer F }
+        ? F
+        : never,
+    },
+  );
 
   const resvg = new Resvg(svg, {
     fitTo: { mode: "width", value: OG_W },

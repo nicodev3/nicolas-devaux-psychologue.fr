@@ -42,12 +42,13 @@ export const OG_TITLES: Record<(typeof STATIC_OG_SLUGS)[number], string> = {
   "therapie-mosaic": "Thérapie MOSAIC\nSceaux et visio",
   "tcc-troisieme-vague": "TCC de 3e vague à Sceaux",
   "therapie-acceptation-et-engagement": "Thérapie ACT à Sceaux",
-  "therapie-cognitive-et-comportementale": "Thérapie cognitive et comportementale",
+  "therapie-cognitive-et-comportementale":
+    "Thérapie cognitive et comportementale",
   "therapie-fondee-compassion": "Thérapie fondée sur la compassion",
   "therapie-pleine-conscience": "MBCT et pleine conscience",
   "mon-soutien-psy": "Mon Soutien Psy — informations",
   blog: "Articles — psychologie",
-  outils: "Outils psychologiques",
+  outils: "Des outils pour faire le point",
   "outils-phq-9-gad-7": "PHQ-9 et GAD-7",
   "outils-who-5": "WHO-5 — Bien-être",
   "outils-aaq-ii": "AAQ-II — Flexibilité psychologique",
@@ -55,7 +56,8 @@ export const OG_TITLES: Record<(typeof STATIC_OG_SLUGS)[number], string> = {
   "outils-pcl-5": "PCL-5 — Stress post-traumatique",
   "outils-fscrs": "FSCRS — Autocritique",
   "outils-questionnaire-schemas-young": "Questionnaire des schémas de Young",
-  "meditation-pleine-conscience-sceaux": "Méditation de pleine conscience — groupes à Sceaux",
+  "meditation-pleine-conscience-sceaux":
+    "Méditation de pleine conscience — groupes à Sceaux",
   "therapie-couple": "Thérapie de couple à Sceaux",
   "psychologue-en-ligne": "Psychologue en ligne\nConsultations en visio",
 };
