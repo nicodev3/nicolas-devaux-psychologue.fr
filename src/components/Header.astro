@@ -164,9 +164,11 @@ const sheetLink =
 </header>
 {
   !suppressMobileBookingCta && (
-    <DoctolibBookingLink location="Header Mobile" size="md" fullWidth class="xl:hidden">
-      Prendre rendez-vous
-    </DoctolibBookingLink>
+    <nav aria-label="Prise de rendez-vous" class="xl:hidden">
+      <DoctolibBookingLink location="Header Mobile" size="md" fullWidth>
+        Prendre rendez-vous
+      </DoctolibBookingLink>
+    </nav>
   )
 }
 
