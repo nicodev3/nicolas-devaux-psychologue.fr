@@ -10,9 +10,29 @@ type SleepInputs = {
 
 type EfficiencyLevel = "very-good" | "good" | "moderate" | "low";
 
+/** Plafond de saisie des durées d'éveil : au-delà, la valeur relève d'une faute de frappe. */
+const MAX_WAKE_MINUTES = 480;
+
+/**
+ * Le calcul n'aboutit pas toujours : plutôt que de laisser la zone de résultats
+ * vide, on nomme ce qui manque ou ce qui cloche dans la saisie.
+ */
+type Computation =
+  | { status: "incomplete" }
+  | { status: "too-short" }
+  | {
+      status: "ok";
+      timeInBed: number;
+      estimatedSleep: number;
+      efficiency: number;
+      /** Les éveils déclarés dépassent le temps passé au lit : saisie à revoir. */
+      wakeExceedsBed: boolean;
+    };
+
 function parseMinutes(val: string): number {
   const n = parseInt(val, 10);
-  return isNaN(n) || n < 0 ? 0 : n;
+  if (isNaN(n) || n < 0) return 0;
+  return Math.min(n, MAX_WAKE_MINUTES);
 }
 
 function timeToMinutes(time: string): number | null {
@@ -94,20 +114,27 @@ interface NumberInputProps {
 }
 
 function NumberInput({ id, label, hint, value, onChange }: NumberInputProps) {
+  const tooLong = parseInt(value, 10) > MAX_WAKE_MINUTES;
+
   return (
     <div>
       <label htmlFor={id} className="mb-1 block text-sm font-medium text-ink-primary">
         {label}
       </label>
-      <p className="mb-2 text-xs text-ink-tertiary">{hint}</p>
+      <p id={`${id}-hint`} className="mb-2 text-xs text-ink-tertiary">
+        {hint}
+      </p>
       <div className="relative">
         <input
           id={id}
           type="number"
+          inputMode="numeric"
           min="0"
-          max="480"
+          max={MAX_WAKE_MINUTES}
           placeholder="0"
           value={value}
+          aria-describedby={tooLong ? `${id}-hint ${id}-error` : `${id}-hint`}
+          aria-invalid={tooLong || undefined}
           onChange={(e) => onChange(e.target.value)}
           className="w-full rounded-lg border border-border-strong bg-transparent py-2.5 pl-3 pr-12 text-sm text-ink-primary placeholder:text-ink-tertiary focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
         />
@@ -115,6 +142,11 @@ function NumberInput({ id, label, hint, value, onChange }: NumberInputProps) {
           min
         </span>
       </div>
+      {tooLong && (
+        <p id={`${id}-error`} className="mt-1.5 text-xs font-medium text-amber-800">
+          Durée prise en compte jusqu'à 480 minutes (8 h).
+        </p>
+      )}
     </div>
   );
 }
@@ -148,15 +180,15 @@ export default function SleepEfficiencyCalculator() {
     setInputs((prev) => ({ ...prev, [key]: value }));
   }
 
-  const results = useMemo(() => {
+  const computation = useMemo<Computation>(() => {
     const bedMins = timeToMinutes(inputs.bedtime);
     const wakeMins = timeToMinutes(inputs.waketime);
-    if (bedMins === null || wakeMins === null) return null;
+    if (bedMins === null || wakeMins === null) return { status: "incomplete" };
 
     let timeInBed = wakeMins - bedMins;
     if (timeInBed <= 0) timeInBed += 24 * 60;
 
-    if (timeInBed < 30) return null;
+    if (timeInBed < 30) return { status: "too-short" };
 
     const latency = parseMinutes(inputs.sleepLatency);
     const awakenings = parseMinutes(inputs.nightAwakenings);
@@ -166,8 +198,27 @@ export default function SleepEfficiencyCalculator() {
     const estimatedSleep = Math.max(0, timeInBed - totalWake);
     const efficiency = Math.round((estimatedSleep / timeInBed) * 100);
 
-    return { timeInBed, estimatedSleep, efficiency };
+    return {
+      status: "ok",
+      timeInBed,
+      estimatedSleep,
+      efficiency,
+      wakeExceedsBed: totalWake >= timeInBed,
+    };
   }, [inputs]);
+
+  const results = computation.status === "ok" ? computation : null;
+  const hasInput = Object.values(inputs).some((value) => value !== "");
+
+  function handleReset() {
+    setInputs({
+      bedtime: "",
+      waketime: "",
+      sleepLatency: "",
+      nightAwakenings: "",
+      earlyMorning: "",
+    });
+  }
 
   // Pas de bouton de validation : le résultat s'affiche dès que la saisie est
   // exploitable. C'est ce basculement qui marque la complétion.
@@ -183,7 +234,31 @@ export default function SleepEfficiencyCalculator() {
     <div className="space-y-6">
       {/* Input card */}
       <div className="rounded-xl border border-border-subtle p-6 md:p-8">
-        <h2 className="font-display typo-display-lg mb-6 text-ink-primary">Vos données de sommeil</h2>
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <h2 className="font-display typo-display-lg mb-0 text-ink-primary">Vos données de sommeil</h2>
+          {hasInput && (
+            <button
+              type="button"
+              onClick={handleReset}
+              className="font-ui inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-border-strong px-3 py-1.5 text-xs font-medium text-ink-secondary transition-colors hover:bg-surface-muted"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-3.5 w-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15" />
+              </svg>
+              Effacer la saisie
+            </button>
+          )}
+        </div>
 
         <div className="space-y-5">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -244,7 +319,7 @@ export default function SleepEfficiencyCalculator() {
           </div>
         </div>
 
-        {!results && (
+        {computation.status === "incomplete" && (
           <p className="mt-5 flex items-center gap-2 text-sm text-ink-tertiary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -259,6 +334,28 @@ export default function SleepEfficiencyCalculator() {
               <path d="M12 16v-4M12 8h.01" />
             </svg>
             Renseignez l'heure du coucher et du lever pour voir vos résultats.
+          </p>
+        )}
+
+        {computation.status === "too-short" && (
+          <p
+            role="status"
+            className="mt-5 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="mt-0.5 h-4 w-4 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
+            Ces horaires correspondent à moins de 30 minutes passées au lit. Vérifiez l'heure du coucher et
+            celle du lever.
           </p>
         )}
       </div>
@@ -342,6 +439,21 @@ export default function SleepEfficiencyCalculator() {
           <div className={`rounded-lg border p-4 text-sm ${levelConfig.alertClass}`}>
             {levelConfig.description}
           </div>
+
+          {results.wakeExceedsBed && (
+            <p
+              role="status"
+              className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800"
+            >
+              Les durées d'éveil saisies dépassent le temps passé au lit : le calcul est ramené à 0 %.
+              Reprenez les durées d'éveil pour obtenir une estimation exploitable.
+            </p>
+          )}
+
+          {/* Annonce du résultat pour les lecteurs d'écran, qui ne voient pas la carte apparaître. */}
+          <p role="status" className="sr-only">
+            {`Efficacité du sommeil : ${results.efficiency} %. ${levelConfig.label}.`}
+          </p>
 
           {/* Disclaimer */}
           <p className="mt-4 flex items-start gap-1.5 text-xs text-ink-tertiary">

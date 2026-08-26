@@ -1,0 +1,72 @@
+---
+/**
+ * Bandeau de reprise : signale une saisie retrouvée sur l'appareil et propose
+ * la suite logique (reprendre, voir les résultats, repartir de zéro).
+ */
+interface Props {
+  total: number;
+}
+
+const { total } = Astro.props;
+---
+
+<div
+  x-show="resumed && !submitted"
+  x-cloak
+  x-transition
+  role="status"
+  class="no-print mb-6 flex items-start gap-3 rounded-xl border border-info-border bg-info-surface p-4 text-sm text-info-ink"
+>
+  <span
+    class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-info-border bg-surface-raised"
+    aria-hidden="true"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-4 w-4"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M3 3v5h5"></path>
+      <path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"></path>
+      <path d="M12 7v5l3 3"></path>
+    </svg>
+  </span>
+  <div class="min-w-0">
+    <p class="mb-0">
+      <strong>Vous aviez commencé ce questionnaire.</strong>
+      <span
+        x-text={`answeredCount + ' réponse' + (answeredCount > 1 ? 's' : '') + ' sur ${total} ont été retrouvées sur cet appareil.'`}
+      ></span>
+    </p>
+    <div class="mt-3 flex flex-wrap gap-2">
+      <button
+        type="button"
+        x-show="remainingCount > 0"
+        @click="goToUnanswered()"
+        class="font-ui inline-flex min-h-9 items-center rounded-lg bg-brand px-3 py-1.5 text-xs font-medium text-brand-ink-on transition-colors hover:bg-brand-hover"
+      >
+        Reprendre où j'en étais
+      </button>
+      <button
+        type="button"
+        x-show="remainingCount === 0"
+        @click="submit()"
+        class="font-ui inline-flex min-h-9 items-center rounded-lg bg-brand px-3 py-1.5 text-xs font-medium text-brand-ink-on transition-colors hover:bg-brand-hover"
+      >
+        Voir mes résultats
+      </button>
+      <button
+        type="button"
+        @click="reset()"
+        class="font-ui inline-flex min-h-9 items-center rounded-lg border border-info-border bg-surface-raised px-3 py-1.5 text-xs font-medium text-ink-secondary transition-colors hover:bg-surface-muted"
+      >
+        Recommencer à zéro
+      </button>
+    </div>
+  </div>
+</div>

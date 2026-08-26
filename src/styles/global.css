@@ -632,3 +632,53 @@ abbr {
   max-width: 42rem;
   width: 100%;
 }
+
+/* — Questionnaires /outils : état des lignes de question — */
+.tool-question--answered {
+  background-color: color-mix(in srgb, var(--color-surface-muted) 65%, transparent);
+}
+
+/* Après une tentative d'envoi, ce qui manque est signalé — pas ce qui est fait.
+   Ton ambre plutôt que rouge : c'est un rappel, pas une erreur. */
+.tool-question--missing {
+  background-color: color-mix(in srgb, var(--color-amber-50) 70%, transparent);
+  box-shadow: inset 3px 0 0 var(--color-amber-400);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-question {
+    transition: none;
+  }
+}
+
+/*
+ * Impression d'une page /outils : ne reste que la synthèse, pour la glisser dans
+ * un dossier ou l'apporter en consultation. Les règles vivent ici — dans une
+ * balise <style> de page elles seraient limitées au scope Astro et ne
+ * pourraient pas masquer l'en-tête ni le pied de page du site.
+ */
+@media print {
+  body.tool-page {
+    background: #fff !important;
+  }
+
+  /* Le pied de page du site disparaît ; les références bibliographiques de la
+     page, elles, restent utiles sur le papier. */
+  body.tool-page [data-site-header],
+  body.tool-page nav,
+  body.tool-page > footer,
+  body.tool-page .no-print,
+  body.tool-page #form-container {
+    display: none !important;
+  }
+
+  body.tool-page .print-results {
+    display: block !important;
+    border: 0 !important;
+    padding: 0 !important;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+}

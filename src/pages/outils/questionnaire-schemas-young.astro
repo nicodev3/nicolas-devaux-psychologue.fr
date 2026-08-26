@@ -1,113 +1,73 @@
 ---
 import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
-import { buttonClasses } from "../../components/ui/button";
+import ToolIntro from "../../components/tools/ToolIntro.astro";
+import ToolProgress from "../../components/tools/ToolProgress.astro";
+import ToolQuestion from "../../components/tools/ToolQuestion.astro";
+import ToolResumeNotice from "../../components/tools/ToolResumeNotice.astro";
+import ToolIncompleteAlert from "../../components/tools/ToolIncompleteAlert.astro";
+import ToolResultActions from "../../components/tools/ToolResultActions.astro";
+import ToolSubmit from "../../components/tools/ToolSubmit.astro";
 
 const title = "Test des schémas précoces inadaptés";
 const seoTitle = "Test des schémas de Young (YSQ-L3)";
 const description =
   "Explorez les 18 schémas précoces inadaptés décrits par Jeffrey Young à travers les 232 affirmations du YSQ-L3. Réponses conservées sur votre appareil.";
+
+const TOTAL = 232;
+
+const SCALE = [
+  [1, "Cela est complètement faux pour moi"],
+  [2, "Le plus souvent faux pour moi"],
+  [3, "Plutôt vrai que faux pour moi"],
+  [4, "Assez vrai pour moi"],
+  [5, "Le plus souvent vrai pour moi"],
+  [6, "Me décrit parfaitement"],
+] as const;
+
+const SCALE_OPTIONS = SCALE.map(([value, label]) => ({ value, label }));
 ---
 
 <FormLayout title={title} seoTitle={seoTitle} description={description}>
   <div x-data="ysqForm" class="w-full">
-    <!-- Barre de progression sticky (sous l’en-tête fixe du site) -->
-    <div class="sticky top-14 z-20 mb-6 md:top-[4.5rem]" x-show="!submitted">
-      <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
-        <div class="flex items-center justify-between mb-1.5">
-          <span class="text-xs font-medium text-ink-tertiary">Progression</span>
-          <span class="font-ui text-xs font-medium text-ink-secondary">
-            <span x-text="answeredCount"></span>/232
-          </span>
-        </div>
-        <div class="w-full bg-surface-muted rounded-full h-2">
-          <div
-            class="h-2 rounded-full bg-brand transition-all duration-300"
-            :style="`width: ${progress}%`"
-          ></div>
-        </div>
-      </div>
-    </div>
+    <ToolProgress total={TOTAL} scale={SCALE} />
 
-    <!-- En-tête et instructions -->
-    <header class="mb-10 md:mb-12">
-      <p class="typo-eyebrow mb-3 md:mb-4">YSQ-L3</p>
-      <h2 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
-        YSQ-L3
-      </h2>
-      <p class="mb-6 text-sm text-ink-tertiary">Version YSQ-L3, traduction par Pierre Cousineau et Bernard Pascal</p>
-
-      <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
-        <SectionHeading class="mb-4" eyebrow="01 — Consignes" title="Instructions" />
-        <p class="text-ink-secondary text-sm leading-relaxed mb-4">
-          Lisez chaque affirmation et décidez à quel point elle vous correspond.
-          Lorsque vous hésitez, basez votre réponse sur ce que vous ressentez
-          <strong>émotionnellement</strong>, et non pas sur ce que vous pensez rationnellement être vrai pour vous.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-          {[
-            [1, "Cela est complètement faux pour moi"],
-            [2, "Le plus souvent faux pour moi"],
-            [3, "Plutôt vrai que faux pour moi"],
-            [4, "Assez vrai pour moi"],
-            [5, "Le plus souvent vrai pour moi"],
-            [6, "Me décrit parfaitement"],
-          ].map(([n, label]) => (
-            <div class="flex items-start gap-2.5">
-              <span class="font-ui shrink-0 w-6 h-6 rounded-full bg-surface-raised border border-border-strong flex items-center justify-center text-xs font-medium text-tertiary">{n}</span>
-              <span class="text-ink-secondary leading-snug">{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <p class="mt-4 flex items-center gap-1.5 text-xs text-ink-tertiary">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 16v-4M12 8h.01" />
-        </svg>
-        Vos réponses sont sauvegardées automatiquement dans votre navigateur. Vous pouvez reprendre le questionnaire plus tard.
+    <ToolIntro
+      title="YSQ-L3 — schémas précoces inadaptés"
+      subtitle="Version YSQ-L3, traduction par Pierre Cousineau et Bernard Pascal"
+      questions={TOTAL}
+      duration="~25 minutes"
+      scale={SCALE}
+    >
+      <p class="mb-0">
+        Lisez chaque affirmation et décidez à quel point elle vous correspond. Lorsque vous hésitez, basez votre
+        réponse sur ce que vous ressentez <strong>émotionnellement</strong>, et non pas sur ce que vous pensez
+        rationnellement être vrai pour vous.
       </p>
-    </header>
+      <p class="mb-0">
+        C'est le questionnaire le plus long du site : vos réponses sont enregistrées au fur et à mesure, vous pouvez
+        le remplir en plusieurs fois.
+      </p>
+    </ToolIntro>
 
     <!-- Section résultats (après soumission) -->
-    <div id="results" x-show="submitted" class="mb-8 rounded-xl border border-border-subtle p-8 print-results">
+    <div
+      id="results"
+      tabindex="-1"
+      x-show="submitted"
+      x-cloak
+      class="print-results mb-8 rounded-xl border border-border-subtle p-6 focus:outline-none sm:p-8"
+    >
       <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
         <div>
           <SectionHeading class="mb-1" eyebrow="02 — Synthèse" title="Résultats" />
-          <p class="text-sm text-ink-tertiary">YSQ-L3 — Questionnaire des Schémas de Young</p>
+          <p class="text-sm text-ink-tertiary">
+            YSQ-L3 — Questionnaire des Schémas de Young<span x-show="completedOn" x-cloak
+              ><span x-text="` · ${completedOn}`"></span></span
+            >
+          </p>
         </div>
-        <div class="flex gap-2 shrink-0 no-print">
-          <button
-            onclick="window.print()"
-            type="button"
-            class={buttonClasses({
-              variant: "secondary",
-              size: "sm",
-              className: "gap-1.5 font-normal normal-case text-ink-secondary",
-            })}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2m2 4h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm8-12V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4h10Z" />
-            </svg>
-            Imprimer
-          </button>
-          <button
-            type="button"
-            @click="reset()"
-            class={buttonClasses({
-              variant: "secondary",
-              size: "sm",
-              className:
-                "gap-1.5 border-danger bg-danger-surface font-normal normal-case text-danger hover:bg-border-subtle",
-            })}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15" />
-            </svg>
-            Recommencer
-          </button>
-        </div>
+        <ToolResultActions />
       </div>
 
       <p class="text-sm text-ink-secondary mb-6 p-4 bg-secondary/40 rounded-lg">
@@ -160,6 +120,8 @@ const description =
       </template>
     </div>
 
+    <ToolResumeNotice total={TOTAL} />
+
     <!-- Formulaire -->
     <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
       <template x-for="(schema, si) in schemas" :key="schema.code">
@@ -167,91 +129,33 @@ const description =
           <!-- En-tête du schéma -->
           <div class="bg-secondary/50 px-6 py-4 border-b border-border-subtle">
             <p class="text-xs font-medium text-ink-tertiary uppercase tracking-wider mb-0.5" x-text="schema.domain"></p>
-            <h3 class="typo-display-md m-0 text-ink-primary" x-text="schema.name"></h3>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="typo-display-md m-0 text-ink-primary" x-text="schema.name"></h3>
+              <span
+                class="font-ui shrink-0 text-xs font-medium tabular-nums text-ink-tertiary"
+                x-text="schemaProgress(schema)"
+              ></span>
+            </div>
           </div>
 
           <!-- Questions -->
           <div class="divide-y divide-border-subtle">
             <template x-for="(question, qi) in schema.questions" :key="si + '-' + qi">
-              <div
-                class="px-4 sm:px-6 py-4 transition-colors duration-150"
-                :class="answers[schema.startIdx + qi] > 0 ? 'bg-green-50/40' : ''"
-              >
-                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-                  <p class="flex-1 text-sm text-ink-secondary leading-relaxed m-0">
-                    <span class="text-ink-tertiary font-medium mr-1.5" x-text="(schema.startIdx + qi) + '.'"></span>
-                    <span x-text="question"></span>
-                  </p>
-                  <div class="flex gap-1.5 shrink-0">
-                    <template x-for="scale in [1, 2, 3, 4, 5, 6]" :key="scale">
-                      <label class="cursor-pointer select-none">
-                        <input
-                          type="radio"
-                          :name="'q' + (schema.startIdx + qi)"
-                          :value="scale"
-                          x-model.number="answers[schema.startIdx + qi]"
-                          @change="saveAnswers()"
-                          class="sr-only"
-                        />
-                        <span
-                          class="font-ui flex items-center justify-center w-9 h-9 rounded-full border-2 text-sm font-medium transition-all duration-150"
-                          :class="scaleClass(answers[schema.startIdx + qi], scale)"
-                          x-text="scale"
-                        ></span>
-                      </label>
-                    </template>
-                  </div>
-                </div>
-              </div>
+              <ToolQuestion index="schema.startIdx + qi" />
             </template>
           </div>
         </div>
       </template>
 
-      <!-- Avertissement réponses manquantes -->
-      <div
-        x-show="showWarning"
-        x-transition
-        class="mb-6 flex items-start gap-2 rounded-xl border border-info-border bg-info-surface p-4 text-sm text-info-ink"
-      >
-        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-info-border bg-surface-raised text-info-ink" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 16v-4M12 8h.01" />
-          </svg>
-        </span>
-        <span>
-          <strong>Questionnaire incomplet :</strong>
-          vous avez répondu à <span x-text="answeredCount"></span> question(s) sur 232.
-          Veuillez répondre à toutes les questions pour obtenir vos résultats.
-        </span>
-      </div>
+      <ToolIncompleteAlert total={TOTAL} />
 
-      <!-- Bouton de soumission -->
-      <div class="text-center mb-8">
-        <button
-          type="submit"
-          class={buttonClasses({ variant: "primary", size: "lg", className: "gap-2 normal-case" })}
-        >
-          Calculer mes résultats
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="m9 5 7 7-7 7" />
-          </svg>
-        </button>
-      </div>
+      <ToolSubmit />
     </form>
   </div>
 </FormLayout>
 
-<style>
-  @media print {
-    header, footer, nav, .no-print, #form-container { display: none !important; }
-    .print-results { display: block !important; }
-    body { background: white !important; }
-  }
-</style>
 
-<script is:inline>
+<script is:inline define:vars={{ SCALE_OPTIONS }}>
 document.addEventListener('alpine:init', () => {
   const SCHEMAS = [
     {
@@ -614,23 +518,23 @@ document.addEventListener('alpine:init', () => {
     }
   ];
 
-  Alpine.data('ysqForm', () => ({
+  Alpine.data('ysqForm', () => window.extendToolForm({
+    storageKey: 'ysq-l3',
+    total: 232,
+    emptyValue: 0,
+    label: 'Test des schémas précoces (YSQ-L3)',
+    scaleOptions: SCALE_OPTIONS,
+  }, {
     schemas: SCHEMAS,
-    answers: new Array(233).fill(0),
-    submitted: false,
-    showWarning: false,
     uniqueDomains: [],
 
-    get answeredCount() {
+    /** « 12/17 » sous le nom du schéma : repère de progression sur un test long. */
+    schemaProgress(schema) {
       let count = 0;
-      for (let i = 1; i <= 232; i++) {
-        if (this.answers[i] > 0) count++;
+      for (let i = schema.startIdx; i < schema.startIdx + schema.questions.length; i++) {
+        if (this.isAnswered(i)) count++;
       }
-      return count;
-    },
-
-    get progress() {
-      return Math.round(this.answeredCount / 232 * 100);
+      return count + '/' + schema.questions.length;
     },
 
     schemaScore(schema) {
@@ -676,12 +580,6 @@ document.addEventListener('alpine:init', () => {
       return 'text-red-600';
     },
 
-    scaleClass(answer, scale) {
-      return answer === scale
-        ? 'border-brand bg-brand text-brand-ink-on shadow-sm'
-        : 'border-border-strong text-ink-tertiary hover:border-brand hover:text-brand cursor-pointer';
-    },
-
     scoreBadgeClass(avg) {
       if (avg < 2) return 'bg-green-100 text-green-700';
       if (avg < 3) return 'bg-lime-100 text-lime-700';
@@ -690,35 +588,7 @@ document.addEventListener('alpine:init', () => {
       return 'bg-red-100 text-red-700';
     },
 
-    saveAnswers() {
-      try { localStorage.setItem('ysq-l3', JSON.stringify(this.answers)); } catch(e) {}
-    },
-
-    submit() {
-      if (this.answeredCount < 232) {
-        this.showWarning = true;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-      this.submitted = true;
-      this.saveAnswers();
-      this.$nextTick(() => {
-        const el = document.getElementById('results');
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    },
-
-    reset() {
-      if (!confirm('Voulez-vous recommencer le questionnaire ? Toutes vos réponses seront perdues.')) return;
-      this.answers = new Array(233).fill(0);
-      this.submitted = false;
-      this.showWarning = false;
-      try { localStorage.removeItem('ysq-l3'); } catch(e) {}
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    },
-
     init() {
-      // Compute uniqueDomains once
       const domains = [];
       const seen = new Set();
       this.schemas.forEach(s => {
@@ -726,15 +596,8 @@ document.addEventListener('alpine:init', () => {
       });
       this.uniqueDomains = domains;
 
-      // Restore saved answers
-      try {
-        const saved = localStorage.getItem('ysq-l3');
-        if (saved) {
-          const data = JSON.parse(saved);
-          if (Array.isArray(data) && data.length === 233) this.answers = data;
-        }
-      } catch(e) {}
-    }
+      this.restoreAnswers();
+    },
   }));
 });
 </script>

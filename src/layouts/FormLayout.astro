@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import InteriorHero from "../components/InteriorHero.astro";
 import RelatedTools from "../components/RelatedTools.astro";
 import ToolAnalytics from "../components/ToolAnalytics.astro";
+import ToolFormRuntime from "../components/tools/ToolFormRuntime.astro";
 import "../styles/global.css";
 import type { ImageMetadata } from "astro";
 
@@ -36,16 +37,19 @@ const {
 <html lang="fr">
   <head>
     <BaseHead title={seoTitle ?? title} description={description} />
+    <ToolFormRuntime />
   </head>
-  <body class="bg-surface-page">
+  <body class="tool-page bg-surface-page">
     <Header />
-    <InteriorHero
-      title={title}
-      description={description}
-      eyebrow={eyebrow}
-      heroImage={heroImage}
-      heroAlt={heroAlt}
-    />
+    <div class="no-print">
+      <InteriorHero
+        title={title}
+        description={description}
+        eyebrow={eyebrow}
+        heroImage={heroImage}
+        heroAlt={heroAlt}
+      />
+    </div>
     <main class="page-shell page-shell--flush-top">
       <Breadcrumb title={title} />
       <slot />
