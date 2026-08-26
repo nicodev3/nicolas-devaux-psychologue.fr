@@ -1,89 +1,197 @@
 ---
-import SectionHeading from "../../components/SectionHeading.astro";
 import FormLayout from "../../layouts/FormLayout.astro";
 import { TOOL_SECTIONS } from "../../data/tools";
+import LucideIcon from "../../components/LucideIcon.astro";
+import {
+  ArrowRight,
+  Brain,
+  Check,
+  ClipboardList,
+  Clock,
+  Compass,
+  Heart,
+  Leaf,
+  Lock,
+  Moon,
+  Shield,
+} from "lucide";
+import heroImage from "../../assets/outils-psychologiques-partage.jpg";
+
+const title = "Des outils pour faire le point";
+const seoTitle = "Tests psychologiques en ligne et outils d'auto-évaluation";
+const description =
+  "Explorez des questionnaires psychologiques validés et des outils pratiques pour mieux comprendre votre bien-être, vos émotions et votre sommeil.";
+
+const sectionMeta = [
+  { id: "bien-etre", shortLabel: "Bien-être", icon: Heart },
+  { id: "schemas", shortLabel: "Schémas", icon: Brain },
+  { id: "flexibilite", shortLabel: "Flexibilité", icon: Compass },
+  { id: "trauma", shortLabel: "Trauma", icon: Shield },
+  { id: "compassion", shortLabel: "Compassion", icon: Leaf },
+  { id: "sommeil", shortLabel: "Sommeil", icon: Moon },
+] as const;
+
+const toolCount = TOOL_SECTIONS.reduce((total, section) => total + section.tools.length, 0);
 ---
 
 <FormLayout
-  title="Outils psychologiques"
-  description="Questionnaires et outils psychologiques en ligne, à réaliser avant une consultation avec Nicolas Devaux, psychologue à Sceaux."
+  title={title}
+  seoTitle={seoTitle}
+  description={description}
+  eyebrow="Outils psychologiques"
+  heroImage={heroImage}
+  heroAlt="Carnet ouvert et crayon sur une table claire, dans une atmosphère calme"
   showRelatedTools={false}
 >
-  <header class="mb-10 md:mb-12">
-    <p class="typo-eyebrow mb-3 md:mb-4">Ressources</p>
-    <h2 class="font-display typo-h1 mb-0 text-pretty text-ink-primary">Outils psychologiques</h2>
-    <p class="mt-6 leading-relaxed text-ink-secondary">
-      Ces questionnaires peuvent être proposés avant ou au cours d'une thérapie, afin de soutenir le travail clinique.
-      Ils peuvent aussi être réalisés simplement par curiosité personnelle pour mieux comprendre certains
-      fonctionnements. Vos réponses sont sauvegardées localement dans votre navigateur et ne sont transmises à
-      personne.
-    </p>
-  </header>
+  <section class="mb-14 md:mb-18" aria-labelledby="outils-introduction">
+    <div class="grid overflow-hidden rounded-2xl border border-border-subtle bg-surface-raised lg:grid-cols-[1.45fr_1fr]">
+      <div class="p-6 sm:p-8 lg:p-10">
+        <p class="typo-eyebrow mb-3">Pour commencer</p>
+        <h2 id="outils-introduction" class="font-display typo-display-lg mb-4 text-ink-primary">
+          Choisissez ce que vous souhaitez explorer
+        </h2>
+        <p class="typo-body-lg mb-6 max-w-2xl text-ink-secondary">
+          Chaque outil indique sa durée et le nombre de questions. Il n'y a pas de bonne ou de mauvaise réponse :
+          répondez simplement selon votre expérience actuelle.
+        </p>
+        <a
+          href="/outils/who-5/"
+          data-tool-link
+          class="group inline-flex min-h-11 items-center gap-2 rounded-lg bg-brand px-5 py-3 font-ui text-sm font-medium text-brand-ink-on shadow-[var(--shadow-button-primary)] transition-colors hover:bg-brand-hover"
+        >
+          Je ne sais pas par où commencer
+          <LucideIcon icon={ArrowRight} size="sm" class="transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
+
+      <div class="border-t border-border-subtle bg-secondary/55 p-6 sm:p-8 lg:border-t-0 lg:border-l lg:p-10">
+        <div class="mb-5 flex items-center gap-3">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-raised text-brand">
+            <LucideIcon icon={Lock} />
+          </span>
+          <div>
+            <p class="mb-0 font-ui text-sm font-semibold text-ink-primary">Vos réponses restent privées</p>
+            <p class="mb-0 text-xs text-ink-tertiary">Aucun compte, aucun envoi de données</p>
+          </div>
+        </div>
+        <ul class="space-y-3 text-sm leading-relaxed text-ink-secondary">
+          <li class="flex gap-2.5">
+            <LucideIcon icon={Check} size="sm" class="mt-0.5 text-brand" />
+            <span>Sauvegarde automatique sur votre appareil</span>
+          </li>
+          <li class="flex gap-2.5">
+            <LucideIcon icon={Check} size="sm" class="mt-0.5 text-brand" />
+            <span>Résultats immédiats, sans inscription</span>
+          </li>
+          <li class="flex gap-2.5">
+            <LucideIcon icon={Check} size="sm" class="mt-0.5 text-brand" />
+            <span>Outils d'auto-évaluation, sans valeur de diagnostic</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <nav class="mb-14 md:mb-18" aria-label="Catégories d'outils">
+    <div class="mb-4 flex items-end justify-between gap-4">
+      <h2 class="font-display typo-display-md mb-0 text-ink-primary">Accès rapide</h2>
+      <p class="mb-0 text-sm text-ink-tertiary">{toolCount} outils disponibles</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+      {
+        sectionMeta.map((meta) => (
+          <a
+            href={`#${meta.id}`}
+            class="group flex min-h-11 items-center gap-2 rounded-lg border border-border-subtle bg-surface-raised px-3 py-2.5 font-ui text-sm font-medium text-ink-secondary transition-[border-color,background-color,color] hover:border-border-strong hover:bg-secondary hover:text-ink-primary"
+          >
+            <LucideIcon icon={meta.icon} size="sm" class="text-brand" />
+            <span>{meta.shortLabel}</span>
+          </a>
+        ))
+      }
+    </div>
+  </nav>
 
   {
     TOOL_SECTIONS.map((section, index) => (
-      <>
-        <SectionHeading
-          class:list={[index > 0 && "border-t border-border-subtle pt-10 md:pt-12"]}
-          eyebrow={section.eyebrow}
-          title={section.title}
-        />
-        <div class="grid gap-6">
+      <section
+        id={sectionMeta[index].id}
+        class:list={[
+          "grid scroll-mt-28 gap-6 py-10 first:pt-0 md:grid-cols-[minmax(0,0.72fr)_minmax(0,1.45fr)] md:gap-10 md:py-14",
+          index > 0 && "border-t border-border-subtle",
+        ]}
+        aria-labelledby={`${sectionMeta[index].id}-title`}
+      >
+        <header>
+          <span class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-brand">
+            <LucideIcon icon={sectionMeta[index].icon} />
+          </span>
+          <p class="typo-eyebrow mb-2">{section.eyebrow}</p>
+          <h2
+            id={`${sectionMeta[index].id}-title`}
+            class="font-display typo-display-lg mb-0 max-w-sm text-pretty text-ink-primary"
+          >
+            {section.title}
+          </h2>
+        </header>
+
+        <div class="grid content-start gap-4">
           {section.tools.map((tool) => (
             <a
               href={tool.href}
               data-tool-link
-              class="group block rounded-xl border border-border-subtle p-6 transition-colors hover:border-brand/35"
+              class="group relative block overflow-hidden rounded-2xl border border-border-subtle bg-surface-raised p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[0_16px_40px_-28px_rgb(66_79_78_/_0.45)] sm:p-6"
             >
-              <div class="flex items-start gap-4">
-                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 text-brand-hover"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"></path>
-                  </svg>
-                </div>
-                <div class="min-w-0 flex-1">
-                  <h3 class="typo-display-md mb-2 text-ink-primary transition-colors group-hover:text-brand-hover">
-                    {tool.title}
-                  </h3>
-                  <p class="mb-3 text-sm leading-relaxed text-ink-secondary">{tool.description}</p>
-                  <div class="flex flex-wrap gap-2">
-                    {tool.badges.map((badge) => (
-                      <span class="rounded-md bg-secondary px-2 py-1 text-xs font-medium text-tertiary">{badge}</span>
-                    ))}
-                  </div>
-                </div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="mt-1 h-5 w-5 shrink-0 text-ink-tertiary transition-colors group-hover:text-brand"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m9 5 7 7-7 7"></path>
-                </svg>
+              <div class="mb-5 flex items-start justify-between gap-4">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-brand">
+                  <LucideIcon icon={ClipboardList} />
+                </span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-2.5 py-1 font-ui text-xs font-medium text-ink-tertiary">
+                  <Clock size={13} strokeWidth={1.5} aria-hidden="true" />
+                  {tool.badges.find((badge) => badge.includes("minute")) ?? tool.badges[0]}
+                </span>
+              </div>
+
+              <h3 class="font-display typo-display-md mb-3 pr-6 text-ink-primary transition-colors group-hover:text-brand-hover">
+                {tool.title}
+              </h3>
+              <p class="mb-5 text-sm leading-relaxed text-ink-secondary">{tool.description}</p>
+
+              <div class="mb-5 flex flex-wrap gap-2">
+                {tool.badges
+                  .filter((badge) => !badge.includes("minute"))
+                  .map((badge) => (
+                    <span class="rounded-md bg-secondary px-2.5 py-1.5 font-ui text-xs font-medium text-tertiary">
+                      {badge}
+                    </span>
+                  ))}
+              </div>
+
+              <div class="flex items-center justify-between gap-4 border-t border-border-subtle pt-4">
+                <span class="font-ui text-sm font-semibold text-brand">Découvrir l'outil</span>
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-brand transition-[background-color,color,transform] group-hover:translate-x-0.5 group-hover:bg-brand group-hover:text-brand-ink-on">
+                  <LucideIcon icon={ArrowRight} size="sm" />
+                </span>
               </div>
             </a>
           ))}
         </div>
-      </>
+      </section>
     ))
   }
 
-  <p class="mt-10 border-t border-border-subtle pt-8 text-sm leading-relaxed text-ink-tertiary">
-    D'autres questionnaires seront ajoutés progressivement, notamment l'inventaire des modes de schéma (SMI).
-  </p>
+  <aside class="mt-4 rounded-2xl bg-secondary/70 p-6 sm:flex sm:items-center sm:justify-between sm:gap-8 sm:p-8">
+    <div class="flex items-start gap-4">
+      <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-raised text-brand">
+        <LucideIcon icon={Lock} />
+      </span>
+      <div>
+        <h2 class="font-display typo-display-md mb-2 text-ink-primary">Un repère, pas un diagnostic</h2>
+        <p class="mb-0 max-w-2xl text-sm leading-relaxed text-ink-secondary">
+          Ces résultats peuvent vous aider à mettre des mots sur votre vécu et servir de point de départ à un échange
+          avec un professionnel. Ils ne remplacent pas une évaluation clinique.
+        </p>
+      </div>
+    </div>
+  </aside>
 </FormLayout>
