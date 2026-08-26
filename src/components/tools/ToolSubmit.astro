@@ -1,0 +1,29 @@
+---
+import { buttonClasses } from "../ui/button";
+
+/**
+ * Validation du questionnaire. Le bouton reste actif même incomplet : c'est
+ * l'alerte qui explique ce qui manque et y conduit, plutôt qu'un bouton grisé
+ * sans explication.
+ */
+---
+
+<div class="mb-8 flex flex-col items-center gap-2">
+  <button type="submit" class={buttonClasses({ variant: "primary", size: "lg", className: "gap-2 normal-case" })}>
+    Calculer mes résultats
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m9 5 7 7-7 7"></path>
+    </svg>
+  </button>
+  <p class="mb-0 text-xs text-ink-tertiary" x-text="remainingLabel"></p>
+</div>

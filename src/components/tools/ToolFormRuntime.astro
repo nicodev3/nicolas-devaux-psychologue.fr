@@ -1,0 +1,253 @@
+---
+/**
+ * Socle commun aux questionnaires `/outils/*` (Alpine).
+ *
+ * Chaque page appelle `createToolForm({ ... })` et n'écrit plus que ce qui lui
+ * est propre : les questions et le calcul des scores. Tout le reste — état de
+ * progression, reprise d'une saisie interrompue, navigation vers les questions
+ * sans réponse, sauvegarde locale, actions de fin de test — vit ici pour rester
+ * identique d'un test à l'autre.
+ *
+ * Confidentialité : la sauvegarde reste dans le `localStorage` du visiteur et la
+ * copie des résultats passe par le presse-papiers. Rien n'est envoyé au serveur.
+ */
+---
+
+<script is:inline>
+  /**
+   * Fusionne le socle et la partie propre au test en préservant les accesseurs
+   * (`get score()`) : un simple spread les évaluerait une fois pour toutes.
+   */
+  window.extendToolForm = function (config, own) {
+    var base = window.createToolForm(config);
+    Object.defineProperties(base, Object.getOwnPropertyDescriptors(own || {}));
+    return base;
+  };
+
+  window.createToolForm = function (config) {
+    var total = config.total;
+    var storageKey = config.storageKey;
+    var empty = config.emptyValue === undefined ? -1 : config.emptyValue;
+    var scaleOptions = (config.scaleOptions || []).map(function (option) {
+      return Array.isArray(option) ? { value: option[0], label: option[1] } : option;
+    });
+
+    return {
+      total: total,
+      scaleOptions: scaleOptions,
+      answers: new Array(total + 1).fill(empty),
+      submitted: false,
+      showWarning: false,
+      /** Passe à `true` au premier envoi incomplet : les manques sont alors signalés. */
+      attempted: false,
+      /** Réponses retrouvées au chargement (bandeau de reprise). */
+      resumed: false,
+      savedFlash: false,
+      copyState: '',
+      completedOn: '',
+      _flashTimer: null,
+      _copyTimer: null,
+
+      isAnswered: function (index) {
+        var value = this.answers[index];
+        return value !== empty && value !== undefined && value !== null;
+      },
+
+      get answeredCount() {
+        var count = 0;
+        for (var i = 1; i <= total; i++) if (this.isAnswered(i)) count++;
+        return count;
+      },
+
+      get remainingCount() {
+        return total - this.answeredCount;
+      },
+
+      get progress() {
+        return Math.round((this.answeredCount / total) * 100);
+      },
+
+      get isComplete() {
+        return this.answeredCount === total;
+      },
+
+      get firstUnanswered() {
+        for (var i = 1; i <= total; i++) if (!this.isAnswered(i)) return i;
+        return 0;
+      },
+
+      get remainingLabel() {
+        var left = this.remainingCount;
+        if (left === 0) return 'Toutes les questions sont renseignées.';
+        if (left === 1) return 'Il reste 1 question.';
+        return 'Il reste ' + left + ' questions.';
+      },
+
+      /** Libellé de la réponse choisie, rappelé sous la question. */
+      answerLabel: function (index) {
+        if (!this.isAnswered(index)) return '';
+        var value = this.answers[index];
+        for (var i = 0; i < scaleOptions.length; i++) {
+          if (scaleOptions[i].value === value) return value + ' · ' + scaleOptions[i].label;
+        }
+        return String(value);
+      },
+
+      /** Fond des lignes : neutre une fois répondu, signalé si oublié après un envoi. */
+      rowClass: function (index) {
+        if (this.isAnswered(index)) return 'tool-question--answered';
+        return this.attempted ? 'tool-question--missing' : '';
+      },
+
+      scaleClass: function (answer, scale) {
+        return answer === scale
+          ? 'border-brand bg-brand text-brand-ink-on shadow-sm'
+          : 'border-border-strong text-ink-tertiary hover:border-brand hover:text-brand cursor-pointer';
+      },
+
+      saveAnswers: function () {
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(this.answers));
+        } catch (e) {}
+        this.resumed = false;
+        this.savedFlash = true;
+        clearTimeout(this._flashTimer);
+        var self = this;
+        this._flashTimer = setTimeout(function () {
+          self.savedFlash = false;
+        }, 1600);
+      },
+
+      /** Amène à la première question sans réponse et y place le focus clavier. */
+      goToUnanswered: function () {
+        var index = this.firstUnanswered;
+        if (!index) return;
+        var row = document.getElementById('question-' + index);
+        if (!row) return;
+        row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var input = row.querySelector('input[type="radio"]');
+        if (input) setTimeout(function () { input.focus({ preventScroll: true }); }, 350);
+      },
+
+      scrollToId: function (id, focus) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (focus && typeof el.focus === 'function') {
+          setTimeout(function () { el.focus({ preventScroll: true }); }, 350);
+        }
+      },
+
+      submit: function () {
+        if (!this.isComplete) {
+          this.attempted = true;
+          this.showWarning = true;
+          var self = this;
+          this.$nextTick(function () { self.goToUnanswered(); });
+          return;
+        }
+        this.showWarning = false;
+        this.resumed = false;
+        this.submitted = true;
+        try {
+          this.completedOn = new Date().toLocaleDateString('fr-FR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          });
+        } catch (e) {
+          this.completedOn = '';
+        }
+        this.saveAnswers();
+        var form = this;
+        this.$nextTick(function () { form.scrollToId('results', true); });
+      },
+
+      /** Retour au questionnaire sans rien effacer (relecture ou correction). */
+      editAnswers: function () {
+        this.submitted = false;
+        var self = this;
+        this.$nextTick(function () { self.scrollToId('form-container', false); });
+      },
+
+      reset: function () {
+        if (!confirm('Voulez-vous recommencer le questionnaire ? Toutes vos réponses seront perdues.')) return;
+        this.answers = new Array(total + 1).fill(empty);
+        this.submitted = false;
+        this.showWarning = false;
+        this.attempted = false;
+        this.resumed = false;
+        try {
+          localStorage.removeItem(storageKey);
+        } catch (e) {}
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+
+      /** Copie la synthèse en texte brut, pour la coller dans un mail ou une note. */
+      copyResults: function () {
+        var source = document.getElementById('results');
+        if (!source) return;
+
+        var clone = source.cloneNode(true);
+        clone.querySelectorAll('.no-print').forEach(function (node) { node.remove(); });
+        clone.style.position = 'fixed';
+        clone.style.left = '-10000px';
+        clone.style.top = '0';
+        clone.style.width = '640px';
+        clone.removeAttribute('id');
+        document.body.appendChild(clone);
+        var body = (clone.innerText || clone.textContent || '')
+          .replace(/[ \t]+\n/g, '\n')
+          .replace(/\n{3,}/g, '\n\n')
+          .trim();
+        document.body.removeChild(clone);
+
+        var header = config.label || document.title;
+        if (this.completedOn) header += ' — résultats du ' + this.completedOn;
+        var text = header + '\n\n' + body + '\n\n' + window.location.href;
+
+        var self = this;
+        var done = function (state) {
+          self.copyState = state;
+          clearTimeout(self._copyTimer);
+          self._copyTimer = setTimeout(function () { self.copyState = ''; }, 2400);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(
+            function () { done('ok'); },
+            function () { done('error'); }
+          );
+          return;
+        }
+
+        try {
+          var area = document.createElement('textarea');
+          area.value = text;
+          area.setAttribute('readonly', '');
+          area.style.position = 'fixed';
+          area.style.left = '-10000px';
+          document.body.appendChild(area);
+          area.select();
+          var ok = document.execCommand('copy');
+          document.body.removeChild(area);
+          done(ok ? 'ok' : 'error');
+        } catch (e) {
+          done('error');
+        }
+      },
+
+      /** Restaure la saisie précédente ; à appeler depuis le `init()` de la page. */
+      restoreAnswers: function () {
+        try {
+          var saved = localStorage.getItem(storageKey);
+          if (!saved) return;
+          var data = JSON.parse(saved);
+          if (!Array.isArray(data) || data.length !== total + 1) return;
+          this.answers = data;
+          this.resumed = this.answeredCount > 0;
+        } catch (e) {}
+      },
+    };
+  };
+</script>

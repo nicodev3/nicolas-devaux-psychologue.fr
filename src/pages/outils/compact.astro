@@ -1,13 +1,21 @@
 ---
 import FormLayout from "../../layouts/FormLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
-import { buttonClasses } from "../../components/ui/button";
+import ToolIntro from "../../components/tools/ToolIntro.astro";
+import ToolProgress from "../../components/tools/ToolProgress.astro";
+import ToolQuestion from "../../components/tools/ToolQuestion.astro";
+import ToolResumeNotice from "../../components/tools/ToolResumeNotice.astro";
+import ToolIncompleteAlert from "../../components/tools/ToolIncompleteAlert.astro";
+import ToolResultActions from "../../components/tools/ToolResultActions.astro";
+import ToolSubmit from "../../components/tools/ToolSubmit.astro";
 import ToolNextStep from "../../components/ToolNextStep.astro";
 
 const title = "Test des processus ACT";
 const seoTitle = "Test des processus ACT (CompACT-FR)";
 const description =
   "Vingt-trois affirmations pour situer les trois processus de l'ACT : ouverture à l'expérience, conscience de soi et action guidée par les valeurs.";
+
+const TOTAL = 23;
 
 const SCALE = [
   [0, "Pas du tout d'accord"],
@@ -18,135 +26,43 @@ const SCALE = [
   [5, "Assez d'accord"],
   [6, "Tout à fait d'accord"],
 ] as const;
+
+const SCALE_OPTIONS = SCALE.map(([value, label]) => ({ value, label }));
 ---
 
 <FormLayout title={title} seoTitle={seoTitle} description={description}>
   <div x-data="compactForm" class="w-full">
-    <div class="sticky top-14 z-20 mb-6 md:top-18" x-show="!submitted">
-      <div class="rounded-lg border border-border-subtle bg-surface-page/95 px-4 py-3 backdrop-blur-sm">
-        <div class="mb-1.5 flex items-center justify-between">
-          <span class="text-xs font-medium text-ink-tertiary">Progression</span>
-          <span class="font-ui text-xs font-medium text-ink-secondary">
-            <span x-text="answeredCount"></span>/23
-          </span>
-        </div>
-        <div class="h-2 w-full rounded-full bg-surface-muted">
-          <div class="h-2 rounded-full bg-brand transition-all duration-300" :style="`width: ${progress}%`"></div>
-        </div>
-      </div>
-    </div>
+    <ToolProgress total={TOTAL} scale={SCALE} />
 
-    <header class="mb-10 md:mb-12">
-      <p class="typo-eyebrow mb-3 md:mb-4">CompACT-FR</p>
-      <h2 class="font-display typo-h1 mb-2 text-pretty text-ink-primary md:mb-3">
-        CompACT-FR
-      </h2>
-      <p class="mb-6 text-sm text-ink-tertiary">
-        Comprehensive Assessment of Acceptance and Commitment Therapy processes
+    <ToolIntro
+      title="CompACT-FR — les trois processus de l'ACT"
+      subtitle="Comprehensive Assessment of Acceptance and Commitment Therapy processes"
+      questions={TOTAL}
+      duration="~8 minutes"
+      scale={SCALE}
+    >
+      <p class="mb-0">
+        Pour chaque affirmation, indiquez dans quelle mesure elle vous correspond. Plus le chiffre est élevé, plus vous
+        signalez une <strong>flexibilité psychologique</strong> favorable — capacité à accueillir vos expériences
+        intérieures tout en agissant selon vos valeurs.
       </p>
+    </ToolIntro>
 
-      <div class="rounded-xl border border-border-subtle bg-secondary/40 p-5 md:p-6">
-        <SectionHeading class="mb-4" eyebrow="01 — Consignes" title="Instructions" />
-        <p class="mb-4 text-sm leading-relaxed text-ink-secondary">
-          Pour chaque affirmation, indiquez dans quelle mesure elle vous correspond. Plus le chiffre est élevé, plus vous
-          signalez une <strong>flexibilité psychologique</strong> favorable — capacité à accueillir vos expériences
-          intérieures tout en agissant selon vos valeurs.
-        </p>
-        <div class="grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
-          {
-            SCALE.map(([n, label]) => (
-              <div class="flex items-start gap-2.5">
-                <span class="font-ui flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-strong bg-surface-raised text-xs font-medium text-tertiary">
-                  {n}
-                </span>
-                <span class="leading-snug text-ink-secondary">{label}</span>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <p class="mt-4 flex items-center gap-1.5 text-xs text-ink-tertiary">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4 shrink-0"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M12 16v-4M12 8h.01"></path>
-        </svg>
-        Vos réponses sont sauvegardées automatiquement dans votre navigateur. Vous pouvez reprendre le questionnaire
-        plus tard.
-      </p>
-    </header>
-
-    <div id="results" x-show="submitted" class="print-results mb-8 rounded-xl border border-border-subtle p-8">
+    <div
+      id="results"
+      tabindex="-1"
+      x-show="submitted"
+      x-cloak
+      class="print-results mb-8 rounded-xl border border-border-subtle p-6 focus:outline-none sm:p-8"
+    >
       <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
         <div>
           <SectionHeading class="mb-1" eyebrow="02 — Synthèse" title="Résultats" />
-          <p class="text-sm text-ink-tertiary">CompACT-FR — Flexibilité psychologique</p>
+          <p class="text-sm text-ink-tertiary">
+            CompACT-FR — Flexibilité psychologique<span x-show="completedOn" x-cloak><span x-text="` · ${completedOn}`"></span></span>
+          </p>
         </div>
-        <div class="no-print flex shrink-0 gap-2">
-          <button
-            onclick="window.print()"
-            type="button"
-            class={buttonClasses({
-              variant: "secondary",
-              size: "sm",
-              className: "gap-1.5 font-normal normal-case text-ink-secondary",
-            })}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path
-                d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2m2 4h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm8-12V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4h10Z"
-              ></path>
-            </svg>
-            Imprimer
-          </button>
-          <button
-            type="button"
-            @click="reset()"
-            class={buttonClasses({
-              variant: "secondary",
-              size: "sm",
-              className:
-                "gap-1.5 border-danger bg-danger-surface font-normal normal-case text-danger hover:bg-border-subtle",
-            })}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"
-              ></path>
-            </svg>
-            Recommencer
-          </button>
-        </div>
+        <ToolResultActions />
       </div>
 
       <p class="mb-6 rounded-lg bg-secondary/40 p-4 text-sm text-ink-secondary">
@@ -224,6 +140,8 @@ const SCALE = [
 
     <ToolNextStep />
 
+    <ToolResumeNotice total={TOTAL} />
+
     <form id="form-container" @submit.prevent="submit()" x-show="!submitted">
       <div class="mb-6 overflow-hidden rounded-xl border border-border-subtle">
         <div class="border-b border-border-subtle bg-secondary/50 px-6 py-4">
@@ -231,91 +149,14 @@ const SCALE = [
         </div>
         <div class="divide-y divide-border-subtle">
           <template x-for="(question, qi) in questions" :key="qi">
-            <div
-              class="px-4 py-4 transition-colors duration-150 sm:px-6"
-              :class="answers[qi + 1] >= 0 ? 'bg-green-50/40' : ''"
-            >
-              <div class="flex flex-col gap-3 lg:flex-row lg:items-center">
-                <p class="m-0 flex-1 text-sm leading-relaxed text-ink-secondary">
-                  <span class="mr-1.5 font-medium text-ink-tertiary" x-text="(qi + 1) + '.'"></span>
-                  <span x-text="question"></span>
-                </p>
-                <div class="flex shrink-0 flex-wrap gap-1">
-                  <template x-for="scale in [0, 1, 2, 3, 4, 5, 6]" :key="scale">
-                    <label class="cursor-pointer select-none">
-                      <input
-                        type="radio"
-                        :name="'q' + (qi + 1)"
-                        :value="scale"
-                        x-model.number="answers[qi + 1]"
-                        @change="saveAnswers()"
-                        class="sr-only"
-                      />
-                      <span
-                        class="font-ui flex h-8 w-8 items-center justify-center rounded-full border-2 text-xs font-medium transition-all duration-150 sm:h-9 sm:w-9 sm:text-sm"
-                        :class="scaleClass(answers[qi + 1], scale)"
-                        x-text="scale"
-                      ></span>
-                    </label>
-                  </template>
-                </div>
-              </div>
-            </div>
+            <ToolQuestion index="qi + 1" />
           </template>
         </div>
       </div>
 
-      <div
-        x-show="showWarning"
-        x-transition
-        class="mb-6 flex items-start gap-2 rounded-xl border border-info-border bg-info-surface p-4 text-sm text-info-ink"
-      >
-        <span
-          class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-info-border bg-surface-raised text-info-ink"
-          aria-hidden="true"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 16v-4M12 8h.01"></path>
-          </svg>
-        </span>
-        <span>
-          <strong>Questionnaire incomplet :</strong>
-          vous avez répondu à <span x-text="answeredCount"></span> question(s) sur 23. Veuillez répondre à toutes les
-          questions pour obtenir vos résultats.
-        </span>
-      </div>
+      <ToolIncompleteAlert total={TOTAL} />
 
-      <div class="mb-8 text-center">
-        <button
-          type="submit"
-          class={buttonClasses({ variant: "primary", size: "lg", className: "gap-2 normal-case" })}
-        >
-          Calculer mes résultats
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m9 5 7 7-7 7"></path>
-          </svg>
-        </button>
-      </div>
+      <ToolSubmit />
     </form>
 
     <footer class="mt-4 border-t border-border-subtle pt-6 text-xs leading-relaxed text-ink-tertiary">
@@ -336,25 +177,8 @@ const SCALE = [
   </div>
 </FormLayout>
 
-<style>
-  @media print {
-    header,
-    footer,
-    nav,
-    .no-print,
-    #form-container {
-      display: none !important;
-    }
-    .print-results {
-      display: block !important;
-    }
-    body {
-      background: white !important;
-    }
-  }
-</style>
 
-<script is:inline>
+<script is:inline define:vars={{ SCALE_OPTIONS }}>
 document.addEventListener('alpine:init', () => {
   const QUESTIONS = [
     "Je sais reconnaître les choses qui comptent vraiment pour moi et persévérer à les faire.",
@@ -387,11 +211,13 @@ document.addEventListener('alpine:init', () => {
   const BA_ITEMS = [3, 9, 12, 16, 19];
   const VA_ITEMS = [1, 5, 7, 10, 14, 17, 21, 23];
 
-  Alpine.data('compactForm', () => ({
+  Alpine.data('compactForm', () => window.extendToolForm({
+    storageKey: 'compact-fr',
+    total: 23,
+    label: "Test des processus ACT (CompACT-FR)",
+    scaleOptions: SCALE_OPTIONS,
+  }, {
     questions: QUESTIONS,
-    answers: new Array(24).fill(-1),
-    submitted: false,
-    showWarning: false,
 
     scoredValue(itemIdx) {
       const raw = this.answers[itemIdx];
@@ -402,18 +228,6 @@ document.addEventListener('alpine:init', () => {
       let total = 0;
       for (const idx of items) total += this.scoredValue(idx);
       return total;
-    },
-
-    get answeredCount() {
-      let count = 0;
-      for (let i = 1; i <= 23; i++) {
-        if (this.answers[i] >= 0) count++;
-      }
-      return count;
-    },
-
-    get progress() {
-      return Math.round((this.answeredCount / 23) * 100);
     },
 
     get totalScore() {
@@ -474,47 +288,8 @@ document.addEventListener('alpine:init', () => {
       return 'bg-green-400';
     },
 
-    scaleClass(answer, scale) {
-      return answer === scale
-        ? 'border-brand bg-brand text-brand-ink-on shadow-sm'
-        : 'border-border-strong text-ink-tertiary hover:border-brand hover:text-brand cursor-pointer';
-    },
-
-    saveAnswers() {
-      try { localStorage.setItem('compact-fr', JSON.stringify(this.answers)); } catch (e) {}
-    },
-
-    submit() {
-      if (this.answeredCount < 23) {
-        this.showWarning = true;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-      this.submitted = true;
-      this.saveAnswers();
-      this.$nextTick(() => {
-        const el = document.getElementById('results');
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    },
-
-    reset() {
-      if (!confirm('Voulez-vous recommencer le questionnaire ? Toutes vos réponses seront perdues.')) return;
-      this.answers = new Array(24).fill(-1);
-      this.submitted = false;
-      this.showWarning = false;
-      try { localStorage.removeItem('compact-fr'); } catch (e) {}
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    },
-
     init() {
-      try {
-        const saved = localStorage.getItem('compact-fr');
-        if (saved) {
-          const data = JSON.parse(saved);
-          if (Array.isArray(data) && data.length === 24) this.answers = data;
-        }
-      } catch (e) {}
+      this.restoreAnswers();
     },
   }));
 });

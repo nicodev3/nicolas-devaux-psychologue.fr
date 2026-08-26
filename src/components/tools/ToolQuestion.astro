@@ -1,0 +1,76 @@
+---
+/**
+ * Une question de questionnaire : énoncé numéroté + échelle de réponse.
+ *
+ * `index` et `question` sont des expressions Alpine évaluées dans la boucle de
+ * la page (`qi + 1`, `section.startIdx + qi`…), ce qui permet de partager le
+ * même balisage — et donc la même accessibilité — entre tous les tests.
+ */
+interface Props {
+  /** Expression Alpine donnant le numéro de la question. */
+  index: string;
+  /** Expression Alpine donnant l'énoncé. */
+  question?: string;
+}
+
+const { index, question = "question" } = Astro.props;
+---
+
+<div
+  class="tool-question px-4 py-4 transition-colors duration-150 sm:px-6"
+  :id={`'question-' + (${index})`}
+  :class={`rowClass(${index})`}
+>
+  <div class="flex flex-col gap-3 lg:flex-row lg:items-start lg:gap-6">
+    <p
+      class="m-0 flex-1 text-sm leading-relaxed text-ink-secondary"
+      :id={`'question-label-' + (${index})`}
+    >
+      <span class="mr-1.5 font-medium tabular-nums text-ink-tertiary" x-text={`(${index}) + '.'`}></span>
+      <span x-text={question}></span>
+    </p>
+
+    <div class="shrink-0">
+      <div
+        class="flex flex-wrap gap-1.5 lg:justify-end"
+        role="radiogroup"
+        aria-required="true"
+        :aria-labelledby={`'question-label-' + (${index})`}
+      >
+        <template x-for="option in scaleOptions" :key="option.value">
+          <label class="cursor-pointer select-none">
+            <input
+              type="radio"
+              :name={`'q' + (${index})`}
+              :value="option.value"
+              x-model.number={`answers[${index}]`}
+              @change="saveAnswers()"
+              :aria-label="option.value + ' — ' + option.label"
+              class="peer sr-only"
+            />
+            <span
+              class="font-ui flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm font-medium transition-all duration-150 peer-focus-visible:ring-2 peer-focus-visible:ring-brand peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-surface-page sm:h-9 sm:w-9"
+              :class={`scaleClass(answers[${index}], option.value)`}
+              :title="option.label"
+              x-text="option.value"></span>
+          </label>
+        </template>
+      </div>
+
+      <p
+        class="mb-0 mt-1.5 text-xs text-ink-tertiary lg:text-right"
+        x-show={`isAnswered(${index})`}
+        x-cloak
+        x-text={`answerLabel(${index})`}
+      >
+      </p>
+      <p
+        class="font-ui mb-0 mt-1.5 text-xs font-medium text-amber-800 lg:text-right"
+        x-show={`attempted && !isAnswered(${index})`}
+        x-cloak
+      >
+        Sans réponse
+      </p>
+    </div>
+  </div>
+</div>
