@@ -147,7 +147,7 @@ const toolCount = TOOL_SECTIONS.reduce((total, section) => total + section.tools
                   <LucideIcon icon={ClipboardList} />
                 </span>
                 <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-2.5 py-1 font-ui text-xs font-medium text-ink-tertiary">
-                  <Clock size={13} strokeWidth={1.5} aria-hidden="true" />
+                  <LucideIcon icon={Clock} size="sm" />
                   {tool.badges.find((badge) => badge.includes("minute")) ?? tool.badges[0]}
                 </span>
               </div>
