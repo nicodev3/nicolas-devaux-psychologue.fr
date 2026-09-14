@@ -3,6 +3,7 @@ title: "Santé mentale des étudiants : état des lieux et approches qui aident"
 seoTitle: "Santé mentale des étudiants : état des lieux et solutions"
 description: "Où en est la santé mentale étudiante en France ? Chiffres, facteurs de risque et de protection, approches utiles (ACT, psychologie positive, pleine conscience)."
 pubDate: "Sep 14 2026"
+heroImage: "../../assets/blog/sante-mentale-etudiante.webp"
 tags: ["etudiants", "act", "pleine-conscience"]
 ---
 
