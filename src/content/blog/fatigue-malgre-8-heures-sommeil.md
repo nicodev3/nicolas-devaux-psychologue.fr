@@ -79,7 +79,7 @@ Enfin, demandez de l'aide si la fatigue s'installe. Une consultation psychologiq
 
 ## Pour aller plus loin
 
-Pour comprendre le calcul précis, lisez [comment calculer son efficacité du sommeil](/blog/comment-calculer-efficacite-sommeil/). Pour interpréter votre résultat, consultez l'article sur la [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/).
+Pour comprendre le calcul précis, lisez [comment calculer son efficacité du sommeil](/blog/comment-calculer-efficacite-sommeil/). Pour interpréter votre résultat, consultez l'article sur la [bonne efficacité du sommeil](/blog/bonne-efficacite-du-sommeil/). Si la fatigue du jour change aussi ce que le corps peut faire, l'article sur [l'activité physique et la santé mentale](/blog/activite-physique-sante-mentale/) précise pourquoi ce mouvement doit être adapté.
 
 ## Questions fréquentes sur la fatigue malgré 8 heures de sommeil
 

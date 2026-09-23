@@ -1,0 +1,39 @@
+---
+import { Picture } from "astro:assets";
+import portrait from "../assets/cecile-cichosz.webp";
+import { applyFrenchTypography } from "../utils/frenchTypography.js";
+
+interface Props {
+  name: string;
+  role: string;
+  quote: string;
+  href: string;
+  linkLabel: string;
+}
+
+const { name, role, quote, href, linkLabel } = Astro.props;
+---
+
+<aside class="practitioner-credit" aria-label={name}>
+  <div class="practitioner-credit__portrait">
+    <Picture
+      src={portrait}
+      alt={`${name}, ${role}`}
+      width={160}
+      height={160}
+      formats={["avif", "webp"]}
+      fallbackFormat="webp"
+      densities={[1, 2]}
+      loading="lazy"
+      class="practitioner-credit__image"
+    />
+  </div>
+  <div class="practitioner-credit__body">
+    <p class="practitioner-credit__name">{applyFrenchTypography(name)}</p>
+    <p class="practitioner-credit__role">{applyFrenchTypography(role)}</p>
+    <p class="practitioner-credit__quote">{applyFrenchTypography(quote)}</p>
+    <a class="practitioner-credit__link" href={href} target="_blank" rel="noopener noreferrer">
+      {applyFrenchTypography(linkLabel)}
+    </a>
+  </div>
+</aside>
