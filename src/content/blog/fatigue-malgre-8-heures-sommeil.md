@@ -37,7 +37,7 @@ Un exemple classique : « Si je ne dors pas maintenant, je vais être nul demain
 
 ## L'hyperéveil : un corps fatigué mais en alerte
 
-Dans l'insomnie, on observe souvent un paradoxe : la personne est épuisée, mais son système d'alerte reste activé. C'est ce qu'on appelle parfois l'hyperéveil.
+Dans l'insomnie, on observe souvent un paradoxe : la personne est épuisée, mais son système d'alerte reste activé. C'est ce qu'on appelle parfois l'hyperéveil. Quand cette alerte déborde la nuit et continue dans la journée, l'article sur l'[hypervigilance](/blog/hypervigilance/) précise comment la reconnaître et quoi faire pendant cinq minutes.
 
 L'hyperéveil peut être cognitif, avec des pensées rapides et répétitives. Il peut être émotionnel, avec anxiété, irritation ou appréhension. Il peut aussi être corporel : cœur qui bat plus fort, tension musculaire, respiration courte, sensation de chaleur, agitation.
 
