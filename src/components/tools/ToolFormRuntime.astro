@@ -221,20 +221,7 @@
           return;
         }
 
-        try {
-          var area = document.createElement('textarea');
-          area.value = text;
-          area.setAttribute('readonly', '');
-          area.style.position = 'fixed';
-          area.style.left = '-10000px';
-          document.body.appendChild(area);
-          area.select();
-          var ok = document.execCommand('copy');
-          document.body.removeChild(area);
-          done(ok ? 'ok' : 'error');
-        } catch (e) {
-          done('error');
-        }
+        done('error');
       },
 
       /** Restaure la saisie précédente ; à appeler depuis le `init()` de la page. */

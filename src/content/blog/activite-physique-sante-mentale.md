@@ -7,8 +7,6 @@ heroImage: "../../assets/blog/activite-physique-sante-mentale.jpg"
 tags: ["therapies", "sommeil"]
 ---
 
-import PractitionerCredit from "../../components/PractitionerCredit.astro";
-
 L'**activité physique** est l'un des comportements qui modifient l'humeur, l'anxiété et le sommeil. Elle n'est pas une injonction morale, et elle n'est pas un traitement que je prescris à la place d'un suivi. Elle compte. Elle compte autrement selon l'état du corps.
 
 ## Ce que les données permettent de dire
@@ -31,15 +29,11 @@ Un programme calé sur une personne en forme met souvent en échec celle dont l'
 
 Adapter, ici, veut dire partir de l'état du jour : durée, intensité, version plus douce, critère d'arrêt. Ce dosage n'est pas mon métier. Je peux travailler la peur de bouger, le tout ou rien, le découragement et les nuits qui conditionnent le lendemain. Je ne construis pas la séance.
 
-Cécile Cichosz, coach sportive diplômée d'État et certifiée en activité physique adaptée, rappelle depuis cette place ce que le corps et les nuits se font l'un à l'autre.
+Cécile Cichosz, coach sportive diplômée d'État et certifiée en activité physique adaptée, rappelle depuis cette place ce que le corps et les nuits se font l'un à l'autre :
 
-<PractitionerCredit
-  name="Cécile Cichosz"
-  role="Coach sportive diplômée d'État, certifiée APA"
-  href="https://cecilecoaching.fr/"
-  linkLabel="Découvrir RE-FLOW"
-  quote="Quand la fatigue s'installe, bouger moins semble protéger. Le corps se déconditionne, et la confiance baisse. J'adapte le mouvement à l'énergie du jour. Les nuits, la peur et le découragement changent ce dosage : ce versant-là compte, et il ne se règle pas dans la séance."
-/>
+> « Quand la fatigue s'installe, bouger moins semble protéger. Le corps se déconditionne, et la confiance baisse. J'adapte le mouvement à l'énergie du jour. Les nuits, la peur et le découragement changent ce dosage : ce versant-là compte, et il ne se règle pas dans la séance. »
+>
+> — **Cécile Cichosz**, coach sportive diplômée d'État, certifiée APA — [Découvrir RE-FLOW](https://cecilecoaching.fr/)
 
 Son programme en ligne, RE-FLOW, s'adresse aux femmes concernées par une maladie ou une fatigue chronique. Il ne soigne pas la maladie. Il réinstalle un mouvement dosé. De mon côté, j'accompagne ce que la séance de mouvement ne traite pas : l'évitement, l'humeur, le sommeil, la relation au corps lorsqu'elle est devenue une source de menace.
 
