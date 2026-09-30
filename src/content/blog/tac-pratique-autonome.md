@@ -3,7 +3,7 @@ title: 'Peut-on pratiquer les TAC seul ? Guide et limites'
 seoTitle: 'Pratiquer les TAC seul : exercices et limites | Nicolas Devaux'
 description: 'Exercices d''activation de conscience en autonomie : ce qui est possible seul, ce qui nécessite un thérapeute, et les signes pour consulter. Par Nicolas Devaux.'
 pubDate: 'July 07 2026'
-heroImage: '../../assets/blog/coherence-cardiaque-365.webp'
+heroImage: '../../assets/blog/tac-pratique-autonome.jpg'
 tags: ["outils", "pleine-conscience"]
 ---
 

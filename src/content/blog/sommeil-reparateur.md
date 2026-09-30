@@ -4,7 +4,7 @@ seoTitle: "Sommeil réparateur : définition et repères"
 description: "Sommeil réparateur : ce qui le distingue d'un simple long sommeil, rôle des cycles, causes de fatigue au réveil et pistes (efficacité du sommeil, TCC-I)."
 pubDate: "Jul 15 2026"
 updatedDate: "Jul 18 2026"
-heroImage: "../../assets/blog/calcul-sommeil.webp"
+heroImage: "../../assets/blog/sommeil-reparateur.jpg"
 tags: ["sommeil"]
 published: true
 ---

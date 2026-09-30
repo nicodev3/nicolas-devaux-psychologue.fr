@@ -3,7 +3,7 @@ title: "Perfectionnisme : quand le niveau exigé bloque le travail"
 seoTitle: "Perfectionnisme : quand le niveau exigé bloque le travail"
 description: "Perfectionnisme et études : le niveau exigé qui retarde un devoir, un mémoire ou une prise de parole. Un critère d'arrêt, et le lien avec l'autocritique."
 pubDate: "Sep 23 2026"
-heroImage: "../../assets/blog/apprendre-pour-changer.webp"
+heroImage: "../../assets/blog/perfectionnisme-sans-personnage.jpg"
 tags: ["etudiants", "compassion"]
 ---
 

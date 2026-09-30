@@ -3,7 +3,7 @@ title: "Hypervigilance : quand le cerveau reste en alerte"
 seoTitle: "Hypervigilance : quand le cerveau reste en alerte"
 description: "Hypervigilance : reconnaître l'alerte qui ne s'éteint plus, la distinguer d'une vigilance utile, et un exercice bref. Situations fréquentes chez les étudiants."
 pubDate: "Sep 23 2026"
-heroImage: "../../assets/blog/angoisse.png"
+heroImage: "../../assets/blog/hypervigilance.jpg"
 tags: ["etudiants", "act", "sommeil"]
 ---
 

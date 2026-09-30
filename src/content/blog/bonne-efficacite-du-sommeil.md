@@ -3,7 +3,7 @@ title: "Qu’est-ce qu’une bonne efficacité du sommeil ?"
 seoTitle: "Bonne efficacité du sommeil : seuils"
 description: "Qu'est-ce qu'une bonne efficacité du sommeil ? Découvrez les seuils utiles, les erreurs d'interprétation et quand consulter en cas d'insomnie."
 pubDate: "Jun 15 2026"
-heroImage: "../../assets/blog/sleeping-child.webp"
+heroImage: "../../assets/blog/sleeping-child-square.webp"
 tags: ["sommeil"]
 ---
 

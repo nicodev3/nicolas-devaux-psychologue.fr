@@ -3,7 +3,7 @@ title: 'TAC et hypnose : similitudes et différences'
 seoTitle: 'TAC et hypnose : quelles différences ? | Nicolas Devaux'
 description: 'TAC ou hypnose ? Comprenez les similitudes, les différences et les indications de chaque approche. Article par Nicolas Devaux, psychologue à Sceaux.'
 pubDate: 'July 07 2026'
-heroImage: '../../assets/blog/hypnotherapie_photorealiste.webp'
+heroImage: '../../assets/blog/tac-et-hypnose-differences.jpg'
 tags: ["therapies"]
 ---
 

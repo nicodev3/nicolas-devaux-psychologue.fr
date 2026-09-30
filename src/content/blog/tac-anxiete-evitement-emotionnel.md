@@ -3,7 +3,7 @@ title: 'TAC et anxiété : quand l''évitement émotionnel bloque le changement'
 seoTitle: 'TAC et anxiété : activation consciente | Nicolas Devaux'
 description: 'Anxiété et évitement émotionnel : comment les TAC aident quand la compréhension intellectuelle ne suffit plus. Par Nicolas Devaux, psychologue à Sceaux.'
 pubDate: 'July 07 2026'
-heroImage: '../../assets/blog/mindfulness_meditation.webp'
+heroImage: '../../assets/blog/tac-anxiete-evitement-emotionnel.jpg'
 tags: ["therapies"]
 ---
 
