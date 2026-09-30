@@ -1,7 +1,7 @@
 ---
-title: 'Comment changer vraiment ? 3 étapes pour agir autrement'
-seoTitle: 'Changer vraiment : 3 étapes | Nicolas Devaux'
-description: "Changer ne consiste pas à supprimer ses émotions. Découvrez 3 étapes concrètes pour agir autrement avec l'ACT et la pleine conscience."
+title: 'Comment changer de comportement ? 3 étapes pour agir autrement'
+seoTitle: 'Comment changer de comportement : 3 étapes (ACT)'
+description: "Changer de comportement ne consiste pas à supprimer ses émotions. Découvrez 3 étapes concrètes pour agir autrement avec l'ACT et la pleine conscience."
 pubDate: 'Dec 24 2024'
 heroImage: '../../assets/blog/apprendre-pour-changer.webp'
 tags: ["act", "therapies", "pleine-conscience"]
