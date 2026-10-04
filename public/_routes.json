@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/_astro/*",
+    "/fonts/*",
+    "/favicon.svg",
+    "/apple-touch-icon.png",
+    "/*.png",
+    "/*.jpg",
+    "/*.jpeg",
+    "/*.webp",
+    "/*.avif",
+    "/*.gif",
+    "/*.svg",
+    "/*.ico",
+    "/*.pdf",
+    "/*.xml",
+    "/*.txt",
+    "/*.json",
+    "/*.js",
+    "/*.mjs",
+    "/*.css",
+    "/*.md",
+    "/*.woff",
+    "/*.woff2",
+    "/*.map"
+  ]
+}

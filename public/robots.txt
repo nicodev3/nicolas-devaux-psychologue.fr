@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /?s=
 Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 # Explicit allow for major AI crawlers (optional but clear)
 User-agent: GPTBot

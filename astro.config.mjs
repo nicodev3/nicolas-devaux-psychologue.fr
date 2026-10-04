@@ -16,6 +16,10 @@ import remarkFrenchPunctuationSpacing from "./src/remark/remark-french-punctuati
 import keywordMap from "./src/remark/keyword-map.js";
 import rehypeExternalLinks from "./src/remark/rehype-external-links.js";
 import rehypeCiteUrls from "./src/remark/rehype-cite-urls.js";
+import llmsMd, {
+  SITE_LLMS_DESCRIPTION,
+  SITE_LLMS_NAME,
+} from "./src/integrations/llms-md.mjs";
 
 const redirectedPaths = new Set([
   "/blog/emdr-mosaic/",
@@ -44,6 +48,12 @@ export default defineConfig({
         const url = new URL(page);
         return !url.searchParams.has("s") && !redirectedPaths.has(url.pathname);
       },
+    }),
+    // Parcours fs local : ne pas utiliser llms() (glob Windows → llms.txt vides).
+    llmsMd({
+      siteUrl: "https://nicolas-devaux-psychologue.fr",
+      name: SITE_LLMS_NAME,
+      description: SITE_LLMS_DESCRIPTION,
     }),
     alpinejs(),
     react(),

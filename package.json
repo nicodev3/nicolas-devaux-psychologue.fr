@@ -27,6 +27,7 @@
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.17.4",
     "astro": "^7.3.5",
+    "astro-llms-md": "^3.0.2",
     "astro-robots-txt": "^1.0.0",
     "framer-motion": "^13.4.2",
     "lucide": "^1.47.0",
