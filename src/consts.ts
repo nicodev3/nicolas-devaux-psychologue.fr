@@ -67,7 +67,7 @@ export const OPENING_WEEKDAYS_HOURS = "8h00 - 19h00";
 export const OPENING_SATURDAY_LABEL = "Samedi (un matin sur deux)";
 
 /** Plage horaire samedi (affichage). */
-export const OPENING_SATURDAY_HOURS = "Matin";
+export const OPENING_SATURDAY_HOURS = "Sur rendez-vous";
 
 /** Texte récapitulatif pour FAQ et contenus. */
 export const OPENING_HOURS_TEXT =
@@ -103,7 +103,9 @@ export const BLOG_TAG_LABELS: Record<BlogTag, string> = {
 /**
  * Schema.org — horaires d'ouverture du cabinet.
  * Pas de propriété non standard (`description`) : invalide pour OpeningHoursSpecification.
- * Le samedi alterné est précisé dans le contenu HTML / FAQ.
+ * Le samedi est ouvert un matin sur deux et sur rendez-vous : il n'est pas
+ * déclaré comme horaire hebdomadaire récurrent pour éviter de le présenter
+ * comme ouvert tous les samedis dans les données structurées.
  */
 export const OPENING_HOURS_SCHEMA = [
   {
@@ -111,11 +113,5 @@ export const OPENING_HOURS_SCHEMA = [
     dayOfWeek: ["Monday", "Tuesday", "Friday"],
     opens: "08:00",
     closes: "19:00",
-  },
-  {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Saturday"],
-    opens: "08:00",
-    closes: "13:00",
   },
 ] as const;
