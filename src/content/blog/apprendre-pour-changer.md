@@ -1,7 +1,7 @@
 ---
-title: 'Comment changer de comportement ? 3 étapes pour agir autrement'
-seoTitle: 'Comment changer de comportement : 3 étapes (ACT)'
-description: "Changer de comportement ne consiste pas à supprimer ses émotions. Découvrez 3 étapes concrètes pour agir autrement avec l'ACT et la pleine conscience."
+title: 'Changer de comportement : comment agir autrement avec l’ACT'
+seoTitle: 'Changer de comportement : agir autrement avec l’ACT'
+description: "Comment changer durablement de comportement sans lutter contre ses émotions ? L’ACT propose d’identifier ses valeurs, d’agir par petits pas et de répéter." 
 pubDate: 'Dec 24 2024'
 heroImage: '../../assets/blog/apprendre-pour-changer-square.webp'
 tags: ["act", "therapies", "pleine-conscience"]

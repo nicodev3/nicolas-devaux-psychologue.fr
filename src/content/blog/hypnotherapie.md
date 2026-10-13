@@ -1,7 +1,7 @@
 ---
-title: "L'hypnothérapie : principes et applications thérapeutiques"
-seoTitle: "Hypnothérapie : définition et indications"
-description: "Hypnothérapie : comprendre l'état hypnotique, ses indications (anxiété, stress, douleurs) et le cadre thérapeutique, par un psychologue clinicien."
+title: "Hypnothérapie : comment fonctionne l’hypnose thérapeutique ?"
+seoTitle: "Hypnothérapie : fonctionnement, indications et limites"
+description: "Comment fonctionne l’hypnothérapie ? Découvrez la transe, le rôle du thérapeute, les indications comme l’anxiété ou la douleur et les limites de l’hypnose."
 pubDate: "nov 23 2024"
 heroImage: '../../assets/blog/hypnotherapie-square.webp'
 tags: ["therapies"]

@@ -1,7 +1,7 @@
 ---
-title: "Réveils nocturnes : pourquoi et que faire ?"
-seoTitle: "Réveils nocturnes : causes et que faire ?"
-description: "Vous vous réveillez la nuit et peinez à vous rendormir ? Découvrez les causes des réveils nocturnes, quand consulter et ce que propose la TCC-I."
+title: "Réveil nocturne : causes et solutions pour se rendormir"
+seoTitle: "Réveil nocturne : causes et solutions pour se rendormir"
+description: "Vous vous réveillez à 3 h du matin sans parvenir à vous rendormir ? Comprenez les causes fréquentes, les gestes utiles et le rôle de la TCC-I."
 pubDate: "Jul 15 2026"
 heroImage: "../../assets/blog/reveils-nocturnes.webp"
 tags: ["sommeil"]
