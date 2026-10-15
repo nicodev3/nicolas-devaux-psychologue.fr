@@ -2,6 +2,7 @@
 import HeaderLink from "./HeaderLink.astro";
 import ApproachesDropdown from "./ApproachesDropdown.tsx";
 import DoctolibBookingLink from "./DoctolibBookingLink.astro";
+import ConsultationAvailability from "./ConsultationAvailability.astro";
 import { buttonClasses } from "./ui/button";
 
 interface Props {
@@ -162,6 +163,9 @@ const sheetLink =
     </div>
   </div>
 </header>
+<div class="mx-auto w-full max-w-[1140px] px-4 sm:px-6 lg:px-8">
+  <ConsultationAvailability class="my-3 w-full" />
+</div>
 {
   !suppressMobileBookingCta && (
     <nav aria-label="Prise de rendez-vous" class="px-4 pb-4 sm:px-6 lg:px-8 xl:hidden">

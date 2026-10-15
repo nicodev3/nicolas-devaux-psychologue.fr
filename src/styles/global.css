@@ -51,6 +51,9 @@
   --color-amber-400: #fbbf24;
   --color-amber-700: #b45309;
   --color-amber-800: #92400e;
+  --color-warning-surface: var(--color-amber-100);
+  --color-warning-border: var(--color-amber-700);
+  --color-warning-ink: var(--color-amber-800);
   --color-yellow-100: #fef9c3;
   --color-yellow-400: #facc15;
   --color-yellow-700: #a16207;

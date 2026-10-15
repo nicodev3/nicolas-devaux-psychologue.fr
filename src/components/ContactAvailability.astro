@@ -1,0 +1,23 @@
+---
+import ConsultationAvailability from "./ConsultationAvailability.astro";
+import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
+
+interface Props {
+  active?: boolean;
+  compact?: boolean;
+  class?: string;
+}
+
+const {
+  active = CONSULTATION_AVAILABILITY.isFull,
+  compact = false,
+  class: className,
+} = Astro.props;
+---
+
+{active ? (
+  <div class:list={["flex min-w-0 max-w-full flex-col items-start gap-3", className]}>
+    <ConsultationAvailability active compact={compact} />
+    <slot />
+  </div>
+) : <slot />}

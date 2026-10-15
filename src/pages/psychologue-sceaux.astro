@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
+import ContactAvailability from "../components/ContactAvailability.astro";
 import rueHoudanSceaux from "../assets/locations/rue-houdan-sceaux.jpg";
 import { buttonClasses } from "../components/ui/button";
 import {
   CABINET_ADDRESS_LINE,
-  DOCTOLIB_BOOKING_URL,
   GOOGLE_MAPS_CABINET_URL,
   GOOGLE_MAPS_EMBED_URL,
   NEARBY_CITIES,
@@ -132,16 +133,9 @@ const secondaryCtaClasses = buttonClasses({
         Plessis-Robinson et les communes voisines.
       </p>
       <div class="flex flex-col gap-3 sm:flex-row">
-        <a
-          href={DOCTOLIB_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={primaryCtaClasses}
-          data-track-doctolib
-          data-track-location="Psychologue Sceaux intro"
-        >
+        <DoctolibBookingLink location="Psychologue Sceaux intro" class={primaryCtaClasses}>
           Prendre rendez-vous
-        </a>
+        </DoctolibBookingLink>
         <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class={secondaryCtaClasses}>
           Voir l'itinéraire
         </a>
@@ -165,7 +159,9 @@ const secondaryCtaClasses = buttonClasses({
         <div>
           <dt class="font-semibold text-ink-primary">Téléphone</dt>
           <dd class="mt-1">
-            <a href={`tel:${PHONE_E164}`} class="text-link">{PHONE_DISPLAY}</a>
+            <ContactAvailability compact>
+              <a href={`tel:${PHONE_E164}`} class="text-link">{PHONE_DISPLAY}</a>
+            </ContactAvailability>
           </dd>
         </div>
         <div>
@@ -293,16 +289,9 @@ const secondaryCtaClasses = buttonClasses({
         se fait en ligne via Doctolib.
       </p>
       <div class="flex flex-col gap-3 sm:flex-row">
-        <a
-          href={DOCTOLIB_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={primaryCtaClasses}
-          data-track-doctolib
-          data-track-location="Psychologue Sceaux pratique"
-        >
+        <DoctolibBookingLink location="Psychologue Sceaux pratique" class={primaryCtaClasses}>
           Prendre rendez-vous au cabinet
-        </a>
+        </DoctolibBookingLink>
         <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
       </div>
     </section>

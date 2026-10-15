@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
 import { SITE_NAME } from "../consts";
 import {
   buildLocalBusinessSchema,
@@ -60,6 +61,7 @@ const organizationSchema = {
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="theme-color" content="#fcfaf4" />
 <meta name="generator" content={Astro.generator} />
+<meta name="consultation-availability" content={CONSULTATION_AVAILABILITY.isFull ? "full" : "open"} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -180,8 +182,13 @@ const organizationSchema = {
 
           // Conversion Doctolib (tous les liens, y compris articles markdown)
           if (!isDoctolibLink(link)) return;
+          var availabilityMeta = document.querySelector('meta[name="consultation-availability"]');
+          var bookingData = {
+            location: loc,
+            availability: availabilityMeta ? availabilityMeta.content : "unknown",
+          };
           if (e.ctrlKey || e.metaKey || e.shiftKey) {
-            umamiTrack("Doctolib Click", { location: loc });
+            umamiTrack("Doctolib Click", bookingData);
             return;
           }
 
@@ -194,7 +201,7 @@ const organizationSchema = {
             opened = true;
             window.open(href, "_blank", "noopener,noreferrer");
           }
-          var p = umamiTrack("Doctolib Click", { location: loc });
+          var p = umamiTrack("Doctolib Click", bookingData);
           if (p && typeof p.then === "function") {
             p.then(go, go);
           } else {

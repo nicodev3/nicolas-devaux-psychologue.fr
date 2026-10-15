@@ -2,6 +2,7 @@
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import ObfuscatedEmailLink from "../components/ObfuscatedEmailLink.astro";
+import ConsultationAvailability from "../components/ConsultationAvailability.astro";
 import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
 ---
 
@@ -27,6 +28,7 @@ import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
       <li>Adresse : 63 rue Houdan, 92330 Sceaux</li>
       <li>
         Téléphone :
+        <ConsultationAvailability compact />
         <span class="inline" x-data="{ revealed: false }">
           <button
             type="button"
@@ -50,6 +52,7 @@ import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
       </li>
       <li>
         Email :
+        <ConsultationAvailability compact />
         <span class="inline" x-data="{ revealed: false }">
           <button
             type="button"

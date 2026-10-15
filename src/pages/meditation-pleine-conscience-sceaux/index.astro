@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import InteriorHero from "../../components/InteriorHero.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+import ConsultationAvailability from "../../components/ConsultationAvailability.astro";
 import { accordionDisclosureClasses, buttonClasses } from "../../components/ui/button";
 
 const seoTitle = "Méditation pleine conscience à Sceaux | Nicolas Devaux";
@@ -207,6 +208,7 @@ const serviceSchema = {
           <p class="text-ink-secondary leading-relaxed mt-3">
             Les séances ont lieu <strong>le mardi à 18h30</strong>, en cycle de 8 séances.
           </p>
+          <ConsultationAvailability class="mt-6" />
           <form
             class="mt-6 grid gap-4"
             action="https://formspree.io/f/xkokedlw"

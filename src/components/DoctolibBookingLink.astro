@@ -2,6 +2,7 @@
 import DoctolibMark from "./DoctolibMark.astro";
 import { buttonClasses, type ButtonSize } from "./ui/button";
 import { DOCTOLIB_BOOKING_URL } from "../consts";
+import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
 
 interface Props {
   /** Emplacement pour le tracking Umami. */
@@ -33,12 +34,17 @@ const {
     variant: "primary",
     size,
     fullWidth,
-    className,
+    className: [CONSULTATION_AVAILABILITY.isFull && "flex-col gap-1", className].filter(Boolean).join(" "),
   })}
-  aria-label={ariaLabel}
+  aria-label={CONSULTATION_AVAILABILITY.isFull ? `${ariaLabel} — ${CONSULTATION_AVAILABILITY.title}. ${CONSULTATION_AVAILABILITY.message}` : ariaLabel}
   data-track-doctolib
   data-track-location={location}
 >
-  <DoctolibMark size={markSize} />
-  <slot>Prendre rendez-vous</slot>
+  <span class="inline-flex items-center justify-center gap-2">
+    <DoctolibMark size={markSize} />
+    <span><slot>Prendre rendez-vous</slot></span>
+  </span>
+  {CONSULTATION_AVAILABILITY.isFull && (
+    <span class="rounded bg-warning-surface px-2 py-0.5 text-xs font-semibold tracking-normal text-warning-ink" data-booking-availability>{CONSULTATION_AVAILABILITY.title}</span>
+  )}
 </a>
