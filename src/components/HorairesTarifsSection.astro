@@ -37,15 +37,15 @@ const tariffs = [
             Horaires d'ouverture
           </h3>
           <ul class="space-y-2 text-ink-secondary" role="list">
-            <li class="flex justify-between gap-4">
+            <li class="flex flex-wrap justify-between gap-x-4 gap-y-1">
               <span>{OPENING_WEEKDAYS_LABEL}</span>
               <span class="tabular-nums">{OPENING_WEEKDAYS_HOURS}</span>
             </li>
-            <li class="flex justify-between gap-4">
+            <li class="flex flex-wrap justify-between gap-x-4 gap-y-1">
               <span>{OPENING_SATURDAY_LABEL}</span>
               <span class="tabular-nums">{OPENING_SATURDAY_HOURS}</span>
             </li>
-            <li class="flex justify-between gap-4">
+            <li class="flex flex-wrap justify-between gap-x-4 gap-y-1">
               <span>Autres jours</span>
               <span>Fermé</span>
             </li>
@@ -66,8 +66,8 @@ const tariffs = [
       </h3>
       {
         tariffs.map(({ label, duration, price }) => (
-          <div class="flex items-center justify-between gap-4 border-b border-border-strong p-6 transition-colors hover:bg-surface-muted">
-            <div>
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-border-strong p-6 transition-colors hover:bg-surface-muted">
+            <div class="min-w-0 flex-[1_1_10rem]">
               <h4 class="typo-body-lg mb-0 font-bold text-ink-primary">{label}</h4>
               <span class="text-sm text-ink-secondary">{duration}</span>
             </div>

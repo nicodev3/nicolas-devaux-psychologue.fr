@@ -1,5 +1,5 @@
 ---
-import { Sparkles, Users, Brain, Activity, Leaf, Video } from "lucide";
+import { Sparkles, Users, Activity, Leaf, Video } from "lucide";
 import SectionHeading from "./SectionHeading.astro";
 import LucideIcon from "./LucideIcon.astro";
 import { applyFrenchTypography } from "../utils/frenchTypography.js";
@@ -21,13 +21,6 @@ const couple = {
 };
 
 const cards = [
-  {
-    url: "/techniques-activation-conscience/",
-    title: "Techniques d'activation de la conscience (TAC)",
-    content:
-      "Une approche guidée qui combine activation émotionnelle et conscience présente, utile lorsque la compréhension intellectuelle ne suffit pas à modifier les réactions automatiques.",
-    icon: Brain,
-  },
   {
     url: "/tcc-troisieme-vague/",
     title: "Thérapies cognitives et comportementales (TCC)",
@@ -54,7 +47,7 @@ const cards = [
 
 <section
   id="approches"
-  class="relative left-1/2 w-screen -translate-x-1/2 bg-surface-muted py-16 md:py-[7.5rem]"
+  class="bg-surface-muted py-16 md:py-[7.5rem]"
   aria-labelledby="approches-heading"
 >
   <div class="mx-auto w-full max-w-[1140px] px-4 sm:px-6 lg:px-8">

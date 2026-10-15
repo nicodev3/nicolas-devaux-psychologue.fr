@@ -13,6 +13,7 @@ import BookingFab from "../components/BookingFab.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, NEARBY_CITIES, OPENING_HOURS_TEXT } from "../consts";
 
 const isProd = import.meta.env.PROD;
+const contentShell = "mx-auto w-full max-w-[1140px] px-4 sm:px-6 lg:px-8";
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -87,26 +88,26 @@ const faqSchema = {
   </head>
   <body class="bg-surface-page" data-home-reveal-page>
     <Header suppressMobileBookingCta />
-    <main class="mx-auto w-full max-w-[1140px] px-4 sm:px-6 lg:px-8 pb-8 pt-0 md:pb-12">
-      <div data-home-reveal="hero">
+    <main class="w-full pb-8 pt-0 md:pb-12">
+      <div class={contentShell} data-home-reveal="hero">
         <HeroSection />
       </div>
       <div data-home-reveal="approches">
         <ApprochesSection />
       </div>
-      <div data-home-reveal="cabinet">
+      <div class={contentShell} data-home-reveal="cabinet">
         <ConsultationRoomGallery />
       </div>
       <div data-home-reveal="faq">
         <FAQSection />
       </div>
-      <div data-home-reveal="horaires">
+      <div class={contentShell} data-home-reveal="horaires">
         <HorairesTarifsSection />
       </div>
       <div data-home-reveal="articles">
         <HomeLatestArticles />
       </div>
-      <div data-home-reveal="notice">
+      <div class={contentShell} data-home-reveal="notice">
         <HomeProfessionNotice />
       </div>
     </main>

@@ -26,7 +26,7 @@ const sheetLink =
 ---
 
 <header
-  class="sticky top-0 z-30 border-none bg-surface-page/95 backdrop-blur-sm transition-shadow duration-300"
+  class="sticky top-0 z-60 border-none bg-surface-page/95 transition-shadow duration-300"
   data-site-header
   x-data="{ open: false }"
   x-init="matchMedia('(min-width: 1280px)').addEventListener('change', (e) => { if (e.matches) open = false })"
@@ -44,7 +44,7 @@ const sheetLink =
       Nicolas Devaux
     </a>
 
-    <div class="hidden min-w-0 xl:flex xl:flex-1 xl:items-center xl:justify-end xl:gap-1 xl:pl-4 2xl:gap-2 2xl:pl-6">
+    <div class="hidden min-w-0 xl:flex xl:flex-1 xl:items-center xl:justify-end xl:gap-1 xl:ps-4 2xl:gap-2 2xl:ps-6">
       <ApproachesDropdown client:load />
       <HeaderLink class={desktopNavLink} href="/psychologue-sceaux/">Cabinet à Sceaux</HeaderLink>
       <HeaderLink class={desktopNavLink} href="/consulter/">Consulter</HeaderLink>
@@ -54,7 +54,7 @@ const sheetLink =
       <DoctolibBookingLink
         location="Header Desktop"
         size="sm"
-        class="ml-1 shrink-0 whitespace-nowrap 2xl:ml-2"
+        class="ms-1 shrink-0 whitespace-nowrap 2xl:ms-2"
       >
         Prendre rendez-vous
       </DoctolibBookingLink>
@@ -102,12 +102,12 @@ const sheetLink =
       x-show="open"
       x-cloak
       x-transition:enter="transition-transform duration-300 nav-sheet-ease"
-      x-transition:enter-start="translate-x-full"
+      x-transition:enter-start="translate-x-full rtl:-translate-x-full"
       x-transition:enter-end="translate-x-0"
       x-transition:leave="transition-transform duration-300 nav-sheet-ease"
       x-transition:leave-start="translate-x-0"
-      x-transition:leave-end="translate-x-full"
-      class="nav-mobile-sheet fixed inset-y-0 right-0 z-90 flex h-dvh w-[min(20rem,calc(100vw-1rem))] max-w-full flex-col border-l border-border-subtle bg-surface-raised shadow-2xl outline-none"
+      x-transition:leave-end="translate-x-full rtl:-translate-x-full"
+      class="nav-mobile-sheet fixed inset-y-0 end-0 z-90 flex h-dvh w-[min(20rem,calc(100%-1rem))] max-w-full flex-col border-s border-border-subtle bg-surface-raised shadow-2xl outline-none"
       x-on:click.stop
     >
       <div class="flex shrink-0 items-center justify-between border-b border-border-subtle px-4 py-3">
@@ -164,7 +164,7 @@ const sheetLink =
 </header>
 {
   !suppressMobileBookingCta && (
-    <nav aria-label="Prise de rendez-vous" class="xl:hidden">
+    <nav aria-label="Prise de rendez-vous" class="px-4 pb-4 sm:px-6 lg:px-8 xl:hidden">
       <DoctolibBookingLink location="Header Mobile" size="md" fullWidth>
         Prendre rendez-vous
       </DoctolibBookingLink>

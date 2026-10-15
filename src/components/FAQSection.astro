@@ -37,7 +37,7 @@ const faqs = [
 
 <section
   id="faq"
-  class="relative left-1/2 w-screen -translate-x-1/2 bg-surface-accent py-16 md:py-[7.5rem]"
+  class="bg-surface-accent py-16 md:py-[7.5rem]"
   aria-labelledby="faq-heading"
   x-data="{ openId: 'faq-1' }"
 >
@@ -59,7 +59,7 @@ const faqs = [
           >
             <button
               type="button"
-              class="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
+              class="flex w-full cursor-pointer items-center justify-between gap-4 text-start"
               @click={`openId = openId === '${faq.id}' ? null : '${faq.id}'`}
               :aria-expanded={`openId === '${faq.id}'`}
               aria-controls={`${faq.id}-content`}

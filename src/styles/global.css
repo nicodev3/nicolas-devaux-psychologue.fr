@@ -200,6 +200,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-block-start: 5rem;
   background-color: var(--color-surface-page);
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -281,7 +282,7 @@ body[data-home-reveal-page] [data-home-reveal].home-reveal-done {
   line-height: 1.35;
   text-transform: uppercase;
   color: var(--color-footer-label);
-  text-wrap: nowrap;
+  text-wrap: wrap;
 }
 
 @layer base {
@@ -343,7 +344,7 @@ footer .footer-section-label {
   letter-spacing: 0.08em;
   line-height: 1.35;
   text-transform: uppercase;
-  text-wrap: nowrap;
+  text-wrap: wrap;
 }
 
 .typo-display-xl {

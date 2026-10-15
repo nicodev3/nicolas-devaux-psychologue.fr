@@ -15,9 +15,9 @@ const primaryShadow = 'shadow-[var(--shadow-button-primary)]';
 
 /** Primaire : 44px min height, rayon 8px (Stitch), libellé ~14px medium. */
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'min-h-[44px] h-11 px-4 text-sm leading-snug tracking-wide',
-  md: 'min-h-[44px] h-11 px-5 text-sm leading-snug tracking-wide',
-  lg: 'min-h-[48px] h-12 px-8 text-sm leading-snug tracking-wide',
+  sm: 'min-h-[44px] px-4 py-3 text-sm leading-snug tracking-wide',
+  md: 'min-h-[44px] px-5 py-3 text-sm leading-snug tracking-wide',
+  lg: 'min-h-[48px] px-8 py-3.5 text-sm leading-snug tracking-wide',
 };
 
 export interface ButtonClassesOptions {
@@ -31,7 +31,7 @@ export function buttonClasses(options: ButtonClassesOptions = {}): string {
   const { variant = 'primary', size = 'md', fullWidth, className } = options;
 
   const base = cn(
-    'inline-flex items-center justify-center gap-2 font-ui font-medium select-none whitespace-nowrap',
+    'inline-flex max-w-full items-center justify-center gap-2 font-ui font-medium select-none whitespace-normal text-center [overflow-wrap:anywhere]',
     variant === 'link' ? 'rounded-[inherit]' : 'rounded-lg',
     variant === 'link' ? 'no-underline [text-decoration-skip-ink:none]' : 'no-underline',
   );
