@@ -2,6 +2,9 @@
   "name": "psychologue-92",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=24.22.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

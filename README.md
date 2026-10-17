@@ -59,6 +59,10 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## Version de Node.js
+
+Ce projet nécessite **Node.js 24.22.0 ou version ultérieure**.
+
 ## Suivi Umami
 
 Le script de suivi n'est chargé qu'en production, et seulement si
