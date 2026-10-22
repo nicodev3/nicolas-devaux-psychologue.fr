@@ -1,12 +1,15 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
 import { OPENING_HOURS_TEXT } from "../consts";
+import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
 
 const faqs = [
   {
     id: "faq-1",
     question: "Comment prendre rendez-vous ?",
-    answerHtml: `Vous pouvez prendre rendez-vous facilement via <strong>Doctolib</strong> en cliquant sur le bouton «&nbsp;Prendre rendez-vous&nbsp;». Les consultations se déroulent uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
+    answerHtml: CONSULTATION_AVAILABILITY.isFull
+      ? `Le cabinet est actuellement complet : je ne prends pas de nouveaux patients. Si vous êtes déjà suivi, vous pouvez continuer à prendre rendez-vous sur <strong>Doctolib</strong> avec le bouton «&nbsp;${CONSULTATION_AVAILABILITY.bookingLabel}&nbsp;». Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`
+      : `Vous pouvez prendre rendez-vous facilement via <strong>Doctolib</strong> en cliquant sur le bouton «&nbsp;Prendre rendez-vous&nbsp;». Les consultations se déroulent uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
   },
   {
     id: "faq-2",

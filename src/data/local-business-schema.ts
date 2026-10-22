@@ -23,7 +23,6 @@ export function buildLocalBusinessSchema() {
     legalName: LEGAL_ENTITY_NAME,
     taxID: SIRET_NUMBER,
     url: LOCAL_LANDING_URL,
-    telephone: "+33629341367",
     email: CONTACT_EMAIL,
     logo: {
       "@type": "ImageObject",
@@ -108,12 +107,6 @@ export function buildLocalBusinessSchema() {
         availableLanguage: ["fr-FR", "en-GB"],
         hoursAvailable: OPENING_HOURS_SCHEMA[0],
       },
-      {
-        "@type": "ContactPoint",
-        contactType: "Renseignements",
-        telephone: "+33629341367",
-        availableLanguage: ["fr-FR", "en-GB"],
-      },
     ],
     sameAs: [
       "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
@@ -148,14 +141,6 @@ export function buildLocalBusinessSchema() {
         "@type": "Offer",
         name: "Consultation en visioconférence",
         price: 80,
-        priceCurrency: "EUR",
-        url: "https://nicolas-devaux-psychologue.fr/tarifs/",
-        availability: "https://schema.org/InStock",
-      },
-      {
-        "@type": "Offer",
-        name: "Participation aux groupes de pleine conscience",
-        price: 30,
         priceCurrency: "EUR",
         url: "https://nicolas-devaux-psychologue.fr/tarifs/",
         availability: "https://schema.org/InStock",

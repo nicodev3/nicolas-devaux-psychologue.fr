@@ -8,7 +8,6 @@
       "legalName": "Nicolas Devaux — EI",
       "taxID": "75103269900033",
       "url": "https://nicolas-devaux-psychologue.fr",
-      "telephone": "+33629341367",
       "email": "ndevaux@gmail.com",
       "logo": {
         "@type": "ImageObject",
@@ -100,12 +99,6 @@
             "opens": "08:00",
             "closes": "19:00"
           }
-        },
-        {
-          "@type": "ContactPoint",
-          "contactType": "Renseignements",
-          "telephone": "+33629341367",
-          "availableLanguage": ["fr-FR","en-GB"]
         }
       ],
       "sameAs": [
@@ -169,21 +162,6 @@
             "name": "Téléconsultation psychologique",
             "serviceType": "Téléconsultation",
             "audience": { "@type": "PeopleAudience", "suggestedMinAge": 12 },
-            "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
-          }
-        },
-        {
-          "@type": "Offer",
-          "name": "Programme MBCT (8 séances)",
-          "price": 50,
-          "priceCurrency": "EUR",
-          "url": "https://nicolas-devaux-psychologue.fr/tarifs/",
-          "availability": "https://schema.org/InStock",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Programme de pleine conscience",
-            "serviceType": "Psychothérapie de groupe",
-            "audience": { "@type": "PeopleAudience", "suggestedMinAge": 18 },
             "provider": { "@id": "https://nicolas-devaux-psychologue.fr/#cabinet" }
           }
         }

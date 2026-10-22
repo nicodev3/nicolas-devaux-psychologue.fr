@@ -4,8 +4,11 @@ import LucideIcon from "./LucideIcon.astro";
 import DoctolibMark from "./DoctolibMark.astro";
 import DoctolibBookingLink from "./DoctolibBookingLink.astro";
 import { buttonClasses } from "./ui/button";
+import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
 ---
 
+{/* Cabinet complet : pas de bouton flottant, la réservation reste accessible aux patients suivis via les autres liens. */}
+{!CONSULTATION_AVAILABILITY.isFull && (<Fragment>
 <script is:inline>
   document.addEventListener("alpine:init", () => {
     Alpine.data("bookingFabHome", () => ({
@@ -141,3 +144,4 @@ import { buttonClasses } from "./ui/button";
     </span>
   </button>
 </div>
+</Fragment>)}

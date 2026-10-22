@@ -11,6 +11,7 @@ import HomeLatestArticles from "../components/HomeLatestArticles.astro";
 import HomeProfessionNotice from "../components/HomeProfessionNotice.astro";
 import BookingFab from "../components/BookingFab.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, NEARBY_CITIES, OPENING_HOURS_TEXT } from "../consts";
+import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
 
 const isProd = import.meta.env.PROD;
 const contentShell = "mx-auto w-full max-w-[1140px] px-4 sm:px-6 lg:px-8";
@@ -23,7 +24,9 @@ const faqSchema = {
       name: "Comment prendre rendez-vous ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `Vous pouvez prendre rendez-vous via Doctolib depuis la page d'accueil (bloc d'introduction, section Horaires et tarifs ou lien en pied de page). Les consultations se déroulent uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
+        text: CONSULTATION_AVAILABILITY.isFull
+          ? `Le cabinet est actuellement complet et n'accepte pas de nouveaux patients. Les patients déjà suivis peuvent continuer à prendre rendez-vous via Doctolib, depuis le bloc d'introduction ou le pied de page. Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`
+          : `Vous pouvez prendre rendez-vous via Doctolib depuis le bloc d'introduction ou le lien en pied de page. Les consultations se déroulent uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
       },
     },
     {

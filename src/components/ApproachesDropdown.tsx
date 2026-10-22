@@ -8,7 +8,6 @@ const LINKS = [
   { href: '/therapie-couple/', label: 'Thérapie de couple' },
   { href: '/psychologue-en-ligne/', label: 'Consultations en ligne' },
   { href: '/tcc-troisieme-vague/', label: 'TCC de 3e vague' },
-  { href: '/meditation-pleine-conscience-sceaux/', label: 'Méditation (groupes)' },
 ] as const;
 
 const easeMenu = [0.16, 1, 0.3, 1] as const;

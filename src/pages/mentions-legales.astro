@@ -27,30 +27,6 @@ import { LEGAL_ENTITY_NAME, RPPS_NUMBER, SIRET_NUMBER } from "../consts";
       <li>Numéro RPPS : {RPPS_NUMBER}</li>
       <li>Adresse : 63 rue Houdan, 92330 Sceaux</li>
       <li>
-        Téléphone :
-        <ConsultationAvailability compact />
-        <span class="inline" x-data="{ revealed: false }">
-          <button
-            type="button"
-            class="inline cursor-pointer border-0 bg-transparent p-0 font-inherit text-link underline"
-            x-show="!revealed"
-            x-cloak
-            @click="revealed = true"
-            aria-expanded="false"
-            :aria-expanded="revealed"
-          >
-            Cliquez pour afficher
-          </button>
-          <a
-            href="tel:+33629341367"
-            class="text-link"
-            data-track-location="Mentions légales"
-            x-show="revealed"
-            x-cloak>06 29 34 13 67</a
-          >
-        </span>
-      </li>
-      <li>
         Email :
         <ConsultationAvailability compact />
         <span class="inline" x-data="{ revealed: false }">

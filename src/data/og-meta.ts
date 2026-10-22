@@ -24,8 +24,7 @@ export const STATIC_OG_SLUGS = [
   "outils-compact",
   "outils-pcl-5",
   "outils-fscrs",
-  "outils-questionnaire-schemas-young",
-  "meditation-pleine-conscience-sceaux",
+  "outils-questionnaire-schemas-young",
   "therapie-couple",
   "psychologue-en-ligne",
 ] as const;
@@ -56,8 +55,6 @@ export const OG_TITLES: Record<(typeof STATIC_OG_SLUGS)[number], string> = {
   "outils-pcl-5": "PCL-5 — Stress post-traumatique",
   "outils-fscrs": "FSCRS — Autocritique",
   "outils-questionnaire-schemas-young": "Questionnaire des schémas de Young",
-  "meditation-pleine-conscience-sceaux":
-    "Méditation de pleine conscience — groupes à Sceaux",
   "therapie-couple": "Thérapie de couple à Sceaux",
   "psychologue-en-ligne": "Psychologue en ligne\nConsultations en visio",
 };

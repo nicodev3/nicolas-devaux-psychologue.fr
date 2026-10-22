@@ -36,6 +36,7 @@ const redirectedPaths = new Set([
   "/tcc-3e-vague/",
   "/tac/",
   "/tarifs",
+  "/meditation-pleine-conscience-sceaux/",
 ]);
 
 // https://astro.build/config

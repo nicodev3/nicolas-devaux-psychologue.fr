@@ -43,7 +43,7 @@ Un accompagnement individuel commence par une évaluation de votre demande : nat
 
 L'enjeu n'est pas de "réussir" une méditation, mais d'apprendre à observer avec honnêteté ce qui se passe. Certaines séances peuvent donc inclure quelques minutes de pratique, un retour sur l'expérience, puis un travail de mise en lien avec les situations concrètes de votre vie.
 
-Pour approfondir, vous pouvez consulter la page dédiée à la [thérapie pleine conscience à Sceaux](/therapie-pleine-conscience/) ou les [ateliers de méditation de pleine conscience](/meditation-pleine-conscience-sceaux/).
+Pour approfondir, vous pouvez consulter la page dédiée à la [thérapie pleine conscience à Sceaux](/therapie-pleine-conscience/).
 
 ## Questions fréquentes sur la thérapie pleine conscience
 

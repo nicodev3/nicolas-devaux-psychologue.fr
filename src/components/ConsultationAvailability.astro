@@ -19,7 +19,7 @@ const {
 {active && (
   <span
     class:list={[
-      "font-ui inline-flex max-w-full flex-col gap-1 rounded-lg border border-s-4 border-warning-border bg-warning-surface text-start text-warning-ink whitespace-normal [overflow-wrap:anywhere]",
+      "font-ui inline-flex max-w-full flex-col gap-1 rounded-lg border border-warning-border bg-warning-surface text-start text-warning-ink whitespace-normal [overflow-wrap:anywhere]",
       compact ? "px-3 py-2 text-xs" : "px-4 py-3 text-sm",
       className,
     ]}
@@ -27,5 +27,6 @@ const {
   >
     <strong class="font-semibold">{CONSULTATION_AVAILABILITY.title}</strong>
     <span>{CONSULTATION_AVAILABILITY.message}</span>
+    {!compact && <span>{CONSULTATION_AVAILABILITY.followUpNote}</span>}
   </span>
 )}

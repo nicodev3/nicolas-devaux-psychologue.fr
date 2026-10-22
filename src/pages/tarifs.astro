@@ -2,6 +2,7 @@
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
+import { BOOKING_SENTENCE } from "../data/consultation-availability";
 import {
   LEGAL_ENTITY_NAME,
   OPENING_SATURDAY_HOURS,
@@ -21,11 +22,6 @@ const tariffs: TariffRow[] = [
   { label: "Consultation individuelle", duration: "45 min", price: "80€" },
   { label: "Consultation MOSAIC", duration: "1 h", price: "90€" },
   { label: "Consultation de couple", duration: "1 h", price: "110€" },
-  {
-    label: "Participation aux groupes de pleine conscience",
-    duration: "8 sessions de 1 heure",
-    price: "30€ / session",
-  },
 ];
 ---
 
@@ -88,8 +84,7 @@ const tariffs: TariffRow[] = [
         </div>
       </div>
       <p class="mt-4 text-ink-secondary">
-        Consultations sur rendez-vous uniquement. Prise de rendez-vous via
-        Doctolib.
+        Consultations sur rendez-vous uniquement. {BOOKING_SENTENCE}
       </p>
     </div>
 
@@ -111,8 +106,7 @@ const tariffs: TariffRow[] = [
     <div class="rounded-xl border border-border-strong bg-surface-muted p-6">
       <SectionHeading class="mb-4" eyebrow="04 — Rendez-vous" title="Prendre rendez-vous" />
       <p class="mb-4">
-        La prise de rendez-vous se fait via Doctolib. Vous pouvez consulter les
-        créneaux disponibles et réserver en ligne.
+        {BOOKING_SENTENCE}
       </p>
       <DoctolibBookingLink location="Page Tarifs" size="lg" class="shrink-0">
         Prendre rendez-vous
@@ -124,8 +118,8 @@ const tariffs: TariffRow[] = [
       page <a href="/consulter/" class="text-link">Consulter</a>. Chaque prestation
       est présentée en détail sur sa page dédiée :
       <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>,
-      <a href="/therapie-couple/" class="text-link">thérapie de couple à Sceaux</a>,
-      <a href="/psychologue-en-ligne/" class="text-link">consultations en ligne</a> et{" "}<a href="/meditation-pleine-conscience-sceaux/" class="text-link">groupes de pleine conscience</a>.
+      <a href="/therapie-couple/" class="text-link">thérapie de couple à Sceaux</a> et{" "}
+      <a href="/psychologue-en-ligne/" class="text-link">consultations en ligne</a>.
     </p>
 
     <p class="typo-meta-caps border-t border-border-subtle pt-6 text-ink-tertiary">

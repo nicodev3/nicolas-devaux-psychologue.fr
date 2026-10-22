@@ -94,7 +94,7 @@ La force de la cohérence cardiaque 365 tient à sa simplicité. Trois chiffres 
 
 Pratiquer 5 minutes peut donc être un bon début, surtout lorsque l'on se sent débordé. Mais lorsque l'anxiété, l'épuisement ou les ruminations s'installent, il peut être utile de comprendre ce que le corps essaie de signaler et de construire des réponses plus larges.
 
-Pour aller plus loin, vous pouvez consulter la page consacrée à la [thérapie pleine conscience à Sceaux](/therapie-pleine-conscience/) ou découvrir les [ateliers de méditation de pleine conscience](/meditation-pleine-conscience-sceaux/).
+Pour aller plus loin, vous pouvez consulter la page consacrée à la [thérapie pleine conscience à Sceaux](/therapie-pleine-conscience/).
 
 ## Questions fréquentes sur la cohérence cardiaque 365
 

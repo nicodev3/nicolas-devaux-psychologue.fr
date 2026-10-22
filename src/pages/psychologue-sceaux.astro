@@ -2,7 +2,7 @@
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
-import ContactAvailability from "../components/ContactAvailability.astro";
+import { BOOKING_SENTENCE } from "../data/consultation-availability";
 import rueHoudanSceaux from "../assets/locations/rue-houdan-sceaux.jpg";
 import { buttonClasses } from "../components/ui/button";
 import {
@@ -16,8 +16,6 @@ import {
   OPENING_WEEKDAYS_LABEL,
   OPENING_SATURDAY_LABEL,
   OPENING_SATURDAY_HOURS,
-  PHONE_DISPLAY,
-  PHONE_E164,
 } from "../consts";
 
 const title = "Psychologue à Sceaux";
@@ -37,7 +35,7 @@ const faqSchema = {
       name: "Comment trouver un psychologue à Sceaux près du RER ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `Le cabinet de Nicolas Devaux est au ${CABINET_ADDRESS_LINE}, à quelques minutes à pied des gares RER B Robinson et Sceaux. La prise de rendez-vous se fait en ligne sur Doctolib.`,
+        text: `Le cabinet de Nicolas Devaux est au ${CABINET_ADDRESS_LINE}, à quelques minutes à pied des gares RER B Robinson et Sceaux. ${BOOKING_SENTENCE}`,
       },
     },
     {
@@ -61,7 +59,7 @@ const faqSchema = {
       name: "Quelles consultations sont proposées au cabinet de Sceaux ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Le cabinet propose des consultations individuelles pour adultes et adolescents, des séances MOSAIC, des thérapies de couple, des consultations en visioconférence et des groupes de pleine conscience et de gestion du stress.",
+        text: "Le cabinet propose des consultations individuelles pour adultes et adolescents, des séances MOSAIC, des thérapies de couple, et des consultations en visioconférence.",
       },
     },
     {
@@ -69,7 +67,7 @@ const faqSchema = {
       name: "Comment prendre rendez-vous avec un psychologue à Sceaux ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `La prise de rendez-vous se fait en ligne via Doctolib. Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
+        text: `${BOOKING_SENTENCE} Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
       },
     },
     {
@@ -90,12 +88,6 @@ const faqSchema = {
     },
   ],
 };
-
-const primaryCtaClasses = buttonClasses({
-  variant: "primary",
-  size: "lg",
-  className: "w-full justify-center sm:w-auto",
-});
 
 const secondaryCtaClasses = buttonClasses({
   variant: "secondary",
@@ -133,7 +125,7 @@ const secondaryCtaClasses = buttonClasses({
         Plessis-Robinson et les communes voisines.
       </p>
       <div class="flex flex-col gap-3 sm:flex-row">
-        <DoctolibBookingLink location="Psychologue Sceaux intro" class={primaryCtaClasses}>
+        <DoctolibBookingLink location="Psychologue Sceaux intro" size="lg" class="w-full justify-center sm:w-auto">
           Prendre rendez-vous
         </DoctolibBookingLink>
         <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class={secondaryCtaClasses}>
@@ -154,14 +146,6 @@ const secondaryCtaClasses = buttonClasses({
             <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class="text-link">
               {CABINET_ADDRESS_LINE}
             </a>
-          </dd>
-        </div>
-        <div>
-          <dt class="font-semibold text-ink-primary">Téléphone</dt>
-          <dd class="mt-1">
-            <ContactAvailability compact>
-              <a href={`tel:${PHONE_E164}`} class="text-link">{PHONE_DISPLAY}</a>
-            </ContactAvailability>
           </dd>
         </div>
         <div>
@@ -241,11 +225,6 @@ const secondaryCtaClasses = buttonClasses({
           en visioconférence, si vous êtes éloigné de Sceaux ou que vous préférez ce format.
         </li>
         <li>
-          <a href="/meditation-pleine-conscience-sceaux/" class="text-link"
-            >Groupes de pleine conscience et gestion du stress</a
-          > — des ateliers en petit groupe, en cycles de 8 séances.
-        </li>
-        <li>
           <a href="/psychotherapie/" class="text-link">Psychothérapie individuelle</a> — un accompagnement
           adapté à votre situation, à votre rythme et à vos objectifs.
         </li>
@@ -285,11 +264,10 @@ const secondaryCtaClasses = buttonClasses({
         individuelles durent 45 minutes ; les séances de couple et les séances MOSAIC durent 1 heure.
       </p>
       <p>
-        Les tarifs détaillés sont sur la page <a href="/tarifs/" class="text-link">Tarifs</a>. La réservation
-        se fait en ligne via Doctolib.
+        Les tarifs détaillés sont sur la page <a href="/tarifs/" class="text-link">Tarifs</a>. {BOOKING_SENTENCE}
       </p>
       <div class="flex flex-col gap-3 sm:flex-row">
-        <DoctolibBookingLink location="Psychologue Sceaux pratique" class={primaryCtaClasses}>
+        <DoctolibBookingLink location="Psychologue Sceaux pratique" size="lg" class="w-full justify-center sm:w-auto">
           Prendre rendez-vous au cabinet
         </DoctolibBookingLink>
         <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
@@ -302,7 +280,7 @@ const secondaryCtaClasses = buttonClasses({
       <h3 class="font-display typo-display-md text-ink-primary">Comment trouver un psychologue à Sceaux près du RER ?</h3>
       <p>
         Le cabinet est au {CABINET_ADDRESS_LINE}, à quelques minutes à pied des gares RER B Robinson et
-        Sceaux. La prise de rendez-vous se fait en ligne sur Doctolib.
+        Sceaux. {BOOKING_SENTENCE}
       </p>
 
       <h3 class="font-display typo-display-md mt-5 text-ink-primary">
@@ -325,18 +303,15 @@ const secondaryCtaClasses = buttonClasses({
       <p>
         Le cabinet propose des consultations individuelles pour adultes et adolescents, des séances
         <a href="/therapie-mosaic/" class="text-link">MOSAIC</a>, des
-        <a href="/therapie-couple/" class="text-link">thérapies de couple</a>, des
-        <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a> et des
-        <a href="/meditation-pleine-conscience-sceaux/" class="text-link"
-          >groupes de pleine conscience et de gestion du stress</a
-        >.
+        <a href="/therapie-couple/" class="text-link">thérapies de couple</a> et des
+        <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a>.
       </p>
 
       <h3 class="font-display typo-display-md mt-5 text-ink-primary">
         Comment prendre rendez-vous avec un psychologue à Sceaux ?
       </h3>
       <p>
-        La prise de rendez-vous se fait en ligne via Doctolib. Les consultations ont lieu uniquement sur
+        {BOOKING_SENTENCE} Les consultations ont lieu uniquement sur
         rendez-vous, {OPENING_HOURS_TEXT}.
       </p>
 

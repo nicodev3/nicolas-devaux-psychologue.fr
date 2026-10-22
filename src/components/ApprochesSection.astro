@@ -1,5 +1,5 @@
 ---
-import { Sparkles, Users, Activity, Leaf, Video } from "lucide";
+import { Sparkles, Users, Activity, Video } from "lucide";
 import SectionHeading from "./SectionHeading.astro";
 import LucideIcon from "./LucideIcon.astro";
 import { applyFrenchTypography } from "../utils/frenchTypography.js";
@@ -29,13 +29,6 @@ const cards = [
     icon: Activity,
   },
   {
-    url: "/meditation-pleine-conscience-sceaux/",
-    title: "Groupes de pleine conscience",
-    content:
-      "Des ateliers en petit groupe pour apprendre à porter attention à ses pensées, apaiser le stress et se reconnecter à ses sensations corporelles, dans un cadre simple et guidé.",
-    icon: Leaf,
-  },
-  {
     url: "/psychologue-en-ligne/",
     title: "Consultations en ligne",
     content:
@@ -60,7 +53,7 @@ const cards = [
       />
       <p class="typo-body text-ink-secondary">
         Je propose plusieurs types de consultations : thérapie individuelle, thérapie MOSAIC, thérapie
-        de couple, consultations en ligne et groupes de pleine conscience.
+        de couple et consultations en ligne.
       </p>
     </div>
 
@@ -103,10 +96,14 @@ const cards = [
       </div>
 
       {
-        cards.map((card) => (
+        cards.map((card, i) => (
           <a
             href={card.url}
-            class="group rounded-xl bg-brand/5 p-8 no-underline transition-colors hover:bg-brand/10 md:p-10"
+            class:list={[
+              "group rounded-xl bg-brand/5 p-8 no-underline transition-colors hover:bg-brand/10 md:p-10",
+              /* Deux cartes sur trois colonnes : la dernière s'élargit, en miroir de la première rangée. */
+              cards.length % 3 === 2 && i === cards.length - 1 && "md:col-span-2",
+            ]}
           >
             <LucideIcon icon={card.icon} size="lg" class="mb-4 text-ink-primary" />
             <h4 class="mb-2 font-ui text-sm font-bold uppercase tracking-wide text-ink-primary">

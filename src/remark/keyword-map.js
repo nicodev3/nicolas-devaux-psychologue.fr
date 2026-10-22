@@ -79,9 +79,6 @@ export default {
     "visioconférence": "/psychologue-en-ligne/",
     "psychologue à Sceaux": "/psychologue-sceaux/",
     "psychologue Sceaux": "/psychologue-sceaux/",
-    "groupes de pleine conscience": "/meditation-pleine-conscience-sceaux/",
-    "groupe de pleine conscience": "/meditation-pleine-conscience-sceaux/",
-    "gestion du stress": "/meditation-pleine-conscience-sceaux/",
     "psychologue à boulogne-billancourt": "/nicolas-devaux-psychologue/",
     "psychologue boulogne-billancourt": "/nicolas-devaux-psychologue/",
 
