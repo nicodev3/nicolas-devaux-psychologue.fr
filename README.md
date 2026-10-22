@@ -61,7 +61,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## Version de Node.js
 
-Ce projet nécessite **Node.js 24.22.0 ou version ultérieure**.
+Ce projet nécessite **Node.js 24.22.1 ou version ultérieure**.
 
 ## Suivi Umami
 
