@@ -3,6 +3,9 @@ import { Picture } from "astro:assets";
 import portrait from "../assets/nicolas-devaux.webp";
 import DoctolibBookingLink from "./DoctolibBookingLink.astro";
 import { buttonClasses } from "./ui/button";
+import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
+
+const { isFull } = CONSULTATION_AVAILABILITY;
 ---
 
 <section
@@ -18,24 +21,31 @@ import { buttonClasses } from "./ui/button";
       <p class="font-display mb-6 text-xl text-ink-primary md:text-[1.75rem] md:leading-snug">
         Psychologue clinicien · cabinet et visio
       </p>
-      <p class="typo-body-lg mb-10 max-w-xl text-ink-secondary md:mb-12">
+      <p class="typo-body-lg mb-8 max-w-xl text-ink-secondary md:mb-10">
         Psychologue diplômé de l'Université Paris Cité, j'accompagne les adultes, adolescents et couples
         dans un cadre bienveillant et confidentiel — en présentiel au cabinet ou en visioconférence. Je
         propose des thérapies cognitives et comportementales (TCC), de la thérapie MOSAIC pour les
-        traumatismes, et de la thérapie de couple. Mon approche intégrative s'adapte à votre situation, à
-        votre rythme et à vos objectifs.
+        traumatismes, et de la thérapie de couple.<span class="hidden sm:inline">
+        Mon approche intégrative s'adapte à votre situation, à votre rythme et à vos objectifs.</span>
       </p>
-      <div class="flex flex-wrap gap-4">
+      {/* Cabinet complet : l'état est annoncé ici, juste au-dessus du seul bouton qu'il concerne. */}
+      {isFull && (
+        <p class="font-ui mb-5 max-w-xl text-sm leading-relaxed text-ink-secondary" data-consultation-availability>
+          <strong class="font-semibold text-warning-ink">{CONSULTATION_AVAILABILITY.title}.</strong>
+          {" "}{CONSULTATION_AVAILABILITY.message} {CONSULTATION_AVAILABILITY.followUpNote}
+        </p>
+      )}
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-4">
         <DoctolibBookingLink
           location="Hero"
           size="lg"
-          class="shadow-(--shadow-button-primary)"
+          class={isFull ? "w-full sm:w-auto" : "shadow-(--shadow-button-primary)"}
         >
           Prendre rendez-vous
         </DoctolibBookingLink>
         <a
           href="/psychologue-sceaux/"
-          class={buttonClasses({ variant: "secondary", size: "lg" })}
+          class={buttonClasses({ variant: "link", className: "inline-flex min-h-11 items-center text-sm" })}
         >
           Psychologue à Sceaux — accès au cabinet →
         </a>
@@ -53,7 +63,7 @@ import { buttonClasses } from "./ui/button";
         loading="eager"
         fetchpriority="high"
         pictureAttributes={{ class: "block overflow-hidden rounded-xl shadow-2xl" }}
-        class="block h-auto w-full grayscale-[20%] transition-all duration-700 hover:grayscale-0"
+        class="block h-auto w-full"
       />
     </div>
   </div>

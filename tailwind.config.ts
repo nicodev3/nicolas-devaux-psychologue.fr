@@ -16,14 +16,14 @@ export default {
     extend: {
       fontFamily: {
         display: [
-          '"Playfair Display"',
+          '"Playfair Display Variable"',
           "ui-serif",
           "Georgia",
           '"Times New Roman"',
           "serif",
         ],
-        sans: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
-        ui: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Manrope Variable", "ui-sans-serif", "system-ui", "sans-serif"],
+        ui: ["Manrope Variable", "ui-sans-serif", "system-ui", "sans-serif"],
       },
     },
   },

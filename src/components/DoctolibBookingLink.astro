@@ -47,6 +47,6 @@ const fullLabel = size === "sm" ? CONSULTATION_AVAILABILITY.bookingLabelShort : 
 >
   <span class="inline-flex items-center justify-center gap-2">
     <DoctolibMark size={markSize} />
-    <span>{isFull ? fullLabel : <slot>Prendre rendez-vous</slot>}</span>
+    <span class="[text-wrap:balance] [overflow-wrap:normal]">{isFull ? fullLabel : <slot>Prendre rendez-vous</slot>}</span>
   </span>
 </a>

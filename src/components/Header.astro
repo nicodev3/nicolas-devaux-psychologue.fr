@@ -8,15 +8,17 @@ import { buttonClasses } from "./ui/button";
 interface Props {
   /** Masque la barre pleine largeur « Prendre rendez-vous » sous le menu (ex. accueil avec FAB). */
   suppressMobileBookingCta?: boolean;
+  /** Masque le bandeau « Cabinet complet » quand la page l'affiche elle-même (ex. accueil, dans le hero). */
+  hideAvailabilityBanner?: boolean;
 }
 
-const { suppressMobileBookingCta = false } = Astro.props;
+const { suppressMobileBookingCta = false, hideAvailabilityBanner = false } = Astro.props;
 
 const burgerBtn = buttonClasses({
   variant: "ghost",
   size: "md",
   className:
-    "shrink-0 xl:hidden !h-10 !min-h-[40px] !w-10 !min-w-[40px] !rounded-lg !p-0 hover:bg-surface-muted",
+    "shrink-0 xl:hidden !h-11 !min-h-[44px] !w-11 !min-w-[44px] !rounded-lg !p-0 hover:bg-surface-muted",
 });
 
 const desktopNavLink =
@@ -154,13 +156,21 @@ const sheetLink =
         >
         <HeaderLink class={sheetLink} href="/ressources/" x-on:click="open = false">Ressources</HeaderLink>
         <HeaderLink class={sheetLink} href="/outils/" x-on:click="open = false">Outils</HeaderLink>
+        <div class="my-2 h-px bg-border-subtle" aria-hidden="true"></div>
+        <DoctolibBookingLink location="Menu mobile" size="md" fullWidth>
+          Prendre rendez-vous
+        </DoctolibBookingLink>
       </div>
     </div>
   </div>
 </header>
-<div class="mx-auto w-full max-w-[1140px] px-4 sm:px-6 lg:px-8">
-  <ConsultationAvailability class="my-3 w-full" />
-</div>
+{
+  !hideAvailabilityBanner && (
+    <div class="mx-auto w-full max-w-[1140px] px-4 sm:px-6 lg:px-8">
+      <ConsultationAvailability class="my-3 w-full" />
+    </div>
+  )
+}
 {
   !suppressMobileBookingCta && (
     <nav aria-label="Prise de rendez-vous" class="px-4 pb-4 sm:px-6 lg:px-8 xl:hidden">
