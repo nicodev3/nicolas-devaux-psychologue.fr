@@ -34,9 +34,11 @@ export const SERVED_CITIES_LABEL =
 export const SITE_DESCRIPTION =
   "Nicolas Devaux, psychologue clinicien : consultations pour adultes, adolescents et couples, en cabinet ou en visio. TCC, MOSAIC et thérapie de couple.";
 
+export const DOCTOLIB_PROFILE_URL = "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux";
+
 /** URL unique « Prendre rendez-vous » Doctolib (tracking campaign conservée). */
 export const DOCTOLIB_BOOKING_URL =
-  "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux";
+  `${DOCTOLIB_PROFILE_URL}/booking?utm_campaign=website-button&utm_source=nicolas-devaux-sceaux-website-button&utm_medium=referral&utm_content=withpreview-white-inlined&utm_term=nicolas-devaux-sceaux`;
 
 /** Raison sociale (entreprise individuelle). */
 export const LEGAL_ENTITY_NAME = "Nicolas Devaux — EI";

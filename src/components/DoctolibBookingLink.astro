@@ -2,7 +2,7 @@
 import DoctolibMark from "./DoctolibMark.astro";
 import { buttonClasses, type ButtonSize } from "./ui/button";
 import { DOCTOLIB_BOOKING_URL } from "../consts";
-import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
+import { BOOKING_FOR_EXISTING_PATIENTS_ONLY, CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
 
 interface Props {
   /** Emplacement pour le tracking Umami. */
@@ -25,9 +25,7 @@ const {
   markSize = size === "sm" ? "sm" : size === "lg" ? "lg" : "md",
 } = Astro.props;
 
-/* Cabinet complet : bouton secondaire réservé aux patients déjà suivis (libellé commun à tout le site). */
-const { isFull } = CONSULTATION_AVAILABILITY;
-const fullLabel = size === "sm" ? CONSULTATION_AVAILABILITY.bookingLabelShort : CONSULTATION_AVAILABILITY.bookingLabel;
+const followUpLabel = size === "sm" ? CONSULTATION_AVAILABILITY.bookingLabelShort : CONSULTATION_AVAILABILITY.bookingLabel;
 ---
 
 <a
@@ -35,18 +33,18 @@ const fullLabel = size === "sm" ? CONSULTATION_AVAILABILITY.bookingLabelShort : 
   target="_blank"
   rel="noopener noreferrer"
   class={buttonClasses({
-    variant: isFull ? "secondary" : "primary",
+    variant: BOOKING_FOR_EXISTING_PATIENTS_ONLY ? "secondary" : "primary",
     size,
     fullWidth,
     className,
   })}
-  aria-label={isFull ? "Patients déjà suivis : prendre rendez-vous sur Doctolib" : ariaLabel}
+  aria-label={BOOKING_FOR_EXISTING_PATIENTS_ONLY ? "Patients déjà suivis : prendre rendez-vous sur Doctolib" : ariaLabel}
   data-track-doctolib
   data-track-location={location}
-  data-booking-audience={isFull ? "suivis" : undefined}
+  data-booking-audience={BOOKING_FOR_EXISTING_PATIENTS_ONLY ? "suivis" : undefined}
 >
   <span class="inline-flex items-center justify-center gap-2">
     <DoctolibMark size={markSize} />
-    <span class="[text-wrap:balance] [overflow-wrap:normal]">{isFull ? fullLabel : <slot>Prendre rendez-vous</slot>}</span>
+    <span class="[text-wrap:balance] [overflow-wrap:normal]">{BOOKING_FOR_EXISTING_PATIENTS_ONLY ? followUpLabel : <slot>Prendre rendez-vous</slot>}</span>
   </span>
 </a>

@@ -2,6 +2,7 @@
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
+import { BOOKING_SENTENCE } from "../data/consultation-availability";
 import {
   NEARBY_CITIES,
   CABINET_ADDRESS_LINE,
@@ -119,7 +120,7 @@ import {
       <ul>
         <li>Consultations sur rendez-vous uniquement.</li>
         <li>Cabinet à Sceaux et <a href="/psychologue-en-ligne/" class="text-link">téléconsultation</a> selon les situations.</li>
-        <li>Prise de rendez-vous via Doctolib.</li>
+        <li>{BOOKING_SENTENCE}</li>
       </ul>
       <DoctolibBookingLink location="Page Consulter" size="lg" class="mt-4 shrink-0">
         Prendre rendez-vous

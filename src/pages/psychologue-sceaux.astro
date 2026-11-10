@@ -7,18 +7,22 @@ import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
 import AuthorCard from "../components/AuthorCard.astro";
 import BookingFab from "../components/BookingFab.astro";
 import LucideIcon from "../components/LucideIcon.astro";
-import { BOOKING_SENTENCE } from "../data/consultation-availability";
+import {
+  BOOKING_FOR_EXISTING_PATIENTS_ONLY,
+  BOOKING_SENTENCE,
+  CONSULTATION_AVAILABILITY,
+} from "../data/consultation-availability";
 import rueHoudanSceaux from "../assets/locations/rue-houdan-sceaux.jpg";
 import cabinetBureau from "../assets/cabinet-1.webp";
 import cabinetSalon from "../assets/cabinet-2.webp";
 import { buttonClasses } from "../components/ui/button";
 import {
   CABINET_ADDRESS_LINE,
+  DOCTOLIB_PROFILE_URL,
   GOOGLE_MAPS_CABINET_URL,
   GOOGLE_MAPS_EMBED_URL,
   SERVED_CITIES_LABEL,
   OPENING_APPOINTMENT_NOTE,
-  OPENING_HOURS_TEXT,
   OPENING_WEEKDAYS_HOURS,
   OPENING_WEEKDAYS_LABEL,
   OPENING_FRIDAY_LABEL,
@@ -41,7 +45,7 @@ const isProd = import.meta.env.PROD;
 const faqItems = [
   {
     question: "Comment prendre rendez-vous avec un psychologue à Sceaux ?",
-    answer: `${BOOKING_SENTENCE} Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
+    answer: `${OPENING_APPOINTMENT_NOTE} ${BOOKING_SENTENCE}`,
   },
   {
     question: "Les séances sont-elles remboursées ?",
@@ -101,9 +105,12 @@ const secondaryCtaClasses = buttonClasses({
     <header class="space-y-6 lg:col-start-1 lg:row-start-1">
       <p class="typo-body-lg text-ink-secondary">
         Je suis <a href="/nicolas-devaux-psychologue/" class="text-link">Nicolas Devaux</a>, psychologue clinicien. Je
-        reçois adultes, adolescents et couples dans mon cabinet de la rue Houdan, ou en visioconférence si vous ne
-        pouvez pas vous déplacer.
+        reçois les adultes, les adolescents et les couples au {CABINET_ADDRESS_LINE}, ainsi qu'en visioconférence
+        selon la situation.
       </p>
+      {BOOKING_FOR_EXISTING_PATIENTS_ONLY && !CONSULTATION_AVAILABILITY.isFull && (
+        <p><a href="#pratique-heading" class="text-link">Comment demander un premier rendez-vous</a></p>
+      )}
       <AuthorCard />
     </header>
 
@@ -152,7 +159,7 @@ const secondaryCtaClasses = buttonClasses({
             Prendre rendez-vous
           </DoctolibBookingLink>
         </div>
-        <p class="mt-3 text-center font-ui text-xs text-ink-secondary">Réservation sur Doctolib, nouvel onglet</p>
+        <p class="mt-3 text-center font-ui text-xs text-ink-secondary">{BOOKING_SENTENCE}</p>
       </div>
     </aside>
 
@@ -227,6 +234,7 @@ const secondaryCtaClasses = buttonClasses({
           <li><strong>En RER B :</strong> gares Robinson ou Sceaux (ligne Paris – Robinson).</li>
           <li><strong>En voiture :</strong> parking Penthièvre, sur la même rue.</li>
           <li><strong>À pied :</strong> la rue Houdan est la rue piétonne du centre-ville.</li>
+          <li><strong>Accessibilité :</strong> le cabinet se trouve au deuxième étage, sans ascenseur.</li>
         </ul>
         <div class="overflow-hidden rounded-xl border border-border-subtle bg-surface-muted">
           <iframe
@@ -244,6 +252,12 @@ const secondaryCtaClasses = buttonClasses({
 
       <section class="space-y-4" aria-labelledby="pratique-heading">
         <SectionHeading id="pratique-heading" title="Votre premier rendez-vous" />
+        {BOOKING_FOR_EXISTING_PATIENTS_ONLY && !CONSULTATION_AVAILABILITY.isFull && (
+          <p>
+            Pour une première demande, vous trouverez les coordonnées du cabinet sur
+            {" "}<a href={DOCTOLIB_PROFILE_URL} class="text-link">mon profil Doctolib</a>.
+          </p>
+        )}
         <p>
           Les premières séances permettent de clarifier votre demande, de comprendre ce que vous traversez et de
           définir ensemble le cadre de travail le plus adapté. Le suivi est ajusté à vos besoins, à vos objectifs et à

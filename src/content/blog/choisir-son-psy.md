@@ -30,6 +30,8 @@ La profession de psychologue est une profession réglementée, encadrée par le 
 
 L'usurpation du titre de psychologue est un délit. La loi renvoie aux peines prévues pour l'usurpation de titre : l'[article 433-17 du Code pénal](https://www.enseignementsup-recherche.gouv.fr/fr/psychologue-une-profession-reglementee-en-france-46456) prévoit jusqu'à un an d'emprisonnement et 15 000 euros d'amende pour l'usage, sans droit, d'un titre attaché à une profession réglementée.
 
+Vous trouverez les consultations que je propose et les modalités d'un premier rendez-vous sur la page de mon [cabinet de psychologie à Sceaux](/psychologue-sceaux/).
+
 ### Le psychiatre
 
 Le **psychiatre** est un médecin spécialiste des maladies psychiatriques. Il peut à ce titre prescrire des médicaments qui soulagent la souffrance psychique.

@@ -1,15 +1,14 @@
 ---
 import DoctolibBookingLink from "./DoctolibBookingLink.astro";
-import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
+import { BOOKING_FOR_EXISTING_PATIENTS_ONLY } from "../data/consultation-availability";
 ---
 
-{/* Cabinet complet : pas de bouton flottant, la réservation reste accessible aux patients suivis via les autres liens. */}
 {/*
   Bouton flottant : visible une fois le hero (#hero) sorti de l'écran, et masqué tant
   qu'un autre bouton de réservation est à l'écran (#horaires-tarifs, ou tout élément
   marqué data-booking-fab-hide) ainsi qu'au-dessus du pied de page.
 */}
-{!CONSULTATION_AVAILABILITY.isFull && (<Fragment>
+{!BOOKING_FOR_EXISTING_PATIENTS_ONLY && (<Fragment>
 <script is:inline>
   document.addEventListener("alpine:init", () => {
     Alpine.data("bookingFab", () => ({
