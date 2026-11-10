@@ -1,6 +1,9 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
 import {
+  OPENING_APPOINTMENT_NOTE,
+  OPENING_FRIDAY_HOURS,
+  OPENING_FRIDAY_LABEL,
   OPENING_SATURDAY_HOURS,
   OPENING_SATURDAY_LABEL,
   OPENING_WEEKDAYS_HOURS,
@@ -41,6 +44,10 @@ const tariffs = [
               <span class="tabular-nums">{OPENING_WEEKDAYS_HOURS}</span>
             </li>
             <li class="flex flex-wrap justify-between gap-x-4 gap-y-1">
+              <span>{OPENING_FRIDAY_LABEL}</span>
+              <span class="tabular-nums">{OPENING_FRIDAY_HOURS}</span>
+            </li>
+            <li class="flex flex-wrap justify-between gap-x-4 gap-y-1">
               <span>{OPENING_SATURDAY_LABEL}</span>
               <span class="tabular-nums">{OPENING_SATURDAY_HOURS}</span>
             </li>
@@ -49,6 +56,7 @@ const tariffs = [
               <span>Fermé</span>
             </li>
           </ul>
+          <p class="mt-3 font-ui text-sm text-ink-secondary">{OPENING_APPOINTMENT_NOTE}</p>
         </div>
         <p class="font-ui text-sm text-ink-secondary">
           Paiement : chèques, espèces et virement bancaire. Cartes bancaires non acceptées.

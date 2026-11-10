@@ -1,6 +1,6 @@
 /** Activer lors de la prochaine compilation pour signaler un cabinet complet. */
 export const CONSULTATION_AVAILABILITY = {
-  isFull: true,
+  isFull: false,
   title: "Cabinet complet",
   message: "Je ne prends actuellement pas de nouveaux patients.",
   /** Précise à qui reste ouverte la réservation Doctolib. */

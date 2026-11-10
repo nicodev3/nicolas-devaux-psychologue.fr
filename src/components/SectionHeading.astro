@@ -2,11 +2,11 @@
 import { applyFrenchTypography } from '../utils/frenchTypography.js';
 
 /**
- * Titre de section H2 + libellé « eyebrow » (numéro — thème).
+ * Titre de section H2, précédé d'un libellé « eyebrow » optionnel (numéro — thème).
  * Utiliser `title` OU le slot par défaut pour le contenu du h2 (ex. lien).
  */
 interface Props {
-  eyebrow: string;
+  eyebrow?: string;
   title?: string;
   id?: string;
   class?: string;
@@ -14,12 +14,12 @@ interface Props {
 
 const { eyebrow, title, id, class: className } = Astro.props;
 const hasSlot = Astro.slots.has('default');
-const formattedEyebrow = applyFrenchTypography(eyebrow);
+const formattedEyebrow = eyebrow ? applyFrenchTypography(eyebrow) : undefined;
 const formattedTitle = title ? applyFrenchTypography(title) : undefined;
 ---
 
 <header class:list={['section-heading-group', className]}>
-  <p class="typo-eyebrow">{formattedEyebrow}</p>
+  {formattedEyebrow && <p class="typo-eyebrow">{formattedEyebrow}</p>}
   <h2 id={id} class="font-display typo-display-lg text-pretty text-ink-primary">
     {hasSlot ? <slot /> : formattedTitle}
   </h2>

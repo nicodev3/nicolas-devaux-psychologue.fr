@@ -116,6 +116,16 @@
   margin-bottom: 1rem;
 }
 
+/* Titre précédé d'un libellé : l'espace va au-dessus du groupe, pour que le libellé
+   reste collé à son titre au lieu de flotter sous la section précédente. */
+.c-wysiwig .section-heading-group {
+  margin-top: 2rem;
+}
+
+.c-wysiwig .section-heading-group > h2 {
+  margin-top: 0;
+}
+
 .c-prose h2 {
   border-left: 0;
   color: var(--color-ink-primary);

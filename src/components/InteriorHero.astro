@@ -7,6 +7,8 @@ import { applyFrenchTypography } from "../utils/frenchTypography.js";
 interface Props {
   title: string;
   description?: string;
+  /** Phrase d'accroche visible sous le titre ; à défaut, la meta description. */
+  lede?: string;
   eyebrow?: string;
   heroImage?: ImageMetadata;
   heroAlt?: string;
@@ -17,6 +19,7 @@ interface Props {
 const {
   title,
   description,
+  lede,
   eyebrow = "Cabinet de psychologie",
   heroImage,
   heroAlt = "Cabinet de psychologie à Sceaux — espace de consultation",
@@ -27,9 +30,11 @@ const {
 const image = heroImage ?? defaultHero;
 const formattedTitle = applyFrenchTypography(title);
 const formattedEyebrow = applyFrenchTypography(eyebrow);
+const heroText = lede ?? description;
 ---
 
 <section
+  id="hero"
   class="relative flex min-h-[420px] items-end overflow-hidden md:min-h-[560px] lg:min-h-[640px]"
   aria-labelledby="interior-hero-heading"
 >
@@ -54,7 +59,7 @@ const formattedEyebrow = applyFrenchTypography(eyebrow);
     ></div>
     {
       heroCredit && (
-        <p class="absolute right-3 bottom-3 z-10 rounded bg-black/55 px-2 py-1 font-ui text-[0.65rem] text-white/90">
+        <p class="absolute right-3 bottom-3 z-10 rounded bg-black/55 px-2 py-1 font-ui text-xs text-white/90">
           {heroCreditUrl ? (
             <a href={heroCreditUrl} target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">
               {heroCredit}
@@ -79,9 +84,9 @@ const formattedEyebrow = applyFrenchTypography(eyebrow);
         {formattedTitle}
       </h1>
       {
-        description && (
+        heroText && (
           <p class="typo-body-lg mb-0 max-w-lg text-pretty text-ink-secondary">
-            {description}
+            {applyFrenchTypography(heroText)}
           </p>
         )
       }

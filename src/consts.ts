@@ -54,20 +54,29 @@ export const ADELI_NUMBER: string | null = null;
 export const CONTACT_EMAIL = "ndevaux@gmail.com";
 
 /** Jours d'ouverture en semaine (affichage). */
-export const OPENING_WEEKDAYS_LABEL = "Lundi, mardi et vendredi";
+export const OPENING_WEEKDAYS_LABEL = "Lundi et mardi";
 
 /** Plage horaire en semaine (affichage). */
 export const OPENING_WEEKDAYS_HOURS = "8h00 - 19h00";
 
+/** Vendredi : après-midi seulement (affichage). */
+export const OPENING_FRIDAY_LABEL = "Vendredi";
+
+/** Plage horaire du vendredi (affichage). */
+export const OPENING_FRIDAY_HOURS = "14h00 - 18h00";
+
 /** Samedi alterné (affichage). */
-export const OPENING_SATURDAY_LABEL = "Samedi (un matin sur deux)";
+export const OPENING_SATURDAY_LABEL = "Samedi";
 
 /** Plage horaire samedi (affichage). */
-export const OPENING_SATURDAY_HOURS = "Sur rendez-vous";
+export const OPENING_SATURDAY_HOURS = "Un matin sur deux";
+
+/** Rappel commun à toutes les plages horaires. */
+export const OPENING_APPOINTMENT_NOTE = "Toutes les consultations ont lieu sur rendez-vous.";
 
 /** Texte récapitulatif pour FAQ et contenus. */
 export const OPENING_HOURS_TEXT =
-  "le lundi, le mardi et le vendredi de 8h à 19h, et un samedi matin sur deux";
+  "le lundi et le mardi de 8h à 19h, le vendredi de 14h à 18h, et un samedi matin sur deux";
 
 /** Tags du blog — valeurs autorisées et libellés français. */
 export const BLOG_TAGS = [
@@ -106,8 +115,14 @@ export const BLOG_TAG_LABELS: Record<BlogTag, string> = {
 export const OPENING_HOURS_SCHEMA = [
   {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Friday"],
+    dayOfWeek: ["Monday", "Tuesday"],
     opens: "08:00",
     closes: "19:00",
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: "Friday",
+    opens: "14:00",
+    closes: "18:00",
   },
 ] as const;

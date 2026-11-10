@@ -105,7 +105,7 @@ export function buildLocalBusinessSchema() {
         contactType: "Prise de rendez-vous en ligne",
         url: "https://www.doctolib.fr/psychologue/sceaux/nicolas-devaux-sceaux",
         availableLanguage: ["fr-FR", "en-GB"],
-        hoursAvailable: OPENING_HOURS_SCHEMA[0],
+        hoursAvailable: OPENING_HOURS_SCHEMA,
       },
     ],
     sameAs: [

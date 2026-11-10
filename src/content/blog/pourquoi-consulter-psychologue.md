@@ -81,5 +81,5 @@ Problèmes de couple, difficultés familiales, violences conjugales, divorce, ou
 
 ## Consulter à Sceaux ou en ligne
 
-Si vous vous reconnaissez dans l'une de ces situations, vous pouvez consulter au cabinet — voir la page [psychologue à Sceaux](/psychologue-sceaux/) — ou, si vous êtes éloigné ou préférez ce format, opter pour une [consultation avec un psychologue en ligne](/psychologue-en-ligne/).
+Si vous vous reconnaissez dans l'une de ces situations, vous pouvez consulter au cabinet — voir la page [psychologue à Sceaux](/psychologue-sceaux/) — ou, si vous êtes éloigné ou ne pouvez pas vous déplacer, opter pour une [consultation avec un psychologue en ligne](/psychologue-en-ligne/).
 

@@ -1,19 +1,28 @@
 ---
+import { Picture } from "astro:assets";
+import { ChevronDown } from "lucide";
 import Layout from "../layouts/BlogPost.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
+import AuthorCard from "../components/AuthorCard.astro";
+import BookingFab from "../components/BookingFab.astro";
+import LucideIcon from "../components/LucideIcon.astro";
 import { BOOKING_SENTENCE } from "../data/consultation-availability";
 import rueHoudanSceaux from "../assets/locations/rue-houdan-sceaux.jpg";
+import cabinetBureau from "../assets/cabinet-1.webp";
+import cabinetSalon from "../assets/cabinet-2.webp";
 import { buttonClasses } from "../components/ui/button";
 import {
   CABINET_ADDRESS_LINE,
   GOOGLE_MAPS_CABINET_URL,
   GOOGLE_MAPS_EMBED_URL,
-  NEARBY_CITIES,
   SERVED_CITIES_LABEL,
+  OPENING_APPOINTMENT_NOTE,
   OPENING_HOURS_TEXT,
   OPENING_WEEKDAYS_HOURS,
   OPENING_WEEKDAYS_LABEL,
+  OPENING_FRIDAY_LABEL,
+  OPENING_FRIDAY_HOURS,
   OPENING_SATURDAY_LABEL,
   OPENING_SATURDAY_HOURS,
 } from "../consts";
@@ -23,70 +32,47 @@ const title = "Psychologue à Sceaux";
 const seoTitle = "Psychologue Sceaux (92330) | Nicolas Devaux";
 const description =
   "Psychologue à Sceaux (92330), approche intégrative (TCC, thérapies brèves) : cabinet 63 rue Houdan, proche RER Robinson. Adultes, couples. RDV sur Doctolib.";
+/** Accroche visible du hero : la meta description reste réservée aux moteurs de recherche. */
+const lede =
+  "Un cabinet calme au cœur de Sceaux, à quelques minutes du RER B. Consultations pour adultes, adolescents et couples, au cabinet ou en visioconférence.";
 
 const isProd = import.meta.env.PROD;
+
+/** Questions affichées en accordéon ; le JSON-LD est construit à partir de la même liste. */
+const faqItems = [
+  {
+    question: "Où se trouve le cabinet de psychologie à Sceaux ?",
+    answer: `Le cabinet est situé au ${CABINET_ADDRESS_LINE}, dans le centre-ville, à quelques minutes à pied des gares RER B Robinson et Sceaux. Le parking Penthièvre se trouve sur la même rue.`,
+  },
+  {
+    question: "Y a-t-il un psychologue à Sceaux pour le Plessis-Robinson et les communes voisines ?",
+    answer:
+      "Oui. Le cabinet accueille des patients de Sceaux, du Plessis-Robinson, d'Antony, de Bourg-la-Reine et des Hauts-de-Seine voisins. Des consultations en visioconférence sont aussi proposées.",
+  },
+  {
+    question: "Quelles consultations sont proposées au cabinet de Sceaux ?",
+    answer:
+      "Le cabinet propose des consultations individuelles pour adultes et adolescents, dans une approche intégrative qui associe les thérapies cognitives et comportementales (TCC) à d'autres approches, des séances MOSAIC, des thérapies de couple, et des consultations en visioconférence.",
+  },
+  {
+    question: "Comment prendre rendez-vous avec un psychologue à Sceaux ?",
+    answer: `${BOOKING_SENTENCE} Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
+  },
+  {
+    question: "Quels sont les tarifs des consultations ?",
+    answer:
+      "La consultation individuelle est à 80 €, la séance MOSAIC à 90 € et la consultation de couple à 110 €. Le détail des tarifs et des durées est disponible sur la page Tarifs.",
+  },
+];
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Comment trouver un psychologue à Sceaux près du RER ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: `Le cabinet de Nicolas Devaux est au ${CABINET_ADDRESS_LINE}, à quelques minutes à pied des gares RER B Robinson et Sceaux. ${BOOKING_SENTENCE}`,
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Y a-t-il un psychologue à Sceaux pour le Plessis-Robinson et les communes voisines ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: `Oui. Le cabinet accueille des patients de Sceaux, du Plessis-Robinson, d'Antony, de Bourg-la-Reine et des Hauts-de-Seine voisins. Des consultations en visioconférence sont aussi proposées.`,
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Où se trouve le cabinet de psychologie à Sceaux ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: `Le cabinet est situé au ${CABINET_ADDRESS_LINE}, dans le centre-ville, à quelques minutes à pied des gares RER B Robinson et Sceaux. Le parking Penthièvre se trouve sur la même rue.`,
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quelles consultations sont proposées au cabinet de Sceaux ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Le cabinet propose des consultations individuelles pour adultes et adolescents, dans une approche intégrative qui associe les thérapies cognitives et comportementales (TCC) à d'autres approches, des séances MOSAIC, des thérapies de couple, et des consultations en visioconférence.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Comment prendre rendez-vous avec un psychologue à Sceaux ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: `${BOOKING_SENTENCE} Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Recevez-vous des patients des villes voisines de Sceaux ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: `Oui. Le cabinet reçoit des personnes habitant Sceaux et les communes voisines : ${NEARBY_CITIES} ou Le Plessis-Robinson. Des consultations en ligne sont également possibles si vous préférez ne pas vous déplacer.`,
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quels sont les tarifs des consultations ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "La consultation individuelle est à 80 €, la séance MOSAIC à 90 € et la consultation de couple à 110 €. Le détail des tarifs et des durées est disponible sur la page Tarifs.",
-      },
-    },
-  ],
+  mainEntity: faqItems.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
 };
 
 const secondaryCtaClasses = buttonClasses({
@@ -100,245 +86,221 @@ const secondaryCtaClasses = buttonClasses({
   title={title}
   seoTitle={seoTitle}
   description={description}
+  lede={lede}
   pubDate={new Date("May 24 2026")}
   showDate={false}
-  eyebrow="Cabinet"
+  eyebrow="Sceaux · Hauts-de-Seine"
+  wideContent
   heroImage={rueHoudanSceaux}
   heroAlt="Rue Houdan, rue piétonne du centre-ville de Sceaux"
-  heroCredit="Photo : Chabe01 — Wikimedia Commons"
+  heroCredit="Photo : Chabe01, Wikimedia Commons"
   heroCreditUrl="https://commons.wikimedia.org/wiki/File:Rue_Houdan_-_Sceaux_(FR92)_-_2023-03-19_-_6.jpg"
 >
   {isProd && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
-  <section class="space-y-10">
-    <header class="space-y-5">
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,42rem)_minmax(16rem,1fr)] lg:gap-x-14 xl:gap-x-20">
+    <header class="space-y-6 lg:col-start-1 lg:row-start-1">
       <p class="typo-body-lg text-ink-secondary">
-        Je suis <a href="/nicolas-devaux-psychologue/" class="text-link">Nicolas Devaux</a>, psychologue
-        clinicien, avec une approche intégrative : je m'appuie notamment sur les{" "}
-        <a href="/therapie-cognitive-et-comportementale/" class="text-link"
-          >thérapies cognitives et comportementales (TCC)</a
-        >, y compris celles de{" "}
-        <a href="/tcc-troisieme-vague/" class="text-link">troisième vague</a> comme la{" "}
-        <a href="/therapie-acceptation-et-engagement/" class="text-link">thérapie d'acceptation et d'engagement</a>,{" "}
-        que j'associe aux{" "}
-        <a href="/blog/therapie-breve/" class="text-link">thérapies brèves et solutionnistes</a>, comme la{" "}
-        <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>, selon votre situation. Je reçois au cabinet, au <strong class="text-ink-primary">{CABINET_ADDRESS_LINE}</strong>,
-        pour des consultations destinées aux adultes, adolescents et couples — en présentiel ou en
-        visioconférence.
-      </p>
-      <p class="typo-body text-ink-secondary">
-        Le cabinet est situé dans le centre de Sceaux, à quelques minutes des gares RER B
-        <strong class="text-ink-primary">Robinson</strong> et
-        <strong class="text-ink-primary">Sceaux</strong>, et facilement accessible depuis Le
-        Plessis-Robinson et les communes voisines.
+        Je suis <a href="/nicolas-devaux-psychologue/" class="text-link">Nicolas Devaux</a>, psychologue clinicien. Je
+        reçois adultes, adolescents et couples dans mon cabinet du centre de Sceaux, rue Houdan, à quelques minutes à
+        pied des gares RER&nbsp;B <strong class="text-ink-primary">Robinson</strong> et <strong class="text-ink-primary"
+          >Sceaux</strong
+        >, ou en visioconférence si vous ne pouvez pas vous déplacer.
       </p>
       <div class="flex flex-col gap-3 sm:flex-row">
         <DoctolibBookingLink location="Psychologue Sceaux intro" size="lg" class="w-full justify-center sm:w-auto">
           Prendre rendez-vous
         </DoctolibBookingLink>
         <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class={secondaryCtaClasses}>
-          Voir l'itinéraire
+          Voir l'itinéraire<span class="sr-only"> (Google Maps, nouvel onglet)</span>
         </a>
       </div>
     </header>
 
-    <aside
-      class="rounded-xl border border-border-subtle bg-surface-muted/60 px-5 py-5 sm:px-6"
-      aria-label="Coordonnées du cabinet"
-    >
-      <h2 class="font-display typo-display-md mb-4 text-ink-primary">Coordonnées du cabinet</h2>
-      <dl class="grid gap-3 font-ui text-sm text-ink-secondary sm:grid-cols-2">
-        <div>
-          <dt class="font-semibold text-ink-primary">Adresse</dt>
-          <dd class="mt-1">
-            <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class="text-link">
-              {CABINET_ADDRESS_LINE}
-            </a>
-          </dd>
-        </div>
-        <div>
-          <dt class="font-semibold text-ink-primary">Horaires</dt>
-          <dd class="mt-1">
-            {OPENING_WEEKDAYS_LABEL} : {OPENING_WEEKDAYS_HOURS}<br />
-            {OPENING_SATURDAY_LABEL} : {OPENING_SATURDAY_HOURS}
-          </dd>
-        </div>
-        <div>
-          <dt class="font-semibold text-ink-primary">Accès</dt>
-          <dd class="mt-1">RER B Robinson ou Sceaux · Parking Penthièvre (rue Houdan)</dd>
-        </div>
-      </dl>
+    <aside class="lg:col-start-2 lg:row-span-2 lg:row-start-1" aria-labelledby="coordonnees-heading">
+      <div class="rounded-xl border border-border-subtle bg-surface-muted/60 px-5 py-6 sm:px-6 lg:sticky lg:top-28">
+        <h2 id="coordonnees-heading" class="font-display typo-display-md mt-0! mb-5! text-ink-primary">
+          Le cabinet en bref
+        </h2>
+        <dl class="grid gap-4 font-ui text-sm text-ink-secondary sm:grid-cols-2 lg:grid-cols-1">
+          <div>
+            <dt class="font-semibold text-ink-primary">Adresse</dt>
+            <dd class="mt-1">
+              <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class="text-link">
+                {CABINET_ADDRESS_LINE}<span class="sr-only"> (Google Maps, nouvel onglet)</span>
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-ink-primary">Accès</dt>
+            <dd class="mt-1">RER B Robinson ou Sceaux<br />Parking Penthièvre, rue Houdan</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-ink-primary">Horaires</dt>
+            <dd class="mt-1 tabular-nums">
+              {OPENING_WEEKDAYS_LABEL} : {OPENING_WEEKDAYS_HOURS}<br />
+              {OPENING_FRIDAY_LABEL} : {OPENING_FRIDAY_HOURS}<br />
+              {OPENING_SATURDAY_LABEL} : {OPENING_SATURDAY_HOURS.toLowerCase()}
+            </dd>
+            <dd class="mt-2 text-ink-primary">{OPENING_APPOINTMENT_NOTE}</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-ink-primary">Tarifs</dt>
+            <dd class="mt-1 tabular-nums">
+              Individuelle : 80 € (45 min)<br />
+              MOSAIC : 90 € (1 h)<br />
+              Couple : 110 € (1 h)
+            </dd>
+          </div>
+        </dl>
+        <DoctolibBookingLink location="Psychologue Sceaux encadre" size="lg" fullWidth class="mt-6 justify-center">
+          Prendre rendez-vous
+        </DoctolibBookingLink>
+      </div>
     </aside>
 
-    <section class="space-y-4">
-      <SectionHeading eyebrow="01 — Localisation" title="Un psychologue dans le centre de Sceaux" />
-      <p>
-        Le cabinet est installé rue Houdan, dans un secteur calme du centre-ville de Sceaux. Cette
-        adresse est pratique si vous habitez Sceaux, mais aussi si vous venez des communes limitrophes :
-        {NEARBY_CITIES}, Le Plessis-Robinson, Bagneux ou Cachan.
-      </p>
-      <p>
-        Vous pouvez venir à pied depuis le centre de Sceaux, en RER B (arrêts Robinson ou Sceaux), ou en
-        voiture — le parking Penthièvre, rue Houdan, se trouve à proximité immédiate.
-      </p>
-      <p>
-        Les consultations se font uniquement sur rendez-vous. Lors du premier entretien, nous clarifions
-        votre demande et définissons ensemble le cadre de travail le plus adapté.
-      </p>
-    </section>
-
-    <section class="space-y-4">
-      <SectionHeading eyebrow="02 — Zone desservie" title="Psychologue à Sceaux et alentours" />
-      <p>
-        De nombreuses personnes consultent depuis Sceaux et les villes voisines des Hauts-de-Seine. Le
-        cabinet accueille notamment des patients venant de : {SERVED_CITIES_LABEL}.
-      </p>
-      <ul>
-        <li><strong>Sceaux</strong> — centre-ville, RER B Robinson / Sceaux</li>
-        <li><strong>Le Plessis-Robinson</strong> — à quelques minutes en transports ou en voiture</li>
-        <li><strong>Antony</strong>, <strong>Bourg-la-Reine</strong>, <strong>Châtenay-Malabry</strong></li>
-        <li><strong>Fontenay-aux-Roses</strong>, Bagneux, Cachan, L'Haÿ-les-Roses</li>
-      </ul>
-      <p>
-        Si vous préférez ne pas vous déplacer, les{" "}
-        <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a> sont
-        également possibles.
-      </p>
-    </section>
-
-    <section class="space-y-4">
-      <SectionHeading eyebrow="03 — Consultations" title="Les consultations proposées au cabinet" />
-      <p>
-        Selon votre demande, plusieurs cadres de travail sont possibles. Chaque consultation est présentée
-        en détail sur une page dédiée :
-      </p>
-      <ul>
-        <li>
+    <div class="min-w-0 space-y-16 lg:col-start-1 lg:row-start-2">
+      <section class="space-y-4" aria-labelledby="consulter-heading">
+        <SectionHeading id="consulter-heading" title="Pour quoi consulter au cabinet" />
+        <p>
+          Je travaille avec une approche intégrative : je m'appuie notamment sur les{" "}
           <a href="/therapie-cognitive-et-comportementale/" class="text-link"
-            >Thérapie cognitive et comportementale (TCC) à Sceaux</a
-          > — pour l'anxiété, l'insomnie, les ruminations et les comportements qui s'installent, avec des
-          outils concrets à mettre en pratique entre les séances.
-        </li>
-        <li>
-          <a href="/therapie-mosaic/" class="text-link">Thérapie MOSAIC à Sceaux</a> — pour les
-          mémoires douloureuses et les vécus traumatiques ; également possible{" "}
-          <a href="/therapie-mosaic/#mosaic-en-ligne" class="text-link">en visioconférence</a> selon
-          la situation.
-        </li>
-        <li>
-          <a href="/therapie-couple/" class="text-link">Thérapie de couple à Sceaux</a> — pour les conflits
-          répétés, les crises et les difficultés de communication.
-        </li>
-        <li>
-          <a href="/psychologue-en-ligne/" class="text-link">Consultation avec un psychologue en ligne</a> —
-          en visioconférence, si vous êtes éloigné de Sceaux ou que vous préférez ce format.
-        </li>
-        <li>
-          <a href="/psychotherapie/" class="text-link">Psychothérapie individuelle</a> — un accompagnement
-          adapté à votre situation, à votre rythme et à vos objectifs.
-        </li>
-      </ul>
-    </section>
+            >thérapies cognitives et comportementales (TCC)</a
+          >, y compris celles de <a href="/tcc-troisieme-vague/" class="text-link">troisième vague</a> comme la{" "}
+          <a href="/therapie-acceptation-et-engagement/" class="text-link">thérapie d'acceptation et d'engagement</a>,
+          que j'associe aux <a href="/blog/therapie-breve/" class="text-link">thérapies brèves et solutionnistes</a>,
+          comme la <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>, selon votre situation.
+        </p>
+        <ul>
+          <li>
+            <a href="/therapie-cognitive-et-comportementale/" class="text-link"
+              >Thérapie cognitive et comportementale (TCC) à Sceaux</a
+            >, pour l'anxiété, l'insomnie, les ruminations et les comportements qui s'installent, avec des outils
+            concrets à mettre en pratique entre les séances.
+          </li>
+          <li>
+            <a href="/therapie-mosaic/" class="text-link">Thérapie MOSAIC à Sceaux</a>, pour les mémoires douloureuses
+            et les vécus traumatiques, également possible{" "}
+            <a href="/therapie-mosaic/#mosaic-en-ligne" class="text-link">en visioconférence</a> selon la situation.
+          </li>
+          <li>
+            <a href="/therapie-couple/" class="text-link">Thérapie de couple à Sceaux</a>, pour les conflits répétés,
+            les crises et les difficultés de communication.
+          </li>
+          <li>
+            <a href="/psychotherapie/" class="text-link">Psychothérapie individuelle</a>, un accompagnement adapté à
+            votre situation, à votre rythme et à vos objectifs.
+          </li>
+          <li>
+            <a href="/psychologue-en-ligne/" class="text-link">Consultation avec un psychologue en ligne</a>, en
+            visioconférence, si vous êtes éloigné de Sceaux ou ne pouvez pas vous déplacer.
+          </li>
+        </ul>
+      </section>
 
-    <section class="space-y-4">
-      <SectionHeading eyebrow="04 — Accès" title="Accès au cabinet" />
-      <p>
-        <strong>Adresse :</strong> {CABINET_ADDRESS_LINE}.
-      </p>
-      <ul>
-        <li><strong>RER B :</strong> gares Robinson ou Sceaux (ligne Paris – Robinson).</li>
-        <li><strong>Bus :</strong> lignes desservant le centre de Sceaux (selon votre point de départ).</li>
-        <li><strong>Voiture :</strong> parking Penthièvre, rue Houdan.</li>
-      </ul>
-      <div class="overflow-hidden rounded-xl border border-border-subtle bg-surface-muted">
-        <iframe
-          src={GOOGLE_MAPS_EMBED_URL}
-          class="min-h-[280px] w-full border-0 md:min-h-[360px]"
-          title={`Carte du cabinet — ${CABINET_ADDRESS_LINE}`}
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen></iframe>
-      </div>
-      <p>
-        Pour préparer votre venue, consultez aussi la page
-        <a href="/consulter/" class="text-link">Consulter</a> (premier rendez-vous, durée des séances,
-        visioconférence).
-      </p>
-    </section>
+      <section class="space-y-5" aria-labelledby="cabinet-heading">
+        <SectionHeading id="cabinet-heading" title="Le cabinet de la rue Houdan" />
+        <div class="grid grid-cols-2 gap-3 sm:gap-4">
+          <Picture
+            src={cabinetBureau}
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            widths={[360, 540, 720]}
+            sizes="(max-width: 1023px) 50vw, 21rem"
+            alt="Le bureau de consultation : des fauteuils face à face, une bibliothèque et une fenêtre"
+            loading="lazy"
+            decoding="async"
+            pictureAttributes={{ class: "block overflow-hidden rounded-xl" }}
+            class="block aspect-4/3 h-auto w-full object-cover"
+          />
+          <Picture
+            src={cabinetSalon}
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            widths={[360, 540, 720]}
+            sizes="(max-width: 1023px) 50vw, 21rem"
+            alt="Une autre pièce du cabinet, avec un canapé et deux fauteuils bleus"
+            loading="lazy"
+            decoding="async"
+            pictureAttributes={{ class: "block overflow-hidden rounded-xl" }}
+            class="block aspect-4/3 h-auto w-full object-cover"
+          />
+        </div>
+        <p>
+          Un espace simple et calme, pensé pour échanger en toute confidentialité : les informations partagées en
+          consultation sont protégées par le secret professionnel.
+        </p>
+        <AuthorCard />
+      </section>
 
-    <section class="space-y-4">
-      <SectionHeading eyebrow="05 — Pratique" title="Horaires, tarifs et rendez-vous" />
-      <p>
-        Les consultations ont lieu le lundi, le mardi et le vendredi de 8h à 19h, et un samedi matin sur deux, sur rendez-vous. Les séances
-        individuelles durent 45 minutes ; les séances de couple et les séances MOSAIC durent 1 heure.
-      </p>
-      <p>
-        Les tarifs détaillés sont sur la page <a href="/tarifs/" class="text-link">Tarifs</a>. {BOOKING_SENTENCE}
-      </p>
-      <div class="flex flex-col gap-3 sm:flex-row">
-        <DoctolibBookingLink location="Psychologue Sceaux pratique" size="lg" class="w-full justify-center sm:w-auto">
-          Prendre rendez-vous au cabinet
-        </DoctolibBookingLink>
-        <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
-      </div>
-    </section>
+      <section class="space-y-4" aria-labelledby="acces-heading">
+        <SectionHeading id="acces-heading" title="Venir au cabinet" />
+        <ul>
+          <li>
+            <strong>En RER B :</strong> gares Robinson ou Sceaux (ligne Paris – Robinson), à quelques minutes à pied.
+          </li>
+          <li><strong>En voiture :</strong> parking Penthièvre, sur la même rue.</li>
+          <li><strong>À pied :</strong> la rue Houdan est la rue piétonne du centre-ville.</li>
+        </ul>
+        <div class="overflow-hidden rounded-xl border border-border-subtle bg-surface-muted">
+          <iframe
+            src={GOOGLE_MAPS_EMBED_URL}
+            class="min-h-[280px] w-full border-0 md:min-h-[360px]"
+            title={`Carte du cabinet, ${CABINET_ADDRESS_LINE}`}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+        <p>
+          Le cabinet accueille notamment des patients venant de {SERVED_CITIES_LABEL}. Si vous ne pouvez pas vous
+          déplacer, les <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a> sont
+          également possibles.
+        </p>
+      </section>
 
-    <section class="space-y-4">
-      <SectionHeading eyebrow="06 — FAQ" title="Questions fréquentes" />
+      <section id="horaires-tarifs" class="space-y-4" aria-labelledby="pratique-heading">
+        <SectionHeading id="pratique-heading" title="Votre premier rendez-vous" />
+        <p>
+          Lors du premier entretien, nous clarifions votre demande et définissons ensemble le cadre de travail le plus
+          adapté. Les séances individuelles durent 45 minutes ; les séances de couple et les séances MOSAIC durent
+          1 heure.
+        </p>
+        <p>
+          Les consultations ont lieu uniquement sur rendez-vous, {OPENING_HOURS_TEXT}. Le détail des tarifs est sur la
+          page <a href="/tarifs/" class="text-link">Tarifs</a>. {BOOKING_SENTENCE}
+        </p>
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+          <DoctolibBookingLink location="Psychologue Sceaux pratique" size="lg" class="w-full justify-center sm:w-auto">
+            Prendre rendez-vous
+          </DoctolibBookingLink>
+          <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
+        </div>
+      </section>
 
-      <h3 class="font-display typo-display-md text-ink-primary">Comment trouver un psychologue à Sceaux près du RER ?</h3>
-      <p>
-        Le cabinet est au {CABINET_ADDRESS_LINE}, à quelques minutes à pied des gares RER B Robinson et
-        Sceaux. {BOOKING_SENTENCE}
-      </p>
+      <section class="space-y-4" aria-labelledby="faq-heading">
+        <SectionHeading id="faq-heading" title="Questions fréquentes" />
+        <div class="border-t border-border-subtle">
+          {
+            faqItems.map(({ question, answer }) => (
+              <details class="group border-b border-border-subtle">
+                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 py-4 text-ink-primary transition-colors hover:text-brand [&::-webkit-details-marker]:hidden">
+                  <h3 class="m-0! font-ui text-base! leading-snug! font-semibold!">{question}</h3>
+                  <LucideIcon
+                    icon={ChevronDown}
+                    size="lg"
+                    class="mt-0.5 shrink-0 text-ink-secondary transition-transform duration-200 group-open:rotate-180"
+                  />
+                </summary>
+                <p class="pb-5 text-ink-secondary">{answer}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </div>
 
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
-        Y a-t-il un psychologue à Sceaux pour le Plessis-Robinson et les communes voisines ?
-      </h3>
-      <p>
-        Oui. Le cabinet accueille des patients de Sceaux, du Plessis-Robinson, d'Antony, de Bourg-la-Reine
-        et des Hauts-de-Seine voisins. Des <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a> sont aussi proposées.
-      </p>
-
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Où se trouve le cabinet de psychologie à Sceaux ?</h3>
-      <p>
-        Le cabinet est situé au {CABINET_ADDRESS_LINE}, dans le centre-ville, à quelques minutes à pied des
-        gares RER B Robinson et Sceaux. Le parking Penthièvre se trouve sur la même rue.
-      </p>
-
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
-        Quelles consultations sont proposées au cabinet de Sceaux ?
-      </h3>
-      <p>
-        Le cabinet propose des consultations individuelles pour adultes et adolescents, des séances
-        <a href="/therapie-mosaic/" class="text-link">MOSAIC</a>, des
-        <a href="/therapie-couple/" class="text-link">thérapies de couple</a> et des
-        <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a>.
-      </p>
-
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
-        Comment prendre rendez-vous avec un psychologue à Sceaux ?
-      </h3>
-      <p>
-        {BOOKING_SENTENCE} Les consultations ont lieu uniquement sur
-        rendez-vous, {OPENING_HOURS_TEXT}.
-      </p>
-
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">
-        Recevez-vous des patients des villes voisines de Sceaux ?
-      </h3>
-      <p>
-        Oui. Le cabinet reçoit des personnes habitant Sceaux et les communes voisines : {NEARBY_CITIES} ou
-        Le Plessis-Robinson. Des consultations en ligne sont également possibles si vous préférez ne pas vous
-        déplacer.
-      </p>
-
-      <h3 class="font-display typo-display-md mt-5 text-ink-primary">Quels sont les tarifs des consultations ?</h3>
-      <p>
-        La consultation individuelle est à 80 €, la séance MOSAIC à 90 € et la consultation de couple à
-        110 €. Le détail des tarifs et des durées est disponible sur la page
-        <a href="/tarifs/" class="text-link">Tarifs</a>.
-      </p>
-    </section>
-  </section>
+  <div class="lg:hidden">
+    <BookingFab />
+  </div>
 </Layout>

@@ -26,6 +26,8 @@ type Props = Omit<CollectionEntry<"blog">["data"], "tags" | "published"> & {
   readingTimeMinutes?: number;
   hasFaq?: boolean;
   eyebrow?: string;
+  /** Accroche visible du hero intérieur (distincte de la meta description). */
+  lede?: string;
   wideContent?: boolean;
   compactHero?: boolean;
   heroAlt?: string;
@@ -47,6 +49,7 @@ const {
   readingTimeMinutes,
   hasFaq = false,
   eyebrow,
+  lede,
   wideContent = false,
   compactHero = false,
   heroAlt,
@@ -223,6 +226,7 @@ const resolvedHeroImage = heroImage as ImageMetadata | undefined;
             <InteriorHero
               title={title}
               description={description}
+              lede={lede}
               eyebrow={interiorEyebrow}
               heroImage={resolvedHeroImage ?? undefined}
               heroAlt={heroAlt}
