@@ -31,37 +31,36 @@ const title = "Psychologue à Sceaux";
 /** Title ≤ 60 car. — requête principale « psychologue sceaux ». */
 const seoTitle = "Psychologue Sceaux (92330) | Nicolas Devaux";
 const description =
-  "Psychologue à Sceaux (92330), approche intégrative (TCC, thérapies brèves) : cabinet 63 rue Houdan, proche RER Robinson. Adultes, couples. RDV sur Doctolib.";
+  "Psychologue à Sceaux (92330), approche intégrative (TCC, thérapies brèves) : cabinet rue Houdan, proche RER Robinson. Adultes, adolescents, couples.";
 /** Accroche visible du hero : la meta description reste réservée aux moteurs de recherche. */
-const lede =
-  "Un cabinet calme au cœur de Sceaux, à quelques minutes du RER B. Consultations pour adultes, adolescents et couples, au cabinet ou en visioconférence.";
+const lede = "Un cabinet calme au cœur de Sceaux, à quelques minutes à pied des gares RER B Robinson et Sceaux.";
 
 const isProd = import.meta.env.PROD;
 
 /** Questions affichées en accordéon ; le JSON-LD est construit à partir de la même liste. */
 const faqItems = [
   {
-    question: "Où se trouve le cabinet de psychologie à Sceaux ?",
-    answer: `Le cabinet est situé au ${CABINET_ADDRESS_LINE}, dans le centre-ville, à quelques minutes à pied des gares RER B Robinson et Sceaux. Le parking Penthièvre se trouve sur la même rue.`,
-  },
-  {
-    question: "Y a-t-il un psychologue à Sceaux pour le Plessis-Robinson et les communes voisines ?",
-    answer:
-      "Oui. Le cabinet accueille des patients de Sceaux, du Plessis-Robinson, d'Antony, de Bourg-la-Reine et des Hauts-de-Seine voisins. Des consultations en visioconférence sont aussi proposées.",
-  },
-  {
-    question: "Quelles consultations sont proposées au cabinet de Sceaux ?",
-    answer:
-      "Le cabinet propose des consultations individuelles pour adultes et adolescents, dans une approche intégrative qui associe les thérapies cognitives et comportementales (TCC) à d'autres approches, des séances MOSAIC, des thérapies de couple, et des consultations en visioconférence.",
-  },
-  {
     question: "Comment prendre rendez-vous avec un psychologue à Sceaux ?",
     answer: `${BOOKING_SENTENCE} Les consultations ont lieu uniquement sur rendez-vous, ${OPENING_HOURS_TEXT}.`,
   },
   {
-    question: "Quels sont les tarifs des consultations ?",
+    question: "Les séances sont-elles remboursées ?",
     answer:
-      "La consultation individuelle est à 80 €, la séance MOSAIC à 90 € et la consultation de couple à 110 €. Le détail des tarifs et des durées est disponible sur la page Tarifs.",
+      "Les consultations de psychologie ne sont pas remboursées par la Sécurité sociale, mais de nombreuses mutuelles proposent une prise en charge partielle ou totale. Renseignez-vous auprès de la vôtre.",
+  },
+  {
+    question: "Combien de séances sont nécessaires ?",
+    answer:
+      "La durée varie selon vos besoins et vos objectifs. Certaines difficultés peuvent être résolues en quelques séances, d'autres nécessitent un accompagnement plus long. Nous évaluons régulièrement l'évolution et ajustons ensemble le rythme des consultations.",
+  },
+  {
+    question: "Y a-t-il un psychologue à Sceaux pour le Plessis-Robinson et les communes voisines ?",
+    answer: `Oui. Le cabinet accueille notamment des patients venant de ${SERVED_CITIES_LABEL}. Des consultations en visioconférence sont aussi possibles si vous ne pouvez pas vous déplacer.`,
+  },
+  {
+    question: "Ce que je dis en séance reste-t-il confidentiel ?",
+    answer:
+      "Oui. Les informations échangées dans le cadre des consultations sont protégées par le secret professionnel, au cabinet comme en visioconférence.",
   },
 ];
 
@@ -98,27 +97,20 @@ const secondaryCtaClasses = buttonClasses({
 >
   {isProd && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
-  <div class="grid gap-12 lg:grid-cols-[minmax(0,42rem)_minmax(16rem,1fr)] lg:gap-x-14 xl:gap-x-20">
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,38rem)_minmax(17rem,1fr)] lg:gap-x-16 xl:gap-x-24">
     <header class="space-y-6 lg:col-start-1 lg:row-start-1">
       <p class="typo-body-lg text-ink-secondary">
         Je suis <a href="/nicolas-devaux-psychologue/" class="text-link">Nicolas Devaux</a>, psychologue clinicien. Je
-        reçois adultes, adolescents et couples dans mon cabinet du centre de Sceaux, rue Houdan, à quelques minutes à
-        pied des gares RER&nbsp;B <strong class="text-ink-primary">Robinson</strong> et <strong class="text-ink-primary"
-          >Sceaux</strong
-        >, ou en visioconférence si vous ne pouvez pas vous déplacer.
+        reçois adultes, adolescents et couples dans mon cabinet de la rue Houdan, ou en visioconférence si vous ne
+        pouvez pas vous déplacer.
       </p>
-      <div class="flex flex-col gap-3 sm:flex-row">
-        <DoctolibBookingLink location="Psychologue Sceaux intro" size="lg" class="w-full justify-center sm:w-auto">
-          Prendre rendez-vous
-        </DoctolibBookingLink>
-        <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class={secondaryCtaClasses}>
-          Voir l'itinéraire<span class="sr-only"> (Google Maps, nouvel onglet)</span>
-        </a>
-      </div>
+      <AuthorCard />
     </header>
 
     <aside class="lg:col-start-2 lg:row-span-2 lg:row-start-1" aria-labelledby="coordonnees-heading">
-      <div class="rounded-xl border border-border-subtle bg-surface-muted/60 px-5 py-6 sm:px-6 lg:sticky lg:top-28">
+      <div
+        class="rounded-xl border border-border-subtle bg-surface-muted/60 px-5 py-6 sm:px-6 lg:sticky lg:top-28"
+      >
         <h2 id="coordonnees-heading" class="font-display typo-display-md mt-0! mb-5! text-ink-primary">
           Le cabinet en bref
         </h2>
@@ -127,7 +119,7 @@ const secondaryCtaClasses = buttonClasses({
             <dt class="font-semibold text-ink-primary">Adresse</dt>
             <dd class="mt-1">
               <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class="text-link">
-                {CABINET_ADDRESS_LINE}<span class="sr-only"> (Google Maps, nouvel onglet)</span>
+                {CABINET_ADDRESS_LINE}<span class="sr-only"> (itinéraire Google Maps, nouvel onglet)</span>
               </a>
             </dd>
           </div>
@@ -140,7 +132,8 @@ const secondaryCtaClasses = buttonClasses({
             <dd class="mt-1 tabular-nums">
               {OPENING_WEEKDAYS_LABEL} : {OPENING_WEEKDAYS_HOURS}<br />
               {OPENING_FRIDAY_LABEL} : {OPENING_FRIDAY_HOURS}<br />
-              {OPENING_SATURDAY_LABEL} : {OPENING_SATURDAY_HOURS.toLowerCase()}
+              {OPENING_SATURDAY_LABEL} : {OPENING_SATURDAY_HOURS.toLowerCase()}<br />
+              Mercredi et jeudi : fermé
             </dd>
             <dd class="mt-2 text-ink-primary">{OPENING_APPOINTMENT_NOTE}</dd>
           </div>
@@ -151,51 +144,47 @@ const secondaryCtaClasses = buttonClasses({
               MOSAIC : 90 € (1 h)<br />
               Couple : 110 € (1 h)
             </dd>
+            <dd class="mt-2">Non remboursé par la Sécurité sociale ; certaines mutuelles prennent en charge.</dd>
           </div>
         </dl>
-        <DoctolibBookingLink location="Psychologue Sceaux encadre" size="lg" fullWidth class="mt-6 justify-center">
-          Prendre rendez-vous
-        </DoctolibBookingLink>
+        <div class="mt-6" data-booking-fab-hide>
+          <DoctolibBookingLink location="Psychologue Sceaux encadre" size="lg" fullWidth class="justify-center">
+            Prendre rendez-vous
+          </DoctolibBookingLink>
+        </div>
+        <p class="mt-3 text-center font-ui text-xs text-ink-secondary">Réservation sur Doctolib, nouvel onglet</p>
       </div>
     </aside>
 
     <div class="min-w-0 space-y-16 lg:col-start-1 lg:row-start-2">
-      <section class="space-y-4" aria-labelledby="consulter-heading">
-        <SectionHeading id="consulter-heading" title="Pour quoi consulter au cabinet" />
-        <p>
-          Je travaille avec une approche intégrative : je m'appuie notamment sur les{" "}
-          <a href="/therapie-cognitive-et-comportementale/" class="text-link"
-            >thérapies cognitives et comportementales (TCC)</a
-          >, y compris celles de <a href="/tcc-troisieme-vague/" class="text-link">troisième vague</a> comme la{" "}
-          <a href="/therapie-acceptation-et-engagement/" class="text-link">thérapie d'acceptation et d'engagement</a>,
-          que j'associe aux <a href="/blog/therapie-breve/" class="text-link">thérapies brèves et solutionnistes</a>,
-          comme la <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>, selon votre situation.
-        </p>
+      <section class="space-y-4" aria-labelledby="difficultes-heading">
+        <SectionHeading id="difficultes-heading" title="Les difficultés que j'accompagne" />
         <ul>
           <li>
-            <a href="/therapie-cognitive-et-comportementale/" class="text-link"
-              >Thérapie cognitive et comportementale (TCC) à Sceaux</a
-            >, pour l'anxiété, l'insomnie, les ruminations et les comportements qui s'installent, avec des outils
-            concrets à mettre en pratique entre les séances.
+            <strong>Anxiété, stress et ruminations</strong>, avec la{" "}
+            <a href="/therapie-cognitive-et-comportementale/" class="text-link">thérapie cognitive et comportementale</a>{" "}
+            et des outils concrets à mettre en pratique entre les séances.
           </li>
           <li>
-            <a href="/therapie-mosaic/" class="text-link">Thérapie MOSAIC à Sceaux</a>, pour les mémoires douloureuses
-            et les vécus traumatiques, également possible{" "}
-            <a href="/therapie-mosaic/#mosaic-en-ligne" class="text-link">en visioconférence</a> selon la situation.
+            <strong>Insomnie et troubles du sommeil</strong>, notamment avec la{" "}
+            <a href="/blog/tcc-insomnie/" class="text-link">TCC de l'insomnie</a>.
           </li>
           <li>
-            <a href="/therapie-couple/" class="text-link">Thérapie de couple à Sceaux</a>, pour les conflits répétés,
-            les crises et les difficultés de communication.
+            <strong>Souvenirs douloureux et vécus traumatiques</strong>, avec la{" "}
+            <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>.
           </li>
           <li>
-            <a href="/psychotherapie/" class="text-link">Psychothérapie individuelle</a>, un accompagnement adapté à
-            votre situation, à votre rythme et à vos objectifs.
-          </li>
-          <li>
-            <a href="/psychologue-en-ligne/" class="text-link">Consultation avec un psychologue en ligne</a>, en
-            visioconférence, si vous êtes éloigné de Sceaux ou ne pouvez pas vous déplacer.
+            <strong>Conflits, crises et difficultés de communication dans le couple</strong>, en{" "}
+            <a href="/therapie-couple/" class="text-link">thérapie de couple</a>.
           </li>
         </ul>
+        <p>
+          Plus largement, je propose une <a href="/psychotherapie/" class="text-link">psychothérapie individuelle</a>{" "}
+          adaptée à votre situation, à votre rythme et à vos objectifs. Mon approche est intégrative : les thérapies
+          cognitives et comportementales, y compris celles de{" "}
+          <a href="/tcc-troisieme-vague/" class="text-link">troisième vague</a>, associées aux thérapies brèves et
+          solutionnistes, selon ce dont vous avez besoin.
+        </p>
       </section>
 
       <section class="space-y-5" aria-labelledby="cabinet-heading">
@@ -206,7 +195,7 @@ const secondaryCtaClasses = buttonClasses({
             formats={["avif", "webp"]}
             fallbackFormat="webp"
             widths={[360, 540, 720]}
-            sizes="(max-width: 1023px) 50vw, 21rem"
+            sizes="(max-width: 1023px) 50vw, 19rem"
             alt="Le bureau de consultation : des fauteuils face à face, une bibliothèque et une fenêtre"
             loading="lazy"
             decoding="async"
@@ -218,7 +207,7 @@ const secondaryCtaClasses = buttonClasses({
             formats={["avif", "webp"]}
             fallbackFormat="webp"
             widths={[360, 540, 720]}
-            sizes="(max-width: 1023px) 50vw, 21rem"
+            sizes="(max-width: 1023px) 50vw, 19rem"
             alt="Une autre pièce du cabinet, avec un canapé et deux fauteuils bleus"
             loading="lazy"
             decoding="async"
@@ -230,15 +219,12 @@ const secondaryCtaClasses = buttonClasses({
           Un espace simple et calme, pensé pour échanger en toute confidentialité : les informations partagées en
           consultation sont protégées par le secret professionnel.
         </p>
-        <AuthorCard />
       </section>
 
       <section class="space-y-4" aria-labelledby="acces-heading">
         <SectionHeading id="acces-heading" title="Venir au cabinet" />
         <ul>
-          <li>
-            <strong>En RER B :</strong> gares Robinson ou Sceaux (ligne Paris – Robinson), à quelques minutes à pied.
-          </li>
+          <li><strong>En RER B :</strong> gares Robinson ou Sceaux (ligne Paris – Robinson).</li>
           <li><strong>En voiture :</strong> parking Penthièvre, sur la même rue.</li>
           <li><strong>À pied :</strong> la rue Houdan est la rue piétonne du centre-ville.</li>
         </ul>
@@ -251,28 +237,30 @@ const secondaryCtaClasses = buttonClasses({
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen></iframe>
         </div>
-        <p>
-          Le cabinet accueille notamment des patients venant de {SERVED_CITIES_LABEL}. Si vous ne pouvez pas vous
-          déplacer, les <a href="/psychologue-en-ligne/" class="text-link">consultations en visioconférence</a> sont
-          également possibles.
-        </p>
+        <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class={secondaryCtaClasses}>
+          Voir l'itinéraire<span class="sr-only"> (Google Maps, nouvel onglet)</span>
+        </a>
       </section>
 
-      <section id="horaires-tarifs" class="space-y-4" aria-labelledby="pratique-heading">
+      <section class="space-y-4" aria-labelledby="pratique-heading">
         <SectionHeading id="pratique-heading" title="Votre premier rendez-vous" />
         <p>
-          Lors du premier entretien, nous clarifions votre demande et définissons ensemble le cadre de travail le plus
-          adapté. Les séances individuelles durent 45 minutes ; les séances de couple et les séances MOSAIC durent
-          1 heure.
+          Les premières séances permettent de clarifier votre demande, de comprendre ce que vous traversez et de
+          définir ensemble le cadre de travail le plus adapté. Le suivi est ajusté à vos besoins, à vos objectifs et à
+          votre rythme : il peut s'agir d'un travail bref et ciblé ou d'un accompagnement plus approfondi.
         </p>
         <p>
-          Les consultations ont lieu uniquement sur rendez-vous, {OPENING_HOURS_TEXT}. Le détail des tarifs est sur la
-          page <a href="/tarifs/" class="text-link">Tarifs</a>. {BOOKING_SENTENCE}
+          Les séances individuelles durent 45 minutes ; les séances de couple et les séances MOSAIC durent 1 heure.
+          Elles ne sont pas remboursées par la Sécurité sociale, mais de nombreuses mutuelles proposent une prise en
+          charge partielle ou totale : renseignez-vous auprès de la vôtre. Le détail est sur la page{" "}
+          <a href="/tarifs/" class="text-link">Tarifs</a>.
         </p>
         <div class="flex flex-col gap-3 pt-2 sm:flex-row">
-          <DoctolibBookingLink location="Psychologue Sceaux pratique" size="lg" class="w-full justify-center sm:w-auto">
-            Prendre rendez-vous
-          </DoctolibBookingLink>
+          <div class="lg:hidden" data-booking-fab-hide>
+            <DoctolibBookingLink location="Psychologue Sceaux pratique" size="lg" class="w-full justify-center sm:w-auto">
+              Prendre rendez-vous
+            </DoctolibBookingLink>
+          </div>
           <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
         </div>
       </section>
@@ -283,12 +271,12 @@ const secondaryCtaClasses = buttonClasses({
           {
             faqItems.map(({ question, answer }) => (
               <details class="group border-b border-border-subtle">
-                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 py-4 text-ink-primary transition-colors hover:text-brand [&::-webkit-details-marker]:hidden">
-                  <h3 class="m-0! font-ui text-base! leading-snug! font-semibold!">{question}</h3>
+                <summary class="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 py-4 font-ui font-semibold leading-snug text-ink-primary transition-colors hover:text-brand [&::-webkit-details-marker]:hidden">
+                  <span>{question}</span>
                   <LucideIcon
                     icon={ChevronDown}
                     size="lg"
-                    class="mt-0.5 shrink-0 text-ink-secondary transition-transform duration-200 group-open:rotate-180"
+                    class="mt-0.5 shrink-0 text-ink-secondary transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"
                   />
                 </summary>
                 <p class="pb-5 text-ink-secondary">{answer}</p>

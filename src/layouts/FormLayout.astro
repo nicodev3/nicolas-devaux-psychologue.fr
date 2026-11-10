@@ -1,4 +1,5 @@
 ---
+import SkipLink from "../components/SkipLink.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
@@ -40,6 +41,7 @@ const {
     <ToolFormRuntime />
   </head>
   <body class="tool-page bg-surface-page">
+    <SkipLink />
     <Header />
     <div class="no-print">
       <InteriorHero
@@ -50,7 +52,7 @@ const {
         heroAlt={heroAlt}
       />
     </div>
-    <main class="page-shell page-shell--flush-top">
+    <main id="contenu" tabindex="-1" class="page-shell page-shell--flush-top">
       <Breadcrumb title={title} />
       <slot />
       {showRelatedTools && <RelatedTools />}

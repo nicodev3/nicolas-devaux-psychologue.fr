@@ -12,6 +12,7 @@ import ArticleRelatedPosts from "../components/ArticleRelatedPosts.astro";
 import ArticleCta from "../components/ArticleCta.astro";
 import InteriorHero from "../components/InteriorHero.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
+import SkipLink from "../components/SkipLink.astro";
 import "../styles/global.css";
 import "../styles/content.css";
 import { formatFrenchDate, toDateTime } from "../utils/formatDate";
@@ -99,11 +100,12 @@ const resolvedHeroImage = heroImage as ImageMetadata | undefined;
   </head>
 
   <body class="bg-surface-page">
+    <SkipLink />
     <ArticleScrollProgress enabled={isBlogArticle} />
     <Header />
     {
       isBlogArticle ? (
-        <main>
+        <main id="contenu" tabindex="-1">
           {/* Header article — centré, container 1140 */}
           <header class="mx-auto max-w-[1140px] px-4 pt-12 text-center sm:px-6 md:pt-20 lg:px-8">
             <a
@@ -221,7 +223,7 @@ const resolvedHeroImage = heroImage as ImageMetadata | undefined;
           <ArticleCta />
         </main>
       ) : (
-        <>
+        <main id="contenu" tabindex="-1">
           {!compactHero && (
             <InteriorHero
               title={title}
@@ -234,7 +236,7 @@ const resolvedHeroImage = heroImage as ImageMetadata | undefined;
               heroCreditUrl={heroCreditUrl}
             />
           )}
-          <main class:list={["page-shell", !compactHero && "page-shell--flush-top"]}>
+          <div class:list={["page-shell", !compactHero && "page-shell--flush-top"]}>
             <Breadcrumb title={title} />
             {compactHero && (
               <header class="mb-10 md:mb-12">
@@ -258,8 +260,8 @@ const resolvedHeroImage = heroImage as ImageMetadata | undefined;
                 <slot />
               </div>
             </article>
-          </main>
-        </>
+          </div>
+        </main>
       )
     }
     <Footer />

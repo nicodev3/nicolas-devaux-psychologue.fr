@@ -57,13 +57,13 @@ export const CONTACT_EMAIL = "ndevaux@gmail.com";
 export const OPENING_WEEKDAYS_LABEL = "Lundi et mardi";
 
 /** Plage horaire en semaine (affichage). */
-export const OPENING_WEEKDAYS_HOURS = "8h00 - 19h00";
+export const OPENING_WEEKDAYS_HOURS = "8h00 – 19h00";
 
 /** Vendredi : après-midi seulement (affichage). */
 export const OPENING_FRIDAY_LABEL = "Vendredi";
 
 /** Plage horaire du vendredi (affichage). */
-export const OPENING_FRIDAY_HOURS = "14h00 - 18h00";
+export const OPENING_FRIDAY_HOURS = "14h00 – 18h00";
 
 /** Samedi alterné (affichage). */
 export const OPENING_SATURDAY_LABEL = "Samedi";

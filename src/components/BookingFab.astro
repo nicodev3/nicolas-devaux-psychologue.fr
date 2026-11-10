@@ -1,147 +1,68 @@
 ---
-import { X } from "lucide";
-import LucideIcon from "./LucideIcon.astro";
-import DoctolibMark from "./DoctolibMark.astro";
 import DoctolibBookingLink from "./DoctolibBookingLink.astro";
-import { buttonClasses } from "./ui/button";
 import { CONSULTATION_AVAILABILITY } from "../data/consultation-availability";
 ---
 
 {/* Cabinet complet : pas de bouton flottant, la réservation reste accessible aux patients suivis via les autres liens. */}
+{/*
+  Bouton flottant : visible une fois le hero (#hero) sorti de l'écran, et masqué tant
+  qu'un autre bouton de réservation est à l'écran (#horaires-tarifs, ou tout élément
+  marqué data-booking-fab-hide) ainsi qu'au-dessus du pied de page.
+*/}
 {!CONSULTATION_AVAILABILITY.isFull && (<Fragment>
 <script is:inline>
   document.addEventListener("alpine:init", () => {
-    Alpine.data("bookingFabHome", () => ({
-      expanded: false,
-      md: false,
+    Alpine.data("bookingFab", () => ({
       heroOut: false,
-      horairesIn: false,
-      footerIn: false,
+      blockers: new Set(),
       visible: false,
       sync() {
-        this.visible = this.heroOut && !this.horairesIn && !this.footerIn;
-        if (!this.visible) this.expanded = false;
+        this.visible = this.heroOut && this.blockers.size === 0;
       },
       init() {
-        const hero = document.getElementById("hero");
-        const horaires = document.getElementById("horaires-tarifs");
-        const footer = document.querySelector("footer");
+        const inView = (el) => {
+          const r = el.getBoundingClientRect();
+          return r.top < window.innerHeight && r.bottom > 0;
+        };
 
+        const hero = document.getElementById("hero");
         if (hero) {
-          const rHero = hero.getBoundingClientRect();
-          this.heroOut = !(rHero.top < window.innerHeight && rHero.bottom > 0);
-          const ioHero = new IntersectionObserver(([e]) => {
+          this.heroOut = !inView(hero);
+          new IntersectionObserver(([e]) => {
             this.heroOut = !e.isIntersecting;
             this.sync();
-          }, { threshold: 0 });
-          ioHero.observe(hero);
+          }).observe(hero);
         } else {
           this.heroOut = true;
         }
 
-        if (horaires) {
-          const rHoraires = horaires.getBoundingClientRect();
-          this.horairesIn =
-            rHoraires.top < window.innerHeight && rHoraires.bottom > 0;
-        } else {
-          this.horairesIn = false;
-        }
-
-        if (footer) {
-          const rFooter = footer.getBoundingClientRect();
-          this.footerIn = rFooter.top < window.innerHeight && rFooter.bottom > 0;
-        } else {
-          this.footerIn = false;
-        }
+        const blockers = document.querySelectorAll(
+          "#horaires-tarifs, [data-booking-fab-hide], footer",
+        );
+        blockers.forEach((el) => {
+          if (inView(el)) this.blockers.add(el);
+          new IntersectionObserver(([e]) => {
+            if (e.isIntersecting) this.blockers.add(el);
+            else this.blockers.delete(el);
+            this.sync();
+          }).observe(el);
+        });
 
         this.sync();
-
-        if (horaires) {
-          const ioHoraires = new IntersectionObserver(([e]) => {
-            this.horairesIn = e.isIntersecting;
-            this.sync();
-          }, { threshold: 0 });
-          ioHoraires.observe(horaires);
-        }
-
-        if (footer) {
-          const ioFooter = new IntersectionObserver(([e]) => {
-            this.footerIn = e.isIntersecting;
-            this.sync();
-          }, { threshold: 0 });
-          ioFooter.observe(footer);
-        }
-
-        const mq = window.matchMedia("(min-width: 768px)");
-        const syncMd = () => {
-          this.md = mq.matches;
-          if (this.md) this.expanded = false;
-        };
-        mq.addEventListener("change", syncMd);
-        syncMd();
-
-        if (!hero) this.sync();
       },
     }));
   });
 </script>
 
 <div
-  class="fixed bottom-6 end-6 z-50 flex flex-col items-end gap-2"
-  x-data="bookingFabHome()"
+  class="fixed end-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-50 md:end-6 md:bottom-6"
+  x-data="bookingFab()"
   x-show="visible"
   x-transition.opacity.duration.200ms
   x-cloak
-  @click.outside="if (!md) expanded = false"
-  aria-live="polite"
 >
-  <div
-    id="booking-fab-panel"
-    class="md:hidden"
-    x-show="expanded"
-    x-transition.opacity.duration.150ms
-    role="region"
-    aria-label="Réservation"
-  >
-    <div
-      class="mb-2 w-[min(calc(100vw-3rem),18rem)] rounded-xl border border-border-subtle bg-surface-raised/90 p-3 shadow-lg backdrop-blur-md"
-    >
-      <DoctolibBookingLink location="FAB mobile expanded" size="lg" fullWidth>
-        Prendre RDV →
-      </DoctolibBookingLink>
-    </div>
-  </div>
-
-  <div class="hidden md:block" x-show="md">
-    <DoctolibBookingLink
-      location="FAB desktop"
-      size="lg"
-      ariaLabel="Prendre rendez-vous sur Doctolib"
-    >
-      Prendre RDV →
-    </DoctolibBookingLink>
-  </div>
-
-  <button
-    type="button"
-    class={buttonClasses({
-      variant: "primary",
-      size: "lg",
-      className:
-        "size-11! min-h-[44px]! min-w-[44px]! max-h-[44px]! max-w-[44px]! rounded-lg! px-0! md:hidden",
-    })}
-    x-show="!md"
-    x-bind:aria-expanded="expanded"
-    aria-controls="booking-fab-panel"
-    @click="expanded = !expanded"
-  >
-    <span class="sr-only" x-text="expanded ? 'Fermer le menu rendez-vous' : 'Ouvrir la réservation'"></span>
-    <span class="inline-flex items-center justify-center" aria-hidden="true" x-show="!expanded">
-      <DoctolibMark size="lg" class="text-brand-ink-on" />
-    </span>
-    <span class="inline-flex items-center justify-center" aria-hidden="true" x-show="expanded">
-      <LucideIcon icon={X} size="lg" class="text-brand-ink-on" />
-    </span>
-  </button>
+  <DoctolibBookingLink location="FAB" size="lg" class="shadow-lg">
+    Prendre rendez-vous
+  </DoctolibBookingLink>
 </div>
 </Fragment>)}
