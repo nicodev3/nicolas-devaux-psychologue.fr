@@ -1,0 +1,182 @@
+---
+/**
+ * Pages des communes voisines : /psychologue-plessis-robinson/, /psychologue-bourg-la-reine/, etc.
+ * Les routes statiques (psychologue-sceaux, psychologue-en-ligne) restent prioritaires.
+ */
+import { ChevronDown } from "lucide";
+import Layout from "../layouts/BlogPost.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
+import AuthorCard from "../components/AuthorCard.astro";
+import BookingFab from "../components/BookingFab.astro";
+import CabinetSummaryCard from "../components/CabinetSummaryCard.astro";
+import LucideIcon from "../components/LucideIcon.astro";
+import { buttonClasses } from "../components/ui/button";
+import { NEARBY_CITIES_PAGES, type NearbyCity } from "../data/nearby-cities";
+import rueHoudanSceaux from "../assets/locations/rue-houdan-sceaux.jpg";
+import { CABINET_ADDRESS_LINE, GOOGLE_MAPS_CABINET_URL } from "../consts";
+
+export function getStaticPaths() {
+  return NEARBY_CITIES_PAGES.map((city) => ({
+    params: { commune: city.slug },
+    props: { city },
+  }));
+}
+
+interface Props {
+  city: NearbyCity;
+}
+
+const { city } = Astro.props;
+const title = `Psychologue près ${city.nearLabel}`;
+const isProd = import.meta.env.PROD;
+const trackingLocation = `Psychologue ${city.name}`;
+const otherCities = NEARBY_CITIES_PAGES.filter((other) => other.slug !== city.slug);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: city.faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+};
+
+const secondaryCtaClasses = buttonClasses({
+  variant: "secondary",
+  size: "lg",
+  className: "w-full justify-center sm:w-auto",
+});
+---
+
+<Layout
+  title={title}
+  seoTitle={city.seoTitle}
+  description={city.description}
+  lede={city.lede}
+  pubDate={new Date("November 14 2026")}
+  showDate={false}
+  eyebrow={`${city.name} · Cabinet à Sceaux`}
+  wideContent
+  heroImage={rueHoudanSceaux}
+  heroAlt="Rue Houdan, rue piétonne du centre-ville de Sceaux, où se trouve le cabinet"
+  heroCredit="Photo : Chabe01, Wikimedia Commons"
+  heroCreditUrl="https://commons.wikimedia.org/wiki/File:Rue_Houdan_-_Sceaux_(FR92)_-_2023-03-19_-_6.jpg"
+>
+  {isProd && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,38rem)_minmax(17rem,1fr)] lg:gap-x-16 xl:gap-x-24">
+    <header class="space-y-6 lg:col-start-1 lg:row-start-1">
+      <p class="typo-body-lg text-ink-secondary">
+        Je suis <a href="/nicolas-devaux-psychologue/" class="text-link">Nicolas Devaux</a>, psychologue clinicien. Je
+        reçois les adultes, les adolescents et les couples au {CABINET_ADDRESS_LINE}, ainsi qu'en visioconférence.
+      </p>
+      <p>{city.intro}</p>
+      <AuthorCard />
+    </header>
+
+    <aside class="lg:col-start-2 lg:row-span-2 lg:row-start-1" aria-labelledby="coordonnees-heading">
+      <CabinetSummaryCard trackingLocation={`${trackingLocation} encadre`} />
+    </aside>
+
+    <div class="min-w-0 space-y-16 lg:col-start-1 lg:row-start-2">
+      <section class="space-y-4" aria-labelledby="acces-heading">
+        <SectionHeading id="acces-heading" title={`Venir au cabinet depuis ${city.name}`} />
+        <ul>
+          {
+            city.access.map(({ label, text }) => (
+              <li>
+                <strong>{label} :</strong> {text}
+              </li>
+            ))
+          }
+          <li><strong>Accessibilité :</strong> le cabinet se trouve au deuxième étage, sans ascenseur.</li>
+        </ul>
+        <p>
+          Pour l'itinéraire en transports depuis votre adresse, consultez{" "}
+          <a href="https://www.iledefrance-mobilites.fr/" class="text-link" target="_blank" rel="noopener noreferrer">
+            Île-de-France Mobilités<span class="sr-only"> (nouvel onglet)</span>
+          </a>.
+        </p>
+        <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class={secondaryCtaClasses}>
+          Voir l'itinéraire<span class="sr-only"> (Google Maps, nouvel onglet)</span>
+        </a>
+      </section>
+
+      <section class="space-y-4" aria-labelledby="difficultes-heading">
+        <SectionHeading id="difficultes-heading" title="Ce que j'accompagne" />
+        <ul>
+          <li>
+            <strong>Anxiété, stress et ruminations</strong>, avec la{" "}
+            <a href="/therapie-cognitive-et-comportementale/" class="text-link">thérapie cognitive et comportementale</a>.
+          </li>
+          <li>
+            <strong>Insomnie et troubles du sommeil</strong>, avec la{" "}
+            <a href="/blog/tcc-insomnie/" class="text-link">TCC de l'insomnie</a>.
+          </li>
+          <li>
+            <strong>Souvenirs douloureux et vécus traumatiques</strong>, avec la{" "}
+            <a href="/therapie-mosaic/" class="text-link">thérapie MOSAIC</a>.
+          </li>
+          <li>
+            <strong>Difficultés de couple</strong>, en{" "}
+            <a href="/therapie-couple/" class="text-link">thérapie de couple</a>.
+          </li>
+        </ul>
+        <p>
+          Les informations pratiques complètes (cabinet, accès, premier rendez-vous) sont sur la page{" "}
+          <a href="/psychologue-sceaux/" class="text-link">psychologue à Sceaux</a>. Si vous ne pouvez pas vous
+          déplacer, les <a href="/psychologue-en-ligne/" class="text-link">consultations en ligne</a> sont aussi
+          possibles.
+        </p>
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+          <div class="lg:hidden" data-booking-fab-hide>
+            <DoctolibBookingLink location={`${trackingLocation} pratique`} size="lg" class="w-full justify-center sm:w-auto">
+              Prendre rendez-vous
+            </DoctolibBookingLink>
+          </div>
+          <a href="/consulter/" class={secondaryCtaClasses}>Préparer votre première consultation</a>
+        </div>
+      </section>
+
+      <section class="space-y-4" aria-labelledby="faq-heading">
+        <SectionHeading id="faq-heading" title="Questions fréquentes" />
+        <div class="border-t border-border-subtle">
+          {
+            city.faq.map(({ question, answer }) => (
+              <details class="group border-b border-border-subtle">
+                <summary class="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 py-4 font-ui font-semibold leading-snug text-ink-primary transition-colors hover:text-brand [&::-webkit-details-marker]:hidden">
+                  <span>{question}</span>
+                  <LucideIcon
+                    icon={ChevronDown}
+                    size="lg"
+                    class="mt-0.5 shrink-0 text-ink-secondary transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"
+                  />
+                </summary>
+                <p class="pb-5 text-ink-secondary">{answer}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+
+      <nav class="space-y-2" aria-label="Autres communes voisines">
+        <p class="font-ui text-sm text-ink-secondary">
+          Également à proximité :{" "}
+          {otherCities.map((other, index) => (
+            <Fragment>
+              <a href={`/psychologue-${other.slug}/`} class="text-link">{other.name}</a>
+              {index < otherCities.length - 1 ? " · " : ""}
+            </Fragment>
+          ))}
+          {" · "}<a href="/psychologue-sceaux/" class="text-link">Sceaux</a>
+        </p>
+      </nav>
+    </div>
+  </div>
+
+  <div class="lg:hidden">
+    <BookingFab />
+  </div>
+</Layout>

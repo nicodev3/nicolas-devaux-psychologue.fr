@@ -1,7 +1,7 @@
 /** Distingue l'accueil au cabinet de l'accès à la réservation en ligne. */
 export const CONSULTATION_AVAILABILITY = {
   isFull: false,
-  onlineBookingForExistingPatientsOnly: true,
+  onlineBookingForExistingPatientsOnly: false,
   title: "Cabinet complet",
   message: "Je ne prends actuellement pas de nouveaux patients.",
   /** Précise à qui reste ouverte la réservation Doctolib. */

@@ -7,11 +7,13 @@ import DoctolibBookingLink from "../components/DoctolibBookingLink.astro";
 import AuthorCard from "../components/AuthorCard.astro";
 import BookingFab from "../components/BookingFab.astro";
 import LucideIcon from "../components/LucideIcon.astro";
+import CabinetSummaryCard from "../components/CabinetSummaryCard.astro";
 import {
   BOOKING_FOR_EXISTING_PATIENTS_ONLY,
   BOOKING_SENTENCE,
   CONSULTATION_AVAILABILITY,
 } from "../data/consultation-availability";
+import { NEARBY_CITIES_PAGES } from "../data/nearby-cities";
 import rueHoudanSceaux from "../assets/locations/rue-houdan-sceaux.jpg";
 import cabinetBureau from "../assets/cabinet-1.webp";
 import cabinetSalon from "../assets/cabinet-2.webp";
@@ -23,12 +25,6 @@ import {
   GOOGLE_MAPS_EMBED_URL,
   SERVED_CITIES_LABEL,
   OPENING_APPOINTMENT_NOTE,
-  OPENING_WEEKDAYS_HOURS,
-  OPENING_WEEKDAYS_LABEL,
-  OPENING_FRIDAY_LABEL,
-  OPENING_FRIDAY_HOURS,
-  OPENING_SATURDAY_LABEL,
-  OPENING_SATURDAY_HOURS,
 } from "../consts";
 
 const title = "Psychologue à Sceaux";
@@ -115,52 +111,7 @@ const secondaryCtaClasses = buttonClasses({
     </header>
 
     <aside class="lg:col-start-2 lg:row-span-2 lg:row-start-1" aria-labelledby="coordonnees-heading">
-      <div
-        class="rounded-xl border border-border-subtle bg-surface-muted/60 px-5 py-6 sm:px-6 lg:sticky lg:top-28"
-      >
-        <h2 id="coordonnees-heading" class="font-display typo-display-md mt-0! mb-5! text-ink-primary">
-          Le cabinet en bref
-        </h2>
-        <dl class="grid gap-4 font-ui text-sm text-ink-secondary sm:grid-cols-2 lg:grid-cols-1">
-          <div>
-            <dt class="font-semibold text-ink-primary">Adresse</dt>
-            <dd class="mt-1">
-              <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class="text-link">
-                {CABINET_ADDRESS_LINE}<span class="sr-only"> (itinéraire Google Maps, nouvel onglet)</span>
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt class="font-semibold text-ink-primary">Accès</dt>
-            <dd class="mt-1">RER B Robinson ou Sceaux<br />Parking Penthièvre, rue Houdan</dd>
-          </div>
-          <div>
-            <dt class="font-semibold text-ink-primary">Horaires</dt>
-            <dd class="mt-1 tabular-nums">
-              {OPENING_WEEKDAYS_LABEL} : {OPENING_WEEKDAYS_HOURS}<br />
-              {OPENING_FRIDAY_LABEL} : {OPENING_FRIDAY_HOURS}<br />
-              {OPENING_SATURDAY_LABEL} : {OPENING_SATURDAY_HOURS.toLowerCase()}<br />
-              Mercredi et jeudi : fermé
-            </dd>
-            <dd class="mt-2 text-ink-primary">{OPENING_APPOINTMENT_NOTE}</dd>
-          </div>
-          <div>
-            <dt class="font-semibold text-ink-primary">Tarifs</dt>
-            <dd class="mt-1 tabular-nums">
-              Individuelle : 80 € (45 min)<br />
-              MOSAIC : 90 € (1 h)<br />
-              Couple : 110 € (1 h)
-            </dd>
-            <dd class="mt-2">Non remboursé par la Sécurité sociale ; certaines mutuelles prennent en charge.</dd>
-          </div>
-        </dl>
-        <div class="mt-6" data-booking-fab-hide>
-          <DoctolibBookingLink location="Psychologue Sceaux encadre" size="lg" fullWidth class="justify-center">
-            Prendre rendez-vous
-          </DoctolibBookingLink>
-        </div>
-        <p class="mt-3 text-center font-ui text-xs text-ink-secondary">{BOOKING_SENTENCE}</p>
-      </div>
+      <CabinetSummaryCard trackingLocation="Psychologue Sceaux encadre" />
     </aside>
 
     <div class="min-w-0 space-y-16 lg:col-start-1 lg:row-start-2">
@@ -248,6 +199,15 @@ const secondaryCtaClasses = buttonClasses({
         <a href={GOOGLE_MAPS_CABINET_URL} target="_blank" rel="noopener noreferrer" class={secondaryCtaClasses}>
           Voir l'itinéraire<span class="sr-only"> (Google Maps, nouvel onglet)</span>
         </a>
+        <p>
+          Vous venez d'une commune voisine ? Accès détaillé depuis{" "}
+          {NEARBY_CITIES_PAGES.map((city, index) => (
+            <Fragment>
+              <a href={`/psychologue-${city.slug}/`} class="text-link">{city.name}</a>
+              {index < NEARBY_CITIES_PAGES.length - 2 ? ", " : index === NEARBY_CITIES_PAGES.length - 2 ? " et " : "."}
+            </Fragment>
+          ))}
+        </p>
       </section>
 
       <section class="space-y-4" aria-labelledby="pratique-heading">
